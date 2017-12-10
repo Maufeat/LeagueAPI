@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.1)
+
+if(MSVC)
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /std:c++17")
+else()
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
+endif()
+add_subdirectory(SimpleWeb)
+add_library(leagueapi STATIC src/https.cpp src/ops.cpp)
+target_include_directories(SimpleWeb PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include ${CMAKE_CURRENT_SOURCE_DIR}/output)
+target_link_libraries(leagueapi SimpleWeb openssl tiny-process-library)
