@@ -1,5 +1,4 @@
-import json
-import os
+from swag2yolo import *
 #struct definitions
 template_struct = """#pragma once
 #include <leagueapi/base.hpp>
@@ -60,9 +59,9 @@ namespace leagueapi::op {{
 }} """
 template_op_arg_r = ',\n      const {TYPE}& {NAME} /*{description}*/'
 template_op_arg_o = ',\n      const {TYPE}& {NAME} = std::nullopt /*{description}*/'
-template_op_arg = '\n      {{ "{name}", https::to_string({NAME}) }},'
+template_op_arg = '\n      {{ "{name}", to_string({NAME}) }},'
 template_op_form = """, {{ {0}
-}} """
+    }}, true """
 
 #builtin types
 builtins = {
@@ -122,14 +121,14 @@ def generate_definitions(yolo, folder):
                 ))
             else:
                 file.write(template_struct.format(**definition,
-                    INCLUDES = type2include(definition["fields"], '#include "<leagueapi/definitions/{0}.hpp>"\n'),
+                    INCLUDES = type2include(definition["fields"], '#include <leagueapi/definitions/{0}.hpp>\n'),
                     MEMBERS = "".join([template_struct_members.format(**m) for m in definition["fields"]]),
                     TO_JSON = "".join([template_struct_to_json.format(**m) for m in definition["fields"]]),
                     FROM_JSON = "".join([template_struct_from_json.format(**m) for m in definition["fields"]]),
                 ))            
     with open("{0}/leagueapi/definitions.hpp".format(folder), "w+") as file:
         file.write("#pragma once\n")
-        file.write("\n".join(['#include "definitions/{0}.hpp"'.format(defi["name"]) for defi in yolo["definitions"]]))
+        file.write("\n".join(['#include <leagueapi/definitions/{0}.hpp>'.format(defi["name"]) for defi in yolo["definitions"]]))
 
 def generate_ops(yolo, folder):
     mkpath("{0}/leagueapi/ops".format(folder))
@@ -144,7 +143,7 @@ def generate_ops(yolo, folder):
                 ARGS_HEADER = "".join([template_op_arg.format(**arg) for arg in op["arguments"] if arg["in"] == "header"]),
                 ARGS_QUERY = "".join([template_op_arg.format(**arg) for arg in op["arguments"] if arg["in"] == "query"]),
                 PATH = op["url"].format(**{arg["name"] : '"+to_string({0})+"'.format(arg["NAME"]) for arg in op["arguments"] if arg["in"] == "path" }),
-                BODY = (template_op_form.format("".join(args_form)) if len(args_form)>0 else args_body[0] if len(args_body) == 1 else  ',""')
+                BODY = (template_op_form.format("".join(args_form)) if len(args_form)>0 else args_body[0] if len(args_body) == 1 else  '')
             ))
     with open("{0}/leagueapi/ops.hpp".format(folder), "w+") as file:
         file.write('#pragma once\n#include <leagueapi/definitions.hpp>\n')
@@ -170,11 +169,5 @@ def generate_cpp(yolo, folder):
         event["TYPE"] = type2cpp(event)
     generate_definitions(yolo, folder)
     generate_ops(yolo, folder)
-
-# convinience function to generate path
-def mkpath(name):
-    try:
-        os.makedirs(name)
-    except:
-        True       
-generate_cpp(json.load(open("yolo.json")), "output")
+      
+generate_cpp(json.load(open("yolo.json")), "output/cpp")
