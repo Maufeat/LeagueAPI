@@ -61,9 +61,6 @@ namespace leagueapi {
       const std::optional<Error>& error() const {
         return mError;
       }
-      const T* operator->() const {
-        return &mData;
-      }
       T* operator->() {
         return &mData;
       }
@@ -99,9 +96,6 @@ namespace leagueapi {
       }
       const std::optional<Error>& error() const {
         return mError;
-      }
-      const json* operator->() const {
-        return &mData;
       }
       json* operator->() {
         return &mData;
