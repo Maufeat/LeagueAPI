@@ -1,4 +1,5 @@
-from swag2yolo import *
+import json
+import os
 #struct definitions
 template_struct = """#pragma once
 #include <leagueapi/base.hpp>
@@ -170,4 +171,10 @@ def generate_cpp(yolo, folder):
     generate_definitions(yolo, folder)
     generate_ops(yolo, folder)
 
-generate_cpp(json_load("yolo.json"), "output")
+# convinience function to generate path
+def mkpath(name):
+    try:
+        os.makedirs(name)
+    except:
+        True       
+generate_cpp(json.load(open("yolo.json")), "output")

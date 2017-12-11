@@ -1,5 +1,7 @@
 #pragma once
 #include <leagueapi/base.hpp>
+#include <SimpleWeb/client_https.hpp>
+#include <SimpleWeb/crypto.hpp>
 #include <optional>
 namespace leagueapi {
   namespace https {
@@ -30,7 +32,10 @@ namespace leagueapi {
     struct Info {
       std::string host;
       std::string auth;
-      Info(const std::string& address, int port, const std::string& password);
+      Info(const std::string& address, int port, const std::string& password) {
+        host = address + ":" + to_string(port);
+        auth = "Basic " + SimpleWeb::Crypto::Base64::encode("riot:"+password);
+      }
     };
 
     struct Response {
@@ -56,8 +61,14 @@ namespace leagueapi {
       const std::optional<Error>& error() const {
         return mError;
       }
+      const T* operator->() const {
+        return &mData;
+      }
       T* operator->() {
         return &mData;
+      }
+      const T& operator*() const {
+        return mData;
       }
       T& operator*() {
         return mData;
@@ -89,8 +100,14 @@ namespace leagueapi {
       const std::optional<Error>& error() const {
         return mError;
       }
+      const json* operator->() const {
+        return &mData;
+      }
       json* operator->() {
         return &mData;
+      }
+      const json& operator*() const {
+        return mData;
       }
       json& operator*() {
         return mData;
@@ -127,9 +144,44 @@ namespace leagueapi {
     };
     
     using Args = std::multimap<std::string, std::optional<std::string>>;
-    static Response Do(const Info& info, const std::string& path, const std::string& method, const Args& query, const Args& headers);
-    static Response Do(const Info& info, const std::string& path, const std::string& method, const Args& query, const Args& headers, const json& body);
-    static Response Do(const Info& info, const std::string& path, const std::string& method, const Args& query, const Args& headers, const Args& formdata);
+    using HttpsClient = SimpleWeb::Client<SimpleWeb::HTTPS>;
+    using HttpsMap = SimpleWeb::CaseInsensitiveMultimap;
+    using HttpsResponse = shared_ptr<HttpsClient::Response>;
+
+    inline HttpsMap Args2Headers(const Args& args, const HttpsMap& map = {}) {
+      for(const auto it: args)
+        if(it->second)
+          map.insert({it->first, *(it->second)});
+    }
+    
+    inline std::string Args2String(const Args& args) {
+      return SimpleWeb::QueryString::create(Args2Headers(args));
+    }
+    inline Response Https2Res(const HttpsResponse& r) {
+      std::string content_type = "";
+      for(auto it = r->header; it != r->header.end())
+        content_type = it->second;
+      return Response {r->content.string(), std::to_string(r->status_code), content_type};
+    }
+
+    static Response Do(const Info& info, const std::string& path, const std::string& method, const Args& query, const Args& headers) {
+      detail::HttpsClient client(info.host, false);
+      return Https2Res(client.request(method, path + Args2String(query), "", Args2Headers(headers, {{"Authorization", info.auth}})));
+    }
+
+    static Response Do(const Info& info, const std::string& path, const std::string& method, const Args& query, const Args& headers, const json& body) {
+      detail::HttpsClient client(info.host, false);
+      return Https2Res(client.request(method, path + Args2String(query), body.dump(), Args2Headers(headers, {
+        {"Authorization", info.auth}, {"content-type", "application/json"}
+      })));
+    }
+
+    static Response Do(const Info& info, const std::string& path, const std::string& method, const Args& query, const Args& headers, const Args& formdata) {
+      detail::HttpsClient client(info.host, false);
+      return Https2Res(client.request(method, path + Args2String(query), Args2String(formdata), Args2Headers(headers, {
+        {"Authorization", info.auth}, {"content-type", "application/json"}
+      }));;
+    }
     
     using std::to_string;
     inline std::string to_string(const std::string& v) {
