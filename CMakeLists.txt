@@ -8,10 +8,8 @@ endif()
 
 add_subdirectory(openssl)
 add_subdirectory(tiny-process-library)
-add_library(leagueapi STATIC include/asio.cpp)
+add_library(leagueapi STATIC include/asio.cpp output/cpp/leagueapi.hpp)
 # makes assio not depend on boost
 target_compile_definitions(leagueapi PUBLIC HAVE_OPENSSL USE_STANDALONE_ASIO ASIO_STANDALONE ASIO_SEPARATE_COMPILATION)
-target_include_directories(leagueapi PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
-${CMAKE_CURRENT_SOURCE_DIR}/template/cpp
-${CMAKE_CURRENT_SOURCE_DIR}/output/cpp)
+target_include_directories(leagueapi PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include ${CMAKE_CURRENT_SOURCE_DIR}/output/cpp)
 target_link_libraries(leagueapi openssl tiny-process-library)
