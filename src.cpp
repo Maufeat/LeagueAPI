@@ -9,3 +9,4 @@
 #include <SimpleWeb/server_ws.hpp>
 #include <SimpleWeb/client_wss.hpp>
 #include <SimpleWeb/server_wss.hpp>
+#include <leagueapi.hpp>
