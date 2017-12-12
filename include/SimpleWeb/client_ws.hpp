@@ -219,7 +219,7 @@ namespace SimpleWeb {
         set_timeout();
 
         // Create mask
-        std::array<unsigned char, 4> mask;
+        std::array<unsigned char, 4> mask{};
         std::uniform_int_distribution<unsigned short> dist(0, 255);
         std::random_device rd;
         for(std::size_t c = 0; c < 4; c++)
@@ -465,7 +465,7 @@ namespace SimpleWeb {
           }
           std::size_t num_additional_bytes = connection->message->streambuf.size() - bytes_transferred;
 
-          std::array<unsigned char, 2> first_bytes;
+          std::array<unsigned char, 2> first_bytes{};
           connection->message->read(reinterpret_cast<char *>(&first_bytes[0]), 2);
 
           connection->message->fin_rsv_opcode = first_bytes[0];
@@ -489,7 +489,7 @@ namespace SimpleWeb {
               if(!ec) {
                 std::size_t num_additional_bytes = connection->message->streambuf.size() - bytes_transferred;
 
-                std::array<unsigned char, 2> length_bytes;
+                std::array<unsigned char, 2> length_bytes{};
                 connection->message->read(reinterpret_cast<char *>(&length_bytes[0]), 2);
 
                 std::size_t length = 0;
@@ -513,7 +513,7 @@ namespace SimpleWeb {
               if(!ec) {
                 std::size_t num_additional_bytes = connection->message->streambuf.size() - bytes_transferred;
 
-                std::array<unsigned char, 8> length_bytes;
+                std::array<unsigned char, 8> length_bytes{};
                 connection->message->read(reinterpret_cast<char *>(&length_bytes[0]), 8);
 
                 std::size_t length = 0;
