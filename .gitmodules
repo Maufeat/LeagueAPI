@@ -1,0 +1,3 @@
+[submodule "YoloSwagger"]
+	path = YoloSwagger
+	url = https://github.com/wildbook/YoloSwagger
