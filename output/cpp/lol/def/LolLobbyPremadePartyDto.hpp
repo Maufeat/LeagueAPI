@@ -7,11 +7,11 @@ namespace lol {
     std::string partyId; 
   };
   void to_json(json& j, const LolLobbyPremadePartyDto& v) {
-  j["players"] = v.players; 
-  j["partyId"] = v.partyId; 
+    j["players"] = v.players; 
+    j["partyId"] = v.partyId; 
   }
   void from_json(const json& j, LolLobbyPremadePartyDto& v) {
-  v.players = j.at("players").get<std::map<std::string, LolLobbyPremadeMemberDto>>(); 
-  v.partyId = j.at("partyId").get<std::string>(); 
+    v.players = j.at("players").get<std::map<std::string, LolLobbyPremadeMemberDto>>(); 
+    v.partyId = j.at("partyId").get<std::string>(); 
   }
 }

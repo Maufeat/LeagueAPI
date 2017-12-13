@@ -6,9 +6,9 @@ namespace lol {
     std::vector<LolSummonerAutoFillQueueDto> autoFillQueues; 
   };
   void to_json(json& j, const LolSummonerAutoFillDto& v) {
-  j["autoFillQueues"] = v.autoFillQueues; 
+    j["autoFillQueues"] = v.autoFillQueues; 
   }
   void from_json(const json& j, LolSummonerAutoFillDto& v) {
-  v.autoFillQueues = j.at("autoFillQueues").get<std::vector<LolSummonerAutoFillQueueDto>>(); 
+    v.autoFillQueues = j.at("autoFillQueues").get<std::vector<LolSummonerAutoFillQueueDto>>(); 
   }
 }

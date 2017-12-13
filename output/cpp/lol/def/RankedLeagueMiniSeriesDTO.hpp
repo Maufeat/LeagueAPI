@@ -9,17 +9,17 @@ namespace lol {
     uint64_t target; 
   };
   void to_json(json& j, const RankedLeagueMiniSeriesDTO& v) {
-  j["losses"] = v.losses; 
-  j["timeLeftToPlayMillis"] = v.timeLeftToPlayMillis; 
-  j["progress"] = v.progress; 
-  j["wins"] = v.wins; 
-  j["target"] = v.target; 
+    j["losses"] = v.losses; 
+    j["timeLeftToPlayMillis"] = v.timeLeftToPlayMillis; 
+    j["progress"] = v.progress; 
+    j["wins"] = v.wins; 
+    j["target"] = v.target; 
   }
   void from_json(const json& j, RankedLeagueMiniSeriesDTO& v) {
-  v.losses = j.at("losses").get<uint64_t>(); 
-  v.timeLeftToPlayMillis = j.at("timeLeftToPlayMillis").get<uint64_t>(); 
-  v.progress = j.at("progress").get<std::string>(); 
-  v.wins = j.at("wins").get<uint64_t>(); 
-  v.target = j.at("target").get<uint64_t>(); 
+    v.losses = j.at("losses").get<uint64_t>(); 
+    v.timeLeftToPlayMillis = j.at("timeLeftToPlayMillis").get<uint64_t>(); 
+    v.progress = j.at("progress").get<std::string>(); 
+    v.wins = j.at("wins").get<uint64_t>(); 
+    v.target = j.at("target").get<uint64_t>(); 
   }
 }

@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/LolClashTournamentState.hpp>
 #include <lol/def/LolClashPlayerState.hpp>
+#include <lol/def/LolClashTournamentState.hpp>
 namespace lol {
   struct LolClashPlayerChatRoster { 
     int64_t endTimeMs;
@@ -17,29 +17,29 @@ namespace lol {
     int32_t iconId; 
   };
   void to_json(json& j, const LolClashPlayerChatRoster& v) {
-  j["endTimeMs"] = v.endTimeMs; 
-  j["tournamentId"] = v.tournamentId; 
-  j["name"] = v.name; 
-  j["isRegistered"] = v.isRegistered; 
-  j["iconColorId"] = v.iconColorId; 
-  j["playerState"] = v.playerState; 
-  j["startTimeMs"] = v.startTimeMs; 
-  j["shortName"] = v.shortName; 
-  j["key"] = v.key; 
-  j["tournamentState"] = v.tournamentState; 
-  j["iconId"] = v.iconId; 
+    j["endTimeMs"] = v.endTimeMs; 
+    j["tournamentId"] = v.tournamentId; 
+    j["name"] = v.name; 
+    j["isRegistered"] = v.isRegistered; 
+    j["iconColorId"] = v.iconColorId; 
+    j["playerState"] = v.playerState; 
+    j["startTimeMs"] = v.startTimeMs; 
+    j["shortName"] = v.shortName; 
+    j["key"] = v.key; 
+    j["tournamentState"] = v.tournamentState; 
+    j["iconId"] = v.iconId; 
   }
   void from_json(const json& j, LolClashPlayerChatRoster& v) {
-  v.endTimeMs = j.at("endTimeMs").get<int64_t>(); 
-  v.tournamentId = j.at("tournamentId").get<int64_t>(); 
-  v.name = j.at("name").get<std::string>(); 
-  v.isRegistered = j.at("isRegistered").get<bool>(); 
-  v.iconColorId = j.at("iconColorId").get<int32_t>(); 
-  v.playerState = j.at("playerState").get<LolClashPlayerState>(); 
-  v.startTimeMs = j.at("startTimeMs").get<int64_t>(); 
-  v.shortName = j.at("shortName").get<std::string>(); 
-  v.key = j.at("key").get<std::string>(); 
-  v.tournamentState = j.at("tournamentState").get<LolClashTournamentState>(); 
-  v.iconId = j.at("iconId").get<int32_t>(); 
+    v.endTimeMs = j.at("endTimeMs").get<int64_t>(); 
+    v.tournamentId = j.at("tournamentId").get<int64_t>(); 
+    v.name = j.at("name").get<std::string>(); 
+    v.isRegistered = j.at("isRegistered").get<bool>(); 
+    v.iconColorId = j.at("iconColorId").get<int32_t>(); 
+    v.playerState = j.at("playerState").get<LolClashPlayerState>(); 
+    v.startTimeMs = j.at("startTimeMs").get<int64_t>(); 
+    v.shortName = j.at("shortName").get<std::string>(); 
+    v.key = j.at("key").get<std::string>(); 
+    v.tournamentState = j.at("tournamentState").get<LolClashTournamentState>(); 
+    v.iconId = j.at("iconId").get<int32_t>(); 
   }
 }

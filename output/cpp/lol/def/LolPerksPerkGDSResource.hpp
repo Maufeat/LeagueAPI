@@ -10,19 +10,19 @@ namespace lol {
     int32_t id; 
   };
   void to_json(json& j, const LolPerksPerkGDSResource& v) {
-  j["iconPath"] = v.iconPath; 
-  j["shortDesc"] = v.shortDesc; 
-  j["tooltip"] = v.tooltip; 
-  j["name"] = v.name; 
-  j["longDesc"] = v.longDesc; 
-  j["id"] = v.id; 
+    j["iconPath"] = v.iconPath; 
+    j["shortDesc"] = v.shortDesc; 
+    j["tooltip"] = v.tooltip; 
+    j["name"] = v.name; 
+    j["longDesc"] = v.longDesc; 
+    j["id"] = v.id; 
   }
   void from_json(const json& j, LolPerksPerkGDSResource& v) {
-  v.iconPath = j.at("iconPath").get<std::string>(); 
-  v.shortDesc = j.at("shortDesc").get<std::string>(); 
-  v.tooltip = j.at("tooltip").get<std::string>(); 
-  v.name = j.at("name").get<std::string>(); 
-  v.longDesc = j.at("longDesc").get<std::string>(); 
-  v.id = j.at("id").get<int32_t>(); 
+    v.iconPath = j.at("iconPath").get<std::string>(); 
+    v.shortDesc = j.at("shortDesc").get<std::string>(); 
+    v.tooltip = j.at("tooltip").get<std::string>(); 
+    v.name = j.at("name").get<std::string>(); 
+    v.longDesc = j.at("longDesc").get<std::string>(); 
+    v.id = j.at("id").get<int32_t>(); 
   }
 }

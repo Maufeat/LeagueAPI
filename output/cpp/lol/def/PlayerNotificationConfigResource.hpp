@@ -5,9 +5,11 @@ namespace lol {
     std::optional<uint64_t> ExpirationCheckFrequency; 
   };
   void to_json(json& j, const PlayerNotificationConfigResource& v) {
-  j["ExpirationCheckFrequency"] = v.ExpirationCheckFrequency; 
+    if(v.ExpirationCheckFrequency)
+      j["ExpirationCheckFrequency"] = *v.ExpirationCheckFrequency;
   }
   void from_json(const json& j, PlayerNotificationConfigResource& v) {
-  v.ExpirationCheckFrequency = j.at("ExpirationCheckFrequency").get<std::optional<uint64_t>>(); 
+    if(auto it = j.find("ExpirationCheckFrequency"); it != j.end() && !it->is_null())
+      v.ExpirationCheckFrequency = it->get<std::optional<uint64_t>>(); 
   }
 }

@@ -10,19 +10,19 @@ namespace lol {
     int64_t id; 
   };
   void to_json(json& j, const LolChampSelectLegacyChampSelectAction& v) {
-  j["completed"] = v.completed; 
-  j["pickTurn"] = v.pickTurn; 
-  j["type"] = v.type; 
-  j["actorCellId"] = v.actorCellId; 
-  j["championId"] = v.championId; 
-  j["id"] = v.id; 
+    j["completed"] = v.completed; 
+    j["pickTurn"] = v.pickTurn; 
+    j["type"] = v.type; 
+    j["actorCellId"] = v.actorCellId; 
+    j["championId"] = v.championId; 
+    j["id"] = v.id; 
   }
   void from_json(const json& j, LolChampSelectLegacyChampSelectAction& v) {
-  v.completed = j.at("completed").get<bool>(); 
-  v.pickTurn = j.at("pickTurn").get<int32_t>(); 
-  v.type = j.at("type").get<std::string>(); 
-  v.actorCellId = j.at("actorCellId").get<int64_t>(); 
-  v.championId = j.at("championId").get<int32_t>(); 
-  v.id = j.at("id").get<int64_t>(); 
+    v.completed = j.at("completed").get<bool>(); 
+    v.pickTurn = j.at("pickTurn").get<int32_t>(); 
+    v.type = j.at("type").get<std::string>(); 
+    v.actorCellId = j.at("actorCellId").get<int64_t>(); 
+    v.championId = j.at("championId").get<int32_t>(); 
+    v.id = j.at("id").get<int64_t>(); 
   }
 }

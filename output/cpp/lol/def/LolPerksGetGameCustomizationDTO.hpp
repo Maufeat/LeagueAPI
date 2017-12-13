@@ -5,9 +5,9 @@ namespace lol {
     std::string queueType; 
   };
   void to_json(json& j, const LolPerksGetGameCustomizationDTO& v) {
-  j["queueType"] = v.queueType; 
+    j["queueType"] = v.queueType; 
   }
   void from_json(const json& j, LolPerksGetGameCustomizationDTO& v) {
-  v.queueType = j.at("queueType").get<std::string>(); 
+    v.queueType = j.at("queueType").get<std::string>(); 
   }
 }

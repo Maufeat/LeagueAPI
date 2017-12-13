@@ -6,9 +6,9 @@ namespace lol {
     std::vector<PlayerStatSummary> playerStatSummarySet; 
   };
   void to_json(json& j, const PlayerStatSummaries& v) {
-  j["playerStatSummarySet"] = v.playerStatSummarySet; 
+    j["playerStatSummarySet"] = v.playerStatSummarySet; 
   }
   void from_json(const json& j, PlayerStatSummaries& v) {
-  v.playerStatSummarySet = j.at("playerStatSummarySet").get<std::vector<PlayerStatSummary>>(); 
+    v.playerStatSummarySet = j.at("playerStatSummarySet").get<std::vector<PlayerStatSummary>>(); 
   }
 }

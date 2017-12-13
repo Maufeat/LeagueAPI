@@ -8,15 +8,23 @@ namespace lol {
     std::optional<int32_t> selectedSkinId; 
   };
   void to_json(json& j, const LolChampSelectChampSelectMySelection& v) {
-  j["wardSkinId"] = v.wardSkinId; 
-  j["spell1Id"] = v.spell1Id; 
-  j["spell2Id"] = v.spell2Id; 
-  j["selectedSkinId"] = v.selectedSkinId; 
+    if(v.wardSkinId)
+      j["wardSkinId"] = *v.wardSkinId;
+    if(v.spell1Id)
+      j["spell1Id"] = *v.spell1Id;
+    if(v.spell2Id)
+      j["spell2Id"] = *v.spell2Id;
+    if(v.selectedSkinId)
+      j["selectedSkinId"] = *v.selectedSkinId;
   }
   void from_json(const json& j, LolChampSelectChampSelectMySelection& v) {
-  v.wardSkinId = j.at("wardSkinId").get<std::optional<int64_t>>(); 
-  v.spell1Id = j.at("spell1Id").get<std::optional<uint64_t>>(); 
-  v.spell2Id = j.at("spell2Id").get<std::optional<uint64_t>>(); 
-  v.selectedSkinId = j.at("selectedSkinId").get<std::optional<int32_t>>(); 
+    if(auto it = j.find("wardSkinId"); it != j.end() && !it->is_null())
+      v.wardSkinId = it->get<std::optional<int64_t>>(); 
+    if(auto it = j.find("spell1Id"); it != j.end() && !it->is_null())
+      v.spell1Id = it->get<std::optional<uint64_t>>(); 
+    if(auto it = j.find("spell2Id"); it != j.end() && !it->is_null())
+      v.spell2Id = it->get<std::optional<uint64_t>>(); 
+    if(auto it = j.find("selectedSkinId"); it != j.end() && !it->is_null())
+      v.selectedSkinId = it->get<std::optional<int32_t>>(); 
   }
 }

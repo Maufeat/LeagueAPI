@@ -10,19 +10,19 @@ namespace lol {
     uint64_t reportedSummonerId; 
   };
   void to_json(json& j, const EndOfGameLcdsHarassmentReport& v) {
-  j["reportSource"] = v.reportSource; 
-  j["gameId"] = v.gameId; 
-  j["reportingSummonerId"] = v.reportingSummonerId; 
-  j["comment"] = v.comment; 
-  j["offense"] = v.offense; 
-  j["reportedSummonerId"] = v.reportedSummonerId; 
+    j["reportSource"] = v.reportSource; 
+    j["gameId"] = v.gameId; 
+    j["reportingSummonerId"] = v.reportingSummonerId; 
+    j["comment"] = v.comment; 
+    j["offense"] = v.offense; 
+    j["reportedSummonerId"] = v.reportedSummonerId; 
   }
   void from_json(const json& j, EndOfGameLcdsHarassmentReport& v) {
-  v.reportSource = j.at("reportSource").get<std::string>(); 
-  v.gameId = j.at("gameId").get<uint64_t>(); 
-  v.reportingSummonerId = j.at("reportingSummonerId").get<uint64_t>(); 
-  v.comment = j.at("comment").get<std::string>(); 
-  v.offense = j.at("offense").get<std::string>(); 
-  v.reportedSummonerId = j.at("reportedSummonerId").get<uint64_t>(); 
+    v.reportSource = j.at("reportSource").get<std::string>(); 
+    v.gameId = j.at("gameId").get<uint64_t>(); 
+    v.reportingSummonerId = j.at("reportingSummonerId").get<uint64_t>(); 
+    v.comment = j.at("comment").get<std::string>(); 
+    v.offense = j.at("offense").get<std::string>(); 
+    v.reportedSummonerId = j.at("reportedSummonerId").get<uint64_t>(); 
   }
 }

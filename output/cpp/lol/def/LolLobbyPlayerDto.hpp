@@ -20,35 +20,47 @@ namespace lol {
     uint64_t accountId; 
   };
   void to_json(json& j, const LolLobbyPlayerDto& v) {
-  j["inventoryToken"] = v.inventoryToken; 
-  j["platformId"] = v.platformId; 
-  j["createdAt"] = v.createdAt; 
-  j["eligibilityHash"] = v.eligibilityHash; 
-  j["puuid"] = v.puuid; 
-  j["leaguesToken"] = v.leaguesToken; 
-  j["parties"] = v.parties; 
-  j["summonerToken"] = v.summonerToken; 
-  j["serverUtcMillis"] = v.serverUtcMillis; 
-  j["currentParty"] = v.currentParty; 
-  j["version"] = v.version; 
-  j["accountToken"] = v.accountToken; 
-  j["summonerId"] = v.summonerId; 
-  j["accountId"] = v.accountId; 
+    if(v.inventoryToken)
+      j["inventoryToken"] = *v.inventoryToken;
+    j["platformId"] = v.platformId; 
+    j["createdAt"] = v.createdAt; 
+    j["eligibilityHash"] = v.eligibilityHash; 
+    j["puuid"] = v.puuid; 
+    if(v.leaguesToken)
+      j["leaguesToken"] = *v.leaguesToken;
+    if(v.parties)
+      j["parties"] = *v.parties;
+    if(v.summonerToken)
+      j["summonerToken"] = *v.summonerToken;
+    j["serverUtcMillis"] = v.serverUtcMillis; 
+    if(v.currentParty)
+      j["currentParty"] = *v.currentParty;
+    j["version"] = v.version; 
+    if(v.accountToken)
+      j["accountToken"] = *v.accountToken;
+    j["summonerId"] = v.summonerId; 
+    j["accountId"] = v.accountId; 
   }
   void from_json(const json& j, LolLobbyPlayerDto& v) {
-  v.inventoryToken = j.at("inventoryToken").get<std::optional<std::string>>(); 
-  v.platformId = j.at("platformId").get<std::string>(); 
-  v.createdAt = j.at("createdAt").get<uint64_t>(); 
-  v.eligibilityHash = j.at("eligibilityHash").get<int64_t>(); 
-  v.puuid = j.at("puuid").get<std::string>(); 
-  v.leaguesToken = j.at("leaguesToken").get<std::optional<std::string>>(); 
-  v.parties = j.at("parties").get<std::optional<std::vector<LolLobbyPartyMemberDto>>>(); 
-  v.summonerToken = j.at("summonerToken").get<std::optional<std::string>>(); 
-  v.serverUtcMillis = j.at("serverUtcMillis").get<int64_t>(); 
-  v.currentParty = j.at("currentParty").get<std::optional<LolLobbyPartyDto>>(); 
-  v.version = j.at("version").get<uint64_t>(); 
-  v.accountToken = j.at("accountToken").get<std::optional<std::string>>(); 
-  v.summonerId = j.at("summonerId").get<uint64_t>(); 
-  v.accountId = j.at("accountId").get<uint64_t>(); 
+    if(auto it = j.find("inventoryToken"); it != j.end() && !it->is_null())
+      v.inventoryToken = it->get<std::optional<std::string>>(); 
+    v.platformId = j.at("platformId").get<std::string>(); 
+    v.createdAt = j.at("createdAt").get<uint64_t>(); 
+    v.eligibilityHash = j.at("eligibilityHash").get<int64_t>(); 
+    v.puuid = j.at("puuid").get<std::string>(); 
+    if(auto it = j.find("leaguesToken"); it != j.end() && !it->is_null())
+      v.leaguesToken = it->get<std::optional<std::string>>(); 
+    if(auto it = j.find("parties"); it != j.end() && !it->is_null())
+      v.parties = it->get<std::optional<std::vector<LolLobbyPartyMemberDto>>>(); 
+    if(auto it = j.find("summonerToken"); it != j.end() && !it->is_null())
+      v.summonerToken = it->get<std::optional<std::string>>(); 
+    v.serverUtcMillis = j.at("serverUtcMillis").get<int64_t>(); 
+    if(auto it = j.find("currentParty"); it != j.end() && !it->is_null())
+      v.currentParty = it->get<std::optional<LolLobbyPartyDto>>(); 
+    v.version = j.at("version").get<uint64_t>(); 
+    if(auto it = j.find("accountToken"); it != j.end() && !it->is_null())
+      v.accountToken = it->get<std::optional<std::string>>(); 
+    v.summonerId = j.at("summonerId").get<uint64_t>(); 
+    v.accountId = j.at("accountId").get<uint64_t>(); 
   }
 }

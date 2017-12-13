@@ -5,7 +5,17 @@ namespace lol {
   Result<LolChatConversationResource> PostLolChatV1Conversations(const LeagueClient& _client, const LolChatConversationResource& conversation)
   {
     HttpsClient _client_(_client.host, false);
-    return _client_.request("post", "/lol-chat/v1/conversations?" + SimpleWeb::QueryString::create(Args2Headers({  })), json(conversation).dump(),
-      Args2Headers({ {"Authorization", _client.host}, {"content-type", "application/json"},  }) );
+    try {
+      return Result<LolChatConversationResource> {
+        _client_.request("post", "/lol-chat/v1/conversations?" +
+          SimpleWeb::QueryString::create(Args2Headers({  })), 
+          json(conversation).dump(),
+          Args2Headers({
+            {"content-type", "application/json"},
+            {"Authorization", _client.auth},  }))
+      };
+    } catch(const SimpleWeb::system_error &e) {
+      return Result<LolChatConversationResource> { Error { to_string(e.code().value()), -1, e.what() } };
+    }
   }
 }

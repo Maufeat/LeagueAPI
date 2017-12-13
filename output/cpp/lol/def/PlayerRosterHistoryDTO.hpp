@@ -6,9 +6,9 @@ namespace lol {
     std::vector<RosterMemberDTO> rosters; 
   };
   void to_json(json& j, const PlayerRosterHistoryDTO& v) {
-  j["rosters"] = v.rosters; 
+    j["rosters"] = v.rosters; 
   }
   void from_json(const json& j, PlayerRosterHistoryDTO& v) {
-  v.rosters = j.at("rosters").get<std::vector<RosterMemberDTO>>(); 
+    v.rosters = j.at("rosters").get<std::vector<RosterMemberDTO>>(); 
   }
 }

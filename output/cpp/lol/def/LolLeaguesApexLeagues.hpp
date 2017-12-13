@@ -7,11 +7,11 @@ namespace lol {
     std::vector<LolLeaguesLeague> masters; 
   };
   void to_json(json& j, const LolLeaguesApexLeagues& v) {
-  j["challengers"] = v.challengers; 
-  j["masters"] = v.masters; 
+    j["challengers"] = v.challengers; 
+    j["masters"] = v.masters; 
   }
   void from_json(const json& j, LolLeaguesApexLeagues& v) {
-  v.challengers = j.at("challengers").get<std::vector<LolLeaguesLeague>>(); 
-  v.masters = j.at("masters").get<std::vector<LolLeaguesLeague>>(); 
+    v.challengers = j.at("challengers").get<std::vector<LolLeaguesLeague>>(); 
+    v.masters = j.at("masters").get<std::vector<LolLeaguesLeague>>(); 
   }
 }

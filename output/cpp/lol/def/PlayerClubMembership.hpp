@@ -1,11 +1,11 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/PlayerClub.hpp>
 #include <lol/def/Club.hpp>
-#include <lol/def/ClubPreferences.hpp>
-#include <lol/def/ClubPlayer.hpp>
 #include <lol/def/ClubInvite.hpp>
 #include <lol/def/ClubsConfig.hpp>
+#include <lol/def/ClubPlayer.hpp>
+#include <lol/def/PlayerClub.hpp>
+#include <lol/def/ClubPreferences.hpp>
 namespace lol {
   struct PlayerClubMembership { 
     ClubsConfig clubsServerConfig;
@@ -18,23 +18,23 @@ namespace lol {
     std::vector<PlayerClub> activeClubs; 
   };
   void to_json(json& j, const PlayerClubMembership& v) {
-  j["clubsServerConfig"] = v.clubsServerConfig; 
-  j["preferences"] = v.preferences; 
-  j["info"] = v.info; 
-  j["secureClubPresenceInfoString"] = v.secureClubPresenceInfoString; 
-  j["removedClubs"] = v.removedClubs; 
-  j["pendingInvites"] = v.pendingInvites; 
-  j["revokedInviteClubs"] = v.revokedInviteClubs; 
-  j["activeClubs"] = v.activeClubs; 
+    j["clubsServerConfig"] = v.clubsServerConfig; 
+    j["preferences"] = v.preferences; 
+    j["info"] = v.info; 
+    j["secureClubPresenceInfoString"] = v.secureClubPresenceInfoString; 
+    j["removedClubs"] = v.removedClubs; 
+    j["pendingInvites"] = v.pendingInvites; 
+    j["revokedInviteClubs"] = v.revokedInviteClubs; 
+    j["activeClubs"] = v.activeClubs; 
   }
   void from_json(const json& j, PlayerClubMembership& v) {
-  v.clubsServerConfig = j.at("clubsServerConfig").get<ClubsConfig>(); 
-  v.preferences = j.at("preferences").get<ClubPreferences>(); 
-  v.info = j.at("info").get<ClubPlayer>(); 
-  v.secureClubPresenceInfoString = j.at("secureClubPresenceInfoString").get<std::string>(); 
-  v.removedClubs = j.at("removedClubs").get<std::vector<Club>>(); 
-  v.pendingInvites = j.at("pendingInvites").get<std::vector<ClubInvite>>(); 
-  v.revokedInviteClubs = j.at("revokedInviteClubs").get<std::vector<Club>>(); 
-  v.activeClubs = j.at("activeClubs").get<std::vector<PlayerClub>>(); 
+    v.clubsServerConfig = j.at("clubsServerConfig").get<ClubsConfig>(); 
+    v.preferences = j.at("preferences").get<ClubPreferences>(); 
+    v.info = j.at("info").get<ClubPlayer>(); 
+    v.secureClubPresenceInfoString = j.at("secureClubPresenceInfoString").get<std::string>(); 
+    v.removedClubs = j.at("removedClubs").get<std::vector<Club>>(); 
+    v.pendingInvites = j.at("pendingInvites").get<std::vector<ClubInvite>>(); 
+    v.revokedInviteClubs = j.at("revokedInviteClubs").get<std::vector<Club>>(); 
+    v.activeClubs = j.at("activeClubs").get<std::vector<PlayerClub>>(); 
   }
 }

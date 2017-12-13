@@ -6,11 +6,11 @@ namespace lol {
     uint32_t asyncToken; 
   };
   void to_json(json& j, const BindingGenericAsyncEvent& v) {
-  j["data"] = v.data; 
-  j["asyncToken"] = v.asyncToken; 
+    j["data"] = v.data; 
+    j["asyncToken"] = v.asyncToken; 
   }
   void from_json(const json& j, BindingGenericAsyncEvent& v) {
-  v.data = j.at("data").get<json>(); 
-  v.asyncToken = j.at("asyncToken").get<uint32_t>(); 
+    v.data = j.at("data").get<json>(); 
+    v.asyncToken = j.at("asyncToken").get<uint32_t>(); 
   }
 }

@@ -6,9 +6,9 @@ namespace lol {
     std::vector<MultipleReplayMetadataResponseItemV2> metadataResponses; 
   };
   void to_json(json& j, const MultipleReplayMetadataResponseV2& v) {
-  j["metadataResponses"] = v.metadataResponses; 
+    j["metadataResponses"] = v.metadataResponses; 
   }
   void from_json(const json& j, MultipleReplayMetadataResponseV2& v) {
-  v.metadataResponses = j.at("metadataResponses").get<std::vector<MultipleReplayMetadataResponseItemV2>>(); 
+    v.metadataResponses = j.at("metadataResponses").get<std::vector<MultipleReplayMetadataResponseItemV2>>(); 
   }
 }

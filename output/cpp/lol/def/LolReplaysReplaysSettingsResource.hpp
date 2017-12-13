@@ -6,9 +6,9 @@ namespace lol {
     LolReplaysReplaysSettingsData data; 
   };
   void to_json(json& j, const LolReplaysReplaysSettingsResource& v) {
-  j["data"] = v.data; 
+    j["data"] = v.data; 
   }
   void from_json(const json& j, LolReplaysReplaysSettingsResource& v) {
-  v.data = j.at("data").get<LolReplaysReplaysSettingsData>(); 
+    v.data = j.at("data").get<LolReplaysReplaysSettingsData>(); 
   }
 }

@@ -7,31 +7,31 @@ namespace lol {
     Warning_e = 1,
   };
   void to_json(json& j, const LolClashMatchmakingDodgeWarning& v) {
-  if(v == LolClashMatchmakingDodgeWarning::None_e) {
-    j = "None";
-    return;
-  }
-  if(v == LolClashMatchmakingDodgeWarning::Penalty_e) {
-    j = "Penalty";
-    return;
-  }
-  if(v == LolClashMatchmakingDodgeWarning::Warning_e) {
-    j = "Warning";
-    return;
-  }
+    if(v == LolClashMatchmakingDodgeWarning::None_e) {
+      j = "None";
+      return;
+    }
+    if(v == LolClashMatchmakingDodgeWarning::Penalty_e) {
+      j = "Penalty";
+      return;
+    }
+    if(v == LolClashMatchmakingDodgeWarning::Warning_e) {
+      j = "Warning";
+      return;
+    }
   }
   void from_json(const json& j, LolClashMatchmakingDodgeWarning& v) {
-  if(j.get<std::string>() == "None") {
-    v = LolClashMatchmakingDodgeWarning::None_e;
-    return;
-  } 
-  if(j.get<std::string>() == "Penalty") {
-    v = LolClashMatchmakingDodgeWarning::Penalty_e;
-    return;
-  } 
-  if(j.get<std::string>() == "Warning") {
-    v = LolClashMatchmakingDodgeWarning::Warning_e;
-    return;
-  } 
+    if(j.get<std::string>() == "None") {
+      v = LolClashMatchmakingDodgeWarning::None_e;
+      return;
+    } 
+    if(j.get<std::string>() == "Penalty") {
+      v = LolClashMatchmakingDodgeWarning::Penalty_e;
+      return;
+    } 
+    if(j.get<std::string>() == "Warning") {
+      v = LolClashMatchmakingDodgeWarning::Warning_e;
+      return;
+    } 
   }
 }

@@ -6,9 +6,9 @@ namespace lol {
     std::vector<LolPersonalizedOffersOfferRequest> offers; 
   };
   void to_json(json& j, const LolPersonalizedOffersOfferRequests& v) {
-  j["offers"] = v.offers; 
+    j["offers"] = v.offers; 
   }
   void from_json(const json& j, LolPersonalizedOffersOfferRequests& v) {
-  v.offers = j.at("offers").get<std::vector<LolPersonalizedOffersOfferRequest>>(); 
+    v.offers = j.at("offers").get<std::vector<LolPersonalizedOffersOfferRequest>>(); 
   }
 }

@@ -13,79 +13,79 @@ namespace lol {
     QUIT_e = 6,
   };
   void to_json(json& j, const LcdsInviteeState& v) {
-  if(v == LcdsInviteeState::ACCEPTED_e) {
-    j = "ACCEPTED";
-    return;
-  }
-  if(v == LcdsInviteeState::ACCEPT_FAILED_e) {
-    j = "ACCEPT_FAILED";
-    return;
-  }
-  if(v == LcdsInviteeState::BANNED_e) {
-    j = "BANNED";
-    return;
-  }
-  if(v == LcdsInviteeState::CREATOR_e) {
-    j = "CREATOR";
-    return;
-  }
-  if(v == LcdsInviteeState::DECLINED_e) {
-    j = "DECLINED";
-    return;
-  }
-  if(v == LcdsInviteeState::JOINED_e) {
-    j = "JOINED";
-    return;
-  }
-  if(v == LcdsInviteeState::KICKED_e) {
-    j = "KICKED";
-    return;
-  }
-  if(v == LcdsInviteeState::PENDING_e) {
-    j = "PENDING";
-    return;
-  }
-  if(v == LcdsInviteeState::QUIT_e) {
-    j = "QUIT";
-    return;
-  }
+    if(v == LcdsInviteeState::ACCEPTED_e) {
+      j = "ACCEPTED";
+      return;
+    }
+    if(v == LcdsInviteeState::ACCEPT_FAILED_e) {
+      j = "ACCEPT_FAILED";
+      return;
+    }
+    if(v == LcdsInviteeState::BANNED_e) {
+      j = "BANNED";
+      return;
+    }
+    if(v == LcdsInviteeState::CREATOR_e) {
+      j = "CREATOR";
+      return;
+    }
+    if(v == LcdsInviteeState::DECLINED_e) {
+      j = "DECLINED";
+      return;
+    }
+    if(v == LcdsInviteeState::JOINED_e) {
+      j = "JOINED";
+      return;
+    }
+    if(v == LcdsInviteeState::KICKED_e) {
+      j = "KICKED";
+      return;
+    }
+    if(v == LcdsInviteeState::PENDING_e) {
+      j = "PENDING";
+      return;
+    }
+    if(v == LcdsInviteeState::QUIT_e) {
+      j = "QUIT";
+      return;
+    }
   }
   void from_json(const json& j, LcdsInviteeState& v) {
-  if(j.get<std::string>() == "ACCEPTED") {
-    v = LcdsInviteeState::ACCEPTED_e;
-    return;
-  } 
-  if(j.get<std::string>() == "ACCEPT_FAILED") {
-    v = LcdsInviteeState::ACCEPT_FAILED_e;
-    return;
-  } 
-  if(j.get<std::string>() == "BANNED") {
-    v = LcdsInviteeState::BANNED_e;
-    return;
-  } 
-  if(j.get<std::string>() == "CREATOR") {
-    v = LcdsInviteeState::CREATOR_e;
-    return;
-  } 
-  if(j.get<std::string>() == "DECLINED") {
-    v = LcdsInviteeState::DECLINED_e;
-    return;
-  } 
-  if(j.get<std::string>() == "JOINED") {
-    v = LcdsInviteeState::JOINED_e;
-    return;
-  } 
-  if(j.get<std::string>() == "KICKED") {
-    v = LcdsInviteeState::KICKED_e;
-    return;
-  } 
-  if(j.get<std::string>() == "PENDING") {
-    v = LcdsInviteeState::PENDING_e;
-    return;
-  } 
-  if(j.get<std::string>() == "QUIT") {
-    v = LcdsInviteeState::QUIT_e;
-    return;
-  } 
+    if(j.get<std::string>() == "ACCEPTED") {
+      v = LcdsInviteeState::ACCEPTED_e;
+      return;
+    } 
+    if(j.get<std::string>() == "ACCEPT_FAILED") {
+      v = LcdsInviteeState::ACCEPT_FAILED_e;
+      return;
+    } 
+    if(j.get<std::string>() == "BANNED") {
+      v = LcdsInviteeState::BANNED_e;
+      return;
+    } 
+    if(j.get<std::string>() == "CREATOR") {
+      v = LcdsInviteeState::CREATOR_e;
+      return;
+    } 
+    if(j.get<std::string>() == "DECLINED") {
+      v = LcdsInviteeState::DECLINED_e;
+      return;
+    } 
+    if(j.get<std::string>() == "JOINED") {
+      v = LcdsInviteeState::JOINED_e;
+      return;
+    } 
+    if(j.get<std::string>() == "KICKED") {
+      v = LcdsInviteeState::KICKED_e;
+      return;
+    } 
+    if(j.get<std::string>() == "PENDING") {
+      v = LcdsInviteeState::PENDING_e;
+      return;
+    } 
+    if(j.get<std::string>() == "QUIT") {
+      v = LcdsInviteeState::QUIT_e;
+      return;
+    } 
   }
 }

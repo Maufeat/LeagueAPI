@@ -8,13 +8,13 @@ namespace lol {
     std::vector<LolLootPlayerLootDelta> removed; 
   };
   void to_json(json& j, const LolLootPlayerLootUpdate& v) {
-  j["redeemed"] = v.redeemed; 
-  j["added"] = v.added; 
-  j["removed"] = v.removed; 
+    j["redeemed"] = v.redeemed; 
+    j["added"] = v.added; 
+    j["removed"] = v.removed; 
   }
   void from_json(const json& j, LolLootPlayerLootUpdate& v) {
-  v.redeemed = j.at("redeemed").get<std::vector<LolLootPlayerLootDelta>>(); 
-  v.added = j.at("added").get<std::vector<LolLootPlayerLootDelta>>(); 
-  v.removed = j.at("removed").get<std::vector<LolLootPlayerLootDelta>>(); 
+    v.redeemed = j.at("redeemed").get<std::vector<LolLootPlayerLootDelta>>(); 
+    v.added = j.at("added").get<std::vector<LolLootPlayerLootDelta>>(); 
+    v.removed = j.at("removed").get<std::vector<LolLootPlayerLootDelta>>(); 
   }
 }

@@ -6,9 +6,9 @@ namespace lol {
     LolCollectionsGameDataChampionMasteryTree tree; 
   };
   void to_json(json& j, const LolCollectionsGameDataChampionMasteries& v) {
-  j["tree"] = v.tree; 
+    j["tree"] = v.tree; 
   }
   void from_json(const json& j, LolCollectionsGameDataChampionMasteries& v) {
-  v.tree = j.at("tree").get<LolCollectionsGameDataChampionMasteryTree>(); 
+    v.tree = j.at("tree").get<LolCollectionsGameDataChampionMasteryTree>(); 
   }
 }

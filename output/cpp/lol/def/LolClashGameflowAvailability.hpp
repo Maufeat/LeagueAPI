@@ -5,9 +5,9 @@ namespace lol {
     bool isAvailable; 
   };
   void to_json(json& j, const LolClashGameflowAvailability& v) {
-  j["isAvailable"] = v.isAvailable; 
+    j["isAvailable"] = v.isAvailable; 
   }
   void from_json(const json& j, LolClashGameflowAvailability& v) {
-  v.isAvailable = j.at("isAvailable").get<bool>(); 
+    v.isAvailable = j.at("isAvailable").get<bool>(); 
   }
 }

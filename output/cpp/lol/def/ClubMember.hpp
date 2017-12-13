@@ -11,19 +11,19 @@ namespace lol {
     uint64_t summonerId; 
   };
   void to_json(json& j, const ClubMember& v) {
-  j["since"] = v.since; 
-  j["summonerName"] = v.summonerName; 
-  j["role"] = v.role; 
-  j["summonerIconId"] = v.summonerIconId; 
-  j["accountId"] = v.accountId; 
-  j["summonerId"] = v.summonerId; 
+    j["since"] = v.since; 
+    j["summonerName"] = v.summonerName; 
+    j["role"] = v.role; 
+    j["summonerIconId"] = v.summonerIconId; 
+    j["accountId"] = v.accountId; 
+    j["summonerId"] = v.summonerId; 
   }
   void from_json(const json& j, ClubMember& v) {
-  v.since = j.at("since").get<int64_t>(); 
-  v.summonerName = j.at("summonerName").get<std::string>(); 
-  v.role = j.at("role").get<ClubRole>(); 
-  v.summonerIconId = j.at("summonerIconId").get<int32_t>(); 
-  v.accountId = j.at("accountId").get<uint64_t>(); 
-  v.summonerId = j.at("summonerId").get<uint64_t>(); 
+    v.since = j.at("since").get<int64_t>(); 
+    v.summonerName = j.at("summonerName").get<std::string>(); 
+    v.role = j.at("role").get<ClubRole>(); 
+    v.summonerIconId = j.at("summonerIconId").get<int32_t>(); 
+    v.accountId = j.at("accountId").get<uint64_t>(); 
+    v.summonerId = j.at("summonerId").get<uint64_t>(); 
   }
 }

@@ -8,15 +8,15 @@ namespace lol {
     bool premadeSizeAllowed; 
   };
   void to_json(json& j, const LolLobbyTeamBuilderReadyStateV1& v) {
-  j["allowablePremadeSizes"] = v.allowablePremadeSizes; 
-  j["requiredPositionCoverageMet"] = v.requiredPositionCoverageMet; 
-  j["readyToMatchmake"] = v.readyToMatchmake; 
-  j["premadeSizeAllowed"] = v.premadeSizeAllowed; 
+    j["allowablePremadeSizes"] = v.allowablePremadeSizes; 
+    j["requiredPositionCoverageMet"] = v.requiredPositionCoverageMet; 
+    j["readyToMatchmake"] = v.readyToMatchmake; 
+    j["premadeSizeAllowed"] = v.premadeSizeAllowed; 
   }
   void from_json(const json& j, LolLobbyTeamBuilderReadyStateV1& v) {
-  v.allowablePremadeSizes = j.at("allowablePremadeSizes").get<std::vector<int32_t>>(); 
-  v.requiredPositionCoverageMet = j.at("requiredPositionCoverageMet").get<bool>(); 
-  v.readyToMatchmake = j.at("readyToMatchmake").get<bool>(); 
-  v.premadeSizeAllowed = j.at("premadeSizeAllowed").get<bool>(); 
+    v.allowablePremadeSizes = j.at("allowablePremadeSizes").get<std::vector<int32_t>>(); 
+    v.requiredPositionCoverageMet = j.at("requiredPositionCoverageMet").get<bool>(); 
+    v.readyToMatchmake = j.at("readyToMatchmake").get<bool>(); 
+    v.premadeSizeAllowed = j.at("premadeSizeAllowed").get<bool>(); 
   }
 }

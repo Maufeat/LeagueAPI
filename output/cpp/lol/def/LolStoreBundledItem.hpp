@@ -9,15 +9,15 @@ namespace lol {
     int32_t itemId; 
   };
   void to_json(json& j, const LolStoreBundledItem& v) {
-  j["quantity"] = v.quantity; 
-  j["discountPrices"] = v.discountPrices; 
-  j["inventoryType"] = v.inventoryType; 
-  j["itemId"] = v.itemId; 
+    j["quantity"] = v.quantity; 
+    j["discountPrices"] = v.discountPrices; 
+    j["inventoryType"] = v.inventoryType; 
+    j["itemId"] = v.itemId; 
   }
   void from_json(const json& j, LolStoreBundledItem& v) {
-  v.quantity = j.at("quantity").get<uint32_t>(); 
-  v.discountPrices = j.at("discountPrices").get<std::vector<LolStoreBundledItemCost>>(); 
-  v.inventoryType = j.at("inventoryType").get<std::string>(); 
-  v.itemId = j.at("itemId").get<int32_t>(); 
+    v.quantity = j.at("quantity").get<uint32_t>(); 
+    v.discountPrices = j.at("discountPrices").get<std::vector<LolStoreBundledItemCost>>(); 
+    v.inventoryType = j.at("inventoryType").get<std::string>(); 
+    v.itemId = j.at("itemId").get<int32_t>(); 
   }
 }

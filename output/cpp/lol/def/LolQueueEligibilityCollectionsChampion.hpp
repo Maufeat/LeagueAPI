@@ -10,17 +10,17 @@ namespace lol {
     std::vector<std::string> disabledQueues; 
   };
   void to_json(json& j, const LolQueueEligibilityCollectionsChampion& v) {
-  j["ownership"] = v.ownership; 
-  j["freeToPlay"] = v.freeToPlay; 
-  j["purchased"] = v.purchased; 
-  j["rankedPlayEnabled"] = v.rankedPlayEnabled; 
-  j["disabledQueues"] = v.disabledQueues; 
+    j["ownership"] = v.ownership; 
+    j["freeToPlay"] = v.freeToPlay; 
+    j["purchased"] = v.purchased; 
+    j["rankedPlayEnabled"] = v.rankedPlayEnabled; 
+    j["disabledQueues"] = v.disabledQueues; 
   }
   void from_json(const json& j, LolQueueEligibilityCollectionsChampion& v) {
-  v.ownership = j.at("ownership").get<LolQueueEligibilityCollectionsOwnership>(); 
-  v.freeToPlay = j.at("freeToPlay").get<bool>(); 
-  v.purchased = j.at("purchased").get<uint64_t>(); 
-  v.rankedPlayEnabled = j.at("rankedPlayEnabled").get<bool>(); 
-  v.disabledQueues = j.at("disabledQueues").get<std::vector<std::string>>(); 
+    v.ownership = j.at("ownership").get<LolQueueEligibilityCollectionsOwnership>(); 
+    v.freeToPlay = j.at("freeToPlay").get<bool>(); 
+    v.purchased = j.at("purchased").get<uint64_t>(); 
+    v.rankedPlayEnabled = j.at("rankedPlayEnabled").get<bool>(); 
+    v.disabledQueues = j.at("disabledQueues").get<std::vector<std::string>>(); 
   }
 }

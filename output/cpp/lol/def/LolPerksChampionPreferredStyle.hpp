@@ -7,13 +7,13 @@ namespace lol {
     uint32_t championId; 
   };
   void to_json(json& j, const LolPerksChampionPreferredStyle& v) {
-  j["championName"] = v.championName; 
-  j["style"] = v.style; 
-  j["championId"] = v.championId; 
+    j["championName"] = v.championName; 
+    j["style"] = v.style; 
+    j["championId"] = v.championId; 
   }
   void from_json(const json& j, LolPerksChampionPreferredStyle& v) {
-  v.championName = j.at("championName").get<std::string>(); 
-  v.style = j.at("style").get<int32_t>(); 
-  v.championId = j.at("championId").get<uint32_t>(); 
+    v.championName = j.at("championName").get<std::string>(); 
+    v.style = j.at("style").get<int32_t>(); 
+    v.championId = j.at("championId").get<uint32_t>(); 
   }
 }

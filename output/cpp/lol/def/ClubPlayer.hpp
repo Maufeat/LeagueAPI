@@ -8,15 +8,15 @@ namespace lol {
     uint64_t accountId; 
   };
   void to_json(json& j, const ClubPlayer& v) {
-  j["summonerId"] = v.summonerId; 
-  j["summonerName"] = v.summonerName; 
-  j["summonerIconId"] = v.summonerIconId; 
-  j["accountId"] = v.accountId; 
+    j["summonerId"] = v.summonerId; 
+    j["summonerName"] = v.summonerName; 
+    j["summonerIconId"] = v.summonerIconId; 
+    j["accountId"] = v.accountId; 
   }
   void from_json(const json& j, ClubPlayer& v) {
-  v.summonerId = j.at("summonerId").get<uint64_t>(); 
-  v.summonerName = j.at("summonerName").get<std::string>(); 
-  v.summonerIconId = j.at("summonerIconId").get<int32_t>(); 
-  v.accountId = j.at("accountId").get<uint64_t>(); 
+    v.summonerId = j.at("summonerId").get<uint64_t>(); 
+    v.summonerName = j.at("summonerName").get<std::string>(); 
+    v.summonerIconId = j.at("summonerIconId").get<int32_t>(); 
+    v.accountId = j.at("accountId").get<uint64_t>(); 
   }
 }

@@ -11,19 +11,19 @@ namespace lol {
     std::string gameEndDate; 
   };
   void to_json(json& j, const LolMatchHistoryMatchHistoryGameList& v) {
-  j["gameIndexBegin"] = v.gameIndexBegin; 
-  j["gameCount"] = v.gameCount; 
-  j["gameIndexEnd"] = v.gameIndexEnd; 
-  j["games"] = v.games; 
-  j["gameBeginDate"] = v.gameBeginDate; 
-  j["gameEndDate"] = v.gameEndDate; 
+    j["gameIndexBegin"] = v.gameIndexBegin; 
+    j["gameCount"] = v.gameCount; 
+    j["gameIndexEnd"] = v.gameIndexEnd; 
+    j["games"] = v.games; 
+    j["gameBeginDate"] = v.gameBeginDate; 
+    j["gameEndDate"] = v.gameEndDate; 
   }
   void from_json(const json& j, LolMatchHistoryMatchHistoryGameList& v) {
-  v.gameIndexBegin = j.at("gameIndexBegin").get<uint64_t>(); 
-  v.gameCount = j.at("gameCount").get<uint64_t>(); 
-  v.gameIndexEnd = j.at("gameIndexEnd").get<uint64_t>(); 
-  v.games = j.at("games").get<std::vector<LolMatchHistoryMatchHistoryGame>>(); 
-  v.gameBeginDate = j.at("gameBeginDate").get<std::string>(); 
-  v.gameEndDate = j.at("gameEndDate").get<std::string>(); 
+    v.gameIndexBegin = j.at("gameIndexBegin").get<uint64_t>(); 
+    v.gameCount = j.at("gameCount").get<uint64_t>(); 
+    v.gameIndexEnd = j.at("gameIndexEnd").get<uint64_t>(); 
+    v.games = j.at("games").get<std::vector<LolMatchHistoryMatchHistoryGame>>(); 
+    v.gameBeginDate = j.at("gameBeginDate").get<std::string>(); 
+    v.gameEndDate = j.at("gameEndDate").get<std::string>(); 
   }
 }

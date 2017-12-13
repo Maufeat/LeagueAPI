@@ -5,9 +5,9 @@ namespace lol {
     bool rented; 
   };
   void to_json(json& j, const LolQueueEligibilityCollectionsRental& v) {
-  j["rented"] = v.rented; 
+    j["rented"] = v.rented; 
   }
   void from_json(const json& j, LolQueueEligibilityCollectionsRental& v) {
-  v.rented = j.at("rented").get<bool>(); 
+    v.rented = j.at("rented").get<bool>(); 
   }
 }

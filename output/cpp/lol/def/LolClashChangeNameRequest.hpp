@@ -5,9 +5,9 @@ namespace lol {
     std::string name; 
   };
   void to_json(json& j, const LolClashChangeNameRequest& v) {
-  j["name"] = v.name; 
+    j["name"] = v.name; 
   }
   void from_json(const json& j, LolClashChangeNameRequest& v) {
-  v.name = j.at("name").get<std::string>(); 
+    v.name = j.at("name").get<std::string>(); 
   }
 }

@@ -6,9 +6,9 @@ namespace lol {
     LolCollectionsSummonerData allSummonerData; 
   };
   void to_json(json& j, const LolCollectionsCollectionLoginDataPacket& v) {
-  j["allSummonerData"] = v.allSummonerData; 
+    j["allSummonerData"] = v.allSummonerData; 
   }
   void from_json(const json& j, LolCollectionsCollectionLoginDataPacket& v) {
-  v.allSummonerData = j.at("allSummonerData").get<LolCollectionsSummonerData>(); 
+    v.allSummonerData = j.at("allSummonerData").get<LolCollectionsSummonerData>(); 
   }
 }

@@ -7,11 +7,11 @@ namespace lol {
     std::vector<TournamentInfoDTO> tournamentInfo; 
   };
   void to_json(json& j, const TournamentInfoMinimalDTO& v) {
-  j["time"] = v.time; 
-  j["tournamentInfo"] = v.tournamentInfo; 
+    j["time"] = v.time; 
+    j["tournamentInfo"] = v.tournamentInfo; 
   }
   void from_json(const json& j, TournamentInfoMinimalDTO& v) {
-  v.time = j.at("time").get<int64_t>(); 
-  v.tournamentInfo = j.at("tournamentInfo").get<std::vector<TournamentInfoDTO>>(); 
+    v.time = j.at("time").get<int64_t>(); 
+    v.tournamentInfo = j.at("tournamentInfo").get<std::vector<TournamentInfoDTO>>(); 
   }
 }

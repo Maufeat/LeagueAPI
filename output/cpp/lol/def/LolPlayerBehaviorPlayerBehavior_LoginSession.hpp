@@ -10,15 +10,17 @@ namespace lol {
     uint64_t summonerId; 
   };
   void to_json(json& j, const LolPlayerBehaviorPlayerBehavior_LoginSession& v) {
-  j["state"] = v.state; 
-  j["accountId"] = v.accountId; 
-  j["error"] = v.error; 
-  j["summonerId"] = v.summonerId; 
+    j["state"] = v.state; 
+    j["accountId"] = v.accountId; 
+    if(v.error)
+      j["error"] = *v.error;
+    j["summonerId"] = v.summonerId; 
   }
   void from_json(const json& j, LolPlayerBehaviorPlayerBehavior_LoginSession& v) {
-  v.state = j.at("state").get<LolPlayerBehaviorPlayerBehavior_LoginSessionState>(); 
-  v.accountId = j.at("accountId").get<uint64_t>(); 
-  v.error = j.at("error").get<std::optional<LolPlayerBehaviorPlayerBehavior_LoginError>>(); 
-  v.summonerId = j.at("summonerId").get<uint64_t>(); 
+    v.state = j.at("state").get<LolPlayerBehaviorPlayerBehavior_LoginSessionState>(); 
+    v.accountId = j.at("accountId").get<uint64_t>(); 
+    if(auto it = j.find("error"); it != j.end() && !it->is_null())
+      v.error = it->get<std::optional<LolPlayerBehaviorPlayerBehavior_LoginError>>(); 
+    v.summonerId = j.at("summonerId").get<uint64_t>(); 
   }
 }

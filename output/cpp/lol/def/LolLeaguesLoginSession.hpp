@@ -8,13 +8,13 @@ namespace lol {
     uint64_t summonerId; 
   };
   void to_json(json& j, const LolLeaguesLoginSession& v) {
-  j["state"] = v.state; 
-  j["accountId"] = v.accountId; 
-  j["summonerId"] = v.summonerId; 
+    j["state"] = v.state; 
+    j["accountId"] = v.accountId; 
+    j["summonerId"] = v.summonerId; 
   }
   void from_json(const json& j, LolLeaguesLoginSession& v) {
-  v.state = j.at("state").get<LolLeaguesLoginSessionStates>(); 
-  v.accountId = j.at("accountId").get<uint64_t>(); 
-  v.summonerId = j.at("summonerId").get<uint64_t>(); 
+    v.state = j.at("state").get<LolLeaguesLoginSessionStates>(); 
+    v.accountId = j.at("accountId").get<uint64_t>(); 
+    v.summonerId = j.at("summonerId").get<uint64_t>(); 
   }
 }

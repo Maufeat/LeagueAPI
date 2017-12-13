@@ -7,11 +7,11 @@ namespace lol {
     std::vector<uint64_t> dodgeIds; 
   };
   void to_json(json& j, const LolPftGameflowGameDodge& v) {
-  j["state"] = v.state; 
-  j["dodgeIds"] = v.dodgeIds; 
+    j["state"] = v.state; 
+    j["dodgeIds"] = v.dodgeIds; 
   }
   void from_json(const json& j, LolPftGameflowGameDodge& v) {
-  v.state = j.at("state").get<LolPftGameflowGameDodgeState>(); 
-  v.dodgeIds = j.at("dodgeIds").get<std::vector<uint64_t>>(); 
+    v.state = j.at("state").get<LolPftGameflowGameDodgeState>(); 
+    v.dodgeIds = j.at("dodgeIds").get<std::vector<uint64_t>>(); 
   }
 }

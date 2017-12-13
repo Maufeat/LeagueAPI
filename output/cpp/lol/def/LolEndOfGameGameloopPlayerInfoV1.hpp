@@ -6,9 +6,9 @@ namespace lol {
     LolEndOfGameRerollDataBagForClientV1 rerollDataBag; 
   };
   void to_json(json& j, const LolEndOfGameGameloopPlayerInfoV1& v) {
-  j["rerollDataBag"] = v.rerollDataBag; 
+    j["rerollDataBag"] = v.rerollDataBag; 
   }
   void from_json(const json& j, LolEndOfGameGameloopPlayerInfoV1& v) {
-  v.rerollDataBag = j.at("rerollDataBag").get<LolEndOfGameRerollDataBagForClientV1>(); 
+    v.rerollDataBag = j.at("rerollDataBag").get<LolEndOfGameRerollDataBagForClientV1>(); 
   }
 }

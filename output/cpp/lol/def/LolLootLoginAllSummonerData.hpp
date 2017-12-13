@@ -6,9 +6,9 @@ namespace lol {
     LolLootLoginSummonerLevelAndPoints summonerLevelAndPoints; 
   };
   void to_json(json& j, const LolLootLoginAllSummonerData& v) {
-  j["summonerLevelAndPoints"] = v.summonerLevelAndPoints; 
+    j["summonerLevelAndPoints"] = v.summonerLevelAndPoints; 
   }
   void from_json(const json& j, LolLootLoginAllSummonerData& v) {
-  v.summonerLevelAndPoints = j.at("summonerLevelAndPoints").get<LolLootLoginSummonerLevelAndPoints>(); 
+    v.summonerLevelAndPoints = j.at("summonerLevelAndPoints").get<LolLootLoginSummonerLevelAndPoints>(); 
   }
 }

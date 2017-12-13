@@ -9,15 +9,15 @@ namespace lol {
     std::string transactionId; 
   };
   void to_json(json& j, const LolPurchaseWidgetTransaction& v) {
-  j["itemKey"] = v.itemKey; 
-  j["itemName"] = v.itemName; 
-  j["iconUrl"] = v.iconUrl; 
-  j["transactionId"] = v.transactionId; 
+    j["itemKey"] = v.itemKey; 
+    j["itemName"] = v.itemName; 
+    j["iconUrl"] = v.iconUrl; 
+    j["transactionId"] = v.transactionId; 
   }
   void from_json(const json& j, LolPurchaseWidgetTransaction& v) {
-  v.itemKey = j.at("itemKey").get<LolPurchaseWidgetItemKey>(); 
-  v.itemName = j.at("itemName").get<std::string>(); 
-  v.iconUrl = j.at("iconUrl").get<std::string>(); 
-  v.transactionId = j.at("transactionId").get<std::string>(); 
+    v.itemKey = j.at("itemKey").get<LolPurchaseWidgetItemKey>(); 
+    v.itemName = j.at("itemName").get<std::string>(); 
+    v.iconUrl = j.at("iconUrl").get<std::string>(); 
+    v.transactionId = j.at("transactionId").get<std::string>(); 
   }
 }

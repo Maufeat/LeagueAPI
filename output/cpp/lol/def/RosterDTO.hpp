@@ -1,8 +1,8 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/PhaseRosterDTO.hpp>
 #include <lol/def/RosterDynamicStateDTO.hpp>
 #include <lol/def/RosterMemberDTO.hpp>
+#include <lol/def/PhaseRosterDTO.hpp>
 namespace lol {
   struct RosterDTO { 
     int32_t logoColor;
@@ -21,35 +21,35 @@ namespace lol {
     std::string name; 
   };
   void to_json(json& j, const RosterDTO& v) {
-  j["logoColor"] = v.logoColor; 
-  j["wins"] = v.wins; 
-  j["tier"] = v.tier; 
-  j["dynamicState"] = v.dynamicState; 
-  j["logo"] = v.logo; 
-  j["shortName"] = v.shortName; 
-  j["members"] = v.members; 
-  j["id"] = v.id; 
-  j["captainId"] = v.captainId; 
-  j["tournamentId"] = v.tournamentId; 
-  j["losses"] = v.losses; 
-  j["phases"] = v.phases; 
-  j["eliminated"] = v.eliminated; 
-  j["name"] = v.name; 
+    j["logoColor"] = v.logoColor; 
+    j["wins"] = v.wins; 
+    j["tier"] = v.tier; 
+    j["dynamicState"] = v.dynamicState; 
+    j["logo"] = v.logo; 
+    j["shortName"] = v.shortName; 
+    j["members"] = v.members; 
+    j["id"] = v.id; 
+    j["captainId"] = v.captainId; 
+    j["tournamentId"] = v.tournamentId; 
+    j["losses"] = v.losses; 
+    j["phases"] = v.phases; 
+    j["eliminated"] = v.eliminated; 
+    j["name"] = v.name; 
   }
   void from_json(const json& j, RosterDTO& v) {
-  v.logoColor = j.at("logoColor").get<int32_t>(); 
-  v.wins = j.at("wins").get<int32_t>(); 
-  v.tier = j.at("tier").get<int32_t>(); 
-  v.dynamicState = j.at("dynamicState").get<RosterDynamicStateDTO>(); 
-  v.logo = j.at("logo").get<int32_t>(); 
-  v.shortName = j.at("shortName").get<std::string>(); 
-  v.members = j.at("members").get<std::vector<RosterMemberDTO>>(); 
-  v.id = j.at("id").get<int64_t>(); 
-  v.captainId = j.at("captainId").get<uint64_t>(); 
-  v.tournamentId = j.at("tournamentId").get<int64_t>(); 
-  v.losses = j.at("losses").get<int32_t>(); 
-  v.phases = j.at("phases").get<std::vector<PhaseRosterDTO>>(); 
-  v.eliminated = j.at("eliminated").get<bool>(); 
-  v.name = j.at("name").get<std::string>(); 
+    v.logoColor = j.at("logoColor").get<int32_t>(); 
+    v.wins = j.at("wins").get<int32_t>(); 
+    v.tier = j.at("tier").get<int32_t>(); 
+    v.dynamicState = j.at("dynamicState").get<RosterDynamicStateDTO>(); 
+    v.logo = j.at("logo").get<int32_t>(); 
+    v.shortName = j.at("shortName").get<std::string>(); 
+    v.members = j.at("members").get<std::vector<RosterMemberDTO>>(); 
+    v.id = j.at("id").get<int64_t>(); 
+    v.captainId = j.at("captainId").get<uint64_t>(); 
+    v.tournamentId = j.at("tournamentId").get<int64_t>(); 
+    v.losses = j.at("losses").get<int32_t>(); 
+    v.phases = j.at("phases").get<std::vector<PhaseRosterDTO>>(); 
+    v.eliminated = j.at("eliminated").get<bool>(); 
+    v.name = j.at("name").get<std::string>(); 
   }
 }

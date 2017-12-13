@@ -6,11 +6,11 @@ namespace lol {
     std::string queueType; 
   };
   void to_json(json& j, const LolQueueEligibilityLeague& v) {
-  j["leagueTier"] = v.leagueTier; 
-  j["queueType"] = v.queueType; 
+    j["leagueTier"] = v.leagueTier; 
+    j["queueType"] = v.queueType; 
   }
   void from_json(const json& j, LolQueueEligibilityLeague& v) {
-  v.leagueTier = j.at("leagueTier").get<std::string>(); 
-  v.queueType = j.at("queueType").get<std::string>(); 
+    v.leagueTier = j.at("leagueTier").get<std::string>(); 
+    v.queueType = j.at("queueType").get<std::string>(); 
   }
 }

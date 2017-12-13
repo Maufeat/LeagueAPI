@@ -11,19 +11,19 @@ namespace lol {
     int32_t id; 
   };
   void to_json(json& j, const LolLootCollectionsChampionSkinMinimal& v) {
-  j["ownership"] = v.ownership; 
-  j["splashPath"] = v.splashPath; 
-  j["name"] = v.name; 
-  j["tilePath"] = v.tilePath; 
-  j["championId"] = v.championId; 
-  j["id"] = v.id; 
+    j["ownership"] = v.ownership; 
+    j["splashPath"] = v.splashPath; 
+    j["name"] = v.name; 
+    j["tilePath"] = v.tilePath; 
+    j["championId"] = v.championId; 
+    j["id"] = v.id; 
   }
   void from_json(const json& j, LolLootCollectionsChampionSkinMinimal& v) {
-  v.ownership = j.at("ownership").get<LolLootCollectionsOwnership>(); 
-  v.splashPath = j.at("splashPath").get<std::string>(); 
-  v.name = j.at("name").get<std::string>(); 
-  v.tilePath = j.at("tilePath").get<std::string>(); 
-  v.championId = j.at("championId").get<int32_t>(); 
-  v.id = j.at("id").get<int32_t>(); 
+    v.ownership = j.at("ownership").get<LolLootCollectionsOwnership>(); 
+    v.splashPath = j.at("splashPath").get<std::string>(); 
+    v.name = j.at("name").get<std::string>(); 
+    v.tilePath = j.at("tilePath").get<std::string>(); 
+    v.championId = j.at("championId").get<int32_t>(); 
+    v.id = j.at("id").get<int32_t>(); 
   }
 }

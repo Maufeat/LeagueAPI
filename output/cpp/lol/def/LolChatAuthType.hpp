@@ -7,31 +7,31 @@ namespace lol {
     rsoRefresh_e = 2,
   };
   void to_json(json& j, const LolChatAuthType& v) {
-  if(v == LolChatAuthType::plain_e) {
-    j = "plain";
-    return;
-  }
-  if(v == LolChatAuthType::rsoCreate_e) {
-    j = "rsoCreate";
-    return;
-  }
-  if(v == LolChatAuthType::rsoRefresh_e) {
-    j = "rsoRefresh";
-    return;
-  }
+    if(v == LolChatAuthType::plain_e) {
+      j = "plain";
+      return;
+    }
+    if(v == LolChatAuthType::rsoCreate_e) {
+      j = "rsoCreate";
+      return;
+    }
+    if(v == LolChatAuthType::rsoRefresh_e) {
+      j = "rsoRefresh";
+      return;
+    }
   }
   void from_json(const json& j, LolChatAuthType& v) {
-  if(j.get<std::string>() == "plain") {
-    v = LolChatAuthType::plain_e;
-    return;
-  } 
-  if(j.get<std::string>() == "rsoCreate") {
-    v = LolChatAuthType::rsoCreate_e;
-    return;
-  } 
-  if(j.get<std::string>() == "rsoRefresh") {
-    v = LolChatAuthType::rsoRefresh_e;
-    return;
-  } 
+    if(j.get<std::string>() == "plain") {
+      v = LolChatAuthType::plain_e;
+      return;
+    } 
+    if(j.get<std::string>() == "rsoCreate") {
+      v = LolChatAuthType::rsoCreate_e;
+      return;
+    } 
+    if(j.get<std::string>() == "rsoRefresh") {
+      v = LolChatAuthType::rsoRefresh_e;
+      return;
+    } 
   }
 }

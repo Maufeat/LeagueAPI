@@ -7,31 +7,31 @@ namespace lol {
     Warning_e = 1,
   };
   void to_json(json& j, const LolLobbyTeamBuilderMatchmakingDodgeWarning& v) {
-  if(v == LolLobbyTeamBuilderMatchmakingDodgeWarning::None_e) {
-    j = "None";
-    return;
-  }
-  if(v == LolLobbyTeamBuilderMatchmakingDodgeWarning::Penalty_e) {
-    j = "Penalty";
-    return;
-  }
-  if(v == LolLobbyTeamBuilderMatchmakingDodgeWarning::Warning_e) {
-    j = "Warning";
-    return;
-  }
+    if(v == LolLobbyTeamBuilderMatchmakingDodgeWarning::None_e) {
+      j = "None";
+      return;
+    }
+    if(v == LolLobbyTeamBuilderMatchmakingDodgeWarning::Penalty_e) {
+      j = "Penalty";
+      return;
+    }
+    if(v == LolLobbyTeamBuilderMatchmakingDodgeWarning::Warning_e) {
+      j = "Warning";
+      return;
+    }
   }
   void from_json(const json& j, LolLobbyTeamBuilderMatchmakingDodgeWarning& v) {
-  if(j.get<std::string>() == "None") {
-    v = LolLobbyTeamBuilderMatchmakingDodgeWarning::None_e;
-    return;
-  } 
-  if(j.get<std::string>() == "Penalty") {
-    v = LolLobbyTeamBuilderMatchmakingDodgeWarning::Penalty_e;
-    return;
-  } 
-  if(j.get<std::string>() == "Warning") {
-    v = LolLobbyTeamBuilderMatchmakingDodgeWarning::Warning_e;
-    return;
-  } 
+    if(j.get<std::string>() == "None") {
+      v = LolLobbyTeamBuilderMatchmakingDodgeWarning::None_e;
+      return;
+    } 
+    if(j.get<std::string>() == "Penalty") {
+      v = LolLobbyTeamBuilderMatchmakingDodgeWarning::Penalty_e;
+      return;
+    } 
+    if(j.get<std::string>() == "Warning") {
+      v = LolLobbyTeamBuilderMatchmakingDodgeWarning::Warning_e;
+      return;
+    } 
   }
 }

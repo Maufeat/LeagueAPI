@@ -5,9 +5,9 @@ namespace lol {
     uint32_t asyncToken; 
   };
   void to_json(json& j, const BindingAsyncCancelEvent& v) {
-  j["asyncToken"] = v.asyncToken; 
+    j["asyncToken"] = v.asyncToken; 
   }
   void from_json(const json& j, BindingAsyncCancelEvent& v) {
-  v.asyncToken = j.at("asyncToken").get<uint32_t>(); 
+    v.asyncToken = j.at("asyncToken").get<uint32_t>(); 
   }
 }

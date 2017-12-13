@@ -9,17 +9,17 @@ namespace lol {
     int64_t cost; 
   };
   void to_json(json& j, const LolLobbyTeamBuilderTeamBuilderBoostInfo& v) {
-  j["unlockedSkinIds"] = v.unlockedSkinIds; 
-  j["activatorCellId"] = v.activatorCellId; 
-  j["allowBattleBoost"] = v.allowBattleBoost; 
-  j["battleBoostActivated"] = v.battleBoostActivated; 
-  j["cost"] = v.cost; 
+    j["unlockedSkinIds"] = v.unlockedSkinIds; 
+    j["activatorCellId"] = v.activatorCellId; 
+    j["allowBattleBoost"] = v.allowBattleBoost; 
+    j["battleBoostActivated"] = v.battleBoostActivated; 
+    j["cost"] = v.cost; 
   }
   void from_json(const json& j, LolLobbyTeamBuilderTeamBuilderBoostInfo& v) {
-  v.unlockedSkinIds = j.at("unlockedSkinIds").get<std::vector<int64_t>>(); 
-  v.activatorCellId = j.at("activatorCellId").get<int64_t>(); 
-  v.allowBattleBoost = j.at("allowBattleBoost").get<bool>(); 
-  v.battleBoostActivated = j.at("battleBoostActivated").get<bool>(); 
-  v.cost = j.at("cost").get<int64_t>(); 
+    v.unlockedSkinIds = j.at("unlockedSkinIds").get<std::vector<int64_t>>(); 
+    v.activatorCellId = j.at("activatorCellId").get<int64_t>(); 
+    v.allowBattleBoost = j.at("allowBattleBoost").get<bool>(); 
+    v.battleBoostActivated = j.at("battleBoostActivated").get<bool>(); 
+    v.cost = j.at("cost").get<int64_t>(); 
   }
 }

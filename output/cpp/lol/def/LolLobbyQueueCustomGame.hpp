@@ -6,9 +6,9 @@ namespace lol {
     LolLobbyQueueAvailability queueAvailability; 
   };
   void to_json(json& j, const LolLobbyQueueCustomGame& v) {
-  j["queueAvailability"] = v.queueAvailability; 
+    j["queueAvailability"] = v.queueAvailability; 
   }
   void from_json(const json& j, LolLobbyQueueCustomGame& v) {
-  v.queueAvailability = j.at("queueAvailability").get<LolLobbyQueueAvailability>(); 
+    v.queueAvailability = j.at("queueAvailability").get<LolLobbyQueueAvailability>(); 
   }
 }

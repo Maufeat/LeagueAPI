@@ -6,9 +6,9 @@ namespace lol {
     std::vector<LolLeaguesSignedLeagueItemDTO> summonerLeagues; 
   };
   void to_json(json& j, const LolLeaguesSignedSummonerLeagueItemsDTO& v) {
-  j["summonerLeagues"] = v.summonerLeagues; 
+    j["summonerLeagues"] = v.summonerLeagues; 
   }
   void from_json(const json& j, LolLeaguesSignedSummonerLeagueItemsDTO& v) {
-  v.summonerLeagues = j.at("summonerLeagues").get<std::vector<LolLeaguesSignedLeagueItemDTO>>(); 
+    v.summonerLeagues = j.at("summonerLeagues").get<std::vector<LolLeaguesSignedLeagueItemDTO>>(); 
   }
 }

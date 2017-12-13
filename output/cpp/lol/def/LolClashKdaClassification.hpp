@@ -7,31 +7,31 @@ namespace lol {
     LOW_e = 0,
   };
   void to_json(json& j, const LolClashKdaClassification& v) {
-  if(v == LolClashKdaClassification::AVERAGE_e) {
-    j = "AVERAGE";
-    return;
-  }
-  if(v == LolClashKdaClassification::HIGH_e) {
-    j = "HIGH";
-    return;
-  }
-  if(v == LolClashKdaClassification::LOW_e) {
-    j = "LOW";
-    return;
-  }
+    if(v == LolClashKdaClassification::AVERAGE_e) {
+      j = "AVERAGE";
+      return;
+    }
+    if(v == LolClashKdaClassification::HIGH_e) {
+      j = "HIGH";
+      return;
+    }
+    if(v == LolClashKdaClassification::LOW_e) {
+      j = "LOW";
+      return;
+    }
   }
   void from_json(const json& j, LolClashKdaClassification& v) {
-  if(j.get<std::string>() == "AVERAGE") {
-    v = LolClashKdaClassification::AVERAGE_e;
-    return;
-  } 
-  if(j.get<std::string>() == "HIGH") {
-    v = LolClashKdaClassification::HIGH_e;
-    return;
-  } 
-  if(j.get<std::string>() == "LOW") {
-    v = LolClashKdaClassification::LOW_e;
-    return;
-  } 
+    if(j.get<std::string>() == "AVERAGE") {
+      v = LolClashKdaClassification::AVERAGE_e;
+      return;
+    } 
+    if(j.get<std::string>() == "HIGH") {
+      v = LolClashKdaClassification::HIGH_e;
+      return;
+    } 
+    if(j.get<std::string>() == "LOW") {
+      v = LolClashKdaClassification::LOW_e;
+      return;
+    } 
   }
 }

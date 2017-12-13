@@ -5,9 +5,9 @@ namespace lol {
     std::string state; 
   };
   void to_json(json& j, const LolEndOfGameGameflowAvailability& v) {
-  j["state"] = v.state; 
+    j["state"] = v.state; 
   }
   void from_json(const json& j, LolEndOfGameGameflowAvailability& v) {
-  v.state = j.at("state").get<std::string>(); 
+    v.state = j.at("state").get<std::string>(); 
   }
 }

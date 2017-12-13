@@ -5,9 +5,9 @@ namespace lol {
     bool QualificationWarningEnabled; 
   };
   void to_json(json& j, const LolLeaguesLeaguesSeasonRewardConfig& v) {
-  j["QualificationWarningEnabled"] = v.QualificationWarningEnabled; 
+    j["QualificationWarningEnabled"] = v.QualificationWarningEnabled; 
   }
   void from_json(const json& j, LolLeaguesLeaguesSeasonRewardConfig& v) {
-  v.QualificationWarningEnabled = j.at("QualificationWarningEnabled").get<bool>(); 
+    v.QualificationWarningEnabled = j.at("QualificationWarningEnabled").get<bool>(); 
   }
 }

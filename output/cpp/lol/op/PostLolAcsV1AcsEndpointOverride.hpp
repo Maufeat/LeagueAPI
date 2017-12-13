@@ -5,7 +5,17 @@ namespace lol {
   Result<json> PostLolAcsV1AcsEndpointOverride(const LeagueClient& _client, const LolAcsAcsEndPoint& data)
   {
     HttpsClient _client_(_client.host, false);
-    return _client_.request("post", "/lol-acs/v1/acs-endpoint-override?" + SimpleWeb::QueryString::create(Args2Headers({  })), json(data).dump(),
-      Args2Headers({ {"Authorization", _client.host}, {"content-type", "application/json"},  }) );
+    try {
+      return Result<json> {
+        _client_.request("post", "/lol-acs/v1/acs-endpoint-override?" +
+          SimpleWeb::QueryString::create(Args2Headers({  })), 
+          json(data).dump(),
+          Args2Headers({
+            {"content-type", "application/json"},
+            {"Authorization", _client.auth},  }))
+      };
+    } catch(const SimpleWeb::system_error &e) {
+      return Result<json> { Error { to_string(e.code().value()), -1, e.what() } };
+    }
   }
 }

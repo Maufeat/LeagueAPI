@@ -8,11 +8,11 @@ namespace lol {
     std::vector<LolPftPFTQuestionResponse> questionResponses; 
   };
   void to_json(json& j, const LolPftPFTSurveyResults& v) {
-  j["actions"] = v.actions; 
-  j["questionResponses"] = v.questionResponses; 
+    j["actions"] = v.actions; 
+    j["questionResponses"] = v.questionResponses; 
   }
   void from_json(const json& j, LolPftPFTSurveyResults& v) {
-  v.actions = j.at("actions").get<std::vector<LolPftPFTEvent>>(); 
-  v.questionResponses = j.at("questionResponses").get<std::vector<LolPftPFTQuestionResponse>>(); 
+    v.actions = j.at("actions").get<std::vector<LolPftPFTEvent>>(); 
+    v.questionResponses = j.at("questionResponses").get<std::vector<LolPftPFTQuestionResponse>>(); 
   }
 }

@@ -7,31 +7,31 @@ namespace lol {
     warn_e = 1,
   };
   void to_json(json& j, const ServiceStatusIncident_Severity& v) {
-  if(v == ServiceStatusIncident_Severity::error_e) {
-    j = "error";
-    return;
-  }
-  if(v == ServiceStatusIncident_Severity::info_e) {
-    j = "info";
-    return;
-  }
-  if(v == ServiceStatusIncident_Severity::warn_e) {
-    j = "warn";
-    return;
-  }
+    if(v == ServiceStatusIncident_Severity::error_e) {
+      j = "error";
+      return;
+    }
+    if(v == ServiceStatusIncident_Severity::info_e) {
+      j = "info";
+      return;
+    }
+    if(v == ServiceStatusIncident_Severity::warn_e) {
+      j = "warn";
+      return;
+    }
   }
   void from_json(const json& j, ServiceStatusIncident_Severity& v) {
-  if(j.get<std::string>() == "error") {
-    v = ServiceStatusIncident_Severity::error_e;
-    return;
-  } 
-  if(j.get<std::string>() == "info") {
-    v = ServiceStatusIncident_Severity::info_e;
-    return;
-  } 
-  if(j.get<std::string>() == "warn") {
-    v = ServiceStatusIncident_Severity::warn_e;
-    return;
-  } 
+    if(j.get<std::string>() == "error") {
+      v = ServiceStatusIncident_Severity::error_e;
+      return;
+    } 
+    if(j.get<std::string>() == "info") {
+      v = ServiceStatusIncident_Severity::info_e;
+      return;
+    } 
+    if(j.get<std::string>() == "warn") {
+      v = ServiceStatusIncident_Severity::warn_e;
+      return;
+    } 
   }
 }

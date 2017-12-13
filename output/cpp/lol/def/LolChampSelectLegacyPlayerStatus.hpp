@@ -7,11 +7,15 @@ namespace lol {
     std::optional<LolChampSelectLegacyLobbyStatus> currentLobbyStatus; 
   };
   void to_json(json& j, const LolChampSelectLegacyPlayerStatus& v) {
-  j["lastQueuedLobbyStatus"] = v.lastQueuedLobbyStatus; 
-  j["currentLobbyStatus"] = v.currentLobbyStatus; 
+    if(v.lastQueuedLobbyStatus)
+      j["lastQueuedLobbyStatus"] = *v.lastQueuedLobbyStatus;
+    if(v.currentLobbyStatus)
+      j["currentLobbyStatus"] = *v.currentLobbyStatus;
   }
   void from_json(const json& j, LolChampSelectLegacyPlayerStatus& v) {
-  v.lastQueuedLobbyStatus = j.at("lastQueuedLobbyStatus").get<std::optional<LolChampSelectLegacyLobbyStatus>>(); 
-  v.currentLobbyStatus = j.at("currentLobbyStatus").get<std::optional<LolChampSelectLegacyLobbyStatus>>(); 
+    if(auto it = j.find("lastQueuedLobbyStatus"); it != j.end() && !it->is_null())
+      v.lastQueuedLobbyStatus = it->get<std::optional<LolChampSelectLegacyLobbyStatus>>(); 
+    if(auto it = j.find("currentLobbyStatus"); it != j.end() && !it->is_null())
+      v.currentLobbyStatus = it->get<std::optional<LolChampSelectLegacyLobbyStatus>>(); 
   }
 }

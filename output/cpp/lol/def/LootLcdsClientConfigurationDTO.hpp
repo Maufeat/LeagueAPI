@@ -7,13 +7,13 @@ namespace lol {
     std::vector<std::string> currenciesUsingCapWallets; 
   };
   void to_json(json& j, const LootLcdsClientConfigurationDTO& v) {
-  j["lootItemsUsingBreakoutRecipeMenu"] = v.lootItemsUsingBreakoutRecipeMenu; 
-  j["lootMaterialsToAlwaysRender"] = v.lootMaterialsToAlwaysRender; 
-  j["currenciesUsingCapWallets"] = v.currenciesUsingCapWallets; 
+    j["lootItemsUsingBreakoutRecipeMenu"] = v.lootItemsUsingBreakoutRecipeMenu; 
+    j["lootMaterialsToAlwaysRender"] = v.lootMaterialsToAlwaysRender; 
+    j["currenciesUsingCapWallets"] = v.currenciesUsingCapWallets; 
   }
   void from_json(const json& j, LootLcdsClientConfigurationDTO& v) {
-  v.lootItemsUsingBreakoutRecipeMenu = j.at("lootItemsUsingBreakoutRecipeMenu").get<std::vector<std::string>>(); 
-  v.lootMaterialsToAlwaysRender = j.at("lootMaterialsToAlwaysRender").get<std::vector<std::string>>(); 
-  v.currenciesUsingCapWallets = j.at("currenciesUsingCapWallets").get<std::vector<std::string>>(); 
+    v.lootItemsUsingBreakoutRecipeMenu = j.at("lootItemsUsingBreakoutRecipeMenu").get<std::vector<std::string>>(); 
+    v.lootMaterialsToAlwaysRender = j.at("lootMaterialsToAlwaysRender").get<std::vector<std::string>>(); 
+    v.currenciesUsingCapWallets = j.at("currenciesUsingCapWallets").get<std::vector<std::string>>(); 
   }
 }

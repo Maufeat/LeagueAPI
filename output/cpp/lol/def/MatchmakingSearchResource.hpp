@@ -7,11 +7,11 @@ namespace lol {
     int32_t queueId; 
   };
   void to_json(json& j, const MatchmakingSearchResource& v) {
-  j["errors"] = v.errors; 
-  j["queueId"] = v.queueId; 
+    j["errors"] = v.errors; 
+    j["queueId"] = v.queueId; 
   }
   void from_json(const json& j, MatchmakingSearchResource& v) {
-  v.errors = j.at("errors").get<std::vector<MatchmakingSearchErrorResource>>(); 
-  v.queueId = j.at("queueId").get<int32_t>(); 
+    v.errors = j.at("errors").get<std::vector<MatchmakingSearchErrorResource>>(); 
+    v.queueId = j.at("queueId").get<int32_t>(); 
   }
 }

@@ -8,15 +8,15 @@ namespace lol {
     std::string tags; 
   };
   void to_json(json& j, const LolLootRecipeSlot& v) {
-  j["quantity"] = v.quantity; 
-  j["slotNumber"] = v.slotNumber; 
-  j["lootIds"] = v.lootIds; 
-  j["tags"] = v.tags; 
+    j["quantity"] = v.quantity; 
+    j["slotNumber"] = v.slotNumber; 
+    j["lootIds"] = v.lootIds; 
+    j["tags"] = v.tags; 
   }
   void from_json(const json& j, LolLootRecipeSlot& v) {
-  v.quantity = j.at("quantity").get<int32_t>(); 
-  v.slotNumber = j.at("slotNumber").get<int32_t>(); 
-  v.lootIds = j.at("lootIds").get<std::vector<std::string>>(); 
-  v.tags = j.at("tags").get<std::string>(); 
+    v.quantity = j.at("quantity").get<int32_t>(); 
+    v.slotNumber = j.at("slotNumber").get<int32_t>(); 
+    v.lootIds = j.at("lootIds").get<std::vector<std::string>>(); 
+    v.tags = j.at("tags").get<std::string>(); 
   }
 }

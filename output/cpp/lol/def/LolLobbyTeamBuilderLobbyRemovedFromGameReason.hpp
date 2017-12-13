@@ -13,79 +13,79 @@ namespace lol {
     Timeout_e = 6,
   };
   void to_json(json& j, const LolLobbyTeamBuilderLobbyRemovedFromGameReason& v) {
-  if(v == LolLobbyTeamBuilderLobbyRemovedFromGameReason::Disbanded_e) {
-    j = "Disbanded";
-    return;
-  }
-  if(v == LolLobbyTeamBuilderLobbyRemovedFromGameReason::GameStartError_e) {
-    j = "GameStartError";
-    return;
-  }
-  if(v == LolLobbyTeamBuilderLobbyRemovedFromGameReason::Kicked_e) {
-    j = "Kicked";
-    return;
-  }
-  if(v == LolLobbyTeamBuilderLobbyRemovedFromGameReason::Left_e) {
-    j = "Left";
-    return;
-  }
-  if(v == LolLobbyTeamBuilderLobbyRemovedFromGameReason::None_e) {
-    j = "None";
-    return;
-  }
-  if(v == LolLobbyTeamBuilderLobbyRemovedFromGameReason::Other_e) {
-    j = "Other";
-    return;
-  }
-  if(v == LolLobbyTeamBuilderLobbyRemovedFromGameReason::ServiceError_e) {
-    j = "ServiceError";
-    return;
-  }
-  if(v == LolLobbyTeamBuilderLobbyRemovedFromGameReason::ServiceShutdown_e) {
-    j = "ServiceShutdown";
-    return;
-  }
-  if(v == LolLobbyTeamBuilderLobbyRemovedFromGameReason::Timeout_e) {
-    j = "Timeout";
-    return;
-  }
+    if(v == LolLobbyTeamBuilderLobbyRemovedFromGameReason::Disbanded_e) {
+      j = "Disbanded";
+      return;
+    }
+    if(v == LolLobbyTeamBuilderLobbyRemovedFromGameReason::GameStartError_e) {
+      j = "GameStartError";
+      return;
+    }
+    if(v == LolLobbyTeamBuilderLobbyRemovedFromGameReason::Kicked_e) {
+      j = "Kicked";
+      return;
+    }
+    if(v == LolLobbyTeamBuilderLobbyRemovedFromGameReason::Left_e) {
+      j = "Left";
+      return;
+    }
+    if(v == LolLobbyTeamBuilderLobbyRemovedFromGameReason::None_e) {
+      j = "None";
+      return;
+    }
+    if(v == LolLobbyTeamBuilderLobbyRemovedFromGameReason::Other_e) {
+      j = "Other";
+      return;
+    }
+    if(v == LolLobbyTeamBuilderLobbyRemovedFromGameReason::ServiceError_e) {
+      j = "ServiceError";
+      return;
+    }
+    if(v == LolLobbyTeamBuilderLobbyRemovedFromGameReason::ServiceShutdown_e) {
+      j = "ServiceShutdown";
+      return;
+    }
+    if(v == LolLobbyTeamBuilderLobbyRemovedFromGameReason::Timeout_e) {
+      j = "Timeout";
+      return;
+    }
   }
   void from_json(const json& j, LolLobbyTeamBuilderLobbyRemovedFromGameReason& v) {
-  if(j.get<std::string>() == "Disbanded") {
-    v = LolLobbyTeamBuilderLobbyRemovedFromGameReason::Disbanded_e;
-    return;
-  } 
-  if(j.get<std::string>() == "GameStartError") {
-    v = LolLobbyTeamBuilderLobbyRemovedFromGameReason::GameStartError_e;
-    return;
-  } 
-  if(j.get<std::string>() == "Kicked") {
-    v = LolLobbyTeamBuilderLobbyRemovedFromGameReason::Kicked_e;
-    return;
-  } 
-  if(j.get<std::string>() == "Left") {
-    v = LolLobbyTeamBuilderLobbyRemovedFromGameReason::Left_e;
-    return;
-  } 
-  if(j.get<std::string>() == "None") {
-    v = LolLobbyTeamBuilderLobbyRemovedFromGameReason::None_e;
-    return;
-  } 
-  if(j.get<std::string>() == "Other") {
-    v = LolLobbyTeamBuilderLobbyRemovedFromGameReason::Other_e;
-    return;
-  } 
-  if(j.get<std::string>() == "ServiceError") {
-    v = LolLobbyTeamBuilderLobbyRemovedFromGameReason::ServiceError_e;
-    return;
-  } 
-  if(j.get<std::string>() == "ServiceShutdown") {
-    v = LolLobbyTeamBuilderLobbyRemovedFromGameReason::ServiceShutdown_e;
-    return;
-  } 
-  if(j.get<std::string>() == "Timeout") {
-    v = LolLobbyTeamBuilderLobbyRemovedFromGameReason::Timeout_e;
-    return;
-  } 
+    if(j.get<std::string>() == "Disbanded") {
+      v = LolLobbyTeamBuilderLobbyRemovedFromGameReason::Disbanded_e;
+      return;
+    } 
+    if(j.get<std::string>() == "GameStartError") {
+      v = LolLobbyTeamBuilderLobbyRemovedFromGameReason::GameStartError_e;
+      return;
+    } 
+    if(j.get<std::string>() == "Kicked") {
+      v = LolLobbyTeamBuilderLobbyRemovedFromGameReason::Kicked_e;
+      return;
+    } 
+    if(j.get<std::string>() == "Left") {
+      v = LolLobbyTeamBuilderLobbyRemovedFromGameReason::Left_e;
+      return;
+    } 
+    if(j.get<std::string>() == "None") {
+      v = LolLobbyTeamBuilderLobbyRemovedFromGameReason::None_e;
+      return;
+    } 
+    if(j.get<std::string>() == "Other") {
+      v = LolLobbyTeamBuilderLobbyRemovedFromGameReason::Other_e;
+      return;
+    } 
+    if(j.get<std::string>() == "ServiceError") {
+      v = LolLobbyTeamBuilderLobbyRemovedFromGameReason::ServiceError_e;
+      return;
+    } 
+    if(j.get<std::string>() == "ServiceShutdown") {
+      v = LolLobbyTeamBuilderLobbyRemovedFromGameReason::ServiceShutdown_e;
+      return;
+    } 
+    if(j.get<std::string>() == "Timeout") {
+      v = LolLobbyTeamBuilderLobbyRemovedFromGameReason::Timeout_e;
+      return;
+    } 
   }
 }

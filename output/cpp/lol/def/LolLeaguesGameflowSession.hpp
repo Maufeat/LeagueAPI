@@ -8,11 +8,11 @@ namespace lol {
     LolLeaguesGameflowGameData gameData; 
   };
   void to_json(json& j, const LolLeaguesGameflowSession& v) {
-  j["phase"] = v.phase; 
-  j["gameData"] = v.gameData; 
+    j["phase"] = v.phase; 
+    j["gameData"] = v.gameData; 
   }
   void from_json(const json& j, LolLeaguesGameflowSession& v) {
-  v.phase = j.at("phase").get<LolLeaguesGameflowPhase>(); 
-  v.gameData = j.at("gameData").get<LolLeaguesGameflowGameData>(); 
+    v.phase = j.at("phase").get<LolLeaguesGameflowPhase>(); 
+    v.gameData = j.at("gameData").get<LolLeaguesGameflowGameData>(); 
   }
 }

@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/LolStoreBundled.hpp>
 #include <lol/def/LolStoreItemCost.hpp>
+#include <lol/def/LolStoreBundled.hpp>
 #include <lol/def/LolStoreItemKey.hpp>
 #include <lol/def/LolStoreSale.hpp>
 namespace lol {
@@ -21,33 +21,55 @@ namespace lol {
     std::optional<std::string> releaseDate; 
   };
   void to_json(json& j, const LolStoreCatalogItem& v) {
-  j["itemInstanceId"] = v.itemInstanceId; 
-  j["sale"] = v.sale; 
-  j["bundled"] = v.bundled; 
-  j["tags"] = v.tags; 
-  j["inactiveDate"] = v.inactiveDate; 
-  j["maxQuantity"] = v.maxQuantity; 
-  j["subInventoryType"] = v.subInventoryType; 
-  j["active"] = v.active; 
-  j["inventoryType"] = v.inventoryType; 
-  j["itemId"] = v.itemId; 
-  j["prices"] = v.prices; 
-  j["itemRequirements"] = v.itemRequirements; 
-  j["releaseDate"] = v.releaseDate; 
+    if(v.itemInstanceId)
+      j["itemInstanceId"] = *v.itemInstanceId;
+    if(v.sale)
+      j["sale"] = *v.sale;
+    if(v.bundled)
+      j["bundled"] = *v.bundled;
+    if(v.tags)
+      j["tags"] = *v.tags;
+    if(v.inactiveDate)
+      j["inactiveDate"] = *v.inactiveDate;
+    if(v.maxQuantity)
+      j["maxQuantity"] = *v.maxQuantity;
+    if(v.subInventoryType)
+      j["subInventoryType"] = *v.subInventoryType;
+    if(v.active)
+      j["active"] = *v.active;
+    j["inventoryType"] = v.inventoryType; 
+    j["itemId"] = v.itemId; 
+    if(v.prices)
+      j["prices"] = *v.prices;
+    if(v.itemRequirements)
+      j["itemRequirements"] = *v.itemRequirements;
+    if(v.releaseDate)
+      j["releaseDate"] = *v.releaseDate;
   }
   void from_json(const json& j, LolStoreCatalogItem& v) {
-  v.itemInstanceId = j.at("itemInstanceId").get<std::optional<std::string>>(); 
-  v.sale = j.at("sale").get<std::optional<LolStoreSale>>(); 
-  v.bundled = j.at("bundled").get<std::optional<LolStoreBundled>>(); 
-  v.tags = j.at("tags").get<std::optional<std::vector<std::string>>>(); 
-  v.inactiveDate = j.at("inactiveDate").get<std::optional<std::string>>(); 
-  v.maxQuantity = j.at("maxQuantity").get<std::optional<int32_t>>(); 
-  v.subInventoryType = j.at("subInventoryType").get<std::optional<std::string>>(); 
-  v.active = j.at("active").get<std::optional<bool>>(); 
-  v.inventoryType = j.at("inventoryType").get<std::string>(); 
-  v.itemId = j.at("itemId").get<int32_t>(); 
-  v.prices = j.at("prices").get<std::optional<std::vector<LolStoreItemCost>>>(); 
-  v.itemRequirements = j.at("itemRequirements").get<std::optional<std::vector<LolStoreItemKey>>>(); 
-  v.releaseDate = j.at("releaseDate").get<std::optional<std::string>>(); 
+    if(auto it = j.find("itemInstanceId"); it != j.end() && !it->is_null())
+      v.itemInstanceId = it->get<std::optional<std::string>>(); 
+    if(auto it = j.find("sale"); it != j.end() && !it->is_null())
+      v.sale = it->get<std::optional<LolStoreSale>>(); 
+    if(auto it = j.find("bundled"); it != j.end() && !it->is_null())
+      v.bundled = it->get<std::optional<LolStoreBundled>>(); 
+    if(auto it = j.find("tags"); it != j.end() && !it->is_null())
+      v.tags = it->get<std::optional<std::vector<std::string>>>(); 
+    if(auto it = j.find("inactiveDate"); it != j.end() && !it->is_null())
+      v.inactiveDate = it->get<std::optional<std::string>>(); 
+    if(auto it = j.find("maxQuantity"); it != j.end() && !it->is_null())
+      v.maxQuantity = it->get<std::optional<int32_t>>(); 
+    if(auto it = j.find("subInventoryType"); it != j.end() && !it->is_null())
+      v.subInventoryType = it->get<std::optional<std::string>>(); 
+    if(auto it = j.find("active"); it != j.end() && !it->is_null())
+      v.active = it->get<std::optional<bool>>(); 
+    v.inventoryType = j.at("inventoryType").get<std::string>(); 
+    v.itemId = j.at("itemId").get<int32_t>(); 
+    if(auto it = j.find("prices"); it != j.end() && !it->is_null())
+      v.prices = it->get<std::optional<std::vector<LolStoreItemCost>>>(); 
+    if(auto it = j.find("itemRequirements"); it != j.end() && !it->is_null())
+      v.itemRequirements = it->get<std::optional<std::vector<LolStoreItemKey>>>(); 
+    if(auto it = j.find("releaseDate"); it != j.end() && !it->is_null())
+      v.releaseDate = it->get<std::optional<std::string>>(); 
   }
 }

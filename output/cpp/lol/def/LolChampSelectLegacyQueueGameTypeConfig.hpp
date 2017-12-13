@@ -7,13 +7,13 @@ namespace lol {
     int32_t maxAllowableBans; 
   };
   void to_json(json& j, const LolChampSelectLegacyQueueGameTypeConfig& v) {
-  j["battleBoost"] = v.battleBoost; 
-  j["allowTrades"] = v.allowTrades; 
-  j["maxAllowableBans"] = v.maxAllowableBans; 
+    j["battleBoost"] = v.battleBoost; 
+    j["allowTrades"] = v.allowTrades; 
+    j["maxAllowableBans"] = v.maxAllowableBans; 
   }
   void from_json(const json& j, LolChampSelectLegacyQueueGameTypeConfig& v) {
-  v.battleBoost = j.at("battleBoost").get<bool>(); 
-  v.allowTrades = j.at("allowTrades").get<bool>(); 
-  v.maxAllowableBans = j.at("maxAllowableBans").get<int32_t>(); 
+    v.battleBoost = j.at("battleBoost").get<bool>(); 
+    v.allowTrades = j.at("allowTrades").get<bool>(); 
+    v.maxAllowableBans = j.at("maxAllowableBans").get<int32_t>(); 
   }
 }

@@ -6,9 +6,9 @@ namespace lol {
     LolClashGameflowPhase phase; 
   };
   void to_json(json& j, const LolClashGameflowSession& v) {
-  j["phase"] = v.phase; 
+    j["phase"] = v.phase; 
   }
   void from_json(const json& j, LolClashGameflowSession& v) {
-  v.phase = j.at("phase").get<LolClashGameflowPhase>(); 
+    v.phase = j.at("phase").get<LolClashGameflowPhase>(); 
   }
 }

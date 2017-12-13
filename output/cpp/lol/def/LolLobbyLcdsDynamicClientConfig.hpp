@@ -6,9 +6,9 @@ namespace lol {
     LolLobbyLcdsPartyRewardsConfig PartyRewards; 
   };
   void to_json(json& j, const LolLobbyLcdsDynamicClientConfig& v) {
-  j["PartyRewards"] = v.PartyRewards; 
+    j["PartyRewards"] = v.PartyRewards; 
   }
   void from_json(const json& j, LolLobbyLcdsDynamicClientConfig& v) {
-  v.PartyRewards = j.at("PartyRewards").get<LolLobbyLcdsPartyRewardsConfig>(); 
+    v.PartyRewards = j.at("PartyRewards").get<LolLobbyLcdsPartyRewardsConfig>(); 
   }
 }

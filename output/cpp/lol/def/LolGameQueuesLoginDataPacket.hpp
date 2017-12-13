@@ -6,9 +6,9 @@ namespace lol {
     std::vector<LolGameQueuesQueueGameTypeConfig> gameTypeConfigs; 
   };
   void to_json(json& j, const LolGameQueuesLoginDataPacket& v) {
-  j["gameTypeConfigs"] = v.gameTypeConfigs; 
+    j["gameTypeConfigs"] = v.gameTypeConfigs; 
   }
   void from_json(const json& j, LolGameQueuesLoginDataPacket& v) {
-  v.gameTypeConfigs = j.at("gameTypeConfigs").get<std::vector<LolGameQueuesQueueGameTypeConfig>>(); 
+    v.gameTypeConfigs = j.at("gameTypeConfigs").get<std::vector<LolGameQueuesQueueGameTypeConfig>>(); 
   }
 }

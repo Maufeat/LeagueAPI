@@ -9,13 +9,13 @@ namespace lol {
     uint64_t timestamp; 
   };
   void to_json(json& j, const LolMatchHistoryMatchHistoryTimelineFrame& v) {
-  j["participantFrames"] = v.participantFrames; 
-  j["events"] = v.events; 
-  j["timestamp"] = v.timestamp; 
+    j["participantFrames"] = v.participantFrames; 
+    j["events"] = v.events; 
+    j["timestamp"] = v.timestamp; 
   }
   void from_json(const json& j, LolMatchHistoryMatchHistoryTimelineFrame& v) {
-  v.participantFrames = j.at("participantFrames").get<std::map<std::string, LolMatchHistoryMatchHistoryParticipantFrame>>(); 
-  v.events = j.at("events").get<std::vector<LolMatchHistoryMatchHistoryEvent>>(); 
-  v.timestamp = j.at("timestamp").get<uint64_t>(); 
+    v.participantFrames = j.at("participantFrames").get<std::map<std::string, LolMatchHistoryMatchHistoryParticipantFrame>>(); 
+    v.events = j.at("events").get<std::vector<LolMatchHistoryMatchHistoryEvent>>(); 
+    v.timestamp = j.at("timestamp").get<uint64_t>(); 
   }
 }

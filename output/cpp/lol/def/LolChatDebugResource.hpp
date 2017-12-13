@@ -16,31 +16,55 @@ namespace lol {
     std::optional<bool> failNextChatLogin; 
   };
   void to_json(json& j, const LolChatDebugResource& v) {
-  j["asyncWaitInterval"] = v.asyncWaitInterval; 
-  j["keepAliveInterval"] = v.keepAliveInterval; 
-  j["failNextChatLogout"] = v.failNextChatLogout; 
-  j["enableChatFiltering"] = v.enableChatFiltering; 
-  j["failNextKeepAlive"] = v.failNextKeepAlive; 
-  j["isXMPPLoggingEnabled"] = v.isXMPPLoggingEnabled; 
-  j["failAllChatLogin"] = v.failAllChatLogin; 
-  j["maxReconnectInterval"] = v.maxReconnectInterval; 
-  j["triggerChatDisconnect"] = v.triggerChatDisconnect; 
-  j["silenceChatWhileInGame"] = v.silenceChatWhileInGame; 
-  j["minReconnectInterval"] = v.minReconnectInterval; 
-  j["failNextChatLogin"] = v.failNextChatLogin; 
+    if(v.asyncWaitInterval)
+      j["asyncWaitInterval"] = *v.asyncWaitInterval;
+    if(v.keepAliveInterval)
+      j["keepAliveInterval"] = *v.keepAliveInterval;
+    if(v.failNextChatLogout)
+      j["failNextChatLogout"] = *v.failNextChatLogout;
+    if(v.enableChatFiltering)
+      j["enableChatFiltering"] = *v.enableChatFiltering;
+    if(v.failNextKeepAlive)
+      j["failNextKeepAlive"] = *v.failNextKeepAlive;
+    if(v.isXMPPLoggingEnabled)
+      j["isXMPPLoggingEnabled"] = *v.isXMPPLoggingEnabled;
+    if(v.failAllChatLogin)
+      j["failAllChatLogin"] = *v.failAllChatLogin;
+    if(v.maxReconnectInterval)
+      j["maxReconnectInterval"] = *v.maxReconnectInterval;
+    if(v.triggerChatDisconnect)
+      j["triggerChatDisconnect"] = *v.triggerChatDisconnect;
+    if(v.silenceChatWhileInGame)
+      j["silenceChatWhileInGame"] = *v.silenceChatWhileInGame;
+    if(v.minReconnectInterval)
+      j["minReconnectInterval"] = *v.minReconnectInterval;
+    if(v.failNextChatLogin)
+      j["failNextChatLogin"] = *v.failNextChatLogin;
   }
   void from_json(const json& j, LolChatDebugResource& v) {
-  v.asyncWaitInterval = j.at("asyncWaitInterval").get<std::optional<uint32_t>>(); 
-  v.keepAliveInterval = j.at("keepAliveInterval").get<std::optional<uint32_t>>(); 
-  v.failNextChatLogout = j.at("failNextChatLogout").get<std::optional<bool>>(); 
-  v.enableChatFiltering = j.at("enableChatFiltering").get<std::optional<bool>>(); 
-  v.failNextKeepAlive = j.at("failNextKeepAlive").get<std::optional<bool>>(); 
-  v.isXMPPLoggingEnabled = j.at("isXMPPLoggingEnabled").get<std::optional<bool>>(); 
-  v.failAllChatLogin = j.at("failAllChatLogin").get<std::optional<bool>>(); 
-  v.maxReconnectInterval = j.at("maxReconnectInterval").get<std::optional<uint32_t>>(); 
-  v.triggerChatDisconnect = j.at("triggerChatDisconnect").get<std::optional<bool>>(); 
-  v.silenceChatWhileInGame = j.at("silenceChatWhileInGame").get<std::optional<bool>>(); 
-  v.minReconnectInterval = j.at("minReconnectInterval").get<std::optional<uint32_t>>(); 
-  v.failNextChatLogin = j.at("failNextChatLogin").get<std::optional<bool>>(); 
+    if(auto it = j.find("asyncWaitInterval"); it != j.end() && !it->is_null())
+      v.asyncWaitInterval = it->get<std::optional<uint32_t>>(); 
+    if(auto it = j.find("keepAliveInterval"); it != j.end() && !it->is_null())
+      v.keepAliveInterval = it->get<std::optional<uint32_t>>(); 
+    if(auto it = j.find("failNextChatLogout"); it != j.end() && !it->is_null())
+      v.failNextChatLogout = it->get<std::optional<bool>>(); 
+    if(auto it = j.find("enableChatFiltering"); it != j.end() && !it->is_null())
+      v.enableChatFiltering = it->get<std::optional<bool>>(); 
+    if(auto it = j.find("failNextKeepAlive"); it != j.end() && !it->is_null())
+      v.failNextKeepAlive = it->get<std::optional<bool>>(); 
+    if(auto it = j.find("isXMPPLoggingEnabled"); it != j.end() && !it->is_null())
+      v.isXMPPLoggingEnabled = it->get<std::optional<bool>>(); 
+    if(auto it = j.find("failAllChatLogin"); it != j.end() && !it->is_null())
+      v.failAllChatLogin = it->get<std::optional<bool>>(); 
+    if(auto it = j.find("maxReconnectInterval"); it != j.end() && !it->is_null())
+      v.maxReconnectInterval = it->get<std::optional<uint32_t>>(); 
+    if(auto it = j.find("triggerChatDisconnect"); it != j.end() && !it->is_null())
+      v.triggerChatDisconnect = it->get<std::optional<bool>>(); 
+    if(auto it = j.find("silenceChatWhileInGame"); it != j.end() && !it->is_null())
+      v.silenceChatWhileInGame = it->get<std::optional<bool>>(); 
+    if(auto it = j.find("minReconnectInterval"); it != j.end() && !it->is_null())
+      v.minReconnectInterval = it->get<std::optional<uint32_t>>(); 
+    if(auto it = j.find("failNextChatLogin"); it != j.end() && !it->is_null())
+      v.failNextChatLogin = it->get<std::optional<bool>>(); 
   }
 }

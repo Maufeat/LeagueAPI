@@ -6,9 +6,9 @@ namespace lol {
     LolGameSettingsgamesettingsgameclient gameClient; 
   };
   void to_json(json& j, const LolGameSettingsgamesettingsgameflowsession& v) {
-  j["gameClient"] = v.gameClient; 
+    j["gameClient"] = v.gameClient; 
   }
   void from_json(const json& j, LolGameSettingsgamesettingsgameflowsession& v) {
-  v.gameClient = j.at("gameClient").get<LolGameSettingsgamesettingsgameclient>(); 
+    v.gameClient = j.at("gameClient").get<LolGameSettingsgamesettingsgameclient>(); 
   }
 }

@@ -6,9 +6,9 @@ namespace lol {
     LolMatchmakingGameflowGameTypeConfig gameTypeConfig; 
   };
   void to_json(json& j, const LolMatchmakingGameflowQueue& v) {
-  j["gameTypeConfig"] = v.gameTypeConfig; 
+    j["gameTypeConfig"] = v.gameTypeConfig; 
   }
   void from_json(const json& j, LolMatchmakingGameflowQueue& v) {
-  v.gameTypeConfig = j.at("gameTypeConfig").get<LolMatchmakingGameflowGameTypeConfig>(); 
+    v.gameTypeConfig = j.at("gameTypeConfig").get<LolMatchmakingGameflowGameTypeConfig>(); 
   }
 }

@@ -9,17 +9,17 @@ namespace lol {
     int32_t pointsToNextRoll; 
   };
   void to_json(json& j, const ChampSelectLcdsPointSummary& v) {
-  j["maxRolls"] = v.maxRolls; 
-  j["currentPoints"] = v.currentPoints; 
-  j["pointsCostToRoll"] = v.pointsCostToRoll; 
-  j["numberOfRolls"] = v.numberOfRolls; 
-  j["pointsToNextRoll"] = v.pointsToNextRoll; 
+    j["maxRolls"] = v.maxRolls; 
+    j["currentPoints"] = v.currentPoints; 
+    j["pointsCostToRoll"] = v.pointsCostToRoll; 
+    j["numberOfRolls"] = v.numberOfRolls; 
+    j["pointsToNextRoll"] = v.pointsToNextRoll; 
   }
   void from_json(const json& j, ChampSelectLcdsPointSummary& v) {
-  v.maxRolls = j.at("maxRolls").get<int32_t>(); 
-  v.currentPoints = j.at("currentPoints").get<int32_t>(); 
-  v.pointsCostToRoll = j.at("pointsCostToRoll").get<int32_t>(); 
-  v.numberOfRolls = j.at("numberOfRolls").get<int32_t>(); 
-  v.pointsToNextRoll = j.at("pointsToNextRoll").get<int32_t>(); 
+    v.maxRolls = j.at("maxRolls").get<int32_t>(); 
+    v.currentPoints = j.at("currentPoints").get<int32_t>(); 
+    v.pointsCostToRoll = j.at("pointsCostToRoll").get<int32_t>(); 
+    v.numberOfRolls = j.at("numberOfRolls").get<int32_t>(); 
+    v.pointsToNextRoll = j.at("pointsToNextRoll").get<int32_t>(); 
   }
 }

@@ -5,7 +5,16 @@ namespace lol {
   Result<std::vector<LolHonorV2Honor>> GetLolHonorV2V1LateRecognition(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
-    return _client_.request("get", "/lol-honor-v2/v1/late-recognition?" + SimpleWeb::QueryString::create(Args2Headers({  })), "",
-      Args2Headers({ {"Authorization", _client.auth},  }) );
+    try {
+      return Result<std::vector<LolHonorV2Honor>> {
+        _client_.request("get", "/lol-honor-v2/v1/late-recognition?" +
+          SimpleWeb::QueryString::create(Args2Headers({  })), 
+          "",
+          Args2Headers({  
+            {"Authorization", _client.auth},  }))
+      };
+    } catch(const SimpleWeb::system_error &e) {
+      return Result<std::vector<LolHonorV2Honor>> { Error { to_string(e.code().value()), -1, e.what() } };
+    }
   }
 }

@@ -6,9 +6,9 @@ namespace lol {
     LolLobbyTeamBuilderGameflowGameClient gameClient; 
   };
   void to_json(json& j, const LolLobbyTeamBuilderGameflowSession& v) {
-  j["gameClient"] = v.gameClient; 
+    j["gameClient"] = v.gameClient; 
   }
   void from_json(const json& j, LolLobbyTeamBuilderGameflowSession& v) {
-  v.gameClient = j.at("gameClient").get<LolLobbyTeamBuilderGameflowGameClient>(); 
+    v.gameClient = j.at("gameClient").get<LolLobbyTeamBuilderGameflowGameClient>(); 
   }
 }

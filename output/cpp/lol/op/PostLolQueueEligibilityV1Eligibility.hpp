@@ -6,7 +6,17 @@ namespace lol {
   Result<std::vector<LolQueueEligibilityEligibility>> PostLolQueueEligibilityV1Eligibility(const LeagueClient& _client, const LolQueueEligibilityEligibilityQueryParams& eligibilityQueryParam)
   {
     HttpsClient _client_(_client.host, false);
-    return _client_.request("post", "/lol-queue-eligibility/v1/eligibility?" + SimpleWeb::QueryString::create(Args2Headers({  })), json(eligibilityQueryParam).dump(),
-      Args2Headers({ {"Authorization", _client.host}, {"content-type", "application/json"},  }) );
+    try {
+      return Result<std::vector<LolQueueEligibilityEligibility>> {
+        _client_.request("post", "/lol-queue-eligibility/v1/eligibility?" +
+          SimpleWeb::QueryString::create(Args2Headers({  })), 
+          json(eligibilityQueryParam).dump(),
+          Args2Headers({
+            {"content-type", "application/json"},
+            {"Authorization", _client.auth},  }))
+      };
+    } catch(const SimpleWeb::system_error &e) {
+      return Result<std::vector<LolQueueEligibilityEligibility>> { Error { to_string(e.code().value()), -1, e.what() } };
+    }
   }
 }

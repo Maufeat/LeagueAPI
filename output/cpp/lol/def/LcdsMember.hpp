@@ -7,13 +7,13 @@ namespace lol {
     uint64_t summonerId; 
   };
   void to_json(json& j, const LcdsMember& v) {
-  j["hasDelegatedInvitePower"] = v.hasDelegatedInvitePower; 
-  j["summonerName"] = v.summonerName; 
-  j["summonerId"] = v.summonerId; 
+    j["hasDelegatedInvitePower"] = v.hasDelegatedInvitePower; 
+    j["summonerName"] = v.summonerName; 
+    j["summonerId"] = v.summonerId; 
   }
   void from_json(const json& j, LcdsMember& v) {
-  v.hasDelegatedInvitePower = j.at("hasDelegatedInvitePower").get<bool>(); 
-  v.summonerName = j.at("summonerName").get<std::string>(); 
-  v.summonerId = j.at("summonerId").get<uint64_t>(); 
+    v.hasDelegatedInvitePower = j.at("hasDelegatedInvitePower").get<bool>(); 
+    v.summonerName = j.at("summonerName").get<std::string>(); 
+    v.summonerId = j.at("summonerId").get<uint64_t>(); 
   }
 }

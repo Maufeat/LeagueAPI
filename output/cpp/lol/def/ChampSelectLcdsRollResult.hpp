@@ -7,11 +7,11 @@ namespace lol {
     int32_t championId; 
   };
   void to_json(json& j, const ChampSelectLcdsRollResult& v) {
-  j["pointSummary"] = v.pointSummary; 
-  j["championId"] = v.championId; 
+    j["pointSummary"] = v.pointSummary; 
+    j["championId"] = v.championId; 
   }
   void from_json(const json& j, ChampSelectLcdsRollResult& v) {
-  v.pointSummary = j.at("pointSummary").get<ChampSelectLcdsPointSummary>(); 
-  v.championId = j.at("championId").get<int32_t>(); 
+    v.pointSummary = j.at("pointSummary").get<ChampSelectLcdsPointSummary>(); 
+    v.championId = j.at("championId").get<int32_t>(); 
   }
 }

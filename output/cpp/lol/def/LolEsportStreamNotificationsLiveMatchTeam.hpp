@@ -8,15 +8,15 @@ namespace lol {
     std::string acronym; 
   };
   void to_json(json& j, const LolEsportStreamNotificationsLiveMatchTeam& v) {
-  j["logoUrl"] = v.logoUrl; 
-  j["name"] = v.name; 
-  j["guid"] = v.guid; 
-  j["acronym"] = v.acronym; 
+    j["logoUrl"] = v.logoUrl; 
+    j["name"] = v.name; 
+    j["guid"] = v.guid; 
+    j["acronym"] = v.acronym; 
   }
   void from_json(const json& j, LolEsportStreamNotificationsLiveMatchTeam& v) {
-  v.logoUrl = j.at("logoUrl").get<std::string>(); 
-  v.name = j.at("name").get<std::string>(); 
-  v.guid = j.at("guid").get<std::string>(); 
-  v.acronym = j.at("acronym").get<std::string>(); 
+    v.logoUrl = j.at("logoUrl").get<std::string>(); 
+    v.name = j.at("name").get<std::string>(); 
+    v.guid = j.at("guid").get<std::string>(); 
+    v.acronym = j.at("acronym").get<std::string>(); 
   }
 }

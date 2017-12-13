@@ -7,13 +7,13 @@ namespace lol {
     double bytesPerSecond; 
   };
   void to_json(json& j, const PatcherComponentStateProgress& v) {
-  j["bytesRequired"] = v.bytesRequired; 
-  j["bytesComplete"] = v.bytesComplete; 
-  j["bytesPerSecond"] = v.bytesPerSecond; 
+    j["bytesRequired"] = v.bytesRequired; 
+    j["bytesComplete"] = v.bytesComplete; 
+    j["bytesPerSecond"] = v.bytesPerSecond; 
   }
   void from_json(const json& j, PatcherComponentStateProgress& v) {
-  v.bytesRequired = j.at("bytesRequired").get<uint64_t>(); 
-  v.bytesComplete = j.at("bytesComplete").get<uint64_t>(); 
-  v.bytesPerSecond = j.at("bytesPerSecond").get<double>(); 
+    v.bytesRequired = j.at("bytesRequired").get<uint64_t>(); 
+    v.bytesComplete = j.at("bytesComplete").get<uint64_t>(); 
+    v.bytesPerSecond = j.at("bytesPerSecond").get<double>(); 
   }
 }

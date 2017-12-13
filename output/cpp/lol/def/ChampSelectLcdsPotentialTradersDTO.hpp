@@ -5,9 +5,9 @@ namespace lol {
     std::vector<std::string> potentialTraders; 
   };
   void to_json(json& j, const ChampSelectLcdsPotentialTradersDTO& v) {
-  j["potentialTraders"] = v.potentialTraders; 
+    j["potentialTraders"] = v.potentialTraders; 
   }
   void from_json(const json& j, ChampSelectLcdsPotentialTradersDTO& v) {
-  v.potentialTraders = j.at("potentialTraders").get<std::vector<std::string>>(); 
+    v.potentialTraders = j.at("potentialTraders").get<std::vector<std::string>>(); 
   }
 }

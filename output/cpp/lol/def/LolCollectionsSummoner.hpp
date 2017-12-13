@@ -8,15 +8,15 @@ namespace lol {
     uint64_t summonerId; 
   };
   void to_json(json& j, const LolCollectionsSummoner& v) {
-  j["summonerLevel"] = v.summonerLevel; 
-  j["accountId"] = v.accountId; 
-  j["profileIconId"] = v.profileIconId; 
-  j["summonerId"] = v.summonerId; 
+    j["summonerLevel"] = v.summonerLevel; 
+    j["accountId"] = v.accountId; 
+    j["profileIconId"] = v.profileIconId; 
+    j["summonerId"] = v.summonerId; 
   }
   void from_json(const json& j, LolCollectionsSummoner& v) {
-  v.summonerLevel = j.at("summonerLevel").get<uint32_t>(); 
-  v.accountId = j.at("accountId").get<uint64_t>(); 
-  v.profileIconId = j.at("profileIconId").get<int32_t>(); 
-  v.summonerId = j.at("summonerId").get<uint64_t>(); 
+    v.summonerLevel = j.at("summonerLevel").get<uint32_t>(); 
+    v.accountId = j.at("accountId").get<uint64_t>(); 
+    v.profileIconId = j.at("profileIconId").get<int32_t>(); 
+    v.summonerId = j.at("summonerId").get<uint64_t>(); 
   }
 }

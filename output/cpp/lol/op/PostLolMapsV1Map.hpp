@@ -5,7 +5,17 @@ namespace lol {
   Result<void> PostLolMapsV1Map(const LeagueClient& _client, const LolMapsMaps& map)
   {
     HttpsClient _client_(_client.host, false);
-    return _client_.request("post", "/lol-maps/v1/map?" + SimpleWeb::QueryString::create(Args2Headers({  })), json(map).dump(),
-      Args2Headers({ {"Authorization", _client.host}, {"content-type", "application/json"},  }) );
+    try {
+      return Result<void> {
+        _client_.request("post", "/lol-maps/v1/map?" +
+          SimpleWeb::QueryString::create(Args2Headers({  })), 
+          json(map).dump(),
+          Args2Headers({
+            {"content-type", "application/json"},
+            {"Authorization", _client.auth},  }))
+      };
+    } catch(const SimpleWeb::system_error &e) {
+      return Result<void> { Error { to_string(e.code().value()), -1, e.what() } };
+    }
   }
 }

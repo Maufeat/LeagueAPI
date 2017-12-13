@@ -17,31 +17,31 @@ namespace lol {
     uint64_t summonerId; 
   };
   void to_json(json& j, const LolPerksSummoner& v) {
-  j["rerollPoints"] = v.rerollPoints; 
-  j["xpSinceLastLevel"] = v.xpSinceLastLevel; 
-  j["percentCompleteForNextLevel"] = v.percentCompleteForNextLevel; 
-  j["puuid"] = v.puuid; 
-  j["lastSeasonHighestRank"] = v.lastSeasonHighestRank; 
-  j["summonerLevel"] = v.summonerLevel; 
-  j["displayName"] = v.displayName; 
-  j["xpUntilNextLevel"] = v.xpUntilNextLevel; 
-  j["internalName"] = v.internalName; 
-  j["accountId"] = v.accountId; 
-  j["profileIconId"] = v.profileIconId; 
-  j["summonerId"] = v.summonerId; 
+    j["rerollPoints"] = v.rerollPoints; 
+    j["xpSinceLastLevel"] = v.xpSinceLastLevel; 
+    j["percentCompleteForNextLevel"] = v.percentCompleteForNextLevel; 
+    j["puuid"] = v.puuid; 
+    j["lastSeasonHighestRank"] = v.lastSeasonHighestRank; 
+    j["summonerLevel"] = v.summonerLevel; 
+    j["displayName"] = v.displayName; 
+    j["xpUntilNextLevel"] = v.xpUntilNextLevel; 
+    j["internalName"] = v.internalName; 
+    j["accountId"] = v.accountId; 
+    j["profileIconId"] = v.profileIconId; 
+    j["summonerId"] = v.summonerId; 
   }
   void from_json(const json& j, LolPerksSummoner& v) {
-  v.rerollPoints = j.at("rerollPoints").get<LolPerksSummonerRerollPoints>(); 
-  v.xpSinceLastLevel = j.at("xpSinceLastLevel").get<uint64_t>(); 
-  v.percentCompleteForNextLevel = j.at("percentCompleteForNextLevel").get<uint32_t>(); 
-  v.puuid = j.at("puuid").get<std::string>(); 
-  v.lastSeasonHighestRank = j.at("lastSeasonHighestRank").get<std::string>(); 
-  v.summonerLevel = j.at("summonerLevel").get<uint32_t>(); 
-  v.displayName = j.at("displayName").get<std::string>(); 
-  v.xpUntilNextLevel = j.at("xpUntilNextLevel").get<uint64_t>(); 
-  v.internalName = j.at("internalName").get<std::string>(); 
-  v.accountId = j.at("accountId").get<uint64_t>(); 
-  v.profileIconId = j.at("profileIconId").get<int32_t>(); 
-  v.summonerId = j.at("summonerId").get<uint64_t>(); 
+    v.rerollPoints = j.at("rerollPoints").get<LolPerksSummonerRerollPoints>(); 
+    v.xpSinceLastLevel = j.at("xpSinceLastLevel").get<uint64_t>(); 
+    v.percentCompleteForNextLevel = j.at("percentCompleteForNextLevel").get<uint32_t>(); 
+    v.puuid = j.at("puuid").get<std::string>(); 
+    v.lastSeasonHighestRank = j.at("lastSeasonHighestRank").get<std::string>(); 
+    v.summonerLevel = j.at("summonerLevel").get<uint32_t>(); 
+    v.displayName = j.at("displayName").get<std::string>(); 
+    v.xpUntilNextLevel = j.at("xpUntilNextLevel").get<uint64_t>(); 
+    v.internalName = j.at("internalName").get<std::string>(); 
+    v.accountId = j.at("accountId").get<uint64_t>(); 
+    v.profileIconId = j.at("profileIconId").get<int32_t>(); 
+    v.summonerId = j.at("summonerId").get<uint64_t>(); 
   }
 }

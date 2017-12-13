@@ -6,9 +6,9 @@ namespace lol {
     std::vector<LolLoadoutsItemKey> entitlements; 
   };
   void to_json(json& j, const LolLoadoutsFrontendInventoryResponse& v) {
-  j["entitlements"] = v.entitlements; 
+    j["entitlements"] = v.entitlements; 
   }
   void from_json(const json& j, LolLoadoutsFrontendInventoryResponse& v) {
-  v.entitlements = j.at("entitlements").get<std::vector<LolLoadoutsItemKey>>(); 
+    v.entitlements = j.at("entitlements").get<std::vector<LolLoadoutsItemKey>>(); 
   }
 }

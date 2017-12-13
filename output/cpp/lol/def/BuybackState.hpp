@@ -7,31 +7,31 @@ namespace lol {
     READY_e = 2,
   };
   void to_json(json& j, const BuybackState& v) {
-  if(v == BuybackState::FORCED_NOT_READY_e) {
-    j = "FORCED_NOT_READY";
-    return;
-  }
-  if(v == BuybackState::NOT_READY_e) {
-    j = "NOT_READY";
-    return;
-  }
-  if(v == BuybackState::READY_e) {
-    j = "READY";
-    return;
-  }
+    if(v == BuybackState::FORCED_NOT_READY_e) {
+      j = "FORCED_NOT_READY";
+      return;
+    }
+    if(v == BuybackState::NOT_READY_e) {
+      j = "NOT_READY";
+      return;
+    }
+    if(v == BuybackState::READY_e) {
+      j = "READY";
+      return;
+    }
   }
   void from_json(const json& j, BuybackState& v) {
-  if(j.get<std::string>() == "FORCED_NOT_READY") {
-    v = BuybackState::FORCED_NOT_READY_e;
-    return;
-  } 
-  if(j.get<std::string>() == "NOT_READY") {
-    v = BuybackState::NOT_READY_e;
-    return;
-  } 
-  if(j.get<std::string>() == "READY") {
-    v = BuybackState::READY_e;
-    return;
-  } 
+    if(j.get<std::string>() == "FORCED_NOT_READY") {
+      v = BuybackState::FORCED_NOT_READY_e;
+      return;
+    } 
+    if(j.get<std::string>() == "NOT_READY") {
+      v = BuybackState::NOT_READY_e;
+      return;
+    } 
+    if(j.get<std::string>() == "READY") {
+      v = BuybackState::READY_e;
+      return;
+    } 
   }
 }

@@ -7,11 +7,11 @@ namespace lol {
     LogSeverityLevels severity; 
   };
   void to_json(json& j, const LogEvent& v) {
-  j["message"] = v.message; 
-  j["severity"] = v.severity; 
+    j["message"] = v.message; 
+    j["severity"] = v.severity; 
   }
   void from_json(const json& j, LogEvent& v) {
-  v.message = j.at("message").get<std::string>(); 
-  v.severity = j.at("severity").get<LogSeverityLevels>(); 
+    v.message = j.at("message").get<std::string>(); 
+    v.severity = j.at("severity").get<LogSeverityLevels>(); 
   }
 }

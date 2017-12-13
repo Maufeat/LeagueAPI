@@ -7,13 +7,17 @@ namespace lol {
     bool modified; 
   };
   void to_json(json& j, const SanitizerSanitizeResponse& v) {
-  j["texts"] = v.texts; 
-  j["text"] = v.text; 
-  j["modified"] = v.modified; 
+    if(v.texts)
+      j["texts"] = *v.texts;
+    if(v.text)
+      j["text"] = *v.text;
+    j["modified"] = v.modified; 
   }
   void from_json(const json& j, SanitizerSanitizeResponse& v) {
-  v.texts = j.at("texts").get<std::optional<std::vector<std::string>>>(); 
-  v.text = j.at("text").get<std::optional<std::string>>(); 
-  v.modified = j.at("modified").get<bool>(); 
+    if(auto it = j.find("texts"); it != j.end() && !it->is_null())
+      v.texts = it->get<std::optional<std::vector<std::string>>>(); 
+    if(auto it = j.find("text"); it != j.end() && !it->is_null())
+      v.text = it->get<std::optional<std::string>>(); 
+    v.modified = j.at("modified").get<bool>(); 
   }
 }

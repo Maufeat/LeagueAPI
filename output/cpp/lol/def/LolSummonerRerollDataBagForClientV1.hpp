@@ -11,21 +11,21 @@ namespace lol {
     int32_t rerollCount; 
   };
   void to_json(json& j, const LolSummonerRerollDataBagForClientV1& v) {
-  j["maximumRerolls"] = v.maximumRerolls; 
-  j["pointsUntilNextReroll"] = v.pointsUntilNextReroll; 
-  j["totalPoints"] = v.totalPoints; 
-  j["pointCostOfReroll"] = v.pointCostOfReroll; 
-  j["queueId"] = v.queueId; 
-  j["pointsGainedLastGame"] = v.pointsGainedLastGame; 
-  j["rerollCount"] = v.rerollCount; 
+    j["maximumRerolls"] = v.maximumRerolls; 
+    j["pointsUntilNextReroll"] = v.pointsUntilNextReroll; 
+    j["totalPoints"] = v.totalPoints; 
+    j["pointCostOfReroll"] = v.pointCostOfReroll; 
+    j["queueId"] = v.queueId; 
+    j["pointsGainedLastGame"] = v.pointsGainedLastGame; 
+    j["rerollCount"] = v.rerollCount; 
   }
   void from_json(const json& j, LolSummonerRerollDataBagForClientV1& v) {
-  v.maximumRerolls = j.at("maximumRerolls").get<uint32_t>(); 
-  v.pointsUntilNextReroll = j.at("pointsUntilNextReroll").get<int64_t>(); 
-  v.totalPoints = j.at("totalPoints").get<int64_t>(); 
-  v.pointCostOfReroll = j.at("pointCostOfReroll").get<int64_t>(); 
-  v.queueId = j.at("queueId").get<int64_t>(); 
-  v.pointsGainedLastGame = j.at("pointsGainedLastGame").get<int64_t>(); 
-  v.rerollCount = j.at("rerollCount").get<int32_t>(); 
+    v.maximumRerolls = j.at("maximumRerolls").get<uint32_t>(); 
+    v.pointsUntilNextReroll = j.at("pointsUntilNextReroll").get<int64_t>(); 
+    v.totalPoints = j.at("totalPoints").get<int64_t>(); 
+    v.pointCostOfReroll = j.at("pointCostOfReroll").get<int64_t>(); 
+    v.queueId = j.at("queueId").get<int64_t>(); 
+    v.pointsGainedLastGame = j.at("pointsGainedLastGame").get<int64_t>(); 
+    v.rerollCount = j.at("rerollCount").get<int32_t>(); 
   }
 }

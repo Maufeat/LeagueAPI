@@ -5,9 +5,9 @@ namespace lol {
     std::string lootName; 
   };
   void to_json(json& j, const RedeemLootTransactionDTO& v) {
-  j["lootName"] = v.lootName; 
+    j["lootName"] = v.lootName; 
   }
   void from_json(const json& j, RedeemLootTransactionDTO& v) {
-  v.lootName = j.at("lootName").get<std::string>(); 
+    v.lootName = j.at("lootName").get<std::string>(); 
   }
 }

@@ -12,17 +12,17 @@ namespace lol {
     LolClashNotifyReason notifyReason; 
   };
   void to_json(json& j, const LolClashPlayerNotificationData& v) {
-  j["sourceSummonerId"] = v.sourceSummonerId; 
-  j["notification"] = v.notification; 
-  j["rosterNotifyReason"] = v.rosterNotifyReason; 
-  j["targetSummonerId"] = v.targetSummonerId; 
-  j["notifyReason"] = v.notifyReason; 
+    j["sourceSummonerId"] = v.sourceSummonerId; 
+    j["notification"] = v.notification; 
+    j["rosterNotifyReason"] = v.rosterNotifyReason; 
+    j["targetSummonerId"] = v.targetSummonerId; 
+    j["notifyReason"] = v.notifyReason; 
   }
   void from_json(const json& j, LolClashPlayerNotificationData& v) {
-  v.sourceSummonerId = j.at("sourceSummonerId").get<uint64_t>(); 
-  v.notification = j.at("notification").get<LolClashPlayerNotification>(); 
-  v.rosterNotifyReason = j.at("rosterNotifyReason").get<LolClashRosterNotifyReason>(); 
-  v.targetSummonerId = j.at("targetSummonerId").get<uint64_t>(); 
-  v.notifyReason = j.at("notifyReason").get<LolClashNotifyReason>(); 
+    v.sourceSummonerId = j.at("sourceSummonerId").get<uint64_t>(); 
+    v.notification = j.at("notification").get<LolClashPlayerNotification>(); 
+    v.rosterNotifyReason = j.at("rosterNotifyReason").get<LolClashRosterNotifyReason>(); 
+    v.targetSummonerId = j.at("targetSummonerId").get<uint64_t>(); 
+    v.notifyReason = j.at("notifyReason").get<LolClashNotifyReason>(); 
   }
 }

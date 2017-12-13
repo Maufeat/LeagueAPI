@@ -8,39 +8,39 @@ namespace lol {
     NONE_e = 0,
   };
   void to_json(json& j, const GameQueuesLcdsAllowSpectators& v) {
-  if(v == GameQueuesLcdsAllowSpectators::ALL_e) {
-    j = "ALL";
-    return;
-  }
-  if(v == GameQueuesLcdsAllowSpectators::DROPINONLY_e) {
-    j = "DROPINONLY";
-    return;
-  }
-  if(v == GameQueuesLcdsAllowSpectators::LOBBYONLY_e) {
-    j = "LOBBYONLY";
-    return;
-  }
-  if(v == GameQueuesLcdsAllowSpectators::NONE_e) {
-    j = "NONE";
-    return;
-  }
+    if(v == GameQueuesLcdsAllowSpectators::ALL_e) {
+      j = "ALL";
+      return;
+    }
+    if(v == GameQueuesLcdsAllowSpectators::DROPINONLY_e) {
+      j = "DROPINONLY";
+      return;
+    }
+    if(v == GameQueuesLcdsAllowSpectators::LOBBYONLY_e) {
+      j = "LOBBYONLY";
+      return;
+    }
+    if(v == GameQueuesLcdsAllowSpectators::NONE_e) {
+      j = "NONE";
+      return;
+    }
   }
   void from_json(const json& j, GameQueuesLcdsAllowSpectators& v) {
-  if(j.get<std::string>() == "ALL") {
-    v = GameQueuesLcdsAllowSpectators::ALL_e;
-    return;
-  } 
-  if(j.get<std::string>() == "DROPINONLY") {
-    v = GameQueuesLcdsAllowSpectators::DROPINONLY_e;
-    return;
-  } 
-  if(j.get<std::string>() == "LOBBYONLY") {
-    v = GameQueuesLcdsAllowSpectators::LOBBYONLY_e;
-    return;
-  } 
-  if(j.get<std::string>() == "NONE") {
-    v = GameQueuesLcdsAllowSpectators::NONE_e;
-    return;
-  } 
+    if(j.get<std::string>() == "ALL") {
+      v = GameQueuesLcdsAllowSpectators::ALL_e;
+      return;
+    } 
+    if(j.get<std::string>() == "DROPINONLY") {
+      v = GameQueuesLcdsAllowSpectators::DROPINONLY_e;
+      return;
+    } 
+    if(j.get<std::string>() == "LOBBYONLY") {
+      v = GameQueuesLcdsAllowSpectators::LOBBYONLY_e;
+      return;
+    } 
+    if(j.get<std::string>() == "NONE") {
+      v = GameQueuesLcdsAllowSpectators::NONE_e;
+      return;
+    } 
   }
 }

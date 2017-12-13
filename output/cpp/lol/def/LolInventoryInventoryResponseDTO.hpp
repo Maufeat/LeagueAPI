@@ -6,9 +6,9 @@ namespace lol {
     LolInventoryInventoryDTO data; 
   };
   void to_json(json& j, const LolInventoryInventoryResponseDTO& v) {
-  j["data"] = v.data; 
+    j["data"] = v.data; 
   }
   void from_json(const json& j, LolInventoryInventoryResponseDTO& v) {
-  v.data = j.at("data").get<LolInventoryInventoryDTO>(); 
+    v.data = j.at("data").get<LolInventoryInventoryDTO>(); 
   }
 }

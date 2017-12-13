@@ -8,13 +8,13 @@ namespace lol {
     int64_t bracketId; 
   };
   void to_json(json& j, const LolClashPlayerTournamentData& v) {
-  j["rosterId"] = v.rosterId; 
-  j["state"] = v.state; 
-  j["bracketId"] = v.bracketId; 
+    j["rosterId"] = v.rosterId; 
+    j["state"] = v.state; 
+    j["bracketId"] = v.bracketId; 
   }
   void from_json(const json& j, LolClashPlayerTournamentData& v) {
-  v.rosterId = j.at("rosterId").get<std::string>(); 
-  v.state = j.at("state").get<LolClashPlayerState>(); 
-  v.bracketId = j.at("bracketId").get<int64_t>(); 
+    v.rosterId = j.at("rosterId").get<std::string>(); 
+    v.state = j.at("state").get<LolClashPlayerState>(); 
+    v.bracketId = j.at("bracketId").get<int64_t>(); 
   }
 }

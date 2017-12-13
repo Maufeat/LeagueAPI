@@ -5,9 +5,9 @@ namespace lol {
     bool Enabled; 
   };
   void to_json(json& j, const LolAccountVerificationAVSConfig& v) {
-  j["Enabled"] = v.Enabled; 
+    j["Enabled"] = v.Enabled; 
   }
   void from_json(const json& j, LolAccountVerificationAVSConfig& v) {
-  v.Enabled = j.at("Enabled").get<bool>(); 
+    v.Enabled = j.at("Enabled").get<bool>(); 
   }
 }

@@ -5,9 +5,9 @@ namespace lol {
     uint32_t summonerLevel; 
   };
   void to_json(json& j, const LolChampionsSummoner& v) {
-  j["summonerLevel"] = v.summonerLevel; 
+    j["summonerLevel"] = v.summonerLevel; 
   }
   void from_json(const json& j, LolChampionsSummoner& v) {
-  v.summonerLevel = j.at("summonerLevel").get<uint32_t>(); 
+    v.summonerLevel = j.at("summonerLevel").get<uint32_t>(); 
   }
 }

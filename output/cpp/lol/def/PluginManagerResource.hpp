@@ -6,9 +6,9 @@ namespace lol {
     PluginManagerState state; 
   };
   void to_json(json& j, const PluginManagerResource& v) {
-  j["state"] = v.state; 
+    j["state"] = v.state; 
   }
   void from_json(const json& j, PluginManagerResource& v) {
-  v.state = j.at("state").get<PluginManagerState>(); 
+    v.state = j.at("state").get<PluginManagerState>(); 
   }
 }

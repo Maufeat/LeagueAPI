@@ -5,9 +5,9 @@ namespace lol {
     bool shareClubAffiliation; 
   };
   void to_json(json& j, const LolClubsPublicClubPreferences& v) {
-  j["shareClubAffiliation"] = v.shareClubAffiliation; 
+    j["shareClubAffiliation"] = v.shareClubAffiliation; 
   }
   void from_json(const json& j, LolClubsPublicClubPreferences& v) {
-  v.shareClubAffiliation = j.at("shareClubAffiliation").get<bool>(); 
+    v.shareClubAffiliation = j.at("shareClubAffiliation").get<bool>(); 
   }
 }

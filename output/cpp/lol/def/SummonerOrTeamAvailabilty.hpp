@@ -5,9 +5,9 @@ namespace lol {
     std::vector<std::string> availableForWatching; 
   };
   void to_json(json& j, const SummonerOrTeamAvailabilty& v) {
-  j["availableForWatching"] = v.availableForWatching; 
+    j["availableForWatching"] = v.availableForWatching; 
   }
   void from_json(const json& j, SummonerOrTeamAvailabilty& v) {
-  v.availableForWatching = j.at("availableForWatching").get<std::vector<std::string>>(); 
+    v.availableForWatching = j.at("availableForWatching").get<std::vector<std::string>>(); 
   }
 }

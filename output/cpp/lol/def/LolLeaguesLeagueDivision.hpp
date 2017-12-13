@@ -8,11 +8,11 @@ namespace lol {
     std::vector<LolLeaguesLeagueStanding> standings; 
   };
   void to_json(json& j, const LolLeaguesLeagueDivision& v) {
-  j["leagueRank"] = v.leagueRank; 
-  j["standings"] = v.standings; 
+    j["leagueRank"] = v.leagueRank; 
+    j["standings"] = v.standings; 
   }
   void from_json(const json& j, LolLeaguesLeagueDivision& v) {
-  v.leagueRank = j.at("leagueRank").get<LolLeaguesLeagueRank>(); 
-  v.standings = j.at("standings").get<std::vector<LolLeaguesLeagueStanding>>(); 
+    v.leagueRank = j.at("leagueRank").get<LolLeaguesLeagueRank>(); 
+    v.standings = j.at("standings").get<std::vector<LolLeaguesLeagueStanding>>(); 
   }
 }

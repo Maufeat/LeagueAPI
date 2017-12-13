@@ -16,31 +16,31 @@ namespace lol {
     uint64_t summonerId; 
   };
   void to_json(json& j, const LolPerksChampSelectPlayerSelection& v) {
-  j["selectedSkinId"] = v.selectedSkinId; 
-  j["playerType"] = v.playerType; 
-  j["cellId"] = v.cellId; 
-  j["spell1Id"] = v.spell1Id; 
-  j["wardSkinId"] = v.wardSkinId; 
-  j["championPickIntent"] = v.championPickIntent; 
-  j["displayName"] = v.displayName; 
-  j["assignedPosition"] = v.assignedPosition; 
-  j["spell2Id"] = v.spell2Id; 
-  j["team"] = v.team; 
-  j["championId"] = v.championId; 
-  j["summonerId"] = v.summonerId; 
+    j["selectedSkinId"] = v.selectedSkinId; 
+    j["playerType"] = v.playerType; 
+    j["cellId"] = v.cellId; 
+    j["spell1Id"] = v.spell1Id; 
+    j["wardSkinId"] = v.wardSkinId; 
+    j["championPickIntent"] = v.championPickIntent; 
+    j["displayName"] = v.displayName; 
+    j["assignedPosition"] = v.assignedPosition; 
+    j["spell2Id"] = v.spell2Id; 
+    j["team"] = v.team; 
+    j["championId"] = v.championId; 
+    j["summonerId"] = v.summonerId; 
   }
   void from_json(const json& j, LolPerksChampSelectPlayerSelection& v) {
-  v.selectedSkinId = j.at("selectedSkinId").get<int32_t>(); 
-  v.playerType = j.at("playerType").get<std::string>(); 
-  v.cellId = j.at("cellId").get<int64_t>(); 
-  v.spell1Id = j.at("spell1Id").get<uint64_t>(); 
-  v.wardSkinId = j.at("wardSkinId").get<int64_t>(); 
-  v.championPickIntent = j.at("championPickIntent").get<int32_t>(); 
-  v.displayName = j.at("displayName").get<std::string>(); 
-  v.assignedPosition = j.at("assignedPosition").get<std::string>(); 
-  v.spell2Id = j.at("spell2Id").get<uint64_t>(); 
-  v.team = j.at("team").get<int32_t>(); 
-  v.championId = j.at("championId").get<int32_t>(); 
-  v.summonerId = j.at("summonerId").get<uint64_t>(); 
+    v.selectedSkinId = j.at("selectedSkinId").get<int32_t>(); 
+    v.playerType = j.at("playerType").get<std::string>(); 
+    v.cellId = j.at("cellId").get<int64_t>(); 
+    v.spell1Id = j.at("spell1Id").get<uint64_t>(); 
+    v.wardSkinId = j.at("wardSkinId").get<int64_t>(); 
+    v.championPickIntent = j.at("championPickIntent").get<int32_t>(); 
+    v.displayName = j.at("displayName").get<std::string>(); 
+    v.assignedPosition = j.at("assignedPosition").get<std::string>(); 
+    v.spell2Id = j.at("spell2Id").get<uint64_t>(); 
+    v.team = j.at("team").get<int32_t>(); 
+    v.championId = j.at("championId").get<int32_t>(); 
+    v.summonerId = j.at("summonerId").get<uint64_t>(); 
   }
 }

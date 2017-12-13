@@ -10,17 +10,17 @@ namespace lol {
     EndOfGameLcdsTeamId teamId; 
   };
   void to_json(json& j, const EndOfGameLcdsTeamInfo& v) {
-  j["tag"] = v.tag; 
-  j["memberStatusString"] = v.memberStatusString; 
-  j["name"] = v.name; 
-  j["secondsUntilEligibleForDeletion"] = v.secondsUntilEligibleForDeletion; 
-  j["teamId"] = v.teamId; 
+    j["tag"] = v.tag; 
+    j["memberStatusString"] = v.memberStatusString; 
+    j["name"] = v.name; 
+    j["secondsUntilEligibleForDeletion"] = v.secondsUntilEligibleForDeletion; 
+    j["teamId"] = v.teamId; 
   }
   void from_json(const json& j, EndOfGameLcdsTeamInfo& v) {
-  v.tag = j.at("tag").get<std::string>(); 
-  v.memberStatusString = j.at("memberStatusString").get<std::string>(); 
-  v.name = j.at("name").get<std::string>(); 
-  v.secondsUntilEligibleForDeletion = j.at("secondsUntilEligibleForDeletion").get<int64_t>(); 
-  v.teamId = j.at("teamId").get<EndOfGameLcdsTeamId>(); 
+    v.tag = j.at("tag").get<std::string>(); 
+    v.memberStatusString = j.at("memberStatusString").get<std::string>(); 
+    v.name = j.at("name").get<std::string>(); 
+    v.secondsUntilEligibleForDeletion = j.at("secondsUntilEligibleForDeletion").get<int64_t>(); 
+    v.teamId = j.at("teamId").get<EndOfGameLcdsTeamId>(); 
   }
 }

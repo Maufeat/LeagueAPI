@@ -5,9 +5,9 @@ namespace lol {
     std::string userInfo; 
   };
   void to_json(json& j, const RsoAuthUserInfo& v) {
-  j["userInfo"] = v.userInfo; 
+    j["userInfo"] = v.userInfo; 
   }
   void from_json(const json& j, RsoAuthUserInfo& v) {
-  v.userInfo = j.at("userInfo").get<std::string>(); 
+    v.userInfo = j.at("userInfo").get<std::string>(); 
   }
 }

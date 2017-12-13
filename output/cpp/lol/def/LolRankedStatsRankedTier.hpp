@@ -13,79 +13,79 @@ namespace lol {
     SILVER_e = 3,
   };
   void to_json(json& j, const LolRankedStatsRankedTier& v) {
-  if(v == LolRankedStatsRankedTier::BRONZE_e) {
-    j = "BRONZE";
-    return;
-  }
-  if(v == LolRankedStatsRankedTier::CHALLENGER_e) {
-    j = "CHALLENGER";
-    return;
-  }
-  if(v == LolRankedStatsRankedTier::DIAMOND_e) {
-    j = "DIAMOND";
-    return;
-  }
-  if(v == LolRankedStatsRankedTier::GOLD_e) {
-    j = "GOLD";
-    return;
-  }
-  if(v == LolRankedStatsRankedTier::MASTER_e) {
-    j = "MASTER";
-    return;
-  }
-  if(v == LolRankedStatsRankedTier::NOT_RANKED_e) {
-    j = "NOT_RANKED";
-    return;
-  }
-  if(v == LolRankedStatsRankedTier::PLATINUM_e) {
-    j = "PLATINUM";
-    return;
-  }
-  if(v == LolRankedStatsRankedTier::PROVISIONAL_e) {
-    j = "PROVISIONAL";
-    return;
-  }
-  if(v == LolRankedStatsRankedTier::SILVER_e) {
-    j = "SILVER";
-    return;
-  }
+    if(v == LolRankedStatsRankedTier::BRONZE_e) {
+      j = "BRONZE";
+      return;
+    }
+    if(v == LolRankedStatsRankedTier::CHALLENGER_e) {
+      j = "CHALLENGER";
+      return;
+    }
+    if(v == LolRankedStatsRankedTier::DIAMOND_e) {
+      j = "DIAMOND";
+      return;
+    }
+    if(v == LolRankedStatsRankedTier::GOLD_e) {
+      j = "GOLD";
+      return;
+    }
+    if(v == LolRankedStatsRankedTier::MASTER_e) {
+      j = "MASTER";
+      return;
+    }
+    if(v == LolRankedStatsRankedTier::NOT_RANKED_e) {
+      j = "NOT_RANKED";
+      return;
+    }
+    if(v == LolRankedStatsRankedTier::PLATINUM_e) {
+      j = "PLATINUM";
+      return;
+    }
+    if(v == LolRankedStatsRankedTier::PROVISIONAL_e) {
+      j = "PROVISIONAL";
+      return;
+    }
+    if(v == LolRankedStatsRankedTier::SILVER_e) {
+      j = "SILVER";
+      return;
+    }
   }
   void from_json(const json& j, LolRankedStatsRankedTier& v) {
-  if(j.get<std::string>() == "BRONZE") {
-    v = LolRankedStatsRankedTier::BRONZE_e;
-    return;
-  } 
-  if(j.get<std::string>() == "CHALLENGER") {
-    v = LolRankedStatsRankedTier::CHALLENGER_e;
-    return;
-  } 
-  if(j.get<std::string>() == "DIAMOND") {
-    v = LolRankedStatsRankedTier::DIAMOND_e;
-    return;
-  } 
-  if(j.get<std::string>() == "GOLD") {
-    v = LolRankedStatsRankedTier::GOLD_e;
-    return;
-  } 
-  if(j.get<std::string>() == "MASTER") {
-    v = LolRankedStatsRankedTier::MASTER_e;
-    return;
-  } 
-  if(j.get<std::string>() == "NOT_RANKED") {
-    v = LolRankedStatsRankedTier::NOT_RANKED_e;
-    return;
-  } 
-  if(j.get<std::string>() == "PLATINUM") {
-    v = LolRankedStatsRankedTier::PLATINUM_e;
-    return;
-  } 
-  if(j.get<std::string>() == "PROVISIONAL") {
-    v = LolRankedStatsRankedTier::PROVISIONAL_e;
-    return;
-  } 
-  if(j.get<std::string>() == "SILVER") {
-    v = LolRankedStatsRankedTier::SILVER_e;
-    return;
-  } 
+    if(j.get<std::string>() == "BRONZE") {
+      v = LolRankedStatsRankedTier::BRONZE_e;
+      return;
+    } 
+    if(j.get<std::string>() == "CHALLENGER") {
+      v = LolRankedStatsRankedTier::CHALLENGER_e;
+      return;
+    } 
+    if(j.get<std::string>() == "DIAMOND") {
+      v = LolRankedStatsRankedTier::DIAMOND_e;
+      return;
+    } 
+    if(j.get<std::string>() == "GOLD") {
+      v = LolRankedStatsRankedTier::GOLD_e;
+      return;
+    } 
+    if(j.get<std::string>() == "MASTER") {
+      v = LolRankedStatsRankedTier::MASTER_e;
+      return;
+    } 
+    if(j.get<std::string>() == "NOT_RANKED") {
+      v = LolRankedStatsRankedTier::NOT_RANKED_e;
+      return;
+    } 
+    if(j.get<std::string>() == "PLATINUM") {
+      v = LolRankedStatsRankedTier::PLATINUM_e;
+      return;
+    } 
+    if(j.get<std::string>() == "PROVISIONAL") {
+      v = LolRankedStatsRankedTier::PROVISIONAL_e;
+      return;
+    } 
+    if(j.get<std::string>() == "SILVER") {
+      v = LolRankedStatsRankedTier::SILVER_e;
+      return;
+    } 
   }
 }

@@ -6,11 +6,15 @@ namespace lol {
     std::optional<bool> asSpectator; 
   };
   void to_json(json& j, const LolLobbyLobbyCustomJoinParameters& v) {
-  j["password"] = v.password; 
-  j["asSpectator"] = v.asSpectator; 
+    if(v.password)
+      j["password"] = *v.password;
+    if(v.asSpectator)
+      j["asSpectator"] = *v.asSpectator;
   }
   void from_json(const json& j, LolLobbyLobbyCustomJoinParameters& v) {
-  v.password = j.at("password").get<std::optional<std::string>>(); 
-  v.asSpectator = j.at("asSpectator").get<std::optional<bool>>(); 
+    if(auto it = j.find("password"); it != j.end() && !it->is_null())
+      v.password = it->get<std::optional<std::string>>(); 
+    if(auto it = j.find("asSpectator"); it != j.end() && !it->is_null())
+      v.asSpectator = it->get<std::optional<bool>>(); 
   }
 }

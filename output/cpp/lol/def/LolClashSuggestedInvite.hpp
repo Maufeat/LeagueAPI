@@ -6,11 +6,11 @@ namespace lol {
     uint64_t summonerId; 
   };
   void to_json(json& j, const LolClashSuggestedInvite& v) {
-  j["suggesterSummonerId"] = v.suggesterSummonerId; 
-  j["summonerId"] = v.summonerId; 
+    j["suggesterSummonerId"] = v.suggesterSummonerId; 
+    j["summonerId"] = v.summonerId; 
   }
   void from_json(const json& j, LolClashSuggestedInvite& v) {
-  v.suggesterSummonerId = j.at("suggesterSummonerId").get<uint64_t>(); 
-  v.summonerId = j.at("summonerId").get<uint64_t>(); 
+    v.suggesterSummonerId = j.at("suggesterSummonerId").get<uint64_t>(); 
+    v.summonerId = j.at("summonerId").get<uint64_t>(); 
   }
 }

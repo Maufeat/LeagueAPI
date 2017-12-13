@@ -8,11 +8,15 @@ namespace lol {
     std::optional<LolChatLcuSocialConfig> LcuSocial; 
   };
   void to_json(json& j, const LolChatChatServiceDynamicClientConfig& v) {
-  j["ChatDomain"] = v.ChatDomain; 
-  j["LcuSocial"] = v.LcuSocial; 
+    if(v.ChatDomain)
+      j["ChatDomain"] = *v.ChatDomain;
+    if(v.LcuSocial)
+      j["LcuSocial"] = *v.LcuSocial;
   }
   void from_json(const json& j, LolChatChatServiceDynamicClientConfig& v) {
-  v.ChatDomain = j.at("ChatDomain").get<std::optional<LolChatChatDomainConfig>>(); 
-  v.LcuSocial = j.at("LcuSocial").get<std::optional<LolChatLcuSocialConfig>>(); 
+    if(auto it = j.find("ChatDomain"); it != j.end() && !it->is_null())
+      v.ChatDomain = it->get<std::optional<LolChatChatDomainConfig>>(); 
+    if(auto it = j.find("LcuSocial"); it != j.end() && !it->is_null())
+      v.LcuSocial = it->get<std::optional<LolChatLcuSocialConfig>>(); 
   }
 }

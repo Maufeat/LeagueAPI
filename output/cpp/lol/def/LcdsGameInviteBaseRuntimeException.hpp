@@ -5,9 +5,9 @@ namespace lol {
     std::string rootCauseClassname; 
   };
   void to_json(json& j, const LcdsGameInviteBaseRuntimeException& v) {
-  j["rootCauseClassname"] = v.rootCauseClassname; 
+    j["rootCauseClassname"] = v.rootCauseClassname; 
   }
   void from_json(const json& j, LcdsGameInviteBaseRuntimeException& v) {
-  v.rootCauseClassname = j.at("rootCauseClassname").get<std::string>(); 
+    v.rootCauseClassname = j.at("rootCauseClassname").get<std::string>(); 
   }
 }

@@ -9,17 +9,17 @@ namespace lol {
     std::string version; 
   };
   void to_json(json& j, const LolHonorV2RiotMessagingServiceMessage& v) {
-  j["service"] = v.service; 
-  j["resource"] = v.resource; 
-  j["payload"] = v.payload; 
-  j["timestamp"] = v.timestamp; 
-  j["version"] = v.version; 
+    j["service"] = v.service; 
+    j["resource"] = v.resource; 
+    j["payload"] = v.payload; 
+    j["timestamp"] = v.timestamp; 
+    j["version"] = v.version; 
   }
   void from_json(const json& j, LolHonorV2RiotMessagingServiceMessage& v) {
-  v.service = j.at("service").get<std::string>(); 
-  v.resource = j.at("resource").get<std::string>(); 
-  v.payload = j.at("payload").get<std::string>(); 
-  v.timestamp = j.at("timestamp").get<int64_t>(); 
-  v.version = j.at("version").get<std::string>(); 
+    v.service = j.at("service").get<std::string>(); 
+    v.resource = j.at("resource").get<std::string>(); 
+    v.payload = j.at("payload").get<std::string>(); 
+    v.timestamp = j.at("timestamp").get<int64_t>(); 
+    v.version = j.at("version").get<std::string>(); 
   }
 }

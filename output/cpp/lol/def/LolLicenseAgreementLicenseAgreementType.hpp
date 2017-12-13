@@ -6,23 +6,23 @@ namespace lol {
     TermsOfUse_e = 1,
   };
   void to_json(json& j, const LolLicenseAgreementLicenseAgreementType& v) {
-  if(v == LolLicenseAgreementLicenseAgreementType::Eula_e) {
-    j = "Eula";
-    return;
-  }
-  if(v == LolLicenseAgreementLicenseAgreementType::TermsOfUse_e) {
-    j = "TermsOfUse";
-    return;
-  }
+    if(v == LolLicenseAgreementLicenseAgreementType::Eula_e) {
+      j = "Eula";
+      return;
+    }
+    if(v == LolLicenseAgreementLicenseAgreementType::TermsOfUse_e) {
+      j = "TermsOfUse";
+      return;
+    }
   }
   void from_json(const json& j, LolLicenseAgreementLicenseAgreementType& v) {
-  if(j.get<std::string>() == "Eula") {
-    v = LolLicenseAgreementLicenseAgreementType::Eula_e;
-    return;
-  } 
-  if(j.get<std::string>() == "TermsOfUse") {
-    v = LolLicenseAgreementLicenseAgreementType::TermsOfUse_e;
-    return;
-  } 
+    if(j.get<std::string>() == "Eula") {
+      v = LolLicenseAgreementLicenseAgreementType::Eula_e;
+      return;
+    } 
+    if(j.get<std::string>() == "TermsOfUse") {
+      v = LolLicenseAgreementLicenseAgreementType::TermsOfUse_e;
+      return;
+    } 
   }
 }

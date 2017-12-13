@@ -10,19 +10,19 @@ namespace lol {
     std::vector<std::string> MEMBER; 
   };
   void to_json(json& j, const ClubPermissions& v) {
-  j["ADMIN"] = v.ADMIN; 
-  j["OWNER"] = v.OWNER; 
-  j["OFFICER"] = v.OFFICER; 
-  j["UNKNOWN"] = v.UNKNOWN; 
-  j["INVITEE"] = v.INVITEE; 
-  j["MEMBER"] = v.MEMBER; 
+    j["ADMIN"] = v.ADMIN; 
+    j["OWNER"] = v.OWNER; 
+    j["OFFICER"] = v.OFFICER; 
+    j["UNKNOWN"] = v.UNKNOWN; 
+    j["INVITEE"] = v.INVITEE; 
+    j["MEMBER"] = v.MEMBER; 
   }
   void from_json(const json& j, ClubPermissions& v) {
-  v.ADMIN = j.at("ADMIN").get<std::vector<std::string>>(); 
-  v.OWNER = j.at("OWNER").get<std::vector<std::string>>(); 
-  v.OFFICER = j.at("OFFICER").get<std::vector<std::string>>(); 
-  v.UNKNOWN = j.at("UNKNOWN").get<std::vector<std::string>>(); 
-  v.INVITEE = j.at("INVITEE").get<std::vector<std::string>>(); 
-  v.MEMBER = j.at("MEMBER").get<std::vector<std::string>>(); 
+    v.ADMIN = j.at("ADMIN").get<std::vector<std::string>>(); 
+    v.OWNER = j.at("OWNER").get<std::vector<std::string>>(); 
+    v.OFFICER = j.at("OFFICER").get<std::vector<std::string>>(); 
+    v.UNKNOWN = j.at("UNKNOWN").get<std::vector<std::string>>(); 
+    v.INVITEE = j.at("INVITEE").get<std::vector<std::string>>(); 
+    v.MEMBER = j.at("MEMBER").get<std::vector<std::string>>(); 
   }
 }

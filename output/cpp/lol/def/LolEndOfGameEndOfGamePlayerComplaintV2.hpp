@@ -8,15 +8,15 @@ namespace lol {
     uint64_t gameId; 
   };
   void to_json(json& j, const LolEndOfGameEndOfGamePlayerComplaintV2& v) {
-  j["comment"] = v.comment; 
-  j["offenses"] = v.offenses; 
-  j["reportedSummonerId"] = v.reportedSummonerId; 
-  j["gameId"] = v.gameId; 
+    j["comment"] = v.comment; 
+    j["offenses"] = v.offenses; 
+    j["reportedSummonerId"] = v.reportedSummonerId; 
+    j["gameId"] = v.gameId; 
   }
   void from_json(const json& j, LolEndOfGameEndOfGamePlayerComplaintV2& v) {
-  v.comment = j.at("comment").get<std::string>(); 
-  v.offenses = j.at("offenses").get<std::string>(); 
-  v.reportedSummonerId = j.at("reportedSummonerId").get<uint64_t>(); 
-  v.gameId = j.at("gameId").get<uint64_t>(); 
+    v.comment = j.at("comment").get<std::string>(); 
+    v.offenses = j.at("offenses").get<std::string>(); 
+    v.reportedSummonerId = j.at("reportedSummonerId").get<uint64_t>(); 
+    v.gameId = j.at("gameId").get<uint64_t>(); 
   }
 }

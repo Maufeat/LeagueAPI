@@ -6,11 +6,13 @@ namespace lol {
     std::string chatRoomName; 
   };
   void to_json(json& j, const LolChampSelectLegacyChampSelectChatRoomDetails& v) {
-  j["chatRoomPassword"] = v.chatRoomPassword; 
-  j["chatRoomName"] = v.chatRoomName; 
+    if(v.chatRoomPassword)
+      j["chatRoomPassword"] = *v.chatRoomPassword;
+    j["chatRoomName"] = v.chatRoomName; 
   }
   void from_json(const json& j, LolChampSelectLegacyChampSelectChatRoomDetails& v) {
-  v.chatRoomPassword = j.at("chatRoomPassword").get<std::optional<std::string>>(); 
-  v.chatRoomName = j.at("chatRoomName").get<std::string>(); 
+    if(auto it = j.find("chatRoomPassword"); it != j.end() && !it->is_null())
+      v.chatRoomPassword = it->get<std::optional<std::string>>(); 
+    v.chatRoomName = j.at("chatRoomName").get<std::string>(); 
   }
 }

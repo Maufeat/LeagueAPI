@@ -6,11 +6,11 @@ namespace lol {
     uint32_t asyncToken; 
   };
   void to_json(json& j, const BindingAsyncFailureEvent& v) {
-  j["error"] = v.error; 
-  j["asyncToken"] = v.asyncToken; 
+    j["error"] = v.error; 
+    j["asyncToken"] = v.asyncToken; 
   }
   void from_json(const json& j, BindingAsyncFailureEvent& v) {
-  v.error = j.at("error").get<std::string>(); 
-  v.asyncToken = j.at("asyncToken").get<uint32_t>(); 
+    v.error = j.at("error").get<std::string>(); 
+    v.asyncToken = j.at("asyncToken").get<uint32_t>(); 
   }
 }

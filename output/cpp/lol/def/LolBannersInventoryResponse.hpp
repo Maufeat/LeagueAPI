@@ -6,9 +6,9 @@ namespace lol {
     LolBannersInventoryItemsByType items; 
   };
   void to_json(json& j, const LolBannersInventoryResponse& v) {
-  j["items"] = v.items; 
+    j["items"] = v.items; 
   }
   void from_json(const json& j, LolBannersInventoryResponse& v) {
-  v.items = j.at("items").get<LolBannersInventoryItemsByType>(); 
+    v.items = j.at("items").get<LolBannersInventoryItemsByType>(); 
   }
 }

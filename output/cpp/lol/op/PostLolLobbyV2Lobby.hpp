@@ -6,7 +6,17 @@ namespace lol {
   Result<LolLobbyLobbyDto> PostLolLobbyV2Lobby(const LeagueClient& _client, const LolLobbyLobbyChangeGameDto& lobbyChange)
   {
     HttpsClient _client_(_client.host, false);
-    return _client_.request("post", "/lol-lobby/v2/lobby?" + SimpleWeb::QueryString::create(Args2Headers({  })), json(lobbyChange).dump(),
-      Args2Headers({ {"Authorization", _client.host}, {"content-type", "application/json"},  }) );
+    try {
+      return Result<LolLobbyLobbyDto> {
+        _client_.request("post", "/lol-lobby/v2/lobby?" +
+          SimpleWeb::QueryString::create(Args2Headers({  })), 
+          json(lobbyChange).dump(),
+          Args2Headers({
+            {"content-type", "application/json"},
+            {"Authorization", _client.auth},  }))
+      };
+    } catch(const SimpleWeb::system_error &e) {
+      return Result<LolLobbyLobbyDto> { Error { to_string(e.code().value()), -1, e.what() } };
+    }
   }
 }

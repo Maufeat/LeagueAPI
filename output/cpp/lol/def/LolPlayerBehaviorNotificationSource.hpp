@@ -8,39 +8,39 @@ namespace lol {
     Message_e = 3,
   };
   void to_json(json& j, const LolPlayerBehaviorNotificationSource& v) {
-  if(v == LolPlayerBehaviorNotificationSource::ForcedShutdown_e) {
-    j = "ForcedShutdown";
-    return;
-  }
-  if(v == LolPlayerBehaviorNotificationSource::Invalid_e) {
-    j = "Invalid";
-    return;
-  }
-  if(v == LolPlayerBehaviorNotificationSource::Login_e) {
-    j = "Login";
-    return;
-  }
-  if(v == LolPlayerBehaviorNotificationSource::Message_e) {
-    j = "Message";
-    return;
-  }
+    if(v == LolPlayerBehaviorNotificationSource::ForcedShutdown_e) {
+      j = "ForcedShutdown";
+      return;
+    }
+    if(v == LolPlayerBehaviorNotificationSource::Invalid_e) {
+      j = "Invalid";
+      return;
+    }
+    if(v == LolPlayerBehaviorNotificationSource::Login_e) {
+      j = "Login";
+      return;
+    }
+    if(v == LolPlayerBehaviorNotificationSource::Message_e) {
+      j = "Message";
+      return;
+    }
   }
   void from_json(const json& j, LolPlayerBehaviorNotificationSource& v) {
-  if(j.get<std::string>() == "ForcedShutdown") {
-    v = LolPlayerBehaviorNotificationSource::ForcedShutdown_e;
-    return;
-  } 
-  if(j.get<std::string>() == "Invalid") {
-    v = LolPlayerBehaviorNotificationSource::Invalid_e;
-    return;
-  } 
-  if(j.get<std::string>() == "Login") {
-    v = LolPlayerBehaviorNotificationSource::Login_e;
-    return;
-  } 
-  if(j.get<std::string>() == "Message") {
-    v = LolPlayerBehaviorNotificationSource::Message_e;
-    return;
-  } 
+    if(j.get<std::string>() == "ForcedShutdown") {
+      v = LolPlayerBehaviorNotificationSource::ForcedShutdown_e;
+      return;
+    } 
+    if(j.get<std::string>() == "Invalid") {
+      v = LolPlayerBehaviorNotificationSource::Invalid_e;
+      return;
+    } 
+    if(j.get<std::string>() == "Login") {
+      v = LolPlayerBehaviorNotificationSource::Login_e;
+      return;
+    } 
+    if(j.get<std::string>() == "Message") {
+      v = LolPlayerBehaviorNotificationSource::Message_e;
+      return;
+    } 
   }
 }

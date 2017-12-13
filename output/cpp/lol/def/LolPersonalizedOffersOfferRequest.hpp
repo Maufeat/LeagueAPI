@@ -8,15 +8,15 @@ namespace lol {
     std::string offerId; 
   };
   void to_json(json& j, const LolPersonalizedOffersOfferRequest& v) {
-  j["price"] = v.price; 
-  j["itemId"] = v.itemId; 
-  j["inventoryType"] = v.inventoryType; 
-  j["offerId"] = v.offerId; 
+    j["price"] = v.price; 
+    j["itemId"] = v.itemId; 
+    j["inventoryType"] = v.inventoryType; 
+    j["offerId"] = v.offerId; 
   }
   void from_json(const json& j, LolPersonalizedOffersOfferRequest& v) {
-  v.price = j.at("price").get<int64_t>(); 
-  v.itemId = j.at("itemId").get<int32_t>(); 
-  v.inventoryType = j.at("inventoryType").get<std::string>(); 
-  v.offerId = j.at("offerId").get<std::string>(); 
+    v.price = j.at("price").get<int64_t>(); 
+    v.itemId = j.at("itemId").get<int32_t>(); 
+    v.inventoryType = j.at("inventoryType").get<std::string>(); 
+    v.offerId = j.at("offerId").get<std::string>(); 
   }
 }

@@ -7,11 +7,11 @@ namespace lol {
     uint64_t summonerId; 
   };
   void to_json(json& j, const LolCollectionsCollectionsRuneBook& v) {
-  j["pages"] = v.pages; 
-  j["summonerId"] = v.summonerId; 
+    j["pages"] = v.pages; 
+    j["summonerId"] = v.summonerId; 
   }
   void from_json(const json& j, LolCollectionsCollectionsRuneBook& v) {
-  v.pages = j.at("pages").get<std::vector<LolCollectionsCollectionsRunePage>>(); 
-  v.summonerId = j.at("summonerId").get<uint64_t>(); 
+    v.pages = j.at("pages").get<std::vector<LolCollectionsCollectionsRunePage>>(); 
+    v.summonerId = j.at("summonerId").get<uint64_t>(); 
   }
 }

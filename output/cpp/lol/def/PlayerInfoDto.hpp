@@ -7,13 +7,13 @@ namespace lol {
     std::string currentPlatformId; 
   };
   void to_json(json& j, const PlayerInfoDto& v) {
-  j["currentAccountId"] = v.currentAccountId; 
-  j["summonerId"] = v.summonerId; 
-  j["currentPlatformId"] = v.currentPlatformId; 
+    j["currentAccountId"] = v.currentAccountId; 
+    j["summonerId"] = v.summonerId; 
+    j["currentPlatformId"] = v.currentPlatformId; 
   }
   void from_json(const json& j, PlayerInfoDto& v) {
-  v.currentAccountId = j.at("currentAccountId").get<uint64_t>(); 
-  v.summonerId = j.at("summonerId").get<uint64_t>(); 
-  v.currentPlatformId = j.at("currentPlatformId").get<std::string>(); 
+    v.currentAccountId = j.at("currentAccountId").get<uint64_t>(); 
+    v.summonerId = j.at("summonerId").get<uint64_t>(); 
+    v.currentPlatformId = j.at("currentPlatformId").get<std::string>(); 
   }
 }

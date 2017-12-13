@@ -15,27 +15,27 @@ namespace lol {
     uint16_t participantId; 
   };
   void to_json(json& j, const LolMatchHistoryMatchHistoryParticipantFrame& v) {
-  j["totalGold"] = v.totalGold; 
-  j["level"] = v.level; 
-  j["dominionScore"] = v.dominionScore; 
-  j["minionsKilled"] = v.minionsKilled; 
-  j["currentGold"] = v.currentGold; 
-  j["teamScore"] = v.teamScore; 
-  j["xp"] = v.xp; 
-  j["jungleMinionsKilled"] = v.jungleMinionsKilled; 
-  j["position"] = v.position; 
-  j["participantId"] = v.participantId; 
+    j["totalGold"] = v.totalGold; 
+    j["level"] = v.level; 
+    j["dominionScore"] = v.dominionScore; 
+    j["minionsKilled"] = v.minionsKilled; 
+    j["currentGold"] = v.currentGold; 
+    j["teamScore"] = v.teamScore; 
+    j["xp"] = v.xp; 
+    j["jungleMinionsKilled"] = v.jungleMinionsKilled; 
+    j["position"] = v.position; 
+    j["participantId"] = v.participantId; 
   }
   void from_json(const json& j, LolMatchHistoryMatchHistoryParticipantFrame& v) {
-  v.totalGold = j.at("totalGold").get<int32_t>(); 
-  v.level = j.at("level").get<uint16_t>(); 
-  v.dominionScore = j.at("dominionScore").get<uint16_t>(); 
-  v.minionsKilled = j.at("minionsKilled").get<uint16_t>(); 
-  v.currentGold = j.at("currentGold").get<int32_t>(); 
-  v.teamScore = j.at("teamScore").get<uint16_t>(); 
-  v.xp = j.at("xp").get<uint32_t>(); 
-  v.jungleMinionsKilled = j.at("jungleMinionsKilled").get<uint16_t>(); 
-  v.position = j.at("position").get<LolMatchHistoryMatchHistoryPosition>(); 
-  v.participantId = j.at("participantId").get<uint16_t>(); 
+    v.totalGold = j.at("totalGold").get<int32_t>(); 
+    v.level = j.at("level").get<uint16_t>(); 
+    v.dominionScore = j.at("dominionScore").get<uint16_t>(); 
+    v.minionsKilled = j.at("minionsKilled").get<uint16_t>(); 
+    v.currentGold = j.at("currentGold").get<int32_t>(); 
+    v.teamScore = j.at("teamScore").get<uint16_t>(); 
+    v.xp = j.at("xp").get<uint32_t>(); 
+    v.jungleMinionsKilled = j.at("jungleMinionsKilled").get<uint16_t>(); 
+    v.position = j.at("position").get<LolMatchHistoryMatchHistoryPosition>(); 
+    v.participantId = j.at("participantId").get<uint16_t>(); 
   }
 }

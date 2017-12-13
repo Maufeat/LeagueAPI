@@ -5,9 +5,9 @@ namespace lol {
     uint64_t gameUniqueId; 
   };
   void to_json(json& j, const ChampSelectLcdsObfuscatedParticipant& v) {
-  j["gameUniqueId"] = v.gameUniqueId; 
+    j["gameUniqueId"] = v.gameUniqueId; 
   }
   void from_json(const json& j, ChampSelectLcdsObfuscatedParticipant& v) {
-  v.gameUniqueId = j.at("gameUniqueId").get<uint64_t>(); 
+    v.gameUniqueId = j.at("gameUniqueId").get<uint64_t>(); 
   }
 }

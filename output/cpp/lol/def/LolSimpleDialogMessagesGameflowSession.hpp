@@ -6,9 +6,9 @@ namespace lol {
     LolSimpleDialogMessagesGameflowPhase phase; 
   };
   void to_json(json& j, const LolSimpleDialogMessagesGameflowSession& v) {
-  j["phase"] = v.phase; 
+    j["phase"] = v.phase; 
   }
   void from_json(const json& j, LolSimpleDialogMessagesGameflowSession& v) {
-  v.phase = j.at("phase").get<LolSimpleDialogMessagesGameflowPhase>(); 
+    v.phase = j.at("phase").get<LolSimpleDialogMessagesGameflowPhase>(); 
   }
 }

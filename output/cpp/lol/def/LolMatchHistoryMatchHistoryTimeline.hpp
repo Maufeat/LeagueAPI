@@ -14,27 +14,27 @@ namespace lol {
     uint16_t participantId; 
   };
   void to_json(json& j, const LolMatchHistoryMatchHistoryTimeline& v) {
-  j["lane"] = v.lane; 
-  j["goldPerMinDeltas"] = v.goldPerMinDeltas; 
-  j["creepsPerMinDeltas"] = v.creepsPerMinDeltas; 
-  j["xpDiffPerMinDeltas"] = v.xpDiffPerMinDeltas; 
-  j["role"] = v.role; 
-  j["csDiffPerMinDeltas"] = v.csDiffPerMinDeltas; 
-  j["damageTakenPerMinDeltas"] = v.damageTakenPerMinDeltas; 
-  j["damageTakenDiffPerMinDeltas"] = v.damageTakenDiffPerMinDeltas; 
-  j["xpPerMinDeltas"] = v.xpPerMinDeltas; 
-  j["participantId"] = v.participantId; 
+    j["lane"] = v.lane; 
+    j["goldPerMinDeltas"] = v.goldPerMinDeltas; 
+    j["creepsPerMinDeltas"] = v.creepsPerMinDeltas; 
+    j["xpDiffPerMinDeltas"] = v.xpDiffPerMinDeltas; 
+    j["role"] = v.role; 
+    j["csDiffPerMinDeltas"] = v.csDiffPerMinDeltas; 
+    j["damageTakenPerMinDeltas"] = v.damageTakenPerMinDeltas; 
+    j["damageTakenDiffPerMinDeltas"] = v.damageTakenDiffPerMinDeltas; 
+    j["xpPerMinDeltas"] = v.xpPerMinDeltas; 
+    j["participantId"] = v.participantId; 
   }
   void from_json(const json& j, LolMatchHistoryMatchHistoryTimeline& v) {
-  v.lane = j.at("lane").get<std::string>(); 
-  v.goldPerMinDeltas = j.at("goldPerMinDeltas").get<std::map<std::string, double>>(); 
-  v.creepsPerMinDeltas = j.at("creepsPerMinDeltas").get<std::map<std::string, double>>(); 
-  v.xpDiffPerMinDeltas = j.at("xpDiffPerMinDeltas").get<std::map<std::string, double>>(); 
-  v.role = j.at("role").get<std::string>(); 
-  v.csDiffPerMinDeltas = j.at("csDiffPerMinDeltas").get<std::map<std::string, double>>(); 
-  v.damageTakenPerMinDeltas = j.at("damageTakenPerMinDeltas").get<std::map<std::string, double>>(); 
-  v.damageTakenDiffPerMinDeltas = j.at("damageTakenDiffPerMinDeltas").get<std::map<std::string, double>>(); 
-  v.xpPerMinDeltas = j.at("xpPerMinDeltas").get<std::map<std::string, double>>(); 
-  v.participantId = j.at("participantId").get<uint16_t>(); 
+    v.lane = j.at("lane").get<std::string>(); 
+    v.goldPerMinDeltas = j.at("goldPerMinDeltas").get<std::map<std::string, double>>(); 
+    v.creepsPerMinDeltas = j.at("creepsPerMinDeltas").get<std::map<std::string, double>>(); 
+    v.xpDiffPerMinDeltas = j.at("xpDiffPerMinDeltas").get<std::map<std::string, double>>(); 
+    v.role = j.at("role").get<std::string>(); 
+    v.csDiffPerMinDeltas = j.at("csDiffPerMinDeltas").get<std::map<std::string, double>>(); 
+    v.damageTakenPerMinDeltas = j.at("damageTakenPerMinDeltas").get<std::map<std::string, double>>(); 
+    v.damageTakenDiffPerMinDeltas = j.at("damageTakenDiffPerMinDeltas").get<std::map<std::string, double>>(); 
+    v.xpPerMinDeltas = j.at("xpPerMinDeltas").get<std::map<std::string, double>>(); 
+    v.participantId = j.at("participantId").get<uint16_t>(); 
   }
 }

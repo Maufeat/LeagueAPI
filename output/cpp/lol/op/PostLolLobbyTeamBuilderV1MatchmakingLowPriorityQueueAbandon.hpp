@@ -4,7 +4,17 @@ namespace lol {
   Result<json> PostLolLobbyTeamBuilderV1MatchmakingLowPriorityQueueAbandon(const LeagueClient& _client, const std::string& leaverBusterToken)
   {
     HttpsClient _client_(_client.host, false);
-    return _client_.request("post", "/lol-lobby-team-builder/v1/matchmaking/low-priority-queue/abandon?" + SimpleWeb::QueryString::create(Args2Headers({  })), json(leaverBusterToken).dump(),
-      Args2Headers({ {"Authorization", _client.host}, {"content-type", "application/json"},  }) );
+    try {
+      return Result<json> {
+        _client_.request("post", "/lol-lobby-team-builder/v1/matchmaking/low-priority-queue/abandon?" +
+          SimpleWeb::QueryString::create(Args2Headers({  })), 
+          json(leaverBusterToken).dump(),
+          Args2Headers({
+            {"content-type", "application/json"},
+            {"Authorization", _client.auth},  }))
+      };
+    } catch(const SimpleWeb::system_error &e) {
+      return Result<json> { Error { to_string(e.code().value()), -1, e.what() } };
+    }
   }
 }

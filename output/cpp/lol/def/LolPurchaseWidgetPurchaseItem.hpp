@@ -9,13 +9,13 @@ namespace lol {
     LolPurchaseWidgetItemPrice purchaseCurrencyInfo; 
   };
   void to_json(json& j, const LolPurchaseWidgetPurchaseItem& v) {
-  j["itemKey"] = v.itemKey; 
-  j["quantity"] = v.quantity; 
-  j["purchaseCurrencyInfo"] = v.purchaseCurrencyInfo; 
+    j["itemKey"] = v.itemKey; 
+    j["quantity"] = v.quantity; 
+    j["purchaseCurrencyInfo"] = v.purchaseCurrencyInfo; 
   }
   void from_json(const json& j, LolPurchaseWidgetPurchaseItem& v) {
-  v.itemKey = j.at("itemKey").get<LolPurchaseWidgetItemKey>(); 
-  v.quantity = j.at("quantity").get<int32_t>(); 
-  v.purchaseCurrencyInfo = j.at("purchaseCurrencyInfo").get<LolPurchaseWidgetItemPrice>(); 
+    v.itemKey = j.at("itemKey").get<LolPurchaseWidgetItemKey>(); 
+    v.quantity = j.at("quantity").get<int32_t>(); 
+    v.purchaseCurrencyInfo = j.at("purchaseCurrencyInfo").get<LolPurchaseWidgetItemPrice>(); 
   }
 }

@@ -6,9 +6,9 @@ namespace lol {
     PlayerStatSummaries playerStatSummaries; 
   };
   void to_json(json& j, const PlayerLifetimeStats& v) {
-  j["playerStatSummaries"] = v.playerStatSummaries; 
+    j["playerStatSummaries"] = v.playerStatSummaries; 
   }
   void from_json(const json& j, PlayerLifetimeStats& v) {
-  v.playerStatSummaries = j.at("playerStatSummaries").get<PlayerStatSummaries>(); 
+    v.playerStatSummaries = j.at("playerStatSummaries").get<PlayerStatSummaries>(); 
   }
 }

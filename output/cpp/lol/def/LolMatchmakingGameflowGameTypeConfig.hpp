@@ -5,9 +5,9 @@ namespace lol {
     bool reroll; 
   };
   void to_json(json& j, const LolMatchmakingGameflowGameTypeConfig& v) {
-  j["reroll"] = v.reroll; 
+    j["reroll"] = v.reroll; 
   }
   void from_json(const json& j, LolMatchmakingGameflowGameTypeConfig& v) {
-  v.reroll = j.at("reroll").get<bool>(); 
+    v.reroll = j.at("reroll").get<bool>(); 
   }
 }

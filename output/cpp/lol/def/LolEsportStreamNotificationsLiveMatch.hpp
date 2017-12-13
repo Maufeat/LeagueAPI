@@ -10,17 +10,17 @@ namespace lol {
     std::string id; 
   };
   void to_json(json& j, const LolEsportStreamNotificationsLiveMatch& v) {
-  j["tournamentDescription"] = v.tournamentDescription; 
-  j["streamGroup"] = v.streamGroup; 
-  j["title"] = v.title; 
-  j["teams"] = v.teams; 
-  j["id"] = v.id; 
+    j["tournamentDescription"] = v.tournamentDescription; 
+    j["streamGroup"] = v.streamGroup; 
+    j["title"] = v.title; 
+    j["teams"] = v.teams; 
+    j["id"] = v.id; 
   }
   void from_json(const json& j, LolEsportStreamNotificationsLiveMatch& v) {
-  v.tournamentDescription = j.at("tournamentDescription").get<std::string>(); 
-  v.streamGroup = j.at("streamGroup").get<std::string>(); 
-  v.title = j.at("title").get<std::string>(); 
-  v.teams = j.at("teams").get<std::vector<LolEsportStreamNotificationsLiveMatchTeam>>(); 
-  v.id = j.at("id").get<std::string>(); 
+    v.tournamentDescription = j.at("tournamentDescription").get<std::string>(); 
+    v.streamGroup = j.at("streamGroup").get<std::string>(); 
+    v.title = j.at("title").get<std::string>(); 
+    v.teams = j.at("teams").get<std::vector<LolEsportStreamNotificationsLiveMatchTeam>>(); 
+    v.id = j.at("id").get<std::string>(); 
   }
 }

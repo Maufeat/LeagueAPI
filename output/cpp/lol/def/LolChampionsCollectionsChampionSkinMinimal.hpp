@@ -16,29 +16,31 @@ namespace lol {
     int32_t id; 
   };
   void to_json(json& j, const LolChampionsCollectionsChampionSkinMinimal& v) {
-  j["lastSelected"] = v.lastSelected; 
-  j["isBase"] = v.isBase; 
-  j["chromaPath"] = v.chromaPath; 
-  j["disabled"] = v.disabled; 
-  j["ownership"] = v.ownership; 
-  j["stillObtainable"] = v.stillObtainable; 
-  j["name"] = v.name; 
-  j["tilePath"] = v.tilePath; 
-  j["splashPath"] = v.splashPath; 
-  j["championId"] = v.championId; 
-  j["id"] = v.id; 
+    j["lastSelected"] = v.lastSelected; 
+    j["isBase"] = v.isBase; 
+    if(v.chromaPath)
+      j["chromaPath"] = *v.chromaPath;
+    j["disabled"] = v.disabled; 
+    j["ownership"] = v.ownership; 
+    j["stillObtainable"] = v.stillObtainable; 
+    j["name"] = v.name; 
+    j["tilePath"] = v.tilePath; 
+    j["splashPath"] = v.splashPath; 
+    j["championId"] = v.championId; 
+    j["id"] = v.id; 
   }
   void from_json(const json& j, LolChampionsCollectionsChampionSkinMinimal& v) {
-  v.lastSelected = j.at("lastSelected").get<bool>(); 
-  v.isBase = j.at("isBase").get<bool>(); 
-  v.chromaPath = j.at("chromaPath").get<std::optional<std::string>>(); 
-  v.disabled = j.at("disabled").get<bool>(); 
-  v.ownership = j.at("ownership").get<LolChampionsCollectionsOwnership>(); 
-  v.stillObtainable = j.at("stillObtainable").get<bool>(); 
-  v.name = j.at("name").get<std::string>(); 
-  v.tilePath = j.at("tilePath").get<std::string>(); 
-  v.splashPath = j.at("splashPath").get<std::string>(); 
-  v.championId = j.at("championId").get<int32_t>(); 
-  v.id = j.at("id").get<int32_t>(); 
+    v.lastSelected = j.at("lastSelected").get<bool>(); 
+    v.isBase = j.at("isBase").get<bool>(); 
+    if(auto it = j.find("chromaPath"); it != j.end() && !it->is_null())
+      v.chromaPath = it->get<std::optional<std::string>>(); 
+    v.disabled = j.at("disabled").get<bool>(); 
+    v.ownership = j.at("ownership").get<LolChampionsCollectionsOwnership>(); 
+    v.stillObtainable = j.at("stillObtainable").get<bool>(); 
+    v.name = j.at("name").get<std::string>(); 
+    v.tilePath = j.at("tilePath").get<std::string>(); 
+    v.splashPath = j.at("splashPath").get<std::string>(); 
+    v.championId = j.at("championId").get<int32_t>(); 
+    v.id = j.at("id").get<int32_t>(); 
   }
 }

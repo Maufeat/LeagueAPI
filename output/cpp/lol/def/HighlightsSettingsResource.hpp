@@ -6,9 +6,9 @@ namespace lol {
     HighlightsSettingsData data; 
   };
   void to_json(json& j, const HighlightsSettingsResource& v) {
-  j["data"] = v.data; 
+    j["data"] = v.data; 
   }
   void from_json(const json& j, HighlightsSettingsResource& v) {
-  v.data = j.at("data").get<HighlightsSettingsData>(); 
+    v.data = j.at("data").get<HighlightsSettingsData>(); 
   }
 }

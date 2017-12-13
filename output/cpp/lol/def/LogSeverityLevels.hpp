@@ -8,39 +8,39 @@ namespace lol {
     Warning_e = 1,
   };
   void to_json(json& j, const LogSeverityLevels& v) {
-  if(v == LogSeverityLevels::Always_e) {
-    j = "Always";
-    return;
-  }
-  if(v == LogSeverityLevels::Error_e) {
-    j = "Error";
-    return;
-  }
-  if(v == LogSeverityLevels::Okay_e) {
-    j = "Okay";
-    return;
-  }
-  if(v == LogSeverityLevels::Warning_e) {
-    j = "Warning";
-    return;
-  }
+    if(v == LogSeverityLevels::Always_e) {
+      j = "Always";
+      return;
+    }
+    if(v == LogSeverityLevels::Error_e) {
+      j = "Error";
+      return;
+    }
+    if(v == LogSeverityLevels::Okay_e) {
+      j = "Okay";
+      return;
+    }
+    if(v == LogSeverityLevels::Warning_e) {
+      j = "Warning";
+      return;
+    }
   }
   void from_json(const json& j, LogSeverityLevels& v) {
-  if(j.get<std::string>() == "Always") {
-    v = LogSeverityLevels::Always_e;
-    return;
-  } 
-  if(j.get<std::string>() == "Error") {
-    v = LogSeverityLevels::Error_e;
-    return;
-  } 
-  if(j.get<std::string>() == "Okay") {
-    v = LogSeverityLevels::Okay_e;
-    return;
-  } 
-  if(j.get<std::string>() == "Warning") {
-    v = LogSeverityLevels::Warning_e;
-    return;
-  } 
+    if(j.get<std::string>() == "Always") {
+      v = LogSeverityLevels::Always_e;
+      return;
+    } 
+    if(j.get<std::string>() == "Error") {
+      v = LogSeverityLevels::Error_e;
+      return;
+    } 
+    if(j.get<std::string>() == "Okay") {
+      v = LogSeverityLevels::Okay_e;
+      return;
+    } 
+    if(j.get<std::string>() == "Warning") {
+      v = LogSeverityLevels::Warning_e;
+      return;
+    } 
   }
 }

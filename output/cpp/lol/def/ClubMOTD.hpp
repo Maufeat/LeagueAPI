@@ -5,9 +5,9 @@ namespace lol {
     std::string motd; 
   };
   void to_json(json& j, const ClubMOTD& v) {
-  j["motd"] = v.motd; 
+    j["motd"] = v.motd; 
   }
   void from_json(const json& j, ClubMOTD& v) {
-  v.motd = j.at("motd").get<std::string>(); 
+    v.motd = j.at("motd").get<std::string>(); 
   }
 }

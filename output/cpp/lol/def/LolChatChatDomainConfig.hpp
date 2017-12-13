@@ -14,27 +14,47 @@ namespace lol {
     std::optional<std::string> PostGameDomainName; 
   };
   void to_json(json& j, const LolChatChatDomainConfig& v) {
-  j["CustomGameDomainName"] = v.CustomGameDomainName; 
-  j["TeamBuilderDomainName"] = v.TeamBuilderDomainName; 
-  j["RankedTeamDomainName"] = v.RankedTeamDomainName; 
-  j["ClubDomainName"] = v.ClubDomainName; 
-  j["CustomTeamDomainName"] = v.CustomTeamDomainName; 
-  j["PublicDomainName"] = v.PublicDomainName; 
-  j["PrivateDomainName"] = v.PrivateDomainName; 
-  j["P2PDomainName"] = v.P2PDomainName; 
-  j["ChampSelectDomainName"] = v.ChampSelectDomainName; 
-  j["PostGameDomainName"] = v.PostGameDomainName; 
+    if(v.CustomGameDomainName)
+      j["CustomGameDomainName"] = *v.CustomGameDomainName;
+    if(v.TeamBuilderDomainName)
+      j["TeamBuilderDomainName"] = *v.TeamBuilderDomainName;
+    if(v.RankedTeamDomainName)
+      j["RankedTeamDomainName"] = *v.RankedTeamDomainName;
+    if(v.ClubDomainName)
+      j["ClubDomainName"] = *v.ClubDomainName;
+    if(v.CustomTeamDomainName)
+      j["CustomTeamDomainName"] = *v.CustomTeamDomainName;
+    if(v.PublicDomainName)
+      j["PublicDomainName"] = *v.PublicDomainName;
+    if(v.PrivateDomainName)
+      j["PrivateDomainName"] = *v.PrivateDomainName;
+    if(v.P2PDomainName)
+      j["P2PDomainName"] = *v.P2PDomainName;
+    if(v.ChampSelectDomainName)
+      j["ChampSelectDomainName"] = *v.ChampSelectDomainName;
+    if(v.PostGameDomainName)
+      j["PostGameDomainName"] = *v.PostGameDomainName;
   }
   void from_json(const json& j, LolChatChatDomainConfig& v) {
-  v.CustomGameDomainName = j.at("CustomGameDomainName").get<std::optional<std::string>>(); 
-  v.TeamBuilderDomainName = j.at("TeamBuilderDomainName").get<std::optional<std::string>>(); 
-  v.RankedTeamDomainName = j.at("RankedTeamDomainName").get<std::optional<std::string>>(); 
-  v.ClubDomainName = j.at("ClubDomainName").get<std::optional<std::string>>(); 
-  v.CustomTeamDomainName = j.at("CustomTeamDomainName").get<std::optional<std::string>>(); 
-  v.PublicDomainName = j.at("PublicDomainName").get<std::optional<std::string>>(); 
-  v.PrivateDomainName = j.at("PrivateDomainName").get<std::optional<std::string>>(); 
-  v.P2PDomainName = j.at("P2PDomainName").get<std::optional<std::string>>(); 
-  v.ChampSelectDomainName = j.at("ChampSelectDomainName").get<std::optional<std::string>>(); 
-  v.PostGameDomainName = j.at("PostGameDomainName").get<std::optional<std::string>>(); 
+    if(auto it = j.find("CustomGameDomainName"); it != j.end() && !it->is_null())
+      v.CustomGameDomainName = it->get<std::optional<std::string>>(); 
+    if(auto it = j.find("TeamBuilderDomainName"); it != j.end() && !it->is_null())
+      v.TeamBuilderDomainName = it->get<std::optional<std::string>>(); 
+    if(auto it = j.find("RankedTeamDomainName"); it != j.end() && !it->is_null())
+      v.RankedTeamDomainName = it->get<std::optional<std::string>>(); 
+    if(auto it = j.find("ClubDomainName"); it != j.end() && !it->is_null())
+      v.ClubDomainName = it->get<std::optional<std::string>>(); 
+    if(auto it = j.find("CustomTeamDomainName"); it != j.end() && !it->is_null())
+      v.CustomTeamDomainName = it->get<std::optional<std::string>>(); 
+    if(auto it = j.find("PublicDomainName"); it != j.end() && !it->is_null())
+      v.PublicDomainName = it->get<std::optional<std::string>>(); 
+    if(auto it = j.find("PrivateDomainName"); it != j.end() && !it->is_null())
+      v.PrivateDomainName = it->get<std::optional<std::string>>(); 
+    if(auto it = j.find("P2PDomainName"); it != j.end() && !it->is_null())
+      v.P2PDomainName = it->get<std::optional<std::string>>(); 
+    if(auto it = j.find("ChampSelectDomainName"); it != j.end() && !it->is_null())
+      v.ChampSelectDomainName = it->get<std::optional<std::string>>(); 
+    if(auto it = j.find("PostGameDomainName"); it != j.end() && !it->is_null())
+      v.PostGameDomainName = it->get<std::optional<std::string>>(); 
   }
 }

@@ -10,19 +10,19 @@ namespace lol {
     uint64_t accountId; 
   };
   void to_json(json& j, const LolLobbySummoner& v) {
-  j["summonerLevel"] = v.summonerLevel; 
-  j["displayName"] = v.displayName; 
-  j["puuid"] = v.puuid; 
-  j["summonerId"] = v.summonerId; 
-  j["profileIconId"] = v.profileIconId; 
-  j["accountId"] = v.accountId; 
+    j["summonerLevel"] = v.summonerLevel; 
+    j["displayName"] = v.displayName; 
+    j["puuid"] = v.puuid; 
+    j["summonerId"] = v.summonerId; 
+    j["profileIconId"] = v.profileIconId; 
+    j["accountId"] = v.accountId; 
   }
   void from_json(const json& j, LolLobbySummoner& v) {
-  v.summonerLevel = j.at("summonerLevel").get<uint32_t>(); 
-  v.displayName = j.at("displayName").get<std::string>(); 
-  v.puuid = j.at("puuid").get<std::string>(); 
-  v.summonerId = j.at("summonerId").get<uint64_t>(); 
-  v.profileIconId = j.at("profileIconId").get<int32_t>(); 
-  v.accountId = j.at("accountId").get<uint64_t>(); 
+    v.summonerLevel = j.at("summonerLevel").get<uint32_t>(); 
+    v.displayName = j.at("displayName").get<std::string>(); 
+    v.puuid = j.at("puuid").get<std::string>(); 
+    v.summonerId = j.at("summonerId").get<uint64_t>(); 
+    v.profileIconId = j.at("profileIconId").get<int32_t>(); 
+    v.accountId = j.at("accountId").get<uint64_t>(); 
   }
 }

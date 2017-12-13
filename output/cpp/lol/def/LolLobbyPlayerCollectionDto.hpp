@@ -6,9 +6,9 @@ namespace lol {
     std::vector<LolLobbyPlayerDto> players; 
   };
   void to_json(json& j, const LolLobbyPlayerCollectionDto& v) {
-  j["players"] = v.players; 
+    j["players"] = v.players; 
   }
   void from_json(const json& j, LolLobbyPlayerCollectionDto& v) {
-  v.players = j.at("players").get<std::vector<LolLobbyPlayerDto>>(); 
+    v.players = j.at("players").get<std::vector<LolLobbyPlayerDto>>(); 
   }
 }

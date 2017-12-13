@@ -6,11 +6,11 @@ namespace lol {
     bool enabled; 
   };
   void to_json(json& j, const LolLobbyLobbyTimer& v) {
-  j["countdown"] = v.countdown; 
-  j["enabled"] = v.enabled; 
+    j["countdown"] = v.countdown; 
+    j["enabled"] = v.enabled; 
   }
   void from_json(const json& j, LolLobbyLobbyTimer& v) {
-  v.countdown = j.at("countdown").get<int64_t>(); 
-  v.enabled = j.at("enabled").get<bool>(); 
+    v.countdown = j.at("countdown").get<int64_t>(); 
+    v.enabled = j.at("enabled").get<bool>(); 
   }
 }

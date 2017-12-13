@@ -12,23 +12,39 @@ namespace lol {
     std::optional<std::string> Level0Unfilter; 
   };
   void to_json(json& j, const SanitizerSanitizerConfig& v) {
-  j["Level2Filter"] = v.Level2Filter; 
-  j["Level3Unfilter"] = v.Level3Unfilter; 
-  j["Level2Unfilter"] = v.Level2Unfilter; 
-  j["Level1Filter"] = v.Level1Filter; 
-  j["Level0Filter"] = v.Level0Filter; 
-  j["Level3Filter"] = v.Level3Filter; 
-  j["Level1Unfilter"] = v.Level1Unfilter; 
-  j["Level0Unfilter"] = v.Level0Unfilter; 
+    if(v.Level2Filter)
+      j["Level2Filter"] = *v.Level2Filter;
+    if(v.Level3Unfilter)
+      j["Level3Unfilter"] = *v.Level3Unfilter;
+    if(v.Level2Unfilter)
+      j["Level2Unfilter"] = *v.Level2Unfilter;
+    if(v.Level1Filter)
+      j["Level1Filter"] = *v.Level1Filter;
+    if(v.Level0Filter)
+      j["Level0Filter"] = *v.Level0Filter;
+    if(v.Level3Filter)
+      j["Level3Filter"] = *v.Level3Filter;
+    if(v.Level1Unfilter)
+      j["Level1Unfilter"] = *v.Level1Unfilter;
+    if(v.Level0Unfilter)
+      j["Level0Unfilter"] = *v.Level0Unfilter;
   }
   void from_json(const json& j, SanitizerSanitizerConfig& v) {
-  v.Level2Filter = j.at("Level2Filter").get<std::optional<std::string>>(); 
-  v.Level3Unfilter = j.at("Level3Unfilter").get<std::optional<std::string>>(); 
-  v.Level2Unfilter = j.at("Level2Unfilter").get<std::optional<std::string>>(); 
-  v.Level1Filter = j.at("Level1Filter").get<std::optional<std::string>>(); 
-  v.Level0Filter = j.at("Level0Filter").get<std::optional<std::string>>(); 
-  v.Level3Filter = j.at("Level3Filter").get<std::optional<std::string>>(); 
-  v.Level1Unfilter = j.at("Level1Unfilter").get<std::optional<std::string>>(); 
-  v.Level0Unfilter = j.at("Level0Unfilter").get<std::optional<std::string>>(); 
+    if(auto it = j.find("Level2Filter"); it != j.end() && !it->is_null())
+      v.Level2Filter = it->get<std::optional<std::string>>(); 
+    if(auto it = j.find("Level3Unfilter"); it != j.end() && !it->is_null())
+      v.Level3Unfilter = it->get<std::optional<std::string>>(); 
+    if(auto it = j.find("Level2Unfilter"); it != j.end() && !it->is_null())
+      v.Level2Unfilter = it->get<std::optional<std::string>>(); 
+    if(auto it = j.find("Level1Filter"); it != j.end() && !it->is_null())
+      v.Level1Filter = it->get<std::optional<std::string>>(); 
+    if(auto it = j.find("Level0Filter"); it != j.end() && !it->is_null())
+      v.Level0Filter = it->get<std::optional<std::string>>(); 
+    if(auto it = j.find("Level3Filter"); it != j.end() && !it->is_null())
+      v.Level3Filter = it->get<std::optional<std::string>>(); 
+    if(auto it = j.find("Level1Unfilter"); it != j.end() && !it->is_null())
+      v.Level1Unfilter = it->get<std::optional<std::string>>(); 
+    if(auto it = j.find("Level0Unfilter"); it != j.end() && !it->is_null())
+      v.Level0Unfilter = it->get<std::optional<std::string>>(); 
   }
 }

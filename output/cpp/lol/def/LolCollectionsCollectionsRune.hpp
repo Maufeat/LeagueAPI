@@ -6,11 +6,11 @@ namespace lol {
     uint32_t runeId; 
   };
   void to_json(json& j, const LolCollectionsCollectionsRune& v) {
-  j["runeSlotId"] = v.runeSlotId; 
-  j["runeId"] = v.runeId; 
+    j["runeSlotId"] = v.runeSlotId; 
+    j["runeId"] = v.runeId; 
   }
   void from_json(const json& j, LolCollectionsCollectionsRune& v) {
-  v.runeSlotId = j.at("runeSlotId").get<uint32_t>(); 
-  v.runeId = j.at("runeId").get<uint32_t>(); 
+    v.runeSlotId = j.at("runeSlotId").get<uint32_t>(); 
+    v.runeId = j.at("runeId").get<uint32_t>(); 
   }
 }

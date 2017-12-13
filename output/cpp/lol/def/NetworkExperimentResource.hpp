@@ -6,9 +6,9 @@ namespace lol {
     NetworkExperimentStatus status; 
   };
   void to_json(json& j, const NetworkExperimentResource& v) {
-  j["status"] = v.status; 
+    j["status"] = v.status; 
   }
   void from_json(const json& j, NetworkExperimentResource& v) {
-  v.status = j.at("status").get<NetworkExperimentStatus>(); 
+    v.status = j.at("status").get<NetworkExperimentStatus>(); 
   }
 }

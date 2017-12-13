@@ -9,17 +9,25 @@ namespace lol {
     std::optional<bool> aggressiveScan; 
   };
   void to_json(json& j, const SanitizerContainsSanitizedRequest& v) {
-  j["removeDisallowedChars"] = v.removeDisallowedChars; 
-  j["text"] = v.text; 
-  j["level"] = v.level; 
-  j["includeEmbedded"] = v.includeEmbedded; 
-  j["aggressiveScan"] = v.aggressiveScan; 
+    if(v.removeDisallowedChars)
+      j["removeDisallowedChars"] = *v.removeDisallowedChars;
+    j["text"] = v.text; 
+    if(v.level)
+      j["level"] = *v.level;
+    if(v.includeEmbedded)
+      j["includeEmbedded"] = *v.includeEmbedded;
+    if(v.aggressiveScan)
+      j["aggressiveScan"] = *v.aggressiveScan;
   }
   void from_json(const json& j, SanitizerContainsSanitizedRequest& v) {
-  v.removeDisallowedChars = j.at("removeDisallowedChars").get<std::optional<bool>>(); 
-  v.text = j.at("text").get<std::string>(); 
-  v.level = j.at("level").get<std::optional<uint32_t>>(); 
-  v.includeEmbedded = j.at("includeEmbedded").get<std::optional<bool>>(); 
-  v.aggressiveScan = j.at("aggressiveScan").get<std::optional<bool>>(); 
+    if(auto it = j.find("removeDisallowedChars"); it != j.end() && !it->is_null())
+      v.removeDisallowedChars = it->get<std::optional<bool>>(); 
+    v.text = j.at("text").get<std::string>(); 
+    if(auto it = j.find("level"); it != j.end() && !it->is_null())
+      v.level = it->get<std::optional<uint32_t>>(); 
+    if(auto it = j.find("includeEmbedded"); it != j.end() && !it->is_null())
+      v.includeEmbedded = it->get<std::optional<bool>>(); 
+    if(auto it = j.find("aggressiveScan"); it != j.end() && !it->is_null())
+      v.aggressiveScan = it->get<std::optional<bool>>(); 
   }
 }

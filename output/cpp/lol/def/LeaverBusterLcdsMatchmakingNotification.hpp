@@ -5,9 +5,9 @@ namespace lol {
     std::vector<json> playerJoinFailures; 
   };
   void to_json(json& j, const LeaverBusterLcdsMatchmakingNotification& v) {
-  j["playerJoinFailures"] = v.playerJoinFailures; 
+    j["playerJoinFailures"] = v.playerJoinFailures; 
   }
   void from_json(const json& j, LeaverBusterLcdsMatchmakingNotification& v) {
-  v.playerJoinFailures = j.at("playerJoinFailures").get<std::vector<json>>(); 
+    v.playerJoinFailures = j.at("playerJoinFailures").get<std::vector<json>>(); 
   }
 }
