@@ -1,15 +1,29 @@
 #pragma once
 #include <lol/base_def.hpp>
-#include <lol/def/LolLobbyAmbassadorMessage.hpp>
 #include <SimpleWeb/crypto.hpp>
 #include <SimpleWeb/client_https.hpp>
 #include <SimpleWeb/client_wss.hpp>
 namespace lol {
-  using Error = LolLobbyAmbassadorMessage;
   using HttpsClient = SimpleWeb::Client<SimpleWeb::HTTPS>;
   using HttpsArgs = std::multimap<std::string, std::optional<std::string>>;
   using HttpsResponse = std::shared_ptr<HttpsClient::Response>;
   using std::to_string;
+  struct Error { 
+    std::string errorCode;
+    int32_t httpStatus; 
+    std::string message;
+  };
+  void to_json(json& j, const Error& v) {
+    j["errorCode"] = v.errorCode;
+    j["httpStatus"] = v.httpStatus;
+    j["message"] = v.message; 
+  }
+  void from_json(const json& j, Error& v) {
+    v.errorCode = j.at("errorCode").get<std::string>();  
+    v.httpStatus = j.at("httpStatus").get<int32_t>(); 
+    v.message = j.at("message").get<std::string>();
+  }
+
   inline std::string to_string(const std::string& v) {
     return v;
   }
@@ -26,20 +40,18 @@ namespace lol {
   }
   template<typename T>
   struct Result {
-    std::string content_type;
-    std::string status_code;
-    std::string content;
     std::optional<Error> error;
     T data;
     Result(const HttpsResponse& r) {
-      status_code = r->status_code;
-      content = r->content.string();
+      std::string content_type;
+      int32_t status_code = std::stoi(r->status_code);
+      std::string content = r->content.string();
       if(auto it = r->header.find("content-type"); it != r->header.end())
         content_type = it->second;
-      if(status_code != "200" && content_type == "application/json")
+      if(status_code != 200 && content_type == "application/json")
         error = json::parse(content).get<Error>();
-      else if(status_code != "200")
-        error = Error{content, content_type, status_code};
+      else if(status_code != 200)
+        error = Error{content_type, status_code, content};
       else
         data = json::parse(content).get<T>();
     }
@@ -62,20 +74,18 @@ namespace lol {
 
   template<>
   struct Result<json> {
-    std::string content_type;
-    std::string status_code;
-    std::string content;
     std::optional<Error> error;
     json data;
     Result(const HttpsResponse& r) {
-      status_code = r->status_code;
-      content = r->content.string();
+      std::string content_type;
+      int32_t status_code = std::stoi(r->status_code);
+      std::string content = r->content.string();
       if(auto it = r->header.find("content-type"); it != r->header.end())
         content_type = it->second;
-      if(status_code != "200" && content_type == "application/json")
+      if(status_code != 200 && content_type == "application/json")
         error = json::parse(content).get<Error>();
-      else if(status_code != "200")
-        error = Error{content, content_type, status_code};
+      else if(status_code != 200)
+        error = Error{content_type, status_code, content};
       else if(content_type == "application/json")
         data = json::parse(content);
       else
@@ -100,20 +110,18 @@ namespace lol {
   
   template<>
   struct Result<void> {
-    std::string content_type;
-    std::string status_code;
-    std::string content;
     std::optional<Error> error;
     json data;
     Result(const HttpsResponse& r) {
-      status_code = r->status_code;
-      content = r->content.string();
+      std::string content_type;
+      int32_t status_code = std::stoi(r->status_code);
+      std::string content = r->content.string();
       if(auto it = r->header.find("content-type"); it != r->header.end())
         content_type = it->second;
-      if(status_code != "204" && content_type == "application/json")
+      if(status_code != 204 && content_type == "application/json")
         error = json::parse(content).get<Error>();
-      else if(status_code != "204")
-        error = Error{content, content_type, status_code};
+      else if(status_code != 204)
+        error = Error{content_type, status_code, content};
     }
     explicit operator bool() const {
       return error != std::nullopt;
