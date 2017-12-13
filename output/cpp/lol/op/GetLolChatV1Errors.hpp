@@ -1,0 +1,11 @@
+#pragma once
+#include<lol/base_op.hpp> 
+#include <lol/def/LolChatErrorResource.hpp>
+namespace lol {
+  Result<std::vector<LolChatErrorResource>> GetLolChatV1Errors(const LeagueClient& _client)
+  {
+    HttpsClient _client_(_client.host, false);
+    return _client_.request("get", "/lol-chat/v1/errors?" + SimpleWeb::QueryString::create(Args2Headers({  })), "",
+      Args2Headers({ {"Authorization", _client.auth},  }) );
+  }
+}
