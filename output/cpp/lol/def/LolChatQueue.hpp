@@ -3,21 +3,21 @@
 #include <lol/def/LolChatQueueGameTypeConfig.hpp>
 namespace lol {
   struct LolChatQueue { 
-    std::string type;
     LolChatQueueGameTypeConfig gameTypeConfig;
-    int32_t id;
-    std::string gameMode; 
+    std::string gameMode;
+    std::string type;
+    int32_t id; 
   };
   void to_json(json& j, const LolChatQueue& v) {
-  j["type"] = v.type; 
   j["gameTypeConfig"] = v.gameTypeConfig; 
-  j["id"] = v.id; 
   j["gameMode"] = v.gameMode; 
+  j["type"] = v.type; 
+  j["id"] = v.id; 
   }
   void from_json(const json& j, LolChatQueue& v) {
-  v.type = j.at("type").get<std::string>(); 
   v.gameTypeConfig = j.at("gameTypeConfig").get<LolChatQueueGameTypeConfig>(); 
-  v.id = j.at("id").get<int32_t>(); 
   v.gameMode = j.at("gameMode").get<std::string>(); 
+  v.type = j.at("type").get<std::string>(); 
+  v.id = j.at("id").get<int32_t>(); 
   }
 }

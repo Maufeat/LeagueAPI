@@ -3,15 +3,15 @@
 #include <lol/def/LolPftGameflowGameDodgeState.hpp>
 namespace lol {
   struct LolPftGameflowGameDodge { 
-    std::vector<uint64_t> dodgeIds;
-    LolPftGameflowGameDodgeState state; 
+    LolPftGameflowGameDodgeState state;
+    std::vector<uint64_t> dodgeIds; 
   };
   void to_json(json& j, const LolPftGameflowGameDodge& v) {
-  j["dodgeIds"] = v.dodgeIds; 
   j["state"] = v.state; 
+  j["dodgeIds"] = v.dodgeIds; 
   }
   void from_json(const json& j, LolPftGameflowGameDodge& v) {
-  v.dodgeIds = j.at("dodgeIds").get<std::vector<uint64_t>>(); 
   v.state = j.at("state").get<LolPftGameflowGameDodgeState>(); 
+  v.dodgeIds = j.at("dodgeIds").get<std::vector<uint64_t>>(); 
   }
 }

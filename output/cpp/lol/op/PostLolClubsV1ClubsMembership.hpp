@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
-#include <lol/def/PlayerClub.hpp>
 #include <lol/def/ClubName.hpp>
+#include <lol/def/PlayerClub.hpp>
 namespace lol {
   Result<PlayerClub> PostLolClubsV1ClubsMembership(const LeagueClient& _client, const ClubName& name)
   {

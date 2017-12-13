@@ -1,8 +1,8 @@
 #pragma once
 #include<lol/base_def.hpp> 
+#include <lol/def/LolChatGameflowPhase.hpp>
 #include <lol/def/LolChatGameflowGameData.hpp>
 #include <lol/def/LolChatGameflowGameMap.hpp>
-#include <lol/def/LolChatGameflowPhase.hpp>
 namespace lol {
   struct LolChatGameflowSession { 
     LolChatGameflowGameMap map;

@@ -4,27 +4,27 @@
 #include <lol/def/PendingRosterMemberState.hpp>
 namespace lol {
   struct PendingRosterMemberDTO { 
-    uint64_t playerId;
     PendingRosterMemberState memberState;
-    int64_t joinTime;
     int32_t pay;
+    int64_t joinTime;
+    int32_t bet;
     Position position;
-    int32_t bet; 
+    uint64_t playerId; 
   };
   void to_json(json& j, const PendingRosterMemberDTO& v) {
-  j["playerId"] = v.playerId; 
   j["memberState"] = v.memberState; 
-  j["joinTime"] = v.joinTime; 
   j["pay"] = v.pay; 
-  j["position"] = v.position; 
+  j["joinTime"] = v.joinTime; 
   j["bet"] = v.bet; 
+  j["position"] = v.position; 
+  j["playerId"] = v.playerId; 
   }
   void from_json(const json& j, PendingRosterMemberDTO& v) {
-  v.playerId = j.at("playerId").get<uint64_t>(); 
   v.memberState = j.at("memberState").get<PendingRosterMemberState>(); 
-  v.joinTime = j.at("joinTime").get<int64_t>(); 
   v.pay = j.at("pay").get<int32_t>(); 
-  v.position = j.at("position").get<Position>(); 
+  v.joinTime = j.at("joinTime").get<int64_t>(); 
   v.bet = j.at("bet").get<int32_t>(); 
+  v.position = j.at("position").get<Position>(); 
+  v.playerId = j.at("playerId").get<uint64_t>(); 
   }
 }

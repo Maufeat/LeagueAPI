@@ -2,18 +2,18 @@
 #include<lol/base_def.hpp> 
 namespace lol {
   struct LootSimpleDialogMessageResponse { 
-    std::string command;
     std::string msgId;
+    std::string command;
     uint64_t accountId; 
   };
   void to_json(json& j, const LootSimpleDialogMessageResponse& v) {
-  j["command"] = v.command; 
   j["msgId"] = v.msgId; 
+  j["command"] = v.command; 
   j["accountId"] = v.accountId; 
   }
   void from_json(const json& j, LootSimpleDialogMessageResponse& v) {
-  v.command = j.at("command").get<std::string>(); 
   v.msgId = j.at("msgId").get<std::string>(); 
+  v.command = j.at("command").get<std::string>(); 
   v.accountId = j.at("accountId").get<uint64_t>(); 
   }
 }

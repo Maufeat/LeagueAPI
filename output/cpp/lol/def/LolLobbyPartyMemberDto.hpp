@@ -1,49 +1,49 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyGameModeDto.hpp>
 #include <lol/def/LolLobbyPartyMemberMetadataDto.hpp>
+#include <lol/def/LolLobbyGameModeDto.hpp>
 #include <lol/def/LolLobbyPartyMemberRoleEnum.hpp>
 namespace lol {
   struct LolLobbyPartyMemberDto { 
-    LolLobbyPartyMemberMetadataDto metadata;
-    std::string platformId;
-    std::optional<bool> canInvite;
-    LolLobbyPartyMemberRoleEnum role;
     std::optional<uint64_t> inviteTimestamp;
+    std::string platformId;
     std::optional<bool> ready;
-    std::optional<uint64_t> invitedBySummonerId;
-    uint64_t summonerId;
-    uint64_t accountId;
     std::string partyId;
     std::string puuid;
-    std::optional<LolLobbyGameModeDto> gameMode; 
+    std::optional<bool> canInvite;
+    std::optional<uint64_t> invitedBySummonerId;
+    LolLobbyPartyMemberRoleEnum role;
+    uint64_t summonerId;
+    LolLobbyPartyMemberMetadataDto metadata;
+    std::optional<LolLobbyGameModeDto> gameMode;
+    uint64_t accountId; 
   };
   void to_json(json& j, const LolLobbyPartyMemberDto& v) {
-  j["metadata"] = v.metadata; 
-  j["platformId"] = v.platformId; 
-  j["canInvite"] = v.canInvite; 
-  j["role"] = v.role; 
   j["inviteTimestamp"] = v.inviteTimestamp; 
+  j["platformId"] = v.platformId; 
   j["ready"] = v.ready; 
-  j["invitedBySummonerId"] = v.invitedBySummonerId; 
-  j["summonerId"] = v.summonerId; 
-  j["accountId"] = v.accountId; 
   j["partyId"] = v.partyId; 
   j["puuid"] = v.puuid; 
+  j["canInvite"] = v.canInvite; 
+  j["invitedBySummonerId"] = v.invitedBySummonerId; 
+  j["role"] = v.role; 
+  j["summonerId"] = v.summonerId; 
+  j["metadata"] = v.metadata; 
   j["gameMode"] = v.gameMode; 
+  j["accountId"] = v.accountId; 
   }
   void from_json(const json& j, LolLobbyPartyMemberDto& v) {
-  v.metadata = j.at("metadata").get<LolLobbyPartyMemberMetadataDto>(); 
-  v.platformId = j.at("platformId").get<std::string>(); 
-  v.canInvite = j.at("canInvite").get<std::optional<bool>>(); 
-  v.role = j.at("role").get<LolLobbyPartyMemberRoleEnum>(); 
   v.inviteTimestamp = j.at("inviteTimestamp").get<std::optional<uint64_t>>(); 
+  v.platformId = j.at("platformId").get<std::string>(); 
   v.ready = j.at("ready").get<std::optional<bool>>(); 
-  v.invitedBySummonerId = j.at("invitedBySummonerId").get<std::optional<uint64_t>>(); 
-  v.summonerId = j.at("summonerId").get<uint64_t>(); 
-  v.accountId = j.at("accountId").get<uint64_t>(); 
   v.partyId = j.at("partyId").get<std::string>(); 
   v.puuid = j.at("puuid").get<std::string>(); 
+  v.canInvite = j.at("canInvite").get<std::optional<bool>>(); 
+  v.invitedBySummonerId = j.at("invitedBySummonerId").get<std::optional<uint64_t>>(); 
+  v.role = j.at("role").get<LolLobbyPartyMemberRoleEnum>(); 
+  v.summonerId = j.at("summonerId").get<uint64_t>(); 
+  v.metadata = j.at("metadata").get<LolLobbyPartyMemberMetadataDto>(); 
   v.gameMode = j.at("gameMode").get<std::optional<LolLobbyGameModeDto>>(); 
+  v.accountId = j.at("accountId").get<uint64_t>(); 
   }
 }

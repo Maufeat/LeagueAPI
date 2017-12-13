@@ -2,21 +2,21 @@
 #include<lol/base_def.hpp> 
 namespace lol {
   struct LolLobbyLobbyNotification { 
+    std::vector<uint64_t> summonerIds;
     uint64_t timestamp;
-    std::string notificationId;
     std::string notificationReason;
-    std::vector<uint64_t> summonerIds; 
+    std::string notificationId; 
   };
   void to_json(json& j, const LolLobbyLobbyNotification& v) {
-  j["timestamp"] = v.timestamp; 
-  j["notificationId"] = v.notificationId; 
-  j["notificationReason"] = v.notificationReason; 
   j["summonerIds"] = v.summonerIds; 
+  j["timestamp"] = v.timestamp; 
+  j["notificationReason"] = v.notificationReason; 
+  j["notificationId"] = v.notificationId; 
   }
   void from_json(const json& j, LolLobbyLobbyNotification& v) {
-  v.timestamp = j.at("timestamp").get<uint64_t>(); 
-  v.notificationId = j.at("notificationId").get<std::string>(); 
-  v.notificationReason = j.at("notificationReason").get<std::string>(); 
   v.summonerIds = j.at("summonerIds").get<std::vector<uint64_t>>(); 
+  v.timestamp = j.at("timestamp").get<uint64_t>(); 
+  v.notificationReason = j.at("notificationReason").get<std::string>(); 
+  v.notificationId = j.at("notificationId").get<std::string>(); 
   }
 }

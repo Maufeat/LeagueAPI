@@ -2,24 +2,24 @@
 #include<lol/base_def.hpp> 
 namespace lol {
   struct PaymentsPMCStartUrlRequest { 
+    int16_t summonerLevel;
     int32_t gifteeAccountId;
-    bool isPrepaid;
     std::string localeId;
     std::string gifteeMessage;
-    int16_t summonerLevel; 
+    bool isPrepaid; 
   };
   void to_json(json& j, const PaymentsPMCStartUrlRequest& v) {
+  j["summonerLevel"] = v.summonerLevel; 
   j["gifteeAccountId"] = v.gifteeAccountId; 
-  j["isPrepaid"] = v.isPrepaid; 
   j["localeId"] = v.localeId; 
   j["gifteeMessage"] = v.gifteeMessage; 
-  j["summonerLevel"] = v.summonerLevel; 
+  j["isPrepaid"] = v.isPrepaid; 
   }
   void from_json(const json& j, PaymentsPMCStartUrlRequest& v) {
+  v.summonerLevel = j.at("summonerLevel").get<int16_t>(); 
   v.gifteeAccountId = j.at("gifteeAccountId").get<int32_t>(); 
-  v.isPrepaid = j.at("isPrepaid").get<bool>(); 
   v.localeId = j.at("localeId").get<std::string>(); 
   v.gifteeMessage = j.at("gifteeMessage").get<std::string>(); 
-  v.summonerLevel = j.at("summonerLevel").get<int16_t>(); 
+  v.isPrepaid = j.at("isPrepaid").get<bool>(); 
   }
 }

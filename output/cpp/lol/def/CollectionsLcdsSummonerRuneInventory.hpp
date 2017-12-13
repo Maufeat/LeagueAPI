@@ -3,18 +3,18 @@
 #include <lol/def/CollectionsLcdsSummonerRune.hpp>
 namespace lol {
   struct CollectionsLcdsSummonerRuneInventory { 
-    uint64_t summonerId;
+    std::vector<CollectionsLcdsSummonerRune> summonerRunes;
     std::string dateString;
-    std::vector<CollectionsLcdsSummonerRune> summonerRunes; 
+    uint64_t summonerId; 
   };
   void to_json(json& j, const CollectionsLcdsSummonerRuneInventory& v) {
-  j["summonerId"] = v.summonerId; 
-  j["dateString"] = v.dateString; 
   j["summonerRunes"] = v.summonerRunes; 
+  j["dateString"] = v.dateString; 
+  j["summonerId"] = v.summonerId; 
   }
   void from_json(const json& j, CollectionsLcdsSummonerRuneInventory& v) {
-  v.summonerId = j.at("summonerId").get<uint64_t>(); 
-  v.dateString = j.at("dateString").get<std::string>(); 
   v.summonerRunes = j.at("summonerRunes").get<std::vector<CollectionsLcdsSummonerRune>>(); 
+  v.dateString = j.at("dateString").get<std::string>(); 
+  v.summonerId = j.at("summonerId").get<uint64_t>(); 
   }
 }

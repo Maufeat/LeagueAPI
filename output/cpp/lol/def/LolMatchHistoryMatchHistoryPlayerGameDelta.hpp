@@ -5,24 +5,24 @@
 #include <lol/def/LolMatchHistoryMatchHistoryPlayerPlatformDelta.hpp>
 namespace lol {
   struct LolMatchHistoryMatchHistoryPlayerGameDelta { 
-    uint64_t gameId;
-    LolMatchHistoryMatchHistoryPlayerChampMasteryDelta champMastery;
     std::string gamePlatformId;
-    LolMatchHistoryMatchHistoryPlayerLeagueDelta leagueDelta;
-    LolMatchHistoryMatchHistoryPlayerPlatformDelta platformDelta; 
+    LolMatchHistoryMatchHistoryPlayerChampMasteryDelta champMastery;
+    LolMatchHistoryMatchHistoryPlayerPlatformDelta platformDelta;
+    uint64_t gameId;
+    LolMatchHistoryMatchHistoryPlayerLeagueDelta leagueDelta; 
   };
   void to_json(json& j, const LolMatchHistoryMatchHistoryPlayerGameDelta& v) {
-  j["gameId"] = v.gameId; 
-  j["champMastery"] = v.champMastery; 
   j["gamePlatformId"] = v.gamePlatformId; 
-  j["leagueDelta"] = v.leagueDelta; 
+  j["champMastery"] = v.champMastery; 
   j["platformDelta"] = v.platformDelta; 
+  j["gameId"] = v.gameId; 
+  j["leagueDelta"] = v.leagueDelta; 
   }
   void from_json(const json& j, LolMatchHistoryMatchHistoryPlayerGameDelta& v) {
-  v.gameId = j.at("gameId").get<uint64_t>(); 
-  v.champMastery = j.at("champMastery").get<LolMatchHistoryMatchHistoryPlayerChampMasteryDelta>(); 
   v.gamePlatformId = j.at("gamePlatformId").get<std::string>(); 
-  v.leagueDelta = j.at("leagueDelta").get<LolMatchHistoryMatchHistoryPlayerLeagueDelta>(); 
+  v.champMastery = j.at("champMastery").get<LolMatchHistoryMatchHistoryPlayerChampMasteryDelta>(); 
   v.platformDelta = j.at("platformDelta").get<LolMatchHistoryMatchHistoryPlayerPlatformDelta>(); 
+  v.gameId = j.at("gameId").get<uint64_t>(); 
+  v.leagueDelta = j.at("leagueDelta").get<LolMatchHistoryMatchHistoryPlayerLeagueDelta>(); 
   }
 }

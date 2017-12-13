@@ -2,21 +2,21 @@
 #include<lol/base_def.hpp> 
 namespace lol {
   struct LolStoreBundledItemCost { 
-    std::string costType;
     std::optional<float> discount;
-    int64_t cost;
-    std::string currency; 
+    std::string costType;
+    std::string currency;
+    int64_t cost; 
   };
   void to_json(json& j, const LolStoreBundledItemCost& v) {
-  j["costType"] = v.costType; 
   j["discount"] = v.discount; 
-  j["cost"] = v.cost; 
+  j["costType"] = v.costType; 
   j["currency"] = v.currency; 
+  j["cost"] = v.cost; 
   }
   void from_json(const json& j, LolStoreBundledItemCost& v) {
-  v.costType = j.at("costType").get<std::string>(); 
   v.discount = j.at("discount").get<std::optional<float>>(); 
-  v.cost = j.at("cost").get<int64_t>(); 
+  v.costType = j.at("costType").get<std::string>(); 
   v.currency = j.at("currency").get<std::string>(); 
+  v.cost = j.at("cost").get<int64_t>(); 
   }
 }

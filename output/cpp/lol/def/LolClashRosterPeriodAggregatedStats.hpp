@@ -3,21 +3,21 @@
 #include <lol/def/LolClashRosterMatchAggregatedStats.hpp>
 namespace lol {
   struct LolClashRosterPeriodAggregatedStats { 
-    int32_t bracketSize;
-    std::vector<LolClashRosterMatchAggregatedStats> matchStats;
     int64_t time;
-    int32_t period; 
+    int32_t bracketSize;
+    int32_t period;
+    std::vector<LolClashRosterMatchAggregatedStats> matchStats; 
   };
   void to_json(json& j, const LolClashRosterPeriodAggregatedStats& v) {
-  j["bracketSize"] = v.bracketSize; 
-  j["matchStats"] = v.matchStats; 
   j["time"] = v.time; 
+  j["bracketSize"] = v.bracketSize; 
   j["period"] = v.period; 
+  j["matchStats"] = v.matchStats; 
   }
   void from_json(const json& j, LolClashRosterPeriodAggregatedStats& v) {
-  v.bracketSize = j.at("bracketSize").get<int32_t>(); 
-  v.matchStats = j.at("matchStats").get<std::vector<LolClashRosterMatchAggregatedStats>>(); 
   v.time = j.at("time").get<int64_t>(); 
+  v.bracketSize = j.at("bracketSize").get<int32_t>(); 
   v.period = j.at("period").get<int32_t>(); 
+  v.matchStats = j.at("matchStats").get<std::vector<LolClashRosterMatchAggregatedStats>>(); 
   }
 }

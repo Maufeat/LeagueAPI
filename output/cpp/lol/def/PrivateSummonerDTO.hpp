@@ -2,39 +2,39 @@
 #include<lol/base_def.hpp> 
 namespace lol {
   struct PrivateSummonerDTO { 
-    bool nameChangeFlag;
-    uint64_t acctId;
-    bool advancedTutorialFlag;
-    std::string name;
-    bool displayEloQuestionaire;
-    int32_t profileIconId;
     std::string previousSeasonHighestTier;
-    bool tutorialFlag;
+    bool nameChangeFlag;
+    bool displayEloQuestionaire;
     std::string internalName;
-    uint64_t sumId; 
+    bool advancedTutorialFlag;
+    uint64_t sumId;
+    bool tutorialFlag;
+    std::string name;
+    int32_t profileIconId;
+    uint64_t acctId; 
   };
   void to_json(json& j, const PrivateSummonerDTO& v) {
-  j["nameChangeFlag"] = v.nameChangeFlag; 
-  j["acctId"] = v.acctId; 
-  j["advancedTutorialFlag"] = v.advancedTutorialFlag; 
-  j["name"] = v.name; 
-  j["displayEloQuestionaire"] = v.displayEloQuestionaire; 
-  j["profileIconId"] = v.profileIconId; 
   j["previousSeasonHighestTier"] = v.previousSeasonHighestTier; 
-  j["tutorialFlag"] = v.tutorialFlag; 
+  j["nameChangeFlag"] = v.nameChangeFlag; 
+  j["displayEloQuestionaire"] = v.displayEloQuestionaire; 
   j["internalName"] = v.internalName; 
+  j["advancedTutorialFlag"] = v.advancedTutorialFlag; 
   j["sumId"] = v.sumId; 
+  j["tutorialFlag"] = v.tutorialFlag; 
+  j["name"] = v.name; 
+  j["profileIconId"] = v.profileIconId; 
+  j["acctId"] = v.acctId; 
   }
   void from_json(const json& j, PrivateSummonerDTO& v) {
-  v.nameChangeFlag = j.at("nameChangeFlag").get<bool>(); 
-  v.acctId = j.at("acctId").get<uint64_t>(); 
-  v.advancedTutorialFlag = j.at("advancedTutorialFlag").get<bool>(); 
-  v.name = j.at("name").get<std::string>(); 
-  v.displayEloQuestionaire = j.at("displayEloQuestionaire").get<bool>(); 
-  v.profileIconId = j.at("profileIconId").get<int32_t>(); 
   v.previousSeasonHighestTier = j.at("previousSeasonHighestTier").get<std::string>(); 
-  v.tutorialFlag = j.at("tutorialFlag").get<bool>(); 
+  v.nameChangeFlag = j.at("nameChangeFlag").get<bool>(); 
+  v.displayEloQuestionaire = j.at("displayEloQuestionaire").get<bool>(); 
   v.internalName = j.at("internalName").get<std::string>(); 
+  v.advancedTutorialFlag = j.at("advancedTutorialFlag").get<bool>(); 
   v.sumId = j.at("sumId").get<uint64_t>(); 
+  v.tutorialFlag = j.at("tutorialFlag").get<bool>(); 
+  v.name = j.at("name").get<std::string>(); 
+  v.profileIconId = j.at("profileIconId").get<int32_t>(); 
+  v.acctId = j.at("acctId").get<uint64_t>(); 
   }
 }

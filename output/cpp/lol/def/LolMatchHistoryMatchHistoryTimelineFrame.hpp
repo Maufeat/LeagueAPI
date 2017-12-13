@@ -4,18 +4,18 @@
 #include <lol/def/LolMatchHistoryMatchHistoryParticipantFrame.hpp>
 namespace lol {
   struct LolMatchHistoryMatchHistoryTimelineFrame { 
-    uint64_t timestamp;
     std::map<std::string, LolMatchHistoryMatchHistoryParticipantFrame> participantFrames;
-    std::vector<LolMatchHistoryMatchHistoryEvent> events; 
+    std::vector<LolMatchHistoryMatchHistoryEvent> events;
+    uint64_t timestamp; 
   };
   void to_json(json& j, const LolMatchHistoryMatchHistoryTimelineFrame& v) {
-  j["timestamp"] = v.timestamp; 
   j["participantFrames"] = v.participantFrames; 
   j["events"] = v.events; 
+  j["timestamp"] = v.timestamp; 
   }
   void from_json(const json& j, LolMatchHistoryMatchHistoryTimelineFrame& v) {
-  v.timestamp = j.at("timestamp").get<uint64_t>(); 
   v.participantFrames = j.at("participantFrames").get<std::map<std::string, LolMatchHistoryMatchHistoryParticipantFrame>>(); 
   v.events = j.at("events").get<std::vector<LolMatchHistoryMatchHistoryEvent>>(); 
+  v.timestamp = j.at("timestamp").get<uint64_t>(); 
   }
 }

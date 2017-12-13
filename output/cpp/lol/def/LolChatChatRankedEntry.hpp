@@ -1,30 +1,30 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/LolChatChatRankedTier.hpp>
 #include <lol/def/LolChatChatRankedQueue.hpp>
+#include <lol/def/LolChatChatRankedTier.hpp>
 namespace lol {
   struct LolChatChatRankedEntry { 
-    std::string leagueName;
     LolChatChatRankedTier rankedTier;
-    LolChatChatRankedQueue rankedQueue;
-    uint64_t games;
     uint64_t wins;
-    uint64_t division; 
+    LolChatChatRankedQueue rankedQueue;
+    std::string leagueName;
+    uint64_t division;
+    uint64_t games; 
   };
   void to_json(json& j, const LolChatChatRankedEntry& v) {
-  j["leagueName"] = v.leagueName; 
   j["rankedTier"] = v.rankedTier; 
-  j["rankedQueue"] = v.rankedQueue; 
-  j["games"] = v.games; 
   j["wins"] = v.wins; 
+  j["rankedQueue"] = v.rankedQueue; 
+  j["leagueName"] = v.leagueName; 
   j["division"] = v.division; 
+  j["games"] = v.games; 
   }
   void from_json(const json& j, LolChatChatRankedEntry& v) {
-  v.leagueName = j.at("leagueName").get<std::string>(); 
   v.rankedTier = j.at("rankedTier").get<LolChatChatRankedTier>(); 
-  v.rankedQueue = j.at("rankedQueue").get<LolChatChatRankedQueue>(); 
-  v.games = j.at("games").get<uint64_t>(); 
   v.wins = j.at("wins").get<uint64_t>(); 
+  v.rankedQueue = j.at("rankedQueue").get<LolChatChatRankedQueue>(); 
+  v.leagueName = j.at("leagueName").get<std::string>(); 
   v.division = j.at("division").get<uint64_t>(); 
+  v.games = j.at("games").get<uint64_t>(); 
   }
 }

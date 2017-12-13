@@ -1,42 +1,42 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/BracketMatch.hpp>
 #include <lol/def/BracketRoster.hpp>
+#include <lol/def/BracketMatch.hpp>
 namespace lol {
   struct LolClashBracket { 
-    std::vector<BracketMatch> matches;
-    int64_t id;
     int32_t period;
-    int64_t tournamentId;
     int32_t currentLoserRound;
-    std::vector<BracketRoster> rosters;
+    int64_t tournamentId;
+    std::vector<BracketMatch> matches;
+    int32_t size;
     std::vector<BracketMatch> loserBracketMatches;
     int32_t currentRound;
-    int32_t size;
-    bool isComplete; 
+    std::vector<BracketRoster> rosters;
+    bool isComplete;
+    int64_t id; 
   };
   void to_json(json& j, const LolClashBracket& v) {
-  j["matches"] = v.matches; 
-  j["id"] = v.id; 
   j["period"] = v.period; 
-  j["tournamentId"] = v.tournamentId; 
   j["currentLoserRound"] = v.currentLoserRound; 
-  j["rosters"] = v.rosters; 
+  j["tournamentId"] = v.tournamentId; 
+  j["matches"] = v.matches; 
+  j["size"] = v.size; 
   j["loserBracketMatches"] = v.loserBracketMatches; 
   j["currentRound"] = v.currentRound; 
-  j["size"] = v.size; 
+  j["rosters"] = v.rosters; 
   j["isComplete"] = v.isComplete; 
+  j["id"] = v.id; 
   }
   void from_json(const json& j, LolClashBracket& v) {
-  v.matches = j.at("matches").get<std::vector<BracketMatch>>(); 
-  v.id = j.at("id").get<int64_t>(); 
   v.period = j.at("period").get<int32_t>(); 
-  v.tournamentId = j.at("tournamentId").get<int64_t>(); 
   v.currentLoserRound = j.at("currentLoserRound").get<int32_t>(); 
-  v.rosters = j.at("rosters").get<std::vector<BracketRoster>>(); 
+  v.tournamentId = j.at("tournamentId").get<int64_t>(); 
+  v.matches = j.at("matches").get<std::vector<BracketMatch>>(); 
+  v.size = j.at("size").get<int32_t>(); 
   v.loserBracketMatches = j.at("loserBracketMatches").get<std::vector<BracketMatch>>(); 
   v.currentRound = j.at("currentRound").get<int32_t>(); 
-  v.size = j.at("size").get<int32_t>(); 
+  v.rosters = j.at("rosters").get<std::vector<BracketRoster>>(); 
   v.isComplete = j.at("isComplete").get<bool>(); 
+  v.id = j.at("id").get<int64_t>(); 
   }
 }

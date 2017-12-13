@@ -5,18 +5,18 @@
 #include <lol/def/LolChampSelectLegacyGameflowPhase.hpp>
 namespace lol {
   struct LolChampSelectLegacyGameflowSession { 
-    LolChampSelectLegacyGameflowPhase phase;
     LolChampSelectLegacyGameflowGameData gameData;
+    LolChampSelectLegacyGameflowPhase phase;
     LolChampSelectLegacyGameflowGameClient gameClient; 
   };
   void to_json(json& j, const LolChampSelectLegacyGameflowSession& v) {
-  j["phase"] = v.phase; 
   j["gameData"] = v.gameData; 
+  j["phase"] = v.phase; 
   j["gameClient"] = v.gameClient; 
   }
   void from_json(const json& j, LolChampSelectLegacyGameflowSession& v) {
-  v.phase = j.at("phase").get<LolChampSelectLegacyGameflowPhase>(); 
   v.gameData = j.at("gameData").get<LolChampSelectLegacyGameflowGameData>(); 
+  v.phase = j.at("phase").get<LolChampSelectLegacyGameflowPhase>(); 
   v.gameClient = j.at("gameClient").get<LolChampSelectLegacyGameflowGameClient>(); 
   }
 }

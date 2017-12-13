@@ -4,18 +4,18 @@
 #include <lol/def/LolStoreBundledItemCost.hpp>
 namespace lol {
   struct LolStoreBundled { 
-    std::vector<LolStoreBundledItem> items;
     std::vector<LolStoreBundledItemCost> minimumPrices;
-    bool flexible; 
+    bool flexible;
+    std::vector<LolStoreBundledItem> items; 
   };
   void to_json(json& j, const LolStoreBundled& v) {
-  j["items"] = v.items; 
   j["minimumPrices"] = v.minimumPrices; 
   j["flexible"] = v.flexible; 
+  j["items"] = v.items; 
   }
   void from_json(const json& j, LolStoreBundled& v) {
-  v.items = j.at("items").get<std::vector<LolStoreBundledItem>>(); 
   v.minimumPrices = j.at("minimumPrices").get<std::vector<LolStoreBundledItemCost>>(); 
   v.flexible = j.at("flexible").get<bool>(); 
+  v.items = j.at("items").get<std::vector<LolStoreBundledItem>>(); 
   }
 }

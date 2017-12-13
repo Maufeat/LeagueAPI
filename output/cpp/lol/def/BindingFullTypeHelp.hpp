@@ -1,33 +1,33 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/BindingFullEnumValueHelp.hpp>
 #include <lol/def/BindingFullFieldHelp.hpp>
+#include <lol/def/BindingFullEnumValueHelp.hpp>
 namespace lol {
   struct BindingFullTypeHelp { 
-    std::string nameSpace;
     std::vector<BindingFullFieldHelp> fields;
-    std::vector<std::string> tags;
-    std::string description;
     std::vector<BindingFullEnumValueHelp> values;
+    std::string nameSpace;
+    uint32_t size;
+    std::string description;
     std::string name;
-    uint32_t size; 
+    std::vector<std::string> tags; 
   };
   void to_json(json& j, const BindingFullTypeHelp& v) {
-  j["nameSpace"] = v.nameSpace; 
   j["fields"] = v.fields; 
-  j["tags"] = v.tags; 
-  j["description"] = v.description; 
   j["values"] = v.values; 
-  j["name"] = v.name; 
+  j["nameSpace"] = v.nameSpace; 
   j["size"] = v.size; 
+  j["description"] = v.description; 
+  j["name"] = v.name; 
+  j["tags"] = v.tags; 
   }
   void from_json(const json& j, BindingFullTypeHelp& v) {
-  v.nameSpace = j.at("nameSpace").get<std::string>(); 
   v.fields = j.at("fields").get<std::vector<BindingFullFieldHelp>>(); 
-  v.tags = j.at("tags").get<std::vector<std::string>>(); 
-  v.description = j.at("description").get<std::string>(); 
   v.values = j.at("values").get<std::vector<BindingFullEnumValueHelp>>(); 
-  v.name = j.at("name").get<std::string>(); 
+  v.nameSpace = j.at("nameSpace").get<std::string>(); 
   v.size = j.at("size").get<uint32_t>(); 
+  v.description = j.at("description").get<std::string>(); 
+  v.name = j.at("name").get<std::string>(); 
+  v.tags = j.at("tags").get<std::vector<std::string>>(); 
   }
 }

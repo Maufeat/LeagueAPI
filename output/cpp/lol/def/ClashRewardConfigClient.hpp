@@ -4,21 +4,21 @@
 #include <lol/def/ClashRewardKeyType.hpp>
 namespace lol {
   struct ClashRewardConfigClient { 
-    bool grantToSub;
+    std::string name;
     std::vector<ClashRewardConfigEntry> entries;
-    std::vector<ClashRewardKeyType> keyDef;
-    std::string name; 
+    bool grantToSub;
+    std::vector<ClashRewardKeyType> keyDef; 
   };
   void to_json(json& j, const ClashRewardConfigClient& v) {
-  j["grantToSub"] = v.grantToSub; 
-  j["entries"] = v.entries; 
-  j["keyDef"] = v.keyDef; 
   j["name"] = v.name; 
+  j["entries"] = v.entries; 
+  j["grantToSub"] = v.grantToSub; 
+  j["keyDef"] = v.keyDef; 
   }
   void from_json(const json& j, ClashRewardConfigClient& v) {
-  v.grantToSub = j.at("grantToSub").get<bool>(); 
-  v.entries = j.at("entries").get<std::vector<ClashRewardConfigEntry>>(); 
-  v.keyDef = j.at("keyDef").get<std::vector<ClashRewardKeyType>>(); 
   v.name = j.at("name").get<std::string>(); 
+  v.entries = j.at("entries").get<std::vector<ClashRewardConfigEntry>>(); 
+  v.grantToSub = j.at("grantToSub").get<bool>(); 
+  v.keyDef = j.at("keyDef").get<std::vector<ClashRewardKeyType>>(); 
   }
 }

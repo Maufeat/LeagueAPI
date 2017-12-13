@@ -2,18 +2,18 @@
 #include<lol/base_def.hpp> 
 namespace lol {
   struct LolPftPFTEvent { 
-    uint64_t playerSurveyId;
     std::string action;
+    uint64_t playerSurveyId;
     std::vector<json> data; 
   };
   void to_json(json& j, const LolPftPFTEvent& v) {
-  j["playerSurveyId"] = v.playerSurveyId; 
   j["action"] = v.action; 
+  j["playerSurveyId"] = v.playerSurveyId; 
   j["data"] = v.data; 
   }
   void from_json(const json& j, LolPftPFTEvent& v) {
-  v.playerSurveyId = j.at("playerSurveyId").get<uint64_t>(); 
   v.action = j.at("action").get<std::string>(); 
+  v.playerSurveyId = j.at("playerSurveyId").get<uint64_t>(); 
   v.data = j.at("data").get<std::vector<json>>(); 
   }
 }

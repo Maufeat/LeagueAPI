@@ -3,21 +3,21 @@
 #include <lol/def/LolGeoinfoGeoInfo.hpp>
 namespace lol {
   struct LolGeoinfoGeoInfoResponse { 
-    std::string errorMessage;
-    LolGeoinfoGeoInfo geoInfo;
+    bool success;
     bool isLatest;
-    bool success; 
+    LolGeoinfoGeoInfo geoInfo;
+    std::string errorMessage; 
   };
   void to_json(json& j, const LolGeoinfoGeoInfoResponse& v) {
-  j["errorMessage"] = v.errorMessage; 
-  j["geoInfo"] = v.geoInfo; 
-  j["isLatest"] = v.isLatest; 
   j["success"] = v.success; 
+  j["isLatest"] = v.isLatest; 
+  j["geoInfo"] = v.geoInfo; 
+  j["errorMessage"] = v.errorMessage; 
   }
   void from_json(const json& j, LolGeoinfoGeoInfoResponse& v) {
-  v.errorMessage = j.at("errorMessage").get<std::string>(); 
-  v.geoInfo = j.at("geoInfo").get<LolGeoinfoGeoInfo>(); 
-  v.isLatest = j.at("isLatest").get<bool>(); 
   v.success = j.at("success").get<bool>(); 
+  v.isLatest = j.at("isLatest").get<bool>(); 
+  v.geoInfo = j.at("geoInfo").get<LolGeoinfoGeoInfo>(); 
+  v.errorMessage = j.at("errorMessage").get<std::string>(); 
   }
 }

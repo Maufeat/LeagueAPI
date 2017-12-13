@@ -3,15 +3,15 @@
 #include <lol/def/MatchmakingSearchErrorResource.hpp>
 namespace lol {
   struct MatchmakingSearchResource { 
-    int32_t queueId;
-    std::vector<MatchmakingSearchErrorResource> errors; 
+    std::vector<MatchmakingSearchErrorResource> errors;
+    int32_t queueId; 
   };
   void to_json(json& j, const MatchmakingSearchResource& v) {
-  j["queueId"] = v.queueId; 
   j["errors"] = v.errors; 
+  j["queueId"] = v.queueId; 
   }
   void from_json(const json& j, MatchmakingSearchResource& v) {
-  v.queueId = j.at("queueId").get<int32_t>(); 
   v.errors = j.at("errors").get<std::vector<MatchmakingSearchErrorResource>>(); 
+  v.queueId = j.at("queueId").get<int32_t>(); 
   }
 }

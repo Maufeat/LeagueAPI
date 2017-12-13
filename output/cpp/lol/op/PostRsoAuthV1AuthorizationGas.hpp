@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
-#include <lol/def/RsoAuthAuthorization.hpp>
 #include <lol/def/RsoAuthRSOPlayerCredentials.hpp>
+#include <lol/def/RsoAuthAuthorization.hpp>
 namespace lol {
   Result<RsoAuthAuthorization> PostRsoAuthV1AuthorizationGas(const LeagueClient& _client, const RsoAuthRSOPlayerCredentials& creds)
   {

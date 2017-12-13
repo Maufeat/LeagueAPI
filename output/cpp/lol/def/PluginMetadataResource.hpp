@@ -3,36 +3,36 @@
 #include <lol/def/PluginThreadingModel.hpp>
 namespace lol {
   struct PluginMetadataResource { 
-    PluginThreadingModel threading;
-    bool hasBundledAssets;
-    std::map<std::string, json> perLocaleAssetBundles;
-    std::string subtype;
-    std::map<std::string, std::string> implements;
+    std::vector<std::string> globalAssetBundles;
     std::string type;
-    std::string app;
+    std::map<std::string, std::string> implements;
     std::string feature;
-    std::vector<std::string> globalAssetBundles; 
+    PluginThreadingModel threading;
+    std::string subtype;
+    bool hasBundledAssets;
+    std::string app;
+    std::map<std::string, json> perLocaleAssetBundles; 
   };
   void to_json(json& j, const PluginMetadataResource& v) {
-  j["threading"] = v.threading; 
-  j["hasBundledAssets"] = v.hasBundledAssets; 
-  j["perLocaleAssetBundles"] = v.perLocaleAssetBundles; 
-  j["subtype"] = v.subtype; 
-  j["implements"] = v.implements; 
-  j["type"] = v.type; 
-  j["app"] = v.app; 
-  j["feature"] = v.feature; 
   j["globalAssetBundles"] = v.globalAssetBundles; 
+  j["type"] = v.type; 
+  j["implements"] = v.implements; 
+  j["feature"] = v.feature; 
+  j["threading"] = v.threading; 
+  j["subtype"] = v.subtype; 
+  j["hasBundledAssets"] = v.hasBundledAssets; 
+  j["app"] = v.app; 
+  j["perLocaleAssetBundles"] = v.perLocaleAssetBundles; 
   }
   void from_json(const json& j, PluginMetadataResource& v) {
-  v.threading = j.at("threading").get<PluginThreadingModel>(); 
-  v.hasBundledAssets = j.at("hasBundledAssets").get<bool>(); 
-  v.perLocaleAssetBundles = j.at("perLocaleAssetBundles").get<std::map<std::string, json>>(); 
-  v.subtype = j.at("subtype").get<std::string>(); 
-  v.implements = j.at("implements").get<std::map<std::string, std::string>>(); 
-  v.type = j.at("type").get<std::string>(); 
-  v.app = j.at("app").get<std::string>(); 
-  v.feature = j.at("feature").get<std::string>(); 
   v.globalAssetBundles = j.at("globalAssetBundles").get<std::vector<std::string>>(); 
+  v.type = j.at("type").get<std::string>(); 
+  v.implements = j.at("implements").get<std::map<std::string, std::string>>(); 
+  v.feature = j.at("feature").get<std::string>(); 
+  v.threading = j.at("threading").get<PluginThreadingModel>(); 
+  v.subtype = j.at("subtype").get<std::string>(); 
+  v.hasBundledAssets = j.at("hasBundledAssets").get<bool>(); 
+  v.app = j.at("app").get<std::string>(); 
+  v.perLocaleAssetBundles = j.at("perLocaleAssetBundles").get<std::map<std::string, json>>(); 
   }
 }

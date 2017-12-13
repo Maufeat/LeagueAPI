@@ -2,15 +2,15 @@
 #include<lol/base_def.hpp> 
 namespace lol {
   struct LolLobbyLobbyTimer { 
-    bool enabled;
-    int64_t countdown; 
+    int64_t countdown;
+    bool enabled; 
   };
   void to_json(json& j, const LolLobbyLobbyTimer& v) {
-  j["enabled"] = v.enabled; 
   j["countdown"] = v.countdown; 
+  j["enabled"] = v.enabled; 
   }
   void from_json(const json& j, LolLobbyLobbyTimer& v) {
-  v.enabled = j.at("enabled").get<bool>(); 
   v.countdown = j.at("countdown").get<int64_t>(); 
+  v.enabled = j.at("enabled").get<bool>(); 
   }
 }

@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/LolPerksUISettings.hpp>
 #include <lol/def/LolPerksPerkPageResource.hpp>
+#include <lol/def/LolPerksUISettings.hpp>
 namespace lol {
   struct LolPerksPlayerPreferencesSettings { 
     LolPerksUISettings settings;

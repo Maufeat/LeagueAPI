@@ -4,15 +4,15 @@
 #include <lol/def/SummonerLevelAndPoints.hpp>
 namespace lol {
   struct AllSummonerData { 
-    SummonerLevelAndPoints summonerLevelAndPoints;
-    PrivateSummonerDTO summoner; 
+    PrivateSummonerDTO summoner;
+    SummonerLevelAndPoints summonerLevelAndPoints; 
   };
   void to_json(json& j, const AllSummonerData& v) {
-  j["summonerLevelAndPoints"] = v.summonerLevelAndPoints; 
   j["summoner"] = v.summoner; 
+  j["summonerLevelAndPoints"] = v.summonerLevelAndPoints; 
   }
   void from_json(const json& j, AllSummonerData& v) {
-  v.summonerLevelAndPoints = j.at("summonerLevelAndPoints").get<SummonerLevelAndPoints>(); 
   v.summoner = j.at("summoner").get<PrivateSummonerDTO>(); 
+  v.summonerLevelAndPoints = j.at("summonerLevelAndPoints").get<SummonerLevelAndPoints>(); 
   }
 }

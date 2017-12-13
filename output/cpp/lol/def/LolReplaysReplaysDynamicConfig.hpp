@@ -2,15 +2,15 @@
 #include<lol/base_def.hpp> 
 namespace lol {
   struct LolReplaysReplaysDynamicConfig { 
-    double MinutesUntilReplayConsideredLost;
-    std::string MinSupportedGameServerVersion; 
+    std::string MinSupportedGameServerVersion;
+    double MinutesUntilReplayConsideredLost; 
   };
   void to_json(json& j, const LolReplaysReplaysDynamicConfig& v) {
-  j["MinutesUntilReplayConsideredLost"] = v.MinutesUntilReplayConsideredLost; 
   j["MinSupportedGameServerVersion"] = v.MinSupportedGameServerVersion; 
+  j["MinutesUntilReplayConsideredLost"] = v.MinutesUntilReplayConsideredLost; 
   }
   void from_json(const json& j, LolReplaysReplaysDynamicConfig& v) {
-  v.MinutesUntilReplayConsideredLost = j.at("MinutesUntilReplayConsideredLost").get<double>(); 
   v.MinSupportedGameServerVersion = j.at("MinSupportedGameServerVersion").get<std::string>(); 
+  v.MinutesUntilReplayConsideredLost = j.at("MinutesUntilReplayConsideredLost").get<double>(); 
   }
 }

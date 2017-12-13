@@ -1,27 +1,27 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/Bracket.hpp>
 #include <lol/def/LolClashRosterNotifyReason.hpp>
+#include <lol/def/Bracket.hpp>
 namespace lol {
   struct LolClashTournamentGameEndNotification { 
-    int64_t timestamp;
     int64_t currentMatchId;
+    int64_t tournamentId;
+    int64_t timestamp;
     Bracket bracket;
-    LolClashRosterNotifyReason notifyReason;
-    int64_t tournamentId; 
+    LolClashRosterNotifyReason notifyReason; 
   };
   void to_json(json& j, const LolClashTournamentGameEndNotification& v) {
-  j["timestamp"] = v.timestamp; 
   j["currentMatchId"] = v.currentMatchId; 
+  j["tournamentId"] = v.tournamentId; 
+  j["timestamp"] = v.timestamp; 
   j["bracket"] = v.bracket; 
   j["notifyReason"] = v.notifyReason; 
-  j["tournamentId"] = v.tournamentId; 
   }
   void from_json(const json& j, LolClashTournamentGameEndNotification& v) {
-  v.timestamp = j.at("timestamp").get<int64_t>(); 
   v.currentMatchId = j.at("currentMatchId").get<int64_t>(); 
+  v.tournamentId = j.at("tournamentId").get<int64_t>(); 
+  v.timestamp = j.at("timestamp").get<int64_t>(); 
   v.bracket = j.at("bracket").get<Bracket>(); 
   v.notifyReason = j.at("notifyReason").get<LolClashRosterNotifyReason>(); 
-  v.tournamentId = j.at("tournamentId").get<int64_t>(); 
   }
 }

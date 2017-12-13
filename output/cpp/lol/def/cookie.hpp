@@ -2,33 +2,33 @@
 #include<lol/base_def.hpp> 
 namespace lol {
   struct cookie { 
-    std::string url;
+    std::string domain;
+    bool secure;
     bool httponly;
     std::string path;
-    std::string value;
-    std::string domain;
     std::string name;
-    std::optional<int64_t> expires;
-    bool secure; 
+    std::string value;
+    std::string url;
+    std::optional<int64_t> expires; 
   };
   void to_json(json& j, const cookie& v) {
-  j["url"] = v.url; 
+  j["domain"] = v.domain; 
+  j["secure"] = v.secure; 
   j["httponly"] = v.httponly; 
   j["path"] = v.path; 
-  j["value"] = v.value; 
-  j["domain"] = v.domain; 
   j["name"] = v.name; 
+  j["value"] = v.value; 
+  j["url"] = v.url; 
   j["expires"] = v.expires; 
-  j["secure"] = v.secure; 
   }
   void from_json(const json& j, cookie& v) {
-  v.url = j.at("url").get<std::string>(); 
+  v.domain = j.at("domain").get<std::string>(); 
+  v.secure = j.at("secure").get<bool>(); 
   v.httponly = j.at("httponly").get<bool>(); 
   v.path = j.at("path").get<std::string>(); 
-  v.value = j.at("value").get<std::string>(); 
-  v.domain = j.at("domain").get<std::string>(); 
   v.name = j.at("name").get<std::string>(); 
+  v.value = j.at("value").get<std::string>(); 
+  v.url = j.at("url").get<std::string>(); 
   v.expires = j.at("expires").get<std::optional<int64_t>>(); 
-  v.secure = j.at("secure").get<bool>(); 
   }
 }

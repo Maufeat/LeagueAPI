@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/LolStoreSimpleDialogMessage.hpp>
 #include <lol/def/LolStoreAllSummonerData.hpp>
+#include <lol/def/LolStoreSimpleDialogMessage.hpp>
 namespace lol {
   struct LolStoreLoginDataPacket { 
     LolStoreAllSummonerData allSummonerData;

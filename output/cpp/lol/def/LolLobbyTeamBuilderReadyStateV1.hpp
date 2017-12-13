@@ -2,21 +2,21 @@
 #include<lol/base_def.hpp> 
 namespace lol {
   struct LolLobbyTeamBuilderReadyStateV1 { 
-    bool premadeSizeAllowed;
+    std::vector<int32_t> allowablePremadeSizes;
     bool requiredPositionCoverageMet;
     bool readyToMatchmake;
-    std::vector<int32_t> allowablePremadeSizes; 
+    bool premadeSizeAllowed; 
   };
   void to_json(json& j, const LolLobbyTeamBuilderReadyStateV1& v) {
-  j["premadeSizeAllowed"] = v.premadeSizeAllowed; 
+  j["allowablePremadeSizes"] = v.allowablePremadeSizes; 
   j["requiredPositionCoverageMet"] = v.requiredPositionCoverageMet; 
   j["readyToMatchmake"] = v.readyToMatchmake; 
-  j["allowablePremadeSizes"] = v.allowablePremadeSizes; 
+  j["premadeSizeAllowed"] = v.premadeSizeAllowed; 
   }
   void from_json(const json& j, LolLobbyTeamBuilderReadyStateV1& v) {
-  v.premadeSizeAllowed = j.at("premadeSizeAllowed").get<bool>(); 
+  v.allowablePremadeSizes = j.at("allowablePremadeSizes").get<std::vector<int32_t>>(); 
   v.requiredPositionCoverageMet = j.at("requiredPositionCoverageMet").get<bool>(); 
   v.readyToMatchmake = j.at("readyToMatchmake").get<bool>(); 
-  v.allowablePremadeSizes = j.at("allowablePremadeSizes").get<std::vector<int32_t>>(); 
+  v.premadeSizeAllowed = j.at("premadeSizeAllowed").get<bool>(); 
   }
 }

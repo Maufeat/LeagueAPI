@@ -3,24 +3,24 @@
 #include <lol/def/LolGameflowPatcherProductStateAction.hpp>
 namespace lol {
   struct LolGameflowPatcherProductState { 
-    bool isCorrupted;
-    LolGameflowPatcherProductStateAction action;
-    bool isUpdateAvailable;
     bool isUpToDate;
-    bool isStopped; 
+    bool isStopped;
+    bool isCorrupted;
+    bool isUpdateAvailable;
+    LolGameflowPatcherProductStateAction action; 
   };
   void to_json(json& j, const LolGameflowPatcherProductState& v) {
-  j["isCorrupted"] = v.isCorrupted; 
-  j["action"] = v.action; 
-  j["isUpdateAvailable"] = v.isUpdateAvailable; 
   j["isUpToDate"] = v.isUpToDate; 
   j["isStopped"] = v.isStopped; 
+  j["isCorrupted"] = v.isCorrupted; 
+  j["isUpdateAvailable"] = v.isUpdateAvailable; 
+  j["action"] = v.action; 
   }
   void from_json(const json& j, LolGameflowPatcherProductState& v) {
-  v.isCorrupted = j.at("isCorrupted").get<bool>(); 
-  v.action = j.at("action").get<LolGameflowPatcherProductStateAction>(); 
-  v.isUpdateAvailable = j.at("isUpdateAvailable").get<bool>(); 
   v.isUpToDate = j.at("isUpToDate").get<bool>(); 
   v.isStopped = j.at("isStopped").get<bool>(); 
+  v.isCorrupted = j.at("isCorrupted").get<bool>(); 
+  v.isUpdateAvailable = j.at("isUpdateAvailable").get<bool>(); 
+  v.action = j.at("action").get<LolGameflowPatcherProductStateAction>(); 
   }
 }

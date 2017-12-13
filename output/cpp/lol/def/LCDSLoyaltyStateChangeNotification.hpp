@@ -5,17 +5,17 @@
 namespace lol {
   struct LCDSLoyaltyStateChangeNotification { 
     LCDSLoyaltyRewards rewards;
-    uint64_t accountId;
-    LCDSLoyaltyStateChangeNotificationCategory notificationCategory; 
+    LCDSLoyaltyStateChangeNotificationCategory notificationCategory;
+    uint64_t accountId; 
   };
   void to_json(json& j, const LCDSLoyaltyStateChangeNotification& v) {
   j["rewards"] = v.rewards; 
-  j["accountId"] = v.accountId; 
   j["notificationCategory"] = v.notificationCategory; 
+  j["accountId"] = v.accountId; 
   }
   void from_json(const json& j, LCDSLoyaltyStateChangeNotification& v) {
   v.rewards = j.at("rewards").get<LCDSLoyaltyRewards>(); 
-  v.accountId = j.at("accountId").get<uint64_t>(); 
   v.notificationCategory = j.at("notificationCategory").get<LCDSLoyaltyStateChangeNotificationCategory>(); 
+  v.accountId = j.at("accountId").get<uint64_t>(); 
   }
 }

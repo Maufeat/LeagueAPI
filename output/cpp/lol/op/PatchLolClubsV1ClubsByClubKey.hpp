@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
-#include <lol/def/PlayerClub.hpp>
 #include <lol/def/ClubTag.hpp>
+#include <lol/def/PlayerClub.hpp>
 namespace lol {
   Result<PlayerClub> PatchLolClubsV1ClubsByClubKey(const LeagueClient& _client, const std::string& clubKey, const ClubTag& tag)
   {

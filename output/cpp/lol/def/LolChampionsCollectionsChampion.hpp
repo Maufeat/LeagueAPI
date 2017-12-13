@@ -1,67 +1,67 @@
 #pragma once
 #include<lol/base_def.hpp> 
 #include <lol/def/LolChampionsCollectionsChampionSkin.hpp>
-#include <lol/def/LolChampionsCollectionsChampionSpell.hpp>
 #include <lol/def/LolChampionsCollectionsOwnership.hpp>
+#include <lol/def/LolChampionsCollectionsChampionSpell.hpp>
 namespace lol {
   struct LolChampionsCollectionsChampion { 
-    std::string chooseVoPath;
-    uint64_t purchased;
-    int32_t id;
-    std::string name;
-    LolChampionsCollectionsChampionSpell passive;
     std::string alias;
-    std::vector<std::string> disabledQueues;
-    std::vector<LolChampionsCollectionsChampionSpell> spells;
+    uint64_t purchased;
     std::vector<std::string> roles;
-    std::string squarePortraitPath;
+    std::string chooseVoPath;
+    LolChampionsCollectionsChampionSpell passive;
+    LolChampionsCollectionsOwnership ownership;
+    std::string name;
+    std::string banVoPath;
+    int32_t id;
     bool freeToPlay;
     bool botEnabled;
-    LolChampionsCollectionsOwnership ownership;
-    std::string banVoPath;
     std::vector<LolChampionsCollectionsChampionSkin> skins;
-    std::string stingerSfxPath;
     bool active;
-    bool rankedPlayEnabled; 
+    std::vector<LolChampionsCollectionsChampionSpell> spells;
+    std::string squarePortraitPath;
+    std::vector<std::string> disabledQueues;
+    bool rankedPlayEnabled;
+    std::string stingerSfxPath; 
   };
   void to_json(json& j, const LolChampionsCollectionsChampion& v) {
-  j["chooseVoPath"] = v.chooseVoPath; 
-  j["purchased"] = v.purchased; 
-  j["id"] = v.id; 
-  j["name"] = v.name; 
-  j["passive"] = v.passive; 
   j["alias"] = v.alias; 
-  j["disabledQueues"] = v.disabledQueues; 
-  j["spells"] = v.spells; 
+  j["purchased"] = v.purchased; 
   j["roles"] = v.roles; 
-  j["squarePortraitPath"] = v.squarePortraitPath; 
+  j["chooseVoPath"] = v.chooseVoPath; 
+  j["passive"] = v.passive; 
+  j["ownership"] = v.ownership; 
+  j["name"] = v.name; 
+  j["banVoPath"] = v.banVoPath; 
+  j["id"] = v.id; 
   j["freeToPlay"] = v.freeToPlay; 
   j["botEnabled"] = v.botEnabled; 
-  j["ownership"] = v.ownership; 
-  j["banVoPath"] = v.banVoPath; 
   j["skins"] = v.skins; 
-  j["stingerSfxPath"] = v.stingerSfxPath; 
   j["active"] = v.active; 
+  j["spells"] = v.spells; 
+  j["squarePortraitPath"] = v.squarePortraitPath; 
+  j["disabledQueues"] = v.disabledQueues; 
   j["rankedPlayEnabled"] = v.rankedPlayEnabled; 
+  j["stingerSfxPath"] = v.stingerSfxPath; 
   }
   void from_json(const json& j, LolChampionsCollectionsChampion& v) {
-  v.chooseVoPath = j.at("chooseVoPath").get<std::string>(); 
-  v.purchased = j.at("purchased").get<uint64_t>(); 
-  v.id = j.at("id").get<int32_t>(); 
-  v.name = j.at("name").get<std::string>(); 
-  v.passive = j.at("passive").get<LolChampionsCollectionsChampionSpell>(); 
   v.alias = j.at("alias").get<std::string>(); 
-  v.disabledQueues = j.at("disabledQueues").get<std::vector<std::string>>(); 
-  v.spells = j.at("spells").get<std::vector<LolChampionsCollectionsChampionSpell>>(); 
+  v.purchased = j.at("purchased").get<uint64_t>(); 
   v.roles = j.at("roles").get<std::vector<std::string>>(); 
-  v.squarePortraitPath = j.at("squarePortraitPath").get<std::string>(); 
+  v.chooseVoPath = j.at("chooseVoPath").get<std::string>(); 
+  v.passive = j.at("passive").get<LolChampionsCollectionsChampionSpell>(); 
+  v.ownership = j.at("ownership").get<LolChampionsCollectionsOwnership>(); 
+  v.name = j.at("name").get<std::string>(); 
+  v.banVoPath = j.at("banVoPath").get<std::string>(); 
+  v.id = j.at("id").get<int32_t>(); 
   v.freeToPlay = j.at("freeToPlay").get<bool>(); 
   v.botEnabled = j.at("botEnabled").get<bool>(); 
-  v.ownership = j.at("ownership").get<LolChampionsCollectionsOwnership>(); 
-  v.banVoPath = j.at("banVoPath").get<std::string>(); 
   v.skins = j.at("skins").get<std::vector<LolChampionsCollectionsChampionSkin>>(); 
-  v.stingerSfxPath = j.at("stingerSfxPath").get<std::string>(); 
   v.active = j.at("active").get<bool>(); 
+  v.spells = j.at("spells").get<std::vector<LolChampionsCollectionsChampionSpell>>(); 
+  v.squarePortraitPath = j.at("squarePortraitPath").get<std::string>(); 
+  v.disabledQueues = j.at("disabledQueues").get<std::vector<std::string>>(); 
   v.rankedPlayEnabled = j.at("rankedPlayEnabled").get<bool>(); 
+  v.stingerSfxPath = j.at("stingerSfxPath").get<std::string>(); 
   }
 }

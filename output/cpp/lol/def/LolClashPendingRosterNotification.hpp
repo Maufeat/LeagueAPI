@@ -1,24 +1,24 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/PendingRosterDTO.hpp>
 #include <lol/def/LolClashNotifyReason.hpp>
+#include <lol/def/PendingRosterDTO.hpp>
 namespace lol {
   struct LolClashPendingRosterNotification { 
-    uint64_t targetPlayerId;
     uint64_t sourcePlayerId;
-    PendingRosterDTO pendingRoster;
-    LolClashNotifyReason notifyReason; 
+    LolClashNotifyReason notifyReason;
+    uint64_t targetPlayerId;
+    PendingRosterDTO pendingRoster; 
   };
   void to_json(json& j, const LolClashPendingRosterNotification& v) {
-  j["targetPlayerId"] = v.targetPlayerId; 
   j["sourcePlayerId"] = v.sourcePlayerId; 
-  j["pendingRoster"] = v.pendingRoster; 
   j["notifyReason"] = v.notifyReason; 
+  j["targetPlayerId"] = v.targetPlayerId; 
+  j["pendingRoster"] = v.pendingRoster; 
   }
   void from_json(const json& j, LolClashPendingRosterNotification& v) {
-  v.targetPlayerId = j.at("targetPlayerId").get<uint64_t>(); 
   v.sourcePlayerId = j.at("sourcePlayerId").get<uint64_t>(); 
-  v.pendingRoster = j.at("pendingRoster").get<PendingRosterDTO>(); 
   v.notifyReason = j.at("notifyReason").get<LolClashNotifyReason>(); 
+  v.targetPlayerId = j.at("targetPlayerId").get<uint64_t>(); 
+  v.pendingRoster = j.at("pendingRoster").get<PendingRosterDTO>(); 
   }
 }

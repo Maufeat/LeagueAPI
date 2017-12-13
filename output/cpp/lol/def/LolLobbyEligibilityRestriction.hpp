@@ -3,21 +3,21 @@
 #include <lol/def/LolLobbyEligibilityRestrictionCode.hpp>
 namespace lol {
   struct LolLobbyEligibilityRestriction { 
-    std::map<std::string, std::string> restrictionArgs;
-    std::vector<uint64_t> summonerIds;
+    LolLobbyEligibilityRestrictionCode restrictionCode;
     uint64_t expiredTimestamp;
-    LolLobbyEligibilityRestrictionCode restrictionCode; 
+    std::vector<uint64_t> summonerIds;
+    std::map<std::string, std::string> restrictionArgs; 
   };
   void to_json(json& j, const LolLobbyEligibilityRestriction& v) {
-  j["restrictionArgs"] = v.restrictionArgs; 
-  j["summonerIds"] = v.summonerIds; 
-  j["expiredTimestamp"] = v.expiredTimestamp; 
   j["restrictionCode"] = v.restrictionCode; 
+  j["expiredTimestamp"] = v.expiredTimestamp; 
+  j["summonerIds"] = v.summonerIds; 
+  j["restrictionArgs"] = v.restrictionArgs; 
   }
   void from_json(const json& j, LolLobbyEligibilityRestriction& v) {
-  v.restrictionArgs = j.at("restrictionArgs").get<std::map<std::string, std::string>>(); 
-  v.summonerIds = j.at("summonerIds").get<std::vector<uint64_t>>(); 
-  v.expiredTimestamp = j.at("expiredTimestamp").get<uint64_t>(); 
   v.restrictionCode = j.at("restrictionCode").get<LolLobbyEligibilityRestrictionCode>(); 
+  v.expiredTimestamp = j.at("expiredTimestamp").get<uint64_t>(); 
+  v.summonerIds = j.at("summonerIds").get<std::vector<uint64_t>>(); 
+  v.restrictionArgs = j.at("restrictionArgs").get<std::map<std::string, std::string>>(); 
   }
 }

@@ -3,15 +3,15 @@
 #include <lol/def/LolChampSelectLegacyLobbyStatus.hpp>
 namespace lol {
   struct LolChampSelectLegacyPlayerStatus { 
-    std::optional<LolChampSelectLegacyLobbyStatus> currentLobbyStatus;
-    std::optional<LolChampSelectLegacyLobbyStatus> lastQueuedLobbyStatus; 
+    std::optional<LolChampSelectLegacyLobbyStatus> lastQueuedLobbyStatus;
+    std::optional<LolChampSelectLegacyLobbyStatus> currentLobbyStatus; 
   };
   void to_json(json& j, const LolChampSelectLegacyPlayerStatus& v) {
-  j["currentLobbyStatus"] = v.currentLobbyStatus; 
   j["lastQueuedLobbyStatus"] = v.lastQueuedLobbyStatus; 
+  j["currentLobbyStatus"] = v.currentLobbyStatus; 
   }
   void from_json(const json& j, LolChampSelectLegacyPlayerStatus& v) {
-  v.currentLobbyStatus = j.at("currentLobbyStatus").get<std::optional<LolChampSelectLegacyLobbyStatus>>(); 
   v.lastQueuedLobbyStatus = j.at("lastQueuedLobbyStatus").get<std::optional<LolChampSelectLegacyLobbyStatus>>(); 
+  v.currentLobbyStatus = j.at("currentLobbyStatus").get<std::optional<LolChampSelectLegacyLobbyStatus>>(); 
   }
 }

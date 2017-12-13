@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/LolClashTournament.hpp>
 #include <lol/def/LolClashTournamentWinnerHistory.hpp>
+#include <lol/def/LolClashTournament.hpp>
 namespace lol {
   struct LolClashTournamentHistoryAndWinners { 
     LolClashTournamentWinnerHistory tournamentWinners;

@@ -2,39 +2,39 @@
 #include<lol/base_def.hpp> 
 namespace lol {
   struct CollectionsLcdsChampionSkinDTO { 
-    int32_t winCountRemaining;
-    uint64_t endDate;
-    int32_t skinId;
     bool lastSelected;
-    bool stillObtainable;
-    bool owned;
+    int32_t skinId;
     bool freeToPlayReward;
-    std::vector<std::string> sources;
+    uint64_t endDate;
+    uint64_t purchaseDate;
+    bool stillObtainable;
+    int32_t winCountRemaining;
+    bool owned;
     int32_t championId;
-    uint64_t purchaseDate; 
+    std::vector<std::string> sources; 
   };
   void to_json(json& j, const CollectionsLcdsChampionSkinDTO& v) {
-  j["winCountRemaining"] = v.winCountRemaining; 
-  j["endDate"] = v.endDate; 
-  j["skinId"] = v.skinId; 
   j["lastSelected"] = v.lastSelected; 
-  j["stillObtainable"] = v.stillObtainable; 
-  j["owned"] = v.owned; 
+  j["skinId"] = v.skinId; 
   j["freeToPlayReward"] = v.freeToPlayReward; 
-  j["sources"] = v.sources; 
-  j["championId"] = v.championId; 
+  j["endDate"] = v.endDate; 
   j["purchaseDate"] = v.purchaseDate; 
+  j["stillObtainable"] = v.stillObtainable; 
+  j["winCountRemaining"] = v.winCountRemaining; 
+  j["owned"] = v.owned; 
+  j["championId"] = v.championId; 
+  j["sources"] = v.sources; 
   }
   void from_json(const json& j, CollectionsLcdsChampionSkinDTO& v) {
-  v.winCountRemaining = j.at("winCountRemaining").get<int32_t>(); 
-  v.endDate = j.at("endDate").get<uint64_t>(); 
-  v.skinId = j.at("skinId").get<int32_t>(); 
   v.lastSelected = j.at("lastSelected").get<bool>(); 
-  v.stillObtainable = j.at("stillObtainable").get<bool>(); 
-  v.owned = j.at("owned").get<bool>(); 
+  v.skinId = j.at("skinId").get<int32_t>(); 
   v.freeToPlayReward = j.at("freeToPlayReward").get<bool>(); 
-  v.sources = j.at("sources").get<std::vector<std::string>>(); 
-  v.championId = j.at("championId").get<int32_t>(); 
+  v.endDate = j.at("endDate").get<uint64_t>(); 
   v.purchaseDate = j.at("purchaseDate").get<uint64_t>(); 
+  v.stillObtainable = j.at("stillObtainable").get<bool>(); 
+  v.winCountRemaining = j.at("winCountRemaining").get<int32_t>(); 
+  v.owned = j.at("owned").get<bool>(); 
+  v.championId = j.at("championId").get<int32_t>(); 
+  v.sources = j.at("sources").get<std::vector<std::string>>(); 
   }
 }

@@ -2,18 +2,18 @@
 #include<lol/base_def.hpp> 
 namespace lol {
   struct LolAccountVerificationPlatformGeneratedCredentials { 
-    json gasToken;
+    std::string password;
     std::string username;
-    std::string password; 
+    json gasToken; 
   };
   void to_json(json& j, const LolAccountVerificationPlatformGeneratedCredentials& v) {
-  j["gasToken"] = v.gasToken; 
-  j["username"] = v.username; 
   j["password"] = v.password; 
+  j["username"] = v.username; 
+  j["gasToken"] = v.gasToken; 
   }
   void from_json(const json& j, LolAccountVerificationPlatformGeneratedCredentials& v) {
-  v.gasToken = j.at("gasToken").get<json>(); 
-  v.username = j.at("username").get<std::string>(); 
   v.password = j.at("password").get<std::string>(); 
+  v.username = j.at("username").get<std::string>(); 
+  v.gasToken = j.at("gasToken").get<json>(); 
   }
 }

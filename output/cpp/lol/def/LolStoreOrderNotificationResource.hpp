@@ -2,21 +2,21 @@
 #include<lol/base_def.hpp> 
 namespace lol {
   struct LolStoreOrderNotificationResource { 
-    std::string eventTypeId;
     std::string eventType;
-    uint64_t id;
-    std::string status; 
+    std::string eventTypeId;
+    std::string status;
+    uint64_t id; 
   };
   void to_json(json& j, const LolStoreOrderNotificationResource& v) {
-  j["eventTypeId"] = v.eventTypeId; 
   j["eventType"] = v.eventType; 
-  j["id"] = v.id; 
+  j["eventTypeId"] = v.eventTypeId; 
   j["status"] = v.status; 
+  j["id"] = v.id; 
   }
   void from_json(const json& j, LolStoreOrderNotificationResource& v) {
-  v.eventTypeId = j.at("eventTypeId").get<std::string>(); 
   v.eventType = j.at("eventType").get<std::string>(); 
-  v.id = j.at("id").get<uint64_t>(); 
+  v.eventTypeId = j.at("eventTypeId").get<std::string>(); 
   v.status = j.at("status").get<std::string>(); 
+  v.id = j.at("id").get<uint64_t>(); 
   }
 }

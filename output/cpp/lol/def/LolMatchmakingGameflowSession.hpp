@@ -5,18 +5,18 @@
 #include <lol/def/LolMatchmakingGameflowPhase.hpp>
 namespace lol {
   struct LolMatchmakingGameflowSession { 
-    LolMatchmakingGameflowPhase phase;
     LolMatchmakingGameflowGameDodge gameDodge;
+    LolMatchmakingGameflowPhase phase;
     LolMatchmakingGameflowGameData gameData; 
   };
   void to_json(json& j, const LolMatchmakingGameflowSession& v) {
-  j["phase"] = v.phase; 
   j["gameDodge"] = v.gameDodge; 
+  j["phase"] = v.phase; 
   j["gameData"] = v.gameData; 
   }
   void from_json(const json& j, LolMatchmakingGameflowSession& v) {
-  v.phase = j.at("phase").get<LolMatchmakingGameflowPhase>(); 
   v.gameDodge = j.at("gameDodge").get<LolMatchmakingGameflowGameDodge>(); 
+  v.phase = j.at("phase").get<LolMatchmakingGameflowPhase>(); 
   v.gameData = j.at("gameData").get<LolMatchmakingGameflowGameData>(); 
   }
 }
