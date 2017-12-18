@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<json> PostLolGameflowV1SpectateLaunch(const LeagueClient& _client, const std::optional<std::string>& summonerName = std::nullopt)
+  inline Result<json> PostLolGameflowV1SpectateLaunch(const LeagueClient& _client, const std::optional<std::string>& summonerName = std::nullopt)
   {
     HttpsClient _client_(_client.host, false);
     try {

@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolSummonerSummoner.hpp>
 namespace lol {
-  Result<std::vector<LolSummonerSummoner>> GetLolSummonerV2Summoners(const LeagueClient& _client, const std::optional<std::string>& name = std::nullopt, const std::optional<std::vector<uint64_t>>& ids = std::nullopt)
+  inline Result<std::vector<LolSummonerSummoner>> GetLolSummonerV2Summoners(const LeagueClient& _client, const std::optional<std::string>& name = std::nullopt, const std::optional<std::vector<uint64_t>>& ids = std::nullopt)
   {
     HttpsClient _client_(_client.host, false);
     try {

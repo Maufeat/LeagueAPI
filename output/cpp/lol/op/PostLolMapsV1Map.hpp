@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolMapsMaps.hpp>
 namespace lol {
-  Result<void> PostLolMapsV1Map(const LeagueClient& _client, const LolMapsMaps& map)
+  inline Result<void> PostLolMapsV1Map(const LeagueClient& _client, const LolMapsMaps& map)
   {
     HttpsClient _client_(_client.host, false);
     try {

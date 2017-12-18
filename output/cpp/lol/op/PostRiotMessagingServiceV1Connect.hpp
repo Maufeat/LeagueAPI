@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<void> PostRiotMessagingServiceV1Connect(const LeagueClient& _client, const std::string& idToken)
+  inline Result<void> PostRiotMessagingServiceV1Connect(const LeagueClient& _client, const std::string& idToken)
   {
     HttpsClient _client_(_client.host, false);
     try {

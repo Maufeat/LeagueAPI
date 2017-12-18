@@ -12,7 +12,7 @@ namespace lol {
     SET_DESCRIPTION_e = 8,
     SET_MOTD_e = 7,
   };
-  void to_json(json& j, const ClubPermission& v) {
+  inline void to_json(json& j, const ClubPermission& v) {
     if(v == ClubPermission::DEMOTE_e) {
       j = "DEMOTE";
       return;
@@ -50,7 +50,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, ClubPermission& v) {
+  inline void from_json(const json& j, ClubPermission& v) {
     if(j.get<std::string>() == "DEMOTE") {
       v = ClubPermission::DEMOTE_e;
       return;

@@ -15,7 +15,7 @@ namespace lol {
     bool current;
     int32_t subStyleId; 
   };
-  void to_json(json& j, const LolPerksPerkPageResource& v) {
+  inline void to_json(json& j, const LolPerksPerkPageResource& v) {
     j["order"] = v.order; 
     j["isValid"] = v.isValid; 
     j["formatVersion"] = v.formatVersion; 
@@ -29,7 +29,7 @@ namespace lol {
     j["current"] = v.current; 
     j["subStyleId"] = v.subStyleId; 
   }
-  void from_json(const json& j, LolPerksPerkPageResource& v) {
+  inline void from_json(const json& j, LolPerksPerkPageResource& v) {
     v.order = j.at("order").get<int32_t>(); 
     v.isValid = j.at("isValid").get<bool>(); 
     v.formatVersion = j.at("formatVersion").get<int32_t>(); 

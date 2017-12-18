@@ -9,7 +9,7 @@ namespace lol {
     uint64_t fromId;
     std::string id; 
   };
-  void to_json(json& j, const LolChatConversationMessageResource& v) {
+  inline void to_json(json& j, const LolChatConversationMessageResource& v) {
     j["body"] = v.body; 
     j["isHistorical"] = v.isHistorical; 
     j["timestamp"] = v.timestamp; 
@@ -17,7 +17,7 @@ namespace lol {
     j["fromId"] = v.fromId; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, LolChatConversationMessageResource& v) {
+  inline void from_json(const json& j, LolChatConversationMessageResource& v) {
     v.body = j.at("body").get<std::string>(); 
     v.isHistorical = j.at("isHistorical").get<bool>(); 
     v.timestamp = j.at("timestamp").get<std::string>(); 

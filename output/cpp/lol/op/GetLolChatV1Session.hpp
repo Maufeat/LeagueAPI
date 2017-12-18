@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolChatSessionResource.hpp>
 namespace lol {
-  Result<LolChatSessionResource> GetLolChatV1Session(const LeagueClient& _client)
+  inline Result<LolChatSessionResource> GetLolChatV1Session(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

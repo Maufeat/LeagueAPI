@@ -8,7 +8,7 @@ namespace lol {
     online_e = 1,
     unknown_e = 0,
   };
-  void to_json(json& j, const ServiceStatusResource_Status& v) {
+  inline void to_json(json& j, const ServiceStatusResource_Status& v) {
     if(v == ServiceStatusResource_Status::degraded_e) {
       j = "degraded";
       return;
@@ -30,7 +30,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, ServiceStatusResource_Status& v) {
+  inline void from_json(const json& j, ServiceStatusResource_Status& v) {
     if(j.get<std::string>() == "degraded") {
       v = ServiceStatusResource_Status::degraded_e;
       return;

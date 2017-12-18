@@ -9,7 +9,7 @@ namespace lol {
     PartyNotReady_e = 4,
     StrangerNotReady_e = 3,
   };
-  void to_json(json& j, const LolMatchmakingMatchmakingReadyCheckState& v) {
+  inline void to_json(json& j, const LolMatchmakingMatchmakingReadyCheckState& v) {
     if(v == LolMatchmakingMatchmakingReadyCheckState::Error_e) {
       j = "Error";
       return;
@@ -35,7 +35,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolMatchmakingMatchmakingReadyCheckState& v) {
+  inline void from_json(const json& j, LolMatchmakingMatchmakingReadyCheckState& v) {
     if(j.get<std::string>() == "Error") {
       v = LolMatchmakingMatchmakingReadyCheckState::Error_e;
       return;

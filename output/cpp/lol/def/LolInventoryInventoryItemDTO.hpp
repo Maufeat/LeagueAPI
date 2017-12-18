@@ -17,7 +17,7 @@ namespace lol {
     std::string instanceTypeId;
     bool f2p; 
   };
-  void to_json(json& j, const LolInventoryInventoryItemDTO& v) {
+  inline void to_json(json& j, const LolInventoryInventoryItemDTO& v) {
     j["lsb"] = v.lsb; 
     j["quantity"] = v.quantity; 
     j["expirationDate"] = v.expirationDate; 
@@ -33,7 +33,7 @@ namespace lol {
     j["instanceTypeId"] = v.instanceTypeId; 
     j["f2p"] = v.f2p; 
   }
-  void from_json(const json& j, LolInventoryInventoryItemDTO& v) {
+  inline void from_json(const json& j, LolInventoryInventoryItemDTO& v) {
     v.lsb = j.at("lsb").get<bool>(); 
     v.quantity = j.at("quantity").get<uint64_t>(); 
     v.expirationDate = j.at("expirationDate").get<std::string>(); 

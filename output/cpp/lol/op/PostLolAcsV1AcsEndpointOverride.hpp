@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolAcsAcsEndPoint.hpp>
 namespace lol {
-  Result<json> PostLolAcsV1AcsEndpointOverride(const LeagueClient& _client, const LolAcsAcsEndPoint& data)
+  inline Result<json> PostLolAcsV1AcsEndpointOverride(const LeagueClient& _client, const LolAcsAcsEndPoint& data)
   {
     HttpsClient _client_(_client.host, false);
     try {

@@ -7,7 +7,7 @@ namespace lol {
     StrangerDodged_e = 50,
     TournamentDodged_e = 51,
   };
-  void to_json(json& j, const LolClashMatchmakingDodgeState& v) {
+  inline void to_json(json& j, const LolClashMatchmakingDodgeState& v) {
     if(v == LolClashMatchmakingDodgeState::Invalid_e) {
       j = "Invalid";
       return;
@@ -25,7 +25,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolClashMatchmakingDodgeState& v) {
+  inline void from_json(const json& j, LolClashMatchmakingDodgeState& v) {
     if(j.get<std::string>() == "Invalid") {
       v = LolClashMatchmakingDodgeState::Invalid_e;
       return;

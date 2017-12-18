@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/RecofrienderContactResource.hpp>
 namespace lol {
-  Result<std::vector<RecofrienderContactResource>> GetRecofrienderV1Contacts(const LeagueClient& _client, const std::optional<uint64_t>& accountId = std::nullopt, const std::optional<std::string>& source = std::nullopt, const std::optional<std::string>& friendState = std::nullopt)
+  inline Result<std::vector<RecofrienderContactResource>> GetRecofrienderV1Contacts(const LeagueClient& _client, const std::optional<uint64_t>& accountId = std::nullopt, const std::optional<std::string>& source = std::nullopt, const std::optional<std::string>& friendState = std::nullopt)
   {
     HttpsClient _client_(_client.host, false);
     try {

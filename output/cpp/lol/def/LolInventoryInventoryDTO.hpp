@@ -9,7 +9,7 @@ namespace lol {
     std::map<std::string, json> items;
     uint64_t summonerId; 
   };
-  void to_json(json& j, const LolInventoryInventoryDTO& v) {
+  inline void to_json(json& j, const LolInventoryInventoryDTO& v) {
     j["itemsJwt"] = v.itemsJwt; 
     j["accountId"] = v.accountId; 
     j["puuid"] = v.puuid; 
@@ -17,7 +17,7 @@ namespace lol {
     j["items"] = v.items; 
     j["summonerId"] = v.summonerId; 
   }
-  void from_json(const json& j, LolInventoryInventoryDTO& v) {
+  inline void from_json(const json& j, LolInventoryInventoryDTO& v) {
     v.itemsJwt = j.at("itemsJwt").get<std::string>(); 
     v.accountId = j.at("accountId").get<uint64_t>(); 
     v.puuid = j.at("puuid").get<std::string>(); 

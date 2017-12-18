@@ -11,7 +11,7 @@ namespace lol {
     std::optional<std::string> Level1Unfilter;
     std::optional<std::string> Level0Unfilter; 
   };
-  void to_json(json& j, const SanitizerSanitizerConfig& v) {
+  inline void to_json(json& j, const SanitizerSanitizerConfig& v) {
     if(v.Level2Filter)
       j["Level2Filter"] = *v.Level2Filter;
     if(v.Level3Unfilter)
@@ -29,7 +29,7 @@ namespace lol {
     if(v.Level0Unfilter)
       j["Level0Unfilter"] = *v.Level0Unfilter;
   }
-  void from_json(const json& j, SanitizerSanitizerConfig& v) {
+  inline void from_json(const json& j, SanitizerSanitizerConfig& v) {
     if(auto it = j.find("Level2Filter"); it != j.end() && !it->is_null())
       v.Level2Filter = it->get<std::optional<std::string>>(); 
     if(auto it = j.find("Level3Unfilter"); it != j.end() && !it->is_null())

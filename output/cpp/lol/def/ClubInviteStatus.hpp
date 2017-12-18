@@ -7,7 +7,7 @@ namespace lol {
     PENDING_e = 0,
     REJECTED_e = 2,
   };
-  void to_json(json& j, const ClubInviteStatus& v) {
+  inline void to_json(json& j, const ClubInviteStatus& v) {
     if(v == ClubInviteStatus::ACCEPTED_e) {
       j = "ACCEPTED";
       return;
@@ -25,7 +25,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, ClubInviteStatus& v) {
+  inline void from_json(const json& j, ClubInviteStatus& v) {
     if(j.get<std::string>() == "ACCEPTED") {
       v = ClubInviteStatus::ACCEPTED_e;
       return;

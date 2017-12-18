@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<std::string> PutLolCollectionsV1InventoriesBySummonerIdVerification(const LeagueClient& _client, const uint64_t& summonerId, const std::string& verificationCode)
+  inline Result<std::string> PutLolCollectionsV1InventoriesBySummonerIdVerification(const LeagueClient& _client, const uint64_t& summonerId, const std::string& verificationCode)
   {
     HttpsClient _client_(_client.host, false);
     try {

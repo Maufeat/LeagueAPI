@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/PlayerClub.hpp>
 namespace lol {
-  Result<PlayerClub> GetLolClubsV1ClubsByClubKey(const LeagueClient& _client, const std::string& clubKey)
+  inline Result<PlayerClub> GetLolClubsV1ClubsByClubKey(const LeagueClient& _client, const std::string& clubKey)
   {
     HttpsClient _client_(_client.host, false);
     try {

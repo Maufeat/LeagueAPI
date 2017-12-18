@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolPersonalizedOffersUIOffer.hpp>
 namespace lol {
-  Result<std::vector<LolPersonalizedOffersUIOffer>> GetLolPersonalizedOffersV1Offers(const LeagueClient& _client)
+  inline Result<std::vector<LolPersonalizedOffersUIOffer>> GetLolPersonalizedOffersV1Offers(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

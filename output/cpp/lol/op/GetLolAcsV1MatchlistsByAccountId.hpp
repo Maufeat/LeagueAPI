@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<json> GetLolAcsV1MatchlistsByAccountId(const LeagueClient& _client, const uint64_t& accountId)
+  inline Result<json> GetLolAcsV1MatchlistsByAccountId(const LeagueClient& _client, const uint64_t& accountId)
   {
     HttpsClient _client_(_client.host, false);
     try {

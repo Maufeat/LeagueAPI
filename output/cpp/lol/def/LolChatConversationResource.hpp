@@ -12,7 +12,7 @@ namespace lol {
     std::optional<LolChatConversationMessageResource> lastMessage;
     std::string id; 
   };
-  void to_json(json& j, const LolChatConversationResource& v) {
+  inline void to_json(json& j, const LolChatConversationResource& v) {
     j["type"] = v.type; 
     j["unreadMessageCount"] = v.unreadMessageCount; 
     j["isMuted"] = v.isMuted; 
@@ -23,7 +23,7 @@ namespace lol {
       j["lastMessage"] = *v.lastMessage;
     j["id"] = v.id; 
   }
-  void from_json(const json& j, LolChatConversationResource& v) {
+  inline void from_json(const json& j, LolChatConversationResource& v) {
     v.type = j.at("type").get<std::string>(); 
     v.unreadMessageCount = j.at("unreadMessageCount").get<uint64_t>(); 
     v.isMuted = j.at("isMuted").get<bool>(); 

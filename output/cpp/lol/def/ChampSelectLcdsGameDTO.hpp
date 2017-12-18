@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/BannedChampion.hpp>
 #include <lol/def/ChampSelectLcdsPlayerChampionSelectionDTO.hpp>
+#include <lol/def/BannedChampion.hpp>
 namespace lol {
   struct ChampSelectLcdsGameDTO { 
     std::string roomName;
@@ -20,7 +20,7 @@ namespace lol {
     uint64_t id;
     std::vector<ChampSelectLcdsPlayerChampionSelectionDTO> playerChampionSelections; 
   };
-  void to_json(json& j, const ChampSelectLcdsGameDTO& v) {
+  inline void to_json(json& j, const ChampSelectLcdsGameDTO& v) {
     j["roomName"] = v.roomName; 
     j["spectatorDelay"] = v.spectatorDelay; 
     j["pickTurn"] = v.pickTurn; 
@@ -37,7 +37,7 @@ namespace lol {
     j["id"] = v.id; 
     j["playerChampionSelections"] = v.playerChampionSelections; 
   }
-  void from_json(const json& j, ChampSelectLcdsGameDTO& v) {
+  inline void from_json(const json& j, ChampSelectLcdsGameDTO& v) {
     v.roomName = j.at("roomName").get<std::string>(); 
     v.spectatorDelay = j.at("spectatorDelay").get<int64_t>(); 
     v.pickTurn = j.at("pickTurn").get<int32_t>(); 

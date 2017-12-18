@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<void> PostLolPreEndOfGameV1RegistrationBySequenceEventNameByPriority(const LeagueClient& _client, const std::string& sequenceEventName, const int32_t& priority)
+  inline Result<void> PostLolPreEndOfGameV1RegistrationBySequenceEventNameByPriority(const LeagueClient& _client, const std::string& sequenceEventName, const int32_t& priority)
   {
     HttpsClient _client_(_client.host, false);
     try {

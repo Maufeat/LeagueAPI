@@ -8,14 +8,14 @@ namespace lol {
     uint64_t pointsToReroll;
     uint32_t numberOfRolls; 
   };
-  void to_json(json& j, const RerollPointsDTO& v) {
+  inline void to_json(json& j, const RerollPointsDTO& v) {
     j["maxRolls"] = v.maxRolls; 
     j["currentPoints"] = v.currentPoints; 
     j["pointsCostToRoll"] = v.pointsCostToRoll; 
     j["pointsToReroll"] = v.pointsToReroll; 
     j["numberOfRolls"] = v.numberOfRolls; 
   }
-  void from_json(const json& j, RerollPointsDTO& v) {
+  inline void from_json(const json& j, RerollPointsDTO& v) {
     v.maxRolls = j.at("maxRolls").get<uint32_t>(); 
     v.currentPoints = j.at("currentPoints").get<uint64_t>(); 
     v.pointsCostToRoll = j.at("pointsCostToRoll").get<uint64_t>(); 

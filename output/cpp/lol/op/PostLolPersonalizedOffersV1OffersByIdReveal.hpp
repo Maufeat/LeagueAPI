@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolPersonalizedOffersUIOffer.hpp>
 namespace lol {
-  Result<std::vector<LolPersonalizedOffersUIOffer>> PostLolPersonalizedOffersV1OffersByIdReveal(const LeagueClient& _client, const std::string& id)
+  inline Result<std::vector<LolPersonalizedOffersUIOffer>> PostLolPersonalizedOffersV1OffersByIdReveal(const LeagueClient& _client, const std::string& id)
   {
     HttpsClient _client_(_client.host, false);
     try {

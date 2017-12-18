@@ -1,10 +1,10 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyTeamBuilderMatchmakingDodgeData.hpp>
-#include <lol/def/LolLobbyTeamBuilderMatchmakingSearchErrorResource.hpp>
 #include <lol/def/LolLobbyTeamBuilderMatchmakingReadyCheckResource.hpp>
-#include <lol/def/LolLobbyTeamBuilderMatchmakingSearchState.hpp>
 #include <lol/def/LolLobbyTeamBuilderMatchmakingLowPriorityData.hpp>
+#include <lol/def/LolLobbyTeamBuilderMatchmakingSearchErrorResource.hpp>
+#include <lol/def/LolLobbyTeamBuilderMatchmakingSearchState.hpp>
+#include <lol/def/LolLobbyTeamBuilderMatchmakingDodgeData.hpp>
 namespace lol {
   struct LolLobbyTeamBuilderMatchmakingSearchResource { 
     std::string lobbyId;
@@ -18,7 +18,7 @@ namespace lol {
     int32_t queueId;
     LolLobbyTeamBuilderMatchmakingDodgeData dodgeData; 
   };
-  void to_json(json& j, const LolLobbyTeamBuilderMatchmakingSearchResource& v) {
+  inline void to_json(json& j, const LolLobbyTeamBuilderMatchmakingSearchResource& v) {
     j["lobbyId"] = v.lobbyId; 
     j["estimatedQueueTime"] = v.estimatedQueueTime; 
     j["timeInQueue"] = v.timeInQueue; 
@@ -30,7 +30,7 @@ namespace lol {
     j["queueId"] = v.queueId; 
     j["dodgeData"] = v.dodgeData; 
   }
-  void from_json(const json& j, LolLobbyTeamBuilderMatchmakingSearchResource& v) {
+  inline void from_json(const json& j, LolLobbyTeamBuilderMatchmakingSearchResource& v) {
     v.lobbyId = j.at("lobbyId").get<std::string>(); 
     v.estimatedQueueTime = j.at("estimatedQueueTime").get<float>(); 
     v.timeInQueue = j.at("timeInQueue").get<float>(); 

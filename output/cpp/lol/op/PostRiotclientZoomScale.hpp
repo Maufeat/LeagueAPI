@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<void> PostRiotclientZoomScale(const LeagueClient& _client, const double& newZoomScale)
+  inline Result<void> PostRiotclientZoomScale(const LeagueClient& _client, const double& newZoomScale)
   {
     HttpsClient _client_(_client.host, false);
     try {

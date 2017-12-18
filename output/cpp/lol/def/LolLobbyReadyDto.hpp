@@ -4,10 +4,10 @@ namespace lol {
   struct LolLobbyReadyDto { 
     bool ready; 
   };
-  void to_json(json& j, const LolLobbyReadyDto& v) {
+  inline void to_json(json& j, const LolLobbyReadyDto& v) {
     j["ready"] = v.ready; 
   }
-  void from_json(const json& j, LolLobbyReadyDto& v) {
+  inline void from_json(const json& j, LolLobbyReadyDto& v) {
     v.ready = j.at("ready").get<bool>(); 
   }
 }

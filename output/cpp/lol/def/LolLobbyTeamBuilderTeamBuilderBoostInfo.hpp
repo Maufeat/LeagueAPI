@@ -8,14 +8,14 @@ namespace lol {
     bool battleBoostActivated;
     int64_t cost; 
   };
-  void to_json(json& j, const LolLobbyTeamBuilderTeamBuilderBoostInfo& v) {
+  inline void to_json(json& j, const LolLobbyTeamBuilderTeamBuilderBoostInfo& v) {
     j["unlockedSkinIds"] = v.unlockedSkinIds; 
     j["activatorCellId"] = v.activatorCellId; 
     j["allowBattleBoost"] = v.allowBattleBoost; 
     j["battleBoostActivated"] = v.battleBoostActivated; 
     j["cost"] = v.cost; 
   }
-  void from_json(const json& j, LolLobbyTeamBuilderTeamBuilderBoostInfo& v) {
+  inline void from_json(const json& j, LolLobbyTeamBuilderTeamBuilderBoostInfo& v) {
     v.unlockedSkinIds = j.at("unlockedSkinIds").get<std::vector<int64_t>>(); 
     v.activatorCellId = j.at("activatorCellId").get<int64_t>(); 
     v.allowBattleBoost = j.at("allowBattleBoost").get<bool>(); 

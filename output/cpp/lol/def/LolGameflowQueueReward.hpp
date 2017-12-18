@@ -7,13 +7,13 @@ namespace lol {
     bool isChampionPointsEnabled;
     bool isIpEnabled; 
   };
-  void to_json(json& j, const LolGameflowQueueReward& v) {
+  inline void to_json(json& j, const LolGameflowQueueReward& v) {
     j["isXpEnabled"] = v.isXpEnabled; 
     j["partySizeIpRewards"] = v.partySizeIpRewards; 
     j["isChampionPointsEnabled"] = v.isChampionPointsEnabled; 
     j["isIpEnabled"] = v.isIpEnabled; 
   }
-  void from_json(const json& j, LolGameflowQueueReward& v) {
+  inline void from_json(const json& j, LolGameflowQueueReward& v) {
     v.isXpEnabled = j.at("isXpEnabled").get<bool>(); 
     v.partySizeIpRewards = j.at("partySizeIpRewards").get<std::vector<int32_t>>(); 
     v.isChampionPointsEnabled = j.at("isChampionPointsEnabled").get<bool>(); 

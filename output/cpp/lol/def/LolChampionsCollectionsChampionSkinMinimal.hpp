@@ -15,7 +15,7 @@ namespace lol {
     int32_t championId;
     int32_t id; 
   };
-  void to_json(json& j, const LolChampionsCollectionsChampionSkinMinimal& v) {
+  inline void to_json(json& j, const LolChampionsCollectionsChampionSkinMinimal& v) {
     j["lastSelected"] = v.lastSelected; 
     j["isBase"] = v.isBase; 
     if(v.chromaPath)
@@ -29,7 +29,7 @@ namespace lol {
     j["championId"] = v.championId; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, LolChampionsCollectionsChampionSkinMinimal& v) {
+  inline void from_json(const json& j, LolChampionsCollectionsChampionSkinMinimal& v) {
     v.lastSelected = j.at("lastSelected").get<bool>(); 
     v.isBase = j.at("isBase").get<bool>(); 
     if(auto it = j.find("chromaPath"); it != j.end() && !it->is_null())

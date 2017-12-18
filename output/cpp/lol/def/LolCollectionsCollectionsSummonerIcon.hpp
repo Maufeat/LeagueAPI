@@ -6,11 +6,11 @@ namespace lol {
     LolCollectionsCollectionsOwnership ownership;
     int32_t iconId; 
   };
-  void to_json(json& j, const LolCollectionsCollectionsSummonerIcon& v) {
+  inline void to_json(json& j, const LolCollectionsCollectionsSummonerIcon& v) {
     j["ownership"] = v.ownership; 
     j["iconId"] = v.iconId; 
   }
-  void from_json(const json& j, LolCollectionsCollectionsSummonerIcon& v) {
+  inline void from_json(const json& j, LolCollectionsCollectionsSummonerIcon& v) {
     v.ownership = j.at("ownership").get<LolCollectionsCollectionsOwnership>(); 
     v.iconId = j.at("iconId").get<int32_t>(); 
   }

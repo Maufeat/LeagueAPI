@@ -6,7 +6,7 @@ namespace lol {
     Delete_e = 2,
     Update_e = 1,
   };
-  void to_json(json& j, const PluginResourceEventType& v) {
+  inline void to_json(json& j, const PluginResourceEventType& v) {
     if(v == PluginResourceEventType::Create_e) {
       j = "Create";
       return;
@@ -20,7 +20,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, PluginResourceEventType& v) {
+  inline void from_json(const json& j, PluginResourceEventType& v) {
     if(j.get<std::string>() == "Create") {
       v = PluginResourceEventType::Create_e;
       return;

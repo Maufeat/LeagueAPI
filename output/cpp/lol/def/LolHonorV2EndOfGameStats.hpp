@@ -22,7 +22,7 @@ namespace lol {
     std::string gameType;
     std::string queueType; 
   };
-  void to_json(json& j, const LolHonorV2EndOfGameStats& v) {
+  inline void to_json(json& j, const LolHonorV2EndOfGameStats& v) {
     j["ranked"] = v.ranked; 
     j["summonerId"] = v.summonerId; 
     j["teams"] = v.teams; 
@@ -42,7 +42,7 @@ namespace lol {
     j["gameType"] = v.gameType; 
     j["queueType"] = v.queueType; 
   }
-  void from_json(const json& j, LolHonorV2EndOfGameStats& v) {
+  inline void from_json(const json& j, LolHonorV2EndOfGameStats& v) {
     v.ranked = j.at("ranked").get<bool>(); 
     v.summonerId = j.at("summonerId").get<uint64_t>(); 
     v.teams = j.at("teams").get<std::vector<LolHonorV2EndOfGameTeam>>(); 

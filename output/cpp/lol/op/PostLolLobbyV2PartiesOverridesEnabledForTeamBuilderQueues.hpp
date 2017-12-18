@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<void> PostLolLobbyV2PartiesOverridesEnabledForTeamBuilderQueues(const LeagueClient& _client, const bool& enabledForTeambuilderQueues)
+  inline Result<void> PostLolLobbyV2PartiesOverridesEnabledForTeamBuilderQueues(const LeagueClient& _client, const bool& enabledForTeambuilderQueues)
   {
     HttpsClient _client_(_client.host, false);
     try {

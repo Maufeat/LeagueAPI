@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/SpectateGameInfo.hpp>
 namespace lol {
-  Result<SpectateGameInfo> GetLolSpectatorV1Spectate(const LeagueClient& _client)
+  inline Result<SpectateGameInfo> GetLolSpectatorV1Spectate(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

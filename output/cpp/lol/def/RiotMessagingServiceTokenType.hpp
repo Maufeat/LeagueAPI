@@ -6,7 +6,7 @@ namespace lol {
     Identity_e = 2,
     Unavailable_e = 0,
   };
-  void to_json(json& j, const RiotMessagingServiceTokenType& v) {
+  inline void to_json(json& j, const RiotMessagingServiceTokenType& v) {
     if(v == RiotMessagingServiceTokenType::Access_e) {
       j = "Access";
       return;
@@ -20,7 +20,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, RiotMessagingServiceTokenType& v) {
+  inline void from_json(const json& j, RiotMessagingServiceTokenType& v) {
     if(j.get<std::string>() == "Access") {
       v = RiotMessagingServiceTokenType::Access_e;
       return;

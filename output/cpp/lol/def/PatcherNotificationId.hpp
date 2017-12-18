@@ -9,7 +9,7 @@ namespace lol {
     UnspecifiedError_e = 0,
     WillRestoreClientBackupOnRestart_e = 4,
   };
-  void to_json(json& j, const PatcherNotificationId& v) {
+  inline void to_json(json& j, const PatcherNotificationId& v) {
     if(v == PatcherNotificationId::ConnectionError_e) {
       j = "ConnectionError";
       return;
@@ -35,7 +35,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, PatcherNotificationId& v) {
+  inline void from_json(const json& j, PatcherNotificationId& v) {
     if(j.get<std::string>() == "ConnectionError") {
       v = PatcherNotificationId::ConnectionError_e;
       return;

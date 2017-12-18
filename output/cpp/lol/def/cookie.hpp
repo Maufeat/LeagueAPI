@@ -11,7 +11,7 @@ namespace lol {
     std::string url;
     std::optional<int64_t> expires; 
   };
-  void to_json(json& j, const cookie& v) {
+  inline void to_json(json& j, const cookie& v) {
     j["domain"] = v.domain; 
     j["secure"] = v.secure; 
     j["httponly"] = v.httponly; 
@@ -22,7 +22,7 @@ namespace lol {
     if(v.expires)
       j["expires"] = *v.expires;
   }
-  void from_json(const json& j, cookie& v) {
+  inline void from_json(const json& j, cookie& v) {
     v.domain = j.at("domain").get<std::string>(); 
     v.secure = j.at("secure").get<bool>(); 
     v.httponly = j.at("httponly").get<bool>(); 

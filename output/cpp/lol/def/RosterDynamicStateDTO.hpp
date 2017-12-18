@@ -1,9 +1,9 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/TicketOfferDTO.hpp>
 #include <lol/def/RosterWithdraw.hpp>
-#include <lol/def/PhaseRosterSubDTO.hpp>
 #include <lol/def/BuybackMember.hpp>
+#include <lol/def/PhaseRosterSubDTO.hpp>
+#include <lol/def/TicketOfferDTO.hpp>
 namespace lol {
   struct RosterDynamicStateDTO { 
     RosterWithdraw withdraw;
@@ -14,7 +14,7 @@ namespace lol {
     std::vector<PhaseRosterSubDTO> phaseRosterSubs;
     std::vector<BuybackMember> members; 
   };
-  void to_json(json& j, const RosterDynamicStateDTO& v) {
+  inline void to_json(json& j, const RosterDynamicStateDTO& v) {
     j["withdraw"] = v.withdraw; 
     j["tournamentId"] = v.tournamentId; 
     j["phaseCheckinStates"] = v.phaseCheckinStates; 
@@ -23,7 +23,7 @@ namespace lol {
     j["phaseRosterSubs"] = v.phaseRosterSubs; 
     j["members"] = v.members; 
   }
-  void from_json(const json& j, RosterDynamicStateDTO& v) {
+  inline void from_json(const json& j, RosterDynamicStateDTO& v) {
     v.withdraw = j.at("withdraw").get<RosterWithdraw>(); 
     v.tournamentId = j.at("tournamentId").get<int64_t>(); 
     v.phaseCheckinStates = j.at("phaseCheckinStates").get<std::vector<uint64_t>>(); 

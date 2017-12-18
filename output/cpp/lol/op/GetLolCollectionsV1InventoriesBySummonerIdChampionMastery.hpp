@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolCollectionsCollectionsChampionMastery.hpp>
 namespace lol {
-  Result<std::vector<LolCollectionsCollectionsChampionMastery>> GetLolCollectionsV1InventoriesBySummonerIdChampionMastery(const LeagueClient& _client, const uint64_t& summonerId)
+  inline Result<std::vector<LolCollectionsCollectionsChampionMastery>> GetLolCollectionsV1InventoriesBySummonerIdChampionMastery(const LeagueClient& _client, const uint64_t& summonerId)
   {
     HttpsClient _client_(_client.host, false);
     try {

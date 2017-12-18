@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolClashKickRequest.hpp>
 namespace lol {
-  Result<json> PostLolClashV1TournamentByTournamentIdRosterKick(const LeagueClient& _client, const int64_t& tournamentId, const LolClashKickRequest& kickRequest)
+  inline Result<json> PostLolClashV1TournamentByTournamentIdRosterKick(const LeagueClient& _client, const int64_t& tournamentId, const LolClashKickRequest& kickRequest)
   {
     HttpsClient _client_(_client.host, false);
     try {

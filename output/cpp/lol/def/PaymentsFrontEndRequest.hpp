@@ -9,7 +9,7 @@ namespace lol {
     std::string gifteeMessage;
     bool isPrepaid; 
   };
-  void to_json(json& j, const PaymentsFrontEndRequest& v) {
+  inline void to_json(json& j, const PaymentsFrontEndRequest& v) {
     j["summonerLevel"] = v.summonerLevel; 
     j["gifteeAccountId"] = v.gifteeAccountId; 
     j["rsoToken"] = v.rsoToken; 
@@ -17,7 +17,7 @@ namespace lol {
     j["gifteeMessage"] = v.gifteeMessage; 
     j["isPrepaid"] = v.isPrepaid; 
   }
-  void from_json(const json& j, PaymentsFrontEndRequest& v) {
+  inline void from_json(const json& j, PaymentsFrontEndRequest& v) {
     v.summonerLevel = j.at("summonerLevel").get<int16_t>(); 
     v.gifteeAccountId = j.at("gifteeAccountId").get<int32_t>(); 
     v.rsoToken = j.at("rsoToken").get<std::string>(); 

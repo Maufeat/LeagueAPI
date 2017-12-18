@@ -1,10 +1,10 @@
 #pragma once
 #include<lol/base_def.hpp> 
+#include <lol/def/MetricPriority.hpp>
+#include <lol/def/MetricMetadataAlert.hpp>
+#include <lol/def/MetricMetadataNotify.hpp>
 #include <lol/def/MetricType.hpp>
 #include <lol/def/MetricDataType.hpp>
-#include <lol/def/MetricPriority.hpp>
-#include <lol/def/MetricMetadataNotify.hpp>
-#include <lol/def/MetricMetadataAlert.hpp>
 #include <lol/def/AggregationType.hpp>
 namespace lol {
   struct MetricMetadata { 
@@ -23,7 +23,7 @@ namespace lol {
     std::string description;
     uint32_t period; 
   };
-  void to_json(json& j, const MetricMetadata& v) {
+  inline void to_json(json& j, const MetricMetadata& v) {
     j["sample_window_ms"] = v.sample_window_ms; 
     j["transientAggregation"] = v.transientAggregation; 
     j["alerts"] = v.alerts; 
@@ -39,7 +39,7 @@ namespace lol {
     j["description"] = v.description; 
     j["period"] = v.period; 
   }
-  void from_json(const json& j, MetricMetadata& v) {
+  inline void from_json(const json& j, MetricMetadata& v) {
     v.sample_window_ms = j.at("sample_window_ms").get<uint32_t>(); 
     v.transientAggregation = j.at("transientAggregation").get<AggregationType>(); 
     v.alerts = j.at("alerts").get<std::vector<MetricMetadataAlert>>(); 

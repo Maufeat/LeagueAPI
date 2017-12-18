@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolSimpleDialogMessagesMessage.hpp>
 namespace lol {
-  Result<std::vector<LolSimpleDialogMessagesMessage>> GetLolSimpleDialogMessagesV1Messages(const LeagueClient& _client)
+  inline Result<std::vector<LolSimpleDialogMessagesMessage>> GetLolSimpleDialogMessagesV1Messages(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

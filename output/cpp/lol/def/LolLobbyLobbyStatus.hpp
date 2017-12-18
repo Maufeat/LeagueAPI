@@ -14,7 +14,7 @@ namespace lol {
     int32_t queueId;
     std::vector<uint64_t> memberSummonerIds; 
   };
-  void to_json(json& j, const LolLobbyLobbyStatus& v) {
+  inline void to_json(json& j, const LolLobbyLobbyStatus& v) {
     if(v.lobbyId)
       j["lobbyId"] = *v.lobbyId;
     j["isCustom"] = v.isCustom; 
@@ -27,7 +27,7 @@ namespace lol {
     j["queueId"] = v.queueId; 
     j["memberSummonerIds"] = v.memberSummonerIds; 
   }
-  void from_json(const json& j, LolLobbyLobbyStatus& v) {
+  inline void from_json(const json& j, LolLobbyLobbyStatus& v) {
     if(auto it = j.find("lobbyId"); it != j.end() && !it->is_null())
       v.lobbyId = it->get<std::optional<std::string>>(); 
     v.isCustom = j.at("isCustom").get<bool>(); 

@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolLootPlayerLootNotification.hpp>
 namespace lol {
-  Result<std::vector<LolLootPlayerLootNotification>> GetLolLootV1PlayerLootNotifications(const LeagueClient& _client)
+  inline Result<std::vector<LolLootPlayerLootNotification>> GetLolLootV1PlayerLootNotifications(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

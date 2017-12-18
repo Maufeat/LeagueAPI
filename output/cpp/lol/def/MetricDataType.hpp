@@ -9,7 +9,7 @@ namespace lol {
     uint_e = 2,
     unknown_e = 0,
   };
-  void to_json(json& j, const MetricDataType& v) {
+  inline void to_json(json& j, const MetricDataType& v) {
     if(v == MetricDataType::bool_e) {
       j = "bool";
       return;
@@ -35,7 +35,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, MetricDataType& v) {
+  inline void from_json(const json& j, MetricDataType& v) {
     if(j.get<std::string>() == "bool") {
       v = MetricDataType::bool_e;
       return;

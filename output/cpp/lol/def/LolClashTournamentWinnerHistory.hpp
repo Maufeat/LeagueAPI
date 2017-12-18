@@ -6,11 +6,11 @@ namespace lol {
     int64_t tournamentId;
     std::vector<LolClashTournamentWinnerInfo> winners; 
   };
-  void to_json(json& j, const LolClashTournamentWinnerHistory& v) {
+  inline void to_json(json& j, const LolClashTournamentWinnerHistory& v) {
     j["tournamentId"] = v.tournamentId; 
     j["winners"] = v.winners; 
   }
-  void from_json(const json& j, LolClashTournamentWinnerHistory& v) {
+  inline void from_json(const json& j, LolClashTournamentWinnerHistory& v) {
     v.tournamentId = j.at("tournamentId").get<int64_t>(); 
     v.winners = j.at("winners").get<std::vector<LolClashTournamentWinnerInfo>>(); 
   }

@@ -7,14 +7,14 @@ namespace lol {
     std::optional<uint32_t> successfullyInstalledVersion;
     bool hasUpdatesOnRestart; 
   };
-  void to_json(json& j, const PatcherStatus& v) {
+  inline void to_json(json& j, const PatcherStatus& v) {
     j["willRestartOnSelfUpdate"] = v.willRestartOnSelfUpdate; 
     j["connectedToPatchServer"] = v.connectedToPatchServer; 
     if(v.successfullyInstalledVersion)
       j["successfullyInstalledVersion"] = *v.successfullyInstalledVersion;
     j["hasUpdatesOnRestart"] = v.hasUpdatesOnRestart; 
   }
-  void from_json(const json& j, PatcherStatus& v) {
+  inline void from_json(const json& j, PatcherStatus& v) {
     v.willRestartOnSelfUpdate = j.at("willRestartOnSelfUpdate").get<bool>(); 
     v.connectedToPatchServer = j.at("connectedToPatchServer").get<bool>(); 
     if(auto it = j.find("successfullyInstalledVersion"); it != j.end() && !it->is_null())

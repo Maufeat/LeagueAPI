@@ -1,8 +1,8 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/LolLeaguesLeagueTier.hpp>
-#include <lol/def/LolLeaguesLeagueQueueType.hpp>
 #include <lol/def/LolLeaguesLeagueDivision.hpp>
+#include <lol/def/LolLeaguesLeagueQueueType.hpp>
+#include <lol/def/LolLeaguesLeagueTier.hpp>
 #include <lol/def/LolLeaguesLeagueRank.hpp>
 namespace lol {
   struct LolLeaguesLeague { 
@@ -14,7 +14,7 @@ namespace lol {
     std::string leagueName;
     LolLeaguesLeagueQueueType queueType; 
   };
-  void to_json(json& j, const LolLeaguesLeague& v) {
+  inline void to_json(json& j, const LolLeaguesLeague& v) {
     j["leagueTier"] = v.leagueTier; 
     j["requesterLeagueRank"] = v.requesterLeagueRank; 
     j["challengerNextPromotionUpdateInMs"] = v.challengerNextPromotionUpdateInMs; 
@@ -23,7 +23,7 @@ namespace lol {
     j["leagueName"] = v.leagueName; 
     j["queueType"] = v.queueType; 
   }
-  void from_json(const json& j, LolLeaguesLeague& v) {
+  inline void from_json(const json& j, LolLeaguesLeague& v) {
     v.leagueTier = j.at("leagueTier").get<LolLeaguesLeagueTier>(); 
     v.requesterLeagueRank = j.at("requesterLeagueRank").get<LolLeaguesLeagueRank>(); 
     v.challengerNextPromotionUpdateInMs = j.at("challengerNextPromotionUpdateInMs").get<uint64_t>(); 

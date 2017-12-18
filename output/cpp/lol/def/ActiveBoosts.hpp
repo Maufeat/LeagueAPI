@@ -11,7 +11,7 @@ namespace lol {
     std::string firstWinOfTheDayStartTime;
     uint64_t summonerId; 
   };
-  void to_json(json& j, const ActiveBoosts& v) {
+  inline void to_json(json& j, const ActiveBoosts& v) {
     j["ipBoostPerWinCount"] = v.ipBoostPerWinCount; 
     j["xpBoostPerWinCount"] = v.xpBoostPerWinCount; 
     j["xpBoostEndDate"] = v.xpBoostEndDate; 
@@ -21,7 +21,7 @@ namespace lol {
     j["firstWinOfTheDayStartTime"] = v.firstWinOfTheDayStartTime; 
     j["summonerId"] = v.summonerId; 
   }
-  void from_json(const json& j, ActiveBoosts& v) {
+  inline void from_json(const json& j, ActiveBoosts& v) {
     v.ipBoostPerWinCount = j.at("ipBoostPerWinCount").get<uint32_t>(); 
     v.xpBoostPerWinCount = j.at("xpBoostPerWinCount").get<uint32_t>(); 
     v.xpBoostEndDate = j.at("xpBoostEndDate").get<std::string>(); 

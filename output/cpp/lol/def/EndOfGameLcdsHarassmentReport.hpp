@@ -9,7 +9,7 @@ namespace lol {
     std::string offense;
     uint64_t reportedSummonerId; 
   };
-  void to_json(json& j, const EndOfGameLcdsHarassmentReport& v) {
+  inline void to_json(json& j, const EndOfGameLcdsHarassmentReport& v) {
     j["reportSource"] = v.reportSource; 
     j["gameId"] = v.gameId; 
     j["reportingSummonerId"] = v.reportingSummonerId; 
@@ -17,7 +17,7 @@ namespace lol {
     j["offense"] = v.offense; 
     j["reportedSummonerId"] = v.reportedSummonerId; 
   }
-  void from_json(const json& j, EndOfGameLcdsHarassmentReport& v) {
+  inline void from_json(const json& j, EndOfGameLcdsHarassmentReport& v) {
     v.reportSource = j.at("reportSource").get<std::string>(); 
     v.gameId = j.at("gameId").get<uint64_t>(); 
     v.reportingSummonerId = j.at("reportingSummonerId").get<uint64_t>(); 

@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/PlayerMissionDTO.hpp>
 namespace lol {
-  Result<std::vector<PlayerMissionDTO>> GetLolMissionsV1Missions(const LeagueClient& _client)
+  inline Result<std::vector<PlayerMissionDTO>> GetLolMissionsV1Missions(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

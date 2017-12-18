@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolCollectionsCollectionsMasteryPage.hpp>
 namespace lol {
-  Result<LolCollectionsCollectionsMasteryPage> PutLolCollectionsV1InventoriesBySummonerIdMasteryBookPages(const LeagueClient& _client, const uint64_t& summonerId, const LolCollectionsCollectionsMasteryPage& resource)
+  inline Result<LolCollectionsCollectionsMasteryPage> PutLolCollectionsV1InventoriesBySummonerIdMasteryBookPages(const LeagueClient& _client, const uint64_t& summonerId, const LolCollectionsCollectionsMasteryPage& resource)
   {
     HttpsClient _client_(_client.host, false);
     try {

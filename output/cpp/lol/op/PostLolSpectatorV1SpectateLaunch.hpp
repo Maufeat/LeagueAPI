@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/SpectateGameInfo.hpp>
 namespace lol {
-  Result<json> PostLolSpectatorV1SpectateLaunch(const LeagueClient& _client, const SpectateGameInfo& spectateGameInfo)
+  inline Result<json> PostLolSpectatorV1SpectateLaunch(const LeagueClient& _client, const SpectateGameInfo& spectateGameInfo)
   {
     HttpsClient _client_(_client.host, false);
     try {

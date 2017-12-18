@@ -5,11 +5,11 @@ namespace lol {
     std::vector<int32_t> skins;
     int32_t championId; 
   };
-  void to_json(json& j, const LCDSChampionReward& v) {
+  inline void to_json(json& j, const LCDSChampionReward& v) {
     j["skins"] = v.skins; 
     j["championId"] = v.championId; 
   }
-  void from_json(const json& j, LCDSChampionReward& v) {
+  inline void from_json(const json& j, LCDSChampionReward& v) {
     v.skins = j.at("skins").get<std::vector<int32_t>>(); 
     v.championId = j.at("championId").get<int32_t>(); 
   }

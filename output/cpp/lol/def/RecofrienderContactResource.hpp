@@ -13,7 +13,7 @@ namespace lol {
     std::string displayState;
     uint64_t summonerId; 
   };
-  void to_json(json& j, const RecofrienderContactResource& v) {
+  inline void to_json(json& j, const RecofrienderContactResource& v) {
     j["friendState"] = v.friendState; 
     j["name"] = v.name; 
     j["source"] = v.source; 
@@ -24,7 +24,7 @@ namespace lol {
     j["displayState"] = v.displayState; 
     j["summonerId"] = v.summonerId; 
   }
-  void from_json(const json& j, RecofrienderContactResource& v) {
+  inline void from_json(const json& j, RecofrienderContactResource& v) {
     v.friendState = j.at("friendState").get<RecofrienderFriendState>(); 
     v.name = j.at("name").get<std::string>(); 
     v.source = j.at("source").get<std::string>(); 

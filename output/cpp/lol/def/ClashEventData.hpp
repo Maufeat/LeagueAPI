@@ -17,7 +17,7 @@ namespace lol {
     int32_t bracket;
     std::string earnedDate; 
   };
-  void to_json(json& j, const ClashEventData& v) {
+  inline void to_json(json& j, const ClashEventData& v) {
     j["theme"] = v.theme; 
     j["tier"] = v.tier; 
     j["rewardType"] = v.rewardType; 
@@ -32,7 +32,7 @@ namespace lol {
     j["bracket"] = v.bracket; 
     j["earnedDate"] = v.earnedDate; 
   }
-  void from_json(const json& j, ClashEventData& v) {
+  inline void from_json(const json& j, ClashEventData& v) {
     v.theme = j.at("theme").get<std::string>(); 
     v.tier = j.at("tier").get<std::string>(); 
     v.rewardType = j.at("rewardType").get<std::string>(); 

@@ -4,10 +4,10 @@ namespace lol {
   struct LolPerksGetGameCustomizationDTO { 
     std::string queueType; 
   };
-  void to_json(json& j, const LolPerksGetGameCustomizationDTO& v) {
+  inline void to_json(json& j, const LolPerksGetGameCustomizationDTO& v) {
     j["queueType"] = v.queueType; 
   }
-  void from_json(const json& j, LolPerksGetGameCustomizationDTO& v) {
+  inline void from_json(const json& j, LolPerksGetGameCustomizationDTO& v) {
     v.queueType = j.at("queueType").get<std::string>(); 
   }
 }

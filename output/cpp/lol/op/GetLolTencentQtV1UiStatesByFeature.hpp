@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/TencentQTNotification.hpp>
 namespace lol {
-  Result<TencentQTNotification> GetLolTencentQtV1UiStatesByFeature(const LeagueClient& _client, const std::string& feature)
+  inline Result<TencentQTNotification> GetLolTencentQtV1UiStatesByFeature(const LeagueClient& _client, const std::string& feature)
   {
     HttpsClient _client_(_client.host, false);
     try {

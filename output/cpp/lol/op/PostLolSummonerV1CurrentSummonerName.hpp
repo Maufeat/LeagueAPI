@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolSummonerSummoner.hpp>
 namespace lol {
-  Result<LolSummonerSummoner> PostLolSummonerV1CurrentSummonerName(const LeagueClient& _client, const std::string& name)
+  inline Result<LolSummonerSummoner> PostLolSummonerV1CurrentSummonerName(const LeagueClient& _client, const std::string& name)
   {
     HttpsClient _client_(_client.host, false);
     try {

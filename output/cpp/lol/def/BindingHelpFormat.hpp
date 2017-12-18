@@ -5,7 +5,7 @@ namespace lol {
     Epytext_e = 2,
     Full_e = 1,
   };
-  void to_json(json& j, const BindingHelpFormat& v) {
+  inline void to_json(json& j, const BindingHelpFormat& v) {
     if(v == BindingHelpFormat::Epytext_e) {
       j = "Epytext";
       return;
@@ -15,7 +15,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, BindingHelpFormat& v) {
+  inline void from_json(const json& j, BindingHelpFormat& v) {
     if(j.get<std::string>() == "Epytext") {
       v = BindingHelpFormat::Epytext_e;
       return;

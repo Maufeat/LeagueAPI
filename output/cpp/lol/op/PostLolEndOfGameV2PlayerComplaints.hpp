@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolEndOfGameEndOfGamePlayerComplaintV2.hpp>
 namespace lol {
-  Result<LolEndOfGameEndOfGamePlayerComplaintV2> PostLolEndOfGameV2PlayerComplaints(const LeagueClient& _client, const LolEndOfGameEndOfGamePlayerComplaintV2& complaint)
+  inline Result<LolEndOfGameEndOfGamePlayerComplaintV2> PostLolEndOfGameV2PlayerComplaints(const LeagueClient& _client, const LolEndOfGameEndOfGamePlayerComplaintV2& complaint)
   {
     HttpsClient _client_(_client.host, false);
     try {

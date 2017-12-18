@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolEndOfGameEndOfGameStats.hpp>
 namespace lol {
-  Result<LolEndOfGameEndOfGameStats> GetLolEndOfGameV1EogStatsBlock(const LeagueClient& _client)
+  inline Result<LolEndOfGameEndOfGameStats> GetLolEndOfGameV1EogStatsBlock(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

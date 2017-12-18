@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/SummonerOrTeamAvailabilty.hpp>
 namespace lol {
-  Result<SummonerOrTeamAvailabilty> PostLolSpectatorV1BuddySpectate(const LeagueClient& _client, const std::vector<std::string>& summonerOrTeamNames)
+  inline Result<SummonerOrTeamAvailabilty> PostLolSpectatorV1BuddySpectate(const LeagueClient& _client, const std::vector<std::string>& summonerOrTeamNames)
   {
     HttpsClient _client_(_client.host, false);
     try {

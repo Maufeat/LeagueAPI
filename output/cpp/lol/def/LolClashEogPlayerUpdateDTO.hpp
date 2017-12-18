@@ -11,7 +11,7 @@ namespace lol {
     int32_t themeVp;
     int32_t seasonVp; 
   };
-  void to_json(json& j, const LolClashEogPlayerUpdateDTO& v) {
+  inline void to_json(json& j, const LolClashEogPlayerUpdateDTO& v) {
     j["tournamentId"] = v.tournamentId; 
     j["earnedRewards"] = v.earnedRewards; 
     j["winner"] = v.winner; 
@@ -20,7 +20,7 @@ namespace lol {
     j["themeVp"] = v.themeVp; 
     j["seasonVp"] = v.seasonVp; 
   }
-  void from_json(const json& j, LolClashEogPlayerUpdateDTO& v) {
+  inline void from_json(const json& j, LolClashEogPlayerUpdateDTO& v) {
     v.tournamentId = j.at("tournamentId").get<int64_t>(); 
     v.earnedRewards = j.at("earnedRewards").get<std::vector<ClashRewardDefinition>>(); 
     v.winner = j.at("winner").get<bool>(); 

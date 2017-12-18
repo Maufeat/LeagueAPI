@@ -15,7 +15,7 @@ namespace lol {
     int32_t round;
     int64_t id; 
   };
-  void to_json(json& j, const BracketMatch& v) {
+  inline void to_json(json& j, const BracketMatch& v) {
     j["order"] = v.order; 
     j["winnerId"] = v.winnerId; 
     j["status"] = v.status; 
@@ -28,7 +28,7 @@ namespace lol {
     j["round"] = v.round; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, BracketMatch& v) {
+  inline void from_json(const json& j, BracketMatch& v) {
     v.order = j.at("order").get<int32_t>(); 
     v.winnerId = j.at("winnerId").get<int64_t>(); 
     v.status = j.at("status").get<ClientBracketMatchStatus>(); 

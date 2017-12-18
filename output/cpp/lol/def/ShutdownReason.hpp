@@ -7,7 +7,7 @@ namespace lol {
     PlatformMaintenance_e = 1,
     PlayerBanned_e = 3,
   };
-  void to_json(json& j, const ShutdownReason& v) {
+  inline void to_json(json& j, const ShutdownReason& v) {
     if(v == ShutdownReason::Invalid_e) {
       j = "Invalid";
       return;
@@ -25,7 +25,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, ShutdownReason& v) {
+  inline void from_json(const json& j, ShutdownReason& v) {
     if(j.get<std::string>() == "Invalid") {
       v = ShutdownReason::Invalid_e;
       return;

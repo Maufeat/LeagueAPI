@@ -11,7 +11,7 @@ namespace lol {
     Position position;
     uint64_t playerId; 
   };
-  void to_json(json& j, const PhaseRosterSubDTO& v) {
+  inline void to_json(json& j, const PhaseRosterSubDTO& v) {
     j["subState"] = v.subState; 
     j["replacedPlayerId"] = v.replacedPlayerId; 
     j["pay"] = v.pay; 
@@ -19,7 +19,7 @@ namespace lol {
     j["position"] = v.position; 
     j["playerId"] = v.playerId; 
   }
-  void from_json(const json& j, PhaseRosterSubDTO& v) {
+  inline void from_json(const json& j, PhaseRosterSubDTO& v) {
     v.subState = j.at("subState").get<SubState>(); 
     v.replacedPlayerId = j.at("replacedPlayerId").get<uint64_t>(); 
     v.pay = j.at("pay").get<int32_t>(); 

@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolPerksPerkPageResource.hpp>
 namespace lol {
-  Result<LolPerksPerkPageResource> PostLolPerksV1Pages(const LeagueClient& _client, const LolPerksPerkPageResource& page)
+  inline Result<LolPerksPerkPageResource> PostLolPerksV1Pages(const LeagueClient& _client, const LolPerksPerkPageResource& page)
   {
     HttpsClient _client_(_client.host, false);
     try {

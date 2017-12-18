@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/LolLootLootRarity.hpp>
 #include <lol/def/LolLootLootType.hpp>
+#include <lol/def/LolLootLootRarity.hpp>
 namespace lol {
   struct LolLootLootItemGdsResource { 
     std::string image;
@@ -16,7 +16,7 @@ namespace lol {
     LolLootLootRarity rarity;
     std::string id; 
   };
-  void to_json(json& j, const LolLootLootItemGdsResource& v) {
+  inline void to_json(json& j, const LolLootLootItemGdsResource& v) {
     j["image"] = v.image; 
     j["startDate"] = v.startDate; 
     j["autoRedeem"] = v.autoRedeem; 
@@ -29,7 +29,7 @@ namespace lol {
     j["rarity"] = v.rarity; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, LolLootLootItemGdsResource& v) {
+  inline void from_json(const json& j, LolLootLootItemGdsResource& v) {
     v.image = j.at("image").get<std::string>(); 
     v.startDate = j.at("startDate").get<std::string>(); 
     v.autoRedeem = j.at("autoRedeem").get<bool>(); 

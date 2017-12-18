@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolSummonerSummonerIdAndIcon.hpp>
 namespace lol {
-  Result<std::vector<LolSummonerSummonerIdAndIcon>> GetLolSummonerV2SummonerIcons(const LeagueClient& _client, const std::vector<uint64_t>& ids)
+  inline Result<std::vector<LolSummonerSummonerIdAndIcon>> GetLolSummonerV2SummonerIcons(const LeagueClient& _client, const std::vector<uint64_t>& ids)
   {
     HttpsClient _client_(_client.host, false);
     try {

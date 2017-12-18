@@ -20,7 +20,7 @@ namespace lol {
     uint64_t gameCreation;
     std::string gameType; 
   };
-  void to_json(json& j, const LolMatchHistoryMatchHistoryGame& v) {
+  inline void to_json(json& j, const LolMatchHistoryMatchHistoryGame& v) {
     j["platformId"] = v.platformId; 
     j["gameDuration"] = v.gameDuration; 
     j["teams"] = v.teams; 
@@ -36,7 +36,7 @@ namespace lol {
     j["gameCreation"] = v.gameCreation; 
     j["gameType"] = v.gameType; 
   }
-  void from_json(const json& j, LolMatchHistoryMatchHistoryGame& v) {
+  inline void from_json(const json& j, LolMatchHistoryMatchHistoryGame& v) {
     v.platformId = j.at("platformId").get<std::string>(); 
     v.gameDuration = j.at("gameDuration").get<uint32_t>(); 
     v.teams = j.at("teams").get<std::vector<LolMatchHistoryMatchHistoryTeam>>(); 

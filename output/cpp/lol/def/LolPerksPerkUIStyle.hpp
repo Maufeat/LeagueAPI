@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/LolPerksPerkSubStyleBonusResource.hpp>
 #include <lol/def/LolPerksPerkUISlot.hpp>
+#include <lol/def/LolPerksPerkSubStyleBonusResource.hpp>
 namespace lol {
   struct LolPerksPerkUIStyle { 
     int32_t defaultSubStyle;
@@ -15,7 +15,7 @@ namespace lol {
     std::vector<int32_t> defaultPerks;
     int32_t id; 
   };
-  void to_json(json& j, const LolPerksPerkUIStyle& v) {
+  inline void to_json(json& j, const LolPerksPerkUIStyle& v) {
     j["defaultSubStyle"] = v.defaultSubStyle; 
     j["tooltip"] = v.tooltip; 
     j["iconPath"] = v.iconPath; 
@@ -27,7 +27,7 @@ namespace lol {
     j["defaultPerks"] = v.defaultPerks; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, LolPerksPerkUIStyle& v) {
+  inline void from_json(const json& j, LolPerksPerkUIStyle& v) {
     v.defaultSubStyle = j.at("defaultSubStyle").get<int32_t>(); 
     v.tooltip = j.at("tooltip").get<std::string>(); 
     v.iconPath = j.at("iconPath").get<std::string>(); 

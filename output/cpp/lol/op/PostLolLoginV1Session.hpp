@@ -1,9 +1,9 @@
 #pragma once
 #include<lol/base_op.hpp> 
-#include <lol/def/LolLoginUsernameAndPassword.hpp>
 #include <lol/def/LolLoginLoginSession.hpp>
+#include <lol/def/LolLoginUsernameAndPassword.hpp>
 namespace lol {
-  Result<LolLoginLoginSession> PostLolLoginV1Session(const LeagueClient& _client, const LolLoginUsernameAndPassword& UsernameAndPassword)
+  inline Result<LolLoginLoginSession> PostLolLoginV1Session(const LeagueClient& _client, const LolLoginUsernameAndPassword& UsernameAndPassword)
   {
     HttpsClient _client_(_client.host, false);
     try {

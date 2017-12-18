@@ -7,14 +7,14 @@ namespace lol {
     std::string gameType;
     std::optional<std::string> botDifficulty; 
   };
-  void to_json(json& j, const LolLobbyGameModeDto& v) {
+  inline void to_json(json& j, const LolLobbyGameModeDto& v) {
     j["queueId"] = v.queueId; 
     j["maxPartySize"] = v.maxPartySize; 
     j["gameType"] = v.gameType; 
     if(v.botDifficulty)
       j["botDifficulty"] = *v.botDifficulty;
   }
-  void from_json(const json& j, LolLobbyGameModeDto& v) {
+  inline void from_json(const json& j, LolLobbyGameModeDto& v) {
     v.queueId = j.at("queueId").get<int32_t>(); 
     v.maxPartySize = j.at("maxPartySize").get<int32_t>(); 
     v.gameType = j.at("gameType").get<std::string>(); 

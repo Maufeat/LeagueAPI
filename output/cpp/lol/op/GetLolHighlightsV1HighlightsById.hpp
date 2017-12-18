@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/Highlight.hpp>
 namespace lol {
-  Result<Highlight> GetLolHighlightsV1HighlightsById(const LeagueClient& _client, const uint64_t& id)
+  inline Result<Highlight> GetLolHighlightsV1HighlightsById(const LeagueClient& _client, const uint64_t& id)
   {
     HttpsClient _client_(_client.host, false);
     try {

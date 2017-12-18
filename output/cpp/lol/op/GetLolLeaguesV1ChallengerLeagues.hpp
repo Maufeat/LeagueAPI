@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolLeaguesApexLeagues.hpp>
 namespace lol {
-  Result<LolLeaguesApexLeagues> GetLolLeaguesV1ChallengerLeagues(const LeagueClient& _client)
+  inline Result<LolLeaguesApexLeagues> GetLolLeaguesV1ChallengerLeagues(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

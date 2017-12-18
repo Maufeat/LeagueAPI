@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolChatUserResource.hpp>
 namespace lol {
-  Result<json> PostLolChatV1ConversationsByIdParticipants(const LeagueClient& _client, const std::string& id, const LolChatUserResource& invitee)
+  inline Result<json> PostLolChatV1ConversationsByIdParticipants(const LeagueClient& _client, const std::string& id, const LolChatUserResource& invitee)
   {
     HttpsClient _client_(_client.host, false);
     try {

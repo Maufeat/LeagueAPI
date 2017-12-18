@@ -7,13 +7,13 @@ namespace lol {
     std::string name;
     bool enabled; 
   };
-  void to_json(json& j, const RecofrienderNetworkConfig& v) {
+  inline void to_json(json& j, const RecofrienderNetworkConfig& v) {
     j["linkUrlTemplate"] = v.linkUrlTemplate; 
     j["unlinkUrlTemplate"] = v.unlinkUrlTemplate; 
     j["name"] = v.name; 
     j["enabled"] = v.enabled; 
   }
-  void from_json(const json& j, RecofrienderNetworkConfig& v) {
+  inline void from_json(const json& j, RecofrienderNetworkConfig& v) {
     v.linkUrlTemplate = j.at("linkUrlTemplate").get<std::string>(); 
     v.unlinkUrlTemplate = j.at("unlinkUrlTemplate").get<std::string>(); 
     v.name = j.at("name").get<std::string>(); 

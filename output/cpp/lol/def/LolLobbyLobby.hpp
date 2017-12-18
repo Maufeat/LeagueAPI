@@ -1,10 +1,10 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyLobbyInvitation.hpp>
 #include <lol/def/LolLobbyLobbyCustomGameLobby.hpp>
-#include <lol/def/LolLobbyLobbyMember.hpp>
-#include <lol/def/LolLobbyQueueAvailability.hpp>
+#include <lol/def/LolLobbyLobbyInvitation.hpp>
 #include <lol/def/LolLobbyLobbyRemovedFromGameReason.hpp>
+#include <lol/def/LolLobbyQueueAvailability.hpp>
+#include <lol/def/LolLobbyLobbyMember.hpp>
 namespace lol {
   struct LolLobbyLobby { 
     bool canStartMatchmaking;
@@ -34,7 +34,7 @@ namespace lol {
     std::vector<std::string> specifiablePositionPreferences;
     bool showPositionSelector; 
   };
-  void to_json(json& j, const LolLobbyLobby& v) {
+  inline void to_json(json& j, const LolLobbyLobby& v) {
     j["canStartMatchmaking"] = v.canStartMatchmaking; 
     j["wasKicked"] = v.wasKicked; 
     j["allowablePremadeSizes"] = v.allowablePremadeSizes; 
@@ -63,7 +63,7 @@ namespace lol {
     j["specifiablePositionPreferences"] = v.specifiablePositionPreferences; 
     j["showPositionSelector"] = v.showPositionSelector; 
   }
-  void from_json(const json& j, LolLobbyLobby& v) {
+  inline void from_json(const json& j, LolLobbyLobby& v) {
     v.canStartMatchmaking = j.at("canStartMatchmaking").get<bool>(); 
     v.wasKicked = j.at("wasKicked").get<bool>(); 
     v.allowablePremadeSizes = j.at("allowablePremadeSizes").get<std::vector<int32_t>>(); 

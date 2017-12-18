@@ -12,7 +12,7 @@ namespace lol {
     int32_t queueId;
     std::vector<uint64_t> memberSummonerIds; 
   };
-  void to_json(json& j, const LolMatchmakingLobbyStatus& v) {
+  inline void to_json(json& j, const LolMatchmakingLobbyStatus& v) {
     j["customSpectatorPolicy"] = v.customSpectatorPolicy; 
     j["isCustom"] = v.isCustom; 
     j["isSpectator"] = v.isSpectator; 
@@ -23,7 +23,7 @@ namespace lol {
     j["queueId"] = v.queueId; 
     j["memberSummonerIds"] = v.memberSummonerIds; 
   }
-  void from_json(const json& j, LolMatchmakingLobbyStatus& v) {
+  inline void from_json(const json& j, LolMatchmakingLobbyStatus& v) {
     v.customSpectatorPolicy = j.at("customSpectatorPolicy").get<LolMatchmakingQueueCustomGameSpectatorPolicy>(); 
     v.isCustom = j.at("isCustom").get<bool>(); 
     v.isSpectator = j.at("isSpectator").get<bool>(); 

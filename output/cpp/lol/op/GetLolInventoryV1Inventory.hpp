@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolInventoryInventoryItem.hpp>
 namespace lol {
-  Result<std::vector<LolInventoryInventoryItem>> GetLolInventoryV1Inventory(const LeagueClient& _client, const std::vector<std::string>& inventoryTypes)
+  inline Result<std::vector<LolInventoryInventoryItem>> GetLolInventoryV1Inventory(const LeagueClient& _client, const std::vector<std::string>& inventoryTypes)
   {
     HttpsClient _client_(_client.host, false);
     try {

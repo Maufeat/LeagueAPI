@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<json> DeleteLolCollectionsV1InventoriesBySummonerIdMasteryBookPagesByPageId(const LeagueClient& _client, const uint64_t& summonerId, const uint32_t& pageId)
+  inline Result<json> DeleteLolCollectionsV1InventoriesBySummonerIdMasteryBookPagesByPageId(const LeagueClient& _client, const uint64_t& summonerId, const uint32_t& pageId)
   {
     HttpsClient _client_(_client.host, false);
     try {

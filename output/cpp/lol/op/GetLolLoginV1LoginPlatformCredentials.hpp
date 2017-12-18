@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolLoginPlatformGeneratedCredentials.hpp>
 namespace lol {
-  Result<LolLoginPlatformGeneratedCredentials> GetLolLoginV1LoginPlatformCredentials(const LeagueClient& _client)
+  inline Result<LolLoginPlatformGeneratedCredentials> GetLolLoginV1LoginPlatformCredentials(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

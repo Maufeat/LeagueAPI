@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/RsoAuthUserInfo.hpp>
 namespace lol {
-  Result<RsoAuthUserInfo> PostRsoAuthV1AuthorizationUserinfo(const LeagueClient& _client)
+  inline Result<RsoAuthUserInfo> PostRsoAuthV1AuthorizationUserinfo(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

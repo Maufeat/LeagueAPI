@@ -8,13 +8,13 @@ namespace lol {
     int32_t sequence;
     MissionProgressDTO progress; 
   };
-  void to_json(json& j, const PlayerMissionObjectiveDTO& v) {
+  inline void to_json(json& j, const PlayerMissionObjectiveDTO& v) {
     j["description"] = v.description; 
     j["type"] = v.type; 
     j["sequence"] = v.sequence; 
     j["progress"] = v.progress; 
   }
-  void from_json(const json& j, PlayerMissionObjectiveDTO& v) {
+  inline void from_json(const json& j, PlayerMissionObjectiveDTO& v) {
     v.description = j.at("description").get<std::string>(); 
     v.type = j.at("type").get<std::string>(); 
     v.sequence = j.at("sequence").get<int32_t>(); 

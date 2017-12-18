@@ -6,7 +6,7 @@ namespace lol {
     RANKED_FLEX_TT_e = 3,
     RANKED_SOLO_5x5_e = 1,
   };
-  void to_json(json& j, const LeaguesLcdsQueueType& v) {
+  inline void to_json(json& j, const LeaguesLcdsQueueType& v) {
     if(v == LeaguesLcdsQueueType::RANKED_FLEX_SR_e) {
       j = "RANKED_FLEX_SR";
       return;
@@ -20,7 +20,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LeaguesLcdsQueueType& v) {
+  inline void from_json(const json& j, LeaguesLcdsQueueType& v) {
     if(j.get<std::string>() == "RANKED_FLEX_SR") {
       v = LeaguesLcdsQueueType::RANKED_FLEX_SR_e;
       return;

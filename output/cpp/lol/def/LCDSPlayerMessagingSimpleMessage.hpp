@@ -9,7 +9,7 @@ namespace lol {
     std::string bodyCode;
     uint64_t accountId; 
   };
-  void to_json(json& j, const LCDSPlayerMessagingSimpleMessage& v) {
+  inline void to_json(json& j, const LCDSPlayerMessagingSimpleMessage& v) {
     j["msgId"] = v.msgId; 
     j["titleCode"] = v.titleCode; 
     j["type"] = v.type; 
@@ -17,7 +17,7 @@ namespace lol {
     j["bodyCode"] = v.bodyCode; 
     j["accountId"] = v.accountId; 
   }
-  void from_json(const json& j, LCDSPlayerMessagingSimpleMessage& v) {
+  inline void from_json(const json& j, LCDSPlayerMessagingSimpleMessage& v) {
     v.msgId = j.at("msgId").get<std::string>(); 
     v.titleCode = j.at("titleCode").get<std::string>(); 
     v.type = j.at("type").get<std::string>(); 

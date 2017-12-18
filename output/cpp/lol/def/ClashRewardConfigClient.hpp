@@ -9,13 +9,13 @@ namespace lol {
     bool grantToSub;
     std::vector<ClashRewardKeyType> keyDef; 
   };
-  void to_json(json& j, const ClashRewardConfigClient& v) {
+  inline void to_json(json& j, const ClashRewardConfigClient& v) {
     j["name"] = v.name; 
     j["entries"] = v.entries; 
     j["grantToSub"] = v.grantToSub; 
     j["keyDef"] = v.keyDef; 
   }
-  void from_json(const json& j, ClashRewardConfigClient& v) {
+  inline void from_json(const json& j, ClashRewardConfigClient& v) {
     v.name = j.at("name").get<std::string>(); 
     v.entries = j.at("entries").get<std::vector<ClashRewardConfigEntry>>(); 
     v.grantToSub = j.at("grantToSub").get<bool>(); 

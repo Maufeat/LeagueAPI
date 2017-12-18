@@ -15,7 +15,7 @@ namespace lol {
     int32_t clubTagRequirementMinGames;
     int32_t clubDescriptionMaxLength; 
   };
-  void to_json(json& j, const ClubsConfig& v) {
+  inline void to_json(json& j, const ClubsConfig& v) {
     j["clubNominationsEnabled"] = v.clubNominationsEnabled; 
     j["minClubNameLength"] = v.minClubNameLength; 
     j["clubNominationsMaxPending"] = v.clubNominationsMaxPending; 
@@ -29,7 +29,7 @@ namespace lol {
     j["clubTagRequirementMinGames"] = v.clubTagRequirementMinGames; 
     j["clubDescriptionMaxLength"] = v.clubDescriptionMaxLength; 
   }
-  void from_json(const json& j, ClubsConfig& v) {
+  inline void from_json(const json& j, ClubsConfig& v) {
     v.clubNominationsEnabled = j.at("clubNominationsEnabled").get<bool>(); 
     v.minClubNameLength = j.at("minClubNameLength").get<int32_t>(); 
     v.clubNominationsMaxPending = j.at("clubNominationsMaxPending").get<int32_t>(); 

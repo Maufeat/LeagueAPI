@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<void> PostLolGameClientChatV1IgnoredSummoners(const LeagueClient& _client, const std::string& summonerName)
+  inline Result<void> PostLolGameClientChatV1IgnoredSummoners(const LeagueClient& _client, const std::string& summonerName)
   {
     HttpsClient _client_(_client.host, false);
     try {

@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<json> DeleteRecofrienderV1RegistrationsByNetwork(const LeagueClient& _client, const std::string& network)
+  inline Result<json> DeleteRecofrienderV1RegistrationsByNetwork(const LeagueClient& _client, const std::string& network)
   {
     HttpsClient _client_(_client.host, false);
     try {

@@ -6,7 +6,7 @@ namespace lol {
     Declined_e = 50,
     None_e = 48,
   };
-  void to_json(json& j, const LolClashMatchmakingReadyCheckResponse& v) {
+  inline void to_json(json& j, const LolClashMatchmakingReadyCheckResponse& v) {
     if(v == LolClashMatchmakingReadyCheckResponse::Accepted_e) {
       j = "Accepted";
       return;
@@ -20,7 +20,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolClashMatchmakingReadyCheckResponse& v) {
+  inline void from_json(const json& j, LolClashMatchmakingReadyCheckResponse& v) {
     if(j.get<std::string>() == "Accepted") {
       v = LolClashMatchmakingReadyCheckResponse::Accepted_e;
       return;

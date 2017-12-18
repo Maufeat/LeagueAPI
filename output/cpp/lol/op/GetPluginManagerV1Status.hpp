@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/PluginManagerResource.hpp>
 namespace lol {
-  Result<PluginManagerResource> GetPluginManagerV1Status(const LeagueClient& _client)
+  inline Result<PluginManagerResource> GetPluginManagerV1Status(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/PlayerNotificationResource.hpp>
 namespace lol {
-  Result<PlayerNotificationResource> PutPlayerNotificationsV1NotificationsById(const LeagueClient& _client, const uint64_t& id, const json& notification)
+  inline Result<PlayerNotificationResource> PutPlayerNotificationsV1NotificationsById(const LeagueClient& _client, const uint64_t& id, const json& notification)
   {
     HttpsClient _client_(_client.host, false);
     try {

@@ -11,7 +11,7 @@ namespace lol {
     double IPv4OptionsProbability;
     std::string IPv4OptionsProbeServers; 
   };
-  void to_json(json& j, const NetworkTestingDynamicConfig& v) {
+  inline void to_json(json& j, const NetworkTestingDynamicConfig& v) {
     j["IPv4OptionsProbeCount"] = v.IPv4OptionsProbeCount; 
     j["IPv6SupportProbeServers"] = v.IPv6SupportProbeServers; 
     j["IPv6SupportProbability"] = v.IPv6SupportProbability; 
@@ -21,7 +21,7 @@ namespace lol {
     j["IPv4OptionsProbability"] = v.IPv4OptionsProbability; 
     j["IPv4OptionsProbeServers"] = v.IPv4OptionsProbeServers; 
   }
-  void from_json(const json& j, NetworkTestingDynamicConfig& v) {
+  inline void from_json(const json& j, NetworkTestingDynamicConfig& v) {
     v.IPv4OptionsProbeCount = j.at("IPv4OptionsProbeCount").get<uint8_t>(); 
     v.IPv6SupportProbeServers = j.at("IPv6SupportProbeServers").get<std::string>(); 
     v.IPv6SupportProbability = j.at("IPv6SupportProbability").get<double>(); 

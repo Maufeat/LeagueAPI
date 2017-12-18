@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/LolLootRedeemableStatus.hpp>
 #include <lol/def/LolLootItemOwnershipStatus.hpp>
+#include <lol/def/LolLootRedeemableStatus.hpp>
 namespace lol {
   struct LolLootPlayerLoot { 
     bool isRental;
@@ -36,7 +36,7 @@ namespace lol {
     int32_t rentalGames;
     std::string rarity; 
   };
-  void to_json(json& j, const LolLootPlayerLoot& v) {
+  inline void to_json(json& j, const LolLootPlayerLoot& v) {
     j["isRental"] = v.isRental; 
     j["upgradeLootName"] = v.upgradeLootName; 
     j["displayCategories"] = v.displayCategories; 
@@ -69,7 +69,7 @@ namespace lol {
     j["rentalGames"] = v.rentalGames; 
     j["rarity"] = v.rarity; 
   }
-  void from_json(const json& j, LolLootPlayerLoot& v) {
+  inline void from_json(const json& j, LolLootPlayerLoot& v) {
     v.isRental = j.at("isRental").get<bool>(); 
     v.upgradeLootName = j.at("upgradeLootName").get<std::string>(); 
     v.displayCategories = j.at("displayCategories").get<std::string>(); 

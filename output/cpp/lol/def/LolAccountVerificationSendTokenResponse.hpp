@@ -7,13 +7,13 @@ namespace lol {
     std::string message;
     int32_t smsTokenExpireDurationInSec; 
   };
-  void to_json(json& j, const LolAccountVerificationSendTokenResponse& v) {
+  inline void to_json(json& j, const LolAccountVerificationSendTokenResponse& v) {
     j["status"] = v.status; 
     j["success"] = v.success; 
     j["message"] = v.message; 
     j["smsTokenExpireDurationInSec"] = v.smsTokenExpireDurationInSec; 
   }
-  void from_json(const json& j, LolAccountVerificationSendTokenResponse& v) {
+  inline void from_json(const json& j, LolAccountVerificationSendTokenResponse& v) {
     v.status = j.at("status").get<int32_t>(); 
     v.success = j.at("success").get<bool>(); 
     v.message = j.at("message").get<std::string>(); 

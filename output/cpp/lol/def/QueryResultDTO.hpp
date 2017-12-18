@@ -5,11 +5,11 @@ namespace lol {
     int64_t lastUpdate;
     json queryToLootNames; 
   };
-  void to_json(json& j, const QueryResultDTO& v) {
+  inline void to_json(json& j, const QueryResultDTO& v) {
     j["lastUpdate"] = v.lastUpdate; 
     j["queryToLootNames"] = v.queryToLootNames; 
   }
-  void from_json(const json& j, QueryResultDTO& v) {
+  inline void from_json(const json& j, QueryResultDTO& v) {
     v.lastUpdate = j.at("lastUpdate").get<int64_t>(); 
     v.queryToLootNames = j.at("queryToLootNames").get<json>(); 
   }

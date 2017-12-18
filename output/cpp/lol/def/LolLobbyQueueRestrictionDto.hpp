@@ -5,10 +5,10 @@ namespace lol {
   struct LolLobbyQueueRestrictionDto { 
     std::vector<LolLobbyGatekeeperRestrictionDto> gatekeeperRestrictions; 
   };
-  void to_json(json& j, const LolLobbyQueueRestrictionDto& v) {
+  inline void to_json(json& j, const LolLobbyQueueRestrictionDto& v) {
     j["gatekeeperRestrictions"] = v.gatekeeperRestrictions; 
   }
-  void from_json(const json& j, LolLobbyQueueRestrictionDto& v) {
+  inline void from_json(const json& j, LolLobbyQueueRestrictionDto& v) {
     v.gatekeeperRestrictions = j.at("gatekeeperRestrictions").get<std::vector<LolLobbyGatekeeperRestrictionDto>>(); 
   }
 }

@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolCollectionsCollectionsTopChampionMasteries.hpp>
 namespace lol {
-  Result<LolCollectionsCollectionsTopChampionMasteries> GetLolCollectionsV1InventoriesBySummonerIdChampionMasteryTop(const LeagueClient& _client, const uint64_t& summonerId, const uint64_t& limit, const std::optional<std::string>& sortRule = std::nullopt)
+  inline Result<LolCollectionsCollectionsTopChampionMasteries> GetLolCollectionsV1InventoriesBySummonerIdChampionMasteryTop(const LeagueClient& _client, const uint64_t& summonerId, const uint64_t& limit, const std::optional<std::string>& sortRule = std::nullopt)
   {
     HttpsClient _client_(_client.host, false);
     try {

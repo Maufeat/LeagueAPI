@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<json> PostLolGameflowV1WatchLaunch(const LeagueClient& _client, const std::vector<std::string>& args)
+  inline Result<json> PostLolGameflowV1WatchLaunch(const LeagueClient& _client, const std::vector<std::string>& args)
   {
     HttpsClient _client_(_client.host, false);
     try {

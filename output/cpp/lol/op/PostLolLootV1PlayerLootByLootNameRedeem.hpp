@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolLootPlayerLootUpdate.hpp>
 namespace lol {
-  Result<LolLootPlayerLootUpdate> PostLolLootV1PlayerLootByLootNameRedeem(const LeagueClient& _client, const std::string& lootName)
+  inline Result<LolLootPlayerLootUpdate> PostLolLootV1PlayerLootByLootNameRedeem(const LeagueClient& _client, const std::string& lootName)
   {
     HttpsClient _client_(_client.host, false);
     try {

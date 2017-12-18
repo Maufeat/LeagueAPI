@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/PatcherInjectedPatcherError.hpp>
 namespace lol {
-  Result<void> PostPatcherV1ProductsByProductIdInjectError(const LeagueClient& _client, const std::string& product_id, const std::string& component_id, const PatcherInjectedPatcherError& error)
+  inline Result<void> PostPatcherV1ProductsByProductIdInjectError(const LeagueClient& _client, const std::string& product_id, const std::string& component_id, const PatcherInjectedPatcherError& error)
   {
     HttpsClient _client_(_client.host, false);
     try {

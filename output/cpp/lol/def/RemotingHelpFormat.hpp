@@ -7,7 +7,7 @@ namespace lol {
     Epytext_e = 2,
     Full_e = 1,
   };
-  void to_json(json& j, const RemotingHelpFormat& v) {
+  inline void to_json(json& j, const RemotingHelpFormat& v) {
     if(v == RemotingHelpFormat::Brief_e) {
       j = "Brief";
       return;
@@ -25,7 +25,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, RemotingHelpFormat& v) {
+  inline void from_json(const json& j, RemotingHelpFormat& v) {
     if(j.get<std::string>() == "Brief") {
       v = RemotingHelpFormat::Brief_e;
       return;

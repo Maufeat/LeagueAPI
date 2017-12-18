@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<json> PostLolLoadoutsV2ItemsById(const LeagueClient& _client, const uint32_t& id, const std::map<std::string, json>& items)
+  inline Result<json> PostLolLoadoutsV2ItemsById(const LeagueClient& _client, const uint32_t& id, const std::map<std::string, json>& items)
   {
     HttpsClient _client_(_client.host, false);
     try {

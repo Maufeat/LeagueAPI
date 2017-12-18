@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyQueueCustomGameSpectatorPolicy.hpp>
 #include <lol/def/LolLobbyLobbyParticipantDto.hpp>
+#include <lol/def/LolLobbyQueueCustomGameSpectatorPolicy.hpp>
 namespace lol {
   struct LolLobbyLobbyGameConfigDto { 
     std::string gameMutator;
@@ -26,7 +26,7 @@ namespace lol {
     bool premadeSizeAllowed;
     bool showPositionSelector; 
   };
-  void to_json(json& j, const LolLobbyLobbyGameConfigDto& v) {
+  inline void to_json(json& j, const LolLobbyLobbyGameConfigDto& v) {
     j["gameMutator"] = v.gameMutator; 
     j["maxHumanPlayers"] = v.maxHumanPlayers; 
     j["allowablePremadeSizes"] = v.allowablePremadeSizes; 
@@ -49,7 +49,7 @@ namespace lol {
     j["premadeSizeAllowed"] = v.premadeSizeAllowed; 
     j["showPositionSelector"] = v.showPositionSelector; 
   }
-  void from_json(const json& j, LolLobbyLobbyGameConfigDto& v) {
+  inline void from_json(const json& j, LolLobbyLobbyGameConfigDto& v) {
     v.gameMutator = j.at("gameMutator").get<std::string>(); 
     v.maxHumanPlayers = j.at("maxHumanPlayers").get<int32_t>(); 
     v.allowablePremadeSizes = j.at("allowablePremadeSizes").get<std::vector<int32_t>>(); 

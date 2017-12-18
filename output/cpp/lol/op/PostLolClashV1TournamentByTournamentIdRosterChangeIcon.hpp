@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolClashChangeIconRequest.hpp>
 namespace lol {
-  Result<json> PostLolClashV1TournamentByTournamentIdRosterChangeIcon(const LeagueClient& _client, const int64_t& tournamentId, const LolClashChangeIconRequest& changeIconRequest)
+  inline Result<json> PostLolClashV1TournamentByTournamentIdRosterChangeIcon(const LeagueClient& _client, const int64_t& tournamentId, const LolClashChangeIconRequest& changeIconRequest)
   {
     HttpsClient _client_(_client.host, false);
     try {

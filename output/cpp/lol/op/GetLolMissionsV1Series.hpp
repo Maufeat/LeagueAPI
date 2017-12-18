@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/SeriesDTO.hpp>
 namespace lol {
-  Result<std::vector<SeriesDTO>> GetLolMissionsV1Series(const LeagueClient& _client)
+  inline Result<std::vector<SeriesDTO>> GetLolMissionsV1Series(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

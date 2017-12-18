@@ -4,10 +4,10 @@ namespace lol {
   struct LolGeoinfoGeoInfoConfig { 
     bool Enabled; 
   };
-  void to_json(json& j, const LolGeoinfoGeoInfoConfig& v) {
+  inline void to_json(json& j, const LolGeoinfoGeoInfoConfig& v) {
     j["Enabled"] = v.Enabled; 
   }
-  void from_json(const json& j, LolGeoinfoGeoInfoConfig& v) {
+  inline void from_json(const json& j, LolGeoinfoGeoInfoConfig& v) {
     v.Enabled = j.at("Enabled").get<bool>(); 
   }
 }

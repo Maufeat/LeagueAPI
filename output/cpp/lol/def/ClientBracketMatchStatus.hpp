@@ -6,7 +6,7 @@ namespace lol {
     STARTED_e = 1,
     UPCOMING_e = 0,
   };
-  void to_json(json& j, const ClientBracketMatchStatus& v) {
+  inline void to_json(json& j, const ClientBracketMatchStatus& v) {
     if(v == ClientBracketMatchStatus::COMPLETED_e) {
       j = "COMPLETED";
       return;
@@ -20,7 +20,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, ClientBracketMatchStatus& v) {
+  inline void from_json(const json& j, ClientBracketMatchStatus& v) {
     if(j.get<std::string>() == "COMPLETED") {
       v = ClientBracketMatchStatus::COMPLETED_e;
       return;

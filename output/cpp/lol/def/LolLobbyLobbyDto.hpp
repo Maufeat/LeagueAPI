@@ -1,9 +1,9 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyEligibilityRestriction.hpp>
-#include <lol/def/LolLobbyLobbyInvitationDto.hpp>
 #include <lol/def/LolLobbyLobbyParticipantDto.hpp>
+#include <lol/def/LolLobbyLobbyInvitationDto.hpp>
 #include <lol/def/LolLobbyLobbyGameConfigDto.hpp>
+#include <lol/def/LolLobbyEligibilityRestriction.hpp>
 namespace lol {
   struct LolLobbyLobbyDto { 
     std::vector<LolLobbyLobbyParticipantDto> members;
@@ -16,7 +16,7 @@ namespace lol {
     std::vector<LolLobbyLobbyInvitationDto> invitations;
     bool canStartActivity; 
   };
-  void to_json(json& j, const LolLobbyLobbyDto& v) {
+  inline void to_json(json& j, const LolLobbyLobbyDto& v) {
     j["members"] = v.members; 
     j["chatRoomKey"] = v.chatRoomKey; 
     j["gameConfig"] = v.gameConfig; 
@@ -28,7 +28,7 @@ namespace lol {
     j["invitations"] = v.invitations; 
     j["canStartActivity"] = v.canStartActivity; 
   }
-  void from_json(const json& j, LolLobbyLobbyDto& v) {
+  inline void from_json(const json& j, LolLobbyLobbyDto& v) {
     v.members = j.at("members").get<std::vector<LolLobbyLobbyParticipantDto>>(); 
     v.chatRoomKey = j.at("chatRoomKey").get<std::string>(); 
     v.gameConfig = j.at("gameConfig").get<LolLobbyLobbyGameConfigDto>(); 

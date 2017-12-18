@@ -13,7 +13,7 @@ namespace lol {
     std::optional<std::string> excludedPositionPreference;
     uint64_t summonerId; 
   };
-  void to_json(json& j, const LolLobbyTeamBuilderTbLobbySlotResource& v) {
+  inline void to_json(json& j, const LolLobbyTeamBuilderTbLobbySlotResource& v) {
     j["showPositionExcluder"] = v.showPositionExcluder; 
     j["autoFillEligible"] = v.autoFillEligible; 
     j["autoFillProtectedForSoloing"] = v.autoFillProtectedForSoloing; 
@@ -26,7 +26,7 @@ namespace lol {
       j["excludedPositionPreference"] = *v.excludedPositionPreference;
     j["summonerId"] = v.summonerId; 
   }
-  void from_json(const json& j, LolLobbyTeamBuilderTbLobbySlotResource& v) {
+  inline void from_json(const json& j, LolLobbyTeamBuilderTbLobbySlotResource& v) {
     v.showPositionExcluder = j.at("showPositionExcluder").get<bool>(); 
     v.autoFillEligible = j.at("autoFillEligible").get<bool>(); 
     v.autoFillProtectedForSoloing = j.at("autoFillProtectedForSoloing").get<bool>(); 

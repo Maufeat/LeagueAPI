@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolChampionsCollectionsChampion.hpp>
 namespace lol {
-  Result<LolChampionsCollectionsChampion> GetLolChampionsV1InventoriesBySummonerIdChampionsByChampionId(const LeagueClient& _client, const uint64_t& summonerId, const int32_t& championId)
+  inline Result<LolChampionsCollectionsChampion> GetLolChampionsV1InventoriesBySummonerIdChampionsByChampionId(const LeagueClient& _client, const uint64_t& summonerId, const int32_t& championId)
   {
     HttpsClient _client_(_client.host, false);
     try {

@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolChampionsCollectionsChampionSkin.hpp>
 namespace lol {
-  Result<LolChampionsCollectionsChampionSkin> GetLolChampionsV1InventoriesBySummonerIdChampionsByChampionIdSkinsByChampionSkinId(const LeagueClient& _client, const uint64_t& summonerId, const int32_t& championId, const int32_t& championSkinId)
+  inline Result<LolChampionsCollectionsChampionSkin> GetLolChampionsV1InventoriesBySummonerIdChampionsByChampionIdSkinsByChampionSkinId(const LeagueClient& _client, const uint64_t& summonerId, const int32_t& championId, const int32_t& championSkinId)
   {
     HttpsClient _client_(_client.host, false);
     try {

@@ -5,7 +5,7 @@ namespace lol {
     keep_e = 1,
     none_e = 0,
   };
-  void to_json(json& j, const PatcherComponentResourceHistory& v) {
+  inline void to_json(json& j, const PatcherComponentResourceHistory& v) {
     if(v == PatcherComponentResourceHistory::keep_e) {
       j = "keep";
       return;
@@ -15,7 +15,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, PatcherComponentResourceHistory& v) {
+  inline void from_json(const json& j, PatcherComponentResourceHistory& v) {
     if(j.get<std::string>() == "keep") {
       v = PatcherComponentResourceHistory::keep_e;
       return;

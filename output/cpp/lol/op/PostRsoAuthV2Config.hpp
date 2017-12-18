@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/RsoAuthPublicClientConfig.hpp>
 namespace lol {
-  Result<void> PostRsoAuthV2Config(const LeagueClient& _client, const RsoAuthPublicClientConfig& config)
+  inline Result<void> PostRsoAuthV2Config(const LeagueClient& _client, const RsoAuthPublicClientConfig& config)
   {
     HttpsClient _client_(_client.host, false);
     try {

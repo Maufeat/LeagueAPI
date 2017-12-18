@@ -5,7 +5,7 @@ namespace lol {
     Eula_e = 0,
     TermsOfUse_e = 1,
   };
-  void to_json(json& j, const LolLicenseAgreementLicenseAgreementType& v) {
+  inline void to_json(json& j, const LolLicenseAgreementLicenseAgreementType& v) {
     if(v == LolLicenseAgreementLicenseAgreementType::Eula_e) {
       j = "Eula";
       return;
@@ -15,7 +15,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolLicenseAgreementLicenseAgreementType& v) {
+  inline void from_json(const json& j, LolLicenseAgreementLicenseAgreementType& v) {
     if(j.get<std::string>() == "Eula") {
       v = LolLicenseAgreementLicenseAgreementType::Eula_e;
       return;

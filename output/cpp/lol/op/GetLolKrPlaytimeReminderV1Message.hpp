@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<std::string> GetLolKrPlaytimeReminderV1Message(const LeagueClient& _client)
+  inline Result<std::string> GetLolKrPlaytimeReminderV1Message(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

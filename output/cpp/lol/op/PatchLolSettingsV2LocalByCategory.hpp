@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolSettingsSettingCategory.hpp>
 namespace lol {
-  Result<json> PatchLolSettingsV2LocalByCategory(const LeagueClient& _client, const std::string& category, const LolSettingsSettingCategory& settingsResource)
+  inline Result<json> PatchLolSettingsV2LocalByCategory(const LeagueClient& _client, const std::string& category, const LolSettingsSettingCategory& settingsResource)
   {
     HttpsClient _client_(_client.host, false);
     try {

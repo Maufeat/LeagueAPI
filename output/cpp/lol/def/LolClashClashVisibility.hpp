@@ -6,7 +6,7 @@ namespace lol {
     Hidden_e = 0,
     Visible_e = 2,
   };
-  void to_json(json& j, const LolClashClashVisibility& v) {
+  inline void to_json(json& j, const LolClashClashVisibility& v) {
     if(v == LolClashClashVisibility::DarkVisible_e) {
       j = "DarkVisible";
       return;
@@ -20,7 +20,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolClashClashVisibility& v) {
+  inline void from_json(const json& j, LolClashClashVisibility& v) {
     if(j.get<std::string>() == "DarkVisible") {
       v = LolClashClashVisibility::DarkVisible_e;
       return;

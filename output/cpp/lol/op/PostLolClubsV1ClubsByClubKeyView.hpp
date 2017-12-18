@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<json> PostLolClubsV1ClubsByClubKeyView(const LeagueClient& _client, const std::string& clubKey)
+  inline Result<json> PostLolClubsV1ClubsByClubKeyView(const LeagueClient& _client, const std::string& clubKey)
   {
     HttpsClient _client_(_client.host, false);
     try {

@@ -6,12 +6,12 @@ namespace lol {
     std::string type;
     std::string message; 
   };
-  void to_json(json& j, const MissionAlertDTO& v) {
+  inline void to_json(json& j, const MissionAlertDTO& v) {
     j["alertTime"] = v.alertTime; 
     j["type"] = v.type; 
     j["message"] = v.message; 
   }
-  void from_json(const json& j, MissionAlertDTO& v) {
+  inline void from_json(const json& j, MissionAlertDTO& v) {
     v.alertTime = j.at("alertTime").get<int64_t>(); 
     v.type = j.at("type").get<std::string>(); 
     v.message = j.at("message").get<std::string>(); 

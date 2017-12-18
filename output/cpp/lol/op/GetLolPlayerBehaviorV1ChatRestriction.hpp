@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolPlayerBehaviorRestrictionNotification.hpp>
 namespace lol {
-  Result<LolPlayerBehaviorRestrictionNotification> GetLolPlayerBehaviorV1ChatRestriction(const LeagueClient& _client)
+  inline Result<LolPlayerBehaviorRestrictionNotification> GetLolPlayerBehaviorV1ChatRestriction(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

@@ -4,10 +4,10 @@ namespace lol {
   struct MatchmakingLcdsPlayerParticipant { 
     uint64_t summonerId; 
   };
-  void to_json(json& j, const MatchmakingLcdsPlayerParticipant& v) {
+  inline void to_json(json& j, const MatchmakingLcdsPlayerParticipant& v) {
     j["summonerId"] = v.summonerId; 
   }
-  void from_json(const json& j, MatchmakingLcdsPlayerParticipant& v) {
+  inline void from_json(const json& j, MatchmakingLcdsPlayerParticipant& v) {
     v.summonerId = j.at("summonerId").get<uint64_t>(); 
   }
 }

@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/ClubMemberLists.hpp>
 namespace lol {
-  Result<ClubMemberLists> DeleteLolClubsV1ClubsByClubKeyInvitationsBySummonerId(const LeagueClient& _client, const std::string& clubKey, const uint64_t& summonerId)
+  inline Result<ClubMemberLists> DeleteLolClubsV1ClubsByClubKeyInvitationsBySummonerId(const LeagueClient& _client, const std::string& clubKey, const uint64_t& summonerId)
   {
     HttpsClient _client_(_client.host, false);
     try {

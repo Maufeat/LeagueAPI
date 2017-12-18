@@ -12,7 +12,7 @@ namespace lol {
     int64_t punishmentLengthGames;
     std::vector<std::string> punishedForChatLogs; 
   };
-  void to_json(json& j, const Punishment& v) {
+  inline void to_json(json& j, const Punishment& v) {
     j["punishmentType"] = v.punishmentType; 
     j["punishedUntilDateMillis"] = v.punishedUntilDateMillis; 
     j["punishmentLengthMillis"] = v.punishmentLengthMillis; 
@@ -23,7 +23,7 @@ namespace lol {
     j["punishmentLengthGames"] = v.punishmentLengthGames; 
     j["punishedForChatLogs"] = v.punishedForChatLogs; 
   }
-  void from_json(const json& j, Punishment& v) {
+  inline void from_json(const json& j, Punishment& v) {
     v.punishmentType = j.at("punishmentType").get<std::string>(); 
     v.punishedUntilDateMillis = j.at("punishedUntilDateMillis").get<uint64_t>(); 
     v.punishmentLengthMillis = j.at("punishmentLengthMillis").get<uint64_t>(); 

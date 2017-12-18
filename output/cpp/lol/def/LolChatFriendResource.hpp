@@ -14,7 +14,7 @@ namespace lol {
     bool isP2PConversationMuted;
     uint64_t id; 
   };
-  void to_json(json& j, const LolChatFriendResource& v) {
+  inline void to_json(json& j, const LolChatFriendResource& v) {
     j["groupId"] = v.groupId; 
     j["icon"] = v.icon; 
     j["statusMessage"] = v.statusMessage; 
@@ -28,7 +28,7 @@ namespace lol {
     j["isP2PConversationMuted"] = v.isP2PConversationMuted; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, LolChatFriendResource& v) {
+  inline void from_json(const json& j, LolChatFriendResource& v) {
     v.groupId = j.at("groupId").get<uint32_t>(); 
     v.icon = j.at("icon").get<int32_t>(); 
     v.statusMessage = j.at("statusMessage").get<std::string>(); 

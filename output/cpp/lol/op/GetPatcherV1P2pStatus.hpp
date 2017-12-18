@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/PatcherP2PStatus.hpp>
 namespace lol {
-  Result<PatcherP2PStatus> GetPatcherV1P2pStatus(const LeagueClient& _client)
+  inline Result<PatcherP2PStatus> GetPatcherV1P2pStatus(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolClashTournamentStateInfo.hpp>
 namespace lol {
-  Result<LolClashTournamentStateInfo> GetLolClashV1TournamentByTournamentIdStateInfo(const LeagueClient& _client, const int64_t& tournamentId)
+  inline Result<LolClashTournamentStateInfo> GetLolClashV1TournamentByTournamentIdStateInfo(const LeagueClient& _client, const int64_t& tournamentId)
   {
     HttpsClient _client_(_client.host, false);
     try {

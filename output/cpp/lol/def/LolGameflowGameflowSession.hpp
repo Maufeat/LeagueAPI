@@ -1,10 +1,10 @@
 #pragma once
 #include<lol/base_def.hpp> 
+#include <lol/def/LolGameflowGameflowGameMap.hpp>
 #include <lol/def/LolGameflowGameflowGameDodge.hpp>
-#include <lol/def/LolGameflowGameflowPhase.hpp>
 #include <lol/def/LolGameflowGameflowGameClient.hpp>
 #include <lol/def/LolGameflowGameflowGameData.hpp>
-#include <lol/def/LolGameflowGameflowGameMap.hpp>
+#include <lol/def/LolGameflowGameflowPhase.hpp>
 namespace lol {
   struct LolGameflowGameflowSession { 
     LolGameflowGameflowGameMap map;
@@ -13,14 +13,14 @@ namespace lol {
     LolGameflowGameflowPhase phase;
     LolGameflowGameflowGameData gameData; 
   };
-  void to_json(json& j, const LolGameflowGameflowSession& v) {
+  inline void to_json(json& j, const LolGameflowGameflowSession& v) {
     j["map"] = v.map; 
     j["gameClient"] = v.gameClient; 
     j["gameDodge"] = v.gameDodge; 
     j["phase"] = v.phase; 
     j["gameData"] = v.gameData; 
   }
-  void from_json(const json& j, LolGameflowGameflowSession& v) {
+  inline void from_json(const json& j, LolGameflowGameflowSession& v) {
     v.map = j.at("map").get<LolGameflowGameflowGameMap>(); 
     v.gameClient = j.at("gameClient").get<LolGameflowGameflowGameClient>(); 
     v.gameDodge = j.at("gameDodge").get<LolGameflowGameflowGameDodge>(); 

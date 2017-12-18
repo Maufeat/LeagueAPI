@@ -14,7 +14,7 @@ namespace lol {
     ClubPermissions permissionMap;
     int64_t lastModifiedTs; 
   };
-  void to_json(json& j, const ClubDataDto& v) {
+  inline void to_json(json& j, const ClubDataDto& v) {
     j["tag"] = v.tag; 
     j["motd"] = v.motd; 
     j["clubKey"] = v.clubKey; 
@@ -26,7 +26,7 @@ namespace lol {
     j["permissionMap"] = v.permissionMap; 
     j["lastModifiedTs"] = v.lastModifiedTs; 
   }
-  void from_json(const json& j, ClubDataDto& v) {
+  inline void from_json(const json& j, ClubDataDto& v) {
     v.tag = j.at("tag").get<std::string>(); 
     v.motd = j.at("motd").get<std::string>(); 
     v.clubKey = j.at("clubKey").get<std::string>(); 

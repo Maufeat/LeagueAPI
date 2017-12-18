@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolGameflowGameflowSession.hpp>
 namespace lol {
-  Result<LolGameflowGameflowSession> GetLolGameflowV1Session(const LeagueClient& _client)
+  inline Result<LolGameflowGameflowSession> GetLolGameflowV1Session(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

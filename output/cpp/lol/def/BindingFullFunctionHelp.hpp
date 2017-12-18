@@ -14,7 +14,7 @@ namespace lol {
     std::string help;
     std::vector<std::string> tags; 
   };
-  void to_json(json& j, const BindingFullFunctionHelp& v) {
+  inline void to_json(json& j, const BindingFullFunctionHelp& v) {
     j["arguments"] = v.arguments; 
     j["threadSafe"] = v.threadSafe; 
     j["returns"] = v.returns; 
@@ -25,7 +25,7 @@ namespace lol {
     j["help"] = v.help; 
     j["tags"] = v.tags; 
   }
-  void from_json(const json& j, BindingFullFunctionHelp& v) {
+  inline void from_json(const json& j, BindingFullFunctionHelp& v) {
     v.arguments = j.at("arguments").get<std::vector<BindingFullArgumentHelp>>(); 
     v.threadSafe = j.at("threadSafe").get<bool>(); 
     v.returns = j.at("returns").get<BindingFullTypeIdentifier>(); 

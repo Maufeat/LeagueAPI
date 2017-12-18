@@ -8,14 +8,14 @@ namespace lol {
     int64_t registrationTime;
     int64_t id; 
   };
-  void to_json(json& j, const TournamentPhaseDTO& v) {
+  inline void to_json(json& j, const TournamentPhaseDTO& v) {
     j["period"] = v.period; 
     j["startTime"] = v.startTime; 
     j["tournamentId"] = v.tournamentId; 
     j["registrationTime"] = v.registrationTime; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, TournamentPhaseDTO& v) {
+  inline void from_json(const json& j, TournamentPhaseDTO& v) {
     v.period = j.at("period").get<int32_t>(); 
     v.startTime = j.at("startTime").get<int64_t>(); 
     v.tournamentId = j.at("tournamentId").get<int64_t>(); 

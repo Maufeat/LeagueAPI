@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolChatUserResource.hpp>
 namespace lol {
-  Result<LolChatUserResource> PutLolChatV1Me(const LeagueClient& _client, const LolChatUserResource& me)
+  inline Result<LolChatUserResource> PutLolChatV1Me(const LeagueClient& _client, const LolChatUserResource& me)
   {
     HttpsClient _client_(_client.host, false);
     try {

@@ -5,10 +5,10 @@ namespace lol {
   struct LolLootLoginAllSummonerData { 
     LolLootLoginSummonerLevelAndPoints summonerLevelAndPoints; 
   };
-  void to_json(json& j, const LolLootLoginAllSummonerData& v) {
+  inline void to_json(json& j, const LolLootLoginAllSummonerData& v) {
     j["summonerLevelAndPoints"] = v.summonerLevelAndPoints; 
   }
-  void from_json(const json& j, LolLootLoginAllSummonerData& v) {
+  inline void from_json(const json& j, LolLootLoginAllSummonerData& v) {
     v.summonerLevelAndPoints = j.at("summonerLevelAndPoints").get<LolLootLoginSummonerLevelAndPoints>(); 
   }
 }

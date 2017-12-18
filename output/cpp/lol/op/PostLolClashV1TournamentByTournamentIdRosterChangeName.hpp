@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolClashChangeNameRequest.hpp>
 namespace lol {
-  Result<json> PostLolClashV1TournamentByTournamentIdRosterChangeName(const LeagueClient& _client, const int64_t& tournamentId, const LolClashChangeNameRequest& changeNameRequest)
+  inline Result<json> PostLolClashV1TournamentByTournamentIdRosterChangeName(const LeagueClient& _client, const int64_t& tournamentId, const LolClashChangeNameRequest& changeNameRequest)
   {
     HttpsClient _client_(_client.host, false);
     try {

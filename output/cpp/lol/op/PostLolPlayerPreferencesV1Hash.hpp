@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<std::string> PostLolPlayerPreferencesV1Hash(const LeagueClient& _client, const std::string& preferences)
+  inline Result<std::string> PostLolPlayerPreferencesV1Hash(const LeagueClient& _client, const std::string& preferences)
   {
     HttpsClient _client_(_client.host, false);
     try {

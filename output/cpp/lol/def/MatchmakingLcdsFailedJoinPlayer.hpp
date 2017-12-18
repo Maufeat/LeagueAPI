@@ -6,11 +6,11 @@ namespace lol {
     MatchmakingLcdsSummoner summoner;
     std::string reasonFailed; 
   };
-  void to_json(json& j, const MatchmakingLcdsFailedJoinPlayer& v) {
+  inline void to_json(json& j, const MatchmakingLcdsFailedJoinPlayer& v) {
     j["summoner"] = v.summoner; 
     j["reasonFailed"] = v.reasonFailed; 
   }
-  void from_json(const json& j, MatchmakingLcdsFailedJoinPlayer& v) {
+  inline void from_json(const json& j, MatchmakingLcdsFailedJoinPlayer& v) {
     v.summoner = j.at("summoner").get<MatchmakingLcdsSummoner>(); 
     v.reasonFailed = j.at("reasonFailed").get<std::string>(); 
   }

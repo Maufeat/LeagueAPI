@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolLobbyPlayerDto.hpp>
 namespace lol {
-  Result<LolLobbyPlayerDto> GetLolLobbyV1PartiesPlayer(const LeagueClient& _client)
+  inline Result<LolLobbyPlayerDto> GetLolLobbyV1PartiesPlayer(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

@@ -6,7 +6,7 @@ namespace lol {
     DoesntMeetRequirements_e = 2,
     PlatformDisabled_e = 1,
   };
-  void to_json(json& j, const LolClashQueueAvailability& v) {
+  inline void to_json(json& j, const LolClashQueueAvailability& v) {
     if(v == LolClashQueueAvailability::Available_e) {
       j = "Available";
       return;
@@ -20,7 +20,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolClashQueueAvailability& v) {
+  inline void from_json(const json& j, LolClashQueueAvailability& v) {
     if(j.get<std::string>() == "Available") {
       v = LolClashQueueAvailability::Available_e;
       return;

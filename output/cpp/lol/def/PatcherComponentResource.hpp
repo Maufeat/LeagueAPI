@@ -1,8 +1,8 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/PatcherComponentResourceType.hpp>
-#include <lol/def/PatcherComponentResourceHistory.hpp>
 #include <lol/def/PatcherHeaderEntry.hpp>
+#include <lol/def/PatcherComponentResourceHistory.hpp>
+#include <lol/def/PatcherComponentResourceType.hpp>
 namespace lol {
   struct PatcherComponentResource { 
     std::string install_dir;
@@ -17,7 +17,7 @@ namespace lol {
     std::string region;
     std::string id; 
   };
-  void to_json(json& j, const PatcherComponentResource& v) {
+  inline void to_json(json& j, const PatcherComponentResource& v) {
     j["install_dir"] = v.install_dir; 
     j["type"] = v.type; 
     j["locale"] = v.locale; 
@@ -30,7 +30,7 @@ namespace lol {
     j["region"] = v.region; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, PatcherComponentResource& v) {
+  inline void from_json(const json& j, PatcherComponentResource& v) {
     v.install_dir = j.at("install_dir").get<std::string>(); 
     v.type = j.at("type").get<PatcherComponentResourceType>(); 
     v.locale = j.at("locale").get<std::string>(); 

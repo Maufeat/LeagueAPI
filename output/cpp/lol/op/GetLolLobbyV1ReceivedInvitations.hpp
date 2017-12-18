@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolLobbyLobbyInvitation.hpp>
 namespace lol {
-  Result<std::vector<LolLobbyLobbyInvitation>> GetLolLobbyV1ReceivedInvitations(const LeagueClient& _client)
+  inline Result<std::vector<LolLobbyLobbyInvitation>> GetLolLobbyV1ReceivedInvitations(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

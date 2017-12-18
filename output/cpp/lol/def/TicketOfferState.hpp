@@ -7,7 +7,7 @@ namespace lol {
     REJECTED_e = 2,
     REVOKED_e = 3,
   };
-  void to_json(json& j, const TicketOfferState& v) {
+  inline void to_json(json& j, const TicketOfferState& v) {
     if(v == TicketOfferState::ACCEPTED_e) {
       j = "ACCEPTED";
       return;
@@ -25,7 +25,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, TicketOfferState& v) {
+  inline void from_json(const json& j, TicketOfferState& v) {
     if(j.get<std::string>() == "ACCEPTED") {
       v = TicketOfferState::ACCEPTED_e;
       return;

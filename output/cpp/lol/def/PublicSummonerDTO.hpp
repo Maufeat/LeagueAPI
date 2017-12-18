@@ -11,7 +11,7 @@ namespace lol {
     uint64_t acctId;
     uint64_t summonerId; 
   };
-  void to_json(json& j, const PublicSummonerDTO& v) {
+  inline void to_json(json& j, const PublicSummonerDTO& v) {
     j["previousSeasonHighestTier"] = v.previousSeasonHighestTier; 
     j["summonerLevel"] = v.summonerLevel; 
     j["internalName"] = v.internalName; 
@@ -21,7 +21,7 @@ namespace lol {
     j["acctId"] = v.acctId; 
     j["summonerId"] = v.summonerId; 
   }
-  void from_json(const json& j, PublicSummonerDTO& v) {
+  inline void from_json(const json& j, PublicSummonerDTO& v) {
     v.previousSeasonHighestTier = j.at("previousSeasonHighestTier").get<std::string>(); 
     v.summonerLevel = j.at("summonerLevel").get<uint32_t>(); 
     v.internalName = j.at("internalName").get<std::string>(); 

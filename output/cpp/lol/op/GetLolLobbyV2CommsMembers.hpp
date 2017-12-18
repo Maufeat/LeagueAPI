@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolLobbyPremadePartyDto.hpp>
 namespace lol {
-  Result<LolLobbyPremadePartyDto> GetLolLobbyV2CommsMembers(const LeagueClient& _client)
+  inline Result<LolLobbyPremadePartyDto> GetLolLobbyV2CommsMembers(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<void> MemoryFilterEnable(const LeagueClient& _client, const std::optional<int32_t>& enable = std::nullopt)
+  inline Result<void> MemoryFilterEnable(const LeagueClient& _client, const std::optional<int32_t>& enable = std::nullopt)
   {
     HttpsClient _client_(_client.host, false);
     try {

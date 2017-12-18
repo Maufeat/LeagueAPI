@@ -14,7 +14,7 @@ namespace lol {
     std::string leagueName;
     int64_t lp; 
   };
-  void to_json(json& j, const LolRankedStatsRankedEntry& v) {
+  inline void to_json(json& j, const LolRankedStatsRankedEntry& v) {
     j["rankedTier"] = v.rankedTier; 
     j["wins"] = v.wins; 
     j["division"] = v.division; 
@@ -25,7 +25,7 @@ namespace lol {
     j["leagueName"] = v.leagueName; 
     j["lp"] = v.lp; 
   }
-  void from_json(const json& j, LolRankedStatsRankedEntry& v) {
+  inline void from_json(const json& j, LolRankedStatsRankedEntry& v) {
     v.rankedTier = j.at("rankedTier").get<LolRankedStatsRankedTier>(); 
     v.wins = j.at("wins").get<uint64_t>(); 
     v.division = j.at("division").get<uint64_t>(); 

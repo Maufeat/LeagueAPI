@@ -19,7 +19,7 @@ namespace lol {
     bool rankedPlayEnabled;
     std::string stingerSfxPath; 
   };
-  void to_json(json& j, const LolChampionsCollectionsChampionMinimal& v) {
+  inline void to_json(json& j, const LolChampionsCollectionsChampionMinimal& v) {
     j["alias"] = v.alias; 
     j["purchased"] = v.purchased; 
     j["roles"] = v.roles; 
@@ -36,7 +36,7 @@ namespace lol {
     j["rankedPlayEnabled"] = v.rankedPlayEnabled; 
     j["stingerSfxPath"] = v.stingerSfxPath; 
   }
-  void from_json(const json& j, LolChampionsCollectionsChampionMinimal& v) {
+  inline void from_json(const json& j, LolChampionsCollectionsChampionMinimal& v) {
     v.alias = j.at("alias").get<std::string>(); 
     v.purchased = j.at("purchased").get<uint64_t>(); 
     v.roles = j.at("roles").get<std::vector<std::string>>(); 

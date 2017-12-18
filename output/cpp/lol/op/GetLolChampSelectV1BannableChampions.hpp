@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolChampSelectChampSelectBannableChampions.hpp>
 namespace lol {
-  Result<LolChampSelectChampSelectBannableChampions> GetLolChampSelectV1BannableChampions(const LeagueClient& _client)
+  inline Result<LolChampSelectChampSelectBannableChampions> GetLolChampSelectV1BannableChampions(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

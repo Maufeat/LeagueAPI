@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolReplaysReplayMetadata.hpp>
 namespace lol {
-  Result<LolReplaysReplayMetadata> GetLolReplaysV1MetadataByGameId(const LeagueClient& _client, const uint64_t& gameId)
+  inline Result<LolReplaysReplayMetadata> GetLolReplaysV1MetadataByGameId(const LeagueClient& _client, const uint64_t& gameId)
   {
     HttpsClient _client_(_client.host, false);
     try {

@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolStoreOrderNotificationResource.hpp>
 namespace lol {
-  Result<LolStoreOrderNotificationResource> GetLolStoreV1OrderNotificationsById(const LeagueClient& _client, const uint64_t& id)
+  inline Result<LolStoreOrderNotificationResource> GetLolStoreV1OrderNotificationsById(const LeagueClient& _client, const uint64_t& id)
   {
     HttpsClient _client_(_client.host, false);
     try {

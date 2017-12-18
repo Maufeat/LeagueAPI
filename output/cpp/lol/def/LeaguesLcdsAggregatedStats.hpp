@@ -7,11 +7,11 @@ namespace lol {
     LeaguesLcdsAggregatedStatsKey key;
     std::vector<LeaguesLcdsAggregatedStat> lifetimeStatistics; 
   };
-  void to_json(json& j, const LeaguesLcdsAggregatedStats& v) {
+  inline void to_json(json& j, const LeaguesLcdsAggregatedStats& v) {
     j["key"] = v.key; 
     j["lifetimeStatistics"] = v.lifetimeStatistics; 
   }
-  void from_json(const json& j, LeaguesLcdsAggregatedStats& v) {
+  inline void from_json(const json& j, LeaguesLcdsAggregatedStats& v) {
     v.key = j.at("key").get<LeaguesLcdsAggregatedStatsKey>(); 
     v.lifetimeStatistics = j.at("lifetimeStatistics").get<std::vector<LeaguesLcdsAggregatedStat>>(); 
   }

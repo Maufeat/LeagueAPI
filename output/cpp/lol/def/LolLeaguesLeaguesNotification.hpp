@@ -12,7 +12,7 @@ namespace lol {
     LolLeaguesLeagueNotificationItem data;
     uint64_t id; 
   };
-  void to_json(json& j, const LolLeaguesLeaguesNotification& v) {
+  inline void to_json(json& j, const LolLeaguesLeaguesNotification& v) {
     j["type"] = v.type; 
     j["severity"] = v.severity; 
     j["titleType"] = v.titleType; 
@@ -21,7 +21,7 @@ namespace lol {
     j["data"] = v.data; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, LolLeaguesLeaguesNotification& v) {
+  inline void from_json(const json& j, LolLeaguesLeaguesNotification& v) {
     v.type = j.at("type").get<std::string>(); 
     v.severity = j.at("severity").get<LolLeaguesSeverity>(); 
     v.titleType = j.at("titleType").get<std::string>(); 

@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/RiotMessagingServiceState.hpp>
 namespace lol {
-  Result<RiotMessagingServiceState> GetRiotMessagingServiceV1State(const LeagueClient& _client)
+  inline Result<RiotMessagingServiceState> GetRiotMessagingServiceV1State(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

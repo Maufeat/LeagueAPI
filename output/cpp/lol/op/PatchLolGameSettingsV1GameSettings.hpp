@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<json> PatchLolGameSettingsV1GameSettings(const LeagueClient& _client, const json& settingsResource)
+  inline Result<json> PatchLolGameSettingsV1GameSettings(const LeagueClient& _client, const json& settingsResource)
   {
     HttpsClient _client_(_client.host, false);
     try {

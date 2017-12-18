@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/LolGameQueuesQueueAvailability.hpp>
 #include <lol/def/LolGameQueuesQueueCustomGameSpectatorPolicy.hpp>
+#include <lol/def/LolGameQueuesQueueAvailability.hpp>
 #include <lol/def/LolGameQueuesQueueCustomGameSubcategory.hpp>
 namespace lol {
   struct LolGameQueuesQueueCustomGame { 
@@ -11,7 +11,7 @@ namespace lol {
     uint32_t spectatorSlotLimit;
     LolGameQueuesQueueAvailability queueAvailability; 
   };
-  void to_json(json& j, const LolGameQueuesQueueCustomGame& v) {
+  inline void to_json(json& j, const LolGameQueuesQueueCustomGame& v) {
     j["subcategories"] = v.subcategories; 
     if(v.gameServerRegions)
       j["gameServerRegions"] = *v.gameServerRegions;
@@ -19,7 +19,7 @@ namespace lol {
     j["spectatorSlotLimit"] = v.spectatorSlotLimit; 
     j["queueAvailability"] = v.queueAvailability; 
   }
-  void from_json(const json& j, LolGameQueuesQueueCustomGame& v) {
+  inline void from_json(const json& j, LolGameQueuesQueueCustomGame& v) {
     v.subcategories = j.at("subcategories").get<std::vector<LolGameQueuesQueueCustomGameSubcategory>>(); 
     if(auto it = j.find("gameServerRegions"); it != j.end() && !it->is_null())
       v.gameServerRegions = it->get<std::optional<std::vector<std::string>>>(); 

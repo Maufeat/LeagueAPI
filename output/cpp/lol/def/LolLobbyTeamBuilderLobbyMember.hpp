@@ -14,7 +14,7 @@ namespace lol {
     std::optional<std::string> excludedPositionPreference;
     uint64_t id; 
   };
-  void to_json(json& j, const LolLobbyTeamBuilderLobbyMember& v) {
+  inline void to_json(json& j, const LolLobbyTeamBuilderLobbyMember& v) {
     j["canInviteOthers"] = v.canInviteOthers; 
     j["isOwner"] = v.isOwner; 
     j["positionPreferences"] = v.positionPreferences; 
@@ -27,7 +27,7 @@ namespace lol {
       j["excludedPositionPreference"] = *v.excludedPositionPreference;
     j["id"] = v.id; 
   }
-  void from_json(const json& j, LolLobbyTeamBuilderLobbyMember& v) {
+  inline void from_json(const json& j, LolLobbyTeamBuilderLobbyMember& v) {
     v.canInviteOthers = j.at("canInviteOthers").get<bool>(); 
     v.isOwner = j.at("isOwner").get<bool>(); 
     v.positionPreferences = j.at("positionPreferences").get<LolLobbyTeamBuilderLobbyPositionPreferences>(); 

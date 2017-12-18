@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<json> GetDataStoreV1InstallSettingsByPath(const LeagueClient& _client, const std::string& path)
+  inline Result<json> GetDataStoreV1InstallSettingsByPath(const LeagueClient& _client, const std::string& path)
   {
     HttpsClient _client_(_client.host, false);
     try {

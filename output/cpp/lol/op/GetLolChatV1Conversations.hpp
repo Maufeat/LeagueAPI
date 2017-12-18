@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolChatConversationResource.hpp>
 namespace lol {
-  Result<std::vector<LolChatConversationResource>> GetLolChatV1Conversations(const LeagueClient& _client)
+  inline Result<std::vector<LolChatConversationResource>> GetLolChatV1Conversations(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

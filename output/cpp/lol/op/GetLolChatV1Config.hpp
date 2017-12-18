@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolChatChatServiceDynamicClientConfig.hpp>
 namespace lol {
-  Result<LolChatChatServiceDynamicClientConfig> GetLolChatV1Config(const LeagueClient& _client)
+  inline Result<LolChatChatServiceDynamicClientConfig> GetLolChatV1Config(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

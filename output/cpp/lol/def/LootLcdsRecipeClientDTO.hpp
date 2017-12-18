@@ -1,8 +1,8 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/LootLcdsRecipeMetadata.hpp>
 #include <lol/def/LootLcdsRecipeSlotClientDTO.hpp>
 #include <lol/def/LootLcdsRecipeOutputDTO.hpp>
+#include <lol/def/LootLcdsRecipeMetadata.hpp>
 namespace lol {
   struct LootLcdsRecipeClientDTO { 
     std::string crafterName;
@@ -13,7 +13,7 @@ namespace lol {
     std::vector<LootLcdsRecipeOutputDTO> outputs;
     LootLcdsRecipeMetadata metadata; 
   };
-  void to_json(json& j, const LootLcdsRecipeClientDTO& v) {
+  inline void to_json(json& j, const LootLcdsRecipeClientDTO& v) {
     j["crafterName"] = v.crafterName; 
     j["type"] = v.type; 
     j["recipeName"] = v.recipeName; 
@@ -22,7 +22,7 @@ namespace lol {
     j["outputs"] = v.outputs; 
     j["metadata"] = v.metadata; 
   }
-  void from_json(const json& j, LootLcdsRecipeClientDTO& v) {
+  inline void from_json(const json& j, LootLcdsRecipeClientDTO& v) {
     v.crafterName = j.at("crafterName").get<std::string>(); 
     v.type = j.at("type").get<std::string>(); 
     v.recipeName = j.at("recipeName").get<std::string>(); 

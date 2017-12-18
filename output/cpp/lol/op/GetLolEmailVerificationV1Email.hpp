@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolEmailVerificationEmailVerificationSession.hpp>
 namespace lol {
-  Result<LolEmailVerificationEmailVerificationSession> GetLolEmailVerificationV1Email(const LeagueClient& _client)
+  inline Result<LolEmailVerificationEmailVerificationSession> GetLolEmailVerificationV1Email(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

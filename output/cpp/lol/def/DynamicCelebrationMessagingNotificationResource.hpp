@@ -13,7 +13,7 @@ namespace lol {
     std::string inventoryType;
     int32_t id; 
   };
-  void to_json(json& j, const DynamicCelebrationMessagingNotificationResource& v) {
+  inline void to_json(json& j, const DynamicCelebrationMessagingNotificationResource& v) {
     j["msgId"] = v.msgId; 
     j["status"] = v.status; 
     j["celebrationBody"] = v.celebrationBody; 
@@ -25,7 +25,7 @@ namespace lol {
     j["inventoryType"] = v.inventoryType; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, DynamicCelebrationMessagingNotificationResource& v) {
+  inline void from_json(const json& j, DynamicCelebrationMessagingNotificationResource& v) {
     v.msgId = j.at("msgId").get<std::string>(); 
     v.status = j.at("status").get<int32_t>(); 
     v.celebrationBody = j.at("celebrationBody").get<std::string>(); 

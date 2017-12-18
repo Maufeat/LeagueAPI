@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/PlayerLevelUpEventAck.hpp>
 namespace lol {
-  Result<void> PostLolPlayerLevelUpV1LevelUpNotificationsByPluginName(const LeagueClient& _client, const std::string& pluginName, const PlayerLevelUpEventAck& levelUpEventAck)
+  inline Result<void> PostLolPlayerLevelUpV1LevelUpNotificationsByPluginName(const LeagueClient& _client, const std::string& pluginName, const PlayerLevelUpEventAck& levelUpEventAck)
   {
     HttpsClient _client_(_client.host, false);
     try {

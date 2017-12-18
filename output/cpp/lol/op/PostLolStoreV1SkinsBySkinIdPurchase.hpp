@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolStoreItemCost.hpp>
 namespace lol {
-  Result<json> PostLolStoreV1SkinsBySkinIdPurchase(const LeagueClient& _client, const int32_t& skinId, const LolStoreItemCost& cost)
+  inline Result<json> PostLolStoreV1SkinsBySkinIdPurchase(const LeagueClient& _client, const int32_t& skinId, const LolStoreItemCost& cost)
   {
     HttpsClient _client_(_client.host, false);
     try {

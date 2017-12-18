@@ -14,7 +14,7 @@ namespace lol {
     LolFeaturedModesQueueGameCategory category;
     int32_t id; 
   };
-  void to_json(json& j, const LolFeaturedModesQueue& v) {
+  inline void to_json(json& j, const LolFeaturedModesQueue& v) {
     j["gameMutator"] = v.gameMutator; 
     j["lastToggledOffTime"] = v.lastToggledOffTime; 
     j["queueAvailability"] = v.queueAvailability; 
@@ -25,7 +25,7 @@ namespace lol {
     j["category"] = v.category; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, LolFeaturedModesQueue& v) {
+  inline void from_json(const json& j, LolFeaturedModesQueue& v) {
     v.gameMutator = j.at("gameMutator").get<std::string>(); 
     v.lastToggledOffTime = j.at("lastToggledOffTime").get<uint64_t>(); 
     v.queueAvailability = j.at("queueAvailability").get<LolFeaturedModesQueueAvailability>(); 

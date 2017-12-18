@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<void> PostLolGameflowV1PreEndGameTransition(const LeagueClient& _client, const bool& enabled)
+  inline Result<void> PostLolGameflowV1PreEndGameTransition(const LeagueClient& _client, const bool& enabled)
   {
     HttpsClient _client_(_client.host, false);
     try {

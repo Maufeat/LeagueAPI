@@ -3,7 +3,7 @@
 #include <lol/def/LolChatAuthResourceRsoAccessToken.hpp>
 #include <lol/def/LolChatSessionResource.hpp>
 namespace lol {
-  Result<LolChatSessionResource> PostLolChatV1SessionRso(const LeagueClient& _client, const LolChatAuthResourceRsoAccessToken& auth)
+  inline Result<LolChatSessionResource> PostLolChatV1SessionRso(const LeagueClient& _client, const LolChatAuthResourceRsoAccessToken& auth)
   {
     HttpsClient _client_(_client.host, false);
     try {

@@ -15,7 +15,7 @@ namespace lol {
     std::optional<uint32_t> minReconnectInterval;
     std::optional<bool> failNextChatLogin; 
   };
-  void to_json(json& j, const LolChatDebugResource& v) {
+  inline void to_json(json& j, const LolChatDebugResource& v) {
     if(v.asyncWaitInterval)
       j["asyncWaitInterval"] = *v.asyncWaitInterval;
     if(v.keepAliveInterval)
@@ -41,7 +41,7 @@ namespace lol {
     if(v.failNextChatLogin)
       j["failNextChatLogin"] = *v.failNextChatLogin;
   }
-  void from_json(const json& j, LolChatDebugResource& v) {
+  inline void from_json(const json& j, LolChatDebugResource& v) {
     if(auto it = j.find("asyncWaitInterval"); it != j.end() && !it->is_null())
       v.asyncWaitInterval = it->get<std::optional<uint32_t>>(); 
     if(auto it = j.find("keepAliveInterval"); it != j.end() && !it->is_null())

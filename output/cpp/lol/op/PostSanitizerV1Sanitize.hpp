@@ -1,9 +1,9 @@
 #pragma once
 #include<lol/base_op.hpp> 
-#include <lol/def/SanitizerSanitizeResponse.hpp>
 #include <lol/def/SanitizerSanitizeRequest.hpp>
+#include <lol/def/SanitizerSanitizeResponse.hpp>
 namespace lol {
-  Result<SanitizerSanitizeResponse> PostSanitizerV1Sanitize(const LeagueClient& _client, const SanitizerSanitizeRequest& request)
+  inline Result<SanitizerSanitizeResponse> PostSanitizerV1Sanitize(const LeagueClient& _client, const SanitizerSanitizeRequest& request)
   {
     HttpsClient _client_(_client.host, false);
     try {

@@ -8,14 +8,14 @@ namespace lol {
     bool isMetaGroup;
     uint32_t id; 
   };
-  void to_json(json& j, const LolChatGroupResource& v) {
+  inline void to_json(json& j, const LolChatGroupResource& v) {
     j["priority"] = v.priority; 
     j["collapsed"] = v.collapsed; 
     j["name"] = v.name; 
     j["isMetaGroup"] = v.isMetaGroup; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, LolChatGroupResource& v) {
+  inline void from_json(const json& j, LolChatGroupResource& v) {
     v.priority = j.at("priority").get<int32_t>(); 
     v.collapsed = j.at("collapsed").get<bool>(); 
     v.name = j.at("name").get<std::string>(); 

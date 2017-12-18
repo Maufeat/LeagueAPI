@@ -35,7 +35,7 @@ namespace lol {
     WINNER_ROUND_COMPLETE_e = 31,
     WITHDRAW_e = 30,
   };
-  void to_json(json& j, const LolClashRosterNotifyReason& v) {
+  inline void to_json(json& j, const LolClashRosterNotifyReason& v) {
     if(v == LolClashRosterNotifyReason::BUYBACK_e) {
       j = "BUYBACK";
       return;
@@ -165,7 +165,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolClashRosterNotifyReason& v) {
+  inline void from_json(const json& j, LolClashRosterNotifyReason& v) {
     if(j.get<std::string>() == "BUYBACK") {
       v = LolClashRosterNotifyReason::BUYBACK_e;
       return;

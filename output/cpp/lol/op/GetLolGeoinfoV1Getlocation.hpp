@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolGeoinfoGeoInfo.hpp>
 namespace lol {
-  Result<LolGeoinfoGeoInfo> GetLolGeoinfoV1Getlocation(const LeagueClient& _client, const std::string& ip_address)
+  inline Result<LolGeoinfoGeoInfo> GetLolGeoinfoV1Getlocation(const LeagueClient& _client, const std::string& ip_address)
   {
     HttpsClient _client_(_client.host, false);
     try {

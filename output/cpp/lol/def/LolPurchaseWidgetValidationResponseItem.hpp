@@ -1,8 +1,8 @@
 #pragma once
 #include<lol/base_def.hpp> 
+#include <lol/def/LolPurchaseWidgetItemKey.hpp>
 #include <lol/def/LolPurchaseWidgetItemPrice.hpp>
 #include <lol/def/LolPurchaseWidgetSale.hpp>
-#include <lol/def/LolPurchaseWidgetItemKey.hpp>
 namespace lol {
   struct LolPurchaseWidgetValidationResponseItem { 
     std::vector<LolPurchaseWidgetItemPrice> prices;
@@ -12,7 +12,7 @@ namespace lol {
     std::optional<std::string> description;
     std::optional<LolPurchaseWidgetSale> sale; 
   };
-  void to_json(json& j, const LolPurchaseWidgetValidationResponseItem& v) {
+  inline void to_json(json& j, const LolPurchaseWidgetValidationResponseItem& v) {
     j["prices"] = v.prices; 
     if(v.name)
       j["name"] = *v.name;
@@ -23,7 +23,7 @@ namespace lol {
     if(v.sale)
       j["sale"] = *v.sale;
   }
-  void from_json(const json& j, LolPurchaseWidgetValidationResponseItem& v) {
+  inline void from_json(const json& j, LolPurchaseWidgetValidationResponseItem& v) {
     v.prices = j.at("prices").get<std::vector<LolPurchaseWidgetItemPrice>>(); 
     if(auto it = j.find("name"); it != j.end() && !it->is_null())
       v.name = it->get<std::optional<std::string>>(); 

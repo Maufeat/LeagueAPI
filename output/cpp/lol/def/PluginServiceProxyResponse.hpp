@@ -9,7 +9,7 @@ namespace lol {
     std::string serviceName;
     std::string methodName; 
   };
-  void to_json(json& j, const PluginServiceProxyResponse& v) {
+  inline void to_json(json& j, const PluginServiceProxyResponse& v) {
     j["uuid"] = v.uuid; 
     j["error"] = v.error; 
     j["payload"] = v.payload; 
@@ -17,7 +17,7 @@ namespace lol {
     j["serviceName"] = v.serviceName; 
     j["methodName"] = v.methodName; 
   }
-  void from_json(const json& j, PluginServiceProxyResponse& v) {
+  inline void from_json(const json& j, PluginServiceProxyResponse& v) {
     v.uuid = j.at("uuid").get<std::string>(); 
     v.error = j.at("error").get<std::string>(); 
     v.payload = j.at("payload").get<std::string>(); 

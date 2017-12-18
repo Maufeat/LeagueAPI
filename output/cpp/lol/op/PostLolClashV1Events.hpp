@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/ClashEventData.hpp>
 namespace lol {
-  Result<std::map<std::string, ClashEventData>> PostLolClashV1Events(const LeagueClient& _client, const std::vector<std::string>& uuids)
+  inline Result<std::map<std::string, ClashEventData>> PostLolClashV1Events(const LeagueClient& _client, const std::vector<std::string>& uuids)
   {
     HttpsClient _client_(_client.host, false);
     try {

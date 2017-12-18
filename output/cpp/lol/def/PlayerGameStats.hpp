@@ -8,13 +8,13 @@ namespace lol {
     std::vector<FellowPlayerInfo> fellowPlayers;
     uint64_t gameId; 
   };
-  void to_json(json& j, const PlayerGameStats& v) {
+  inline void to_json(json& j, const PlayerGameStats& v) {
     j["createDate"] = v.createDate; 
     j["userId"] = v.userId; 
     j["fellowPlayers"] = v.fellowPlayers; 
     j["gameId"] = v.gameId; 
   }
-  void from_json(const json& j, PlayerGameStats& v) {
+  inline void from_json(const json& j, PlayerGameStats& v) {
     v.createDate = j.at("createDate").get<uint64_t>(); 
     v.userId = j.at("userId").get<uint64_t>(); 
     v.fellowPlayers = j.at("fellowPlayers").get<std::vector<FellowPlayerInfo>>(); 

@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolLootPlayerLootUpdate.hpp>
 namespace lol {
-  Result<LolLootPlayerLootUpdate> PostLolLootV1RecipesByRecipeNameCraft(const LeagueClient& _client, const std::string& recipeName, const std::vector<std::string>& playerLootList, const std::optional<int32_t>& repeat = std::nullopt)
+  inline Result<LolLootPlayerLootUpdate> PostLolLootV1RecipesByRecipeNameCraft(const LeagueClient& _client, const std::string& recipeName, const std::vector<std::string>& playerLootList, const std::optional<int32_t>& repeat = std::nullopt)
   {
     HttpsClient _client_(_client.host, false);
     try {

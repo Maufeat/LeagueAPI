@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/LeaguesLcdsQueueType.hpp>
 #include <lol/def/LeaguesLcdsLeagueItemDTO.hpp>
+#include <lol/def/LeaguesLcdsQueueType.hpp>
 #include <lol/def/LeaguesLcdsLeagueTier.hpp>
 namespace lol {
   struct LeaguesLcdsLeagueListDTO { 
@@ -13,7 +13,7 @@ namespace lol {
     uint64_t nextApexUpdate;
     std::vector<LeaguesLcdsLeagueItemDTO> entries; 
   };
-  void to_json(json& j, const LeaguesLcdsLeagueListDTO& v) {
+  inline void to_json(json& j, const LeaguesLcdsLeagueListDTO& v) {
     j["name"] = v.name; 
     j["tier"] = v.tier; 
     j["maxLeagueSize"] = v.maxLeagueSize; 
@@ -22,7 +22,7 @@ namespace lol {
     j["nextApexUpdate"] = v.nextApexUpdate; 
     j["entries"] = v.entries; 
   }
-  void from_json(const json& j, LeaguesLcdsLeagueListDTO& v) {
+  inline void from_json(const json& j, LeaguesLcdsLeagueListDTO& v) {
     v.name = j.at("name").get<std::string>(); 
     v.tier = j.at("tier").get<LeaguesLcdsLeagueTier>(); 
     v.maxLeagueSize = j.at("maxLeagueSize").get<uint64_t>(); 

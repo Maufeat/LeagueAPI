@@ -1,10 +1,10 @@
 #pragma once
 #include<lol/base_def.hpp> 
 #include <lol/def/LolLobbyGameModeDto.hpp>
-#include <lol/def/LolLobbyQueueRestrictionDto.hpp>
-#include <lol/def/LolLobbyGatekeeperRestrictionDto.hpp>
-#include <lol/def/LolLobbyPartyChatDto.hpp>
 #include <lol/def/LolLobbyPartyMemberDto.hpp>
+#include <lol/def/LolLobbyGatekeeperRestrictionDto.hpp>
+#include <lol/def/LolLobbyQueueRestrictionDto.hpp>
+#include <lol/def/LolLobbyPartyChatDto.hpp>
 namespace lol {
   struct LolLobbyPartyDto { 
     uint64_t version;
@@ -22,7 +22,7 @@ namespace lol {
     std::vector<LolLobbyPartyMemberDto> players;
     LolLobbyPartyChatDto chat; 
   };
-  void to_json(json& j, const LolLobbyPartyDto& v) {
+  inline void to_json(json& j, const LolLobbyPartyDto& v) {
     j["version"] = v.version; 
     j["activityStartedUtcMillis"] = v.activityStartedUtcMillis; 
     j["platformId"] = v.platformId; 
@@ -39,7 +39,7 @@ namespace lol {
     j["players"] = v.players; 
     j["chat"] = v.chat; 
   }
-  void from_json(const json& j, LolLobbyPartyDto& v) {
+  inline void from_json(const json& j, LolLobbyPartyDto& v) {
     v.version = j.at("version").get<uint64_t>(); 
     v.activityStartedUtcMillis = j.at("activityStartedUtcMillis").get<uint64_t>(); 
     v.platformId = j.at("platformId").get<std::string>(); 

@@ -7,7 +7,7 @@ namespace lol {
     HAS_ROSTER_e = 1,
     NO_ROSTER_e = 0,
   };
-  void to_json(json& j, const LolClashPlayerState& v) {
+  inline void to_json(json& j, const LolClashPlayerState& v) {
     if(v == LolClashPlayerState::BRACKET_ROSTER_e) {
       j = "BRACKET_ROSTER";
       return;
@@ -25,7 +25,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolClashPlayerState& v) {
+  inline void from_json(const json& j, LolClashPlayerState& v) {
     if(j.get<std::string>() == "BRACKET_ROSTER") {
       v = LolClashPlayerState::BRACKET_ROSTER_e;
       return;

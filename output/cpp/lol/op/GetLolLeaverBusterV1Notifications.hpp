@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LeaverBusterNotificationResource.hpp>
 namespace lol {
-  Result<std::vector<LeaverBusterNotificationResource>> GetLolLeaverBusterV1Notifications(const LeagueClient& _client)
+  inline Result<std::vector<LeaverBusterNotificationResource>> GetLolLeaverBusterV1Notifications(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

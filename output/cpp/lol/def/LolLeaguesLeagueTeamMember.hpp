@@ -7,13 +7,13 @@ namespace lol {
     uint64_t totalGamePlayed;
     uint64_t id; 
   };
-  void to_json(json& j, const LolLeaguesLeagueTeamMember& v) {
+  inline void to_json(json& j, const LolLeaguesLeagueTeamMember& v) {
     j["winRate"] = v.winRate; 
     j["name"] = v.name; 
     j["totalGamePlayed"] = v.totalGamePlayed; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, LolLeaguesLeagueTeamMember& v) {
+  inline void from_json(const json& j, LolLeaguesLeagueTeamMember& v) {
     v.winRate = j.at("winRate").get<float>(); 
     v.name = j.at("name").get<std::string>(); 
     v.totalGamePlayed = j.at("totalGamePlayed").get<uint64_t>(); 

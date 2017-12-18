@@ -3,8 +3,8 @@
 namespace lol {
   struct SuggestedPlayersEndOfGameStats {  
   };
-  void to_json(json& j, const SuggestedPlayersEndOfGameStats& v) {
+  inline void to_json(json& j, const SuggestedPlayersEndOfGameStats& v) {
   }
-  void from_json(const json& j, SuggestedPlayersEndOfGameStats& v) {
+  inline void from_json(const json& j, SuggestedPlayersEndOfGameStats& v) {
   }
 }

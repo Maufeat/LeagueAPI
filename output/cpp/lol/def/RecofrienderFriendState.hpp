@@ -6,7 +6,7 @@ namespace lol {
     FRIEND_e = 1,
     NONE_e = 0,
   };
-  void to_json(json& j, const RecofrienderFriendState& v) {
+  inline void to_json(json& j, const RecofrienderFriendState& v) {
     if(v == RecofrienderFriendState::BLOCKED_e) {
       j = "BLOCKED";
       return;
@@ -20,7 +20,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, RecofrienderFriendState& v) {
+  inline void from_json(const json& j, RecofrienderFriendState& v) {
     if(j.get<std::string>() == "BLOCKED") {
       v = RecofrienderFriendState::BLOCKED_e;
       return;

@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolLobbyTeamBuilderChampSelectTradeContract.hpp>
 namespace lol {
-  Result<LolLobbyTeamBuilderChampSelectTradeContract> PostLolLobbyTeamBuilderChampSelectV1SessionTradesByIdRequest(const LeagueClient& _client, const int32_t& id)
+  inline Result<LolLobbyTeamBuilderChampSelectTradeContract> PostLolLobbyTeamBuilderChampSelectV1SessionTradesByIdRequest(const LeagueClient& _client, const int32_t& id)
   {
     HttpsClient _client_(_client.host, false);
     try {

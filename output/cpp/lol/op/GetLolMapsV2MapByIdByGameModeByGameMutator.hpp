@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolMapsMaps.hpp>
 namespace lol {
-  Result<LolMapsMaps> GetLolMapsV2MapByIdByGameModeByGameMutator(const LeagueClient& _client, const int64_t& id, const std::string& gameMode, const std::string& gameMutator)
+  inline Result<LolMapsMaps> GetLolMapsV2MapByIdByGameModeByGameMutator(const LeagueClient& _client, const int64_t& id, const std::string& gameMode, const std::string& gameMutator)
   {
     HttpsClient _client_(_client.host, false);
     try {

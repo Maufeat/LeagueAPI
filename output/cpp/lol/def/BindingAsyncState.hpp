@@ -9,7 +9,7 @@ namespace lol {
     Running_e = 1,
     Succeeded_e = 4,
   };
-  void to_json(json& j, const BindingAsyncState& v) {
+  inline void to_json(json& j, const BindingAsyncState& v) {
     if(v == BindingAsyncState::Cancelled_e) {
       j = "Cancelled";
       return;
@@ -35,7 +35,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, BindingAsyncState& v) {
+  inline void from_json(const json& j, BindingAsyncState& v) {
     if(j.get<std::string>() == "Cancelled") {
       v = BindingAsyncState::Cancelled_e;
       return;

@@ -15,7 +15,7 @@ namespace lol {
     int64_t teamBId;
     std::string teamBGuid; 
   };
-  void to_json(json& j, const LolEsportStreamNotificationsESportsStreams& v) {
+  inline void to_json(json& j, const LolEsportStreamNotificationsESportsStreams& v) {
     j["teamAGuid"] = v.teamAGuid; 
     j["title"] = v.title; 
     j["teamAName"] = v.teamAName; 
@@ -29,7 +29,7 @@ namespace lol {
     j["teamBId"] = v.teamBId; 
     j["teamBGuid"] = v.teamBGuid; 
   }
-  void from_json(const json& j, LolEsportStreamNotificationsESportsStreams& v) {
+  inline void from_json(const json& j, LolEsportStreamNotificationsESportsStreams& v) {
     v.teamAGuid = j.at("teamAGuid").get<std::string>(); 
     v.title = j.at("title").get<std::string>(); 
     v.teamAName = j.at("teamAName").get<std::string>(); 

@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<void> PutLolBetaOptInV1MigrationError(const LeagueClient& _client, const std::string& errString)
+  inline Result<void> PutLolBetaOptInV1MigrationError(const LeagueClient& _client, const std::string& errString)
   {
     HttpsClient _client_(_client.host, false);
     try {

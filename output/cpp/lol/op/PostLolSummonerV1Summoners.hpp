@@ -3,7 +3,7 @@
 #include <lol/def/LolSummonerInternalSummoner.hpp>
 #include <lol/def/LolSummonerSummonerRequestedName.hpp>
 namespace lol {
-  Result<LolSummonerInternalSummoner> PostLolSummonerV1Summoners(const LeagueClient& _client, const LolSummonerSummonerRequestedName& name)
+  inline Result<LolSummonerInternalSummoner> PostLolSummonerV1Summoners(const LeagueClient& _client, const LolSummonerSummonerRequestedName& name)
   {
     HttpsClient _client_(_client.host, false);
     try {

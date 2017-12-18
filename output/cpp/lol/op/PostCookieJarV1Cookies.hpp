@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/cookie.hpp>
 namespace lol {
-  Result<json> PostCookieJarV1Cookies(const LeagueClient& _client, const std::vector<cookie>& cookie)
+  inline Result<json> PostCookieJarV1Cookies(const LeagueClient& _client, const std::vector<cookie>& cookie)
   {
     HttpsClient _client_(_client.host, false);
     try {

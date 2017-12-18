@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<json> PostPatcherV1ProductsByProductIdStartPatchingRequest(const LeagueClient& _client, const std::string& product_id)
+  inline Result<json> PostPatcherV1ProductsByProductIdStartPatchingRequest(const LeagueClient& _client, const std::string& product_id)
   {
     HttpsClient _client_(_client.host, false);
     try {

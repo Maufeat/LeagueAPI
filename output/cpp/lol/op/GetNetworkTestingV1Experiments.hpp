@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/NetworkExperimentsResource.hpp>
 namespace lol {
-  Result<NetworkExperimentsResource> GetNetworkTestingV1Experiments(const LeagueClient& _client)
+  inline Result<NetworkExperimentsResource> GetNetworkTestingV1Experiments(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

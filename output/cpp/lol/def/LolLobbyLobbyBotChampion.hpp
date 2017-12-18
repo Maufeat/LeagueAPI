@@ -8,13 +8,13 @@ namespace lol {
     bool active;
     int32_t id; 
   };
-  void to_json(json& j, const LolLobbyLobbyBotChampion& v) {
+  inline void to_json(json& j, const LolLobbyLobbyBotChampion& v) {
     j["botDifficulties"] = v.botDifficulties; 
     j["name"] = v.name; 
     j["active"] = v.active; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, LolLobbyLobbyBotChampion& v) {
+  inline void from_json(const json& j, LolLobbyLobbyBotChampion& v) {
     v.botDifficulties = j.at("botDifficulties").get<std::vector<LolLobbyLobbyBotDifficulty>>(); 
     v.name = j.at("name").get<std::string>(); 
     v.active = j.at("active").get<bool>(); 

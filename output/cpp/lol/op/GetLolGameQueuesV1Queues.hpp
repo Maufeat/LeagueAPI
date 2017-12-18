@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolGameQueuesQueue.hpp>
 namespace lol {
-  Result<std::vector<LolGameQueuesQueue>> GetLolGameQueuesV1Queues(const LeagueClient& _client)
+  inline Result<std::vector<LolGameQueuesQueue>> GetLolGameQueuesV1Queues(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

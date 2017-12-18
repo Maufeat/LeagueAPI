@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/RsoAuthAccessToken.hpp>
 namespace lol {
-  Result<RsoAuthAccessToken> GetRsoAuthV1AuthorizationAccessToken(const LeagueClient& _client)
+  inline Result<RsoAuthAccessToken> GetRsoAuthV1AuthorizationAccessToken(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<json> PostLolLobbyTeamBuilderChampSelectV1SessionActionsByIdComplete(const LeagueClient& _client, const int32_t& id)
+  inline Result<json> PostLolLobbyTeamBuilderChampSelectV1SessionActionsByIdComplete(const LeagueClient& _client, const int32_t& id)
   {
     HttpsClient _client_(_client.host, false);
     try {

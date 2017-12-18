@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolLootPlayerLoot.hpp>
 namespace lol {
-  Result<std::vector<LolLootPlayerLoot>> GetLolLootV1PlayerLoot(const LeagueClient& _client)
+  inline Result<std::vector<LolLootPlayerLoot>> GetLolLootV1PlayerLoot(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

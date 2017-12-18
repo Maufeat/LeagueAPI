@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolRankedStatsRankedData.hpp>
 namespace lol {
-  Result<LolRankedStatsRankedData> GetLolRankedStatsV1StatsBySummonerId(const LeagueClient& _client, const uint64_t& summonerId)
+  inline Result<LolRankedStatsRankedData> GetLolRankedStatsV1StatsBySummonerId(const LeagueClient& _client, const uint64_t& summonerId)
   {
     HttpsClient _client_(_client.host, false);
     try {

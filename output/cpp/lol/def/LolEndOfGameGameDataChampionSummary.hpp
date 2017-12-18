@@ -5,11 +5,11 @@ namespace lol {
     std::string alias;
     int32_t id; 
   };
-  void to_json(json& j, const LolEndOfGameGameDataChampionSummary& v) {
+  inline void to_json(json& j, const LolEndOfGameGameDataChampionSummary& v) {
     j["alias"] = v.alias; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, LolEndOfGameGameDataChampionSummary& v) {
+  inline void from_json(const json& j, LolEndOfGameGameDataChampionSummary& v) {
     v.alias = j.at("alias").get<std::string>(); 
     v.id = j.at("id").get<int32_t>(); 
   }

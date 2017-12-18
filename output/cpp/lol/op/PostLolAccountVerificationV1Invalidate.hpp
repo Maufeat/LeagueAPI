@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolAccountVerificationInvalidateResponse.hpp>
 namespace lol {
-  Result<LolAccountVerificationInvalidateResponse> PostLolAccountVerificationV1Invalidate(const LeagueClient& _client)
+  inline Result<LolAccountVerificationInvalidateResponse> PostLolAccountVerificationV1Invalidate(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

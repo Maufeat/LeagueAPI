@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<json> GetLolAcsV1GametimelinesByGameId(const LeagueClient& _client, const uint64_t& gameId)
+  inline Result<json> GetLolAcsV1GametimelinesByGameId(const LeagueClient& _client, const uint64_t& gameId)
   {
     HttpsClient _client_(_client.host, false);
     try {

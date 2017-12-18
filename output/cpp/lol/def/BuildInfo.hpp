@@ -13,7 +13,7 @@ namespace lol {
     std::string patchlineVisibleName;
     int32_t codeBuildId; 
   };
-  void to_json(json& j, const BuildInfo& v) {
+  inline void to_json(json& j, const BuildInfo& v) {
     j["patchline"] = v.patchline; 
     j["gameBranchFull"] = v.gameBranchFull; 
     j["gameDataBuildId"] = v.gameDataBuildId; 
@@ -25,7 +25,7 @@ namespace lol {
     j["patchlineVisibleName"] = v.patchlineVisibleName; 
     j["codeBuildId"] = v.codeBuildId; 
   }
-  void from_json(const json& j, BuildInfo& v) {
+  inline void from_json(const json& j, BuildInfo& v) {
     v.patchline = j.at("patchline").get<std::string>(); 
     v.gameBranchFull = j.at("gameBranchFull").get<std::string>(); 
     v.gameDataBuildId = j.at("gameDataBuildId").get<int32_t>(); 

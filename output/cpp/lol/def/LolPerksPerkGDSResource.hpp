@@ -9,7 +9,7 @@ namespace lol {
     std::string longDesc;
     int32_t id; 
   };
-  void to_json(json& j, const LolPerksPerkGDSResource& v) {
+  inline void to_json(json& j, const LolPerksPerkGDSResource& v) {
     j["iconPath"] = v.iconPath; 
     j["shortDesc"] = v.shortDesc; 
     j["tooltip"] = v.tooltip; 
@@ -17,7 +17,7 @@ namespace lol {
     j["longDesc"] = v.longDesc; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, LolPerksPerkGDSResource& v) {
+  inline void from_json(const json& j, LolPerksPerkGDSResource& v) {
     v.iconPath = j.at("iconPath").get<std::string>(); 
     v.shortDesc = j.at("shortDesc").get<std::string>(); 
     v.tooltip = j.at("tooltip").get<std::string>(); 

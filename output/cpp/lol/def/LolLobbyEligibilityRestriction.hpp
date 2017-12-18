@@ -8,13 +8,13 @@ namespace lol {
     std::vector<uint64_t> summonerIds;
     std::map<std::string, std::string> restrictionArgs; 
   };
-  void to_json(json& j, const LolLobbyEligibilityRestriction& v) {
+  inline void to_json(json& j, const LolLobbyEligibilityRestriction& v) {
     j["restrictionCode"] = v.restrictionCode; 
     j["expiredTimestamp"] = v.expiredTimestamp; 
     j["summonerIds"] = v.summonerIds; 
     j["restrictionArgs"] = v.restrictionArgs; 
   }
-  void from_json(const json& j, LolLobbyEligibilityRestriction& v) {
+  inline void from_json(const json& j, LolLobbyEligibilityRestriction& v) {
     v.restrictionCode = j.at("restrictionCode").get<LolLobbyEligibilityRestrictionCode>(); 
     v.expiredTimestamp = j.at("expiredTimestamp").get<uint64_t>(); 
     v.summonerIds = j.at("summonerIds").get<std::vector<uint64_t>>(); 

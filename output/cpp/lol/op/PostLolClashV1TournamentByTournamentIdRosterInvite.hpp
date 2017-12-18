@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/FailedInvite.hpp>
 namespace lol {
-  Result<std::vector<FailedInvite>> PostLolClashV1TournamentByTournamentIdRosterInvite(const LeagueClient& _client, const int64_t& tournamentId, const std::vector<uint64_t>& summonerIds)
+  inline Result<std::vector<FailedInvite>> PostLolClashV1TournamentByTournamentIdRosterInvite(const LeagueClient& _client, const int64_t& tournamentId, const std::vector<uint64_t>& summonerIds)
   {
     HttpsClient _client_(_client.host, false);
     try {

@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolClashPlayerNotificationData.hpp>
 namespace lol {
-  Result<LolClashPlayerNotificationData> GetLolClashV1Notifications(const LeagueClient& _client)
+  inline Result<LolClashPlayerNotificationData> GetLolClashV1Notifications(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

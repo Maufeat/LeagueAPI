@@ -30,7 +30,7 @@ namespace lol {
     SUGGESTION_e = 0,
     UNREADY_e = 5,
   };
-  void to_json(json& j, const LolClashNotifyReason& v) {
+  inline void to_json(json& j, const LolClashNotifyReason& v) {
     if(v == LolClashNotifyReason::ACCEPT_INVITE_e) {
       j = "ACCEPT_INVITE";
       return;
@@ -140,7 +140,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolClashNotifyReason& v) {
+  inline void from_json(const json& j, LolClashNotifyReason& v) {
     if(j.get<std::string>() == "ACCEPT_INVITE") {
       v = LolClashNotifyReason::ACCEPT_INVITE_e;
       return;

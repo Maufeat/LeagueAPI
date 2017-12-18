@@ -10,7 +10,7 @@ namespace lol {
     int64_t ipRewardForPurchaser;
     int64_t ipReward; 
   };
-  void to_json(json& j, const LolLobbyTeamBuilderTeamBoost& v) {
+  inline void to_json(json& j, const LolLobbyTeamBuilderTeamBoost& v) {
     j["price"] = v.price; 
     j["availableSkins"] = v.availableSkins; 
     j["summonerName"] = v.summonerName; 
@@ -19,7 +19,7 @@ namespace lol {
     j["ipRewardForPurchaser"] = v.ipRewardForPurchaser; 
     j["ipReward"] = v.ipReward; 
   }
-  void from_json(const json& j, LolLobbyTeamBuilderTeamBoost& v) {
+  inline void from_json(const json& j, LolLobbyTeamBuilderTeamBoost& v) {
     v.price = j.at("price").get<int64_t>(); 
     v.availableSkins = j.at("availableSkins").get<std::vector<int64_t>>(); 
     v.summonerName = j.at("summonerName").get<std::string>(); 

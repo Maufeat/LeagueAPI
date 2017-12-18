@@ -9,14 +9,14 @@ namespace lol {
     std::vector<LolEsportStreamNotificationsLiveMatchTeam> teams;
     std::string id; 
   };
-  void to_json(json& j, const LolEsportStreamNotificationsLiveMatch& v) {
+  inline void to_json(json& j, const LolEsportStreamNotificationsLiveMatch& v) {
     j["tournamentDescription"] = v.tournamentDescription; 
     j["streamGroup"] = v.streamGroup; 
     j["title"] = v.title; 
     j["teams"] = v.teams; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, LolEsportStreamNotificationsLiveMatch& v) {
+  inline void from_json(const json& j, LolEsportStreamNotificationsLiveMatch& v) {
     v.tournamentDescription = j.at("tournamentDescription").get<std::string>(); 
     v.streamGroup = j.at("streamGroup").get<std::string>(); 
     v.title = j.at("title").get<std::string>(); 

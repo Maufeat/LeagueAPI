@@ -17,7 +17,7 @@ namespace lol {
     TerminatedInError_e = 13,
     WaitingForStats_e = 10,
   };
-  void to_json(json& j, const LolLeaguesGameflowPhase& v) {
+  inline void to_json(json& j, const LolLeaguesGameflowPhase& v) {
     if(v == LolLeaguesGameflowPhase::ChampSelect_e) {
       j = "ChampSelect";
       return;
@@ -75,7 +75,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolLeaguesGameflowPhase& v) {
+  inline void from_json(const json& j, LolLeaguesGameflowPhase& v) {
     if(j.get<std::string>() == "ChampSelect") {
       v = LolLeaguesGameflowPhase::ChampSelect_e;
       return;

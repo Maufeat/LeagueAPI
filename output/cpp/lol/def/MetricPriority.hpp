@@ -6,7 +6,7 @@ namespace lol {
     low_e = 0,
     medium_e = 1,
   };
-  void to_json(json& j, const MetricPriority& v) {
+  inline void to_json(json& j, const MetricPriority& v) {
     if(v == MetricPriority::high_e) {
       j = "high";
       return;
@@ -20,7 +20,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, MetricPriority& v) {
+  inline void from_json(const json& j, MetricPriority& v) {
     if(j.get<std::string>() == "high") {
       v = MetricPriority::high_e;
       return;

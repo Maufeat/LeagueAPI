@@ -8,7 +8,7 @@ namespace lol {
     NOT_FOUND_e = 1,
     OK_e = 0,
   };
-  void to_json(json& j, const ReplayResponseStatus& v) {
+  inline void to_json(json& j, const ReplayResponseStatus& v) {
     if(v == ReplayResponseStatus::BAD_REQUEST_e) {
       j = "BAD_REQUEST";
       return;
@@ -30,7 +30,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, ReplayResponseStatus& v) {
+  inline void from_json(const json& j, ReplayResponseStatus& v) {
     if(j.get<std::string>() == "BAD_REQUEST") {
       v = ReplayResponseStatus::BAD_REQUEST_e;
       return;

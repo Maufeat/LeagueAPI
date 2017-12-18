@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/KickoutMessage.hpp>
 namespace lol {
-  Result<KickoutMessage> GetLolKickoutV1Notification(const LeagueClient& _client)
+  inline Result<KickoutMessage> GetLolKickoutV1Notification(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

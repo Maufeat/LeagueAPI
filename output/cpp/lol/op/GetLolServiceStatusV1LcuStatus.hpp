@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/ServiceStatusResource.hpp>
 namespace lol {
-  Result<ServiceStatusResource> GetLolServiceStatusV1LcuStatus(const LeagueClient& _client)
+  inline Result<ServiceStatusResource> GetLolServiceStatusV1LcuStatus(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

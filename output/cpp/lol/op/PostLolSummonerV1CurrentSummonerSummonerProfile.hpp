@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolSummonerSummonerProfileUpdate.hpp>
 namespace lol {
-  Result<json> PostLolSummonerV1CurrentSummonerSummonerProfile(const LeagueClient& _client, const LolSummonerSummonerProfileUpdate& body)
+  inline Result<json> PostLolSummonerV1CurrentSummonerSummonerProfile(const LeagueClient& _client, const LolSummonerSummonerProfileUpdate& body)
   {
     HttpsClient _client_(_client.host, false);
     try {

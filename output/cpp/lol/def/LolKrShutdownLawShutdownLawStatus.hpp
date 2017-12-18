@@ -6,7 +6,7 @@ namespace lol {
     NONE_e = 0,
     WARNING_e = 1,
   };
-  void to_json(json& j, const LolKrShutdownLawShutdownLawStatus& v) {
+  inline void to_json(json& j, const LolKrShutdownLawShutdownLawStatus& v) {
     if(v == LolKrShutdownLawShutdownLawStatus::CUT_OFF_e) {
       j = "CUT_OFF";
       return;
@@ -20,7 +20,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolKrShutdownLawShutdownLawStatus& v) {
+  inline void from_json(const json& j, LolKrShutdownLawShutdownLawStatus& v) {
     if(j.get<std::string>() == "CUT_OFF") {
       v = LolKrShutdownLawShutdownLawStatus::CUT_OFF_e;
       return;

@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<json> GetLolSummonerV1SummonerProfile(const LeagueClient& _client, const std::string& puuid)
+  inline Result<json> GetLolSummonerV1SummonerProfile(const LeagueClient& _client, const std::string& puuid)
   {
     HttpsClient _client_(_client.host, false);
     try {

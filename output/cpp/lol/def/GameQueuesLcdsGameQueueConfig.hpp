@@ -35,7 +35,7 @@ namespace lol {
     uint64_t lastToggledOnTime;
     std::string mapSelectionAlgorithm; 
   };
-  void to_json(json& j, const GameQueuesLcdsGameQueueConfig& v) {
+  inline void to_json(json& j, const GameQueuesLcdsGameQueueConfig& v) {
     j["teamOnly"] = v.teamOnly; 
     j["ranked"] = v.ranked; 
     j["queueBonusKey"] = v.queueBonusKey; 
@@ -68,7 +68,7 @@ namespace lol {
     j["lastToggledOnTime"] = v.lastToggledOnTime; 
     j["mapSelectionAlgorithm"] = v.mapSelectionAlgorithm; 
   }
-  void from_json(const json& j, GameQueuesLcdsGameQueueConfig& v) {
+  inline void from_json(const json& j, GameQueuesLcdsGameQueueConfig& v) {
     v.teamOnly = j.at("teamOnly").get<bool>(); 
     v.ranked = j.at("ranked").get<bool>(); 
     v.queueBonusKey = j.at("queueBonusKey").get<std::string>(); 

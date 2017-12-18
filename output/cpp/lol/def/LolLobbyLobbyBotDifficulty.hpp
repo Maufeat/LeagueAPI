@@ -10,7 +10,7 @@ namespace lol {
     TUTORIAL_e = 4,
     UBER_e = 3,
   };
-  void to_json(json& j, const LolLobbyLobbyBotDifficulty& v) {
+  inline void to_json(json& j, const LolLobbyLobbyBotDifficulty& v) {
     if(v == LolLobbyLobbyBotDifficulty::EASY_e) {
       j = "EASY";
       return;
@@ -40,7 +40,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolLobbyLobbyBotDifficulty& v) {
+  inline void from_json(const json& j, LolLobbyLobbyBotDifficulty& v) {
     if(j.get<std::string>() == "EASY") {
       v = LolLobbyLobbyBotDifficulty::EASY_e;
       return;

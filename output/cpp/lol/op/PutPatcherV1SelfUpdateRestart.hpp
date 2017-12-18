@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<json> PutPatcherV1SelfUpdateRestart(const LeagueClient& _client, const bool& forceRestartOnSelfUpdate)
+  inline Result<json> PutPatcherV1SelfUpdateRestart(const LeagueClient& _client, const bool& forceRestartOnSelfUpdate)
   {
     HttpsClient _client_(_client.host, false);
     try {

@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/LolGameQueuesQueueAvailability.hpp>
 #include <lol/def/LolGameQueuesQueueGameTypeConfig.hpp>
+#include <lol/def/LolGameQueuesQueueAvailability.hpp>
 namespace lol {
   struct LolGameQueuesQueueCustomGameSubcategory { 
     std::string gameMutator;
@@ -16,7 +16,7 @@ namespace lol {
     uint32_t maxLevel;
     int32_t minimumParticipantListSize; 
   };
-  void to_json(json& j, const LolGameQueuesQueueCustomGameSubcategory& v) {
+  inline void to_json(json& j, const LolGameQueuesQueueCustomGameSubcategory& v) {
     j["gameMutator"] = v.gameMutator; 
     j["mutators"] = v.mutators; 
     j["queueAvailability"] = v.queueAvailability; 
@@ -29,7 +29,7 @@ namespace lol {
     j["maxLevel"] = v.maxLevel; 
     j["minimumParticipantListSize"] = v.minimumParticipantListSize; 
   }
-  void from_json(const json& j, LolGameQueuesQueueCustomGameSubcategory& v) {
+  inline void from_json(const json& j, LolGameQueuesQueueCustomGameSubcategory& v) {
     v.gameMutator = j.at("gameMutator").get<std::string>(); 
     v.mutators = j.at("mutators").get<std::vector<LolGameQueuesQueueGameTypeConfig>>(); 
     v.queueAvailability = j.at("queueAvailability").get<LolGameQueuesQueueAvailability>(); 

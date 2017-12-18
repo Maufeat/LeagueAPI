@@ -7,7 +7,7 @@ namespace lol {
     std::optional<uint64_t> spell2Id;
     std::optional<int32_t> selectedSkinId; 
   };
-  void to_json(json& j, const LolLobbyTeamBuilderChampSelectMySelection& v) {
+  inline void to_json(json& j, const LolLobbyTeamBuilderChampSelectMySelection& v) {
     if(v.wardSkinId)
       j["wardSkinId"] = *v.wardSkinId;
     if(v.spell1Id)
@@ -17,7 +17,7 @@ namespace lol {
     if(v.selectedSkinId)
       j["selectedSkinId"] = *v.selectedSkinId;
   }
-  void from_json(const json& j, LolLobbyTeamBuilderChampSelectMySelection& v) {
+  inline void from_json(const json& j, LolLobbyTeamBuilderChampSelectMySelection& v) {
     if(auto it = j.find("wardSkinId"); it != j.end() && !it->is_null())
       v.wardSkinId = it->get<std::optional<int64_t>>(); 
     if(auto it = j.find("spell1Id"); it != j.end() && !it->is_null())

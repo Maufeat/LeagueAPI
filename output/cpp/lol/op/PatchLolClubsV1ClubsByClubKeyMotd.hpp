@@ -3,7 +3,7 @@
 #include <lol/def/PlayerClub.hpp>
 #include <lol/def/ClubMOTD.hpp>
 namespace lol {
-  Result<PlayerClub> PatchLolClubsV1ClubsByClubKeyMotd(const LeagueClient& _client, const std::string& clubKey, const ClubMOTD& motd)
+  inline Result<PlayerClub> PatchLolClubsV1ClubsByClubKeyMotd(const LeagueClient& _client, const std::string& clubKey, const ClubMOTD& motd)
   {
     HttpsClient _client_(_client.host, false);
     try {

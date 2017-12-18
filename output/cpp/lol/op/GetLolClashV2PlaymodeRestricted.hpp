@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolClashPlaymodeRestrictedInfo.hpp>
 namespace lol {
-  Result<LolClashPlaymodeRestrictedInfo> GetLolClashV2PlaymodeRestricted(const LeagueClient& _client)
+  inline Result<LolClashPlaymodeRestrictedInfo> GetLolClashV2PlaymodeRestricted(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

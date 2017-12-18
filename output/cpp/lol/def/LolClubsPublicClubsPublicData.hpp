@@ -10,7 +10,7 @@ namespace lol {
     std::string availability;
     uint64_t summonerId; 
   };
-  void to_json(json& j, const LolClubsPublicClubsPublicData& v) {
+  inline void to_json(json& j, const LolClubsPublicClubsPublicData& v) {
     j["tag"] = v.tag; 
     j["summonerName"] = v.summonerName; 
     if(v.lastSeenOnlineTimestamp)
@@ -19,7 +19,7 @@ namespace lol {
     j["availability"] = v.availability; 
     j["summonerId"] = v.summonerId; 
   }
-  void from_json(const json& j, LolClubsPublicClubsPublicData& v) {
+  inline void from_json(const json& j, LolClubsPublicClubsPublicData& v) {
     v.tag = j.at("tag").get<LolClubsPublicClubTag>(); 
     v.summonerName = j.at("summonerName").get<std::string>(); 
     if(auto it = j.find("lastSeenOnlineTimestamp"); it != j.end() && !it->is_null())

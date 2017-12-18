@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/PlayerPreferencesEndpoint.hpp>
 namespace lol {
-  Result<json> PostLolPlayerPreferencesV1PlayerPreferencesEndpointOverride(const LeagueClient& _client, const PlayerPreferencesEndpoint& preferences)
+  inline Result<json> PostLolPlayerPreferencesV1PlayerPreferencesEndpointOverride(const LeagueClient& _client, const PlayerPreferencesEndpoint& preferences)
   {
     HttpsClient _client_(_client.host, false);
     try {

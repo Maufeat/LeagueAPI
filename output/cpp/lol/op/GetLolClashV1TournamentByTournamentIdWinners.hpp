@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolClashTournamentWinnerHistory.hpp>
 namespace lol {
-  Result<LolClashTournamentWinnerHistory> GetLolClashV1TournamentByTournamentIdWinners(const LeagueClient& _client, const int64_t& tournamentId)
+  inline Result<LolClashTournamentWinnerHistory> GetLolClashV1TournamentByTournamentIdWinners(const LeagueClient& _client, const int64_t& tournamentId)
   {
     HttpsClient _client_(_client.host, false);
     try {

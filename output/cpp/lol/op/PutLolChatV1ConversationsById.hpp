@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolChatConversationResource.hpp>
 namespace lol {
-  Result<LolChatConversationResource> PutLolChatV1ConversationsById(const LeagueClient& _client, const std::string& id, const LolChatConversationResource& updatedConversation)
+  inline Result<LolChatConversationResource> PutLolChatV1ConversationsById(const LeagueClient& _client, const std::string& id, const LolChatConversationResource& updatedConversation)
   {
     HttpsClient _client_(_client.host, false);
     try {

@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolStoreCatalogItem.hpp>
 namespace lol {
-  Result<LolStoreCatalogItem> GetLolStoreV1SkinsBySkinId(const LeagueClient& _client, const int32_t& skinId)
+  inline Result<LolStoreCatalogItem> GetLolStoreV1SkinsBySkinId(const LeagueClient& _client, const int32_t& skinId)
   {
     HttpsClient _client_(_client.host, false);
     try {

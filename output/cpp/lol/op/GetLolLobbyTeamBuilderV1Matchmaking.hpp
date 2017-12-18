@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolLobbyTeamBuilderMatchmakingSearchResource.hpp>
 namespace lol {
-  Result<LolLobbyTeamBuilderMatchmakingSearchResource> GetLolLobbyTeamBuilderV1Matchmaking(const LeagueClient& _client)
+  inline Result<LolLobbyTeamBuilderMatchmakingSearchResource> GetLolLobbyTeamBuilderV1Matchmaking(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

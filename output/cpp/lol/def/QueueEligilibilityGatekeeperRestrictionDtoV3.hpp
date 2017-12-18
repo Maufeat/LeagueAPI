@@ -9,7 +9,7 @@ namespace lol {
     int32_t queueId;
     std::string reason; 
   };
-  void to_json(json& j, const QueueEligilibilityGatekeeperRestrictionDtoV3& v) {
+  inline void to_json(json& j, const QueueEligilibilityGatekeeperRestrictionDtoV3& v) {
     j["remainingMillis"] = v.remainingMillis; 
     j["payload"] = v.payload; 
     j["summonerName"] = v.summonerName; 
@@ -17,7 +17,7 @@ namespace lol {
     j["queueId"] = v.queueId; 
     j["reason"] = v.reason; 
   }
-  void from_json(const json& j, QueueEligilibilityGatekeeperRestrictionDtoV3& v) {
+  inline void from_json(const json& j, QueueEligilibilityGatekeeperRestrictionDtoV3& v) {
     v.remainingMillis = j.at("remainingMillis").get<int64_t>(); 
     v.payload = j.at("payload").get<std::string>(); 
     v.summonerName = j.at("summonerName").get<std::string>(); 

@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolClashSetTicketRequest.hpp>
 namespace lol {
-  Result<json> PostLolClashV1TournamentByTournamentIdRosterSetBid(const LeagueClient& _client, const int64_t& tournamentId, const LolClashSetTicketRequest& setTicketRequest)
+  inline Result<json> PostLolClashV1TournamentByTournamentIdRosterSetBid(const LeagueClient& _client, const int64_t& tournamentId, const LolClashSetTicketRequest& setTicketRequest)
   {
     HttpsClient _client_(_client.host, false);
     try {

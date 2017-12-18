@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolChampSelectChampSelectPickableSkins.hpp>
 namespace lol {
-  Result<LolChampSelectChampSelectPickableSkins> GetLolChampSelectV1PickableSkins(const LeagueClient& _client)
+  inline Result<LolChampSelectChampSelectPickableSkins> GetLolChampSelectV1PickableSkins(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

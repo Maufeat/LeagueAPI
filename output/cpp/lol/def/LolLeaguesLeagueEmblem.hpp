@@ -6,7 +6,7 @@ namespace lol {
     HOTSTREAK_e = 1,
     VETERAN_e = 0,
   };
-  void to_json(json& j, const LolLeaguesLeagueEmblem& v) {
+  inline void to_json(json& j, const LolLeaguesLeagueEmblem& v) {
     if(v == LolLeaguesLeagueEmblem::FRESHBLOOD_e) {
       j = "FRESHBLOOD";
       return;
@@ -20,7 +20,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolLeaguesLeagueEmblem& v) {
+  inline void from_json(const json& j, LolLeaguesLeagueEmblem& v) {
     if(j.get<std::string>() == "FRESHBLOOD") {
       v = LolLeaguesLeagueEmblem::FRESHBLOOD_e;
       return;

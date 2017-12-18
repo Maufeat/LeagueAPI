@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolClashPlayerData.hpp>
 namespace lol {
-  Result<LolClashPlayerData> GetLolClashV1Player(const LeagueClient& _client)
+  inline Result<LolClashPlayerData> GetLolClashV1Player(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

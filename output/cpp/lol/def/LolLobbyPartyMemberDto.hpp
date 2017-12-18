@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyPartyMemberMetadataDto.hpp>
 #include <lol/def/LolLobbyGameModeDto.hpp>
+#include <lol/def/LolLobbyPartyMemberMetadataDto.hpp>
 #include <lol/def/LolLobbyPartyMemberRoleEnum.hpp>
 namespace lol {
   struct LolLobbyPartyMemberDto { 
@@ -18,7 +18,7 @@ namespace lol {
     std::optional<LolLobbyGameModeDto> gameMode;
     uint64_t accountId; 
   };
-  void to_json(json& j, const LolLobbyPartyMemberDto& v) {
+  inline void to_json(json& j, const LolLobbyPartyMemberDto& v) {
     if(v.inviteTimestamp)
       j["inviteTimestamp"] = *v.inviteTimestamp;
     j["platformId"] = v.platformId; 
@@ -37,7 +37,7 @@ namespace lol {
       j["gameMode"] = *v.gameMode;
     j["accountId"] = v.accountId; 
   }
-  void from_json(const json& j, LolLobbyPartyMemberDto& v) {
+  inline void from_json(const json& j, LolLobbyPartyMemberDto& v) {
     if(auto it = j.find("inviteTimestamp"); it != j.end() && !it->is_null())
       v.inviteTimestamp = it->get<std::optional<uint64_t>>(); 
     v.platformId = j.at("platformId").get<std::string>(); 

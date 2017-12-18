@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolPersonalizedOffersPurchaseResponse.hpp>
 namespace lol {
-  Result<LolPersonalizedOffersPurchaseResponse> PostLolPersonalizedOffersV1OffersByIdPurchase(const LeagueClient& _client, const std::string& id)
+  inline Result<LolPersonalizedOffersPurchaseResponse> PostLolPersonalizedOffersV1OffersByIdPurchase(const LeagueClient& _client, const std::string& id)
   {
     HttpsClient _client_(_client.host, false);
     try {

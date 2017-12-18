@@ -11,7 +11,7 @@ namespace lol {
     ServiceError_e = 6,
     ServiceShutdown_e = 7,
   };
-  void to_json(json& j, const LolMatchmakingMatchmakingSearchState& v) {
+  inline void to_json(json& j, const LolMatchmakingMatchmakingSearchState& v) {
     if(v == LolMatchmakingMatchmakingSearchState::AbandonedLowPriorityQueue_e) {
       j = "AbandonedLowPriorityQueue";
       return;
@@ -45,7 +45,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolMatchmakingMatchmakingSearchState& v) {
+  inline void from_json(const json& j, LolMatchmakingMatchmakingSearchState& v) {
     if(j.get<std::string>() == "AbandonedLowPriorityQueue") {
       v = LolMatchmakingMatchmakingSearchState::AbandonedLowPriorityQueue_e;
       return;

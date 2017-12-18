@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolMatchmakingMatchmakingSearchResource.hpp>
 namespace lol {
-  Result<json> PutLolMatchmakingV1Search(const LeagueClient& _client, const LolMatchmakingMatchmakingSearchResource& search)
+  inline Result<json> PutLolMatchmakingV1Search(const LeagueClient& _client, const LolMatchmakingMatchmakingSearchResource& search)
   {
     HttpsClient _client_(_client.host, false);
     try {

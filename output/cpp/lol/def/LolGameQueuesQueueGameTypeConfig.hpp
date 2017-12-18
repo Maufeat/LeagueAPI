@@ -25,7 +25,7 @@ namespace lol {
     bool allowTrades;
     bool crossTeamChampionPool; 
   };
-  void to_json(json& j, const LolGameQueuesQueueGameTypeConfig& v) {
+  inline void to_json(json& j, const LolGameQueuesQueueGameTypeConfig& v) {
     j["learningQuests"] = v.learningQuests; 
     j["mainPickTimerDuration"] = v.mainPickTimerDuration; 
     if(v.numPlayersPerTeamOverride)
@@ -51,7 +51,7 @@ namespace lol {
     j["allowTrades"] = v.allowTrades; 
     j["crossTeamChampionPool"] = v.crossTeamChampionPool; 
   }
-  void from_json(const json& j, LolGameQueuesQueueGameTypeConfig& v) {
+  inline void from_json(const json& j, LolGameQueuesQueueGameTypeConfig& v) {
     v.learningQuests = j.at("learningQuests").get<bool>(); 
     v.mainPickTimerDuration = j.at("mainPickTimerDuration").get<int32_t>(); 
     if(auto it = j.find("numPlayersPerTeamOverride"); it != j.end() && !it->is_null())

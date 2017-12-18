@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolEsportStreamNotificationsESportsLiveStreams.hpp>
 namespace lol {
-  Result<LolEsportStreamNotificationsESportsLiveStreams> GetLolEsportStreamNotificationsV1LiveStreams(const LeagueClient& _client)
+  inline Result<LolEsportStreamNotificationsESportsLiveStreams> GetLolEsportStreamNotificationsV1LiveStreams(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

@@ -12,7 +12,7 @@ namespace lol {
     std::string name;
     std::vector<std::string> tags; 
   };
-  void to_json(json& j, const BindingFullTypeHelp& v) {
+  inline void to_json(json& j, const BindingFullTypeHelp& v) {
     j["fields"] = v.fields; 
     j["values"] = v.values; 
     j["nameSpace"] = v.nameSpace; 
@@ -21,7 +21,7 @@ namespace lol {
     j["name"] = v.name; 
     j["tags"] = v.tags; 
   }
-  void from_json(const json& j, BindingFullTypeHelp& v) {
+  inline void from_json(const json& j, BindingFullTypeHelp& v) {
     v.fields = j.at("fields").get<std::vector<BindingFullFieldHelp>>(); 
     v.values = j.at("values").get<std::vector<BindingFullEnumValueHelp>>(); 
     v.nameSpace = j.at("nameSpace").get<std::string>(); 

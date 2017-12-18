@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolPurchaseWidgetPurchaseWidgetConfig.hpp>
 namespace lol {
-  Result<LolPurchaseWidgetPurchaseWidgetConfig> GetLolPurchaseWidgetV1Configuration(const LeagueClient& _client)
+  inline Result<LolPurchaseWidgetPurchaseWidgetConfig> GetLolPurchaseWidgetV1Configuration(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

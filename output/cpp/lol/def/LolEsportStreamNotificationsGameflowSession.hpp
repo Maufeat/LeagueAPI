@@ -5,10 +5,10 @@ namespace lol {
   struct LolEsportStreamNotificationsGameflowSession { 
     LolEsportStreamNotificationsGameflowPhase phase; 
   };
-  void to_json(json& j, const LolEsportStreamNotificationsGameflowSession& v) {
+  inline void to_json(json& j, const LolEsportStreamNotificationsGameflowSession& v) {
     j["phase"] = v.phase; 
   }
-  void from_json(const json& j, LolEsportStreamNotificationsGameflowSession& v) {
+  inline void from_json(const json& j, LolEsportStreamNotificationsGameflowSession& v) {
     v.phase = j.at("phase").get<LolEsportStreamNotificationsGameflowPhase>(); 
   }
 }

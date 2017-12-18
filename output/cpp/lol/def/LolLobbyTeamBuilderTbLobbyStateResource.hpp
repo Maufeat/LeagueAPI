@@ -1,9 +1,9 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyTeamBuilderTbLobbyPremadeStateResource.hpp>
-#include <lol/def/LolLobbyTeamBuilderAfkCheckStateV1.hpp>
 #include <lol/def/LolLobbyTeamBuilderChampionSelectStateV1.hpp>
+#include <lol/def/LolLobbyTeamBuilderTbLobbyPremadeStateResource.hpp>
 #include <lol/def/LolLobbyTeamBuilderTBDMatchmakingState.hpp>
+#include <lol/def/LolLobbyTeamBuilderAfkCheckStateV1.hpp>
 namespace lol {
   struct LolLobbyTeamBuilderTbLobbyStateResource { 
     std::optional<LolLobbyTeamBuilderTBDMatchmakingState> matchmakingState;
@@ -14,7 +14,7 @@ namespace lol {
     int32_t queueId;
     std::optional<LolLobbyTeamBuilderTbLobbyPremadeStateResource> premadeState; 
   };
-  void to_json(json& j, const LolLobbyTeamBuilderTbLobbyStateResource& v) {
+  inline void to_json(json& j, const LolLobbyTeamBuilderTbLobbyStateResource& v) {
     if(v.matchmakingState)
       j["matchmakingState"] = *v.matchmakingState;
     j["counter"] = v.counter; 
@@ -27,7 +27,7 @@ namespace lol {
     if(v.premadeState)
       j["premadeState"] = *v.premadeState;
   }
-  void from_json(const json& j, LolLobbyTeamBuilderTbLobbyStateResource& v) {
+  inline void from_json(const json& j, LolLobbyTeamBuilderTbLobbyStateResource& v) {
     if(auto it = j.find("matchmakingState"); it != j.end() && !it->is_null())
       v.matchmakingState = it->get<std::optional<LolLobbyTeamBuilderTBDMatchmakingState>>(); 
     v.counter = j.at("counter").get<int32_t>(); 

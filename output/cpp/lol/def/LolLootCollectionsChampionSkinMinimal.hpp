@@ -10,7 +10,7 @@ namespace lol {
     int32_t championId;
     int32_t id; 
   };
-  void to_json(json& j, const LolLootCollectionsChampionSkinMinimal& v) {
+  inline void to_json(json& j, const LolLootCollectionsChampionSkinMinimal& v) {
     j["ownership"] = v.ownership; 
     j["splashPath"] = v.splashPath; 
     j["name"] = v.name; 
@@ -18,7 +18,7 @@ namespace lol {
     j["championId"] = v.championId; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, LolLootCollectionsChampionSkinMinimal& v) {
+  inline void from_json(const json& j, LolLootCollectionsChampionSkinMinimal& v) {
     v.ownership = j.at("ownership").get<LolLootCollectionsOwnership>(); 
     v.splashPath = j.at("splashPath").get<std::string>(); 
     v.name = j.at("name").get<std::string>(); 

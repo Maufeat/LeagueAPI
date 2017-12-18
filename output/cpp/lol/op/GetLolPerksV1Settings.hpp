@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolPerksUISettings.hpp>
 namespace lol {
-  Result<LolPerksUISettings> GetLolPerksV1Settings(const LeagueClient& _client)
+  inline Result<LolPerksUISettings> GetLolPerksV1Settings(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

@@ -5,7 +5,7 @@ namespace lol {
     project_e = 0,
     solution_e = 1,
   };
-  void to_json(json& j, const PatcherComponentResourceType& v) {
+  inline void to_json(json& j, const PatcherComponentResourceType& v) {
     if(v == PatcherComponentResourceType::project_e) {
       j = "project";
       return;
@@ -15,7 +15,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, PatcherComponentResourceType& v) {
+  inline void from_json(const json& j, PatcherComponentResourceType& v) {
     if(j.get<std::string>() == "project") {
       v = PatcherComponentResourceType::project_e;
       return;

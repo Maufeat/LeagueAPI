@@ -6,12 +6,12 @@ namespace lol {
     std::string type;
     std::string messageCode; 
   };
-  void to_json(json& j, const MatchmakingLcdsGameNotification& v) {
+  inline void to_json(json& j, const MatchmakingLcdsGameNotification& v) {
     j["messageArgument"] = v.messageArgument; 
     j["type"] = v.type; 
     j["messageCode"] = v.messageCode; 
   }
-  void from_json(const json& j, MatchmakingLcdsGameNotification& v) {
+  inline void from_json(const json& j, MatchmakingLcdsGameNotification& v) {
     v.messageArgument = j.at("messageArgument").get<std::string>(); 
     v.type = j.at("type").get<std::string>(); 
     v.messageCode = j.at("messageCode").get<std::string>(); 

@@ -8,7 +8,7 @@ namespace lol {
     PreviousPremade_e = 1,
     VictoriousComrade_e = 5,
   };
-  void to_json(json& j, const LolSuggestedPlayersSuggestedPlayersReason& v) {
+  inline void to_json(json& j, const LolSuggestedPlayersSuggestedPlayersReason& v) {
     if(v == LolSuggestedPlayersSuggestedPlayersReason::FriendOfFriend_e) {
       j = "FriendOfFriend";
       return;
@@ -30,7 +30,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolSuggestedPlayersSuggestedPlayersReason& v) {
+  inline void from_json(const json& j, LolSuggestedPlayersSuggestedPlayersReason& v) {
     if(j.get<std::string>() == "FriendOfFriend") {
       v = LolSuggestedPlayersSuggestedPlayersReason::FriendOfFriend_e;
       return;

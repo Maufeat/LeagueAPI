@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolMatchmakingMatchmakingSearchErrorResource.hpp>
 namespace lol {
-  Result<LolMatchmakingMatchmakingSearchErrorResource> GetLolMatchmakingV1SearchErrorsById(const LeagueClient& _client, const int32_t& id)
+  inline Result<LolMatchmakingMatchmakingSearchErrorResource> GetLolMatchmakingV1SearchErrorsById(const LeagueClient& _client, const int32_t& id)
   {
     HttpsClient _client_(_client.host, false);
     try {

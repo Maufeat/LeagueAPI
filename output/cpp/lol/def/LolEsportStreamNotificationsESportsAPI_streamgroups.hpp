@@ -8,14 +8,14 @@ namespace lol {
     std::string title;
     int64_t id; 
   };
-  void to_json(json& j, const LolEsportStreamNotificationsESportsAPI_streamgroups& v) {
+  inline void to_json(json& j, const LolEsportStreamNotificationsESportsAPI_streamgroups& v) {
     j["live"] = v.live; 
     j["slug"] = v.slug; 
     j["content"] = v.content; 
     j["title"] = v.title; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, LolEsportStreamNotificationsESportsAPI_streamgroups& v) {
+  inline void from_json(const json& j, LolEsportStreamNotificationsESportsAPI_streamgroups& v) {
     v.live = j.at("live").get<bool>(); 
     v.slug = j.at("slug").get<std::string>(); 
     v.content = j.at("content").get<std::string>(); 

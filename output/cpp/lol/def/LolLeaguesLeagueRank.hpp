@@ -9,7 +9,7 @@ namespace lol {
     NA_e = 5,
     V_e = 4,
   };
-  void to_json(json& j, const LolLeaguesLeagueRank& v) {
+  inline void to_json(json& j, const LolLeaguesLeagueRank& v) {
     if(v == LolLeaguesLeagueRank::I_e) {
       j = "I";
       return;
@@ -35,7 +35,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolLeaguesLeagueRank& v) {
+  inline void from_json(const json& j, LolLeaguesLeagueRank& v) {
     if(j.get<std::string>() == "I") {
       v = LolLeaguesLeagueRank::I_e;
       return;

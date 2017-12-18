@@ -11,7 +11,7 @@ namespace lol {
     std::string pretty_name;
     double max; 
   };
-  void to_json(json& j, const MetricMetadataAlert& v) {
+  inline void to_json(json& j, const MetricMetadataAlert& v) {
     j["notify"] = v.notify; 
     j["level"] = v.level; 
     j["info"] = v.info; 
@@ -20,7 +20,7 @@ namespace lol {
     j["pretty_name"] = v.pretty_name; 
     j["max"] = v.max; 
   }
-  void from_json(const json& j, MetricMetadataAlert& v) {
+  inline void from_json(const json& j, MetricMetadataAlert& v) {
     v.notify = j.at("notify").get<MetricMetadataNotify>(); 
     v.level = j.at("level").get<std::string>(); 
     v.info = j.at("info").get<std::string>(); 

@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolSimpleDialogMessagesLocalMessageRequest.hpp>
 namespace lol {
-  Result<json> PostLolSimpleDialogMessagesV1Messages(const LeagueClient& _client, const LolSimpleDialogMessagesLocalMessageRequest& messageRequest)
+  inline Result<json> PostLolSimpleDialogMessagesV1Messages(const LeagueClient& _client, const LolSimpleDialogMessagesLocalMessageRequest& messageRequest)
   {
     HttpsClient _client_(_client.host, false);
     try {

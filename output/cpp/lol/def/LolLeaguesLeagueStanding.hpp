@@ -20,7 +20,7 @@ namespace lol {
     int64_t points;
     uint64_t position; 
   };
-  void to_json(json& j, const LolLeaguesLeagueStanding& v) {
+  inline void to_json(json& j, const LolLeaguesLeagueStanding& v) {
     j["inactivityStatus"] = v.inactivityStatus; 
     j["pendingPromotion"] = v.pendingPromotion; 
     j["name"] = v.name; 
@@ -37,7 +37,7 @@ namespace lol {
     j["points"] = v.points; 
     j["position"] = v.position; 
   }
-  void from_json(const json& j, LolLeaguesLeagueStanding& v) {
+  inline void from_json(const json& j, LolLeaguesLeagueStanding& v) {
     v.inactivityStatus = j.at("inactivityStatus").get<std::string>(); 
     v.pendingPromotion = j.at("pendingPromotion").get<bool>(); 
     v.name = j.at("name").get<std::string>(); 

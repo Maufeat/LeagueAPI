@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolChatBlockedPlayerResource.hpp>
 namespace lol {
-  Result<LolChatBlockedPlayerResource> GetLolChatV1BlockedPlayersById(const LeagueClient& _client, const uint64_t& id)
+  inline Result<LolChatBlockedPlayerResource> GetLolChatV1BlockedPlayersById(const LeagueClient& _client, const uint64_t& id)
   {
     HttpsClient _client_(_client.host, false);
     try {

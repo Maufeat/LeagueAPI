@@ -3,7 +3,7 @@
 #include <lol/def/LolPersonalizedOffersPurchaseResponse.hpp>
 #include <lol/def/LolPersonalizedOffersOfferRequests.hpp>
 namespace lol {
-  Result<LolPersonalizedOffersPurchaseResponse> PostLolPersonalizedOffersV1OffersPurchase(const LeagueClient& _client, const LolPersonalizedOffersOfferRequests& offerRequests)
+  inline Result<LolPersonalizedOffersPurchaseResponse> PostLolPersonalizedOffersV1OffersPurchase(const LeagueClient& _client, const LolPersonalizedOffersOfferRequests& offerRequests)
   {
     HttpsClient _client_(_client.host, false);
     try {

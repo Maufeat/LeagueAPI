@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolLobbyTeamBuilderChampSelectDisabledChampions.hpp>
 namespace lol {
-  Result<LolLobbyTeamBuilderChampSelectDisabledChampions> GetLolLobbyTeamBuilderChampSelectV1DisabledChampions(const LeagueClient& _client)
+  inline Result<LolLobbyTeamBuilderChampSelectDisabledChampions> GetLolLobbyTeamBuilderChampSelectV1DisabledChampions(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

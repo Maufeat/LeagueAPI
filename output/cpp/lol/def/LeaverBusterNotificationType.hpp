@@ -8,7 +8,7 @@ namespace lol {
     Reforming_e = 4,
     TaintedWarning_e = 1,
   };
-  void to_json(json& j, const LeaverBusterNotificationType& v) {
+  inline void to_json(json& j, const LeaverBusterNotificationType& v) {
     if(v == LeaverBusterNotificationType::Invalid_e) {
       j = "Invalid";
       return;
@@ -30,7 +30,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LeaverBusterNotificationType& v) {
+  inline void from_json(const json& j, LeaverBusterNotificationType& v) {
     if(j.get<std::string>() == "Invalid") {
       v = LeaverBusterNotificationType::Invalid_e;
       return;

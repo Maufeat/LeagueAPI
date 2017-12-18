@@ -13,7 +13,7 @@ namespace lol {
     int32_t championId;
     std::string id; 
   };
-  void to_json(json& j, const LolPersonalizedOffersUIOffer& v) {
+  inline void to_json(json& j, const LolPersonalizedOffersUIOffer& v) {
     j["originalPrice"] = v.originalPrice; 
     j["skinId"] = v.skinId; 
     j["type"] = v.type; 
@@ -25,7 +25,7 @@ namespace lol {
     j["championId"] = v.championId; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, LolPersonalizedOffersUIOffer& v) {
+  inline void from_json(const json& j, LolPersonalizedOffersUIOffer& v) {
     v.originalPrice = j.at("originalPrice").get<int64_t>(); 
     v.skinId = j.at("skinId").get<int32_t>(); 
     v.type = j.at("type").get<std::string>(); 

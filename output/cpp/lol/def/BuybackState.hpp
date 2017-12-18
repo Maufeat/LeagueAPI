@@ -6,7 +6,7 @@ namespace lol {
     NOT_READY_e = 0,
     READY_e = 2,
   };
-  void to_json(json& j, const BuybackState& v) {
+  inline void to_json(json& j, const BuybackState& v) {
     if(v == BuybackState::FORCED_NOT_READY_e) {
       j = "FORCED_NOT_READY";
       return;
@@ -20,7 +20,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, BuybackState& v) {
+  inline void from_json(const json& j, BuybackState& v) {
     if(j.get<std::string>() == "FORCED_NOT_READY") {
       v = BuybackState::FORCED_NOT_READY_e;
       return;

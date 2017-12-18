@@ -8,7 +8,7 @@ namespace lol {
     RECEIVED_e = 4,
     SENT_e = 5,
   };
-  void to_json(json& j, const LolChampSelectChampSelectTradeState& v) {
+  inline void to_json(json& j, const LolChampSelectChampSelectTradeState& v) {
     if(v == LolChampSelectChampSelectTradeState::AVAILABLE_e) {
       j = "AVAILABLE";
       return;
@@ -30,7 +30,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolChampSelectChampSelectTradeState& v) {
+  inline void from_json(const json& j, LolChampSelectChampSelectTradeState& v) {
     if(j.get<std::string>() == "AVAILABLE") {
       v = LolChampSelectChampSelectTradeState::AVAILABLE_e;
       return;

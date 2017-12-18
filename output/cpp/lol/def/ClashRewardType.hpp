@@ -9,7 +9,7 @@ namespace lol {
     TROPHY_e = 0,
     VP_e = 5,
   };
-  void to_json(json& j, const ClashRewardType& v) {
+  inline void to_json(json& j, const ClashRewardType& v) {
     if(v == ClashRewardType::FLAG_e) {
       j = "FLAG";
       return;
@@ -35,7 +35,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, ClashRewardType& v) {
+  inline void from_json(const json& j, ClashRewardType& v) {
     if(j.get<std::string>() == "FLAG") {
       v = ClashRewardType::FLAG_e;
       return;

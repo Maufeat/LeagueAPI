@@ -13,7 +13,7 @@ namespace lol {
     int32_t championId;
     std::vector<std::string> sources; 
   };
-  void to_json(json& j, const StoreLcdsChampionSkinDTO& v) {
+  inline void to_json(json& j, const StoreLcdsChampionSkinDTO& v) {
     j["lastSelected"] = v.lastSelected; 
     j["skinId"] = v.skinId; 
     j["freeToPlayReward"] = v.freeToPlayReward; 
@@ -25,7 +25,7 @@ namespace lol {
     j["championId"] = v.championId; 
     j["sources"] = v.sources; 
   }
-  void from_json(const json& j, StoreLcdsChampionSkinDTO& v) {
+  inline void from_json(const json& j, StoreLcdsChampionSkinDTO& v) {
     v.lastSelected = j.at("lastSelected").get<bool>(); 
     v.skinId = j.at("skinId").get<int32_t>(); 
     v.freeToPlayReward = j.at("freeToPlayReward").get<bool>(); 

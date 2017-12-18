@@ -9,14 +9,14 @@ namespace lol {
     std::string wardImagePath;
     int64_t id; 
   };
-  void to_json(json& j, const LolLootCollectionsWardSkin& v) {
+  inline void to_json(json& j, const LolLootCollectionsWardSkin& v) {
     j["ownership"] = v.ownership; 
     j["name"] = v.name; 
     j["wardShadowImagePath"] = v.wardShadowImagePath; 
     j["wardImagePath"] = v.wardImagePath; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, LolLootCollectionsWardSkin& v) {
+  inline void from_json(const json& j, LolLootCollectionsWardSkin& v) {
     v.ownership = j.at("ownership").get<LolLootCollectionsOwnership>(); 
     v.name = j.at("name").get<std::string>(); 
     v.wardShadowImagePath = j.at("wardShadowImagePath").get<std::string>(); 

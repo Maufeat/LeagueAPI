@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolClubsPublicClubsPublicData.hpp>
 namespace lol {
-  Result<LolClubsPublicClubsPublicData> GetLolClubsPublicV1ClubsPublicBySummonerId(const LeagueClient& _client, const uint64_t& summonerId)
+  inline Result<LolClubsPublicClubsPublicData> GetLolClubsPublicV1ClubsPublicBySummonerId(const LeagueClient& _client, const uint64_t& summonerId)
   {
     HttpsClient _client_(_client.host, false);
     try {

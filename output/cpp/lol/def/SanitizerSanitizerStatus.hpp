@@ -10,7 +10,7 @@ namespace lol {
     uint32_t projectedCharsCount;
     uint32_t breakingCharsCount; 
   };
-  void to_json(json& j, const SanitizerSanitizerStatus& v) {
+  inline void to_json(json& j, const SanitizerSanitizerStatus& v) {
     j["region"] = v.region; 
     j["filteredWordCountsByLevel"] = v.filteredWordCountsByLevel; 
     j["ready"] = v.ready; 
@@ -19,7 +19,7 @@ namespace lol {
     j["projectedCharsCount"] = v.projectedCharsCount; 
     j["breakingCharsCount"] = v.breakingCharsCount; 
   }
-  void from_json(const json& j, SanitizerSanitizerStatus& v) {
+  inline void from_json(const json& j, SanitizerSanitizerStatus& v) {
     v.region = j.at("region").get<std::string>(); 
     v.filteredWordCountsByLevel = j.at("filteredWordCountsByLevel").get<std::map<std::string, uint32_t>>(); 
     v.ready = j.at("ready").get<bool>(); 

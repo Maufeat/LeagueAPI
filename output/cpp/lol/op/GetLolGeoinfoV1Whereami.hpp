@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolGeoinfoGeoInfoResponse.hpp>
 namespace lol {
-  Result<LolGeoinfoGeoInfoResponse> GetLolGeoinfoV1Whereami(const LeagueClient& _client)
+  inline Result<LolGeoinfoGeoInfoResponse> GetLolGeoinfoV1Whereami(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

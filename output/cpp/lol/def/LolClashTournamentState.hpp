@@ -8,7 +8,7 @@ namespace lol {
     RESULTS_e = 4,
     SCOUTING_e = 2,
   };
-  void to_json(json& j, const LolClashTournamentState& v) {
+  inline void to_json(json& j, const LolClashTournamentState& v) {
     if(v == LolClashTournamentState::IDLE_e) {
       j = "IDLE";
       return;
@@ -30,7 +30,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolClashTournamentState& v) {
+  inline void from_json(const json& j, LolClashTournamentState& v) {
     if(j.get<std::string>() == "IDLE") {
       v = LolClashTournamentState::IDLE_e;
       return;

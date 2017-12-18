@@ -12,7 +12,7 @@ namespace lol {
     int32_t championId;
     int32_t championLevel; 
   };
-  void to_json(json& j, const LolCollectionsCollectionsChampionMastery& v) {
+  inline void to_json(json& j, const LolCollectionsCollectionsChampionMastery& v) {
     j["highestGrade"] = v.highestGrade; 
     j["championPointsUntilNextLevel"] = v.championPointsUntilNextLevel; 
     j["championPoints"] = v.championPoints; 
@@ -23,7 +23,7 @@ namespace lol {
     j["championId"] = v.championId; 
     j["championLevel"] = v.championLevel; 
   }
-  void from_json(const json& j, LolCollectionsCollectionsChampionMastery& v) {
+  inline void from_json(const json& j, LolCollectionsCollectionsChampionMastery& v) {
     v.highestGrade = j.at("highestGrade").get<std::string>(); 
     v.championPointsUntilNextLevel = j.at("championPointsUntilNextLevel").get<int32_t>(); 
     v.championPoints = j.at("championPoints").get<int32_t>(); 

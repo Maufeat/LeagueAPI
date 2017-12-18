@@ -20,7 +20,7 @@ namespace lol {
     bool autoFillEligible;
     LolLobbyLobbyBotDifficulty botDifficulty; 
   };
-  void to_json(json& j, const LolLobbyLobbyMember& v) {
+  inline void to_json(json& j, const LolLobbyLobbyMember& v) {
     j["isSpectator"] = v.isSpectator; 
     j["positionPreferences"] = v.positionPreferences; 
     j["autoFillProtectedForPromos"] = v.autoFillProtectedForPromos; 
@@ -38,7 +38,7 @@ namespace lol {
     j["autoFillEligible"] = v.autoFillEligible; 
     j["botDifficulty"] = v.botDifficulty; 
   }
-  void from_json(const json& j, LolLobbyLobbyMember& v) {
+  inline void from_json(const json& j, LolLobbyLobbyMember& v) {
     v.isSpectator = j.at("isSpectator").get<bool>(); 
     v.positionPreferences = j.at("positionPreferences").get<LolLobbyLobbyPositionPreferences>(); 
     v.autoFillProtectedForPromos = j.at("autoFillProtectedForPromos").get<bool>(); 

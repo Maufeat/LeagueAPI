@@ -10,7 +10,7 @@ namespace lol {
     UNSELECTED_e = 6,
     UTILITY_e = 4,
   };
-  void to_json(json& j, const Position& v) {
+  inline void to_json(json& j, const Position& v) {
     if(v == Position::BOTTOM_e) {
       j = "BOTTOM";
       return;
@@ -40,7 +40,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, Position& v) {
+  inline void from_json(const json& j, Position& v) {
     if(j.get<std::string>() == "BOTTOM") {
       v = Position::BOTTOM_e;
       return;

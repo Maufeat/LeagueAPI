@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<bool> GetLolSettingsV2DidresetByPpType(const LeagueClient& _client, const std::string& ppType)
+  inline Result<bool> GetLolSettingsV2DidresetByPpType(const LeagueClient& _client, const std::string& ppType)
   {
     HttpsClient _client_(_client.host, false);
     try {

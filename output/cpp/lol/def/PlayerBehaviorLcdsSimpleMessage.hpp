@@ -7,13 +7,13 @@ namespace lol {
     std::vector<std::string> params;
     uint64_t accountId; 
   };
-  void to_json(json& j, const PlayerBehaviorLcdsSimpleMessage& v) {
+  inline void to_json(json& j, const PlayerBehaviorLcdsSimpleMessage& v) {
     j["msgId"] = v.msgId; 
     j["type"] = v.type; 
     j["params"] = v.params; 
     j["accountId"] = v.accountId; 
   }
-  void from_json(const json& j, PlayerBehaviorLcdsSimpleMessage& v) {
+  inline void from_json(const json& j, PlayerBehaviorLcdsSimpleMessage& v) {
     v.msgId = j.at("msgId").get<std::string>(); 
     v.type = j.at("type").get<std::string>(); 
     v.params = j.at("params").get<std::vector<std::string>>(); 

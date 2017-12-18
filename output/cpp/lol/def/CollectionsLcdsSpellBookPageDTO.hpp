@@ -10,7 +10,7 @@ namespace lol {
     uint32_t pageId;
     uint64_t summonerId; 
   };
-  void to_json(json& j, const CollectionsLcdsSpellBookPageDTO& v) {
+  inline void to_json(json& j, const CollectionsLcdsSpellBookPageDTO& v) {
     j["createDate"] = v.createDate; 
     j["name"] = v.name; 
     j["current"] = v.current; 
@@ -18,7 +18,7 @@ namespace lol {
     j["pageId"] = v.pageId; 
     j["summonerId"] = v.summonerId; 
   }
-  void from_json(const json& j, CollectionsLcdsSpellBookPageDTO& v) {
+  inline void from_json(const json& j, CollectionsLcdsSpellBookPageDTO& v) {
     v.createDate = j.at("createDate").get<uint64_t>(); 
     v.name = j.at("name").get<std::string>(); 
     v.current = j.at("current").get<bool>(); 

@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolClashRosterDetails.hpp>
 namespace lol {
-  Result<json> PostLolClashV1TournamentByTournamentIdRosterChangeAllDetails(const LeagueClient& _client, const int64_t& tournamentId, const LolClashRosterDetails& rosterDetails)
+  inline Result<json> PostLolClashV1TournamentByTournamentIdRosterChangeAllDetails(const LeagueClient& _client, const int64_t& tournamentId, const LolClashRosterDetails& rosterDetails)
   {
     HttpsClient _client_(_client.host, false);
     try {

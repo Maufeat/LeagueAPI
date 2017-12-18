@@ -8,7 +8,7 @@ namespace lol {
     loaded_e = 2,
     shuttingdown_e = 4,
   };
-  void to_json(json& j, const LolChatSessionState& v) {
+  inline void to_json(json& j, const LolChatSessionState& v) {
     if(v == LolChatSessionState::connected_e) {
       j = "connected";
       return;
@@ -30,7 +30,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolChatSessionState& v) {
+  inline void from_json(const json& j, LolChatSessionState& v) {
     if(j.get<std::string>() == "connected") {
       v = LolChatSessionState::connected_e;
       return;

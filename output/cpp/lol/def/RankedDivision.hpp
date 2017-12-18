@@ -8,7 +8,7 @@ namespace lol {
     IV_e = 4,
     V_e = 5,
   };
-  void to_json(json& j, const RankedDivision& v) {
+  inline void to_json(json& j, const RankedDivision& v) {
     if(v == RankedDivision::I_e) {
       j = "I";
       return;
@@ -30,7 +30,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, RankedDivision& v) {
+  inline void from_json(const json& j, RankedDivision& v) {
     if(j.get<std::string>() == "I") {
       v = RankedDivision::I_e;
       return;

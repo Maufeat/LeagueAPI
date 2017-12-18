@@ -7,11 +7,11 @@ namespace lol {
     std::vector<MembershipNoficationsDto> membershipNotifications;
     PlayerMembershipDto playerMembership; 
   };
-  void to_json(json& j, const PlayerMembershipWithNotificationsDto& v) {
+  inline void to_json(json& j, const PlayerMembershipWithNotificationsDto& v) {
     j["membershipNotifications"] = v.membershipNotifications; 
     j["playerMembership"] = v.playerMembership; 
   }
-  void from_json(const json& j, PlayerMembershipWithNotificationsDto& v) {
+  inline void from_json(const json& j, PlayerMembershipWithNotificationsDto& v) {
     v.membershipNotifications = j.at("membershipNotifications").get<std::vector<MembershipNoficationsDto>>(); 
     v.playerMembership = j.at("playerMembership").get<PlayerMembershipDto>(); 
   }

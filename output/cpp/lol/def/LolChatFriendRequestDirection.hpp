@@ -6,7 +6,7 @@ namespace lol {
     in_e = 0,
     out_e = 1,
   };
-  void to_json(json& j, const LolChatFriendRequestDirection& v) {
+  inline void to_json(json& j, const LolChatFriendRequestDirection& v) {
     if(v == LolChatFriendRequestDirection::both_e) {
       j = "both";
       return;
@@ -20,7 +20,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolChatFriendRequestDirection& v) {
+  inline void from_json(const json& j, LolChatFriendRequestDirection& v) {
     if(j.get<std::string>() == "both") {
       v = LolChatFriendRequestDirection::both_e;
       return;

@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<void> PostRiotclientNewArgs(const LeagueClient& _client, const std::vector<std::string>& args)
+  inline Result<void> PostRiotclientNewArgs(const LeagueClient& _client, const std::vector<std::string>& args)
   {
     HttpsClient _client_(_client.host, false);
     try {

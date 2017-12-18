@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/RecofrienderContactPaginationResource.hpp>
 namespace lol {
-  Result<RecofrienderContactPaginationResource> GetRecofrienderV2DismissedPage(const LeagueClient& _client, const uint64_t& start, const uint64_t& limit)
+  inline Result<RecofrienderContactPaginationResource> GetRecofrienderV2DismissedPage(const LeagueClient& _client, const uint64_t& start, const uint64_t& limit)
   {
     HttpsClient _client_(_client.host, false);
     try {

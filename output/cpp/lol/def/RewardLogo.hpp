@@ -5,11 +5,11 @@ namespace lol {
     int32_t memberOwnedCount;
     int32_t logo; 
   };
-  void to_json(json& j, const RewardLogo& v) {
+  inline void to_json(json& j, const RewardLogo& v) {
     j["memberOwnedCount"] = v.memberOwnedCount; 
     j["logo"] = v.logo; 
   }
-  void from_json(const json& j, RewardLogo& v) {
+  inline void from_json(const json& j, RewardLogo& v) {
     v.memberOwnedCount = j.at("memberOwnedCount").get<int32_t>(); 
     v.logo = j.at("logo").get<int32_t>(); 
   }

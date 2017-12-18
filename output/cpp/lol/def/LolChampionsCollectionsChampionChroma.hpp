@@ -13,7 +13,7 @@ namespace lol {
     int32_t championId;
     int32_t id; 
   };
-  void to_json(json& j, const LolChampionsCollectionsChampionChroma& v) {
+  inline void to_json(json& j, const LolChampionsCollectionsChampionChroma& v) {
     j["lastSelected"] = v.lastSelected; 
     if(v.chromaPath)
       j["chromaPath"] = *v.chromaPath;
@@ -25,7 +25,7 @@ namespace lol {
     j["championId"] = v.championId; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, LolChampionsCollectionsChampionChroma& v) {
+  inline void from_json(const json& j, LolChampionsCollectionsChampionChroma& v) {
     v.lastSelected = j.at("lastSelected").get<bool>(); 
     if(auto it = j.find("chromaPath"); it != j.end() && !it->is_null())
       v.chromaPath = it->get<std::optional<std::string>>(); 

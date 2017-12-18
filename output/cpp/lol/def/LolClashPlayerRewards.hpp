@@ -6,11 +6,11 @@ namespace lol {
     int32_t seasonVp;
     std::vector<LolClashThemeVp> themeVp; 
   };
-  void to_json(json& j, const LolClashPlayerRewards& v) {
+  inline void to_json(json& j, const LolClashPlayerRewards& v) {
     j["seasonVp"] = v.seasonVp; 
     j["themeVp"] = v.themeVp; 
   }
-  void from_json(const json& j, LolClashPlayerRewards& v) {
+  inline void from_json(const json& j, LolClashPlayerRewards& v) {
     v.seasonVp = j.at("seasonVp").get<int32_t>(); 
     v.themeVp = j.at("themeVp").get<std::vector<LolClashThemeVp>>(); 
   }

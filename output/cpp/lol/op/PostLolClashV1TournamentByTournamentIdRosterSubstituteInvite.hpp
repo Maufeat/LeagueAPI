@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolClashInviteSubRequest.hpp>
 namespace lol {
-  Result<json> PostLolClashV1TournamentByTournamentIdRosterSubstituteInvite(const LeagueClient& _client, const int64_t& tournamentId, const LolClashInviteSubRequest& inviteSubRequest)
+  inline Result<json> PostLolClashV1TournamentByTournamentIdRosterSubstituteInvite(const LeagueClient& _client, const int64_t& tournamentId, const LolClashInviteSubRequest& inviteSubRequest)
   {
     HttpsClient _client_(_client.host, false);
     try {

@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolLoginAccessToken.hpp>
 namespace lol {
-  Result<json> PostLolLoginV1AccessToken(const LeagueClient& _client, const LolLoginAccessToken& AccessToken)
+  inline Result<json> PostLolLoginV1AccessToken(const LeagueClient& _client, const LolLoginAccessToken& AccessToken)
   {
     HttpsClient _client_(_client.host, false);
     try {

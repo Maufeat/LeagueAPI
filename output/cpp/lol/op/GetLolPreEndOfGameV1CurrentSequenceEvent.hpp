@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolPreEndOfGameSequenceEvent.hpp>
 namespace lol {
-  Result<LolPreEndOfGameSequenceEvent> GetLolPreEndOfGameV1CurrentSequenceEvent(const LeagueClient& _client)
+  inline Result<LolPreEndOfGameSequenceEvent> GetLolPreEndOfGameV1CurrentSequenceEvent(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

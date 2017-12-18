@@ -1,8 +1,8 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/Position.hpp>
-#include <lol/def/LolClashBiddingData.hpp>
 #include <lol/def/LolClashRosterMemberState.hpp>
+#include <lol/def/LolClashBiddingData.hpp>
+#include <lol/def/Position.hpp>
 namespace lol {
   struct LolClashRosterMember { 
     LolClashBiddingData biddingData;
@@ -13,7 +13,7 @@ namespace lol {
     Position position;
     uint64_t summonerId; 
   };
-  void to_json(json& j, const LolClashRosterMember& v) {
+  inline void to_json(json& j, const LolClashRosterMember& v) {
     j["biddingData"] = v.biddingData; 
     j["replacedSummonerId"] = v.replacedSummonerId; 
     j["isSubstitute"] = v.isSubstitute; 
@@ -22,7 +22,7 @@ namespace lol {
     j["position"] = v.position; 
     j["summonerId"] = v.summonerId; 
   }
-  void from_json(const json& j, LolClashRosterMember& v) {
+  inline void from_json(const json& j, LolClashRosterMember& v) {
     v.biddingData = j.at("biddingData").get<LolClashBiddingData>(); 
     v.replacedSummonerId = j.at("replacedSummonerId").get<uint64_t>(); 
     v.isSubstitute = j.at("isSubstitute").get<bool>(); 

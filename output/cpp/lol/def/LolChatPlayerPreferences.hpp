@@ -7,13 +7,13 @@ namespace lol {
     std::string data;
     uint64_t modified; 
   };
-  void to_json(json& j, const LolChatPlayerPreferences& v) {
+  inline void to_json(json& j, const LolChatPlayerPreferences& v) {
     j["hash"] = v.hash; 
     j["type"] = v.type; 
     j["data"] = v.data; 
     j["modified"] = v.modified; 
   }
-  void from_json(const json& j, LolChatPlayerPreferences& v) {
+  inline void from_json(const json& j, LolChatPlayerPreferences& v) {
     v.hash = j.at("hash").get<std::string>(); 
     v.type = j.at("type").get<std::string>(); 
     v.data = j.at("data").get<std::string>(); 

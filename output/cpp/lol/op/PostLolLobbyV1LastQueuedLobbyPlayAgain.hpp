@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolLobbyLobby.hpp>
 namespace lol {
-  Result<LolLobbyLobby> PostLolLobbyV1LastQueuedLobbyPlayAgain(const LeagueClient& _client)
+  inline Result<LolLobbyLobby> PostLolLobbyV1LastQueuedLobbyPlayAgain(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

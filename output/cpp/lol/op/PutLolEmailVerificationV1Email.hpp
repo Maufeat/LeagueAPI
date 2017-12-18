@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolEmailVerificationEmailUpdate.hpp>
 namespace lol {
-  Result<json> PutLolEmailVerificationV1Email(const LeagueClient& _client, const LolEmailVerificationEmailUpdate& EmailUpdate)
+  inline Result<json> PutLolEmailVerificationV1Email(const LeagueClient& _client, const LolEmailVerificationEmailUpdate& EmailUpdate)
   {
     HttpsClient _client_(_client.host, false);
     try {

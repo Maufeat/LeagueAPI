@@ -6,11 +6,11 @@ namespace lol {
     std::string purchaseDate;
     LolBannersCapClashFlagEntitlementPayload payload; 
   };
-  void to_json(json& j, const LolBannersTournamentFlagInventoryItem& v) {
+  inline void to_json(json& j, const LolBannersTournamentFlagInventoryItem& v) {
     j["purchaseDate"] = v.purchaseDate; 
     j["payload"] = v.payload; 
   }
-  void from_json(const json& j, LolBannersTournamentFlagInventoryItem& v) {
+  inline void from_json(const json& j, LolBannersTournamentFlagInventoryItem& v) {
     v.purchaseDate = j.at("purchaseDate").get<std::string>(); 
     v.payload = j.at("payload").get<LolBannersCapClashFlagEntitlementPayload>(); 
   }

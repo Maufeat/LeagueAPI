@@ -15,7 +15,7 @@ namespace lol {
     uint32_t maxLevel;
     int32_t id; 
   };
-  void to_json(json& j, const LolQueueEligibilityQueue& v) {
+  inline void to_json(json& j, const LolQueueEligibilityQueue& v) {
     j["championsRequiredToPlay"] = v.championsRequiredToPlay; 
     j["showPositionSelector"] = v.showPositionSelector; 
     j["type"] = v.type; 
@@ -28,7 +28,7 @@ namespace lol {
     j["maxLevel"] = v.maxLevel; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, LolQueueEligibilityQueue& v) {
+  inline void from_json(const json& j, LolQueueEligibilityQueue& v) {
     v.championsRequiredToPlay = j.at("championsRequiredToPlay").get<uint32_t>(); 
     v.showPositionSelector = j.at("showPositionSelector").get<bool>(); 
     v.type = j.at("type").get<std::string>(); 

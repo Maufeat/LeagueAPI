@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolLeaguesLeagueChampAndStat.hpp>
 namespace lol {
-  Result<std::vector<LolLeaguesLeagueChampAndStat>> GetLolLeaguesV1SummonerTopChampsBySummonerId(const LeagueClient& _client, const uint64_t& summonerId)
+  inline Result<std::vector<LolLeaguesLeagueChampAndStat>> GetLolLeaguesV1SummonerTopChampsBySummonerId(const LeagueClient& _client, const uint64_t& summonerId)
   {
     HttpsClient _client_(_client.host, false);
     try {

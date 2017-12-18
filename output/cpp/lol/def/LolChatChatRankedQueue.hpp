@@ -9,7 +9,7 @@ namespace lol {
     RANKED_TEAM_3x3_e = 4,
     RANKED_TEAM_5x5_e = 5,
   };
-  void to_json(json& j, const LolChatChatRankedQueue& v) {
+  inline void to_json(json& j, const LolChatChatRankedQueue& v) {
     if(v == LolChatChatRankedQueue::INVALID_e) {
       j = "INVALID";
       return;
@@ -35,7 +35,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolChatChatRankedQueue& v) {
+  inline void from_json(const json& j, LolChatChatRankedQueue& v) {
     if(j.get<std::string>() == "INVALID") {
       v = LolChatChatRankedQueue::INVALID_e;
       return;

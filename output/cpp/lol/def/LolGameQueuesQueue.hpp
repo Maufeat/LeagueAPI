@@ -1,9 +1,9 @@
 #pragma once
 #include<lol/base_def.hpp> 
+#include <lol/def/LolGameQueuesQueueGameTypeConfig.hpp>
+#include <lol/def/LolGameQueuesQueueReward.hpp>
 #include <lol/def/LolGameQueuesQueueGameCategory.hpp>
 #include <lol/def/LolGameQueuesQueueAvailability.hpp>
-#include <lol/def/LolGameQueuesQueueReward.hpp>
-#include <lol/def/LolGameQueuesQueueGameTypeConfig.hpp>
 namespace lol {
   struct LolGameQueuesQueue { 
     std::string gameMutator;
@@ -37,7 +37,7 @@ namespace lol {
     std::string assetMutator;
     bool showPositionSelector; 
   };
-  void to_json(json& j, const LolGameQueuesQueue& v) {
+  inline void to_json(json& j, const LolGameQueuesQueue& v) {
     j["gameMutator"] = v.gameMutator; 
     j["spectatorEnabled"] = v.spectatorEnabled; 
     j["areFreeChampionsAllowed"] = v.areFreeChampionsAllowed; 
@@ -69,7 +69,7 @@ namespace lol {
     j["assetMutator"] = v.assetMutator; 
     j["showPositionSelector"] = v.showPositionSelector; 
   }
-  void from_json(const json& j, LolGameQueuesQueue& v) {
+  inline void from_json(const json& j, LolGameQueuesQueue& v) {
     v.gameMutator = j.at("gameMutator").get<std::string>(); 
     v.spectatorEnabled = j.at("spectatorEnabled").get<bool>(); 
     v.areFreeChampionsAllowed = j.at("areFreeChampionsAllowed").get<bool>(); 

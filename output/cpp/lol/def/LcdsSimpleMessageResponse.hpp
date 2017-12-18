@@ -6,12 +6,12 @@ namespace lol {
     std::string command;
     uint64_t accountId; 
   };
-  void to_json(json& j, const LcdsSimpleMessageResponse& v) {
+  inline void to_json(json& j, const LcdsSimpleMessageResponse& v) {
     j["msgId"] = v.msgId; 
     j["command"] = v.command; 
     j["accountId"] = v.accountId; 
   }
-  void from_json(const json& j, LcdsSimpleMessageResponse& v) {
+  inline void from_json(const json& j, LcdsSimpleMessageResponse& v) {
     v.msgId = j.at("msgId").get<std::string>(); 
     v.command = j.at("command").get<std::string>(); 
     v.accountId = j.at("accountId").get<uint64_t>(); 

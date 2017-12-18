@@ -6,7 +6,7 @@ namespace lol {
     ON_HOLD_e = 1,
     REVOKED_e = 2,
   };
-  void to_json(json& j, const LcdsInvitationState& v) {
+  inline void to_json(json& j, const LcdsInvitationState& v) {
     if(v == LcdsInvitationState::ACTIVE_e) {
       j = "ACTIVE";
       return;
@@ -20,7 +20,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LcdsInvitationState& v) {
+  inline void from_json(const json& j, LcdsInvitationState& v) {
     if(j.get<std::string>() == "ACTIVE") {
       v = LcdsInvitationState::ACTIVE_e;
       return;

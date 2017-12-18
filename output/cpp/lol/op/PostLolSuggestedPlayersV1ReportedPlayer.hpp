@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolSuggestedPlayersSuggestedPlayersReportedPlayer.hpp>
 namespace lol {
-  Result<void> PostLolSuggestedPlayersV1ReportedPlayer(const LeagueClient& _client, const LolSuggestedPlayersSuggestedPlayersReportedPlayer& resource)
+  inline Result<void> PostLolSuggestedPlayersV1ReportedPlayer(const LeagueClient& _client, const LolSuggestedPlayersSuggestedPlayersReportedPlayer& resource)
   {
     HttpsClient _client_(_client.host, false);
     try {

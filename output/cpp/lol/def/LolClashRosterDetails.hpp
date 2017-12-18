@@ -7,13 +7,13 @@ namespace lol {
     std::string shortName;
     int32_t iconColorId; 
   };
-  void to_json(json& j, const LolClashRosterDetails& v) {
+  inline void to_json(json& j, const LolClashRosterDetails& v) {
     j["iconId"] = v.iconId; 
     j["name"] = v.name; 
     j["shortName"] = v.shortName; 
     j["iconColorId"] = v.iconColorId; 
   }
-  void from_json(const json& j, LolClashRosterDetails& v) {
+  inline void from_json(const json& j, LolClashRosterDetails& v) {
     v.iconId = j.at("iconId").get<int32_t>(); 
     v.name = j.at("name").get<std::string>(); 
     v.shortName = j.at("shortName").get<std::string>(); 

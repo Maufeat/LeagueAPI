@@ -4,10 +4,10 @@ namespace lol {
   struct LolLootCurrencyConfiguration { 
     std::vector<std::string> currenciesUsingCapWallets; 
   };
-  void to_json(json& j, const LolLootCurrencyConfiguration& v) {
+  inline void to_json(json& j, const LolLootCurrencyConfiguration& v) {
     j["currenciesUsingCapWallets"] = v.currenciesUsingCapWallets; 
   }
-  void from_json(const json& j, LolLootCurrencyConfiguration& v) {
+  inline void from_json(const json& j, LolLootCurrencyConfiguration& v) {
     v.currenciesUsingCapWallets = j.at("currenciesUsingCapWallets").get<std::vector<std::string>>(); 
   }
 }

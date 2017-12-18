@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolLobbyLobbyBotParams.hpp>
 namespace lol {
-  Result<json> PostLolLobbyV1LobbyCustomBots(const LeagueClient& _client, const LolLobbyLobbyBotParams& parameters)
+  inline Result<json> PostLolLobbyV1LobbyCustomBots(const LeagueClient& _client, const LolLobbyLobbyBotParams& parameters)
   {
     HttpsClient _client_(_client.host, false);
     try {

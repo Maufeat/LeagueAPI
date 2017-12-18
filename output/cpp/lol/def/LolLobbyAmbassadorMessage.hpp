@@ -8,14 +8,14 @@ namespace lol {
     json payload;
     std::string message; 
   };
-  void to_json(json& j, const LolLobbyAmbassadorMessage& v) {
+  inline void to_json(json& j, const LolLobbyAmbassadorMessage& v) {
     j["httpStatus"] = v.httpStatus; 
     j["errorCode"] = v.errorCode; 
     j["implementationDetails"] = v.implementationDetails; 
     j["payload"] = v.payload; 
     j["message"] = v.message; 
   }
-  void from_json(const json& j, LolLobbyAmbassadorMessage& v) {
+  inline void from_json(const json& j, LolLobbyAmbassadorMessage& v) {
     v.httpStatus = j.at("httpStatus").get<int32_t>(); 
     v.errorCode = j.at("errorCode").get<std::string>(); 
     v.implementationDetails = j.at("implementationDetails").get<std::string>(); 

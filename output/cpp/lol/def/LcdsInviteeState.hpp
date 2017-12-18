@@ -12,7 +12,7 @@ namespace lol {
     PENDING_e = 1,
     QUIT_e = 6,
   };
-  void to_json(json& j, const LcdsInviteeState& v) {
+  inline void to_json(json& j, const LcdsInviteeState& v) {
     if(v == LcdsInviteeState::ACCEPTED_e) {
       j = "ACCEPTED";
       return;
@@ -50,7 +50,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LcdsInviteeState& v) {
+  inline void from_json(const json& j, LcdsInviteeState& v) {
     if(j.get<std::string>() == "ACCEPTED") {
       v = LcdsInviteeState::ACCEPTED_e;
       return;

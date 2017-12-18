@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolChampSelectLegacyTeamBoost.hpp>
 namespace lol {
-  Result<LolChampSelectLegacyTeamBoost> GetLolChampSelectLegacyV1TeamBoost(const LeagueClient& _client)
+  inline Result<LolChampSelectLegacyTeamBoost> GetLolChampSelectLegacyV1TeamBoost(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

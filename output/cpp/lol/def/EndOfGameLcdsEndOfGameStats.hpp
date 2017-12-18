@@ -1,9 +1,9 @@
 #pragma once
 #include<lol/base_def.hpp> 
 #include <lol/def/EndOfGameLcdsPointsPenalty.hpp>
+#include <lol/def/EndOfGameLcdsTeamInfo.hpp>
 #include <lol/def/EndOfGameLcdsSpell.hpp>
 #include <lol/def/EndOfGameLcdsPlayerParticipantStatsSummary.hpp>
-#include <lol/def/EndOfGameLcdsTeamInfo.hpp>
 namespace lol {
   struct EndOfGameLcdsEndOfGameStats { 
     std::string roomName;
@@ -63,7 +63,7 @@ namespace lol {
     int32_t customMsecsUntilReset;
     uint32_t gameLength; 
   };
-  void to_json(json& j, const EndOfGameLcdsEndOfGameStats& v) {
+  inline void to_json(json& j, const EndOfGameLcdsEndOfGameStats& v) {
     j["roomName"] = v.roomName; 
     j["teamPlayerParticipantStats"] = v.teamPlayerParticipantStats; 
     j["skinId"] = v.skinId; 
@@ -121,7 +121,7 @@ namespace lol {
     j["customMsecsUntilReset"] = v.customMsecsUntilReset; 
     j["gameLength"] = v.gameLength; 
   }
-  void from_json(const json& j, EndOfGameLcdsEndOfGameStats& v) {
+  inline void from_json(const json& j, EndOfGameLcdsEndOfGameStats& v) {
     v.roomName = j.at("roomName").get<std::string>(); 
     v.teamPlayerParticipantStats = j.at("teamPlayerParticipantStats").get<std::vector<EndOfGameLcdsPlayerParticipantStatsSummary>>(); 
     v.skinId = j.at("skinId").get<int32_t>(); 

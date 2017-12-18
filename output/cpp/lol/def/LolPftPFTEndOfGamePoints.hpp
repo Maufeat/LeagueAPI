@@ -10,7 +10,7 @@ namespace lol {
     int32_t pointsUsed;
     int32_t pointChangeFromGameplay; 
   };
-  void to_json(json& j, const LolPftPFTEndOfGamePoints& v) {
+  inline void to_json(json& j, const LolPftPFTEndOfGamePoints& v) {
     j["pointsUntilNextReroll"] = v.pointsUntilNextReroll; 
     j["previousPoints"] = v.previousPoints; 
     j["totalPoints"] = v.totalPoints; 
@@ -19,7 +19,7 @@ namespace lol {
     j["pointsUsed"] = v.pointsUsed; 
     j["pointChangeFromGameplay"] = v.pointChangeFromGameplay; 
   }
-  void from_json(const json& j, LolPftPFTEndOfGamePoints& v) {
+  inline void from_json(const json& j, LolPftPFTEndOfGamePoints& v) {
     v.pointsUntilNextReroll = j.at("pointsUntilNextReroll").get<int32_t>(); 
     v.previousPoints = j.at("previousPoints").get<int32_t>(); 
     v.totalPoints = j.at("totalPoints").get<int32_t>(); 

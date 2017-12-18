@@ -8,13 +8,13 @@ namespace lol {
     std::string note;
     uint64_t id; 
   };
-  void to_json(json& j, const LolChatFriendRequestResource& v) {
+  inline void to_json(json& j, const LolChatFriendRequestResource& v) {
     j["name"] = v.name; 
     j["direction"] = v.direction; 
     j["note"] = v.note; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, LolChatFriendRequestResource& v) {
+  inline void from_json(const json& j, LolChatFriendRequestResource& v) {
     v.name = j.at("name").get<std::string>(); 
     v.direction = j.at("direction").get<LolChatFriendRequestDirection>(); 
     v.note = j.at("note").get<std::string>(); 

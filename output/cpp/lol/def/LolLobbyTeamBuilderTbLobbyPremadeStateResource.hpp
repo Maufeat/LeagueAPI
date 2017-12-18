@@ -1,8 +1,8 @@
 #pragma once
 #include<lol/base_def.hpp> 
 #include <lol/def/LolLobbyTeamBuilderTbLobbySlotResource.hpp>
-#include <lol/def/LolLobbyTeamBuilderReadyStateV1.hpp>
 #include <lol/def/LolLobbyTeamBuilderTbLobbyBackwardsToPremadeTransitionResource.hpp>
+#include <lol/def/LolLobbyTeamBuilderReadyStateV1.hpp>
 namespace lol {
   struct LolLobbyTeamBuilderTbLobbyPremadeStateResource { 
     LolLobbyTeamBuilderReadyStateV1 readyState;
@@ -21,7 +21,7 @@ namespace lol {
     std::string draftPremadeId;
     bool showPositionSelector; 
   };
-  void to_json(json& j, const LolLobbyTeamBuilderTbLobbyPremadeStateResource& v) {
+  inline void to_json(json& j, const LolLobbyTeamBuilderTbLobbyPremadeStateResource& v) {
     j["readyState"] = v.readyState; 
     j["autoFillProtectedForPromos"] = v.autoFillProtectedForPromos; 
     j["timer"] = v.timer; 
@@ -38,7 +38,7 @@ namespace lol {
     j["draftPremadeId"] = v.draftPremadeId; 
     j["showPositionSelector"] = v.showPositionSelector; 
   }
-  void from_json(const json& j, LolLobbyTeamBuilderTbLobbyPremadeStateResource& v) {
+  inline void from_json(const json& j, LolLobbyTeamBuilderTbLobbyPremadeStateResource& v) {
     v.readyState = j.at("readyState").get<LolLobbyTeamBuilderReadyStateV1>(); 
     v.autoFillProtectedForPromos = j.at("autoFillProtectedForPromos").get<bool>(); 
     v.timer = j.at("timer").get<int64_t>(); 

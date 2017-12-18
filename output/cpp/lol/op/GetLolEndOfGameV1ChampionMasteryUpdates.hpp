@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolEndOfGameChampionMasteryUpdate.hpp>
 namespace lol {
-  Result<LolEndOfGameChampionMasteryUpdate> GetLolEndOfGameV1ChampionMasteryUpdates(const LeagueClient& _client)
+  inline Result<LolEndOfGameChampionMasteryUpdate> GetLolEndOfGameV1ChampionMasteryUpdates(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

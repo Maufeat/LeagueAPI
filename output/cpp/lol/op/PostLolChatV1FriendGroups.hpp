@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolChatGroupResource.hpp>
 namespace lol {
-  Result<json> PostLolChatV1FriendGroups(const LeagueClient& _client, const LolChatGroupResource& group)
+  inline Result<json> PostLolChatV1FriendGroups(const LeagueClient& _client, const LolChatGroupResource& group)
   {
     HttpsClient _client_(_client.host, false);
     try {

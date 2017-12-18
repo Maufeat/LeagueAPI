@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolGameflowPlayerStatus.hpp>
 namespace lol {
-  Result<LolGameflowPlayerStatus> GetLolGameflowV1GameflowMetadataPlayerStatus(const LeagueClient& _client)
+  inline Result<LolGameflowPlayerStatus> GetLolGameflowV1GameflowMetadataPlayerStatus(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

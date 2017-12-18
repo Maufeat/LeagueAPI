@@ -6,7 +6,7 @@ namespace lol {
     MsgPack_e = 3,
     YAML_e = 2,
   };
-  void to_json(json& j, const RemotingSerializedFormat& v) {
+  inline void to_json(json& j, const RemotingSerializedFormat& v) {
     if(v == RemotingSerializedFormat::JSON_e) {
       j = "JSON";
       return;
@@ -20,7 +20,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, RemotingSerializedFormat& v) {
+  inline void from_json(const json& j, RemotingSerializedFormat& v) {
     if(j.get<std::string>() == "JSON") {
       v = RemotingSerializedFormat::JSON_e;
       return;

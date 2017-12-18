@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/LolPftPFTEndOfGameTeam.hpp>
 #include <lol/def/LolPftPFTEndOfGamePoints.hpp>
+#include <lol/def/LolPftPFTEndOfGameTeam.hpp>
 namespace lol {
   struct LolPftPFTEndOfGameStats { 
     std::string roomName;
@@ -63,7 +63,7 @@ namespace lol {
     int32_t customMsecsUntilReset;
     int32_t gameLength; 
   };
-  void to_json(json& j, const LolPftPFTEndOfGameStats& v) {
+  inline void to_json(json& j, const LolPftPFTEndOfGameStats& v) {
     j["roomName"] = v.roomName; 
     j["skinId"] = v.skinId; 
     j["elo"] = v.elo; 
@@ -123,7 +123,7 @@ namespace lol {
     j["customMsecsUntilReset"] = v.customMsecsUntilReset; 
     j["gameLength"] = v.gameLength; 
   }
-  void from_json(const json& j, LolPftPFTEndOfGameStats& v) {
+  inline void from_json(const json& j, LolPftPFTEndOfGameStats& v) {
     v.roomName = j.at("roomName").get<std::string>(); 
     v.skinId = j.at("skinId").get<int32_t>(); 
     v.elo = j.at("elo").get<int32_t>(); 

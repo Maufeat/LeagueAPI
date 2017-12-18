@@ -23,7 +23,7 @@ namespace lol {
     int32_t teamId;
     int32_t skinIndex; 
   };
-  void to_json(json& j, const EndOfGameLcdsPlayerParticipantStatsSummary& v) {
+  inline void to_json(json& j, const EndOfGameLcdsPlayerParticipantStatsSummary& v) {
     j["eloChange"] = v.eloChange; 
     j["leaver"] = v.leaver; 
     j["statistics"] = v.statistics; 
@@ -44,7 +44,7 @@ namespace lol {
     j["teamId"] = v.teamId; 
     j["skinIndex"] = v.skinIndex; 
   }
-  void from_json(const json& j, EndOfGameLcdsPlayerParticipantStatsSummary& v) {
+  inline void from_json(const json& j, EndOfGameLcdsPlayerParticipantStatsSummary& v) {
     v.eloChange = j.at("eloChange").get<int32_t>(); 
     v.leaver = j.at("leaver").get<bool>(); 
     v.statistics = j.at("statistics").get<std::vector<EndOfGameLcdsRawStatDTO>>(); 

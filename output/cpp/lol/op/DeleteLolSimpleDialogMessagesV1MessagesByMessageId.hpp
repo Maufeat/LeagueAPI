@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<json> DeleteLolSimpleDialogMessagesV1MessagesByMessageId(const LeagueClient& _client, const int64_t& messageId)
+  inline Result<json> DeleteLolSimpleDialogMessagesV1MessagesByMessageId(const LeagueClient& _client, const int64_t& messageId)
   {
     HttpsClient _client_(_client.host, false);
     try {

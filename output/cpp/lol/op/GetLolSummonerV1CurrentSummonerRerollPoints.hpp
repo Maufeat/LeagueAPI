@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolSummonerSummonerRerollPoints.hpp>
 namespace lol {
-  Result<LolSummonerSummonerRerollPoints> GetLolSummonerV1CurrentSummonerRerollPoints(const LeagueClient& _client)
+  inline Result<LolSummonerSummonerRerollPoints> GetLolSummonerV1CurrentSummonerRerollPoints(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

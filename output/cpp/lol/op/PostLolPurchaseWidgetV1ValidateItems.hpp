@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolPurchaseWidgetValidationRequest.hpp>
 namespace lol {
-  Result<json> PostLolPurchaseWidgetV1ValidateItems(const LeagueClient& _client, const LolPurchaseWidgetValidationRequest& validationRequest)
+  inline Result<json> PostLolPurchaseWidgetV1ValidateItems(const LeagueClient& _client, const LolPurchaseWidgetValidationRequest& validationRequest)
   {
     HttpsClient _client_(_client.host, false);
     try {

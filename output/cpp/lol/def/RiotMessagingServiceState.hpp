@@ -7,7 +7,7 @@ namespace lol {
     Disconnected_e = 1,
     Disconnecting_e = 0,
   };
-  void to_json(json& j, const RiotMessagingServiceState& v) {
+  inline void to_json(json& j, const RiotMessagingServiceState& v) {
     if(v == RiotMessagingServiceState::Connected_e) {
       j = "Connected";
       return;
@@ -25,7 +25,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, RiotMessagingServiceState& v) {
+  inline void from_json(const json& j, RiotMessagingServiceState& v) {
     if(j.get<std::string>() == "Connected") {
       v = RiotMessagingServiceState::Connected_e;
       return;

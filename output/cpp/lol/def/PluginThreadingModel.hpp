@@ -7,7 +7,7 @@ namespace lol {
     parallel_e = 4,
     sequential_e = 2,
   };
-  void to_json(json& j, const PluginThreadingModel& v) {
+  inline void to_json(json& j, const PluginThreadingModel& v) {
     if(v == PluginThreadingModel::concurrent_e) {
       j = "concurrent";
       return;
@@ -25,7 +25,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, PluginThreadingModel& v) {
+  inline void from_json(const json& j, PluginThreadingModel& v) {
     if(j.get<std::string>() == "concurrent") {
       v = PluginThreadingModel::concurrent_e;
       return;

@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolClashRankedScoutingMember.hpp>
 namespace lol {
-  Result<std::vector<LolClashRankedScoutingMember>> GetLolClashV1ScoutingRanked(const LeagueClient& _client, const std::vector<uint64_t>& summonerIds)
+  inline Result<std::vector<LolClashRankedScoutingMember>> GetLolClashV1ScoutingRanked(const LeagueClient& _client, const std::vector<uint64_t>& summonerIds)
   {
     HttpsClient _client_(_client.host, false);
     try {

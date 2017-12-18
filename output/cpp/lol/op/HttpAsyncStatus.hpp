@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<json> HttpAsyncStatus(const LeagueClient& _client, const uint32_t& asyncToken)
+  inline Result<json> HttpAsyncStatus(const LeagueClient& _client, const uint32_t& asyncToken)
   {
     HttpsClient _client_(_client.host, false);
     try {

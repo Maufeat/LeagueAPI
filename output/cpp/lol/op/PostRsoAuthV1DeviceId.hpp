@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/RsoAuthDeviceId.hpp>
 namespace lol {
-  Result<RsoAuthDeviceId> PostRsoAuthV1DeviceId(const LeagueClient& _client)
+  inline Result<RsoAuthDeviceId> PostRsoAuthV1DeviceId(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

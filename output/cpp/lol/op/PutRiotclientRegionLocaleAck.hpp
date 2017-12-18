@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<void> PutRiotclientRegionLocaleAck(const LeagueClient& _client, const uint32_t& requestId)
+  inline Result<void> PutRiotclientRegionLocaleAck(const LeagueClient& _client, const uint32_t& requestId)
   {
     HttpsClient _client_(_client.host, false);
     try {

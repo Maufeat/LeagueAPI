@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<json> MemoryPools(const LeagueClient& _client, const std::optional<std::string>& contextName = std::nullopt)
+  inline Result<json> MemoryPools(const LeagueClient& _client, const std::optional<std::string>& contextName = std::nullopt)
   {
     HttpsClient _client_(_client.host, false);
     try {

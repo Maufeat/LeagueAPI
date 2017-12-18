@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolSummonerAutoFillDto.hpp>
 namespace lol {
-  Result<LolSummonerAutoFillDto> GetLolSummonerV1CurrentSummonerAutofill(const LeagueClient& _client)
+  inline Result<LolSummonerAutoFillDto> GetLolSummonerV1CurrentSummonerAutofill(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

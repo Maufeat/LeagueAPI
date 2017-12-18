@@ -13,7 +13,7 @@ namespace lol {
     int32_t profileIconId;
     uint64_t acctId; 
   };
-  void to_json(json& j, const PrivateSummonerDTO& v) {
+  inline void to_json(json& j, const PrivateSummonerDTO& v) {
     j["previousSeasonHighestTier"] = v.previousSeasonHighestTier; 
     j["nameChangeFlag"] = v.nameChangeFlag; 
     j["displayEloQuestionaire"] = v.displayEloQuestionaire; 
@@ -25,7 +25,7 @@ namespace lol {
     j["profileIconId"] = v.profileIconId; 
     j["acctId"] = v.acctId; 
   }
-  void from_json(const json& j, PrivateSummonerDTO& v) {
+  inline void from_json(const json& j, PrivateSummonerDTO& v) {
     v.previousSeasonHighestTier = j.at("previousSeasonHighestTier").get<std::string>(); 
     v.nameChangeFlag = j.at("nameChangeFlag").get<bool>(); 
     v.displayEloQuestionaire = j.at("displayEloQuestionaire").get<bool>(); 

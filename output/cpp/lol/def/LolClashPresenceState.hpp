@@ -6,7 +6,7 @@ namespace lol {
     NONE_e = 0,
     SCOUTING_e = 2,
   };
-  void to_json(json& j, const LolClashPresenceState& v) {
+  inline void to_json(json& j, const LolClashPresenceState& v) {
     if(v == LolClashPresenceState::LOCKED_IN_e) {
       j = "LOCKED_IN";
       return;
@@ -20,7 +20,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolClashPresenceState& v) {
+  inline void from_json(const json& j, LolClashPresenceState& v) {
     if(j.get<std::string>() == "LOCKED_IN") {
       v = LolClashPresenceState::LOCKED_IN_e;
       return;

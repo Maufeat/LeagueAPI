@@ -7,7 +7,7 @@ namespace lol {
     LOGGING_OUT_e = 2,
     SUCCEEDED_e = 1,
   };
-  void to_json(json& j, const LolSettingsLoginSessionStates& v) {
+  inline void to_json(json& j, const LolSettingsLoginSessionStates& v) {
     if(v == LolSettingsLoginSessionStates::ERROR_e) {
       j = "ERROR";
       return;
@@ -25,7 +25,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolSettingsLoginSessionStates& v) {
+  inline void from_json(const json& j, LolSettingsLoginSessionStates& v) {
     if(j.get<std::string>() == "ERROR") {
       v = LolSettingsLoginSessionStates::ERROR_e;
       return;

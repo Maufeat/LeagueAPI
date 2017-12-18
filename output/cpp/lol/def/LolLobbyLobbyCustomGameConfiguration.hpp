@@ -17,7 +17,7 @@ namespace lol {
     std::string gameServerRegion;
     uint32_t maxPlayerCount; 
   };
-  void to_json(json& j, const LolLobbyLobbyCustomGameConfiguration& v) {
+  inline void to_json(json& j, const LolLobbyLobbyCustomGameConfiguration& v) {
     j["gameMutator"] = v.gameMutator; 
     j["mutators"] = v.mutators; 
     j["mapId"] = v.mapId; 
@@ -31,7 +31,7 @@ namespace lol {
     j["gameServerRegion"] = v.gameServerRegion; 
     j["maxPlayerCount"] = v.maxPlayerCount; 
   }
-  void from_json(const json& j, LolLobbyLobbyCustomGameConfiguration& v) {
+  inline void from_json(const json& j, LolLobbyLobbyCustomGameConfiguration& v) {
     v.gameMutator = j.at("gameMutator").get<std::string>(); 
     v.mutators = j.at("mutators").get<LolLobbyQueueGameTypeConfig>(); 
     v.mapId = j.at("mapId").get<int32_t>(); 

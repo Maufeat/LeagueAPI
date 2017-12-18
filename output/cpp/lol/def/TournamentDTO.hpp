@@ -20,7 +20,7 @@ namespace lol {
     int64_t scoutingTimeMs;
     int64_t rosterCreateDeadline; 
   };
-  void to_json(json& j, const TournamentDTO& v) {
+  inline void to_json(json& j, const TournamentDTO& v) {
     j["buyInOptions"] = v.buyInOptions; 
     j["scheduleEndTime"] = v.scheduleEndTime; 
     j["rewardConfig"] = v.rewardConfig; 
@@ -37,7 +37,7 @@ namespace lol {
     j["scoutingTimeMs"] = v.scoutingTimeMs; 
     j["rosterCreateDeadline"] = v.rosterCreateDeadline; 
   }
-  void from_json(const json& j, TournamentDTO& v) {
+  inline void from_json(const json& j, TournamentDTO& v) {
     v.buyInOptions = j.at("buyInOptions").get<std::vector<int32_t>>(); 
     v.scheduleEndTime = j.at("scheduleEndTime").get<int64_t>(); 
     v.rewardConfig = j.at("rewardConfig").get<std::vector<ClashRewardConfigClient>>(); 

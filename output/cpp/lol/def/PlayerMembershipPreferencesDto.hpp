@@ -5,11 +5,11 @@ namespace lol {
     bool shareClubAffiliation;
     std::string primaryActiveClubKey; 
   };
-  void to_json(json& j, const PlayerMembershipPreferencesDto& v) {
+  inline void to_json(json& j, const PlayerMembershipPreferencesDto& v) {
     j["shareClubAffiliation"] = v.shareClubAffiliation; 
     j["primaryActiveClubKey"] = v.primaryActiveClubKey; 
   }
-  void from_json(const json& j, PlayerMembershipPreferencesDto& v) {
+  inline void from_json(const json& j, PlayerMembershipPreferencesDto& v) {
     v.shareClubAffiliation = j.at("shareClubAffiliation").get<bool>(); 
     v.primaryActiveClubKey = j.at("primaryActiveClubKey").get<std::string>(); 
   }

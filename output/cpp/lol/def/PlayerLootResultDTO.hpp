@@ -9,14 +9,14 @@ namespace lol {
     std::vector<std::string> redeemed;
     std::vector<PlayerLootDTO> removed; 
   };
-  void to_json(json& j, const PlayerLootResultDTO& v) {
+  inline void to_json(json& j, const PlayerLootResultDTO& v) {
     j["details"] = v.details; 
     j["added"] = v.added; 
     j["status"] = v.status; 
     j["redeemed"] = v.redeemed; 
     j["removed"] = v.removed; 
   }
-  void from_json(const json& j, PlayerLootResultDTO& v) {
+  inline void from_json(const json& j, PlayerLootResultDTO& v) {
     v.details = j.at("details").get<std::string>(); 
     v.added = j.at("added").get<std::vector<PlayerLootDTO>>(); 
     v.status = j.at("status").get<std::string>(); 

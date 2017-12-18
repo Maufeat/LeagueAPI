@@ -12,7 +12,7 @@ namespace lol {
     std::string shortName;
     int64_t createTime; 
   };
-  void to_json(json& j, const LolClashTournamentWinnerInfo& v) {
+  inline void to_json(json& j, const LolClashTournamentWinnerInfo& v) {
     j["logoColor"] = v.logoColor; 
     j["averageWinDuration"] = v.averageWinDuration; 
     j["logo"] = v.logo; 
@@ -23,7 +23,7 @@ namespace lol {
     j["shortName"] = v.shortName; 
     j["createTime"] = v.createTime; 
   }
-  void from_json(const json& j, LolClashTournamentWinnerInfo& v) {
+  inline void from_json(const json& j, LolClashTournamentWinnerInfo& v) {
     v.logoColor = j.at("logoColor").get<int32_t>(); 
     v.averageWinDuration = j.at("averageWinDuration").get<int64_t>(); 
     v.logo = j.at("logo").get<int32_t>(); 

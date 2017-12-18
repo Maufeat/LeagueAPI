@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/RecofrienderNetworkConfig.hpp>
 namespace lol {
-  Result<RecofrienderNetworkConfig> GetRecofrienderV1ConfigByNetwork(const LeagueClient& _client, const std::string& network)
+  inline Result<RecofrienderNetworkConfig> GetRecofrienderV1ConfigByNetwork(const LeagueClient& _client, const std::string& network)
   {
     HttpsClient _client_(_client.host, false);
     try {

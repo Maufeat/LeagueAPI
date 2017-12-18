@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolInventoryInventoryItem.hpp>
 namespace lol {
-  Result<std::vector<LolInventoryInventoryItem>> GetLolInventoryV1InventoryEmotes(const LeagueClient& _client)
+  inline Result<std::vector<LolInventoryInventoryItem>> GetLolInventoryV1InventoryEmotes(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

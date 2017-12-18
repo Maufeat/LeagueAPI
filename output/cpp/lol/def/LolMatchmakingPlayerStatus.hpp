@@ -6,13 +6,13 @@ namespace lol {
     std::optional<LolMatchmakingLobbyStatus> lastQueuedLobbyStatus;
     std::optional<LolMatchmakingLobbyStatus> currentLobbyStatus; 
   };
-  void to_json(json& j, const LolMatchmakingPlayerStatus& v) {
+  inline void to_json(json& j, const LolMatchmakingPlayerStatus& v) {
     if(v.lastQueuedLobbyStatus)
       j["lastQueuedLobbyStatus"] = *v.lastQueuedLobbyStatus;
     if(v.currentLobbyStatus)
       j["currentLobbyStatus"] = *v.currentLobbyStatus;
   }
-  void from_json(const json& j, LolMatchmakingPlayerStatus& v) {
+  inline void from_json(const json& j, LolMatchmakingPlayerStatus& v) {
     if(auto it = j.find("lastQueuedLobbyStatus"); it != j.end() && !it->is_null())
       v.lastQueuedLobbyStatus = it->get<std::optional<LolMatchmakingLobbyStatus>>(); 
     if(auto it = j.find("currentLobbyStatus"); it != j.end() && !it->is_null())

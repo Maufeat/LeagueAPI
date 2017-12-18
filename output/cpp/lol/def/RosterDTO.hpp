@@ -20,7 +20,7 @@ namespace lol {
     bool eliminated;
     std::string name; 
   };
-  void to_json(json& j, const RosterDTO& v) {
+  inline void to_json(json& j, const RosterDTO& v) {
     j["logoColor"] = v.logoColor; 
     j["wins"] = v.wins; 
     j["tier"] = v.tier; 
@@ -36,7 +36,7 @@ namespace lol {
     j["eliminated"] = v.eliminated; 
     j["name"] = v.name; 
   }
-  void from_json(const json& j, RosterDTO& v) {
+  inline void from_json(const json& j, RosterDTO& v) {
     v.logoColor = j.at("logoColor").get<int32_t>(); 
     v.wins = j.at("wins").get<int32_t>(); 
     v.tier = j.at("tier").get<int32_t>(); 

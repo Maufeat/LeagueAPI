@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyLobbyInvitationState.hpp>
 #include <lol/def/LolLobbyEligibility.hpp>
+#include <lol/def/LolLobbyLobbyInvitationState.hpp>
 namespace lol {
   struct LolLobbyLobbyInvitation { 
     std::string toSummonerName;
@@ -15,7 +15,7 @@ namespace lol {
     json invitationMetaData;
     std::string id; 
   };
-  void to_json(json& j, const LolLobbyLobbyInvitation& v) {
+  inline void to_json(json& j, const LolLobbyLobbyInvitation& v) {
     j["toSummonerName"] = v.toSummonerName; 
     j["toSummonerId"] = v.toSummonerId; 
     j["eligibility"] = v.eligibility; 
@@ -27,7 +27,7 @@ namespace lol {
     j["invitationMetaData"] = v.invitationMetaData; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, LolLobbyLobbyInvitation& v) {
+  inline void from_json(const json& j, LolLobbyLobbyInvitation& v) {
     v.toSummonerName = j.at("toSummonerName").get<std::string>(); 
     v.toSummonerId = j.at("toSummonerId").get<uint64_t>(); 
     v.eligibility = j.at("eligibility").get<LolLobbyEligibility>(); 

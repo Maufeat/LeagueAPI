@@ -24,7 +24,7 @@ namespace lol {
     std::vector<LcdsPlayerParticipant> observers;
     std::string gameType; 
   };
-  void to_json(json& j, const LcdsGameDTO& v) {
+  inline void to_json(json& j, const LcdsGameDTO& v) {
     j["roomName"] = v.roomName; 
     j["gameTypeConfigId"] = v.gameTypeConfigId; 
     j["ownerSummary"] = v.ownerSummary; 
@@ -46,7 +46,7 @@ namespace lol {
     j["observers"] = v.observers; 
     j["gameType"] = v.gameType; 
   }
-  void from_json(const json& j, LcdsGameDTO& v) {
+  inline void from_json(const json& j, LcdsGameDTO& v) {
     v.roomName = j.at("roomName").get<std::string>(); 
     v.gameTypeConfigId = j.at("gameTypeConfigId").get<int32_t>(); 
     v.ownerSummary = j.at("ownerSummary").get<LcdsPlayerParticipant>(); 

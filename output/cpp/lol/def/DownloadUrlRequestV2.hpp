@@ -5,11 +5,11 @@ namespace lol {
     std::string platformId;
     uint64_t gameId; 
   };
-  void to_json(json& j, const DownloadUrlRequestV2& v) {
+  inline void to_json(json& j, const DownloadUrlRequestV2& v) {
     j["platformId"] = v.platformId; 
     j["gameId"] = v.gameId; 
   }
-  void from_json(const json& j, DownloadUrlRequestV2& v) {
+  inline void from_json(const json& j, DownloadUrlRequestV2& v) {
     v.platformId = j.at("platformId").get<std::string>(); 
     v.gameId = j.at("gameId").get<uint64_t>(); 
   }

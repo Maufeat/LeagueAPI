@@ -14,7 +14,7 @@ namespace lol {
     bool newRuneSlotUnlocked;
     bool leveledUp; 
   };
-  void to_json(json& j, const PlayerLevelUpEvent& v) {
+  inline void to_json(json& j, const PlayerLevelUpEvent& v) {
     j["newQueues"] = v.newQueues; 
     j["newSummonerLevel"] = v.newSummonerLevel; 
     j["nowHasAccessToLoot"] = v.nowHasAccessToLoot; 
@@ -27,7 +27,7 @@ namespace lol {
     j["newRuneSlotUnlocked"] = v.newRuneSlotUnlocked; 
     j["leveledUp"] = v.leveledUp; 
   }
-  void from_json(const json& j, PlayerLevelUpEvent& v) {
+  inline void from_json(const json& j, PlayerLevelUpEvent& v) {
     v.newQueues = j.at("newQueues").get<std::vector<int32_t>>(); 
     v.newSummonerLevel = j.at("newSummonerLevel").get<uint32_t>(); 
     v.nowHasAccessToLoot = j.at("nowHasAccessToLoot").get<bool>(); 

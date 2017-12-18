@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolLobbyLobbyCustomChampSelectStartResponse.hpp>
 namespace lol {
-  Result<LolLobbyLobbyCustomChampSelectStartResponse> PostLolLobbyV1LobbyCustomStartChampSelect(const LeagueClient& _client)
+  inline Result<LolLobbyLobbyCustomChampSelectStartResponse> PostLolLobbyV1LobbyCustomStartChampSelect(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

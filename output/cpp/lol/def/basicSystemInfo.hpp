@@ -8,13 +8,13 @@ namespace lol {
     uint64_t physicalMemory;
     basicOperatingSystemInfo operatingSystem; 
   };
-  void to_json(json& j, const basicSystemInfo& v) {
+  inline void to_json(json& j, const basicSystemInfo& v) {
     j["physicalProcessorCores"] = v.physicalProcessorCores; 
     j["processorSpeed"] = v.processorSpeed; 
     j["physicalMemory"] = v.physicalMemory; 
     j["operatingSystem"] = v.operatingSystem; 
   }
-  void from_json(const json& j, basicSystemInfo& v) {
+  inline void from_json(const json& j, basicSystemInfo& v) {
     v.physicalProcessorCores = j.at("physicalProcessorCores").get<uint32_t>(); 
     v.processorSpeed = j.at("processorSpeed").get<uint32_t>(); 
     v.physicalMemory = j.at("physicalMemory").get<uint64_t>(); 

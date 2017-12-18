@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolLoginLoginSession.hpp>
 namespace lol {
-  Result<LolLoginLoginSession> GetLolLoginV1Session(const LeagueClient& _client)
+  inline Result<LolLoginLoginSession> GetLolLoginV1Session(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

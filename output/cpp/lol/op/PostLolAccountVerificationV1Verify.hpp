@@ -3,7 +3,7 @@
 #include <lol/def/LolAccountVerificationVerifyResponse.hpp>
 #include <lol/def/LolAccountVerificationVerifyRequest.hpp>
 namespace lol {
-  Result<LolAccountVerificationVerifyResponse> PostLolAccountVerificationV1Verify(const LeagueClient& _client, const LolAccountVerificationVerifyRequest& VerifyRequest)
+  inline Result<LolAccountVerificationVerifyResponse> PostLolAccountVerificationV1Verify(const LeagueClient& _client, const LolAccountVerificationVerifyRequest& VerifyRequest)
   {
     HttpsClient _client_(_client.host, false);
     try {

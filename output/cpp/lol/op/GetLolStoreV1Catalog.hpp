@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolStoreCatalogItem.hpp>
 namespace lol {
-  Result<std::vector<LolStoreCatalogItem>> GetLolStoreV1Catalog(const LeagueClient& _client, const std::optional<std::vector<std::string>>& inventoryType = std::nullopt, const std::optional<std::vector<int32_t>>& itemId = std::nullopt)
+  inline Result<std::vector<LolStoreCatalogItem>> GetLolStoreV1Catalog(const LeagueClient& _client, const std::optional<std::vector<std::string>>& inventoryType = std::nullopt, const std::optional<std::vector<int32_t>>& itemId = std::nullopt)
   {
     HttpsClient _client_(_client.host, false);
     try {

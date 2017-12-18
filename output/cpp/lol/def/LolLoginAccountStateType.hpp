@@ -9,7 +9,7 @@ namespace lol {
     TRANSFERRING_IN_e = 4,
     TRANSFERRING_OUT_e = 3,
   };
-  void to_json(json& j, const LolLoginAccountStateType& v) {
+  inline void to_json(json& j, const LolLoginAccountStateType& v) {
     if(v == LolLoginAccountStateType::CREATING_e) {
       j = "CREATING";
       return;
@@ -35,7 +35,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolLoginAccountStateType& v) {
+  inline void from_json(const json& j, LolLoginAccountStateType& v) {
     if(j.get<std::string>() == "CREATING") {
       v = LolLoginAccountStateType::CREATING_e;
       return;

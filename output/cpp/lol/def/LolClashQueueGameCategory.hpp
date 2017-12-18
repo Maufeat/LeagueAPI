@@ -7,7 +7,7 @@ namespace lol {
     PvP_e = 2,
     VersusAi_e = 3,
   };
-  void to_json(json& j, const LolClashQueueGameCategory& v) {
+  inline void to_json(json& j, const LolClashQueueGameCategory& v) {
     if(v == LolClashQueueGameCategory::Custom_e) {
       j = "Custom";
       return;
@@ -25,7 +25,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolClashQueueGameCategory& v) {
+  inline void from_json(const json& j, LolClashQueueGameCategory& v) {
     if(j.get<std::string>() == "Custom") {
       v = LolClashQueueGameCategory::Custom_e;
       return;

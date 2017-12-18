@@ -11,16 +11,15 @@ find_package(OpenSSL REQUIRED)
 add_subdirectory(tiny-process-library)
 add_library(leagueapi STATIC 
 include/asio.cpp 
-YoloSwagger/templates/cpp/lol/base_def.hpp 
-YoloSwagger/templates/cpp/lol/base_op.hpp)
+output/cpp/lol/base_def.hpp 
+output/cpp/lol/base_op.hpp)
 
 # makes assio not depend on boost
 target_compile_definitions(leagueapi PUBLIC HAVE_OPENSSL USE_STANDALONE_ASIO ASIO_STANDALONE ASIO_SEPARATE_COMPILATION)
 target_include_directories(leagueapi PUBLIC 
 ${OPENSSL_INCLUDE_DIR}
 ${CMAKE_CURRENT_SOURCE_DIR}/include 
-${CMAKE_CURRENT_SOURCE_DIR}/output/cpp/
-${CMAKE_CURRENT_SOURCE_DIR}/YoloSwagger/templates/cpp)
+${CMAKE_CURRENT_SOURCE_DIR}/output/cpp)
 target_link_libraries(leagueapi ${OPENSSL_LIBRARIES} tiny-process-library)
 if(WIN32 AND NOT CYGWIN)
 	target_link_libraries(leagueapi ws2_32 crypt32 wsock32)

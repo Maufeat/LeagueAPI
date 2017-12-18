@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolGameQueuesQueueCustomGame.hpp>
 namespace lol {
-  Result<LolGameQueuesQueueCustomGame> GetLolGameQueuesV1CustomNonDefault(const LeagueClient& _client)
+  inline Result<LolGameQueuesQueueCustomGame> GetLolGameQueuesV1CustomNonDefault(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

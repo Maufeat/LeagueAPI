@@ -8,14 +8,14 @@ namespace lol {
     std::string errorType;
     int32_t id; 
   };
-  void to_json(json& j, const LolLobbyLobbyMatchmakingSearchErrorResource& v) {
+  inline void to_json(json& j, const LolLobbyLobbyMatchmakingSearchErrorResource& v) {
     j["penalizedSummonerId"] = v.penalizedSummonerId; 
     j["penaltyTimeRemaining"] = v.penaltyTimeRemaining; 
     j["message"] = v.message; 
     j["errorType"] = v.errorType; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, LolLobbyLobbyMatchmakingSearchErrorResource& v) {
+  inline void from_json(const json& j, LolLobbyLobbyMatchmakingSearchErrorResource& v) {
     v.penalizedSummonerId = j.at("penalizedSummonerId").get<uint64_t>(); 
     v.penaltyTimeRemaining = j.at("penaltyTimeRemaining").get<double>(); 
     v.message = j.at("message").get<std::string>(); 

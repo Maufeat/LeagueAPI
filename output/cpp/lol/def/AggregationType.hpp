@@ -6,7 +6,7 @@ namespace lol {
     none_e = 0,
     sum_e = 1,
   };
-  void to_json(json& j, const AggregationType& v) {
+  inline void to_json(json& j, const AggregationType& v) {
     if(v == AggregationType::average_e) {
       j = "average";
       return;
@@ -20,7 +20,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, AggregationType& v) {
+  inline void from_json(const json& j, AggregationType& v) {
     if(j.get<std::string>() == "average") {
       v = AggregationType::average_e;
       return;

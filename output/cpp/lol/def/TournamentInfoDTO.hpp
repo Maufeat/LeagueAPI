@@ -1,8 +1,8 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/TournamentDTO.hpp>
 #include <lol/def/PendingRosterDTO.hpp>
 #include <lol/def/RosterDTO.hpp>
+#include <lol/def/TournamentDTO.hpp>
 namespace lol {
   struct TournamentInfoDTO { 
     int32_t themeVp;
@@ -12,7 +12,7 @@ namespace lol {
     std::optional<RosterDTO> roster;
     std::optional<PendingRosterDTO> pendingRoster; 
   };
-  void to_json(json& j, const TournamentInfoDTO& v) {
+  inline void to_json(json& j, const TournamentInfoDTO& v) {
     j["themeVp"] = v.themeVp; 
     j["tournament"] = v.tournament; 
     j["inviteePendingRosters"] = v.inviteePendingRosters; 
@@ -22,7 +22,7 @@ namespace lol {
     if(v.pendingRoster)
       j["pendingRoster"] = *v.pendingRoster;
   }
-  void from_json(const json& j, TournamentInfoDTO& v) {
+  inline void from_json(const json& j, TournamentInfoDTO& v) {
     v.themeVp = j.at("themeVp").get<int32_t>(); 
     v.tournament = j.at("tournament").get<TournamentDTO>(); 
     v.inviteePendingRosters = j.at("inviteePendingRosters").get<std::vector<PendingRosterDTO>>(); 

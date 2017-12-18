@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolMapsMaps.hpp>
 namespace lol {
-  Result<LolMapsMaps> GetLolMapsV1MapById(const LeagueClient& _client, const int64_t& id)
+  inline Result<LolMapsMaps> GetLolMapsV1MapById(const LeagueClient& _client, const int64_t& id)
   {
     HttpsClient _client_(_client.host, false);
     try {

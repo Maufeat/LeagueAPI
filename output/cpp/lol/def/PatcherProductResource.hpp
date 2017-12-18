@@ -7,13 +7,13 @@ namespace lol {
     std::vector<PatcherComponentResource> components;
     std::string id; 
   };
-  void to_json(json& j, const PatcherProductResource& v) {
+  inline void to_json(json& j, const PatcherProductResource& v) {
     if(v.refresh_period)
       j["refresh_period"] = *v.refresh_period;
     j["components"] = v.components; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, PatcherProductResource& v) {
+  inline void from_json(const json& j, PatcherProductResource& v) {
     if(auto it = j.find("refresh_period"); it != j.end() && !it->is_null())
       v.refresh_period = it->get<std::optional<uint32_t>>(); 
     v.components = j.at("components").get<std::vector<PatcherComponentResource>>(); 

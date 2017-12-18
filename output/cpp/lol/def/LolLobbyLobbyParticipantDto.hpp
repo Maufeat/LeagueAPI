@@ -28,7 +28,7 @@ namespace lol {
     int32_t teamId;
     uint64_t summonerId; 
   };
-  void to_json(json& j, const LolLobbyLobbyParticipantDto& v) {
+  inline void to_json(json& j, const LolLobbyLobbyParticipantDto& v) {
     j["allowedKickOthers"] = v.allowedKickOthers; 
     j["botId"] = v.botId; 
     j["ready"] = v.ready; 
@@ -54,7 +54,7 @@ namespace lol {
     j["teamId"] = v.teamId; 
     j["summonerId"] = v.summonerId; 
   }
-  void from_json(const json& j, LolLobbyLobbyParticipantDto& v) {
+  inline void from_json(const json& j, LolLobbyLobbyParticipantDto& v) {
     v.allowedKickOthers = j.at("allowedKickOthers").get<bool>(); 
     v.botId = j.at("botId").get<std::string>(); 
     v.ready = j.at("ready").get<bool>(); 

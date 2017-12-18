@@ -8,7 +8,7 @@ namespace lol {
     rate_e = 4,
     unknown_e = 0,
   };
-  void to_json(json& j, const MetricType& v) {
+  inline void to_json(json& j, const MetricType& v) {
     if(v == MetricType::count_e) {
       j = "count";
       return;
@@ -30,7 +30,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, MetricType& v) {
+  inline void from_json(const json& j, MetricType& v) {
     if(j.get<std::string>() == "count") {
       v = MetricType::count_e;
       return;

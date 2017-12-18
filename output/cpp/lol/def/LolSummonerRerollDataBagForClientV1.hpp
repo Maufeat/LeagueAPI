@@ -10,7 +10,7 @@ namespace lol {
     int64_t pointsGainedLastGame;
     int32_t rerollCount; 
   };
-  void to_json(json& j, const LolSummonerRerollDataBagForClientV1& v) {
+  inline void to_json(json& j, const LolSummonerRerollDataBagForClientV1& v) {
     j["maximumRerolls"] = v.maximumRerolls; 
     j["pointsUntilNextReroll"] = v.pointsUntilNextReroll; 
     j["totalPoints"] = v.totalPoints; 
@@ -19,7 +19,7 @@ namespace lol {
     j["pointsGainedLastGame"] = v.pointsGainedLastGame; 
     j["rerollCount"] = v.rerollCount; 
   }
-  void from_json(const json& j, LolSummonerRerollDataBagForClientV1& v) {
+  inline void from_json(const json& j, LolSummonerRerollDataBagForClientV1& v) {
     v.maximumRerolls = j.at("maximumRerolls").get<uint32_t>(); 
     v.pointsUntilNextReroll = j.at("pointsUntilNextReroll").get<int64_t>(); 
     v.totalPoints = j.at("totalPoints").get<int64_t>(); 

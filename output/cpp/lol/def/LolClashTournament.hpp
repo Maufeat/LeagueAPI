@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/LolClashTournamentPhase.hpp>
 #include <lol/def/ClashRewardConfigClient.hpp>
+#include <lol/def/LolClashTournamentPhase.hpp>
 namespace lol {
   struct LolClashTournament { 
     int64_t endTimeMs;
@@ -19,7 +19,7 @@ namespace lol {
     int64_t scoutingDurationMs;
     int32_t rosterSize; 
   };
-  void to_json(json& j, const LolClashTournament& v) {
+  inline void to_json(json& j, const LolClashTournament& v) {
     j["endTimeMs"] = v.endTimeMs; 
     j["buyInOptions"] = v.buyInOptions; 
     j["phases"] = v.phases; 
@@ -35,7 +35,7 @@ namespace lol {
     j["scoutingDurationMs"] = v.scoutingDurationMs; 
     j["rosterSize"] = v.rosterSize; 
   }
-  void from_json(const json& j, LolClashTournament& v) {
+  inline void from_json(const json& j, LolClashTournament& v) {
     v.endTimeMs = j.at("endTimeMs").get<int64_t>(); 
     v.buyInOptions = j.at("buyInOptions").get<std::vector<int32_t>>(); 
     v.phases = j.at("phases").get<std::vector<LolClashTournamentPhase>>(); 

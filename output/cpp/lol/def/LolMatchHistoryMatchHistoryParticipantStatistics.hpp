@@ -109,7 +109,7 @@ namespace lol {
     int64_t perk4Var1;
     int64_t combatPlayerScore; 
   };
-  void to_json(json& j, const LolMatchHistoryMatchHistoryParticipantStatistics& v) {
+  inline void to_json(json& j, const LolMatchHistoryMatchHistoryParticipantStatistics& v) {
     j["playerScore6"] = v.playerScore6; 
     j["pentaKills"] = v.pentaKills; 
     j["totalDamageTaken"] = v.totalDamageTaken; 
@@ -217,7 +217,7 @@ namespace lol {
     j["perk4Var1"] = v.perk4Var1; 
     j["combatPlayerScore"] = v.combatPlayerScore; 
   }
-  void from_json(const json& j, LolMatchHistoryMatchHistoryParticipantStatistics& v) {
+  inline void from_json(const json& j, LolMatchHistoryMatchHistoryParticipantStatistics& v) {
     v.playerScore6 = j.at("playerScore6").get<int64_t>(); 
     v.pentaKills = j.at("pentaKills").get<int64_t>(); 
     v.totalDamageTaken = j.at("totalDamageTaken").get<int64_t>(); 

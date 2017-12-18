@@ -6,12 +6,12 @@ namespace lol {
     bool showPresetPages;
     bool gridModeEnabled; 
   };
-  void to_json(json& j, const LolPerksUISettings& v) {
+  inline void to_json(json& j, const LolPerksUISettings& v) {
     j["showLongDescriptions"] = v.showLongDescriptions; 
     j["showPresetPages"] = v.showPresetPages; 
     j["gridModeEnabled"] = v.gridModeEnabled; 
   }
-  void from_json(const json& j, LolPerksUISettings& v) {
+  inline void from_json(const json& j, LolPerksUISettings& v) {
     v.showLongDescriptions = j.at("showLongDescriptions").get<bool>(); 
     v.showPresetPages = j.at("showPresetPages").get<bool>(); 
     v.gridModeEnabled = j.at("gridModeEnabled").get<bool>(); 

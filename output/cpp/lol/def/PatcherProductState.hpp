@@ -13,7 +13,7 @@ namespace lol {
     bool isCorrupted;
     std::string id; 
   };
-  void to_json(json& j, const PatcherProductState& v) {
+  inline void to_json(json& j, const PatcherProductState& v) {
     j["components"] = v.components; 
     j["isStopped"] = v.isStopped; 
     j["isUpdateAvailable"] = v.isUpdateAvailable; 
@@ -23,7 +23,7 @@ namespace lol {
     j["isCorrupted"] = v.isCorrupted; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, PatcherProductState& v) {
+  inline void from_json(const json& j, PatcherProductState& v) {
     v.components = j.at("components").get<std::vector<PatcherComponentState>>(); 
     v.isStopped = j.at("isStopped").get<bool>(); 
     v.isUpdateAvailable = j.at("isUpdateAvailable").get<bool>(); 

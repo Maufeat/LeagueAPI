@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolChampSelectLegacyChampSelectPickableChampions.hpp>
 namespace lol {
-  Result<LolChampSelectLegacyChampSelectPickableChampions> GetLolChampSelectLegacyV1PickableChampions(const LeagueClient& _client)
+  inline Result<LolChampSelectLegacyChampSelectPickableChampions> GetLolChampSelectLegacyV1PickableChampions(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

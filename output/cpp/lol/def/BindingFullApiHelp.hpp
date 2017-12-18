@@ -9,12 +9,12 @@ namespace lol {
     std::vector<BindingFullTypeHelp> types;
     std::vector<BindingFullFunctionHelp> functions; 
   };
-  void to_json(json& j, const BindingFullApiHelp& v) {
+  inline void to_json(json& j, const BindingFullApiHelp& v) {
     j["events"] = v.events; 
     j["types"] = v.types; 
     j["functions"] = v.functions; 
   }
-  void from_json(const json& j, BindingFullApiHelp& v) {
+  inline void from_json(const json& j, BindingFullApiHelp& v) {
     v.events = j.at("events").get<std::vector<BindingFullEventHelp>>(); 
     v.types = j.at("types").get<std::vector<BindingFullTypeHelp>>(); 
     v.functions = j.at("functions").get<std::vector<BindingFullFunctionHelp>>(); 

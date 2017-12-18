@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<void> DeleteLolLoginV1ShutdownLocksByLockName(const LeagueClient& _client, const std::string& lockName)
+  inline Result<void> DeleteLolLoginV1ShutdownLocksByLockName(const LeagueClient& _client, const std::string& lockName)
   {
     HttpsClient _client_(_client.host, false);
     try {

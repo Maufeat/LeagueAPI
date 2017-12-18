@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolChatFriendResource.hpp>
 namespace lol {
-  Result<LolChatFriendResource> GetLolChatV1FriendsById(const LeagueClient& _client, const uint64_t& id)
+  inline Result<LolChatFriendResource> GetLolChatV1FriendsById(const LeagueClient& _client, const uint64_t& id)
   {
     HttpsClient _client_(_client.host, false);
     try {

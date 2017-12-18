@@ -7,7 +7,7 @@ namespace lol {
     FailedToResolveHostName_e = 2,
     UnspecifiedError_e = 0,
   };
-  void to_json(json& j, const PatcherInjectedPatcherError& v) {
+  inline void to_json(json& j, const PatcherInjectedPatcherError& v) {
     if(v == PatcherInjectedPatcherError::FailedFailedToWriteFile_e) {
       j = "FailedFailedToWriteFile";
       return;
@@ -25,7 +25,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, PatcherInjectedPatcherError& v) {
+  inline void from_json(const json& j, PatcherInjectedPatcherError& v) {
     if(j.get<std::string>() == "FailedFailedToWriteFile") {
       v = PatcherInjectedPatcherError::FailedFailedToWriteFile_e;
       return;

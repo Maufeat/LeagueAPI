@@ -14,7 +14,7 @@ namespace lol {
     std::vector<BracketRoster> rosters;
     int64_t id; 
   };
-  void to_json(json& j, const Bracket& v) {
+  inline void to_json(json& j, const Bracket& v) {
     j["phaseId"] = v.phaseId; 
     j["currentLoserRound"] = v.currentLoserRound; 
     j["tournamentId"] = v.tournamentId; 
@@ -25,7 +25,7 @@ namespace lol {
     j["rosters"] = v.rosters; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, Bracket& v) {
+  inline void from_json(const json& j, Bracket& v) {
     v.phaseId = j.at("phaseId").get<int64_t>(); 
     v.currentLoserRound = j.at("currentLoserRound").get<int32_t>(); 
     v.tournamentId = j.at("tournamentId").get<int64_t>(); 

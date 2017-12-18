@@ -6,7 +6,7 @@ namespace lol {
     HIGH_e = 2,
     LOW_e = 0,
   };
-  void to_json(json& j, const LolClashKdaClassification& v) {
+  inline void to_json(json& j, const LolClashKdaClassification& v) {
     if(v == LolClashKdaClassification::AVERAGE_e) {
       j = "AVERAGE";
       return;
@@ -20,7 +20,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolClashKdaClassification& v) {
+  inline void from_json(const json& j, LolClashKdaClassification& v) {
     if(j.get<std::string>() == "AVERAGE") {
       v = LolClashKdaClassification::AVERAGE_e;
       return;

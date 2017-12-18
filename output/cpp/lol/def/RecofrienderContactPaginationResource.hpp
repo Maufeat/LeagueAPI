@@ -9,7 +9,7 @@ namespace lol {
     uint64_t start;
     bool more; 
   };
-  void to_json(json& j, const RecofrienderContactPaginationResource& v) {
+  inline void to_json(json& j, const RecofrienderContactPaginationResource& v) {
     j["total"] = v.total; 
     j["count"] = v.count; 
     j["limit"] = v.limit; 
@@ -17,7 +17,7 @@ namespace lol {
     j["start"] = v.start; 
     j["more"] = v.more; 
   }
-  void from_json(const json& j, RecofrienderContactPaginationResource& v) {
+  inline void from_json(const json& j, RecofrienderContactPaginationResource& v) {
     v.total = j.at("total").get<uint64_t>(); 
     v.count = j.at("count").get<uint64_t>(); 
     v.limit = j.at("limit").get<uint64_t>(); 

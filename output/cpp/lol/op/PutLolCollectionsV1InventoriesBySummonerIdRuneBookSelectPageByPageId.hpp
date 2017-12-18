@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolCollectionsCollectionsRunePage.hpp>
 namespace lol {
-  Result<LolCollectionsCollectionsRunePage> PutLolCollectionsV1InventoriesBySummonerIdRuneBookSelectPageByPageId(const LeagueClient& _client, const uint64_t& summonerId, const uint32_t& pageId)
+  inline Result<LolCollectionsCollectionsRunePage> PutLolCollectionsV1InventoriesBySummonerIdRuneBookSelectPageByPageId(const LeagueClient& _client, const uint64_t& summonerId, const uint32_t& pageId)
   {
     HttpsClient _client_(_client.host, false);
     try {

@@ -6,7 +6,7 @@ namespace lol {
     N_e = 2,
     W_e = 0,
   };
-  void to_json(json& j, const LolLeaguesMiniseries& v) {
+  inline void to_json(json& j, const LolLeaguesMiniseries& v) {
     if(v == LolLeaguesMiniseries::L_e) {
       j = "L";
       return;
@@ -20,7 +20,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolLeaguesMiniseries& v) {
+  inline void from_json(const json& j, LolLeaguesMiniseries& v) {
     if(j.get<std::string>() == "L") {
       v = LolLeaguesMiniseries::L_e;
       return;

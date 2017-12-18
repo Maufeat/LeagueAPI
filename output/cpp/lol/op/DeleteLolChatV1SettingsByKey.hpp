@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<json> DeleteLolChatV1SettingsByKey(const LeagueClient& _client, const std::string& key, const std::optional<bool>& doAsync = std::nullopt)
+  inline Result<json> DeleteLolChatV1SettingsByKey(const LeagueClient& _client, const std::string& key, const std::optional<bool>& doAsync = std::nullopt)
   {
     HttpsClient _client_(_client.host, false);
     try {

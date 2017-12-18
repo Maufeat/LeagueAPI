@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolLoginLcdsResponse.hpp>
 namespace lol {
-  Result<LolLoginLcdsResponse> PostLolLoginV1SessionInvoke(const LeagueClient& _client, const std::string& destination, const std::string& method, const std::vector<json>& args)
+  inline Result<LolLoginLcdsResponse> PostLolLoginV1SessionInvoke(const LeagueClient& _client, const std::string& destination, const std::string& method, const std::vector<json>& args)
   {
     HttpsClient _client_(_client.host, false);
     try {

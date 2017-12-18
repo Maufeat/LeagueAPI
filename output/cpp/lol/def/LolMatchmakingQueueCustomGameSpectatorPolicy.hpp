@@ -7,7 +7,7 @@ namespace lol {
     LobbyAllowed_e = 1,
     NotAllowed_e = 0,
   };
-  void to_json(json& j, const LolMatchmakingQueueCustomGameSpectatorPolicy& v) {
+  inline void to_json(json& j, const LolMatchmakingQueueCustomGameSpectatorPolicy& v) {
     if(v == LolMatchmakingQueueCustomGameSpectatorPolicy::AllAllowed_e) {
       j = "AllAllowed";
       return;
@@ -25,7 +25,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolMatchmakingQueueCustomGameSpectatorPolicy& v) {
+  inline void from_json(const json& j, LolMatchmakingQueueCustomGameSpectatorPolicy& v) {
     if(j.get<std::string>() == "AllAllowed") {
       v = LolMatchmakingQueueCustomGameSpectatorPolicy::AllAllowed_e;
       return;

@@ -8,14 +8,14 @@ namespace lol {
     int64_t timestamp;
     std::string version; 
   };
-  void to_json(json& j, const LolPerksRiotMessagingServiceMessage& v) {
+  inline void to_json(json& j, const LolPerksRiotMessagingServiceMessage& v) {
     j["service"] = v.service; 
     j["resource"] = v.resource; 
     j["payload"] = v.payload; 
     j["timestamp"] = v.timestamp; 
     j["version"] = v.version; 
   }
-  void from_json(const json& j, LolPerksRiotMessagingServiceMessage& v) {
+  inline void from_json(const json& j, LolPerksRiotMessagingServiceMessage& v) {
     v.service = j.at("service").get<std::string>(); 
     v.resource = j.at("resource").get<std::string>(); 
     v.payload = j.at("payload").get<std::string>(); 

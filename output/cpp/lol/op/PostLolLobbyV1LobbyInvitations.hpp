@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolLobbyLobbyInvitation.hpp>
 namespace lol {
-  Result<LolLobbyLobbyInvitation> PostLolLobbyV1LobbyInvitations(const LeagueClient& _client, const LolLobbyLobbyInvitation& invitation)
+  inline Result<LolLobbyLobbyInvitation> PostLolLobbyV1LobbyInvitations(const LeagueClient& _client, const LolLobbyLobbyInvitation& invitation)
   {
     HttpsClient _client_(_client.host, false);
     try {

@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/RemotingSerializedFormat.hpp>
 namespace lol {
-  Result<json> WebSocketFormat(const LeagueClient& _client, const std::optional<RemotingSerializedFormat>& format = std::nullopt)
+  inline Result<json> WebSocketFormat(const LeagueClient& _client, const std::optional<RemotingSerializedFormat>& format = std::nullopt)
   {
     HttpsClient _client_(_client.host, false);
     try {

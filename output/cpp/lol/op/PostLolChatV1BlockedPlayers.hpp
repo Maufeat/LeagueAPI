@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolChatBlockedPlayerResource.hpp>
 namespace lol {
-  Result<json> PostLolChatV1BlockedPlayers(const LeagueClient& _client, const LolChatBlockedPlayerResource& blocked)
+  inline Result<json> PostLolChatV1BlockedPlayers(const LeagueClient& _client, const LolChatBlockedPlayerResource& blocked)
   {
     HttpsClient _client_(_client.host, false);
     try {

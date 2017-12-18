@@ -12,7 +12,7 @@ namespace lol {
     std::string requiredTokens;
     std::string requiredOthersName; 
   };
-  void to_json(json& j, const LolLootContextMenu& v) {
+  inline void to_json(json& j, const LolLootContextMenu& v) {
     j["essenceType"] = v.essenceType; 
     j["enabled"] = v.enabled; 
     j["requiredOthers"] = v.requiredOthers; 
@@ -23,7 +23,7 @@ namespace lol {
     j["requiredTokens"] = v.requiredTokens; 
     j["requiredOthersName"] = v.requiredOthersName; 
   }
-  void from_json(const json& j, LolLootContextMenu& v) {
+  inline void from_json(const json& j, LolLootContextMenu& v) {
     v.essenceType = j.at("essenceType").get<std::string>(); 
     v.enabled = j.at("enabled").get<bool>(); 
     v.requiredOthers = j.at("requiredOthers").get<std::string>(); 

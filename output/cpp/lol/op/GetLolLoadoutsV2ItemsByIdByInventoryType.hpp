@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<json> GetLolLoadoutsV2ItemsByIdByInventoryType(const LeagueClient& _client, const uint32_t& id, const std::string& inventoryType)
+  inline Result<json> GetLolLoadoutsV2ItemsByIdByInventoryType(const LeagueClient& _client, const uint32_t& id, const std::string& inventoryType)
   {
     HttpsClient _client_(_client.host, false);
     try {

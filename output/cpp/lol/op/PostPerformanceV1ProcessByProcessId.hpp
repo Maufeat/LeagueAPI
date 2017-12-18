@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<void> PostPerformanceV1ProcessByProcessId(const LeagueClient& _client, const uint32_t& processId)
+  inline Result<void> PostPerformanceV1ProcessByProcessId(const LeagueClient& _client, const uint32_t& processId)
   {
     HttpsClient _client_(_client.host, false);
     try {

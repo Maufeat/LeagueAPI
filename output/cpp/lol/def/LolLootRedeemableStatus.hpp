@@ -12,7 +12,7 @@ namespace lol {
     SKIN_NOT_OWNED_e = 8,
     UNKNOWN_e = 0,
   };
-  void to_json(json& j, const LolLootRedeemableStatus& v) {
+  inline void to_json(json& j, const LolLootRedeemableStatus& v) {
     if(v == LolLootRedeemableStatus::ALREADY_OWNED_e) {
       j = "ALREADY_OWNED";
       return;
@@ -50,7 +50,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolLootRedeemableStatus& v) {
+  inline void from_json(const json& j, LolLootRedeemableStatus& v) {
     if(j.get<std::string>() == "ALREADY_OWNED") {
       v = LolLootRedeemableStatus::ALREADY_OWNED_e;
       return;

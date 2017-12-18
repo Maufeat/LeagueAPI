@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolChampSelectChampSelectTimer.hpp>
 namespace lol {
-  Result<LolChampSelectChampSelectTimer> GetLolChampSelectV1SessionTimer(const LeagueClient& _client)
+  inline Result<LolChampSelectChampSelectTimer> GetLolChampSelectV1SessionTimer(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

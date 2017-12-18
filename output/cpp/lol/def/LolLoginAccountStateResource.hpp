@@ -5,10 +5,10 @@ namespace lol {
   struct LolLoginAccountStateResource { 
     LolLoginAccountStateType state; 
   };
-  void to_json(json& j, const LolLoginAccountStateResource& v) {
+  inline void to_json(json& j, const LolLoginAccountStateResource& v) {
     j["state"] = v.state; 
   }
-  void from_json(const json& j, LolLoginAccountStateResource& v) {
+  inline void from_json(const json& j, LolLoginAccountStateResource& v) {
     v.state = j.at("state").get<LolLoginAccountStateType>(); 
   }
 }

@@ -9,7 +9,7 @@ namespace lol {
     std::string methodName;
     std::string messageId; 
   };
-  void to_json(json& j, const LolLoginLcdsServiceProxyResponse& v) {
+  inline void to_json(json& j, const LolLoginLcdsServiceProxyResponse& v) {
     j["payload"] = v.payload; 
     j["status"] = v.status; 
     j["serviceName"] = v.serviceName; 
@@ -17,7 +17,7 @@ namespace lol {
     j["methodName"] = v.methodName; 
     j["messageId"] = v.messageId; 
   }
-  void from_json(const json& j, LolLoginLcdsServiceProxyResponse& v) {
+  inline void from_json(const json& j, LolLoginLcdsServiceProxyResponse& v) {
     v.payload = j.at("payload").get<std::string>(); 
     v.status = j.at("status").get<std::string>(); 
     v.serviceName = j.at("serviceName").get<std::string>(); 

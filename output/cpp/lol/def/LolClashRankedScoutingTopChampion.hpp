@@ -11,7 +11,7 @@ namespace lol {
     int32_t gameCount;
     int32_t championId; 
   };
-  void to_json(json& j, const LolClashRankedScoutingTopChampion& v) {
+  inline void to_json(json& j, const LolClashRankedScoutingTopChampion& v) {
     j["winRate"] = v.winRate; 
     j["rank"] = v.rank; 
     j["kda"] = v.kda; 
@@ -20,7 +20,7 @@ namespace lol {
     j["gameCount"] = v.gameCount; 
     j["championId"] = v.championId; 
   }
-  void from_json(const json& j, LolClashRankedScoutingTopChampion& v) {
+  inline void from_json(const json& j, LolClashRankedScoutingTopChampion& v) {
     v.winRate = j.at("winRate").get<int32_t>(); 
     v.rank = j.at("rank").get<int32_t>(); 
     v.kda = j.at("kda").get<std::string>(); 

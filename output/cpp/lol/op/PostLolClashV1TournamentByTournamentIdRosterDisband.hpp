@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<json> PostLolClashV1TournamentByTournamentIdRosterDisband(const LeagueClient& _client, const int64_t& tournamentId)
+  inline Result<json> PostLolClashV1TournamentByTournamentIdRosterDisband(const LeagueClient& _client, const int64_t& tournamentId)
   {
     HttpsClient _client_(_client.host, false);
     try {

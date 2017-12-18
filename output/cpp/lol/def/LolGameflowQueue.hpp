@@ -1,9 +1,9 @@
 #pragma once
 #include<lol/base_def.hpp> 
+#include <lol/def/LolGameflowQueueGameCategory.hpp>
+#include <lol/def/LolGameflowQueueGameTypeConfig.hpp>
 #include <lol/def/LolGameflowQueueReward.hpp>
 #include <lol/def/LolGameflowQueueAvailability.hpp>
-#include <lol/def/LolGameflowQueueGameTypeConfig.hpp>
-#include <lol/def/LolGameflowQueueGameCategory.hpp>
 namespace lol {
   struct LolGameflowQueue { 
     std::string gameMutator;
@@ -32,7 +32,7 @@ namespace lol {
     std::string gameMode;
     std::string assetMutator; 
   };
-  void to_json(json& j, const LolGameflowQueue& v) {
+  inline void to_json(json& j, const LolGameflowQueue& v) {
     j["gameMutator"] = v.gameMutator; 
     j["spectatorEnabled"] = v.spectatorEnabled; 
     j["areFreeChampionsAllowed"] = v.areFreeChampionsAllowed; 
@@ -59,7 +59,7 @@ namespace lol {
     j["gameMode"] = v.gameMode; 
     j["assetMutator"] = v.assetMutator; 
   }
-  void from_json(const json& j, LolGameflowQueue& v) {
+  inline void from_json(const json& j, LolGameflowQueue& v) {
     v.gameMutator = j.at("gameMutator").get<std::string>(); 
     v.spectatorEnabled = j.at("spectatorEnabled").get<bool>(); 
     v.areFreeChampionsAllowed = j.at("areFreeChampionsAllowed").get<bool>(); 

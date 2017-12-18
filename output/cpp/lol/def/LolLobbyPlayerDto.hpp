@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyPartyDto.hpp>
 #include <lol/def/LolLobbyPartyMemberDto.hpp>
+#include <lol/def/LolLobbyPartyDto.hpp>
 namespace lol {
   struct LolLobbyPlayerDto { 
     std::optional<std::string> inventoryToken;
@@ -19,7 +19,7 @@ namespace lol {
     uint64_t summonerId;
     uint64_t accountId; 
   };
-  void to_json(json& j, const LolLobbyPlayerDto& v) {
+  inline void to_json(json& j, const LolLobbyPlayerDto& v) {
     if(v.inventoryToken)
       j["inventoryToken"] = *v.inventoryToken;
     j["platformId"] = v.platformId; 
@@ -41,7 +41,7 @@ namespace lol {
     j["summonerId"] = v.summonerId; 
     j["accountId"] = v.accountId; 
   }
-  void from_json(const json& j, LolLobbyPlayerDto& v) {
+  inline void from_json(const json& j, LolLobbyPlayerDto& v) {
     if(auto it = j.find("inventoryToken"); it != j.end() && !it->is_null())
       v.inventoryToken = it->get<std::optional<std::string>>(); 
     v.platformId = j.at("platformId").get<std::string>(); 

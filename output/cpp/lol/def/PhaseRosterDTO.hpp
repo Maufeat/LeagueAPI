@@ -9,14 +9,14 @@ namespace lol {
     std::vector<PhaseRosterSubDTO> phaseRosterSubs;
     int32_t period; 
   };
-  void to_json(json& j, const PhaseRosterDTO& v) {
+  inline void to_json(json& j, const PhaseRosterDTO& v) {
     j["phaseId"] = v.phaseId; 
     if(v.bracketDTO)
       j["bracketDTO"] = *v.bracketDTO;
     j["phaseRosterSubs"] = v.phaseRosterSubs; 
     j["period"] = v.period; 
   }
-  void from_json(const json& j, PhaseRosterDTO& v) {
+  inline void from_json(const json& j, PhaseRosterDTO& v) {
     v.phaseId = j.at("phaseId").get<int64_t>(); 
     if(auto it = j.find("bracketDTO"); it != j.end() && !it->is_null())
       v.bracketDTO = it->get<std::optional<Bracket>>(); 

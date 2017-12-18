@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/RegionLocale.hpp>
 namespace lol {
-  Result<void> PutRiotclientRegionLocale(const LeagueClient& _client, const RegionLocale& data)
+  inline Result<void> PutRiotclientRegionLocale(const LeagueClient& _client, const RegionLocale& data)
   {
     HttpsClient _client_(_client.host, false);
     try {

@@ -14,7 +14,7 @@ namespace lol {
     LolMatchHistoryMatchHistoryPosition position;
     uint16_t participantId; 
   };
-  void to_json(json& j, const LolMatchHistoryMatchHistoryParticipantFrame& v) {
+  inline void to_json(json& j, const LolMatchHistoryMatchHistoryParticipantFrame& v) {
     j["totalGold"] = v.totalGold; 
     j["level"] = v.level; 
     j["dominionScore"] = v.dominionScore; 
@@ -26,7 +26,7 @@ namespace lol {
     j["position"] = v.position; 
     j["participantId"] = v.participantId; 
   }
-  void from_json(const json& j, LolMatchHistoryMatchHistoryParticipantFrame& v) {
+  inline void from_json(const json& j, LolMatchHistoryMatchHistoryParticipantFrame& v) {
     v.totalGold = j.at("totalGold").get<int32_t>(); 
     v.level = j.at("level").get<uint16_t>(); 
     v.dominionScore = j.at("dominionScore").get<uint16_t>(); 

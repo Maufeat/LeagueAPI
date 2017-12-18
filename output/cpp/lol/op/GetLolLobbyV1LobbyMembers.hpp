@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolLobbyLobbyMember.hpp>
 namespace lol {
-  Result<std::vector<LolLobbyLobbyMember>> GetLolLobbyV1LobbyMembers(const LeagueClient& _client)
+  inline Result<std::vector<LolLobbyLobbyMember>> GetLolLobbyV1LobbyMembers(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

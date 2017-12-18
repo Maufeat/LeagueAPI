@@ -1,9 +1,9 @@
 #pragma once
 #include<lol/base_def.hpp> 
 #include <lol/def/LolLobbyTeamBuilderRerollStateV1.hpp>
+#include <lol/def/LolLobbyTeamBuilderCellsV1.hpp>
 #include <lol/def/LolLobbyTeamBuilderTradeV1.hpp>
 #include <lol/def/LolLobbyTeamBuilderTeamBuilderBoostInfo.hpp>
-#include <lol/def/LolLobbyTeamBuilderCellsV1.hpp>
 namespace lol {
   struct LolLobbyTeamBuilderChampionSelectStateV1 { 
     int64_t currentTotalTimeMillis;
@@ -23,7 +23,7 @@ namespace lol {
     LolLobbyTeamBuilderTeamBuilderBoostInfo battleBoostState;
     std::string teamId; 
   };
-  void to_json(json& j, const LolLobbyTeamBuilderChampionSelectStateV1& v) {
+  inline void to_json(json& j, const LolLobbyTeamBuilderChampionSelectStateV1& v) {
     j["currentTotalTimeMillis"] = v.currentTotalTimeMillis; 
     j["currentActionSetIndex"] = v.currentActionSetIndex; 
     j["rerollState"] = v.rerollState; 
@@ -41,7 +41,7 @@ namespace lol {
     j["battleBoostState"] = v.battleBoostState; 
     j["teamId"] = v.teamId; 
   }
-  void from_json(const json& j, LolLobbyTeamBuilderChampionSelectStateV1& v) {
+  inline void from_json(const json& j, LolLobbyTeamBuilderChampionSelectStateV1& v) {
     v.currentTotalTimeMillis = j.at("currentTotalTimeMillis").get<int64_t>(); 
     v.currentActionSetIndex = j.at("currentActionSetIndex").get<int32_t>(); 
     v.rerollState = j.at("rerollState").get<LolLobbyTeamBuilderRerollStateV1>(); 

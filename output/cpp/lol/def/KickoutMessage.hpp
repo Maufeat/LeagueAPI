@@ -4,10 +4,10 @@ namespace lol {
   struct KickoutMessage { 
     std::string message; 
   };
-  void to_json(json& j, const KickoutMessage& v) {
+  inline void to_json(json& j, const KickoutMessage& v) {
     j["message"] = v.message; 
   }
-  void from_json(const json& j, KickoutMessage& v) {
+  inline void from_json(const json& j, KickoutMessage& v) {
     v.message = j.at("message").get<std::string>(); 
   }
 }

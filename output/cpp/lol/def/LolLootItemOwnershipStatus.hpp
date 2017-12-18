@@ -7,7 +7,7 @@ namespace lol {
     OWNED_e = 3,
     RENTAL_e = 2,
   };
-  void to_json(json& j, const LolLootItemOwnershipStatus& v) {
+  inline void to_json(json& j, const LolLootItemOwnershipStatus& v) {
     if(v == LolLootItemOwnershipStatus::FREE_e) {
       j = "FREE";
       return;
@@ -25,7 +25,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolLootItemOwnershipStatus& v) {
+  inline void from_json(const json& j, LolLootItemOwnershipStatus& v) {
     if(j.get<std::string>() == "FREE") {
       v = LolLootItemOwnershipStatus::FREE_e;
       return;

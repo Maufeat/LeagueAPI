@@ -7,7 +7,7 @@ namespace lol {
     InProgress_e = 2,
     Skipped_e = 1,
   };
-  void to_json(json& j, const NetworkExperimentStatus& v) {
+  inline void to_json(json& j, const NetworkExperimentStatus& v) {
     if(v == NetworkExperimentStatus::Completed_e) {
       j = "Completed";
       return;
@@ -25,7 +25,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, NetworkExperimentStatus& v) {
+  inline void from_json(const json& j, NetworkExperimentStatus& v) {
     if(j.get<std::string>() == "Completed") {
       v = NetworkExperimentStatus::Completed_e;
       return;

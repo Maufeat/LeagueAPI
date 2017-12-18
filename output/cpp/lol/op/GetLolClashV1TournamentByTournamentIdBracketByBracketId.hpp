@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolClashBracket.hpp>
 namespace lol {
-  Result<LolClashBracket> GetLolClashV1TournamentByTournamentIdBracketByBracketId(const LeagueClient& _client, const int64_t& tournamentId, const int64_t& bracketId)
+  inline Result<LolClashBracket> GetLolClashV1TournamentByTournamentIdBracketByBracketId(const LeagueClient& _client, const int64_t& tournamentId, const int64_t& bracketId)
   {
     HttpsClient _client_(_client.host, false);
     try {

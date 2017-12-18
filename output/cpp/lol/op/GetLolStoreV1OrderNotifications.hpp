@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolStoreOrderNotificationResource.hpp>
 namespace lol {
-  Result<std::vector<LolStoreOrderNotificationResource>> GetLolStoreV1OrderNotifications(const LeagueClient& _client)
+  inline Result<std::vector<LolStoreOrderNotificationResource>> GetLolStoreV1OrderNotifications(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

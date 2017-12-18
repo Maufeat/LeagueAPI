@@ -7,7 +7,7 @@ namespace lol {
     REVOKED_e = 3,
     SUGGESTED_e = 0,
   };
-  void to_json(json& j, const PendingRosterInviteeState& v) {
+  inline void to_json(json& j, const PendingRosterInviteeState& v) {
     if(v == PendingRosterInviteeState::DECLINED_e) {
       j = "DECLINED";
       return;
@@ -25,7 +25,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, PendingRosterInviteeState& v) {
+  inline void from_json(const json& j, PendingRosterInviteeState& v) {
     if(j.get<std::string>() == "DECLINED") {
       v = PendingRosterInviteeState::DECLINED_e;
       return;

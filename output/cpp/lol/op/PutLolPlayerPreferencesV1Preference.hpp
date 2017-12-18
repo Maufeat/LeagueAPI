@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/PlayerPreferences.hpp>
 namespace lol {
-  Result<json> PutLolPlayerPreferencesV1Preference(const LeagueClient& _client, const PlayerPreferences& preferences)
+  inline Result<json> PutLolPlayerPreferencesV1Preference(const LeagueClient& _client, const PlayerPreferences& preferences)
   {
     HttpsClient _client_(_client.host, false);
     try {

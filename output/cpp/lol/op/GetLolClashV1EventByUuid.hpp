@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/ClashEventData.hpp>
 namespace lol {
-  Result<ClashEventData> GetLolClashV1EventByUuid(const LeagueClient& _client, const std::string& uuid)
+  inline Result<ClashEventData> GetLolClashV1EventByUuid(const LeagueClient& _client, const std::string& uuid)
   {
     HttpsClient _client_(_client.host, false);
     try {

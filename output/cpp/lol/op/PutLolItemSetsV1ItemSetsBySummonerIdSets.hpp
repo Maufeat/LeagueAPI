@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolItemSetsItemSets.hpp>
 namespace lol {
-  Result<void> PutLolItemSetsV1ItemSetsBySummonerIdSets(const LeagueClient& _client, const uint64_t& summonerId, const LolItemSetsItemSets& itemSets)
+  inline Result<void> PutLolItemSetsV1ItemSetsBySummonerIdSets(const LeagueClient& _client, const uint64_t& summonerId, const LolItemSetsItemSets& itemSets)
   {
     HttpsClient _client_(_client.host, false);
     try {

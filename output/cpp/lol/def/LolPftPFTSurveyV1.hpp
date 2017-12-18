@@ -8,14 +8,14 @@ namespace lol {
     std::string url;
     uint64_t id; 
   };
-  void to_json(json& j, const LolPftPFTSurveyV1& v) {
+  inline void to_json(json& j, const LolPftPFTSurveyV1& v) {
     j["caption"] = v.caption; 
     j["type"] = v.type; 
     j["title"] = v.title; 
     j["url"] = v.url; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, LolPftPFTSurveyV1& v) {
+  inline void from_json(const json& j, LolPftPFTSurveyV1& v) {
     v.caption = j.at("caption").get<std::string>(); 
     v.type = j.at("type").get<std::string>(); 
     v.title = j.at("title").get<std::string>(); 

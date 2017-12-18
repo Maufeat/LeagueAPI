@@ -17,7 +17,7 @@ namespace lol {
     int32_t winCountRemaining;
     bool freeToPlayReward; 
   };
-  void to_json(json& j, const CollectionsLcdsChampionDTO& v) {
+  inline void to_json(json& j, const CollectionsLcdsChampionDTO& v) {
     j["championSkins"] = v.championSkins; 
     j["purchased"] = v.purchased; 
     j["endDate"] = v.endDate; 
@@ -32,7 +32,7 @@ namespace lol {
     j["winCountRemaining"] = v.winCountRemaining; 
     j["freeToPlayReward"] = v.freeToPlayReward; 
   }
-  void from_json(const json& j, CollectionsLcdsChampionDTO& v) {
+  inline void from_json(const json& j, CollectionsLcdsChampionDTO& v) {
     v.championSkins = j.at("championSkins").get<std::vector<CollectionsLcdsChampionSkinDTO>>(); 
     v.purchased = j.at("purchased").get<uint64_t>(); 
     v.endDate = j.at("endDate").get<uint64_t>(); 

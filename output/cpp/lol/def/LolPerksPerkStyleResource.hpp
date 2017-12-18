@@ -16,7 +16,7 @@ namespace lol {
     int32_t id;
     bool isAdvanced; 
   };
-  void to_json(json& j, const LolPerksPerkStyleResource& v) {
+  inline void to_json(json& j, const LolPerksPerkStyleResource& v) {
     j["defaultSubStyle"] = v.defaultSubStyle; 
     j["tooltip"] = v.tooltip; 
     j["iconPath"] = v.iconPath; 
@@ -29,7 +29,7 @@ namespace lol {
     j["id"] = v.id; 
     j["isAdvanced"] = v.isAdvanced; 
   }
-  void from_json(const json& j, LolPerksPerkStyleResource& v) {
+  inline void from_json(const json& j, LolPerksPerkStyleResource& v) {
     v.defaultSubStyle = j.at("defaultSubStyle").get<int32_t>(); 
     v.tooltip = j.at("tooltip").get<std::string>(); 
     v.iconPath = j.at("iconPath").get<std::string>(); 

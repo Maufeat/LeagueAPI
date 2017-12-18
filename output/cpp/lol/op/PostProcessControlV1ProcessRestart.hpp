@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<void> PostProcessControlV1ProcessRestart(const LeagueClient& _client, const uint32_t& delaySeconds, const std::optional<uint32_t>& restartVersion = std::nullopt)
+  inline Result<void> PostProcessControlV1ProcessRestart(const LeagueClient& _client, const uint32_t& delaySeconds, const std::optional<uint32_t>& restartVersion = std::nullopt)
   {
     HttpsClient _client_(_client.host, false);
     try {

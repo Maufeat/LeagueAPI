@@ -11,7 +11,7 @@ namespace lol {
     ServiceError_e = 6,
     ServiceShutdown_e = 7,
   };
-  void to_json(json& j, const LolLobbyTeamBuilderMatchmakingSearchState& v) {
+  inline void to_json(json& j, const LolLobbyTeamBuilderMatchmakingSearchState& v) {
     if(v == LolLobbyTeamBuilderMatchmakingSearchState::AbandonedLowPriorityQueue_e) {
       j = "AbandonedLowPriorityQueue";
       return;
@@ -45,7 +45,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolLobbyTeamBuilderMatchmakingSearchState& v) {
+  inline void from_json(const json& j, LolLobbyTeamBuilderMatchmakingSearchState& v) {
     if(j.get<std::string>() == "AbandonedLowPriorityQueue") {
       v = LolLobbyTeamBuilderMatchmakingSearchState::AbandonedLowPriorityQueue_e;
       return;

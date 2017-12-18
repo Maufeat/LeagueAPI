@@ -10,13 +10,13 @@ namespace lol {
     std::vector<LolChatChampSelection> playerChampionSelections;
     LolChatQueue queue; 
   };
-  void to_json(json& j, const LolChatGameflowGameData& v) {
+  inline void to_json(json& j, const LolChatGameflowGameData& v) {
     j["teamOne"] = v.teamOne; 
     j["teamTwo"] = v.teamTwo; 
     j["playerChampionSelections"] = v.playerChampionSelections; 
     j["queue"] = v.queue; 
   }
-  void from_json(const json& j, LolChatGameflowGameData& v) {
+  inline void from_json(const json& j, LolChatGameflowGameData& v) {
     v.teamOne = j.at("teamOne").get<std::vector<LolChatTeamPlayerEntry>>(); 
     v.teamTwo = j.at("teamTwo").get<std::vector<LolChatTeamPlayerEntry>>(); 
     v.playerChampionSelections = j.at("playerChampionSelections").get<std::vector<LolChatChampSelection>>(); 

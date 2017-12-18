@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<void> DeleteLolLoginV1ServiceProxyAsyncRequestsByServiceNameByMethodName(const LeagueClient& _client, const std::string& serviceName, const std::string& methodName, const uint32_t& pluginId)
+  inline Result<void> DeleteLolLoginV1ServiceProxyAsyncRequestsByServiceNameByMethodName(const LeagueClient& _client, const std::string& serviceName, const std::string& methodName, const uint32_t& pluginId)
   {
     HttpsClient _client_(_client.host, false);
     try {

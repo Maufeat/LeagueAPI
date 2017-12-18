@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolLobbyTeamBuilderTbLobbyEnabledFeaturesResource.hpp>
 namespace lol {
-  Result<LolLobbyTeamBuilderTbLobbyEnabledFeaturesResource> GetLolLobbyTeamBuilderV1TbEnabledFeatures(const LeagueClient& _client)
+  inline Result<LolLobbyTeamBuilderTbLobbyEnabledFeaturesResource> GetLolLobbyTeamBuilderV1TbEnabledFeatures(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

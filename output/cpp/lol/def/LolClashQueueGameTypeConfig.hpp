@@ -23,7 +23,7 @@ namespace lol {
     bool crossTeamChampionPool;
     int32_t banTimerDuration; 
   };
-  void to_json(json& j, const LolClashQueueGameTypeConfig& v) {
+  inline void to_json(json& j, const LolClashQueueGameTypeConfig& v) {
     j["teamChampionPool"] = v.teamChampionPool; 
     j["reroll"] = v.reroll; 
     j["learningQuests"] = v.learningQuests; 
@@ -45,7 +45,7 @@ namespace lol {
     j["crossTeamChampionPool"] = v.crossTeamChampionPool; 
     j["banTimerDuration"] = v.banTimerDuration; 
   }
-  void from_json(const json& j, LolClashQueueGameTypeConfig& v) {
+  inline void from_json(const json& j, LolClashQueueGameTypeConfig& v) {
     v.teamChampionPool = j.at("teamChampionPool").get<bool>(); 
     v.reroll = j.at("reroll").get<bool>(); 
     v.learningQuests = j.at("learningQuests").get<bool>(); 

@@ -14,7 +14,7 @@ namespace lol {
     std::string puuid;
     uint64_t accountId; 
   };
-  void to_json(json& j, const LolLobbyLoginSession& v) {
+  inline void to_json(json& j, const LolLobbyLoginSession& v) {
     j["isNewPlayer"] = v.isNewPlayer; 
     j["connected"] = v.connected; 
     j["username"] = v.username; 
@@ -26,7 +26,7 @@ namespace lol {
     j["puuid"] = v.puuid; 
     j["accountId"] = v.accountId; 
   }
-  void from_json(const json& j, LolLobbyLoginSession& v) {
+  inline void from_json(const json& j, LolLobbyLoginSession& v) {
     v.isNewPlayer = j.at("isNewPlayer").get<bool>(); 
     v.connected = j.at("connected").get<bool>(); 
     v.username = j.at("username").get<std::string>(); 

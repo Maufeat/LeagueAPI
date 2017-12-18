@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/RsoAuthAuthError.hpp>
 namespace lol {
-  Result<RsoAuthAuthError> GetRsoAuthV1AuthorizationError(const LeagueClient& _client)
+  inline Result<RsoAuthAuthError> GetRsoAuthV1AuthorizationError(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolClashPlayerRewards.hpp>
 namespace lol {
-  Result<LolClashPlayerRewards> GetLolClashV1Rewards(const LeagueClient& _client)
+  inline Result<LolClashPlayerRewards> GetLolClashV1Rewards(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

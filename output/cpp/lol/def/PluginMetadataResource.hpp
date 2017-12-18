@@ -13,7 +13,7 @@ namespace lol {
     std::string app;
     std::map<std::string, json> perLocaleAssetBundles; 
   };
-  void to_json(json& j, const PluginMetadataResource& v) {
+  inline void to_json(json& j, const PluginMetadataResource& v) {
     j["globalAssetBundles"] = v.globalAssetBundles; 
     j["type"] = v.type; 
     j["implements"] = v.implements; 
@@ -24,7 +24,7 @@ namespace lol {
     j["app"] = v.app; 
     j["perLocaleAssetBundles"] = v.perLocaleAssetBundles; 
   }
-  void from_json(const json& j, PluginMetadataResource& v) {
+  inline void from_json(const json& j, PluginMetadataResource& v) {
     v.globalAssetBundles = j.at("globalAssetBundles").get<std::vector<std::string>>(); 
     v.type = j.at("type").get<std::string>(); 
     v.implements = j.at("implements").get<std::map<std::string, std::string>>(); 

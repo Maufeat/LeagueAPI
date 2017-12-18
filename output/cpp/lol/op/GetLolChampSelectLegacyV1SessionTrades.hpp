@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolChampSelectLegacyChampSelectTradeContract.hpp>
 namespace lol {
-  Result<std::vector<LolChampSelectLegacyChampSelectTradeContract>> GetLolChampSelectLegacyV1SessionTrades(const LeagueClient& _client)
+  inline Result<std::vector<LolChampSelectLegacyChampSelectTradeContract>> GetLolChampSelectLegacyV1SessionTrades(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

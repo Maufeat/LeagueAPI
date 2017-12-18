@@ -9,7 +9,7 @@ namespace lol {
     legacy_e = 0,
     revoke_e = 4,
   };
-  void to_json(json& j, const LCDSLoyaltyStateChangeNotificationCategory& v) {
+  inline void to_json(json& j, const LCDSLoyaltyStateChangeNotificationCategory& v) {
     if(v == LCDSLoyaltyStateChangeNotificationCategory::change_e) {
       j = "change";
       return;
@@ -35,7 +35,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LCDSLoyaltyStateChangeNotificationCategory& v) {
+  inline void from_json(const json& j, LCDSLoyaltyStateChangeNotificationCategory& v) {
     if(j.get<std::string>() == "change") {
       v = LCDSLoyaltyStateChangeNotificationCategory::change_e;
       return;

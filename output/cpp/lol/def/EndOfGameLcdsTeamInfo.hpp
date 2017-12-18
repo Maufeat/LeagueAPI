@@ -9,14 +9,14 @@ namespace lol {
     int64_t secondsUntilEligibleForDeletion;
     EndOfGameLcdsTeamId teamId; 
   };
-  void to_json(json& j, const EndOfGameLcdsTeamInfo& v) {
+  inline void to_json(json& j, const EndOfGameLcdsTeamInfo& v) {
     j["tag"] = v.tag; 
     j["memberStatusString"] = v.memberStatusString; 
     j["name"] = v.name; 
     j["secondsUntilEligibleForDeletion"] = v.secondsUntilEligibleForDeletion; 
     j["teamId"] = v.teamId; 
   }
-  void from_json(const json& j, EndOfGameLcdsTeamInfo& v) {
+  inline void from_json(const json& j, EndOfGameLcdsTeamInfo& v) {
     v.tag = j.at("tag").get<std::string>(); 
     v.memberStatusString = j.at("memberStatusString").get<std::string>(); 
     v.name = j.at("name").get<std::string>(); 

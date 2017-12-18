@@ -5,10 +5,10 @@ namespace lol {
   struct LolLoadoutsGameflowGameData { 
     LolLoadoutsQueue queue; 
   };
-  void to_json(json& j, const LolLoadoutsGameflowGameData& v) {
+  inline void to_json(json& j, const LolLoadoutsGameflowGameData& v) {
     j["queue"] = v.queue; 
   }
-  void from_json(const json& j, LolLoadoutsGameflowGameData& v) {
+  inline void from_json(const json& j, LolLoadoutsGameflowGameData& v) {
     v.queue = j.at("queue").get<LolLoadoutsQueue>(); 
   }
 }

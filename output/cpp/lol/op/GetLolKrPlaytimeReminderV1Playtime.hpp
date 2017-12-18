@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/PlaytimeReminder.hpp>
 namespace lol {
-  Result<PlaytimeReminder> GetLolKrPlaytimeReminderV1Playtime(const LeagueClient& _client)
+  inline Result<PlaytimeReminder> GetLolKrPlaytimeReminderV1Playtime(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

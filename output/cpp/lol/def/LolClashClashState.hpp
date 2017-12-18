@@ -7,7 +7,7 @@ namespace lol {
     Disabled_e = 2,
     Enabled_e = 3,
   };
-  void to_json(json& j, const LolClashClashState& v) {
+  inline void to_json(json& j, const LolClashClashState& v) {
     if(v == LolClashClashState::DarkDisabled_e) {
       j = "DarkDisabled";
       return;
@@ -25,7 +25,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolClashClashState& v) {
+  inline void from_json(const json& j, LolClashClashState& v) {
     if(j.get<std::string>() == "DarkDisabled") {
       v = LolClashClashState::DarkDisabled_e;
       return;

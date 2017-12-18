@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolGameflowQueue.hpp>
 namespace lol {
-  Result<void> PostLolGameflowV1SessionGameConfiguration(const LeagueClient& _client, const LolGameflowQueue& queue)
+  inline Result<void> PostLolGameflowV1SessionGameConfiguration(const LeagueClient& _client, const LolGameflowQueue& queue)
   {
     HttpsClient _client_(_client.host, false);
     try {

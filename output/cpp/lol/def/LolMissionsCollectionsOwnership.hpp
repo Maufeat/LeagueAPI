@@ -7,12 +7,12 @@ namespace lol {
     bool owned;
     bool freeToPlayReward; 
   };
-  void to_json(json& j, const LolMissionsCollectionsOwnership& v) {
+  inline void to_json(json& j, const LolMissionsCollectionsOwnership& v) {
     j["rental"] = v.rental; 
     j["owned"] = v.owned; 
     j["freeToPlayReward"] = v.freeToPlayReward; 
   }
-  void from_json(const json& j, LolMissionsCollectionsOwnership& v) {
+  inline void from_json(const json& j, LolMissionsCollectionsOwnership& v) {
     v.rental = j.at("rental").get<LolMissionsCollectionsRental>(); 
     v.owned = j.at("owned").get<bool>(); 
     v.freeToPlayReward = j.at("freeToPlayReward").get<bool>(); 

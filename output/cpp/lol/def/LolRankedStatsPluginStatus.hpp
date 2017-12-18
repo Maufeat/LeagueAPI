@@ -4,10 +4,10 @@ namespace lol {
   struct LolRankedStatsPluginStatus { 
     bool ready; 
   };
-  void to_json(json& j, const LolRankedStatsPluginStatus& v) {
+  inline void to_json(json& j, const LolRankedStatsPluginStatus& v) {
     j["ready"] = v.ready; 
   }
-  void from_json(const json& j, LolRankedStatsPluginStatus& v) {
+  inline void from_json(const json& j, LolRankedStatsPluginStatus& v) {
     v.ready = j.at("ready").get<bool>(); 
   }
 }

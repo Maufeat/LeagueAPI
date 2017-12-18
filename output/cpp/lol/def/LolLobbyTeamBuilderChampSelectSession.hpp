@@ -1,9 +1,9 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyTeamBuilderChampSelectTradeContract.hpp>
 #include <lol/def/LolLobbyTeamBuilderChampSelectTimer.hpp>
-#include <lol/def/LolLobbyTeamBuilderChampSelectChatRoomDetails.hpp>
 #include <lol/def/LolLobbyTeamBuilderChampSelectPlayerSelection.hpp>
+#include <lol/def/LolLobbyTeamBuilderChampSelectChatRoomDetails.hpp>
+#include <lol/def/LolLobbyTeamBuilderChampSelectTradeContract.hpp>
 namespace lol {
   struct LolLobbyTeamBuilderChampSelectSession { 
     std::vector<json> actions;
@@ -18,7 +18,7 @@ namespace lol {
     LolLobbyTeamBuilderChampSelectTimer timer;
     bool allowRerolling; 
   };
-  void to_json(json& j, const LolLobbyTeamBuilderChampSelectSession& v) {
+  inline void to_json(json& j, const LolLobbyTeamBuilderChampSelectSession& v) {
     j["actions"] = v.actions; 
     j["chatDetails"] = v.chatDetails; 
     j["localPlayerCellId"] = v.localPlayerCellId; 
@@ -31,7 +31,7 @@ namespace lol {
     j["timer"] = v.timer; 
     j["allowRerolling"] = v.allowRerolling; 
   }
-  void from_json(const json& j, LolLobbyTeamBuilderChampSelectSession& v) {
+  inline void from_json(const json& j, LolLobbyTeamBuilderChampSelectSession& v) {
     v.actions = j.at("actions").get<std::vector<json>>(); 
     v.chatDetails = j.at("chatDetails").get<LolLobbyTeamBuilderChampSelectChatRoomDetails>(); 
     v.localPlayerCellId = j.at("localPlayerCellId").get<int64_t>(); 

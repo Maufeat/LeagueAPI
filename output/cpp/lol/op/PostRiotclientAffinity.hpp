@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<void> PostRiotclientAffinity(const LeagueClient& _client, const std::string& newAffinity)
+  inline Result<void> PostRiotclientAffinity(const LeagueClient& _client, const std::string& newAffinity)
   {
     HttpsClient _client_(_client.host, false);
     try {

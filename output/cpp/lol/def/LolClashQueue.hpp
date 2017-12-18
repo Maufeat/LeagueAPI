@@ -1,9 +1,9 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/LolClashQueueAvailability.hpp>
 #include <lol/def/LolClashQueueGameCategory.hpp>
-#include <lol/def/LolClashQueueReward.hpp>
 #include <lol/def/LolClashQueueGameTypeConfig.hpp>
+#include <lol/def/LolClashQueueAvailability.hpp>
+#include <lol/def/LolClashQueueReward.hpp>
 namespace lol {
   struct LolClashQueue { 
     std::string gameMutator;
@@ -31,7 +31,7 @@ namespace lol {
     std::string description;
     LolClashQueueGameCategory category; 
   };
-  void to_json(json& j, const LolClashQueue& v) {
+  inline void to_json(json& j, const LolClashQueue& v) {
     j["gameMutator"] = v.gameMutator; 
     j["spectatorEnabled"] = v.spectatorEnabled; 
     j["areFreeChampionsAllowed"] = v.areFreeChampionsAllowed; 
@@ -57,7 +57,7 @@ namespace lol {
     j["description"] = v.description; 
     j["category"] = v.category; 
   }
-  void from_json(const json& j, LolClashQueue& v) {
+  inline void from_json(const json& j, LolClashQueue& v) {
     v.gameMutator = j.at("gameMutator").get<std::string>(); 
     v.spectatorEnabled = j.at("spectatorEnabled").get<bool>(); 
     v.areFreeChampionsAllowed = j.at("areFreeChampionsAllowed").get<bool>(); 

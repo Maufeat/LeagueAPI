@@ -5,11 +5,11 @@ namespace lol {
     std::string password;
     std::string username; 
   };
-  void to_json(json& j, const LolLoginUsernameAndPassword& v) {
+  inline void to_json(json& j, const LolLoginUsernameAndPassword& v) {
     j["password"] = v.password; 
     j["username"] = v.username; 
   }
-  void from_json(const json& j, LolLoginUsernameAndPassword& v) {
+  inline void from_json(const json& j, LolLoginUsernameAndPassword& v) {
     v.password = j.at("password").get<std::string>(); 
     v.username = j.at("username").get<std::string>(); 
   }

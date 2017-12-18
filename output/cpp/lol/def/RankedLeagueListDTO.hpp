@@ -12,7 +12,7 @@ namespace lol {
     uint64_t nextApexUpdate;
     std::vector<RankedLeagueItemDTO> entries; 
   };
-  void to_json(json& j, const RankedLeagueListDTO& v) {
+  inline void to_json(json& j, const RankedLeagueListDTO& v) {
     j["requestorsName"] = v.requestorsName; 
     j["requestorsRank"] = v.requestorsRank; 
     j["tier"] = v.tier; 
@@ -22,7 +22,7 @@ namespace lol {
     j["nextApexUpdate"] = v.nextApexUpdate; 
     j["entries"] = v.entries; 
   }
-  void from_json(const json& j, RankedLeagueListDTO& v) {
+  inline void from_json(const json& j, RankedLeagueListDTO& v) {
     v.requestorsName = j.at("requestorsName").get<std::string>(); 
     v.requestorsRank = j.at("requestorsRank").get<std::string>(); 
     v.tier = j.at("tier").get<std::string>(); 

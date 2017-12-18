@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolChampSelectLegacyChampSelectSession.hpp>
 namespace lol {
-  Result<LolChampSelectLegacyChampSelectSession> GetLolChampSelectLegacyV1Session(const LeagueClient& _client)
+  inline Result<LolChampSelectLegacyChampSelectSession> GetLolChampSelectLegacyV1Session(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

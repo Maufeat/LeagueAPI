@@ -13,7 +13,7 @@ namespace lol {
     int32_t championId;
     uint64_t summonerId; 
   };
-  void to_json(json& j, const LolLobbyTeamBuilderCellV1& v) {
+  inline void to_json(json& j, const LolLobbyTeamBuilderCellV1& v) {
     j["championPickIntent"] = v.championPickIntent; 
     j["skinId"] = v.skinId; 
     j["teamId"] = v.teamId; 
@@ -25,7 +25,7 @@ namespace lol {
     j["championId"] = v.championId; 
     j["summonerId"] = v.summonerId; 
   }
-  void from_json(const json& j, LolLobbyTeamBuilderCellV1& v) {
+  inline void from_json(const json& j, LolLobbyTeamBuilderCellV1& v) {
     v.championPickIntent = j.at("championPickIntent").get<int32_t>(); 
     v.skinId = j.at("skinId").get<int32_t>(); 
     v.teamId = j.at("teamId").get<int32_t>(); 

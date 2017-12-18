@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolClashRosterStats.hpp>
 namespace lol {
-  Result<LolClashRosterStats> GetLolClashV1RosterByRosterIdStats(const LeagueClient& _client, const int64_t& rosterId)
+  inline Result<LolClashRosterStats> GetLolClashV1RosterByRosterIdStats(const LeagueClient& _client, const int64_t& rosterId)
   {
     HttpsClient _client_(_client.host, false);
     try {

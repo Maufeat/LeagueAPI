@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<json> GetLolPlatformConfigV1NamespacesByNs(const LeagueClient& _client, const std::string& ns)
+  inline Result<json> GetLolPlatformConfigV1NamespacesByNs(const LeagueClient& _client, const std::string& ns)
   {
     HttpsClient _client_(_client.host, false);
     try {

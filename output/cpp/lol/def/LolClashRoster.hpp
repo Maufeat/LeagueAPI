@@ -1,10 +1,10 @@
 #pragma once
 #include<lol/base_def.hpp> 
 #include <lol/def/LolClashSuggestedInvite.hpp>
+#include <lol/def/RosterWithdraw.hpp>
+#include <lol/def/RewardIcon.hpp>
 #include <lol/def/LolClashRosterMember.hpp>
 #include <lol/def/LolClashRosterPhaseInfo.hpp>
-#include <lol/def/RewardIcon.hpp>
-#include <lol/def/RosterWithdraw.hpp>
 namespace lol {
   struct LolClashRoster { 
     uint64_t captainSummonerId;
@@ -29,7 +29,7 @@ namespace lol {
     int32_t numCompletedPeriods;
     bool isRegistered; 
   };
-  void to_json(json& j, const LolClashRoster& v) {
+  inline void to_json(json& j, const LolClashRoster& v) {
     j["captainSummonerId"] = v.captainSummonerId; 
     j["currentBracketWins"] = v.currentBracketWins; 
     j["wins"] = v.wins; 
@@ -52,7 +52,7 @@ namespace lol {
     j["numCompletedPeriods"] = v.numCompletedPeriods; 
     j["isRegistered"] = v.isRegistered; 
   }
-  void from_json(const json& j, LolClashRoster& v) {
+  inline void from_json(const json& j, LolClashRoster& v) {
     v.captainSummonerId = j.at("captainSummonerId").get<uint64_t>(); 
     v.currentBracketWins = j.at("currentBracketWins").get<int32_t>(); 
     v.wins = j.at("wins").get<int32_t>(); 

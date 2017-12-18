@@ -7,7 +7,7 @@ namespace lol {
     Login_e = 1,
     Message_e = 3,
   };
-  void to_json(json& j, const LolPlayerBehaviorNotificationSource& v) {
+  inline void to_json(json& j, const LolPlayerBehaviorNotificationSource& v) {
     if(v == LolPlayerBehaviorNotificationSource::ForcedShutdown_e) {
       j = "ForcedShutdown";
       return;
@@ -25,7 +25,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolPlayerBehaviorNotificationSource& v) {
+  inline void from_json(const json& j, LolPlayerBehaviorNotificationSource& v) {
     if(j.get<std::string>() == "ForcedShutdown") {
       v = LolPlayerBehaviorNotificationSource::ForcedShutdown_e;
       return;

@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<json> PostLolLobbyTeamBuilderV1MatchmakingLowPriorityQueueAbandon(const LeagueClient& _client, const std::string& leaverBusterToken)
+  inline Result<json> PostLolLobbyTeamBuilderV1MatchmakingLowPriorityQueueAbandon(const LeagueClient& _client, const std::string& leaverBusterToken)
   {
     HttpsClient _client_(_client.host, false);
     try {

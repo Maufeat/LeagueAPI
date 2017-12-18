@@ -6,7 +6,7 @@ namespace lol {
     Network_e = 1,
     Scanning_e = 0,
   };
-  void to_json(json& j, const PatcherComponentStateWorkType& v) {
+  inline void to_json(json& j, const PatcherComponentStateWorkType& v) {
     if(v == PatcherComponentStateWorkType::Disk_e) {
       j = "Disk";
       return;
@@ -20,7 +20,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, PatcherComponentStateWorkType& v) {
+  inline void from_json(const json& j, PatcherComponentStateWorkType& v) {
     if(j.get<std::string>() == "Disk") {
       v = PatcherComponentStateWorkType::Disk_e;
       return;

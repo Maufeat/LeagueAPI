@@ -7,13 +7,13 @@ namespace lol {
     std::string status;
     uint64_t id; 
   };
-  void to_json(json& j, const LolStoreOrderNotificationResource& v) {
+  inline void to_json(json& j, const LolStoreOrderNotificationResource& v) {
     j["eventType"] = v.eventType; 
     j["eventTypeId"] = v.eventTypeId; 
     j["status"] = v.status; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, LolStoreOrderNotificationResource& v) {
+  inline void from_json(const json& j, LolStoreOrderNotificationResource& v) {
     v.eventType = j.at("eventType").get<std::string>(); 
     v.eventTypeId = j.at("eventTypeId").get<std::string>(); 
     v.status = j.at("status").get<std::string>(); 

@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/RsoAuthIdToken.hpp>
 namespace lol {
-  Result<RsoAuthIdToken> GetRsoAuthV1AuthorizationIdToken(const LeagueClient& _client)
+  inline Result<RsoAuthIdToken> GetRsoAuthV1AuthorizationIdToken(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

@@ -7,7 +7,7 @@ namespace lol {
     LOBBYONLY_e = 1,
     NONE_e = 0,
   };
-  void to_json(json& j, const GameQueuesLcdsAllowSpectators& v) {
+  inline void to_json(json& j, const GameQueuesLcdsAllowSpectators& v) {
     if(v == GameQueuesLcdsAllowSpectators::ALL_e) {
       j = "ALL";
       return;
@@ -25,7 +25,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, GameQueuesLcdsAllowSpectators& v) {
+  inline void from_json(const json& j, GameQueuesLcdsAllowSpectators& v) {
     if(j.get<std::string>() == "ALL") {
       v = GameQueuesLcdsAllowSpectators::ALL_e;
       return;

@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolAcsAcsChampionGamesCollection.hpp>
 namespace lol {
-  Result<LolAcsAcsChampionGamesCollection> GetLolAcsV2RecentlyPlayedChampionsByAccountId(const LeagueClient& _client, const uint64_t& accountId)
+  inline Result<LolAcsAcsChampionGamesCollection> GetLolAcsV2RecentlyPlayedChampionsByAccountId(const LeagueClient& _client, const uint64_t& accountId)
   {
     HttpsClient _client_(_client.host, false);
     try {

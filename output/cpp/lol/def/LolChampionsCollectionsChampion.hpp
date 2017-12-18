@@ -1,8 +1,8 @@
 #pragma once
 #include<lol/base_def.hpp> 
+#include <lol/def/LolChampionsCollectionsChampionSpell.hpp>
 #include <lol/def/LolChampionsCollectionsChampionSkin.hpp>
 #include <lol/def/LolChampionsCollectionsOwnership.hpp>
-#include <lol/def/LolChampionsCollectionsChampionSpell.hpp>
 namespace lol {
   struct LolChampionsCollectionsChampion { 
     std::string alias;
@@ -24,7 +24,7 @@ namespace lol {
     bool rankedPlayEnabled;
     std::string stingerSfxPath; 
   };
-  void to_json(json& j, const LolChampionsCollectionsChampion& v) {
+  inline void to_json(json& j, const LolChampionsCollectionsChampion& v) {
     j["alias"] = v.alias; 
     j["purchased"] = v.purchased; 
     j["roles"] = v.roles; 
@@ -44,7 +44,7 @@ namespace lol {
     j["rankedPlayEnabled"] = v.rankedPlayEnabled; 
     j["stingerSfxPath"] = v.stingerSfxPath; 
   }
-  void from_json(const json& j, LolChampionsCollectionsChampion& v) {
+  inline void from_json(const json& j, LolChampionsCollectionsChampion& v) {
     v.alias = j.at("alias").get<std::string>(); 
     v.purchased = j.at("purchased").get<uint64_t>(); 
     v.roles = j.at("roles").get<std::vector<std::string>>(); 

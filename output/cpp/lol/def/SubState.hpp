@@ -10,7 +10,7 @@ namespace lol {
     REVOKED_e = 3,
     SUGGESTED_e = 0,
   };
-  void to_json(json& j, const SubState& v) {
+  inline void to_json(json& j, const SubState& v) {
     if(v == SubState::DECLINED_e) {
       j = "DECLINED";
       return;
@@ -40,7 +40,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, SubState& v) {
+  inline void from_json(const json& j, SubState& v) {
     if(j.get<std::string>() == "DECLINED") {
       v = SubState::DECLINED_e;
       return;

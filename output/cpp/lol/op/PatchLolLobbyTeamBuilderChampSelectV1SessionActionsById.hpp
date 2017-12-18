@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolLobbyTeamBuilderChampSelectAction.hpp>
 namespace lol {
-  Result<json> PatchLolLobbyTeamBuilderChampSelectV1SessionActionsById(const LeagueClient& _client, const int32_t& id, const LolLobbyTeamBuilderChampSelectAction& data)
+  inline Result<json> PatchLolLobbyTeamBuilderChampSelectV1SessionActionsById(const LeagueClient& _client, const int32_t& id, const LolLobbyTeamBuilderChampSelectAction& data)
   {
     HttpsClient _client_(_client.host, false);
     try {

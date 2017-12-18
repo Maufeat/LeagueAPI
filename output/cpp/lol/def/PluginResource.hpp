@@ -26,7 +26,7 @@ namespace lol {
     bool isDynamicLibraryLoaded;
     int32_t orderDynamicLibraryInited; 
   };
-  void to_json(json& j, const PluginResource& v) {
+  inline void to_json(json& j, const PluginResource& v) {
     j["orderDynamicLibraryLoaded"] = v.orderDynamicLibraryLoaded; 
     j["app"] = v.app; 
     j["shortName"] = v.shortName; 
@@ -50,7 +50,7 @@ namespace lol {
     j["isDynamicLibraryLoaded"] = v.isDynamicLibraryLoaded; 
     j["orderDynamicLibraryInited"] = v.orderDynamicLibraryInited; 
   }
-  void from_json(const json& j, PluginResource& v) {
+  inline void from_json(const json& j, PluginResource& v) {
     v.orderDynamicLibraryLoaded = j.at("orderDynamicLibraryLoaded").get<int32_t>(); 
     v.app = j.at("app").get<std::string>(); 
     v.shortName = j.at("shortName").get<std::string>(); 

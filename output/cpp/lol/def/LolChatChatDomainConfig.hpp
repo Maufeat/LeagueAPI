@@ -13,7 +13,7 @@ namespace lol {
     std::optional<std::string> ChampSelectDomainName;
     std::optional<std::string> PostGameDomainName; 
   };
-  void to_json(json& j, const LolChatChatDomainConfig& v) {
+  inline void to_json(json& j, const LolChatChatDomainConfig& v) {
     if(v.CustomGameDomainName)
       j["CustomGameDomainName"] = *v.CustomGameDomainName;
     if(v.TeamBuilderDomainName)
@@ -35,7 +35,7 @@ namespace lol {
     if(v.PostGameDomainName)
       j["PostGameDomainName"] = *v.PostGameDomainName;
   }
-  void from_json(const json& j, LolChatChatDomainConfig& v) {
+  inline void from_json(const json& j, LolChatChatDomainConfig& v) {
     if(auto it = j.find("CustomGameDomainName"); it != j.end() && !it->is_null())
       v.CustomGameDomainName = it->get<std::optional<std::string>>(); 
     if(auto it = j.find("TeamBuilderDomainName"); it != j.end() && !it->is_null())

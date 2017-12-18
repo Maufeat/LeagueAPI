@@ -15,7 +15,7 @@ namespace lol {
     std::string expires;
     std::string backgroundUrl; 
   };
-  void to_json(json& j, const LolPlayerBehaviorPlayerNotificationResource& v) {
+  inline void to_json(json& j, const LolPlayerBehaviorPlayerNotificationResource& v) {
     j["detailKey"] = v.detailKey; 
     j["iconUrl"] = v.iconUrl; 
     j["source"] = v.source; 
@@ -29,7 +29,7 @@ namespace lol {
     j["expires"] = v.expires; 
     j["backgroundUrl"] = v.backgroundUrl; 
   }
-  void from_json(const json& j, LolPlayerBehaviorPlayerNotificationResource& v) {
+  inline void from_json(const json& j, LolPlayerBehaviorPlayerNotificationResource& v) {
     v.detailKey = j.at("detailKey").get<std::string>(); 
     v.iconUrl = j.at("iconUrl").get<std::string>(); 
     v.source = j.at("source").get<std::string>(); 

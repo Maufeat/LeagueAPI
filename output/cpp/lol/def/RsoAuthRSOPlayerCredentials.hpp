@@ -6,12 +6,12 @@ namespace lol {
     std::string username;
     std::string platformId; 
   };
-  void to_json(json& j, const RsoAuthRSOPlayerCredentials& v) {
+  inline void to_json(json& j, const RsoAuthRSOPlayerCredentials& v) {
     j["password"] = v.password; 
     j["username"] = v.username; 
     j["platformId"] = v.platformId; 
   }
-  void from_json(const json& j, RsoAuthRSOPlayerCredentials& v) {
+  inline void from_json(const json& j, RsoAuthRSOPlayerCredentials& v) {
     v.password = j.at("password").get<std::string>(); 
     v.username = j.at("username").get<std::string>(); 
     v.platformId = j.at("platformId").get<std::string>(); 

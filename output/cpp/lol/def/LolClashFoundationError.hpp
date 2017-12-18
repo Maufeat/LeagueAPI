@@ -7,7 +7,7 @@ namespace lol {
     DESERIALIZATION_FAILED_e = 2,
     GAMEFLOW_UNAVAILABLE_e = 3,
   };
-  void to_json(json& j, const LolClashFoundationError& v) {
+  inline void to_json(json& j, const LolClashFoundationError& v) {
     if(v == LolClashFoundationError::CLASH_DISABLED_e) {
       j = "CLASH_DISABLED";
       return;
@@ -25,7 +25,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolClashFoundationError& v) {
+  inline void from_json(const json& j, LolClashFoundationError& v) {
     if(j.get<std::string>() == "CLASH_DISABLED") {
       v = LolClashFoundationError::CLASH_DISABLED_e;
       return;

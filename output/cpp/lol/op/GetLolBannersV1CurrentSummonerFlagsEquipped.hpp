@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolBannersBannerFlag.hpp>
 namespace lol {
-  Result<LolBannersBannerFlag> GetLolBannersV1CurrentSummonerFlagsEquipped(const LeagueClient& _client)
+  inline Result<LolBannersBannerFlag> GetLolBannersV1CurrentSummonerFlagsEquipped(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

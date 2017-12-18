@@ -1,8 +1,8 @@
 #pragma once
 #include<lol/base_def.hpp> 
 #include <lol/def/LolLobbyLobbyInvitationState.hpp>
-#include <lol/def/LolLobbyEligibilityRestriction.hpp>
 #include <lol/def/LolLobbyReceivedInvitationGameConfigDto.hpp>
+#include <lol/def/LolLobbyEligibilityRestriction.hpp>
 namespace lol {
   struct LolLobbyReceivedInvitationDto { 
     std::string timestamp;
@@ -14,7 +14,7 @@ namespace lol {
     bool canAcceptInvitation;
     LolLobbyReceivedInvitationGameConfigDto gameConfig; 
   };
-  void to_json(json& j, const LolLobbyReceivedInvitationDto& v) {
+  inline void to_json(json& j, const LolLobbyReceivedInvitationDto& v) {
     j["timestamp"] = v.timestamp; 
     j["invitationId"] = v.invitationId; 
     j["restrictions"] = v.restrictions; 
@@ -24,7 +24,7 @@ namespace lol {
     j["canAcceptInvitation"] = v.canAcceptInvitation; 
     j["gameConfig"] = v.gameConfig; 
   }
-  void from_json(const json& j, LolLobbyReceivedInvitationDto& v) {
+  inline void from_json(const json& j, LolLobbyReceivedInvitationDto& v) {
     v.timestamp = j.at("timestamp").get<std::string>(); 
     v.invitationId = j.at("invitationId").get<std::string>(); 
     v.restrictions = j.at("restrictions").get<std::vector<LolLobbyEligibilityRestriction>>(); 

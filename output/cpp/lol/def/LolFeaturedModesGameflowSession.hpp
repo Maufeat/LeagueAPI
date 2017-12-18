@@ -5,10 +5,10 @@ namespace lol {
   struct LolFeaturedModesGameflowSession { 
     LolFeaturedModesGameflowPhase phase; 
   };
-  void to_json(json& j, const LolFeaturedModesGameflowSession& v) {
+  inline void to_json(json& j, const LolFeaturedModesGameflowSession& v) {
     j["phase"] = v.phase; 
   }
-  void from_json(const json& j, LolFeaturedModesGameflowSession& v) {
+  inline void from_json(const json& j, LolFeaturedModesGameflowSession& v) {
     v.phase = j.at("phase").get<LolFeaturedModesGameflowPhase>(); 
   }
 }

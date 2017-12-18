@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<void> PostLolMissionsV1MissionsByMissionId(const LeagueClient& _client, const std::string& missionId)
+  inline Result<void> PostLolMissionsV1MissionsByMissionId(const LeagueClient& _client, const std::string& missionId)
   {
     HttpsClient _client_(_client.host, false);
     try {

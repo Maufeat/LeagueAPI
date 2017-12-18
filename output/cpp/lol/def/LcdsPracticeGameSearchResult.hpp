@@ -18,7 +18,7 @@ namespace lol {
     LcdsPlayerParticipant owner;
     int32_t gameMapId; 
   };
-  void to_json(json& j, const LcdsPracticeGameSearchResult& v) {
+  inline void to_json(json& j, const LcdsPracticeGameSearchResult& v) {
     j["allowSpectators"] = v.allowSpectators; 
     j["pickType"] = v.pickType; 
     j["team1Count"] = v.team1Count; 
@@ -33,7 +33,7 @@ namespace lol {
     j["owner"] = v.owner; 
     j["gameMapId"] = v.gameMapId; 
   }
-  void from_json(const json& j, LcdsPracticeGameSearchResult& v) {
+  inline void from_json(const json& j, LcdsPracticeGameSearchResult& v) {
     v.allowSpectators = j.at("allowSpectators").get<std::string>(); 
     v.pickType = j.at("pickType").get<std::string>(); 
     v.team1Count = j.at("team1Count").get<int32_t>(); 

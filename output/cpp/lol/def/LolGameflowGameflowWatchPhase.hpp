@@ -7,7 +7,7 @@ namespace lol {
     WatchInProgress_e = 2,
     WatchStarted_e = 1,
   };
-  void to_json(json& j, const LolGameflowGameflowWatchPhase& v) {
+  inline void to_json(json& j, const LolGameflowGameflowWatchPhase& v) {
     if(v == LolGameflowGameflowWatchPhase::None_e) {
       j = "None";
       return;
@@ -25,7 +25,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolGameflowGameflowWatchPhase& v) {
+  inline void from_json(const json& j, LolGameflowGameflowWatchPhase& v) {
     if(j.get<std::string>() == "None") {
       v = LolGameflowGameflowWatchPhase::None_e;
       return;

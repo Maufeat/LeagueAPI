@@ -13,7 +13,7 @@ namespace lol {
     bool isReplaysForMatchHistoryEnabled;
     std::string gameVersion; 
   };
-  void to_json(json& j, const LolReplaysReplaysConfiguration& v) {
+  inline void to_json(json& j, const LolReplaysReplaysConfiguration& v) {
     j["minServerVersion"] = v.minServerVersion; 
     j["isPlayingReplay"] = v.isPlayingReplay; 
     j["isReplaysForEndOfGameEnabled"] = v.isReplaysForEndOfGameEnabled; 
@@ -25,7 +25,7 @@ namespace lol {
     j["isReplaysForMatchHistoryEnabled"] = v.isReplaysForMatchHistoryEnabled; 
     j["gameVersion"] = v.gameVersion; 
   }
-  void from_json(const json& j, LolReplaysReplaysConfiguration& v) {
+  inline void from_json(const json& j, LolReplaysReplaysConfiguration& v) {
     v.minServerVersion = j.at("minServerVersion").get<std::string>(); 
     v.isPlayingReplay = j.at("isPlayingReplay").get<bool>(); 
     v.isReplaysForEndOfGameEnabled = j.at("isReplaysForEndOfGameEnabled").get<bool>(); 

@@ -5,10 +5,10 @@ namespace lol {
   struct LolCollectionsGameDataChampionMasteries { 
     LolCollectionsGameDataChampionMasteryTree tree; 
   };
-  void to_json(json& j, const LolCollectionsGameDataChampionMasteries& v) {
+  inline void to_json(json& j, const LolCollectionsGameDataChampionMasteries& v) {
     j["tree"] = v.tree; 
   }
-  void from_json(const json& j, LolCollectionsGameDataChampionMasteries& v) {
+  inline void from_json(const json& j, LolCollectionsGameDataChampionMasteries& v) {
     v.tree = j.at("tree").get<LolCollectionsGameDataChampionMasteryTree>(); 
   }
 }

@@ -15,7 +15,7 @@ namespace lol {
     bool isComplete;
     int64_t id; 
   };
-  void to_json(json& j, const LolClashBracket& v) {
+  inline void to_json(json& j, const LolClashBracket& v) {
     j["period"] = v.period; 
     j["currentLoserRound"] = v.currentLoserRound; 
     j["tournamentId"] = v.tournamentId; 
@@ -27,7 +27,7 @@ namespace lol {
     j["isComplete"] = v.isComplete; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, LolClashBracket& v) {
+  inline void from_json(const json& j, LolClashBracket& v) {
     v.period = j.at("period").get<int32_t>(); 
     v.currentLoserRound = j.at("currentLoserRound").get<int32_t>(); 
     v.tournamentId = j.at("tournamentId").get<int64_t>(); 

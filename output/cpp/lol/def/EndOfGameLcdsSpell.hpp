@@ -4,10 +4,10 @@ namespace lol {
   struct EndOfGameLcdsSpell { 
     int32_t spellId; 
   };
-  void to_json(json& j, const EndOfGameLcdsSpell& v) {
+  inline void to_json(json& j, const EndOfGameLcdsSpell& v) {
     j["spellId"] = v.spellId; 
   }
-  void from_json(const json& j, EndOfGameLcdsSpell& v) {
+  inline void from_json(const json& j, EndOfGameLcdsSpell& v) {
     v.spellId = j.at("spellId").get<int32_t>(); 
   }
 }

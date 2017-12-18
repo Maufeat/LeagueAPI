@@ -12,7 +12,7 @@ namespace lol {
     ServiceShutdown_e = 8,
     Timeout_e = 6,
   };
-  void to_json(json& j, const LolLobbyTeamBuilderLobbyRemovedFromGameReason& v) {
+  inline void to_json(json& j, const LolLobbyTeamBuilderLobbyRemovedFromGameReason& v) {
     if(v == LolLobbyTeamBuilderLobbyRemovedFromGameReason::Disbanded_e) {
       j = "Disbanded";
       return;
@@ -50,7 +50,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolLobbyTeamBuilderLobbyRemovedFromGameReason& v) {
+  inline void from_json(const json& j, LolLobbyTeamBuilderLobbyRemovedFromGameReason& v) {
     if(j.get<std::string>() == "Disbanded") {
       v = LolLobbyTeamBuilderLobbyRemovedFromGameReason::Disbanded_e;
       return;

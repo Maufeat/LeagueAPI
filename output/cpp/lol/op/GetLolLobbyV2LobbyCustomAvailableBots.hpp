@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolLobbyLobbyBotChampion.hpp>
 namespace lol {
-  Result<std::vector<LolLobbyLobbyBotChampion>> GetLolLobbyV2LobbyCustomAvailableBots(const LeagueClient& _client)
+  inline Result<std::vector<LolLobbyLobbyBotChampion>> GetLolLobbyV2LobbyCustomAvailableBots(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

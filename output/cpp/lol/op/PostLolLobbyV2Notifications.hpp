@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolLobbyLobbyNotification.hpp>
 namespace lol {
-  Result<void> PostLolLobbyV2Notifications(const LeagueClient& _client, const LolLobbyLobbyNotification& notification)
+  inline Result<void> PostLolLobbyV2Notifications(const LeagueClient& _client, const LolLobbyLobbyNotification& notification)
   {
     HttpsClient _client_(_client.host, false);
     try {

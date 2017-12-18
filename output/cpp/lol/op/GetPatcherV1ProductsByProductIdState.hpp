@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/PatcherProductState.hpp>
 namespace lol {
-  Result<PatcherProductState> GetPatcherV1ProductsByProductIdState(const LeagueClient& _client, const std::string& product_id)
+  inline Result<PatcherProductState> GetPatcherV1ProductsByProductIdState(const LeagueClient& _client, const std::string& product_id)
   {
     HttpsClient _client_(_client.host, false);
     try {

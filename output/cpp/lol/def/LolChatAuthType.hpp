@@ -6,7 +6,7 @@ namespace lol {
     rsoCreate_e = 1,
     rsoRefresh_e = 2,
   };
-  void to_json(json& j, const LolChatAuthType& v) {
+  inline void to_json(json& j, const LolChatAuthType& v) {
     if(v == LolChatAuthType::plain_e) {
       j = "plain";
       return;
@@ -20,7 +20,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolChatAuthType& v) {
+  inline void from_json(const json& j, LolChatAuthType& v) {
     if(j.get<std::string>() == "plain") {
       v = LolChatAuthType::plain_e;
       return;

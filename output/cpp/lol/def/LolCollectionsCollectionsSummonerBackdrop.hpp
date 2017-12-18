@@ -12,7 +12,7 @@ namespace lol {
     int32_t championId;
     uint64_t accountId; 
   };
-  void to_json(json& j, const LolCollectionsCollectionsSummonerBackdrop& v) {
+  inline void to_json(json& j, const LolCollectionsCollectionsSummonerBackdrop& v) {
     j["backdropMaskColor"] = v.backdropMaskColor; 
     j["backdropVideo"] = v.backdropVideo; 
     j["backdropImage"] = v.backdropImage; 
@@ -22,7 +22,7 @@ namespace lol {
     j["championId"] = v.championId; 
     j["accountId"] = v.accountId; 
   }
-  void from_json(const json& j, LolCollectionsCollectionsSummonerBackdrop& v) {
+  inline void from_json(const json& j, LolCollectionsCollectionsSummonerBackdrop& v) {
     v.backdropMaskColor = j.at("backdropMaskColor").get<std::string>(); 
     v.backdropVideo = j.at("backdropVideo").get<std::string>(); 
     v.backdropImage = j.at("backdropImage").get<std::string>(); 

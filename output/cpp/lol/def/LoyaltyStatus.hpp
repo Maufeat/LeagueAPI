@@ -9,7 +9,7 @@ namespace lol {
     REVOKE_e = 4,
     REWARDS_GRANT_e = 1,
   };
-  void to_json(json& j, const LoyaltyStatus& v) {
+  inline void to_json(json& j, const LoyaltyStatus& v) {
     if(v == LoyaltyStatus::CHANGE_e) {
       j = "CHANGE";
       return;
@@ -35,7 +35,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LoyaltyStatus& v) {
+  inline void from_json(const json& j, LoyaltyStatus& v) {
     if(j.get<std::string>() == "CHANGE") {
       v = LoyaltyStatus::CHANGE_e;
       return;

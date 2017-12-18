@@ -6,7 +6,7 @@ namespace lol {
     OWNED_e = 0,
     RENTED_e = 1,
   };
-  void to_json(json& j, const LolLootInventoryOwnership& v) {
+  inline void to_json(json& j, const LolLootInventoryOwnership& v) {
     if(v == LolLootInventoryOwnership::F2P_e) {
       j = "F2P";
       return;
@@ -20,7 +20,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolLootInventoryOwnership& v) {
+  inline void from_json(const json& j, LolLootInventoryOwnership& v) {
     if(j.get<std::string>() == "F2P") {
       v = LolLootInventoryOwnership::F2P_e;
       return;

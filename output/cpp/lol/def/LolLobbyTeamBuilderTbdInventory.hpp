@@ -9,7 +9,7 @@ namespace lol {
     std::vector<int32_t> disabledChampionIds;
     std::map<std::string, int32_t> lastSelectedSkinIdByChampionId; 
   };
-  void to_json(json& j, const LolLobbyTeamBuilderTbdInventory& v) {
+  inline void to_json(json& j, const LolLobbyTeamBuilderTbdInventory& v) {
     j["allChampionIds"] = v.allChampionIds; 
     j["initialSpellIds"] = v.initialSpellIds; 
     j["spellIds"] = v.spellIds; 
@@ -17,7 +17,7 @@ namespace lol {
     j["disabledChampionIds"] = v.disabledChampionIds; 
     j["lastSelectedSkinIdByChampionId"] = v.lastSelectedSkinIdByChampionId; 
   }
-  void from_json(const json& j, LolLobbyTeamBuilderTbdInventory& v) {
+  inline void from_json(const json& j, LolLobbyTeamBuilderTbdInventory& v) {
     v.allChampionIds = j.at("allChampionIds").get<std::vector<int32_t>>(); 
     v.initialSpellIds = j.at("initialSpellIds").get<std::vector<int32_t>>(); 
     v.spellIds = j.at("spellIds").get<std::vector<int32_t>>(); 

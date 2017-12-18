@@ -5,11 +5,11 @@ namespace lol {
     bool owned;
     int32_t championId; 
   };
-  void to_json(json& j, const PersonalizedOffersLcdsChampionDTO& v) {
+  inline void to_json(json& j, const PersonalizedOffersLcdsChampionDTO& v) {
     j["owned"] = v.owned; 
     j["championId"] = v.championId; 
   }
-  void from_json(const json& j, PersonalizedOffersLcdsChampionDTO& v) {
+  inline void from_json(const json& j, PersonalizedOffersLcdsChampionDTO& v) {
     v.owned = j.at("owned").get<bool>(); 
     v.championId = j.at("championId").get<int32_t>(); 
   }

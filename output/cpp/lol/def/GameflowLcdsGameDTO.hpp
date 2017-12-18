@@ -15,7 +15,7 @@ namespace lol {
     std::string gameMode;
     std::string gameType; 
   };
-  void to_json(json& j, const GameflowLcdsGameDTO& v) {
+  inline void to_json(json& j, const GameflowLcdsGameDTO& v) {
     j["spectatorDelay"] = v.spectatorDelay; 
     j["mapId"] = v.mapId; 
     j["teamOne"] = v.teamOne; 
@@ -29,7 +29,7 @@ namespace lol {
     j["gameMode"] = v.gameMode; 
     j["gameType"] = v.gameType; 
   }
-  void from_json(const json& j, GameflowLcdsGameDTO& v) {
+  inline void from_json(const json& j, GameflowLcdsGameDTO& v) {
     v.spectatorDelay = j.at("spectatorDelay").get<int32_t>(); 
     v.mapId = j.at("mapId").get<int32_t>(); 
     v.teamOne = j.at("teamOne").get<std::vector<json>>(); 

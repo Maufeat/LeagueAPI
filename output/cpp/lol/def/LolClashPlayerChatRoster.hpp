@@ -16,7 +16,7 @@ namespace lol {
     LolClashTournamentState tournamentState;
     int32_t iconId; 
   };
-  void to_json(json& j, const LolClashPlayerChatRoster& v) {
+  inline void to_json(json& j, const LolClashPlayerChatRoster& v) {
     j["endTimeMs"] = v.endTimeMs; 
     j["tournamentId"] = v.tournamentId; 
     j["name"] = v.name; 
@@ -29,7 +29,7 @@ namespace lol {
     j["tournamentState"] = v.tournamentState; 
     j["iconId"] = v.iconId; 
   }
-  void from_json(const json& j, LolClashPlayerChatRoster& v) {
+  inline void from_json(const json& j, LolClashPlayerChatRoster& v) {
     v.endTimeMs = j.at("endTimeMs").get<int64_t>(); 
     v.tournamentId = j.at("tournamentId").get<int64_t>(); 
     v.name = j.at("name").get<std::string>(); 

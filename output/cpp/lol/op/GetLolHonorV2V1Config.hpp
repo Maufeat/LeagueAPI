@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolHonorV2HonorConfig.hpp>
 namespace lol {
-  Result<LolHonorV2HonorConfig> GetLolHonorV2V1Config(const LeagueClient& _client)
+  inline Result<LolHonorV2HonorConfig> GetLolHonorV2V1Config(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

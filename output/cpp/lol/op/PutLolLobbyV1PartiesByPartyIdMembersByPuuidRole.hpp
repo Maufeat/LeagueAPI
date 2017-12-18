@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<void> PutLolLobbyV1PartiesByPartyIdMembersByPuuidRole(const LeagueClient& _client, const std::string& partyId, const std::string& puuid, const std::string& role)
+  inline Result<void> PutLolLobbyV1PartiesByPartyIdMembersByPuuidRole(const LeagueClient& _client, const std::string& partyId, const std::string& puuid, const std::string& role)
   {
     HttpsClient _client_(_client.host, false);
     try {

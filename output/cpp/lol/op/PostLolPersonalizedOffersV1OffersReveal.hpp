@@ -1,9 +1,9 @@
 #pragma once
 #include<lol/base_op.hpp> 
-#include <lol/def/LolPersonalizedOffersOfferIds.hpp>
 #include <lol/def/LolPersonalizedOffersUIOffer.hpp>
+#include <lol/def/LolPersonalizedOffersOfferIds.hpp>
 namespace lol {
-  Result<std::vector<LolPersonalizedOffersUIOffer>> PostLolPersonalizedOffersV1OffersReveal(const LeagueClient& _client, const LolPersonalizedOffersOfferIds& offerIds)
+  inline Result<std::vector<LolPersonalizedOffersUIOffer>> PostLolPersonalizedOffersV1OffersReveal(const LeagueClient& _client, const LolPersonalizedOffersOfferIds& offerIds)
   {
     HttpsClient _client_(_client.host, false);
     try {

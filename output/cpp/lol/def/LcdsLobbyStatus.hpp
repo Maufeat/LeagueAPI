@@ -1,8 +1,8 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/LcdsPlayer.hpp>
 #include <lol/def/LcdsMember.hpp>
 #include <lol/def/LcdsInvitee.hpp>
+#include <lol/def/LcdsPlayer.hpp>
 namespace lol {
   struct LcdsLobbyStatus { 
     std::vector<LcdsMember> members;
@@ -12,7 +12,7 @@ namespace lol {
     LcdsPlayer owner;
     std::string chatKey; 
   };
-  void to_json(json& j, const LcdsLobbyStatus& v) {
+  inline void to_json(json& j, const LcdsLobbyStatus& v) {
     j["members"] = v.members; 
     j["invitationId"] = v.invitationId; 
     j["gameMetaData"] = v.gameMetaData; 
@@ -20,7 +20,7 @@ namespace lol {
     j["owner"] = v.owner; 
     j["chatKey"] = v.chatKey; 
   }
-  void from_json(const json& j, LcdsLobbyStatus& v) {
+  inline void from_json(const json& j, LcdsLobbyStatus& v) {
     v.members = j.at("members").get<std::vector<LcdsMember>>(); 
     v.invitationId = j.at("invitationId").get<std::string>(); 
     v.gameMetaData = j.at("gameMetaData").get<std::string>(); 

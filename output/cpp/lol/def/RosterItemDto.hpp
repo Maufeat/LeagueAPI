@@ -7,13 +7,13 @@ namespace lol {
     std::string summonerName;
     uint64_t accountId; 
   };
-  void to_json(json& j, const RosterItemDto& v) {
+  inline void to_json(json& j, const RosterItemDto& v) {
     j["clubRole"] = v.clubRole; 
     j["summonerIconId"] = v.summonerIconId; 
     j["summonerName"] = v.summonerName; 
     j["accountId"] = v.accountId; 
   }
-  void from_json(const json& j, RosterItemDto& v) {
+  inline void from_json(const json& j, RosterItemDto& v) {
     v.clubRole = j.at("clubRole").get<std::string>(); 
     v.summonerIconId = j.at("summonerIconId").get<int32_t>(); 
     v.summonerName = j.at("summonerName").get<std::string>(); 

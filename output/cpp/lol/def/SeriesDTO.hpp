@@ -15,7 +15,7 @@ namespace lol {
     std::vector<std::string> tags;
     std::string id; 
   };
-  void to_json(json& j, const SeriesDTO& v) {
+  inline void to_json(json& j, const SeriesDTO& v) {
     j["startDate"] = v.startDate; 
     j["media"] = v.media; 
     j["internalName"] = v.internalName; 
@@ -27,7 +27,7 @@ namespace lol {
     j["tags"] = v.tags; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, SeriesDTO& v) {
+  inline void from_json(const json& j, SeriesDTO& v) {
     v.startDate = j.at("startDate").get<int64_t>(); 
     v.media = j.at("media").get<SeriesMediaDTO>(); 
     v.internalName = j.at("internalName").get<std::string>(); 

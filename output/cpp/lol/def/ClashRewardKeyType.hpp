@@ -11,7 +11,7 @@ namespace lol {
     TOKENS_e = 2,
     WINS_e = 4,
   };
-  void to_json(json& j, const ClashRewardKeyType& v) {
+  inline void to_json(json& j, const ClashRewardKeyType& v) {
     if(v == ClashRewardKeyType::CUP_e) {
       j = "CUP";
       return;
@@ -45,7 +45,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, ClashRewardKeyType& v) {
+  inline void from_json(const json& j, ClashRewardKeyType& v) {
     if(j.get<std::string>() == "CUP") {
       v = ClashRewardKeyType::CUP_e;
       return;

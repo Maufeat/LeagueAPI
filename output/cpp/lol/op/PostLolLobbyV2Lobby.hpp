@@ -3,7 +3,7 @@
 #include <lol/def/LolLobbyLobbyChangeGameDto.hpp>
 #include <lol/def/LolLobbyLobbyDto.hpp>
 namespace lol {
-  Result<LolLobbyLobbyDto> PostLolLobbyV2Lobby(const LeagueClient& _client, const LolLobbyLobbyChangeGameDto& lobbyChange)
+  inline Result<LolLobbyLobbyDto> PostLolLobbyV2Lobby(const LeagueClient& _client, const LolLobbyLobbyChangeGameDto& lobbyChange)
   {
     HttpsClient _client_(_client.host, false);
     try {

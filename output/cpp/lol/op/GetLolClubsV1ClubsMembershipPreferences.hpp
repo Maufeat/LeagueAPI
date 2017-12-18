@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/ClubPreferences.hpp>
 namespace lol {
-  Result<ClubPreferences> GetLolClubsV1ClubsMembershipPreferences(const LeagueClient& _client)
+  inline Result<ClubPreferences> GetLolClubsV1ClubsMembershipPreferences(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

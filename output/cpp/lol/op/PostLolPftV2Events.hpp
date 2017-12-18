@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolPftPFTEvent.hpp>
 namespace lol {
-  Result<json> PostLolPftV2Events(const LeagueClient& _client, const LolPftPFTEvent& pftEvent)
+  inline Result<json> PostLolPftV2Events(const LeagueClient& _client, const LolPftPFTEvent& pftEvent)
   {
     HttpsClient _client_(_client.host, false);
     try {

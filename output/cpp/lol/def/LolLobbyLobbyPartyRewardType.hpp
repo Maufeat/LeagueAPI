@@ -6,7 +6,7 @@ namespace lol {
     Ip_e = 1,
     None_e = 9999,
   };
-  void to_json(json& j, const LolLobbyLobbyPartyRewardType& v) {
+  inline void to_json(json& j, const LolLobbyLobbyPartyRewardType& v) {
     if(v == LolLobbyLobbyPartyRewardType::Icon_e) {
       j = "Icon";
       return;
@@ -20,7 +20,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolLobbyLobbyPartyRewardType& v) {
+  inline void from_json(const json& j, LolLobbyLobbyPartyRewardType& v) {
     if(j.get<std::string>() == "Icon") {
       v = LolLobbyLobbyPartyRewardType::Icon_e;
       return;

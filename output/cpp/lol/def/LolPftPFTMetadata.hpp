@@ -12,7 +12,7 @@ namespace lol {
     LolPftPFTEndOfGameStats stats;
     std::string env; 
   };
-  void to_json(json& j, const LolPftPFTMetadata& v) {
+  inline void to_json(json& j, const LolPftPFTMetadata& v) {
     j["appName"] = v.appName; 
     j["systemOs"] = v.systemOs; 
     j["locale"] = v.locale; 
@@ -22,7 +22,7 @@ namespace lol {
     j["stats"] = v.stats; 
     j["env"] = v.env; 
   }
-  void from_json(const json& j, LolPftPFTMetadata& v) {
+  inline void from_json(const json& j, LolPftPFTMetadata& v) {
     v.appName = j.at("appName").get<std::string>(); 
     v.systemOs = j.at("systemOs").get<std::string>(); 
     v.locale = j.at("locale").get<std::string>(); 

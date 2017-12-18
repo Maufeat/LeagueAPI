@@ -5,11 +5,11 @@ namespace lol {
     uint64_t questionId;
     json responseData; 
   };
-  void to_json(json& j, const LolPftPFTQuestionResponse& v) {
+  inline void to_json(json& j, const LolPftPFTQuestionResponse& v) {
     j["questionId"] = v.questionId; 
     j["responseData"] = v.responseData; 
   }
-  void from_json(const json& j, LolPftPFTQuestionResponse& v) {
+  inline void from_json(const json& j, LolPftPFTQuestionResponse& v) {
     v.questionId = j.at("questionId").get<uint64_t>(); 
     v.responseData = j.at("responseData").get<json>(); 
   }

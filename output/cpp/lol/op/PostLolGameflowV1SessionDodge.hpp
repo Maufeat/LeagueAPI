@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolGameflowGameflowGameDodge.hpp>
 namespace lol {
-  Result<void> PostLolGameflowV1SessionDodge(const LeagueClient& _client, const LolGameflowGameflowGameDodge& dodgeData)
+  inline Result<void> PostLolGameflowV1SessionDodge(const LeagueClient& _client, const LolGameflowGameflowGameDodge& dodgeData)
   {
     HttpsClient _client_(_client.host, false);
     try {

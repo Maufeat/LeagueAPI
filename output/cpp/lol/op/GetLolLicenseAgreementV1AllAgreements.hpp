@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolLicenseAgreementLicenseAgreement.hpp>
 namespace lol {
-  Result<std::vector<LolLicenseAgreementLicenseAgreement>> GetLolLicenseAgreementV1AllAgreements(const LeagueClient& _client)
+  inline Result<std::vector<LolLicenseAgreementLicenseAgreement>> GetLolLicenseAgreementV1AllAgreements(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

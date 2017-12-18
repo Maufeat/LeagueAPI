@@ -1,9 +1,9 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/LeaguesLcdsQueueType.hpp>
-#include <lol/def/LeaguesLcdsLeagueRank.hpp>
-#include <lol/def/LeaguesLcdsMiniSeriesDTO.hpp>
 #include <lol/def/LeaguesLcdsLeagueTier.hpp>
+#include <lol/def/LeaguesLcdsQueueType.hpp>
+#include <lol/def/LeaguesLcdsMiniSeriesDTO.hpp>
+#include <lol/def/LeaguesLcdsLeagueRank.hpp>
 namespace lol {
   struct LolLeaguesSignedLeagueItemDTO { 
     std::string inactivityStatus;
@@ -27,7 +27,7 @@ namespace lol {
     std::string playerOrTeamName;
     LeaguesLcdsQueueType queueType; 
   };
-  void to_json(json& j, const LolLeaguesSignedLeagueItemDTO& v) {
+  inline void to_json(json& j, const LolLeaguesSignedLeagueItemDTO& v) {
     j["inactivityStatus"] = v.inactivityStatus; 
     j["jwt"] = v.jwt; 
     j["miniSeries"] = v.miniSeries; 
@@ -49,7 +49,7 @@ namespace lol {
     j["playerOrTeamName"] = v.playerOrTeamName; 
     j["queueType"] = v.queueType; 
   }
-  void from_json(const json& j, LolLeaguesSignedLeagueItemDTO& v) {
+  inline void from_json(const json& j, LolLeaguesSignedLeagueItemDTO& v) {
     v.inactivityStatus = j.at("inactivityStatus").get<std::string>(); 
     v.jwt = j.at("jwt").get<std::string>(); 
     v.miniSeries = j.at("miniSeries").get<LeaguesLcdsMiniSeriesDTO>(); 

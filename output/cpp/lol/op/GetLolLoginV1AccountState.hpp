@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolLoginAccountStateResource.hpp>
 namespace lol {
-  Result<LolLoginAccountStateResource> GetLolLoginV1AccountState(const LeagueClient& _client)
+  inline Result<LolLoginAccountStateResource> GetLolLoginV1AccountState(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

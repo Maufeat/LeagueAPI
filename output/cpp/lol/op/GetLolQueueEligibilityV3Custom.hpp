@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolQueueEligibilityEligibility.hpp>
 namespace lol {
-  Result<std::vector<LolQueueEligibilityEligibility>> GetLolQueueEligibilityV3Custom(const LeagueClient& _client, const int32_t& teamSize, const std::string& pickMode)
+  inline Result<std::vector<LolQueueEligibilityEligibility>> GetLolQueueEligibilityV3Custom(const LeagueClient& _client, const int32_t& teamSize, const std::string& pickMode)
   {
     HttpsClient _client_(_client.host, false);
     try {

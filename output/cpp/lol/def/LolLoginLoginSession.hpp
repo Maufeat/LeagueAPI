@@ -1,8 +1,8 @@
 #pragma once
 #include<lol/base_def.hpp> 
 #include <lol/def/LolLoginLoginSessionStates.hpp>
-#include <lol/def/LolLoginLoginError.hpp>
 #include <lol/def/LolLoginLoginQueue.hpp>
+#include <lol/def/LolLoginLoginError.hpp>
 namespace lol {
   struct LolLoginLoginSession { 
     std::string username;
@@ -18,7 +18,7 @@ namespace lol {
     std::string puuid;
     std::optional<uint64_t> summonerId; 
   };
-  void to_json(json& j, const LolLoginLoginSession& v) {
+  inline void to_json(json& j, const LolLoginLoginSession& v) {
     j["username"] = v.username; 
     j["isNewPlayer"] = v.isNewPlayer; 
     if(v.queueStatus)
@@ -35,7 +35,7 @@ namespace lol {
     if(v.summonerId)
       j["summonerId"] = *v.summonerId;
   }
-  void from_json(const json& j, LolLoginLoginSession& v) {
+  inline void from_json(const json& j, LolLoginLoginSession& v) {
     v.username = j.at("username").get<std::string>(); 
     v.isNewPlayer = j.at("isNewPlayer").get<bool>(); 
     if(auto it = j.find("queueStatus"); it != j.end() && !it->is_null())

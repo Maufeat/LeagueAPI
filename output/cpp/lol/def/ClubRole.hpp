@@ -9,7 +9,7 @@ namespace lol {
     OWNER_e = 1,
     UNKNOWN_e = 0,
   };
-  void to_json(json& j, const ClubRole& v) {
+  inline void to_json(json& j, const ClubRole& v) {
     if(v == ClubRole::INVITEE_e) {
       j = "INVITEE";
       return;
@@ -35,7 +35,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, ClubRole& v) {
+  inline void from_json(const json& j, ClubRole& v) {
     if(j.get<std::string>() == "INVITEE") {
       v = ClubRole::INVITEE_e;
       return;

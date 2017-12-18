@@ -13,7 +13,7 @@ namespace lol {
     std::string playerFacingMessage;
     std::string reason; 
   };
-  void to_json(json& j, const LolPlayerBehaviorReformCard& v) {
+  inline void to_json(json& j, const LolPlayerBehaviorReformCard& v) {
     j["punishmentType"] = v.punishmentType; 
     j["gameIds"] = v.gameIds; 
     j["punishmentLengthGames"] = v.punishmentLengthGames; 
@@ -25,7 +25,7 @@ namespace lol {
     j["playerFacingMessage"] = v.playerFacingMessage; 
     j["reason"] = v.reason; 
   }
-  void from_json(const json& j, LolPlayerBehaviorReformCard& v) {
+  inline void from_json(const json& j, LolPlayerBehaviorReformCard& v) {
     v.punishmentType = j.at("punishmentType").get<std::string>(); 
     v.gameIds = j.at("gameIds").get<std::vector<uint64_t>>(); 
     v.punishmentLengthGames = j.at("punishmentLengthGames").get<int64_t>(); 

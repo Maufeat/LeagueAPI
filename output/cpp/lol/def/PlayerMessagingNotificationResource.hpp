@@ -8,14 +8,14 @@ namespace lol {
     std::string title;
     int32_t id; 
   };
-  void to_json(json& j, const PlayerMessagingNotificationResource& v) {
+  inline void to_json(json& j, const PlayerMessagingNotificationResource& v) {
     j["body"] = v.body; 
     j["status"] = v.status; 
     j["msgId"] = v.msgId; 
     j["title"] = v.title; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, PlayerMessagingNotificationResource& v) {
+  inline void from_json(const json& j, PlayerMessagingNotificationResource& v) {
     v.body = j.at("body").get<std::string>(); 
     v.status = j.at("status").get<int32_t>(); 
     v.msgId = j.at("msgId").get<std::string>(); 

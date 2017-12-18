@@ -24,7 +24,7 @@ namespace lol {
     TeamMinSizeRestriction_e = 8,
     UnknownRestriction_e = 20,
   };
-  void to_json(json& j, const LolQueueEligibilityEligibilityRestrictionCode& v) {
+  inline void to_json(json& j, const LolQueueEligibilityEligibilityRestrictionCode& v) {
     if(v == LolQueueEligibilityEligibilityRestrictionCode::PlayerAvailableChampionRestriction_e) {
       j = "PlayerAvailableChampionRestriction";
       return;
@@ -110,7 +110,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolQueueEligibilityEligibilityRestrictionCode& v) {
+  inline void from_json(const json& j, LolQueueEligibilityEligibilityRestrictionCode& v) {
     if(j.get<std::string>() == "PlayerAvailableChampionRestriction") {
       v = LolQueueEligibilityEligibilityRestrictionCode::PlayerAvailableChampionRestriction_e;
       return;

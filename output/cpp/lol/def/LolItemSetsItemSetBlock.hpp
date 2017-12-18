@@ -8,13 +8,13 @@ namespace lol {
     std::string hideIfSummonerSpell;
     std::string showIfSummonerSpell; 
   };
-  void to_json(json& j, const LolItemSetsItemSetBlock& v) {
+  inline void to_json(json& j, const LolItemSetsItemSetBlock& v) {
     j["type"] = v.type; 
     j["items"] = v.items; 
     j["hideIfSummonerSpell"] = v.hideIfSummonerSpell; 
     j["showIfSummonerSpell"] = v.showIfSummonerSpell; 
   }
-  void from_json(const json& j, LolItemSetsItemSetBlock& v) {
+  inline void from_json(const json& j, LolItemSetsItemSetBlock& v) {
     v.type = j.at("type").get<std::string>(); 
     v.items = j.at("items").get<std::vector<LolItemSetsItemSetItem>>(); 
     v.hideIfSummonerSpell = j.at("hideIfSummonerSpell").get<std::string>(); 

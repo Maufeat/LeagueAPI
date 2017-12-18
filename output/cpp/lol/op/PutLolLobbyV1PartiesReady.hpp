@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<void> PutLolLobbyV1PartiesReady(const LeagueClient& _client, const int32_t& ready)
+  inline Result<void> PutLolLobbyV1PartiesReady(const LeagueClient& _client, const int32_t& ready)
   {
     HttpsClient _client_(_client.host, false);
     try {

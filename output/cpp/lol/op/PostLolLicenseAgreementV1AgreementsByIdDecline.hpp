@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<json> PostLolLicenseAgreementV1AgreementsByIdDecline(const LeagueClient& _client, const std::string& id)
+  inline Result<json> PostLolLicenseAgreementV1AgreementsByIdDecline(const LeagueClient& _client, const std::string& id)
   {
     HttpsClient _client_(_client.host, false);
     try {

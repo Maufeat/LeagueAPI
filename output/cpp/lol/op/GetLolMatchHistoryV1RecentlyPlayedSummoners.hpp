@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolMatchHistoryRecentlyPlayedSummoner.hpp>
 namespace lol {
-  Result<std::vector<LolMatchHistoryRecentlyPlayedSummoner>> GetLolMatchHistoryV1RecentlyPlayedSummoners(const LeagueClient& _client)
+  inline Result<std::vector<LolMatchHistoryRecentlyPlayedSummoner>> GetLolMatchHistoryV1RecentlyPlayedSummoners(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

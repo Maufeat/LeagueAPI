@@ -1,9 +1,9 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/LolStoreItemCost.hpp>
-#include <lol/def/LolStoreBundled.hpp>
-#include <lol/def/LolStoreItemKey.hpp>
 #include <lol/def/LolStoreSale.hpp>
+#include <lol/def/LolStoreItemKey.hpp>
+#include <lol/def/LolStoreBundled.hpp>
+#include <lol/def/LolStoreItemCost.hpp>
 namespace lol {
   struct LolStoreCatalogItem { 
     std::optional<std::string> itemInstanceId;
@@ -20,7 +20,7 @@ namespace lol {
     std::optional<std::vector<LolStoreItemKey>> itemRequirements;
     std::optional<std::string> releaseDate; 
   };
-  void to_json(json& j, const LolStoreCatalogItem& v) {
+  inline void to_json(json& j, const LolStoreCatalogItem& v) {
     if(v.itemInstanceId)
       j["itemInstanceId"] = *v.itemInstanceId;
     if(v.sale)
@@ -46,7 +46,7 @@ namespace lol {
     if(v.releaseDate)
       j["releaseDate"] = *v.releaseDate;
   }
-  void from_json(const json& j, LolStoreCatalogItem& v) {
+  inline void from_json(const json& j, LolStoreCatalogItem& v) {
     if(auto it = j.find("itemInstanceId"); it != j.end() && !it->is_null())
       v.itemInstanceId = it->get<std::optional<std::string>>(); 
     if(auto it = j.find("sale"); it != j.end() && !it->is_null())

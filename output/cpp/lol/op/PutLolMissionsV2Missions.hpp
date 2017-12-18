@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/MissionIdsDTO.hpp>
 namespace lol {
-  Result<void> PutLolMissionsV2Missions(const LeagueClient& _client, const MissionIdsDTO& missionIds)
+  inline Result<void> PutLolMissionsV2Missions(const LeagueClient& _client, const MissionIdsDTO& missionIds)
   {
     HttpsClient _client_(_client.host, false);
     try {

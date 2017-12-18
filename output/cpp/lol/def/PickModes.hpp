@@ -6,7 +6,7 @@ namespace lol {
     IN_PROGRESS_e = 1,
     NOT_PICKING_e = 0,
   };
-  void to_json(json& j, const PickModes& v) {
+  inline void to_json(json& j, const PickModes& v) {
     if(v == PickModes::DONE_e) {
       j = "DONE";
       return;
@@ -20,7 +20,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, PickModes& v) {
+  inline void from_json(const json& j, PickModes& v) {
     if(j.get<std::string>() == "DONE") {
       v = PickModes::DONE_e;
       return;

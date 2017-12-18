@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/basicSystemInfo.hpp>
 namespace lol {
-  Result<basicSystemInfo> GetRiotclientSystemInfoV1BasicInfo(const LeagueClient& _client)
+  inline Result<basicSystemInfo> GetRiotclientSystemInfoV1BasicInfo(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

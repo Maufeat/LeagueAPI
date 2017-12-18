@@ -1,11 +1,11 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/Club.hpp>
-#include <lol/def/ClubInvite.hpp>
-#include <lol/def/ClubsConfig.hpp>
-#include <lol/def/ClubPlayer.hpp>
 #include <lol/def/PlayerClub.hpp>
 #include <lol/def/ClubPreferences.hpp>
+#include <lol/def/ClubsConfig.hpp>
+#include <lol/def/ClubInvite.hpp>
+#include <lol/def/Club.hpp>
+#include <lol/def/ClubPlayer.hpp>
 namespace lol {
   struct PlayerClubMembership { 
     ClubsConfig clubsServerConfig;
@@ -17,7 +17,7 @@ namespace lol {
     std::vector<Club> revokedInviteClubs;
     std::vector<PlayerClub> activeClubs; 
   };
-  void to_json(json& j, const PlayerClubMembership& v) {
+  inline void to_json(json& j, const PlayerClubMembership& v) {
     j["clubsServerConfig"] = v.clubsServerConfig; 
     j["preferences"] = v.preferences; 
     j["info"] = v.info; 
@@ -27,7 +27,7 @@ namespace lol {
     j["revokedInviteClubs"] = v.revokedInviteClubs; 
     j["activeClubs"] = v.activeClubs; 
   }
-  void from_json(const json& j, PlayerClubMembership& v) {
+  inline void from_json(const json& j, PlayerClubMembership& v) {
     v.clubsServerConfig = j.at("clubsServerConfig").get<ClubsConfig>(); 
     v.preferences = j.at("preferences").get<ClubPreferences>(); 
     v.info = j.at("info").get<ClubPlayer>(); 

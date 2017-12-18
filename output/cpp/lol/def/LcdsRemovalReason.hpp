@@ -6,7 +6,7 @@ namespace lol {
     KICKED_e = 0,
     PROGRESSED_e = 2,
   };
-  void to_json(json& j, const LcdsRemovalReason& v) {
+  inline void to_json(json& j, const LcdsRemovalReason& v) {
     if(v == LcdsRemovalReason::DESTROYED_e) {
       j = "DESTROYED";
       return;
@@ -20,7 +20,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LcdsRemovalReason& v) {
+  inline void from_json(const json& j, LcdsRemovalReason& v) {
     if(j.get<std::string>() == "DESTROYED") {
       v = LcdsRemovalReason::DESTROYED_e;
       return;

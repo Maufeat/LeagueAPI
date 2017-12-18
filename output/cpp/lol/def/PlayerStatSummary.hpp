@@ -9,7 +9,7 @@ namespace lol {
     uint64_t rating;
     uint64_t maxRating; 
   };
-  void to_json(json& j, const PlayerStatSummary& v) {
+  inline void to_json(json& j, const PlayerStatSummary& v) {
     j["leaves"] = v.leaves; 
     j["playerStatSummaryType"] = v.playerStatSummaryType; 
     j["losses"] = v.losses; 
@@ -17,7 +17,7 @@ namespace lol {
     j["rating"] = v.rating; 
     j["maxRating"] = v.maxRating; 
   }
-  void from_json(const json& j, PlayerStatSummary& v) {
+  inline void from_json(const json& j, PlayerStatSummary& v) {
     v.leaves = j.at("leaves").get<uint64_t>(); 
     v.playerStatSummaryType = j.at("playerStatSummaryType").get<std::string>(); 
     v.losses = j.at("losses").get<uint64_t>(); 

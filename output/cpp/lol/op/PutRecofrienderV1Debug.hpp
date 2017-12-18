@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/RecofrienderDebugConfig.hpp>
 namespace lol {
-  Result<RecofrienderDebugConfig> PutRecofrienderV1Debug(const LeagueClient& _client, const RecofrienderDebugConfig& debugConfiguration)
+  inline Result<RecofrienderDebugConfig> PutRecofrienderV1Debug(const LeagueClient& _client, const RecofrienderDebugConfig& debugConfiguration)
   {
     HttpsClient _client_(_client.host, false);
     try {

@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<json> PostLolLobbyV1LobbyCustomSwitchTeams(const LeagueClient& _client, const std::optional<std::string>& team = std::nullopt)
+  inline Result<json> PostLolLobbyV1LobbyCustomSwitchTeams(const LeagueClient& _client, const std::optional<std::string>& team = std::nullopt)
   {
     HttpsClient _client_(_client.host, false);
     try {

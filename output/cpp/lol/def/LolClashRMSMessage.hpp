@@ -5,11 +5,11 @@ namespace lol {
     int64_t timestamp;
     std::string payload; 
   };
-  void to_json(json& j, const LolClashRMSMessage& v) {
+  inline void to_json(json& j, const LolClashRMSMessage& v) {
     j["timestamp"] = v.timestamp; 
     j["payload"] = v.payload; 
   }
-  void from_json(const json& j, LolClashRMSMessage& v) {
+  inline void from_json(const json& j, LolClashRMSMessage& v) {
     v.timestamp = j.at("timestamp").get<int64_t>(); 
     v.payload = j.at("payload").get<std::string>(); 
   }

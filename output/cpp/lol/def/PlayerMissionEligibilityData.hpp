@@ -6,11 +6,11 @@ namespace lol {
     int32_t level;
     PlayerInventory playerInventory; 
   };
-  void to_json(json& j, const PlayerMissionEligibilityData& v) {
+  inline void to_json(json& j, const PlayerMissionEligibilityData& v) {
     j["level"] = v.level; 
     j["playerInventory"] = v.playerInventory; 
   }
-  void from_json(const json& j, PlayerMissionEligibilityData& v) {
+  inline void from_json(const json& j, PlayerMissionEligibilityData& v) {
     v.level = j.at("level").get<int32_t>(); 
     v.playerInventory = j.at("playerInventory").get<PlayerInventory>(); 
   }

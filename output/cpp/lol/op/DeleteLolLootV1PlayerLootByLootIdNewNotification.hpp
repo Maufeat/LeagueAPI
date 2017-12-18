@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<json> DeleteLolLootV1PlayerLootByLootIdNewNotification(const LeagueClient& _client, const std::string& lootId)
+  inline Result<json> DeleteLolLootV1PlayerLootByLootIdNewNotification(const LeagueClient& _client, const std::string& lootId)
   {
     HttpsClient _client_(_client.host, false);
     try {

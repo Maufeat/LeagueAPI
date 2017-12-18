@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolAccountVerificationIsVerifiedResponse.hpp>
 namespace lol {
-  Result<LolAccountVerificationIsVerifiedResponse> GetLolAccountVerificationV1IsVerified(const LeagueClient& _client)
+  inline Result<LolAccountVerificationIsVerifiedResponse> GetLolAccountVerificationV1IsVerified(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

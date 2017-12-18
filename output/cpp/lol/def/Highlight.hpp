@@ -10,7 +10,7 @@ namespace lol {
     std::string url;
     uint64_t id; 
   };
-  void to_json(json& j, const Highlight& v) {
+  inline void to_json(json& j, const Highlight& v) {
     j["filepath"] = v.filepath; 
     j["mtimeIso8601"] = v.mtimeIso8601; 
     j["mtimeMsUtc"] = v.mtimeMsUtc; 
@@ -19,7 +19,7 @@ namespace lol {
     j["url"] = v.url; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, Highlight& v) {
+  inline void from_json(const json& j, Highlight& v) {
     v.filepath = j.at("filepath").get<std::string>(); 
     v.mtimeIso8601 = j.at("mtimeIso8601").get<std::string>(); 
     v.mtimeMsUtc = j.at("mtimeMsUtc").get<uint64_t>(); 

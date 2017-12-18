@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<void> PostLolGameflowV1ExtraGameClientArgs(const LeagueClient& _client, const std::vector<std::string>& extraGameClientArgs)
+  inline Result<void> PostLolGameflowV1ExtraGameClientArgs(const LeagueClient& _client, const std::vector<std::string>& extraGameClientArgs)
   {
     HttpsClient _client_(_client.host, false);
     try {

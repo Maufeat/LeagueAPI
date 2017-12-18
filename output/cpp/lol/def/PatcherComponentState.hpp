@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/PatcherComponentActionProgress.hpp>
 #include <lol/def/PatcherComponentStateAction.hpp>
+#include <lol/def/PatcherComponentActionProgress.hpp>
 namespace lol {
   struct PatcherComponentState { 
     std::optional<PatcherComponentActionProgress> progress;
@@ -12,7 +12,7 @@ namespace lol {
     std::string id;
     std::optional<std::string> timeOfLastUpToDateCheckISO8601; 
   };
-  void to_json(json& j, const PatcherComponentState& v) {
+  inline void to_json(json& j, const PatcherComponentState& v) {
     if(v.progress)
       j["progress"] = *v.progress;
     j["isUpdateAvailable"] = v.isUpdateAvailable; 
@@ -23,7 +23,7 @@ namespace lol {
     if(v.timeOfLastUpToDateCheckISO8601)
       j["timeOfLastUpToDateCheckISO8601"] = *v.timeOfLastUpToDateCheckISO8601;
   }
-  void from_json(const json& j, PatcherComponentState& v) {
+  inline void from_json(const json& j, PatcherComponentState& v) {
     if(auto it = j.find("progress"); it != j.end() && !it->is_null())
       v.progress = it->get<std::optional<PatcherComponentActionProgress>>(); 
     v.isUpdateAvailable = j.at("isUpdateAvailable").get<bool>(); 

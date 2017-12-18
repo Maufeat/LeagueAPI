@@ -5,11 +5,11 @@ namespace lol {
     std::string CalculatedColor;
     std::string OverrideColor; 
   };
-  void to_json(json& j, const LolCollectionsGameDataSplashMetadata& v) {
+  inline void to_json(json& j, const LolCollectionsGameDataSplashMetadata& v) {
     j["CalculatedColor"] = v.CalculatedColor; 
     j["OverrideColor"] = v.OverrideColor; 
   }
-  void from_json(const json& j, LolCollectionsGameDataSplashMetadata& v) {
+  inline void from_json(const json& j, LolCollectionsGameDataSplashMetadata& v) {
     v.CalculatedColor = j.at("CalculatedColor").get<std::string>(); 
     v.OverrideColor = j.at("OverrideColor").get<std::string>(); 
   }

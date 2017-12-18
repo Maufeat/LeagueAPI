@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolLobbyTeamBuilderLobbyPositionPreferences.hpp>
 namespace lol {
-  Result<json> PostLolLobbyTeamBuilderV1PositionPreferences(const LeagueClient& _client, const LolLobbyTeamBuilderLobbyPositionPreferences& positionPreferences)
+  inline Result<json> PostLolLobbyTeamBuilderV1PositionPreferences(const LeagueClient& _client, const LolLobbyTeamBuilderLobbyPositionPreferences& positionPreferences)
   {
     HttpsClient _client_(_client.host, false);
     try {

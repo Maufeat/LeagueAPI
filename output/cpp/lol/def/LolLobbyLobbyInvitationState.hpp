@@ -11,7 +11,7 @@ namespace lol {
     Pending_e = 1,
     Requested_e = 0,
   };
-  void to_json(json& j, const LolLobbyLobbyInvitationState& v) {
+  inline void to_json(json& j, const LolLobbyLobbyInvitationState& v) {
     if(v == LolLobbyLobbyInvitationState::Accepted_e) {
       j = "Accepted";
       return;
@@ -45,7 +45,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolLobbyLobbyInvitationState& v) {
+  inline void from_json(const json& j, LolLobbyLobbyInvitationState& v) {
     if(j.get<std::string>() == "Accepted") {
       v = LolLobbyLobbyInvitationState::Accepted_e;
       return;

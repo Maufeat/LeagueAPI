@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolClashPlayerTournamentData.hpp>
 namespace lol {
-  Result<LolClashPlayerTournamentData> GetLolClashV1TournamentByTournamentIdPlayer(const LeagueClient& _client, const int64_t& tournamentId)
+  inline Result<LolClashPlayerTournamentData> GetLolClashV1TournamentByTournamentIdPlayer(const LeagueClient& _client, const int64_t& tournamentId)
   {
     HttpsClient _client_(_client.host, false);
     try {

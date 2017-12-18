@@ -12,7 +12,7 @@ namespace lol {
     int32_t round;
     int32_t opponentIconColorId; 
   };
-  void to_json(json& j, const LolClashRosterMatchAggregatedStats& v) {
+  inline void to_json(json& j, const LolClashRosterMatchAggregatedStats& v) {
     j["loserBracket"] = v.loserBracket; 
     j["playerChampionIds"] = v.playerChampionIds; 
     j["gameId"] = v.gameId; 
@@ -23,7 +23,7 @@ namespace lol {
     j["round"] = v.round; 
     j["opponentIconColorId"] = v.opponentIconColorId; 
   }
-  void from_json(const json& j, LolClashRosterMatchAggregatedStats& v) {
+  inline void from_json(const json& j, LolClashRosterMatchAggregatedStats& v) {
     v.loserBracket = j.at("loserBracket").get<bool>(); 
     v.playerChampionIds = j.at("playerChampionIds").get<std::map<std::string, int32_t>>(); 
     v.gameId = j.at("gameId").get<int64_t>(); 

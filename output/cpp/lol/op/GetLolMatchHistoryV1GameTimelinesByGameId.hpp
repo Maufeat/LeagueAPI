@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolMatchHistoryMatchHistoryTimelineFrames.hpp>
 namespace lol {
-  Result<LolMatchHistoryMatchHistoryTimelineFrames> GetLolMatchHistoryV1GameTimelinesByGameId(const LeagueClient& _client, const uint64_t& gameId)
+  inline Result<LolMatchHistoryMatchHistoryTimelineFrames> GetLolMatchHistoryV1GameTimelinesByGameId(const LeagueClient& _client, const uint64_t& gameId)
   {
     HttpsClient _client_(_client.host, false);
     try {

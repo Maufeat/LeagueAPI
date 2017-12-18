@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolLootPlayerLoot.hpp>
 namespace lol {
-  Result<LolLootPlayerLoot> GetLolLootV1PlayerLootByLootId(const LeagueClient& _client, const std::string& lootId)
+  inline Result<LolLootPlayerLoot> GetLolLootV1PlayerLootByLootId(const LeagueClient& _client, const std::string& lootId)
   {
     HttpsClient _client_(_client.host, false);
     try {

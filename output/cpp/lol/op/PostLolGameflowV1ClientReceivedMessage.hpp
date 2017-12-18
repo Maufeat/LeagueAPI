@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<void> PostLolGameflowV1ClientReceivedMessage(const LeagueClient& _client, const std::string& messsage)
+  inline Result<void> PostLolGameflowV1ClientReceivedMessage(const LeagueClient& _client, const std::string& messsage)
   {
     HttpsClient _client_(_client.host, false);
     try {

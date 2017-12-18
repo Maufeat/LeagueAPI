@@ -9,7 +9,7 @@ namespace lol {
     CanUseAdvancedStyles_e = 16,
     Locked_e = 0,
   };
-  void to_json(json& j, const LolPerksCustomizationLimits& v) {
+  inline void to_json(json& j, const LolPerksCustomizationLimits& v) {
     if(v == LolPerksCustomizationLimits::CanSelectKeystones_e) {
       j = "CanSelectKeystones";
       return;
@@ -35,7 +35,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolPerksCustomizationLimits& v) {
+  inline void from_json(const json& j, LolPerksCustomizationLimits& v) {
     if(j.get<std::string>() == "CanSelectKeystones") {
       v = LolPerksCustomizationLimits::CanSelectKeystones_e;
       return;

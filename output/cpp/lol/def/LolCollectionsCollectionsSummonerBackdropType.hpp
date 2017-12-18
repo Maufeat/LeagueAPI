@@ -7,7 +7,7 @@ namespace lol {
     recently_played_e = 2,
     summoner_icon_e = 1,
   };
-  void to_json(json& j, const LolCollectionsCollectionsSummonerBackdropType& v) {
+  inline void to_json(json& j, const LolCollectionsCollectionsSummonerBackdropType& v) {
     if(v == LolCollectionsCollectionsSummonerBackdropType::default_e) {
       j = "default";
       return;
@@ -25,7 +25,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolCollectionsCollectionsSummonerBackdropType& v) {
+  inline void from_json(const json& j, LolCollectionsCollectionsSummonerBackdropType& v) {
     if(j.get<std::string>() == "default") {
       v = LolCollectionsCollectionsSummonerBackdropType::default_e;
       return;

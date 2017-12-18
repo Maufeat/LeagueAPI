@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/LolItemSetsPreferredItemSlot.hpp>
 #include <lol/def/LolItemSetsItemSetBlock.hpp>
+#include <lol/def/LolItemSetsPreferredItemSlot.hpp>
 namespace lol {
   struct LolItemSetsItemSet { 
     std::vector<LolItemSetsPreferredItemSlot> preferredItemSlots;
@@ -16,7 +16,7 @@ namespace lol {
     std::string startedFrom;
     std::string mode; 
   };
-  void to_json(json& j, const LolItemSetsItemSet& v) {
+  inline void to_json(json& j, const LolItemSetsItemSet& v) {
     j["preferredItemSlots"] = v.preferredItemSlots; 
     j["associatedMaps"] = v.associatedMaps; 
     j["type"] = v.type; 
@@ -29,7 +29,7 @@ namespace lol {
     j["startedFrom"] = v.startedFrom; 
     j["mode"] = v.mode; 
   }
-  void from_json(const json& j, LolItemSetsItemSet& v) {
+  inline void from_json(const json& j, LolItemSetsItemSet& v) {
     v.preferredItemSlots = j.at("preferredItemSlots").get<std::vector<LolItemSetsPreferredItemSlot>>(); 
     v.associatedMaps = j.at("associatedMaps").get<std::vector<int32_t>>(); 
     v.type = j.at("type").get<std::string>(); 

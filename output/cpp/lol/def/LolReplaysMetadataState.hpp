@@ -14,7 +14,7 @@ namespace lol {
     unsupported_e = 9,
     watch_e = 2,
   };
-  void to_json(json& j, const LolReplaysMetadataState& v) {
+  inline void to_json(json& j, const LolReplaysMetadataState& v) {
     if(v == LolReplaysMetadataState::checking_e) {
       j = "checking";
       return;
@@ -60,7 +60,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolReplaysMetadataState& v) {
+  inline void from_json(const json& j, LolReplaysMetadataState& v) {
     if(j.get<std::string>() == "checking") {
       v = LolReplaysMetadataState::checking_e;
       return;

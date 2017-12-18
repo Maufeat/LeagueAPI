@@ -8,14 +8,14 @@ namespace lol {
     std::string subject;
     std::string token; 
   };
-  void to_json(json& j, const EntitlementsToken& v) {
+  inline void to_json(json& j, const EntitlementsToken& v) {
     j["entitlements"] = v.entitlements; 
     j["accessToken"] = v.accessToken; 
     j["issuer"] = v.issuer; 
     j["subject"] = v.subject; 
     j["token"] = v.token; 
   }
-  void from_json(const json& j, EntitlementsToken& v) {
+  inline void from_json(const json& j, EntitlementsToken& v) {
     v.entitlements = j.at("entitlements").get<std::vector<std::string>>(); 
     v.accessToken = j.at("accessToken").get<std::string>(); 
     v.issuer = j.at("issuer").get<std::string>(); 

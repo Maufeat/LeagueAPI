@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<bool> GetLolGameflowV1BasicTutorial(const LeagueClient& _client)
+  inline Result<bool> GetLolGameflowV1BasicTutorial(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

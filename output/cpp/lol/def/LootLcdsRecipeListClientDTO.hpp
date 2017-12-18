@@ -6,11 +6,11 @@ namespace lol {
     int64_t lastUpdate;
     std::vector<LootLcdsRecipeClientDTO> recipes; 
   };
-  void to_json(json& j, const LootLcdsRecipeListClientDTO& v) {
+  inline void to_json(json& j, const LootLcdsRecipeListClientDTO& v) {
     j["lastUpdate"] = v.lastUpdate; 
     j["recipes"] = v.recipes; 
   }
-  void from_json(const json& j, LootLcdsRecipeListClientDTO& v) {
+  inline void from_json(const json& j, LootLcdsRecipeListClientDTO& v) {
     v.lastUpdate = j.at("lastUpdate").get<int64_t>(); 
     v.recipes = j.at("recipes").get<std::vector<LootLcdsRecipeClientDTO>>(); 
   }

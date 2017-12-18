@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<json> Unsubscribe(const LeagueClient& _client, const std::string& eventName)
+  inline Result<json> Unsubscribe(const LeagueClient& _client, const std::string& eventName)
   {
     HttpsClient _client_(_client.host, false);
     try {

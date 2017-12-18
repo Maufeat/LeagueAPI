@@ -9,7 +9,7 @@ namespace lol {
     Patching_e = 2,
     PlayerBanned_e = 3,
   };
-  void to_json(json& j, const LolGameflowGameflowAvailabilityState& v) {
+  inline void to_json(json& j, const LolGameflowGameflowAvailabilityState& v) {
     if(v == LolGameflowGameflowAvailabilityState::Available_e) {
       j = "Available";
       return;
@@ -35,7 +35,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolGameflowGameflowAvailabilityState& v) {
+  inline void from_json(const json& j, LolGameflowGameflowAvailabilityState& v) {
     if(j.get<std::string>() == "Available") {
       v = LolGameflowGameflowAvailabilityState::Available_e;
       return;

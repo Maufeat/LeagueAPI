@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolPlayerBehaviorBanNotification.hpp>
 namespace lol {
-  Result<LolPlayerBehaviorBanNotification> GetLolPlayerBehaviorV1Ban(const LeagueClient& _client)
+  inline Result<LolPlayerBehaviorBanNotification> GetLolPlayerBehaviorV1Ban(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

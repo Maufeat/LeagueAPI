@@ -5,7 +5,7 @@ namespace lol {
     ALERT_e = 1,
     WARNING_e = 0,
   };
-  void to_json(json& j, const LolLeaguesSeverity& v) {
+  inline void to_json(json& j, const LolLeaguesSeverity& v) {
     if(v == LolLeaguesSeverity::ALERT_e) {
       j = "ALERT";
       return;
@@ -15,7 +15,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolLeaguesSeverity& v) {
+  inline void from_json(const json& j, LolLeaguesSeverity& v) {
     if(j.get<std::string>() == "ALERT") {
       v = LolLeaguesSeverity::ALERT_e;
       return;

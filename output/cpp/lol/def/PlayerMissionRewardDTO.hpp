@@ -10,7 +10,7 @@ namespace lol {
     std::string description;
     std::string itemId; 
   };
-  void to_json(json& j, const PlayerMissionRewardDTO& v) {
+  inline void to_json(json& j, const PlayerMissionRewardDTO& v) {
     j["rewardFulfilled"] = v.rewardFulfilled; 
     j["media"] = v.media; 
     j["iconUrl"] = v.iconUrl; 
@@ -18,7 +18,7 @@ namespace lol {
     j["description"] = v.description; 
     j["itemId"] = v.itemId; 
   }
-  void from_json(const json& j, PlayerMissionRewardDTO& v) {
+  inline void from_json(const json& j, PlayerMissionRewardDTO& v) {
     v.rewardFulfilled = j.at("rewardFulfilled").get<bool>(); 
     v.media = j.at("media").get<MissionRewardMediaDTO>(); 
     v.iconUrl = j.at("iconUrl").get<std::string>(); 

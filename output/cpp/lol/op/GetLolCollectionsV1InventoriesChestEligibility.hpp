@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolCollectionsCollectionsChestEligibility.hpp>
 namespace lol {
-  Result<LolCollectionsCollectionsChestEligibility> GetLolCollectionsV1InventoriesChestEligibility(const LeagueClient& _client)
+  inline Result<LolCollectionsCollectionsChestEligibility> GetLolCollectionsV1InventoriesChestEligibility(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

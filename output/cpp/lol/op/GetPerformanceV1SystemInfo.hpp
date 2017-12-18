@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<json> GetPerformanceV1SystemInfo(const LeagueClient& _client, const std::optional<int32_t>& full = std::nullopt)
+  inline Result<json> GetPerformanceV1SystemInfo(const LeagueClient& _client, const std::optional<int32_t>& full = std::nullopt)
   {
     HttpsClient _client_(_client.host, false);
     try {

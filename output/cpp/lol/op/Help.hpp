@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/RemotingHelpFormat.hpp>
 namespace lol {
-  Result<json> Help(const LeagueClient& _client, const std::optional<std::string>& target = std::nullopt, const std::optional<RemotingHelpFormat>& format = std::nullopt)
+  inline Result<json> Help(const LeagueClient& _client, const std::optional<std::string>& target = std::nullopt, const std::optional<RemotingHelpFormat>& format = std::nullopt)
   {
     HttpsClient _client_(_client.host, false);
     try {

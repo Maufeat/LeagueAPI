@@ -8,13 +8,13 @@ namespace lol {
     PendingRosterInviteeState inviteeState;
     uint64_t inviter; 
   };
-  void to_json(json& j, const PendingRosterInviteeDTO& v) {
+  inline void to_json(json& j, const PendingRosterInviteeDTO& v) {
     j["inviteTime"] = v.inviteTime; 
     j["inviteeId"] = v.inviteeId; 
     j["inviteeState"] = v.inviteeState; 
     j["inviter"] = v.inviter; 
   }
-  void from_json(const json& j, PendingRosterInviteeDTO& v) {
+  inline void from_json(const json& j, PendingRosterInviteeDTO& v) {
     v.inviteTime = j.at("inviteTime").get<int64_t>(); 
     v.inviteeId = j.at("inviteeId").get<uint64_t>(); 
     v.inviteeState = j.at("inviteeState").get<PendingRosterInviteeState>(); 

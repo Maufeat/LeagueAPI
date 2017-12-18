@@ -13,7 +13,7 @@ namespace lol {
     std::string notificationsStreamURL;
     std::string notificationsAssetMagickURL; 
   };
-  void to_json(json& j, const LolEsportStreamNotificationsESportStreamNotificationsConfig& v) {
+  inline void to_json(json& j, const LolEsportStreamNotificationsESportStreamNotificationsConfig& v) {
     j["notificationsLongPollMinutes"] = v.notificationsLongPollMinutes; 
     j["notificationsServiceEndpointV2"] = v.notificationsServiceEndpointV2; 
     j["notificationsShortPollMinutes"] = v.notificationsShortPollMinutes; 
@@ -25,7 +25,7 @@ namespace lol {
     j["notificationsStreamURL"] = v.notificationsStreamURL; 
     j["notificationsAssetMagickURL"] = v.notificationsAssetMagickURL; 
   }
-  void from_json(const json& j, LolEsportStreamNotificationsESportStreamNotificationsConfig& v) {
+  inline void from_json(const json& j, LolEsportStreamNotificationsESportStreamNotificationsConfig& v) {
     v.notificationsLongPollMinutes = j.at("notificationsLongPollMinutes").get<int64_t>(); 
     v.notificationsServiceEndpointV2 = j.at("notificationsServiceEndpointV2").get<std::string>(); 
     v.notificationsShortPollMinutes = j.at("notificationsShortPollMinutes").get<int64_t>(); 

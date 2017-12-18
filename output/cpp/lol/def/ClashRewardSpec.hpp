@@ -13,7 +13,7 @@ namespace lol {
     std::string bracket;
     std::string level; 
   };
-  void to_json(json& j, const ClashRewardSpec& v) {
+  inline void to_json(json& j, const ClashRewardSpec& v) {
     j["pedestal"] = v.pedestal; 
     j["seasonId"] = v.seasonId; 
     j["theme"] = v.theme; 
@@ -25,7 +25,7 @@ namespace lol {
     j["bracket"] = v.bracket; 
     j["level"] = v.level; 
   }
-  void from_json(const json& j, ClashRewardSpec& v) {
+  inline void from_json(const json& j, ClashRewardSpec& v) {
     v.pedestal = j.at("pedestal").get<std::string>(); 
     v.seasonId = j.at("seasonId").get<std::string>(); 
     v.theme = j.at("theme").get<std::string>(); 

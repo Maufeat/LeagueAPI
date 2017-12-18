@@ -14,7 +14,7 @@ namespace lol {
     bool critical;
     std::string expires; 
   };
-  void to_json(json& j, const LolFeaturedModesPlayerNotificationResource& v) {
+  inline void to_json(json& j, const LolFeaturedModesPlayerNotificationResource& v) {
     j["titleKey"] = v.titleKey; 
     j["type"] = v.type; 
     j["iconUrl"] = v.iconUrl; 
@@ -27,7 +27,7 @@ namespace lol {
     j["critical"] = v.critical; 
     j["expires"] = v.expires; 
   }
-  void from_json(const json& j, LolFeaturedModesPlayerNotificationResource& v) {
+  inline void from_json(const json& j, LolFeaturedModesPlayerNotificationResource& v) {
     v.titleKey = j.at("titleKey").get<std::string>(); 
     v.type = j.at("type").get<std::string>(); 
     v.iconUrl = j.at("iconUrl").get<std::string>(); 

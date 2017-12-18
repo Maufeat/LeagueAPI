@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolKrShutdownLawShutdownLawNotification.hpp>
 namespace lol {
-  Result<LolKrShutdownLawShutdownLawNotification> GetLolKrShutdownLawV1Notification(const LeagueClient& _client)
+  inline Result<LolKrShutdownLawShutdownLawNotification> GetLolKrShutdownLawV1Notification(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

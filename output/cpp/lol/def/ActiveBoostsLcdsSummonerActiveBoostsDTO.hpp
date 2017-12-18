@@ -10,7 +10,7 @@ namespace lol {
     uint32_t ipLoyaltyBoost;
     uint64_t summonerId; 
   };
-  void to_json(json& j, const ActiveBoostsLcdsSummonerActiveBoostsDTO& v) {
+  inline void to_json(json& j, const ActiveBoostsLcdsSummonerActiveBoostsDTO& v) {
     j["ipBoostPerWinCount"] = v.ipBoostPerWinCount; 
     j["xpBoostPerWinCount"] = v.xpBoostPerWinCount; 
     j["xpBoostEndDate"] = v.xpBoostEndDate; 
@@ -19,7 +19,7 @@ namespace lol {
     j["ipLoyaltyBoost"] = v.ipLoyaltyBoost; 
     j["summonerId"] = v.summonerId; 
   }
-  void from_json(const json& j, ActiveBoostsLcdsSummonerActiveBoostsDTO& v) {
+  inline void from_json(const json& j, ActiveBoostsLcdsSummonerActiveBoostsDTO& v) {
     v.ipBoostPerWinCount = j.at("ipBoostPerWinCount").get<uint32_t>(); 
     v.xpBoostPerWinCount = j.at("xpBoostPerWinCount").get<uint32_t>(); 
     v.xpBoostEndDate = j.at("xpBoostEndDate").get<int64_t>(); 

@@ -5,7 +5,7 @@ namespace lol {
     NotReady_e = 0,
     PluginsInitialized_e = 1,
   };
-  void to_json(json& j, const PluginManagerState& v) {
+  inline void to_json(json& j, const PluginManagerState& v) {
     if(v == PluginManagerState::NotReady_e) {
       j = "NotReady";
       return;
@@ -15,7 +15,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, PluginManagerState& v) {
+  inline void from_json(const json& j, PluginManagerState& v) {
     if(j.get<std::string>() == "NotReady") {
       v = PluginManagerState::NotReady_e;
       return;

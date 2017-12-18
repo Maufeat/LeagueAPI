@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<json> PostLolClashV1TournamentByTournamentIdRosterTransferCaptain(const LeagueClient& _client, const int64_t& tournamentId, const uint64_t& newCaptainSummonerId)
+  inline Result<json> PostLolClashV1TournamentByTournamentIdRosterTransferCaptain(const LeagueClient& _client, const int64_t& tournamentId, const uint64_t& newCaptainSummonerId)
   {
     HttpsClient _client_(_client.host, false);
     try {

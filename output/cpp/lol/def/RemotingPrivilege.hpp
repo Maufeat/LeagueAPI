@@ -7,7 +7,7 @@ namespace lol {
     None_e = 0,
     User_e = 127,
   };
-  void to_json(json& j, const RemotingPrivilege& v) {
+  inline void to_json(json& j, const RemotingPrivilege& v) {
     if(v == RemotingPrivilege::Admin_e) {
       j = "Admin";
       return;
@@ -25,7 +25,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, RemotingPrivilege& v) {
+  inline void from_json(const json& j, RemotingPrivilege& v) {
     if(j.get<std::string>() == "Admin") {
       v = RemotingPrivilege::Admin_e;
       return;

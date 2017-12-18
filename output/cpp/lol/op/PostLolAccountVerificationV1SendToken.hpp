@@ -3,7 +3,7 @@
 #include <lol/def/LolAccountVerificationSendTokenRequest.hpp>
 #include <lol/def/LolAccountVerificationSendTokenResponse.hpp>
 namespace lol {
-  Result<LolAccountVerificationSendTokenResponse> PostLolAccountVerificationV1SendToken(const LeagueClient& _client, const LolAccountVerificationSendTokenRequest& SendTokenRequest)
+  inline Result<LolAccountVerificationSendTokenResponse> PostLolAccountVerificationV1SendToken(const LeagueClient& _client, const LolAccountVerificationSendTokenRequest& SendTokenRequest)
   {
     HttpsClient _client_(_client.host, false);
     try {

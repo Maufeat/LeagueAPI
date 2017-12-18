@@ -10,7 +10,7 @@ namespace lol {
     std::string localeId;
     std::string id; 
   };
-  void to_json(json& j, const PaymentsPMCStartUrlResult& v) {
+  inline void to_json(json& j, const PaymentsPMCStartUrlResult& v) {
     j["playerFacingId"] = v.playerFacingId; 
     j["userId"] = v.userId; 
     j["pmcStartUrl"] = v.pmcStartUrl; 
@@ -19,7 +19,7 @@ namespace lol {
     j["localeId"] = v.localeId; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, PaymentsPMCStartUrlResult& v) {
+  inline void from_json(const json& j, PaymentsPMCStartUrlResult& v) {
     v.playerFacingId = j.at("playerFacingId").get<std::string>(); 
     v.userId = j.at("userId").get<std::string>(); 
     v.pmcStartUrl = j.at("pmcStartUrl").get<std::string>(); 

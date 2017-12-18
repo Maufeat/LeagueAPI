@@ -1,10 +1,10 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/TicketOfferDTO.hpp>
 #include <lol/def/PendingRosterMemberDTO.hpp>
 #include <lol/def/RewardLogo.hpp>
-#include <lol/def/FailedInvite.hpp>
 #include <lol/def/PendingRosterInviteeDTO.hpp>
+#include <lol/def/TicketOfferDTO.hpp>
+#include <lol/def/FailedInvite.hpp>
 namespace lol {
   struct PendingRosterDTO { 
     int32_t logoColor;
@@ -21,7 +21,7 @@ namespace lol {
     std::vector<TicketOfferDTO> ticketOffers;
     int32_t tier; 
   };
-  void to_json(json& j, const PendingRosterDTO& v) {
+  inline void to_json(json& j, const PendingRosterDTO& v) {
     j["logoColor"] = v.logoColor; 
     j["name"] = v.name; 
     j["invitationId"] = v.invitationId; 
@@ -36,7 +36,7 @@ namespace lol {
     j["ticketOffers"] = v.ticketOffers; 
     j["tier"] = v.tier; 
   }
-  void from_json(const json& j, PendingRosterDTO& v) {
+  inline void from_json(const json& j, PendingRosterDTO& v) {
     v.logoColor = j.at("logoColor").get<int32_t>(); 
     v.name = j.at("name").get<std::string>(); 
     v.invitationId = j.at("invitationId").get<std::string>(); 

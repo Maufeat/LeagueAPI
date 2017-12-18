@@ -9,7 +9,7 @@ namespace lol {
     LEADER_e = 0,
     MEMBER_e = 1,
   };
-  void to_json(json& j, const LolLobbyPartyMemberRoleEnum& v) {
+  inline void to_json(json& j, const LolLobbyPartyMemberRoleEnum& v) {
     if(v == LolLobbyPartyMemberRoleEnum::DECLINED_e) {
       j = "DECLINED";
       return;
@@ -35,7 +35,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolLobbyPartyMemberRoleEnum& v) {
+  inline void from_json(const json& j, LolLobbyPartyMemberRoleEnum& v) {
     if(j.get<std::string>() == "DECLINED") {
       v = LolLobbyPartyMemberRoleEnum::DECLINED_e;
       return;

@@ -8,14 +8,14 @@ namespace lol {
     int32_t championId;
     uint64_t summonerId; 
   };
-  void to_json(json& j, const LolHonorV2EligiblePlayer& v) {
+  inline void to_json(json& j, const LolHonorV2EligiblePlayer& v) {
     j["skinIndex"] = v.skinIndex; 
     j["skinName"] = v.skinName; 
     j["summonerName"] = v.summonerName; 
     j["championId"] = v.championId; 
     j["summonerId"] = v.summonerId; 
   }
-  void from_json(const json& j, LolHonorV2EligiblePlayer& v) {
+  inline void from_json(const json& j, LolHonorV2EligiblePlayer& v) {
     v.skinIndex = j.at("skinIndex").get<int32_t>(); 
     v.skinName = j.at("skinName").get<std::string>(); 
     v.summonerName = j.at("summonerName").get<std::string>(); 

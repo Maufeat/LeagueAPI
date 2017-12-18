@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/PatcherStatus.hpp>
 namespace lol {
-  Result<PatcherStatus> GetPatcherV1Status(const LeagueClient& _client)
+  inline Result<PatcherStatus> GetPatcherV1Status(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

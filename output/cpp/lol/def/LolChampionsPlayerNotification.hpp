@@ -13,7 +13,7 @@ namespace lol {
     bool critical;
     std::map<std::string, std::string> data; 
   };
-  void to_json(json& j, const LolChampionsPlayerNotification& v) {
+  inline void to_json(json& j, const LolChampionsPlayerNotification& v) {
     j["titleKey"] = v.titleKey; 
     j["type"] = v.type; 
     j["iconUrl"] = v.iconUrl; 
@@ -25,7 +25,7 @@ namespace lol {
     j["critical"] = v.critical; 
     j["data"] = v.data; 
   }
-  void from_json(const json& j, LolChampionsPlayerNotification& v) {
+  inline void from_json(const json& j, LolChampionsPlayerNotification& v) {
     v.titleKey = j.at("titleKey").get<std::string>(); 
     v.type = j.at("type").get<std::string>(); 
     v.iconUrl = j.at("iconUrl").get<std::string>(); 

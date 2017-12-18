@@ -10,7 +10,7 @@ namespace lol {
     Position position;
     uint64_t playerId; 
   };
-  void to_json(json& j, const RosterMemberDTO& v) {
+  inline void to_json(json& j, const RosterMemberDTO& v) {
     j["tournamentId"] = v.tournamentId; 
     j["currentBid"] = v.currentBid; 
     j["rosterId"] = v.rosterId; 
@@ -18,7 +18,7 @@ namespace lol {
     j["position"] = v.position; 
     j["playerId"] = v.playerId; 
   }
-  void from_json(const json& j, RosterMemberDTO& v) {
+  inline void from_json(const json& j, RosterMemberDTO& v) {
     v.tournamentId = j.at("tournamentId").get<int64_t>(); 
     v.currentBid = j.at("currentBid").get<int32_t>(); 
     v.rosterId = j.at("rosterId").get<int64_t>(); 

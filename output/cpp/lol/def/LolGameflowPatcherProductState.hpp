@@ -9,14 +9,14 @@ namespace lol {
     bool isUpdateAvailable;
     LolGameflowPatcherProductStateAction action; 
   };
-  void to_json(json& j, const LolGameflowPatcherProductState& v) {
+  inline void to_json(json& j, const LolGameflowPatcherProductState& v) {
     j["isUpToDate"] = v.isUpToDate; 
     j["isStopped"] = v.isStopped; 
     j["isCorrupted"] = v.isCorrupted; 
     j["isUpdateAvailable"] = v.isUpdateAvailable; 
     j["action"] = v.action; 
   }
-  void from_json(const json& j, LolGameflowPatcherProductState& v) {
+  inline void from_json(const json& j, LolGameflowPatcherProductState& v) {
     v.isUpToDate = j.at("isUpToDate").get<bool>(); 
     v.isStopped = j.at("isStopped").get<bool>(); 
     v.isCorrupted = j.at("isCorrupted").get<bool>(); 

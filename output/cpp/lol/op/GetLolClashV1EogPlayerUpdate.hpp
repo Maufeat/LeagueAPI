@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolClashEogPlayerUpdateDTO.hpp>
 namespace lol {
-  Result<LolClashEogPlayerUpdateDTO> GetLolClashV1EogPlayerUpdate(const LeagueClient& _client)
+  inline Result<LolClashEogPlayerUpdateDTO> GetLolClashV1EogPlayerUpdate(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

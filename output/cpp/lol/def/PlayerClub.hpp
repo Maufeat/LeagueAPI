@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/ClubMemberLists.hpp>
 #include <lol/def/ClubMember.hpp>
+#include <lol/def/ClubMemberLists.hpp>
 #include <lol/def/ClubPermissions.hpp>
 #include <lol/def/ClubRole.hpp>
 namespace lol {
@@ -21,7 +21,7 @@ namespace lol {
     std::string description;
     ClubMemberLists members; 
   };
-  void to_json(json& j, const PlayerClub& v) {
+  inline void to_json(json& j, const PlayerClub& v) {
     j["motd"] = v.motd; 
     j["isClubTagEligible"] = v.isClubTagEligible; 
     j["primary"] = v.primary; 
@@ -37,7 +37,7 @@ namespace lol {
     j["description"] = v.description; 
     j["members"] = v.members; 
   }
-  void from_json(const json& j, PlayerClub& v) {
+  inline void from_json(const json& j, PlayerClub& v) {
     v.motd = j.at("motd").get<std::string>(); 
     v.isClubTagEligible = j.at("isClubTagEligible").get<bool>(); 
     v.primary = j.at("primary").get<bool>(); 

@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolStoreWallet.hpp>
 namespace lol {
-  Result<LolStoreWallet> GetLolStoreV1Wallet(const LeagueClient& _client)
+  inline Result<LolStoreWallet> GetLolStoreV1Wallet(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

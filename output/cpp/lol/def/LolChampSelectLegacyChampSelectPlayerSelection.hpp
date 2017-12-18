@@ -15,7 +15,7 @@ namespace lol {
     int32_t championId;
     uint64_t summonerId; 
   };
-  void to_json(json& j, const LolChampSelectLegacyChampSelectPlayerSelection& v) {
+  inline void to_json(json& j, const LolChampSelectLegacyChampSelectPlayerSelection& v) {
     j["selectedSkinId"] = v.selectedSkinId; 
     j["playerType"] = v.playerType; 
     j["cellId"] = v.cellId; 
@@ -29,7 +29,7 @@ namespace lol {
     j["championId"] = v.championId; 
     j["summonerId"] = v.summonerId; 
   }
-  void from_json(const json& j, LolChampSelectLegacyChampSelectPlayerSelection& v) {
+  inline void from_json(const json& j, LolChampSelectLegacyChampSelectPlayerSelection& v) {
     v.selectedSkinId = j.at("selectedSkinId").get<int32_t>(); 
     v.playerType = j.at("playerType").get<std::string>(); 
     v.cellId = j.at("cellId").get<int64_t>(); 

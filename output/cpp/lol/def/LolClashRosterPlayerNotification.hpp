@@ -1,8 +1,8 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/PlayerDTO.hpp>
-#include <lol/def/LolClashRosterNotifyReason.hpp>
 #include <lol/def/RosterDTO.hpp>
+#include <lol/def/LolClashRosterNotifyReason.hpp>
+#include <lol/def/PlayerDTO.hpp>
 namespace lol {
   struct LolClashRosterPlayerNotification { 
     uint64_t sourcePlayerId;
@@ -10,13 +10,13 @@ namespace lol {
     RosterDTO roster;
     LolClashRosterNotifyReason notifyReason; 
   };
-  void to_json(json& j, const LolClashRosterPlayerNotification& v) {
+  inline void to_json(json& j, const LolClashRosterPlayerNotification& v) {
     j["sourcePlayerId"] = v.sourcePlayerId; 
     j["player"] = v.player; 
     j["roster"] = v.roster; 
     j["notifyReason"] = v.notifyReason; 
   }
-  void from_json(const json& j, LolClashRosterPlayerNotification& v) {
+  inline void from_json(const json& j, LolClashRosterPlayerNotification& v) {
     v.sourcePlayerId = j.at("sourcePlayerId").get<uint64_t>(); 
     v.player = j.at("player").get<PlayerDTO>(); 
     v.roster = j.at("roster").get<RosterDTO>(); 

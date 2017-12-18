@@ -13,7 +13,7 @@ namespace lol {
     std::string lobbyPassword;
     std::vector<LolLobbyLobbyMember> spectators; 
   };
-  void to_json(json& j, const LolLobbyLobbyCustomGameLobby& v) {
+  inline void to_json(json& j, const LolLobbyLobbyCustomGameLobby& v) {
     j["lobbyName"] = v.lobbyName; 
     j["configuration"] = v.configuration; 
     j["practiceGameRewardsDisabledReasons"] = v.practiceGameRewardsDisabledReasons; 
@@ -23,7 +23,7 @@ namespace lol {
     j["lobbyPassword"] = v.lobbyPassword; 
     j["spectators"] = v.spectators; 
   }
-  void from_json(const json& j, LolLobbyLobbyCustomGameLobby& v) {
+  inline void from_json(const json& j, LolLobbyLobbyCustomGameLobby& v) {
     v.lobbyName = j.at("lobbyName").get<std::string>(); 
     v.configuration = j.at("configuration").get<LolLobbyLobbyCustomGameConfiguration>(); 
     v.practiceGameRewardsDisabledReasons = j.at("practiceGameRewardsDisabledReasons").get<std::vector<std::string>>(); 

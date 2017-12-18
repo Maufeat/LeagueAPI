@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolLobbyLobbyCustomGame.hpp>
 namespace lol {
-  Result<LolLobbyLobbyCustomGame> GetLolLobbyV1CustomGamesById(const LeagueClient& _client, const int32_t& id)
+  inline Result<LolLobbyLobbyCustomGame> GetLolLobbyV1CustomGamesById(const LeagueClient& _client, const int32_t& id)
   {
     HttpsClient _client_(_client.host, false);
     try {

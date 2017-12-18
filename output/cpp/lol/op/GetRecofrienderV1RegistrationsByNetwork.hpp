@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/RecofrienderLinkResource.hpp>
 namespace lol {
-  Result<RecofrienderLinkResource> GetRecofrienderV1RegistrationsByNetwork(const LeagueClient& _client, const std::string& network)
+  inline Result<RecofrienderLinkResource> GetRecofrienderV1RegistrationsByNetwork(const LeagueClient& _client, const std::string& network)
   {
     HttpsClient _client_(_client.host, false);
     try {

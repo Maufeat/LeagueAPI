@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolPlayerBehaviorReformCard.hpp>
 namespace lol {
-  Result<LolPlayerBehaviorReformCard> GetLolPlayerBehaviorV1ReformCard(const LeagueClient& _client)
+  inline Result<LolPlayerBehaviorReformCard> GetLolPlayerBehaviorV1ReformCard(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

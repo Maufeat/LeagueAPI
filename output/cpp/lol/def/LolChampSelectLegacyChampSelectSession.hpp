@@ -1,10 +1,10 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/LolChampSelectLegacyChampSelectTimer.hpp>
-#include <lol/def/LolChampSelectLegacyChampSelectBannedChampions.hpp>
 #include <lol/def/LolChampSelectLegacyChampSelectChatRoomDetails.hpp>
+#include <lol/def/LolChampSelectLegacyChampSelectBannedChampions.hpp>
 #include <lol/def/LolChampSelectLegacyChampSelectTradeContract.hpp>
 #include <lol/def/LolChampSelectLegacyChampSelectPlayerSelection.hpp>
+#include <lol/def/LolChampSelectLegacyChampSelectTimer.hpp>
 namespace lol {
   struct LolChampSelectLegacyChampSelectSession { 
     LolChampSelectLegacyChampSelectChatRoomDetails chatDetails;
@@ -21,7 +21,7 @@ namespace lol {
     uint32_t rerollsRemaining;
     LolChampSelectLegacyChampSelectTimer timer; 
   };
-  void to_json(json& j, const LolChampSelectLegacyChampSelectSession& v) {
+  inline void to_json(json& j, const LolChampSelectLegacyChampSelectSession& v) {
     j["chatDetails"] = v.chatDetails; 
     j["isSpectating"] = v.isSpectating; 
     j["allowBattleBoost"] = v.allowBattleBoost; 
@@ -36,7 +36,7 @@ namespace lol {
     j["rerollsRemaining"] = v.rerollsRemaining; 
     j["timer"] = v.timer; 
   }
-  void from_json(const json& j, LolChampSelectLegacyChampSelectSession& v) {
+  inline void from_json(const json& j, LolChampSelectLegacyChampSelectSession& v) {
     v.chatDetails = j.at("chatDetails").get<LolChampSelectLegacyChampSelectChatRoomDetails>(); 
     v.isSpectating = j.at("isSpectating").get<bool>(); 
     v.allowBattleBoost = j.at("allowBattleBoost").get<bool>(); 

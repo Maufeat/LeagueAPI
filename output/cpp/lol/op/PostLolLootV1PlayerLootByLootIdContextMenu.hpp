@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolLootContextMenu.hpp>
 namespace lol {
-  Result<std::vector<LolLootContextMenu>> PostLolLootV1PlayerLootByLootIdContextMenu(const LeagueClient& _client, const std::string& lootId)
+  inline Result<std::vector<LolLootContextMenu>> PostLolLootV1PlayerLootByLootIdContextMenu(const LeagueClient& _client, const std::string& lootId)
   {
     HttpsClient _client_(_client.host, false);
     try {

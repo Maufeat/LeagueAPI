@@ -14,7 +14,7 @@ namespace lol {
     RosterAggregatedStatsDTO stats;
     std::string rosterShortName; 
   };
-  void to_json(json& j, const RosterStatsDTO& v) {
+  inline void to_json(json& j, const RosterStatsDTO& v) {
     j["rosterLogoColor"] = v.rosterLogoColor; 
     j["tournamentThemeId"] = v.tournamentThemeId; 
     j["tournamentNameLocKey"] = v.tournamentNameLocKey; 
@@ -26,7 +26,7 @@ namespace lol {
     j["stats"] = v.stats; 
     j["rosterShortName"] = v.rosterShortName; 
   }
-  void from_json(const json& j, RosterStatsDTO& v) {
+  inline void from_json(const json& j, RosterStatsDTO& v) {
     v.rosterLogoColor = j.at("rosterLogoColor").get<int32_t>(); 
     v.tournamentThemeId = j.at("tournamentThemeId").get<int32_t>(); 
     v.tournamentNameLocKey = j.at("tournamentNameLocKey").get<std::string>(); 

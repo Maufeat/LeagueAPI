@@ -5,10 +5,10 @@ namespace lol {
   struct LolPersonalizedOffersOfferRequests { 
     std::vector<LolPersonalizedOffersOfferRequest> offers; 
   };
-  void to_json(json& j, const LolPersonalizedOffersOfferRequests& v) {
+  inline void to_json(json& j, const LolPersonalizedOffersOfferRequests& v) {
     j["offers"] = v.offers; 
   }
-  void from_json(const json& j, LolPersonalizedOffersOfferRequests& v) {
+  inline void from_json(const json& j, LolPersonalizedOffersOfferRequests& v) {
     v.offers = j.at("offers").get<std::vector<LolPersonalizedOffersOfferRequest>>(); 
   }
 }

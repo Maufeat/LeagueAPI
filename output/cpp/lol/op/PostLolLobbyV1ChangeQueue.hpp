@@ -1,9 +1,9 @@
 #pragma once
 #include<lol/base_op.hpp> 
-#include <lol/def/LolLobbyLobby.hpp>
 #include <lol/def/LolLobbyLobbyChangeQueue.hpp>
+#include <lol/def/LolLobbyLobby.hpp>
 namespace lol {
-  Result<LolLobbyLobby> PostLolLobbyV1ChangeQueue(const LeagueClient& _client, const LolLobbyLobbyChangeQueue& queueId)
+  inline Result<LolLobbyLobby> PostLolLobbyV1ChangeQueue(const LeagueClient& _client, const LolLobbyLobbyChangeQueue& queueId)
   {
     HttpsClient _client_(_client.host, false);
     try {

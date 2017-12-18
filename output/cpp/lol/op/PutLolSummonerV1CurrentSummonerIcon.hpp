@@ -3,7 +3,7 @@
 #include <lol/def/LolSummonerSummonerIcon.hpp>
 #include <lol/def/LolSummonerSummoner.hpp>
 namespace lol {
-  Result<LolSummonerSummoner> PutLolSummonerV1CurrentSummonerIcon(const LeagueClient& _client, const LolSummonerSummonerIcon& body)
+  inline Result<LolSummonerSummoner> PutLolSummonerV1CurrentSummonerIcon(const LeagueClient& _client, const LolSummonerSummonerIcon& body)
   {
     HttpsClient _client_(_client.host, false);
     try {

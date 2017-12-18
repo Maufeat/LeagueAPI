@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolGameQueuesQueue.hpp>
 namespace lol {
-  Result<LolGameQueuesQueue> GetLolGameQueuesV1QueuesTypeByQueueType(const LeagueClient& _client, const std::string& queueType)
+  inline Result<LolGameQueuesQueue> GetLolGameQueuesV1QueuesTypeByQueueType(const LeagueClient& _client, const std::string& queueType)
   {
     HttpsClient _client_(_client.host, false);
     try {

@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/DynamicCelebrationMessagingNotificationResource.hpp>
 namespace lol {
-  Result<DynamicCelebrationMessagingNotificationResource> GetLolPlayerMessagingV1CelebrationNotification(const LeagueClient& _client)
+  inline Result<DynamicCelebrationMessagingNotificationResource> GetLolPlayerMessagingV1CelebrationNotification(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

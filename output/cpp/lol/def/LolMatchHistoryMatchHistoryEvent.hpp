@@ -19,7 +19,7 @@ namespace lol {
     std::string monsterType;
     LolMatchHistoryMatchHistoryPosition position; 
   };
-  void to_json(json& j, const LolMatchHistoryMatchHistoryEvent& v) {
+  inline void to_json(json& j, const LolMatchHistoryMatchHistoryEvent& v) {
     j["skillSlot"] = v.skillSlot; 
     j["teamId"] = v.teamId; 
     j["victimId"] = v.victimId; 
@@ -36,7 +36,7 @@ namespace lol {
     j["monsterType"] = v.monsterType; 
     j["position"] = v.position; 
   }
-  void from_json(const json& j, LolMatchHistoryMatchHistoryEvent& v) {
+  inline void from_json(const json& j, LolMatchHistoryMatchHistoryEvent& v) {
     v.skillSlot = j.at("skillSlot").get<uint16_t>(); 
     v.teamId = j.at("teamId").get<uint16_t>(); 
     v.victimId = j.at("victimId").get<uint16_t>(); 

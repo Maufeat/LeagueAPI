@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<bool> GetLolQueueEligibilityV1InitialConfigurationComplete(const LeagueClient& _client)
+  inline Result<bool> GetLolQueueEligibilityV1InitialConfigurationComplete(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

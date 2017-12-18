@@ -18,7 +18,7 @@ namespace lol {
     std::string splashPath;
     std::string rarityGemPath; 
   };
-  void to_json(json& j, const LolChampionsGameDataChampionSkin& v) {
+  inline void to_json(json& j, const LolChampionsGameDataChampionSkin& v) {
     j["chromas"] = v.chromas; 
     if(v.chromaPath)
       j["chromaPath"] = *v.chromaPath;
@@ -37,7 +37,7 @@ namespace lol {
     j["splashPath"] = v.splashPath; 
     j["rarityGemPath"] = v.rarityGemPath; 
   }
-  void from_json(const json& j, LolChampionsGameDataChampionSkin& v) {
+  inline void from_json(const json& j, LolChampionsGameDataChampionSkin& v) {
     v.chromas = j.at("chromas").get<std::vector<LolChampionsGameDataChampionChroma>>(); 
     if(auto it = j.find("chromaPath"); it != j.end() && !it->is_null())
       v.chromaPath = it->get<std::optional<std::string>>(); 

@@ -7,13 +7,13 @@ namespace lol {
     int64_t rp;
     uint64_t accountId; 
   };
-  void to_json(json& j, const LolStorePlayer& v) {
+  inline void to_json(json& j, const LolStorePlayer& v) {
     j["summonerLevel"] = v.summonerLevel; 
     j["ip"] = v.ip; 
     j["rp"] = v.rp; 
     j["accountId"] = v.accountId; 
   }
-  void from_json(const json& j, LolStorePlayer& v) {
+  inline void from_json(const json& j, LolStorePlayer& v) {
     v.summonerLevel = j.at("summonerLevel").get<uint32_t>(); 
     v.ip = j.at("ip").get<int64_t>(); 
     v.rp = j.at("rp").get<int64_t>(); 

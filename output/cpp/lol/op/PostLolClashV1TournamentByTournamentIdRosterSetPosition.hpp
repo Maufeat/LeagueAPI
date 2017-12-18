@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolClashSetPositionRequest.hpp>
 namespace lol {
-  Result<json> PostLolClashV1TournamentByTournamentIdRosterSetPosition(const LeagueClient& _client, const int64_t& tournamentId, const LolClashSetPositionRequest& setPositionRequest)
+  inline Result<json> PostLolClashV1TournamentByTournamentIdRosterSetPosition(const LeagueClient& _client, const int64_t& tournamentId, const LolClashSetPositionRequest& setPositionRequest)
   {
     HttpsClient _client_(_client.host, false);
     try {

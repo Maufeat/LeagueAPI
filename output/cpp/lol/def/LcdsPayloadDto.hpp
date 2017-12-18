@@ -7,13 +7,13 @@ namespace lol {
     std::string method;
     std::map<std::string, std::string> headers; 
   };
-  void to_json(json& j, const LcdsPayloadDto& v) {
+  inline void to_json(json& j, const LcdsPayloadDto& v) {
     j["body"] = v.body; 
     j["path"] = v.path; 
     j["method"] = v.method; 
     j["headers"] = v.headers; 
   }
-  void from_json(const json& j, LcdsPayloadDto& v) {
+  inline void from_json(const json& j, LcdsPayloadDto& v) {
     v.body = j.at("body").get<std::string>(); 
     v.path = j.at("path").get<std::string>(); 
     v.method = j.at("method").get<std::string>(); 

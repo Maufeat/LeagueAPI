@@ -13,7 +13,7 @@ namespace lol {
     std::map<std::string, double> xpPerMinDeltas;
     uint16_t participantId; 
   };
-  void to_json(json& j, const LolMatchHistoryMatchHistoryTimeline& v) {
+  inline void to_json(json& j, const LolMatchHistoryMatchHistoryTimeline& v) {
     j["lane"] = v.lane; 
     j["goldPerMinDeltas"] = v.goldPerMinDeltas; 
     j["creepsPerMinDeltas"] = v.creepsPerMinDeltas; 
@@ -25,7 +25,7 @@ namespace lol {
     j["xpPerMinDeltas"] = v.xpPerMinDeltas; 
     j["participantId"] = v.participantId; 
   }
-  void from_json(const json& j, LolMatchHistoryMatchHistoryTimeline& v) {
+  inline void from_json(const json& j, LolMatchHistoryMatchHistoryTimeline& v) {
     v.lane = j.at("lane").get<std::string>(); 
     v.goldPerMinDeltas = j.at("goldPerMinDeltas").get<std::map<std::string, double>>(); 
     v.creepsPerMinDeltas = j.at("creepsPerMinDeltas").get<std::map<std::string, double>>(); 

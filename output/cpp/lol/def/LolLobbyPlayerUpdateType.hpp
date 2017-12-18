@@ -7,7 +7,7 @@ namespace lol {
     RMS_e = 3,
     ServiceProxy_e = 2,
   };
-  void to_json(json& j, const LolLobbyPlayerUpdateType& v) {
+  inline void to_json(json& j, const LolLobbyPlayerUpdateType& v) {
     if(v == LolLobbyPlayerUpdateType::Direct_e) {
       j = "Direct";
       return;
@@ -25,7 +25,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolLobbyPlayerUpdateType& v) {
+  inline void from_json(const json& j, LolLobbyPlayerUpdateType& v) {
     if(j.get<std::string>() == "Direct") {
       v = LolLobbyPlayerUpdateType::Direct_e;
       return;

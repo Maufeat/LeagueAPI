@@ -69,7 +69,7 @@ namespace lol {
     WITHDRAW_LOCKOUT_e = 65,
     WITHDRAW_NOT_ALLOWED_e = 63,
   };
-  void to_json(json& j, const ClientRequestError& v) {
+  inline void to_json(json& j, const ClientRequestError& v) {
     if(v == ClientRequestError::ALREADY_DECLINE_WITHDRAW_e) {
       j = "ALREADY_DECLINE_WITHDRAW";
       return;
@@ -335,7 +335,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, ClientRequestError& v) {
+  inline void from_json(const json& j, ClientRequestError& v) {
     if(j.get<std::string>() == "ALREADY_DECLINE_WITHDRAW") {
       v = ClientRequestError::ALREADY_DECLINE_WITHDRAW_e;
       return;

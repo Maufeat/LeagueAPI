@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolSummonerSummoner.hpp>
 namespace lol {
-  Result<LolSummonerSummoner> GetLolSummonerV1SummonersById(const LeagueClient& _client, const uint64_t& id)
+  inline Result<LolSummonerSummoner> GetLolSummonerV1SummonersById(const LeagueClient& _client, const uint64_t& id)
   {
     HttpsClient _client_(_client.host, false);
     try {

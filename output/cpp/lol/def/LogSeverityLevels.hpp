@@ -7,7 +7,7 @@ namespace lol {
     Okay_e = 0,
     Warning_e = 1,
   };
-  void to_json(json& j, const LogSeverityLevels& v) {
+  inline void to_json(json& j, const LogSeverityLevels& v) {
     if(v == LogSeverityLevels::Always_e) {
       j = "Always";
       return;
@@ -25,7 +25,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LogSeverityLevels& v) {
+  inline void from_json(const json& j, LogSeverityLevels& v) {
     if(j.get<std::string>() == "Always") {
       v = LogSeverityLevels::Always_e;
       return;

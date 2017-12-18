@@ -11,7 +11,7 @@ namespace lol {
     uint64_t accountId;
     std::string currentPlatformId; 
   };
-  void to_json(json& j, const LolMatchHistoryMatchHistoryParticipantIdentityPlayer& v) {
+  inline void to_json(json& j, const LolMatchHistoryMatchHistoryParticipantIdentityPlayer& v) {
     j["matchHistoryUri"] = v.matchHistoryUri; 
     j["currentAccountId"] = v.currentAccountId; 
     j["platformId"] = v.platformId; 
@@ -21,7 +21,7 @@ namespace lol {
     j["accountId"] = v.accountId; 
     j["currentPlatformId"] = v.currentPlatformId; 
   }
-  void from_json(const json& j, LolMatchHistoryMatchHistoryParticipantIdentityPlayer& v) {
+  inline void from_json(const json& j, LolMatchHistoryMatchHistoryParticipantIdentityPlayer& v) {
     v.matchHistoryUri = j.at("matchHistoryUri").get<std::string>(); 
     v.currentAccountId = j.at("currentAccountId").get<uint64_t>(); 
     v.platformId = j.at("platformId").get<std::string>(); 

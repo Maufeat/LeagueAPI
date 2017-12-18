@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/LolChampionsGameDataChampionSpell.hpp>
 #include <lol/def/LolChampionsGameDataChampionSkin.hpp>
+#include <lol/def/LolChampionsGameDataChampionSpell.hpp>
 namespace lol {
   struct LolChampionsGameDataChampion { 
     std::vector<LolChampionsGameDataChampionSpell> spells;
@@ -16,7 +16,7 @@ namespace lol {
     std::string banVoPath;
     int32_t id; 
   };
-  void to_json(json& j, const LolChampionsGameDataChampion& v) {
+  inline void to_json(json& j, const LolChampionsGameDataChampion& v) {
     j["spells"] = v.spells; 
     j["alias"] = v.alias; 
     j["roles"] = v.roles; 
@@ -29,7 +29,7 @@ namespace lol {
     j["banVoPath"] = v.banVoPath; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, LolChampionsGameDataChampion& v) {
+  inline void from_json(const json& j, LolChampionsGameDataChampion& v) {
     v.spells = j.at("spells").get<std::vector<LolChampionsGameDataChampionSpell>>(); 
     v.alias = j.at("alias").get<std::string>(); 
     v.roles = j.at("roles").get<std::vector<std::string>>(); 

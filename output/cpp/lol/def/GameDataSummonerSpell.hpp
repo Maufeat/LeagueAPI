@@ -5,11 +5,11 @@ namespace lol {
     uint32_t summonerLevel;
     uint64_t id; 
   };
-  void to_json(json& j, const GameDataSummonerSpell& v) {
+  inline void to_json(json& j, const GameDataSummonerSpell& v) {
     j["summonerLevel"] = v.summonerLevel; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, GameDataSummonerSpell& v) {
+  inline void from_json(const json& j, GameDataSummonerSpell& v) {
     v.summonerLevel = j.at("summonerLevel").get<uint32_t>(); 
     v.id = j.at("id").get<uint64_t>(); 
   }

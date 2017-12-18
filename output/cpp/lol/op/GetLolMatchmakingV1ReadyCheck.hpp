@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolMatchmakingMatchmakingReadyCheckResource.hpp>
 namespace lol {
-  Result<LolMatchmakingMatchmakingReadyCheckResource> GetLolMatchmakingV1ReadyCheck(const LeagueClient& _client)
+  inline Result<LolMatchmakingMatchmakingReadyCheckResource> GetLolMatchmakingV1ReadyCheck(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

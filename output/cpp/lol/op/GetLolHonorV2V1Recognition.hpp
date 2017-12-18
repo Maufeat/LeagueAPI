@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolHonorV2Honor.hpp>
 namespace lol {
-  Result<std::vector<LolHonorV2Honor>> GetLolHonorV2V1Recognition(const LeagueClient& _client)
+  inline Result<std::vector<LolHonorV2Honor>> GetLolHonorV2V1Recognition(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

@@ -10,14 +10,14 @@ namespace lol {
     std::vector<BannedChampion> bannedChampions;
     uint64_t id; 
   };
-  void to_json(json& j, const EogLcdsGameDTO& v) {
+  inline void to_json(json& j, const EogLcdsGameDTO& v) {
     j["teamOne"] = v.teamOne; 
     j["teamTwo"] = v.teamTwo; 
     j["gameState"] = v.gameState; 
     j["bannedChampions"] = v.bannedChampions; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, EogLcdsGameDTO& v) {
+  inline void from_json(const json& j, EogLcdsGameDTO& v) {
     v.teamOne = j.at("teamOne").get<std::vector<PlayerParticipant>>(); 
     v.teamTwo = j.at("teamTwo").get<std::vector<PlayerParticipant>>(); 
     v.gameState = j.at("gameState").get<std::string>(); 

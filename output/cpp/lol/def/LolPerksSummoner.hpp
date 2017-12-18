@@ -16,7 +16,7 @@ namespace lol {
     int32_t profileIconId;
     uint64_t summonerId; 
   };
-  void to_json(json& j, const LolPerksSummoner& v) {
+  inline void to_json(json& j, const LolPerksSummoner& v) {
     j["rerollPoints"] = v.rerollPoints; 
     j["xpSinceLastLevel"] = v.xpSinceLastLevel; 
     j["percentCompleteForNextLevel"] = v.percentCompleteForNextLevel; 
@@ -30,7 +30,7 @@ namespace lol {
     j["profileIconId"] = v.profileIconId; 
     j["summonerId"] = v.summonerId; 
   }
-  void from_json(const json& j, LolPerksSummoner& v) {
+  inline void from_json(const json& j, LolPerksSummoner& v) {
     v.rerollPoints = j.at("rerollPoints").get<LolPerksSummonerRerollPoints>(); 
     v.xpSinceLastLevel = j.at("xpSinceLastLevel").get<uint64_t>(); 
     v.percentCompleteForNextLevel = j.at("percentCompleteForNextLevel").get<uint32_t>(); 

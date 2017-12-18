@@ -3,7 +3,7 @@
 #include <lol/def/RsoAuthAuthorization.hpp>
 #include <lol/def/RsoAuthRSOPlayerCredentials.hpp>
 namespace lol {
-  Result<RsoAuthAuthorization> PostRsoAuthV1AuthorizationGas(const LeagueClient& _client, const RsoAuthRSOPlayerCredentials& creds)
+  inline Result<RsoAuthAuthorization> PostRsoAuthV1AuthorizationGas(const LeagueClient& _client, const RsoAuthRSOPlayerCredentials& creds)
   {
     HttpsClient _client_(_client.host, false);
     try {

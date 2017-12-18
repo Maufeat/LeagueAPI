@@ -9,14 +9,14 @@ namespace lol {
     std::vector<std::string> tags;
     std::string nameSpace; 
   };
-  void to_json(json& j, const BindingFullEventHelp& v) {
+  inline void to_json(json& j, const BindingFullEventHelp& v) {
     j["type"] = v.type; 
     j["description"] = v.description; 
     j["name"] = v.name; 
     j["tags"] = v.tags; 
     j["nameSpace"] = v.nameSpace; 
   }
-  void from_json(const json& j, BindingFullEventHelp& v) {
+  inline void from_json(const json& j, BindingFullEventHelp& v) {
     v.type = j.at("type").get<BindingFullTypeIdentifier>(); 
     v.description = j.at("description").get<std::string>(); 
     v.name = j.at("name").get<std::string>(); 

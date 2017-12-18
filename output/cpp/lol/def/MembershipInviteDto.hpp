@@ -12,7 +12,7 @@ namespace lol {
     std::string inviteePlatformId;
     uint64_t inviterAccountId; 
   };
-  void to_json(json& j, const MembershipInviteDto& v) {
+  inline void to_json(json& j, const MembershipInviteDto& v) {
     j["inviterPlatformId"] = v.inviterPlatformId; 
     j["inviteeAccountId"] = v.inviteeAccountId; 
     j["status"] = v.status; 
@@ -23,7 +23,7 @@ namespace lol {
     j["inviteePlatformId"] = v.inviteePlatformId; 
     j["inviterAccountId"] = v.inviterAccountId; 
   }
-  void from_json(const json& j, MembershipInviteDto& v) {
+  inline void from_json(const json& j, MembershipInviteDto& v) {
     v.inviterPlatformId = j.at("inviterPlatformId").get<std::string>(); 
     v.inviteeAccountId = j.at("inviteeAccountId").get<uint64_t>(); 
     v.status = j.at("status").get<int32_t>(); 

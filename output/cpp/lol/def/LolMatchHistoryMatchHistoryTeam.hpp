@@ -18,7 +18,7 @@ namespace lol {
     uint16_t teamId;
     uint32_t dragonKills; 
   };
-  void to_json(json& j, const LolMatchHistoryMatchHistoryTeam& v) {
+  inline void to_json(json& j, const LolMatchHistoryMatchHistoryTeam& v) {
     j["firstBaron"] = v.firstBaron; 
     j["firstTower"] = v.firstTower; 
     j["towerKills"] = v.towerKills; 
@@ -34,7 +34,7 @@ namespace lol {
     j["teamId"] = v.teamId; 
     j["dragonKills"] = v.dragonKills; 
   }
-  void from_json(const json& j, LolMatchHistoryMatchHistoryTeam& v) {
+  inline void from_json(const json& j, LolMatchHistoryMatchHistoryTeam& v) {
     v.firstBaron = j.at("firstBaron").get<bool>(); 
     v.firstTower = j.at("firstTower").get<bool>(); 
     v.towerKills = j.at("towerKills").get<uint32_t>(); 

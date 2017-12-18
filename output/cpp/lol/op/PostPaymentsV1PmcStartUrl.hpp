@@ -3,7 +3,7 @@
 #include <lol/def/PaymentsFrontEndRequest.hpp>
 #include <lol/def/PaymentsFrontEndResult.hpp>
 namespace lol {
-  Result<PaymentsFrontEndResult> PostPaymentsV1PmcStartUrl(const LeagueClient& _client, const PaymentsFrontEndRequest& options)
+  inline Result<PaymentsFrontEndResult> PostPaymentsV1PmcStartUrl(const LeagueClient& _client, const PaymentsFrontEndRequest& options)
   {
     HttpsClient _client_(_client.host, false);
     try {

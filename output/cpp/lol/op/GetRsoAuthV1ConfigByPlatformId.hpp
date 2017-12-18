@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/RsoAuthRSOJWTConfig.hpp>
 namespace lol {
-  Result<RsoAuthRSOJWTConfig> GetRsoAuthV1ConfigByPlatformId(const LeagueClient& _client, const std::string& platformId)
+  inline Result<RsoAuthRSOJWTConfig> GetRsoAuthV1ConfigByPlatformId(const LeagueClient& _client, const std::string& platformId)
   {
     HttpsClient _client_(_client.host, false);
     try {

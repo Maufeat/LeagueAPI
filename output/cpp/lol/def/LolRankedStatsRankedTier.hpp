@@ -12,7 +12,7 @@ namespace lol {
     PROVISIONAL_e = 1,
     SILVER_e = 3,
   };
-  void to_json(json& j, const LolRankedStatsRankedTier& v) {
+  inline void to_json(json& j, const LolRankedStatsRankedTier& v) {
     if(v == LolRankedStatsRankedTier::BRONZE_e) {
       j = "BRONZE";
       return;
@@ -50,7 +50,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolRankedStatsRankedTier& v) {
+  inline void from_json(const json& j, LolRankedStatsRankedTier& v) {
     if(j.get<std::string>() == "BRONZE") {
       v = LolRankedStatsRankedTier::BRONZE_e;
       return;

@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<json> GetLolPlayerPreferencesV1PreferenceByType(const LeagueClient& _client, const std::string& type, const std::optional<std::string>& hash = std::nullopt)
+  inline Result<json> GetLolPlayerPreferencesV1PreferenceByType(const LeagueClient& _client, const std::string& type, const std::optional<std::string>& hash = std::nullopt)
   {
     HttpsClient _client_(_client.host, false);
     try {

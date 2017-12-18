@@ -1,9 +1,9 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/LolRankedStatsRankedQueue.hpp>
-#include <lol/def/RankedLeagueMiniSeriesDTO.hpp>
 #include <lol/def/LolRankedStatsRankedTier.hpp>
+#include <lol/def/LolRankedStatsRankedQueue.hpp>
 #include <lol/def/RankedDivision.hpp>
+#include <lol/def/RankedLeagueMiniSeriesDTO.hpp>
 namespace lol {
   struct RankedLeagueItemDTO { 
     RankedLeagueMiniSeriesDTO miniSeries;
@@ -19,7 +19,7 @@ namespace lol {
     std::string playerOrTeamName;
     LolRankedStatsRankedQueue queueType; 
   };
-  void to_json(json& j, const RankedLeagueItemDTO& v) {
+  inline void to_json(json& j, const RankedLeagueItemDTO& v) {
     j["miniSeries"] = v.miniSeries; 
     j["apexDaysUntilDecay"] = v.apexDaysUntilDecay; 
     j["tier"] = v.tier; 
@@ -33,7 +33,7 @@ namespace lol {
     j["playerOrTeamName"] = v.playerOrTeamName; 
     j["queueType"] = v.queueType; 
   }
-  void from_json(const json& j, RankedLeagueItemDTO& v) {
+  inline void from_json(const json& j, RankedLeagueItemDTO& v) {
     v.miniSeries = j.at("miniSeries").get<RankedLeagueMiniSeriesDTO>(); 
     v.apexDaysUntilDecay = j.at("apexDaysUntilDecay").get<int32_t>(); 
     v.tier = j.at("tier").get<LolRankedStatsRankedTier>(); 

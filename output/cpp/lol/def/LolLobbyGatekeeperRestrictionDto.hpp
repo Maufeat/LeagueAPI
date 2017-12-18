@@ -8,14 +8,14 @@ namespace lol {
     std::string payload;
     uint64_t accountId; 
   };
-  void to_json(json& j, const LolLobbyGatekeeperRestrictionDto& v) {
+  inline void to_json(json& j, const LolLobbyGatekeeperRestrictionDto& v) {
     j["remainingMillis"] = v.remainingMillis; 
     j["reason"] = v.reason; 
     j["queueId"] = v.queueId; 
     j["payload"] = v.payload; 
     j["accountId"] = v.accountId; 
   }
-  void from_json(const json& j, LolLobbyGatekeeperRestrictionDto& v) {
+  inline void from_json(const json& j, LolLobbyGatekeeperRestrictionDto& v) {
     v.remainingMillis = j.at("remainingMillis").get<int64_t>(); 
     v.reason = j.at("reason").get<std::string>(); 
     v.queueId = j.at("queueId").get<int32_t>(); 

@@ -15,7 +15,7 @@ namespace lol {
     int32_t rentalGames;
     std::string rarity; 
   };
-  void to_json(json& j, const LolLootLootItem& v) {
+  inline void to_json(json& j, const LolLootLootItem& v) {
     j["upgradeLootName"] = v.upgradeLootName; 
     j["storeItemId"] = v.storeItemId; 
     j["displayCategories"] = v.displayCategories; 
@@ -29,7 +29,7 @@ namespace lol {
     j["rentalGames"] = v.rentalGames; 
     j["rarity"] = v.rarity; 
   }
-  void from_json(const json& j, LolLootLootItem& v) {
+  inline void from_json(const json& j, LolLootLootItem& v) {
     v.upgradeLootName = j.at("upgradeLootName").get<std::string>(); 
     v.storeItemId = j.at("storeItemId").get<int32_t>(); 
     v.displayCategories = j.at("displayCategories").get<std::string>(); 

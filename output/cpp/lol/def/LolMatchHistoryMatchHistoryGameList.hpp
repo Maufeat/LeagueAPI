@@ -10,7 +10,7 @@ namespace lol {
     std::string gameBeginDate;
     std::string gameEndDate; 
   };
-  void to_json(json& j, const LolMatchHistoryMatchHistoryGameList& v) {
+  inline void to_json(json& j, const LolMatchHistoryMatchHistoryGameList& v) {
     j["gameIndexBegin"] = v.gameIndexBegin; 
     j["gameCount"] = v.gameCount; 
     j["gameIndexEnd"] = v.gameIndexEnd; 
@@ -18,7 +18,7 @@ namespace lol {
     j["gameBeginDate"] = v.gameBeginDate; 
     j["gameEndDate"] = v.gameEndDate; 
   }
-  void from_json(const json& j, LolMatchHistoryMatchHistoryGameList& v) {
+  inline void from_json(const json& j, LolMatchHistoryMatchHistoryGameList& v) {
     v.gameIndexBegin = j.at("gameIndexBegin").get<uint64_t>(); 
     v.gameCount = j.at("gameCount").get<uint64_t>(); 
     v.gameIndexEnd = j.at("gameIndexEnd").get<uint64_t>(); 

@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolLootRecipe.hpp>
 namespace lol {
-  Result<std::vector<LolLootRecipe>> GetLolLootV1RecipesInitialItemByLootId(const LeagueClient& _client, const std::string& lootId)
+  inline Result<std::vector<LolLootRecipe>> GetLolLootV1RecipesInitialItemByLootId(const LeagueClient& _client, const std::string& lootId)
   {
     HttpsClient _client_(_client.host, false);
     try {

@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolHonorV2VendedHonorChange.hpp>
 namespace lol {
-  Result<LolHonorV2VendedHonorChange> GetLolHonorV2V1LevelChange(const LeagueClient& _client)
+  inline Result<LolHonorV2VendedHonorChange> GetLolHonorV2V1LevelChange(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<void> PostLolLobbyV2ReceivedInvitationsByInvitationIdDecline(const LeagueClient& _client, const std::string& invitationId)
+  inline Result<void> PostLolLobbyV2ReceivedInvitationsByInvitationIdDecline(const LeagueClient& _client, const std::string& invitationId)
   {
     HttpsClient _client_(_client.host, false);
     try {

@@ -6,11 +6,11 @@ namespace lol {
     LolMatchHistoryMatchHistoryParticipantIdentityPlayer player;
     uint16_t participantId; 
   };
-  void to_json(json& j, const LolMatchHistoryMatchHistoryParticipantIdentities& v) {
+  inline void to_json(json& j, const LolMatchHistoryMatchHistoryParticipantIdentities& v) {
     j["player"] = v.player; 
     j["participantId"] = v.participantId; 
   }
-  void from_json(const json& j, LolMatchHistoryMatchHistoryParticipantIdentities& v) {
+  inline void from_json(const json& j, LolMatchHistoryMatchHistoryParticipantIdentities& v) {
     v.player = j.at("player").get<LolMatchHistoryMatchHistoryParticipantIdentityPlayer>(); 
     v.participantId = j.at("participantId").get<uint16_t>(); 
   }

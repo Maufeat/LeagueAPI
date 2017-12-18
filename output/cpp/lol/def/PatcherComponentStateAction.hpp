@@ -7,7 +7,7 @@ namespace lol {
     Patching_e = 2,
     Repairing_e = 3,
   };
-  void to_json(json& j, const PatcherComponentStateAction& v) {
+  inline void to_json(json& j, const PatcherComponentStateAction& v) {
     if(v == PatcherComponentStateAction::CheckingForUpdates_e) {
       j = "CheckingForUpdates";
       return;
@@ -25,7 +25,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, PatcherComponentStateAction& v) {
+  inline void from_json(const json& j, PatcherComponentStateAction& v) {
     if(j.get<std::string>() == "CheckingForUpdates") {
       v = PatcherComponentStateAction::CheckingForUpdates_e;
       return;

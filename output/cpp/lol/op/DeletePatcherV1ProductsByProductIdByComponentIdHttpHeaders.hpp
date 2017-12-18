@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<json> DeletePatcherV1ProductsByProductIdByComponentIdHttpHeaders(const LeagueClient& _client, const std::string& product_id, const std::string& component_id)
+  inline Result<json> DeletePatcherV1ProductsByProductIdByComponentIdHttpHeaders(const LeagueClient& _client, const std::string& product_id, const std::string& component_id)
   {
     HttpsClient _client_(_client.host, false);
     try {

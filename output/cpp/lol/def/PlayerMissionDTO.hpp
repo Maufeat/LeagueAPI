@@ -1,9 +1,9 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/PlayerMissionRewardDTO.hpp>
 #include <lol/def/PlayerMissionObjectiveDTO.hpp>
-#include <lol/def/MissionAlertDTO.hpp>
 #include <lol/def/MissionRequirementDTO.hpp>
+#include <lol/def/MissionAlertDTO.hpp>
+#include <lol/def/PlayerMissionRewardDTO.hpp>
 namespace lol {
   struct PlayerMissionDTO { 
     std::string helperText;
@@ -32,7 +32,7 @@ namespace lol {
     std::string backgroundImageUrl;
     std::vector<PlayerMissionRewardDTO> rewards; 
   };
-  void to_json(json& j, const PlayerMissionDTO& v) {
+  inline void to_json(json& j, const PlayerMissionDTO& v) {
     j["helperText"] = v.helperText; 
     j["endTime"] = v.endTime; 
     j["locale"] = v.locale; 
@@ -59,7 +59,7 @@ namespace lol {
     j["backgroundImageUrl"] = v.backgroundImageUrl; 
     j["rewards"] = v.rewards; 
   }
-  void from_json(const json& j, PlayerMissionDTO& v) {
+  inline void from_json(const json& j, PlayerMissionDTO& v) {
     v.helperText = j.at("helperText").get<std::string>(); 
     v.endTime = j.at("endTime").get<int64_t>(); 
     v.locale = j.at("locale").get<std::string>(); 

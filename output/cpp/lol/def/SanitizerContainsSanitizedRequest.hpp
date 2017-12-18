@@ -8,7 +8,7 @@ namespace lol {
     std::optional<bool> includeEmbedded;
     std::optional<bool> aggressiveScan; 
   };
-  void to_json(json& j, const SanitizerContainsSanitizedRequest& v) {
+  inline void to_json(json& j, const SanitizerContainsSanitizedRequest& v) {
     if(v.removeDisallowedChars)
       j["removeDisallowedChars"] = *v.removeDisallowedChars;
     j["text"] = v.text; 
@@ -19,7 +19,7 @@ namespace lol {
     if(v.aggressiveScan)
       j["aggressiveScan"] = *v.aggressiveScan;
   }
-  void from_json(const json& j, SanitizerContainsSanitizedRequest& v) {
+  inline void from_json(const json& j, SanitizerContainsSanitizedRequest& v) {
     if(auto it = j.find("removeDisallowedChars"); it != j.end() && !it->is_null())
       v.removeDisallowedChars = it->get<std::optional<bool>>(); 
     v.text = j.at("text").get<std::string>(); 

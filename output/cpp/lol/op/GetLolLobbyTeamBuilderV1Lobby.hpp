@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolLobbyTeamBuilderLobby.hpp>
 namespace lol {
-  Result<LolLobbyTeamBuilderLobby> GetLolLobbyTeamBuilderV1Lobby(const LeagueClient& _client)
+  inline Result<LolLobbyTeamBuilderLobby> GetLolLobbyTeamBuilderV1Lobby(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

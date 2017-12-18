@@ -9,7 +9,7 @@ namespace lol {
     std::string shortName;
     int64_t id; 
   };
-  void to_json(json& j, const PublicRosterDTO& v) {
+  inline void to_json(json& j, const PublicRosterDTO& v) {
     j["logoColor"] = v.logoColor; 
     j["logo"] = v.logo; 
     j["memberIds"] = v.memberIds; 
@@ -17,7 +17,7 @@ namespace lol {
     j["shortName"] = v.shortName; 
     j["id"] = v.id; 
   }
-  void from_json(const json& j, PublicRosterDTO& v) {
+  inline void from_json(const json& j, PublicRosterDTO& v) {
     v.logoColor = j.at("logoColor").get<int32_t>(); 
     v.logo = j.at("logo").get<int32_t>(); 
     v.memberIds = j.at("memberIds").get<std::vector<uint64_t>>(); 

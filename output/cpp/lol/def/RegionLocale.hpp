@@ -7,13 +7,13 @@ namespace lol {
     std::string region;
     std::string locale; 
   };
-  void to_json(json& j, const RegionLocale& v) {
+  inline void to_json(json& j, const RegionLocale& v) {
     j["webLanguage"] = v.webLanguage; 
     j["webRegion"] = v.webRegion; 
     j["region"] = v.region; 
     j["locale"] = v.locale; 
   }
-  void from_json(const json& j, RegionLocale& v) {
+  inline void from_json(const json& j, RegionLocale& v) {
     v.webLanguage = j.at("webLanguage").get<std::string>(); 
     v.webRegion = j.at("webRegion").get<std::string>(); 
     v.region = j.at("region").get<std::string>(); 

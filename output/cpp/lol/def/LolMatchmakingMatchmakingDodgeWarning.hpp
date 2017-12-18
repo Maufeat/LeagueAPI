@@ -6,7 +6,7 @@ namespace lol {
     Penalty_e = 2,
     Warning_e = 1,
   };
-  void to_json(json& j, const LolMatchmakingMatchmakingDodgeWarning& v) {
+  inline void to_json(json& j, const LolMatchmakingMatchmakingDodgeWarning& v) {
     if(v == LolMatchmakingMatchmakingDodgeWarning::None_e) {
       j = "None";
       return;
@@ -20,7 +20,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, LolMatchmakingMatchmakingDodgeWarning& v) {
+  inline void from_json(const json& j, LolMatchmakingMatchmakingDodgeWarning& v) {
     if(j.get<std::string>() == "None") {
       v = LolMatchmakingMatchmakingDodgeWarning::None_e;
       return;

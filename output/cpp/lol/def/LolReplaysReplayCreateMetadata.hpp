@@ -7,13 +7,13 @@ namespace lol {
     std::string gameType;
     uint64_t gameEnd; 
   };
-  void to_json(json& j, const LolReplaysReplayCreateMetadata& v) {
+  inline void to_json(json& j, const LolReplaysReplayCreateMetadata& v) {
     j["queueId"] = v.queueId; 
     j["gameVersion"] = v.gameVersion; 
     j["gameType"] = v.gameType; 
     j["gameEnd"] = v.gameEnd; 
   }
-  void from_json(const json& j, LolReplaysReplayCreateMetadata& v) {
+  inline void from_json(const json& j, LolReplaysReplayCreateMetadata& v) {
     v.queueId = j.at("queueId").get<int32_t>(); 
     v.gameVersion = j.at("gameVersion").get<std::string>(); 
     v.gameType = j.at("gameType").get<std::string>(); 

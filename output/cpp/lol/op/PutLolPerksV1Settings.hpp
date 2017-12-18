@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolPerksUISettings.hpp>
 namespace lol {
-  Result<json> PutLolPerksV1Settings(const LeagueClient& _client, const LolPerksUISettings& showLongDescriptions)
+  inline Result<json> PutLolPerksV1Settings(const LeagueClient& _client, const LolPerksUISettings& showLongDescriptions)
   {
     HttpsClient _client_(_client.host, false);
     try {

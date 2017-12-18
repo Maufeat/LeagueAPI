@@ -9,7 +9,7 @@ namespace lol {
     std::string observerServerIp;
     bool visible; 
   };
-  void to_json(json& j, const LolGameflowGameflowGameClient& v) {
+  inline void to_json(json& j, const LolGameflowGameflowGameClient& v) {
     j["serverPort"] = v.serverPort; 
     j["observerServerPort"] = v.observerServerPort; 
     j["running"] = v.running; 
@@ -17,7 +17,7 @@ namespace lol {
     j["observerServerIp"] = v.observerServerIp; 
     j["visible"] = v.visible; 
   }
-  void from_json(const json& j, LolGameflowGameflowGameClient& v) {
+  inline void from_json(const json& j, LolGameflowGameflowGameClient& v) {
     v.serverPort = j.at("serverPort").get<uint16_t>(); 
     v.observerServerPort = j.at("observerServerPort").get<uint16_t>(); 
     v.running = j.at("running").get<bool>(); 

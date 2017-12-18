@@ -12,7 +12,7 @@ namespace lol {
     uint64_t summonerId;
     std::string observerServerIp; 
   };
-  void to_json(json& j, const GameflowLcdsPlayerCredentialsDto& v) {
+  inline void to_json(json& j, const GameflowLcdsPlayerCredentialsDto& v) {
     j["serverPort"] = v.serverPort; 
     j["observerServerPort"] = v.observerServerPort; 
     j["gameId"] = v.gameId; 
@@ -23,7 +23,7 @@ namespace lol {
     j["summonerId"] = v.summonerId; 
     j["observerServerIp"] = v.observerServerIp; 
   }
-  void from_json(const json& j, GameflowLcdsPlayerCredentialsDto& v) {
+  inline void from_json(const json& j, GameflowLcdsPlayerCredentialsDto& v) {
     v.serverPort = j.at("serverPort").get<uint16_t>(); 
     v.observerServerPort = j.at("observerServerPort").get<uint16_t>(); 
     v.gameId = j.at("gameId").get<uint64_t>(); 

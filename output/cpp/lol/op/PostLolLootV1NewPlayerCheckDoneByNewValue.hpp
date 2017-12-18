@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<std::string> PostLolLootV1NewPlayerCheckDoneByNewValue(const LeagueClient& _client, const bool& newValue)
+  inline Result<std::string> PostLolLootV1NewPlayerCheckDoneByNewValue(const LeagueClient& _client, const bool& newValue)
   {
     HttpsClient _client_(_client.host, false);
     try {

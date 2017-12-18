@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolHonorV2ProfileInfo.hpp>
 namespace lol {
-  Result<LolHonorV2ProfileInfo> GetLolHonorV2V1Profile(const LeagueClient& _client)
+  inline Result<LolHonorV2ProfileInfo> GetLolHonorV2V1Profile(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

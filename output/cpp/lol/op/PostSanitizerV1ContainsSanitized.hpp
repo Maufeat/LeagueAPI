@@ -3,7 +3,7 @@
 #include <lol/def/SanitizerContainsSanitizedRequest.hpp>
 #include <lol/def/SanitizerContainsSanitizedResponse.hpp>
 namespace lol {
-  Result<SanitizerContainsSanitizedResponse> PostSanitizerV1ContainsSanitized(const LeagueClient& _client, const SanitizerContainsSanitizedRequest& request)
+  inline Result<SanitizerContainsSanitizedResponse> PostSanitizerV1ContainsSanitized(const LeagueClient& _client, const SanitizerContainsSanitizedRequest& request)
   {
     HttpsClient _client_(_client.host, false);
     try {

@@ -11,7 +11,7 @@ namespace lol {
     uint32_t MaxNumReplacements;
     uint32_t OnlineFriendsLimit; 
   };
-  void to_json(json& j, const LolSuggestedPlayersSuggestedPlayersConfig& v) {
+  inline void to_json(json& j, const LolSuggestedPlayersSuggestedPlayersConfig& v) {
     j["Enabled"] = v.Enabled; 
     j["VicoriousComradesLimit"] = v.VicoriousComradesLimit; 
     j["FriendsOfFriendsEnabled"] = v.FriendsOfFriendsEnabled; 
@@ -21,7 +21,7 @@ namespace lol {
     j["MaxNumReplacements"] = v.MaxNumReplacements; 
     j["OnlineFriendsLimit"] = v.OnlineFriendsLimit; 
   }
-  void from_json(const json& j, LolSuggestedPlayersSuggestedPlayersConfig& v) {
+  inline void from_json(const json& j, LolSuggestedPlayersSuggestedPlayersConfig& v) {
     v.Enabled = j.at("Enabled").get<bool>(); 
     v.VicoriousComradesLimit = j.at("VicoriousComradesLimit").get<uint32_t>(); 
     v.FriendsOfFriendsEnabled = j.at("FriendsOfFriendsEnabled").get<bool>(); 

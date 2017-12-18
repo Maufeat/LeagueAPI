@@ -8,7 +8,7 @@ namespace lol {
     std::optional<uint32_t> level;
     std::optional<bool> removeDisallowedChars; 
   };
-  void to_json(json& j, const SanitizerSanitizeRequest& v) {
+  inline void to_json(json& j, const SanitizerSanitizeRequest& v) {
     if(v.aggressiveScan)
       j["aggressiveScan"] = *v.aggressiveScan;
     if(v.texts)
@@ -20,7 +20,7 @@ namespace lol {
     if(v.removeDisallowedChars)
       j["removeDisallowedChars"] = *v.removeDisallowedChars;
   }
-  void from_json(const json& j, SanitizerSanitizeRequest& v) {
+  inline void from_json(const json& j, SanitizerSanitizeRequest& v) {
     if(auto it = j.find("aggressiveScan"); it != j.end() && !it->is_null())
       v.aggressiveScan = it->get<std::optional<bool>>(); 
     if(auto it = j.find("texts"); it != j.end() && !it->is_null())

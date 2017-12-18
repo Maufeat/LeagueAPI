@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolRankedStatsPluginStatus.hpp>
 namespace lol {
-  Result<LolRankedStatsPluginStatus> GetLolRankedStatsV1Status(const LeagueClient& _client)
+  inline Result<LolRankedStatsPluginStatus> GetLolRankedStatsV1Status(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

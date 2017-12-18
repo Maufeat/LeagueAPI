@@ -5,11 +5,11 @@ namespace lol {
     std::string region;
     std::string locale; 
   };
-  void to_json(json& j, const LolLicenseAgreementPluginRegionLocaleChangedEvent& v) {
+  inline void to_json(json& j, const LolLicenseAgreementPluginRegionLocaleChangedEvent& v) {
     j["region"] = v.region; 
     j["locale"] = v.locale; 
   }
-  void from_json(const json& j, LolLicenseAgreementPluginRegionLocaleChangedEvent& v) {
+  inline void from_json(const json& j, LolLicenseAgreementPluginRegionLocaleChangedEvent& v) {
     v.region = j.at("region").get<std::string>(); 
     v.locale = j.at("locale").get<std::string>(); 
   }

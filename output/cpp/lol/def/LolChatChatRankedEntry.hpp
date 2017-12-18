@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/LolChatChatRankedQueue.hpp>
 #include <lol/def/LolChatChatRankedTier.hpp>
+#include <lol/def/LolChatChatRankedQueue.hpp>
 namespace lol {
   struct LolChatChatRankedEntry { 
     LolChatChatRankedTier rankedTier;
@@ -11,7 +11,7 @@ namespace lol {
     uint64_t division;
     uint64_t games; 
   };
-  void to_json(json& j, const LolChatChatRankedEntry& v) {
+  inline void to_json(json& j, const LolChatChatRankedEntry& v) {
     j["rankedTier"] = v.rankedTier; 
     j["wins"] = v.wins; 
     j["rankedQueue"] = v.rankedQueue; 
@@ -19,7 +19,7 @@ namespace lol {
     j["division"] = v.division; 
     j["games"] = v.games; 
   }
-  void from_json(const json& j, LolChatChatRankedEntry& v) {
+  inline void from_json(const json& j, LolChatChatRankedEntry& v) {
     v.rankedTier = j.at("rankedTier").get<LolChatChatRankedTier>(); 
     v.wins = j.at("wins").get<uint64_t>(); 
     v.rankedQueue = j.at("rankedQueue").get<LolChatChatRankedQueue>(); 

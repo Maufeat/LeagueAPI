@@ -9,13 +9,13 @@ namespace lol {
     ClashRewardDefinition primary;
     ClashRewardTime grant; 
   };
-  void to_json(json& j, const ClashRewardOutput& v) {
+  inline void to_json(json& j, const ClashRewardOutput& v) {
     j["alternative"] = v.alternative; 
     j["show"] = v.show; 
     j["primary"] = v.primary; 
     j["grant"] = v.grant; 
   }
-  void from_json(const json& j, ClashRewardOutput& v) {
+  inline void from_json(const json& j, ClashRewardOutput& v) {
     v.alternative = j.at("alternative").get<ClashRewardDefinition>(); 
     v.show = j.at("show").get<ClashRewardTime>(); 
     v.primary = j.at("primary").get<ClashRewardDefinition>(); 

@@ -7,7 +7,7 @@ namespace lol {
     EOT_e = 3,
     NONE_e = 0,
   };
-  void to_json(json& j, const ClashRewardTime& v) {
+  inline void to_json(json& j, const ClashRewardTime& v) {
     if(v == ClashRewardTime::EOB_e) {
       j = "EOB";
       return;
@@ -25,7 +25,7 @@ namespace lol {
       return;
     }
   }
-  void from_json(const json& j, ClashRewardTime& v) {
+  inline void from_json(const json& j, ClashRewardTime& v) {
     if(j.get<std::string>() == "EOB") {
       v = ClashRewardTime::EOB_e;
       return;

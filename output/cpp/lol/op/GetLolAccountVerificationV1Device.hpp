@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolAccountVerificationDeviceResponse.hpp>
 namespace lol {
-  Result<LolAccountVerificationDeviceResponse> GetLolAccountVerificationV1Device(const LeagueClient& _client)
+  inline Result<LolAccountVerificationDeviceResponse> GetLolAccountVerificationV1Device(const LeagueClient& _client)
   {
     HttpsClient _client_(_client.host, false);
     try {

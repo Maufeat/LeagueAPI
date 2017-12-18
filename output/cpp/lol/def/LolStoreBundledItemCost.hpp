@@ -7,14 +7,14 @@ namespace lol {
     std::string currency;
     int64_t cost; 
   };
-  void to_json(json& j, const LolStoreBundledItemCost& v) {
+  inline void to_json(json& j, const LolStoreBundledItemCost& v) {
     if(v.discount)
       j["discount"] = *v.discount;
     j["costType"] = v.costType; 
     j["currency"] = v.currency; 
     j["cost"] = v.cost; 
   }
-  void from_json(const json& j, LolStoreBundledItemCost& v) {
+  inline void from_json(const json& j, LolStoreBundledItemCost& v) {
     if(auto it = j.find("discount"); it != j.end() && !it->is_null())
       v.discount = it->get<std::optional<float>>(); 
     v.costType = j.at("costType").get<std::string>(); 

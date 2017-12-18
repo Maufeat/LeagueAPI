@@ -10,7 +10,7 @@ namespace lol {
     uint64_t teamId;
     std::string botDifficulty; 
   };
-  void to_json(json& j, const MatchmakingLcdsMatchMakerParams& v) {
+  inline void to_json(json& j, const MatchmakingLcdsMatchMakerParams& v) {
     if(v.languages)
       j["languages"] = *v.languages;
     if(v.invitationId)
@@ -21,7 +21,7 @@ namespace lol {
     j["teamId"] = v.teamId; 
     j["botDifficulty"] = v.botDifficulty; 
   }
-  void from_json(const json& j, MatchmakingLcdsMatchMakerParams& v) {
+  inline void from_json(const json& j, MatchmakingLcdsMatchMakerParams& v) {
     if(auto it = j.find("languages"); it != j.end() && !it->is_null())
       v.languages = it->get<std::optional<std::string>>(); 
     if(auto it = j.find("invitationId"); it != j.end() && !it->is_null())

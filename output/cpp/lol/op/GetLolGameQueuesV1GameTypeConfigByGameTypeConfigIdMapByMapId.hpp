@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolGameQueuesQueueGameTypeConfig.hpp>
 namespace lol {
-  Result<LolGameQueuesQueueGameTypeConfig> GetLolGameQueuesV1GameTypeConfigByGameTypeConfigIdMapByMapId(const LeagueClient& _client, const uint32_t& gameTypeConfigId, const int32_t& mapId)
+  inline Result<LolGameQueuesQueueGameTypeConfig> GetLolGameQueuesV1GameTypeConfigByGameTypeConfigIdMapByMapId(const LeagueClient& _client, const uint32_t& gameTypeConfigId, const int32_t& mapId)
   {
     HttpsClient _client_(_client.host, false);
     try {

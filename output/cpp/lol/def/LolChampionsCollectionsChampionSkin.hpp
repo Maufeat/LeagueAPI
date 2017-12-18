@@ -1,8 +1,8 @@
 #pragma once
 #include<lol/base_def.hpp> 
-#include <lol/def/LolChampionsCollectionsChampionChroma.hpp>
-#include <lol/def/LolChampionsCollectionsChampionSkinEmblem.hpp>
 #include <lol/def/LolChampionsCollectionsOwnership.hpp>
+#include <lol/def/LolChampionsCollectionsChampionSkinEmblem.hpp>
+#include <lol/def/LolChampionsCollectionsChampionChroma.hpp>
 namespace lol {
   struct LolChampionsCollectionsChampionSkin { 
     bool lastSelected;
@@ -25,7 +25,7 @@ namespace lol {
     int32_t championId;
     std::string cardPath; 
   };
-  void to_json(json& j, const LolChampionsCollectionsChampionSkin& v) {
+  inline void to_json(json& j, const LolChampionsCollectionsChampionSkin& v) {
     j["lastSelected"] = v.lastSelected; 
     j["chromas"] = v.chromas; 
     j["isBase"] = v.isBase; 
@@ -50,7 +50,7 @@ namespace lol {
     j["championId"] = v.championId; 
     j["cardPath"] = v.cardPath; 
   }
-  void from_json(const json& j, LolChampionsCollectionsChampionSkin& v) {
+  inline void from_json(const json& j, LolChampionsCollectionsChampionSkin& v) {
     v.lastSelected = j.at("lastSelected").get<bool>(); 
     v.chromas = j.at("chromas").get<std::vector<LolChampionsCollectionsChampionChroma>>(); 
     v.isBase = j.at("isBase").get<bool>(); 

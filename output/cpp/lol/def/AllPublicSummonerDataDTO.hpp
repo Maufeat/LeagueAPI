@@ -7,11 +7,11 @@ namespace lol {
     BasePublicSummonerDTO summoner;
     SummonerLevelAndPoints summonerLevelAndPoints; 
   };
-  void to_json(json& j, const AllPublicSummonerDataDTO& v) {
+  inline void to_json(json& j, const AllPublicSummonerDataDTO& v) {
     j["summoner"] = v.summoner; 
     j["summonerLevelAndPoints"] = v.summonerLevelAndPoints; 
   }
-  void from_json(const json& j, AllPublicSummonerDataDTO& v) {
+  inline void from_json(const json& j, AllPublicSummonerDataDTO& v) {
     v.summoner = j.at("summoner").get<BasePublicSummonerDTO>(); 
     v.summonerLevelAndPoints = j.at("summonerLevelAndPoints").get<SummonerLevelAndPoints>(); 
   }

@@ -5,10 +5,10 @@ namespace lol {
   struct LolClubsPublicClubMemberLists { 
     std::vector<LolClubsPublicClubPlayer> activeMembers; 
   };
-  void to_json(json& j, const LolClubsPublicClubMemberLists& v) {
+  inline void to_json(json& j, const LolClubsPublicClubMemberLists& v) {
     j["activeMembers"] = v.activeMembers; 
   }
-  void from_json(const json& j, LolClubsPublicClubMemberLists& v) {
+  inline void from_json(const json& j, LolClubsPublicClubMemberLists& v) {
     v.activeMembers = j.at("activeMembers").get<std::vector<LolClubsPublicClubPlayer>>(); 
   }
 }

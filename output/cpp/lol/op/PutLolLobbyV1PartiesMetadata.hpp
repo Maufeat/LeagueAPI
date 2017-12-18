@@ -2,7 +2,7 @@
 #include<lol/base_op.hpp> 
 #include <lol/def/LolLobbyPartyMemberMetadataDto.hpp>
 namespace lol {
-  Result<void> PutLolLobbyV1PartiesMetadata(const LeagueClient& _client, const LolLobbyPartyMemberMetadataDto& metadata)
+  inline Result<void> PutLolLobbyV1PartiesMetadata(const LeagueClient& _client, const LolLobbyPartyMemberMetadataDto& metadata)
   {
     HttpsClient _client_(_client.host, false);
     try {

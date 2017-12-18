@@ -1,7 +1,7 @@
 #pragma once
 #include<lol/base_op.hpp> 
 namespace lol {
-  Result<json> Http2ApiDeclarationV1(const LeagueClient& _client, const std::string& api)
+  inline Result<json> Http2ApiDeclarationV1(const LeagueClient& _client, const std::string& api)
   {
     HttpsClient _client_(_client.host, false);
     try {

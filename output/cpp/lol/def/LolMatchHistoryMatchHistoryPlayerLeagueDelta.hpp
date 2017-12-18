@@ -7,13 +7,13 @@ namespace lol {
     std::vector<std::string> miniSeriesProgress;
     std::string reason; 
   };
-  void to_json(json& j, const LolMatchHistoryMatchHistoryPlayerLeagueDelta& v) {
+  inline void to_json(json& j, const LolMatchHistoryMatchHistoryPlayerLeagueDelta& v) {
     j["leaguePointDelta"] = v.leaguePointDelta; 
     j["timestamp"] = v.timestamp; 
     j["miniSeriesProgress"] = v.miniSeriesProgress; 
     j["reason"] = v.reason; 
   }
-  void from_json(const json& j, LolMatchHistoryMatchHistoryPlayerLeagueDelta& v) {
+  inline void from_json(const json& j, LolMatchHistoryMatchHistoryPlayerLeagueDelta& v) {
     v.leaguePointDelta = j.at("leaguePointDelta").get<uint64_t>(); 
     v.timestamp = j.at("timestamp").get<uint64_t>(); 
     v.miniSeriesProgress = j.at("miniSeriesProgress").get<std::vector<std::string>>(); 
