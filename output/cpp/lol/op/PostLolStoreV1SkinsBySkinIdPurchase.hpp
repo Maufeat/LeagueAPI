@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolStoreItemCost.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolStoreItemCost.hpp"
 namespace lol {
   inline Result<json> PostLolStoreV1SkinsBySkinIdPurchase(const LeagueClient& _client, const int32_t& skinId, const LolStoreItemCost& cost)
   {

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/RecofrienderLoginSessionStates.hpp>
+#include "../base_def.hpp" 
+#include "RecofrienderLoginSessionStates.hpp"
 namespace lol {
   struct RecofrienderLoginSession { 
     RecofrienderLoginSessionStates state;

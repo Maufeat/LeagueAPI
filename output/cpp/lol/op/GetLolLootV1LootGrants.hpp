@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLootLootGrantNotification.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLootLootGrantNotification.hpp"
 namespace lol {
   inline Result<std::vector<LolLootLootGrantNotification>> GetLolLootV1LootGrants(const LeagueClient& _client)
   {

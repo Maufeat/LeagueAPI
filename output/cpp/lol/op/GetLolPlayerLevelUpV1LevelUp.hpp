@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/PlayerLevelUpEvent.hpp>
+#include "../base_op.hpp" 
+#include "../def/PlayerLevelUpEvent.hpp"
 namespace lol {
   inline Result<PlayerLevelUpEvent> GetLolPlayerLevelUpV1LevelUp(const LeagueClient& _client)
   {

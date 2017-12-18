@@ -1,5 +1,5 @@
 #pragma once
-#include<lol/base_def.hpp> 
+#include "../base_def.hpp" 
 namespace lol {
   struct LolClashRosterDetails { 
     int32_t iconId;

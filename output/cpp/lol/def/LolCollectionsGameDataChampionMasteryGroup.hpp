@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolCollectionsGameDataChampionMasteryRow.hpp>
+#include "../base_def.hpp" 
+#include "LolCollectionsGameDataChampionMasteryRow.hpp"
 namespace lol {
   struct LolCollectionsGameDataChampionMasteryGroup { 
     std::vector<LolCollectionsGameDataChampionMasteryRow> rows;

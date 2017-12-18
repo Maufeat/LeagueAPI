@@ -1,5 +1,5 @@
 #pragma once
-#include<lol/base_op.hpp> 
+#include "../base_op.hpp" 
 namespace lol {
   inline Result<json> PostLolLobbyTeamBuilderChampSelectV1SessionActionsByIdComplete(const LeagueClient& _client, const int32_t& id)
   {

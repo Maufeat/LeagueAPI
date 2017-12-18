@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolReplaysReplayContextData.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolReplaysReplayContextData.hpp"
 namespace lol {
   inline Result<void> PostLolReplaysV1RoflsByGameIdDownloadGraceful(const LeagueClient& _client, const uint64_t& gameId, const LolReplaysReplayContextData& contextData)
   {

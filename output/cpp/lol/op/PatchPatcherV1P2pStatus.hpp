@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/PatcherP2PStatusUpdate.hpp>
+#include "../base_op.hpp" 
+#include "../def/PatcherP2PStatusUpdate.hpp"
 namespace lol {
   inline Result<json> PatchPatcherV1P2pStatus(const LeagueClient& _client, const PatcherP2PStatusUpdate& data)
   {

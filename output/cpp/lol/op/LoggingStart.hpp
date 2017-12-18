@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LogSeverityLevels.hpp>
+#include "../base_op.hpp" 
+#include "../def/LogSeverityLevels.hpp"
 namespace lol {
   inline Result<void> LoggingStart(const LeagueClient& _client, const std::optional<bool>& buffered = std::nullopt, const std::optional<LogSeverityLevels>& severity = std::nullopt)
   {

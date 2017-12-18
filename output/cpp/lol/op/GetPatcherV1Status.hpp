@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/PatcherStatus.hpp>
+#include "../base_op.hpp" 
+#include "../def/PatcherStatus.hpp"
 namespace lol {
   inline Result<PatcherStatus> GetPatcherV1Status(const LeagueClient& _client)
   {

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolChatActiveConversationResource.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolChatActiveConversationResource.hpp"
 namespace lol {
   inline Result<LolChatActiveConversationResource> GetLolChatV1ConversationsActive(const LeagueClient& _client)
   {

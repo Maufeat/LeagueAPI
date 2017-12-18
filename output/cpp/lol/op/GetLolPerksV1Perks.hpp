@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolPerksPerkUIPerk.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolPerksPerkUIPerk.hpp"
 namespace lol {
   inline Result<std::vector<LolPerksPerkUIPerk>> GetLolPerksV1Perks(const LeagueClient& _client)
   {

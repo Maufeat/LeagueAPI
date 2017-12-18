@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/BracketMatch.hpp>
-#include <lol/def/BracketRoster.hpp>
+#include "../base_def.hpp" 
+#include "BracketRoster.hpp"
+#include "BracketMatch.hpp"
 namespace lol {
   struct LolClashBracket { 
     int32_t period;

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolChampionsCollectionsChampionPlayableCounts.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolChampionsCollectionsChampionPlayableCounts.hpp"
 namespace lol {
   inline Result<LolChampionsCollectionsChampionPlayableCounts> GetLolChampionsV1InventoriesBySummonerIdChampionsPlayableCount(const LeagueClient& _client, const uint64_t& summonerId)
   {

@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyLobbyPositionPreferences.hpp>
-#include <lol/def/LolLobbyLobbyBotDifficulty.hpp>
+#include "../base_def.hpp" 
+#include "LolLobbyLobbyPositionPreferences.hpp"
+#include "LolLobbyLobbyBotDifficulty.hpp"
 namespace lol {
   struct LolLobbyLobbyMember { 
     bool isSpectator;

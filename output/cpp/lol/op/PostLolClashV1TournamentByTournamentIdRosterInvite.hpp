@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/FailedInvite.hpp>
+#include "../base_op.hpp" 
+#include "../def/FailedInvite.hpp"
 namespace lol {
   inline Result<std::vector<FailedInvite>> PostLolClashV1TournamentByTournamentIdRosterInvite(const LeagueClient& _client, const int64_t& tournamentId, const std::vector<uint64_t>& summonerIds)
   {

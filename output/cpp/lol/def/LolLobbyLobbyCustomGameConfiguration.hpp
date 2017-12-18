@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyQueueCustomGameSpectatorPolicy.hpp>
-#include <lol/def/LolLobbyQueueGameTypeConfig.hpp>
+#include "../base_def.hpp" 
+#include "LolLobbyQueueGameTypeConfig.hpp"
+#include "LolLobbyQueueCustomGameSpectatorPolicy.hpp"
 namespace lol {
   struct LolLobbyLobbyCustomGameConfiguration { 
     std::string gameMutator;

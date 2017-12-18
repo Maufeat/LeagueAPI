@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/PlayerClubMembership.hpp>
+#include "../base_op.hpp" 
+#include "../def/PlayerClubMembership.hpp"
 namespace lol {
   inline Result<PlayerClubMembership> GetLolClubsV1ClubsMembership(const LeagueClient& _client)
   {

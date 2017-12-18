@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolPersonalizedOffersWallet.hpp>
-#include <lol/def/LolPersonalizedOffersPurchaseItem.hpp>
+#include "../base_def.hpp" 
+#include "LolPersonalizedOffersWallet.hpp"
+#include "LolPersonalizedOffersPurchaseItem.hpp"
 namespace lol {
   struct LolPersonalizedOffersPurchaseResponse { 
     LolPersonalizedOffersWallet wallet;

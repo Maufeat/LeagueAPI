@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolClashPlayerChatRoster.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolClashPlayerChatRoster.hpp"
 namespace lol {
   inline Result<std::vector<LolClashPlayerChatRoster>> GetLolClashV1PlayerChatRosters(const LeagueClient& _client)
   {

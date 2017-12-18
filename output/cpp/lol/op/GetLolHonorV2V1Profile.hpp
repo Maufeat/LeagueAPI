@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolHonorV2ProfileInfo.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolHonorV2ProfileInfo.hpp"
 namespace lol {
   inline Result<LolHonorV2ProfileInfo> GetLolHonorV2V1Profile(const LeagueClient& _client)
   {

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLootPlayerLootUpdate.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLootPlayerLootUpdate.hpp"
 namespace lol {
   inline Result<LolLootPlayerLootUpdate> PostLolLootV1PlayerLootByLootNameRedeem(const LeagueClient& _client, const std::string& lootName)
   {

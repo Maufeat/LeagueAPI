@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/NetworkExperimentStatus.hpp>
+#include "../base_def.hpp" 
+#include "NetworkExperimentStatus.hpp"
 namespace lol {
   struct NetworkExperimentResource { 
     NetworkExperimentStatus status; 

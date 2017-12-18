@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LootLcdsRecipeClientDTO.hpp>
+#include "../base_def.hpp" 
+#include "LootLcdsRecipeClientDTO.hpp"
 namespace lol {
   struct LootLcdsRecipeListClientDTO { 
     int64_t lastUpdate;

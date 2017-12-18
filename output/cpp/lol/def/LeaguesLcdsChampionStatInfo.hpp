@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LeaguesLcdsAggregatedStat.hpp>
+#include "../base_def.hpp" 
+#include "LeaguesLcdsAggregatedStat.hpp"
 namespace lol {
   struct LeaguesLcdsChampionStatInfo { 
     int32_t totalGamesPlayed;

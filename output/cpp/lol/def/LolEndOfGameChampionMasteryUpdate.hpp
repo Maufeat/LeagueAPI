@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolEndOfGameChampionMasteryGrade.hpp>
-#include <lol/def/LolEndOfGameChampionMasteryMini.hpp>
+#include "../base_def.hpp" 
+#include "LolEndOfGameChampionMasteryGrade.hpp"
+#include "LolEndOfGameChampionMasteryMini.hpp"
 namespace lol {
   struct LolEndOfGameChampionMasteryUpdate { 
     int64_t pointsUntilNextLevelAfterGame;

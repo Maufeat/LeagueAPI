@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/RecofrienderDebugConfig.hpp>
+#include "../base_op.hpp" 
+#include "../def/RecofrienderDebugConfig.hpp"
 namespace lol {
   inline Result<RecofrienderDebugConfig> PutRecofrienderV1Debug(const LeagueClient& _client, const RecofrienderDebugConfig& debugConfiguration)
   {

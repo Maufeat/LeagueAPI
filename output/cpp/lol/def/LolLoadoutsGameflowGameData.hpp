@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLoadoutsQueue.hpp>
+#include "../base_def.hpp" 
+#include "LolLoadoutsQueue.hpp"
 namespace lol {
   struct LolLoadoutsGameflowGameData { 
     LolLoadoutsQueue queue; 

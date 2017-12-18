@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/ClientRequestError.hpp>
+#include "../base_def.hpp" 
+#include "ClientRequestError.hpp"
 namespace lol {
   struct FailedInvite { 
     ClientRequestError exception;

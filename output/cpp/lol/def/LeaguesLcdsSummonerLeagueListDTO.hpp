@@ -1,9 +1,9 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LeaguesLcdsLeagueItemDTO.hpp>
-#include <lol/def/LeaguesLcdsQueueType.hpp>
-#include <lol/def/LeaguesLcdsLeagueTier.hpp>
-#include <lol/def/LeaguesLcdsLeagueRank.hpp>
+#include "../base_def.hpp" 
+#include "LeaguesLcdsLeagueTier.hpp"
+#include "LeaguesLcdsQueueType.hpp"
+#include "LeaguesLcdsLeagueRank.hpp"
+#include "LeaguesLcdsLeagueItemDTO.hpp"
 namespace lol {
   struct LeaguesLcdsSummonerLeagueListDTO { 
     std::string name;

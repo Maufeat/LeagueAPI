@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolMatchHistoryMatchHistoryPosition.hpp>
+#include "../base_def.hpp" 
+#include "LolMatchHistoryMatchHistoryPosition.hpp"
 namespace lol {
   struct LolMatchHistoryMatchHistoryParticipantFrame { 
     int32_t totalGold;

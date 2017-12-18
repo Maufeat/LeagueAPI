@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolBannersClashV2FlagRewardSpec.hpp>
+#include "../base_def.hpp" 
+#include "LolBannersClashV2FlagRewardSpec.hpp"
 namespace lol {
   struct LolBannersCapClashFlagEntitlementPayload { 
     std::string eventId;

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/PlayerGameStats.hpp>
+#include "../base_def.hpp" 
+#include "PlayerGameStats.hpp"
 namespace lol {
   struct RecentGames { 
     uint64_t userId;

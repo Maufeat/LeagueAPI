@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolGameflowQueueCustomGameSpectatorPolicy.hpp>
+#include "../base_def.hpp" 
+#include "LolGameflowQueueCustomGameSpectatorPolicy.hpp"
 namespace lol {
   struct LolGameflowLobbyStatus { 
     std::optional<std::string> lobbyId;

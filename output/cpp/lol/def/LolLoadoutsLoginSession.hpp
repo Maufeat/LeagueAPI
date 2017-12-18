@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLoadoutsLoginSessionStates.hpp>
+#include "../base_def.hpp" 
+#include "LolLoadoutsLoginSessionStates.hpp"
 namespace lol {
   struct LolLoadoutsLoginSession { 
     uint64_t summonerId;

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/MetricMetadataNotify.hpp>
+#include "../base_def.hpp" 
+#include "MetricMetadataNotify.hpp"
 namespace lol {
   struct MetricMetadataAlert { 
     MetricMetadataNotify notify;

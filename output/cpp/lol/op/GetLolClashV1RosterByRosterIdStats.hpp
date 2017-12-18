@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolClashRosterStats.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolClashRosterStats.hpp"
 namespace lol {
   inline Result<LolClashRosterStats> GetLolClashV1RosterByRosterIdStats(const LeagueClient& _client, const int64_t& rosterId)
   {

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolChatUserResource.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolChatUserResource.hpp"
 namespace lol {
   inline Result<LolChatUserResource> PutLolChatV1Me(const LeagueClient& _client, const LolChatUserResource& me)
   {

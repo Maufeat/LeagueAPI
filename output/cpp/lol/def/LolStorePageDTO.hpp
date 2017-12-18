@@ -1,8 +1,8 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolStoreCatalogItem.hpp>
-#include <lol/def/LolStorePlayer.hpp>
-#include <lol/def/LolStorePageGroupingDTO.hpp>
+#include "../base_def.hpp" 
+#include "LolStoreCatalogItem.hpp"
+#include "LolStorePageGroupingDTO.hpp"
+#include "LolStorePlayer.hpp"
 namespace lol {
   struct LolStorePageDTO { 
     std::vector<LolStoreCatalogItem> catalog;

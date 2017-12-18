@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolBannersCapClashFlagEntitlementPayload.hpp>
+#include "../base_def.hpp" 
+#include "LolBannersCapClashFlagEntitlementPayload.hpp"
 namespace lol {
   struct LolBannersTournamentFlagInventoryItem { 
     std::string purchaseDate;

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolClashPlayerTournamentData.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolClashPlayerTournamentData.hpp"
 namespace lol {
   inline Result<LolClashPlayerTournamentData> GetLolClashV1TournamentByTournamentIdPlayer(const LeagueClient& _client, const int64_t& tournamentId)
   {

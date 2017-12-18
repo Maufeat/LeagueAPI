@@ -1,9 +1,9 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyTeamBuilderRerollStateV1.hpp>
-#include <lol/def/LolLobbyTeamBuilderCellsV1.hpp>
-#include <lol/def/LolLobbyTeamBuilderTradeV1.hpp>
-#include <lol/def/LolLobbyTeamBuilderTeamBuilderBoostInfo.hpp>
+#include "../base_def.hpp" 
+#include "LolLobbyTeamBuilderRerollStateV1.hpp"
+#include "LolLobbyTeamBuilderTeamBuilderBoostInfo.hpp"
+#include "LolLobbyTeamBuilderCellsV1.hpp"
+#include "LolLobbyTeamBuilderTradeV1.hpp"
 namespace lol {
   struct LolLobbyTeamBuilderChampionSelectStateV1 { 
     int64_t currentTotalTimeMillis;

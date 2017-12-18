@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolChatGroupResource.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolChatGroupResource.hpp"
 namespace lol {
   inline Result<json> PutLolChatV1FriendGroupsById(const LeagueClient& _client, const uint32_t& id, const LolChatGroupResource& group)
   {

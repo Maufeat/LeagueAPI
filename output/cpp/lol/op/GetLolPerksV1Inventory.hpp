@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolPerksPlayerInventory.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolPerksPlayerInventory.hpp"
 namespace lol {
   inline Result<LolPerksPlayerInventory> GetLolPerksV1Inventory(const LeagueClient& _client)
   {

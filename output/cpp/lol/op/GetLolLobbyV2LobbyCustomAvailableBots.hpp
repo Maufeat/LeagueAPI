@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLobbyLobbyBotChampion.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLobbyLobbyBotChampion.hpp"
 namespace lol {
   inline Result<std::vector<LolLobbyLobbyBotChampion>> GetLolLobbyV2LobbyCustomAvailableBots(const LeagueClient& _client)
   {

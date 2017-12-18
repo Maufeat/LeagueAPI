@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolMatchHistoryMatchHistoryTimelineFrames.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolMatchHistoryMatchHistoryTimelineFrames.hpp"
 namespace lol {
   inline Result<LolMatchHistoryMatchHistoryTimelineFrames> GetLolMatchHistoryV1GameTimelinesByGameId(const LeagueClient& _client, const uint64_t& gameId)
   {

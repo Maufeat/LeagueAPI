@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyTeamBuilderGameflowGameClient.hpp>
+#include "../base_def.hpp" 
+#include "LolLobbyTeamBuilderGameflowGameClient.hpp"
 namespace lol {
   struct LolLobbyTeamBuilderGameflowSession { 
     LolLobbyTeamBuilderGameflowGameClient gameClient; 

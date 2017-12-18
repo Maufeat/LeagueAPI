@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/RsoAuthUserInfo.hpp>
+#include "../base_op.hpp" 
+#include "../def/RsoAuthUserInfo.hpp"
 namespace lol {
   inline Result<RsoAuthUserInfo> GetRsoAuthV1AuthorizationUserinfo(const LeagueClient& _client)
   {

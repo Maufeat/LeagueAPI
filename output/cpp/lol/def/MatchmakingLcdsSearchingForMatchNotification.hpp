@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/MatchmakingLcdsQueueInfo.hpp>
+#include "../base_def.hpp" 
+#include "MatchmakingLcdsQueueInfo.hpp"
 namespace lol {
   struct MatchmakingLcdsSearchingForMatchNotification { 
     std::vector<json> playerJoinFailures;

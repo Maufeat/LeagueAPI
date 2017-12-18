@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolPurchaseWidgetItemPrice.hpp>
+#include "../base_def.hpp" 
+#include "LolPurchaseWidgetItemPrice.hpp"
 namespace lol {
   struct LolPurchaseWidgetSale { 
     std::string startDate;

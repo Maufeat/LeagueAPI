@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/RemotingSerializedFormat.hpp>
+#include "../base_op.hpp" 
+#include "../def/RemotingSerializedFormat.hpp"
 namespace lol {
   inline Result<json> WebSocketFormat(const LeagueClient& _client, const std::optional<RemotingSerializedFormat>& format = std::nullopt)
   {

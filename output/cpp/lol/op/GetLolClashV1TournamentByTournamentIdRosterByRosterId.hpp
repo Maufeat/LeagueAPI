@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolClashRoster.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolClashRoster.hpp"
 namespace lol {
   inline Result<LolClashRoster> GetLolClashV1TournamentByTournamentIdRosterByRosterId(const LeagueClient& _client, const int64_t& tournamentId, const std::string& rosterId)
   {

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyPlayerDto.hpp>
+#include "../base_def.hpp" 
+#include "LolLobbyPlayerDto.hpp"
 namespace lol {
   struct LolLobbyPlayerCollectionDto { 
     std::vector<LolLobbyPlayerDto> players; 

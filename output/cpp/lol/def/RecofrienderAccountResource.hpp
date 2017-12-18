@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/RecofrienderActionResource.hpp>
+#include "../base_def.hpp" 
+#include "RecofrienderActionResource.hpp"
 namespace lol {
   struct RecofrienderAccountResource { 
     std::vector<RecofrienderActionResource> contacts;

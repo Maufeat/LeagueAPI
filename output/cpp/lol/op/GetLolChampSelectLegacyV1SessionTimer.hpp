@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolChampSelectLegacyChampSelectTimer.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolChampSelectLegacyChampSelectTimer.hpp"
 namespace lol {
   inline Result<LolChampSelectLegacyChampSelectTimer> GetLolChampSelectLegacyV1SessionTimer(const LeagueClient& _client)
   {

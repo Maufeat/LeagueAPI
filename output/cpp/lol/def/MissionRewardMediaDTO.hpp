@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/MissionRewardMediaItemDTO.hpp>
+#include "../base_def.hpp" 
+#include "MissionRewardMediaItemDTO.hpp"
 namespace lol {
   struct MissionRewardMediaDTO { 
     MissionRewardMediaItemDTO loop;

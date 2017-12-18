@@ -1,10 +1,10 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolPerksChampSelectBannedChampions.hpp>
-#include <lol/def/LolPerksChampSelectChatRoomDetails.hpp>
-#include <lol/def/LolPerksChampSelectPlayerSelection.hpp>
-#include <lol/def/LolPerksChampSelectTimer.hpp>
-#include <lol/def/LolPerksChampSelectTradeContract.hpp>
+#include "../base_def.hpp" 
+#include "LolPerksChampSelectPlayerSelection.hpp"
+#include "LolPerksChampSelectChatRoomDetails.hpp"
+#include "LolPerksChampSelectTradeContract.hpp"
+#include "LolPerksChampSelectBannedChampions.hpp"
+#include "LolPerksChampSelectTimer.hpp"
 namespace lol {
   struct LolPerksChampSelectSession { 
     std::vector<json> actions;

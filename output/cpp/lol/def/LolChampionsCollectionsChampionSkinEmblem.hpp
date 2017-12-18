@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolChampionsCollectionsChampionSkinEmblemPath.hpp>
-#include <lol/def/LolChampionsCollectionsChampionSkinEmblemPosition.hpp>
+#include "../base_def.hpp" 
+#include "LolChampionsCollectionsChampionSkinEmblemPath.hpp"
+#include "LolChampionsCollectionsChampionSkinEmblemPosition.hpp"
 namespace lol {
   struct LolChampionsCollectionsChampionSkinEmblem { 
     LolChampionsCollectionsChampionSkinEmblemPath emblemPath;

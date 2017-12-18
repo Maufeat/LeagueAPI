@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolClashSetTicketRequest.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolClashSetTicketRequest.hpp"
 namespace lol {
   inline Result<json> PostLolClashV1TournamentByTournamentIdRosterSetBid(const LeagueClient& _client, const int64_t& tournamentId, const LolClashSetTicketRequest& setTicketRequest)
   {

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolStoreItemKey.hpp>
+#include "../base_def.hpp" 
+#include "LolStoreItemKey.hpp"
 namespace lol {
   struct LolStorePageGroupingDTO { 
     bool hidden;

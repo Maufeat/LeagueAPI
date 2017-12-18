@@ -1,8 +1,8 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolMatchHistoryMatchHistoryParticipant.hpp>
-#include <lol/def/LolMatchHistoryMatchHistoryParticipantIdentities.hpp>
-#include <lol/def/LolMatchHistoryMatchHistoryTeam.hpp>
+#include "../base_def.hpp" 
+#include "LolMatchHistoryMatchHistoryParticipantIdentities.hpp"
+#include "LolMatchHistoryMatchHistoryParticipant.hpp"
+#include "LolMatchHistoryMatchHistoryTeam.hpp"
 namespace lol {
   struct LolMatchHistoryMatchHistoryGame { 
     std::string platformId;

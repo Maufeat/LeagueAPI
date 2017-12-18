@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLeaguesSimpleMessage.hpp>
+#include "../base_def.hpp" 
+#include "LolLeaguesSimpleMessage.hpp"
 namespace lol {
   struct LolLeaguesLeaguesLoginDataPacket { 
     std::vector<LolLeaguesSimpleMessage> simpleMessages; 

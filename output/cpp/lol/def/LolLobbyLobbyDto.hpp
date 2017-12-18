@@ -1,9 +1,9 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyLobbyParticipantDto.hpp>
-#include <lol/def/LolLobbyLobbyInvitationDto.hpp>
-#include <lol/def/LolLobbyLobbyGameConfigDto.hpp>
-#include <lol/def/LolLobbyEligibilityRestriction.hpp>
+#include "../base_def.hpp" 
+#include "LolLobbyEligibilityRestriction.hpp"
+#include "LolLobbyLobbyParticipantDto.hpp"
+#include "LolLobbyLobbyGameConfigDto.hpp"
+#include "LolLobbyLobbyInvitationDto.hpp"
 namespace lol {
   struct LolLobbyLobbyDto { 
     std::vector<LolLobbyLobbyParticipantDto> members;

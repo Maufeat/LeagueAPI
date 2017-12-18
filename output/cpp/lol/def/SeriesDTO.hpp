@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/SeriesMediaDTO.hpp>
-#include <lol/def/SeriesAlertDTO.hpp>
+#include "../base_def.hpp" 
+#include "SeriesMediaDTO.hpp"
+#include "SeriesAlertDTO.hpp"
 namespace lol {
   struct SeriesDTO { 
     int64_t startDate;

@@ -1,5 +1,6 @@
 
 # Created by https://www.gitignore.io/api/cmake,python,kdevelop4,qtcreator,visualstudio,visualstudiocode
+.vs/
 
 ### CMake ###
 CMakeCache.txt

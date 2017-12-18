@@ -1,5 +1,5 @@
 #pragma once
-#include<lol/base_op.hpp> 
+#include "../base_op.hpp" 
 namespace lol {
   inline Result<json> PutLolChatV1SettingsByKey(const LeagueClient& _client, const std::string& key, const json& value, const std::optional<bool>& doAsync = std::nullopt)
   {

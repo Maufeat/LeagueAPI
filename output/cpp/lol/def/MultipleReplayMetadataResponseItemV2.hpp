@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/ReplayMetadataV2.hpp>
-#include <lol/def/ReplayResponseStatus.hpp>
+#include "../base_def.hpp" 
+#include "ReplayMetadataV2.hpp"
+#include "ReplayResponseStatus.hpp"
 namespace lol {
   struct MultipleReplayMetadataResponseItemV2 { 
     ReplayResponseStatus status;

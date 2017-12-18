@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLobbyLobbyMember.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLobbyLobbyMember.hpp"
 namespace lol {
   inline Result<LolLobbyLobbyMember> GetLolLobbyV1LobbyMembersById(const LeagueClient& _client, const uint64_t& id)
   {

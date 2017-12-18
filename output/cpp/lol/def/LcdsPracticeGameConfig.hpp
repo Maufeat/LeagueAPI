@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LcdsGameMap.hpp>
+#include "../base_def.hpp" 
+#include "LcdsGameMap.hpp"
 namespace lol {
   struct LcdsPracticeGameConfig { 
     int32_t maxNumPlayers;

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/RsoAuthDeviceId.hpp>
+#include "../base_op.hpp" 
+#include "../def/RsoAuthDeviceId.hpp"
 namespace lol {
   inline Result<RsoAuthDeviceId> PostRsoAuthV1DeviceId(const LeagueClient& _client)
   {

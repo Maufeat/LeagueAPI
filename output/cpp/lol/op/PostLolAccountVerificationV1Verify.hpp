@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolAccountVerificationVerifyResponse.hpp>
-#include <lol/def/LolAccountVerificationVerifyRequest.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolAccountVerificationVerifyResponse.hpp"
+#include "../def/LolAccountVerificationVerifyRequest.hpp"
 namespace lol {
   inline Result<LolAccountVerificationVerifyResponse> PostLolAccountVerificationV1Verify(const LeagueClient& _client, const LolAccountVerificationVerifyRequest& VerifyRequest)
   {

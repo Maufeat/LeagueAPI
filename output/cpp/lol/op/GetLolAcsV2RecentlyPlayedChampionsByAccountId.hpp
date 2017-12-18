@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolAcsAcsChampionGamesCollection.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolAcsAcsChampionGamesCollection.hpp"
 namespace lol {
   inline Result<LolAcsAcsChampionGamesCollection> GetLolAcsV2RecentlyPlayedChampionsByAccountId(const LeagueClient& _client, const uint64_t& accountId)
   {

@@ -1,8 +1,8 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LeaguesLcdsQueueType.hpp>
-#include <lol/def/LeaguesLcdsLeagueTier.hpp>
-#include <lol/def/LeaguesLcdsLeagueRank.hpp>
+#include "../base_def.hpp" 
+#include "LeaguesLcdsLeagueTier.hpp"
+#include "LeaguesLcdsQueueType.hpp"
+#include "LeaguesLcdsLeagueRank.hpp"
 namespace lol {
   struct LeagueTierAndRankDTO { 
     LeaguesLcdsLeagueRank rank;

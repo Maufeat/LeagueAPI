@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolMatchHistoryMatchHistoryTimelineFrame.hpp>
+#include "../base_def.hpp" 
+#include "LolMatchHistoryMatchHistoryTimelineFrame.hpp"
 namespace lol {
   struct LolMatchHistoryMatchHistoryTimelineFrames { 
     std::vector<LolMatchHistoryMatchHistoryTimelineFrame> frames; 

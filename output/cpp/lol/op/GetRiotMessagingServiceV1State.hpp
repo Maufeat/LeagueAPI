@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/RiotMessagingServiceState.hpp>
+#include "../base_op.hpp" 
+#include "../def/RiotMessagingServiceState.hpp"
 namespace lol {
   inline Result<RiotMessagingServiceState> GetRiotMessagingServiceV1State(const LeagueClient& _client)
   {

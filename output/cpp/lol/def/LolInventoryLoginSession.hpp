@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolInventoryLoginSessionStates.hpp>
+#include "../base_def.hpp" 
+#include "LolInventoryLoginSessionStates.hpp"
 namespace lol {
   struct LolInventoryLoginSession { 
     uint64_t summonerId;

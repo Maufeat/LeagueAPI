@@ -1,5 +1,5 @@
 #pragma once
-#include<lol/base_op.hpp> 
+#include "../base_op.hpp" 
 namespace lol {
   inline Result<json> GetLolSettingsV2AccountByPpTypeByCategory(const LeagueClient& _client, const std::string& ppType, const std::string& category)
   {

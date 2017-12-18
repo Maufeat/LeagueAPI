@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLootContextMenu.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLootContextMenu.hpp"
 namespace lol {
   inline Result<std::vector<LolLootContextMenu>> GetLolLootV1PlayerLootByLootIdContextMenu(const LeagueClient& _client, const std::string& lootId)
   {

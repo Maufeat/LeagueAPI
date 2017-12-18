@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyEligibility.hpp>
-#include <lol/def/LolLobbyLobbyInvitationState.hpp>
+#include "../base_def.hpp" 
+#include "LolLobbyEligibility.hpp"
+#include "LolLobbyLobbyInvitationState.hpp"
 namespace lol {
   struct LolLobbyLobbyInvitation { 
     std::string toSummonerName;

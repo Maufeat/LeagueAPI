@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/PluginMetadataResource.hpp>
+#include "../base_def.hpp" 
+#include "PluginMetadataResource.hpp"
 namespace lol {
   struct PluginDescriptionResource { 
     std::map<std::string, std::string> pluginDependencies;

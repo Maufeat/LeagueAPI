@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLobbyTeamBuilderChampSelectAction.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLobbyTeamBuilderChampSelectAction.hpp"
 namespace lol {
   inline Result<json> PatchLolLobbyTeamBuilderChampSelectV1SessionActionsById(const LeagueClient& _client, const int32_t& id, const LolLobbyTeamBuilderChampSelectAction& data)
   {

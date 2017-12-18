@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolHonorV2Reward.hpp>
-#include <lol/def/LolHonorV2VendedHonorState.hpp>
+#include "../base_def.hpp" 
+#include "LolHonorV2VendedHonorState.hpp"
+#include "LolHonorV2Reward.hpp"
 namespace lol {
   struct LolHonorV2VendedHonorChange { 
     LolHonorV2VendedHonorState currentState;

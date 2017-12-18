@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolClashClashState.hpp>
-#include <lol/def/LolClashClashVisibility.hpp>
+#include "../base_def.hpp" 
+#include "LolClashClashState.hpp"
+#include "LolClashClashVisibility.hpp"
 namespace lol {
   struct LolClashClashConfig { 
     std::string IconConfig;

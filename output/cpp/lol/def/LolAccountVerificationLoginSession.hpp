@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolAccountVerificationLoginSessionState.hpp>
+#include "../base_def.hpp" 
+#include "LolAccountVerificationLoginSessionState.hpp"
 namespace lol {
   struct LolAccountVerificationLoginSession { 
     LolAccountVerificationLoginSessionState state;

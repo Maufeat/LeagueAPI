@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolSummonerRerollDataBagForClientV1.hpp>
+#include "../base_def.hpp" 
+#include "LolSummonerRerollDataBagForClientV1.hpp"
 namespace lol {
   struct LolSummonerGameloopPlayerInfoV1 { 
     LolSummonerRerollDataBagForClientV1 rerollDataBag;

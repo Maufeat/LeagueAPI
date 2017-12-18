@@ -1,8 +1,8 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyLobbyMatchmakingSearchErrorResource.hpp>
-#include <lol/def/LolLobbyLobbyMatchmakingLowPriorityDataResource.hpp>
-#include <lol/def/LolLobbyLobbyMatchmakingSearchState.hpp>
+#include "../base_def.hpp" 
+#include "LolLobbyLobbyMatchmakingSearchErrorResource.hpp"
+#include "LolLobbyLobbyMatchmakingSearchState.hpp"
+#include "LolLobbyLobbyMatchmakingLowPriorityDataResource.hpp"
 namespace lol {
   struct LolLobbyLobbyMatchmakingSearchResource { 
     LolLobbyLobbyMatchmakingSearchState searchState;

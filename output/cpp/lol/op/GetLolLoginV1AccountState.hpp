@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLoginAccountStateResource.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLoginAccountStateResource.hpp"
 namespace lol {
   inline Result<LolLoginAccountStateResource> GetLolLoginV1AccountState(const LeagueClient& _client)
   {

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/HighlightsSettingsData.hpp>
+#include "../base_def.hpp" 
+#include "HighlightsSettingsData.hpp"
 namespace lol {
   struct HighlightsSettingsResource { 
     HighlightsSettingsData data; 

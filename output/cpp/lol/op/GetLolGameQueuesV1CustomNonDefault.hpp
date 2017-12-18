@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolGameQueuesQueueCustomGame.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolGameQueuesQueueCustomGame.hpp"
 namespace lol {
   inline Result<LolGameQueuesQueueCustomGame> GetLolGameQueuesV1CustomNonDefault(const LeagueClient& _client)
   {

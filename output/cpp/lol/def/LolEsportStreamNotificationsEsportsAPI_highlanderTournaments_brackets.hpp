@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolEsportStreamNotificationsEsportsAPI_highlanderTournaments_matches.hpp>
+#include "../base_def.hpp" 
+#include "LolEsportStreamNotificationsEsportsAPI_highlanderTournaments_matches.hpp"
 namespace lol {
   struct LolEsportStreamNotificationsEsportsAPI_highlanderTournaments_brackets { 
     std::map<std::string, LolEsportStreamNotificationsEsportsAPI_highlanderTournaments_matches> matches;

@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/ChampSelectLcdsPlayerChampionSelectionDTO.hpp>
-#include <lol/def/BannedChampion.hpp>
+#include "../base_def.hpp" 
+#include "BannedChampion.hpp"
+#include "ChampSelectLcdsPlayerChampionSelectionDTO.hpp"
 namespace lol {
   struct ChampSelectLcdsGameDTO { 
     std::string roomName;

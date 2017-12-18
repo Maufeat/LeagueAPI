@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolPurchaseWidgetValidationResponseItem.hpp>
+#include "../base_def.hpp" 
+#include "LolPurchaseWidgetValidationResponseItem.hpp"
 namespace lol {
   struct LolPurchaseWidgetValidationResponse { 
     bool valid;

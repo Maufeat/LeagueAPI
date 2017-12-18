@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LCDSChampionReward.hpp>
+#include "../base_def.hpp" 
+#include "LCDSChampionReward.hpp"
 namespace lol {
   struct LCDSLoyaltyRewards { 
     std::vector<LCDSChampionReward> champions;

@@ -1,10 +1,10 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyGameModeDto.hpp>
-#include <lol/def/LolLobbyPartyMemberDto.hpp>
-#include <lol/def/LolLobbyGatekeeperRestrictionDto.hpp>
-#include <lol/def/LolLobbyQueueRestrictionDto.hpp>
-#include <lol/def/LolLobbyPartyChatDto.hpp>
+#include "../base_def.hpp" 
+#include "LolLobbyQueueRestrictionDto.hpp"
+#include "LolLobbyGatekeeperRestrictionDto.hpp"
+#include "LolLobbyGameModeDto.hpp"
+#include "LolLobbyPartyMemberDto.hpp"
+#include "LolLobbyPartyChatDto.hpp"
 namespace lol {
   struct LolLobbyPartyDto { 
     uint64_t version;

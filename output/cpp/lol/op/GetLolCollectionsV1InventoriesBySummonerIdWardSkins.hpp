@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolCollectionsCollectionsWardSkin.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolCollectionsCollectionsWardSkin.hpp"
 namespace lol {
   inline Result<std::vector<LolCollectionsCollectionsWardSkin>> GetLolCollectionsV1InventoriesBySummonerIdWardSkins(const LeagueClient& _client, const uint64_t& summonerId)
   {

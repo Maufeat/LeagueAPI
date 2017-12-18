@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolSettingsSettingCategory.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolSettingsSettingCategory.hpp"
 namespace lol {
   inline Result<json> PatchLolSettingsV2AccountByPpTypeByCategory(const LeagueClient& _client, const std::string& ppType, const std::string& category, const LolSettingsSettingCategory& settingsResource)
   {

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolQueueEligibilityQueueAvailability.hpp>
+#include "../base_def.hpp" 
+#include "LolQueueEligibilityQueueAvailability.hpp"
 namespace lol {
   struct LolQueueEligibilityQueue { 
     uint32_t championsRequiredToPlay;

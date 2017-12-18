@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/RsoAuthRSOJWTConfig.hpp>
+#include "../base_op.hpp" 
+#include "../def/RsoAuthRSOJWTConfig.hpp"
 namespace lol {
   inline Result<RsoAuthRSOJWTConfig> GetRsoAuthV1ConfigByPlatformId(const LeagueClient& _client, const std::string& platformId)
   {

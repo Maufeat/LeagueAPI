@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/MemberSinceDto.hpp>
+#include "../base_def.hpp" 
+#include "MemberSinceDto.hpp"
 namespace lol {
   struct ClubMembershipDto { 
     std::vector<MemberSinceDto> invitedMembers;

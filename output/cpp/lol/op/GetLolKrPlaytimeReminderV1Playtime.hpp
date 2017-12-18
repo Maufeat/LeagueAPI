@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/PlaytimeReminder.hpp>
+#include "../base_op.hpp" 
+#include "../def/PlaytimeReminder.hpp"
 namespace lol {
   inline Result<PlaytimeReminder> GetLolKrPlaytimeReminderV1Playtime(const LeagueClient& _client)
   {

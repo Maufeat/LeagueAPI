@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolHonorV2Reward.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolHonorV2Reward.hpp"
 namespace lol {
   inline Result<LolHonorV2Reward> GetLolHonorV2V1RewardGranted(const LeagueClient& _client)
   {

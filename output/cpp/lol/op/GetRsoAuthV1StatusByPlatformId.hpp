@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/RsoAuthRegionStatus.hpp>
+#include "../base_op.hpp" 
+#include "../def/RsoAuthRegionStatus.hpp"
 namespace lol {
   inline Result<RsoAuthRegionStatus> GetRsoAuthV1StatusByPlatformId(const LeagueClient& _client, const std::string& platformId)
   {

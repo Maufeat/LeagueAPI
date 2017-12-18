@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/RsoAuthIdToken.hpp>
+#include "../base_op.hpp" 
+#include "../def/RsoAuthIdToken.hpp"
 namespace lol {
   inline Result<RsoAuthIdToken> GetRsoAuthV1AuthorizationIdToken(const LeagueClient& _client)
   {

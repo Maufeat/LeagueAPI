@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LeaguesLcdsTeamIdDTO.hpp>
-#include <lol/def/LeaguesLcdsPlayerAggregatedStats.hpp>
+#include "../base_def.hpp" 
+#include "LeaguesLcdsTeamIdDTO.hpp"
+#include "LeaguesLcdsPlayerAggregatedStats.hpp"
 namespace lol {
   struct LeaguesLcdsTeamAggregatedStats { 
     std::vector<LeaguesLcdsPlayerAggregatedStats> playerAggregatedStatsList;

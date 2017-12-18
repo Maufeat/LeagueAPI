@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolSuggestedPlayersSuggestedPlayersReportedPlayer.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolSuggestedPlayersSuggestedPlayersReportedPlayer.hpp"
 namespace lol {
   inline Result<void> PostLolSuggestedPlayersV1ReportedPlayer(const LeagueClient& _client, const LolSuggestedPlayersSuggestedPlayersReportedPlayer& resource)
   {

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/basicOperatingSystemInfo.hpp>
+#include "../base_def.hpp" 
+#include "basicOperatingSystemInfo.hpp"
 namespace lol {
   struct basicSystemInfo { 
     uint32_t physicalProcessorCores;

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolQueueEligibilityLoginSessionStates.hpp>
+#include "../base_def.hpp" 
+#include "LolQueueEligibilityLoginSessionStates.hpp"
 namespace lol {
   struct LolQueueEligibilityLoginSession { 
     LolQueueEligibilityLoginSessionStates state;

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/PlayerInfoDto.hpp>
+#include "../base_def.hpp" 
+#include "PlayerInfoDto.hpp"
 namespace lol {
   struct MemberSinceDto { 
     PlayerInfoDto playerInfo;

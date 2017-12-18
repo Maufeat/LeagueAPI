@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolPlayerBehaviorNotificationSource.hpp>
+#include "../base_def.hpp" 
+#include "LolPlayerBehaviorNotificationSource.hpp"
 namespace lol {
   struct LolPlayerBehaviorRestrictionNotification { 
     int64_t gamesRemaining;

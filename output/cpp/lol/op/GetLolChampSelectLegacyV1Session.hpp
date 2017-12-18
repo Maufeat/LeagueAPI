@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolChampSelectLegacyChampSelectSession.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolChampSelectLegacyChampSelectSession.hpp"
 namespace lol {
   inline Result<LolChampSelectLegacyChampSelectSession> GetLolChampSelectLegacyV1Session(const LeagueClient& _client)
   {

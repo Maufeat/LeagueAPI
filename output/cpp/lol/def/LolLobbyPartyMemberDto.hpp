@@ -1,8 +1,8 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyGameModeDto.hpp>
-#include <lol/def/LolLobbyPartyMemberMetadataDto.hpp>
-#include <lol/def/LolLobbyPartyMemberRoleEnum.hpp>
+#include "../base_def.hpp" 
+#include "LolLobbyPartyMemberRoleEnum.hpp"
+#include "LolLobbyGameModeDto.hpp"
+#include "LolLobbyPartyMemberMetadataDto.hpp"
 namespace lol {
   struct LolLobbyPartyMemberDto { 
     std::optional<uint64_t> inviteTimestamp;

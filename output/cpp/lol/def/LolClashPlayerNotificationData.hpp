@@ -1,8 +1,8 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolClashNotifyReason.hpp>
-#include <lol/def/LolClashRosterNotifyReason.hpp>
-#include <lol/def/LolClashPlayerNotification.hpp>
+#include "../base_def.hpp" 
+#include "LolClashRosterNotifyReason.hpp"
+#include "LolClashPlayerNotification.hpp"
+#include "LolClashNotifyReason.hpp"
 namespace lol {
   struct LolClashPlayerNotificationData { 
     uint64_t sourceSummonerId;

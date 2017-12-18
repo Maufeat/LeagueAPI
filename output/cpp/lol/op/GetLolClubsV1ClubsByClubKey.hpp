@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/PlayerClub.hpp>
+#include "../base_op.hpp" 
+#include "../def/PlayerClub.hpp"
 namespace lol {
   inline Result<PlayerClub> GetLolClubsV1ClubsByClubKey(const LeagueClient& _client, const std::string& clubKey)
   {

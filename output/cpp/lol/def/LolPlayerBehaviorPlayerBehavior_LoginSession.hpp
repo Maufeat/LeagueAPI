@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolPlayerBehaviorPlayerBehavior_LoginError.hpp>
-#include <lol/def/LolPlayerBehaviorPlayerBehavior_LoginSessionState.hpp>
+#include "../base_def.hpp" 
+#include "LolPlayerBehaviorPlayerBehavior_LoginError.hpp"
+#include "LolPlayerBehaviorPlayerBehavior_LoginSessionState.hpp"
 namespace lol {
   struct LolPlayerBehaviorPlayerBehavior_LoginSession { 
     LolPlayerBehaviorPlayerBehavior_LoginSessionState state;

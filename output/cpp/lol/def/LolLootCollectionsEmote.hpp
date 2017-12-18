@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLootInventoryOwnership.hpp>
+#include "../base_def.hpp" 
+#include "LolLootInventoryOwnership.hpp"
 namespace lol {
   struct LolLootCollectionsEmote { 
     LolLootInventoryOwnership ownershipType;

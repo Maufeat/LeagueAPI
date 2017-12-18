@@ -1,5 +1,5 @@
 #pragma once
-#include<lol/base_op.hpp> 
+#include "../base_op.hpp" 
 namespace lol {
   inline Result<json> PostLolChampSelectV1SessionMySelectionReroll(const LeagueClient& _client)
   {

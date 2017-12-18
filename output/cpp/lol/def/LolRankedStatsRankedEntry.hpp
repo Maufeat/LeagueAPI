@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolRankedStatsRankedTier.hpp>
-#include <lol/def/LolRankedStatsRankedQueue.hpp>
+#include "../base_def.hpp" 
+#include "LolRankedStatsRankedTier.hpp"
+#include "LolRankedStatsRankedQueue.hpp"
 namespace lol {
   struct LolRankedStatsRankedEntry { 
     LolRankedStatsRankedTier rankedTier;

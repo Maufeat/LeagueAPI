@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLobbyTeamBuilderChampSelectSession.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLobbyTeamBuilderChampSelectSession.hpp"
 namespace lol {
   inline Result<LolLobbyTeamBuilderChampSelectSession> GetLolLobbyTeamBuilderChampSelectV1Session(const LeagueClient& _client)
   {

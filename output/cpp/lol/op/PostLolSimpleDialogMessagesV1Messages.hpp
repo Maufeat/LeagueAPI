@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolSimpleDialogMessagesLocalMessageRequest.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolSimpleDialogMessagesLocalMessageRequest.hpp"
 namespace lol {
   inline Result<json> PostLolSimpleDialogMessagesV1Messages(const LeagueClient& _client, const LolSimpleDialogMessagesLocalMessageRequest& messageRequest)
   {

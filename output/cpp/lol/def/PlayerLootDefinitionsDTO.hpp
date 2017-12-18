@@ -1,9 +1,9 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/QueryResultDTO.hpp>
-#include <lol/def/LootLcdsRecipeListClientDTO.hpp>
-#include <lol/def/PlayerLootDTO.hpp>
-#include <lol/def/LootItemListClientDTO.hpp>
+#include "../base_def.hpp" 
+#include "QueryResultDTO.hpp"
+#include "PlayerLootDTO.hpp"
+#include "LootItemListClientDTO.hpp"
+#include "LootLcdsRecipeListClientDTO.hpp"
 namespace lol {
   struct PlayerLootDefinitionsDTO { 
     QueryResultDTO queryResult;

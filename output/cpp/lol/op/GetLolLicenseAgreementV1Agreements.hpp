@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLicenseAgreementLicenseAgreement.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLicenseAgreementLicenseAgreement.hpp"
 namespace lol {
   inline Result<std::vector<LolLicenseAgreementLicenseAgreement>> GetLolLicenseAgreementV1Agreements(const LeagueClient& _client)
   {

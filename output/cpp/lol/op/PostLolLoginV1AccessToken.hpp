@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLoginAccessToken.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLoginAccessToken.hpp"
 namespace lol {
   inline Result<json> PostLolLoginV1AccessToken(const LeagueClient& _client, const LolLoginAccessToken& AccessToken)
   {

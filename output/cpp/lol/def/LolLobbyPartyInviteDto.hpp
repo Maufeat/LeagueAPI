@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyGameModeDto.hpp>
+#include "../base_def.hpp" 
+#include "LolLobbyGameModeDto.hpp"
 namespace lol {
   struct LolLobbyPartyInviteDto { 
     std::string state;

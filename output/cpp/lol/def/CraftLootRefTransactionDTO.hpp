@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LootNameRefId.hpp>
+#include "../base_def.hpp" 
+#include "LootNameRefId.hpp"
 namespace lol {
   struct CraftLootRefTransactionDTO { 
     int32_t repeat;

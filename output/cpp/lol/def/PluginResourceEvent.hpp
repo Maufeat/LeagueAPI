@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/PluginResourceEventType.hpp>
+#include "../base_def.hpp" 
+#include "PluginResourceEventType.hpp"
 namespace lol {
   struct PluginResourceEvent { 
     PluginResourceEventType eventType;

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolCollectionsCollectionsOwnership.hpp>
+#include "../base_def.hpp" 
+#include "LolCollectionsCollectionsOwnership.hpp"
 namespace lol {
   struct LolCollectionsCollectionsWardSkin { 
     std::string wardImagePath;

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolCollectionsCollectionsChampionMastery.hpp>
+#include "../base_def.hpp" 
+#include "LolCollectionsCollectionsChampionMastery.hpp"
 namespace lol {
   struct LolCollectionsCollectionsTopChampionMasteries { 
     uint64_t score;

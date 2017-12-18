@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolChatConversationMessageResource.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolChatConversationMessageResource.hpp"
 namespace lol {
   inline Result<LolChatConversationMessageResource> PostLolChatV1ConversationsByIdMessages(const LeagueClient& _client, const std::string& id, const LolChatConversationMessageResource& body)
   {

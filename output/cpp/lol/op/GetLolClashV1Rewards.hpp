@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolClashPlayerRewards.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolClashPlayerRewards.hpp"
 namespace lol {
   inline Result<LolClashPlayerRewards> GetLolClashV1Rewards(const LeagueClient& _client)
   {

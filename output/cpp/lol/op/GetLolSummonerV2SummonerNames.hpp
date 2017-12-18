@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolSummonerSummonerIdAndName.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolSummonerSummonerIdAndName.hpp"
 namespace lol {
   inline Result<std::vector<LolSummonerSummonerIdAndName>> GetLolSummonerV2SummonerNames(const LeagueClient& _client, const std::vector<uint64_t>& ids)
   {

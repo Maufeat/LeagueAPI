@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolMatchHistoryMatchHistoryParticipantIdentityPlayer.hpp>
+#include "../base_def.hpp" 
+#include "LolMatchHistoryMatchHistoryParticipantIdentityPlayer.hpp"
 namespace lol {
   struct LolMatchHistoryMatchHistoryParticipantIdentities { 
     LolMatchHistoryMatchHistoryParticipantIdentityPlayer player;

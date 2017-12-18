@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolPlayerBehaviorRestrictionNotification.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolPlayerBehaviorRestrictionNotification.hpp"
 namespace lol {
   inline Result<LolPlayerBehaviorRestrictionNotification> GetLolPlayerBehaviorV1ChatRestriction(const LeagueClient& _client)
   {

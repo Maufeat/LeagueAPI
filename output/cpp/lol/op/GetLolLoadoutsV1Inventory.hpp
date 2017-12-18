@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLoadoutsFrontendInventoryResponse.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLoadoutsFrontendInventoryResponse.hpp"
 namespace lol {
   inline Result<LolLoadoutsFrontendInventoryResponse> GetLolLoadoutsV1Inventory(const LeagueClient& _client, const std::vector<std::string>& inventoryTypes)
   {

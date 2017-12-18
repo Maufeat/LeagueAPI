@@ -1,8 +1,8 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyTeamBuilderTbLobbySlotResource.hpp>
-#include <lol/def/LolLobbyTeamBuilderTbLobbyBackwardsToPremadeTransitionResource.hpp>
-#include <lol/def/LolLobbyTeamBuilderReadyStateV1.hpp>
+#include "../base_def.hpp" 
+#include "LolLobbyTeamBuilderReadyStateV1.hpp"
+#include "LolLobbyTeamBuilderTbLobbySlotResource.hpp"
+#include "LolLobbyTeamBuilderTbLobbyBackwardsToPremadeTransitionResource.hpp"
 namespace lol {
   struct LolLobbyTeamBuilderTbLobbyPremadeStateResource { 
     LolLobbyTeamBuilderReadyStateV1 readyState;

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolClashInviteSubRequest.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolClashInviteSubRequest.hpp"
 namespace lol {
   inline Result<json> PostLolClashV1TournamentByTournamentIdRosterSubstituteInvite(const LeagueClient& _client, const int64_t& tournamentId, const LolClashInviteSubRequest& inviteSubRequest)
   {

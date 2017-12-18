@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLootPlayerLootUpdate.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLootPlayerLootUpdate.hpp"
 namespace lol {
   inline Result<LolLootPlayerLootUpdate> PostLolLootV1RecipesByRecipeNameCraft(const LeagueClient& _client, const std::string& recipeName, const std::vector<std::string>& playerLootList, const std::optional<int32_t>& repeat = std::nullopt)
   {

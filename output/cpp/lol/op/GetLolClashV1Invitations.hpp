@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolClashRoster.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolClashRoster.hpp"
 namespace lol {
   inline Result<std::vector<LolClashRoster>> GetLolClashV1Invitations(const LeagueClient& _client)
   {

@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LoyaltyStatus.hpp>
-#include <lol/def/LoyaltyRewards.hpp>
+#include "../base_def.hpp" 
+#include "LoyaltyStatus.hpp"
+#include "LoyaltyRewards.hpp"
 namespace lol {
   struct LoyaltyStatusNotification { 
     LoyaltyRewards rewards;

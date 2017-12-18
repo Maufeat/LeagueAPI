@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolPftGameflowGameDodgeState.hpp>
+#include "../base_def.hpp" 
+#include "LolPftGameflowGameDodgeState.hpp"
 namespace lol {
   struct LolPftGameflowGameDodge { 
     LolPftGameflowGameDodgeState state;

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/EndOfGameLcdsTeamId.hpp>
+#include "../base_def.hpp" 
+#include "EndOfGameLcdsTeamId.hpp"
 namespace lol {
   struct EndOfGameLcdsTeamInfo { 
     std::string tag;

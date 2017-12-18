@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLobbyLobbyChangeGameDto.hpp>
-#include <lol/def/LolLobbyLobbyDto.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLobbyLobbyDto.hpp"
+#include "../def/LolLobbyLobbyChangeGameDto.hpp"
 namespace lol {
   inline Result<LolLobbyLobbyDto> PostLolLobbyV2Lobby(const LeagueClient& _client, const LolLobbyLobbyChangeGameDto& lobbyChange)
   {

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolGameQueuesQueueGameTypeConfig.hpp>
+#include "../base_def.hpp" 
+#include "LolGameQueuesQueueGameTypeConfig.hpp"
 namespace lol {
   struct LolGameQueuesLoginDataPacket { 
     std::vector<LolGameQueuesQueueGameTypeConfig> gameTypeConfigs; 

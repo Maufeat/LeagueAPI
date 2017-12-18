@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolSuggestedPlayersSuggestedPlayersReason.hpp>
+#include "../base_def.hpp" 
+#include "LolSuggestedPlayersSuggestedPlayersReason.hpp"
 namespace lol {
   struct LolSuggestedPlayersSuggestedPlayersSuggestedPlayer { 
     uint64_t commonFriendId;

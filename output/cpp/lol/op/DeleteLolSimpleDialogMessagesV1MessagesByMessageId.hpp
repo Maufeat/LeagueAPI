@@ -1,5 +1,5 @@
 #pragma once
-#include<lol/base_op.hpp> 
+#include "../base_op.hpp" 
 namespace lol {
   inline Result<json> DeleteLolSimpleDialogMessagesV1MessagesByMessageId(const LeagueClient& _client, const int64_t& messageId)
   {

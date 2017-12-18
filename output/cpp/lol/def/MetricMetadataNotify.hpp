@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/MetricMetadataHipchatNotification.hpp>
-#include <lol/def/MetricMetadataPagerDutyNotification.hpp>
+#include "../base_def.hpp" 
+#include "MetricMetadataPagerDutyNotification.hpp"
+#include "MetricMetadataHipchatNotification.hpp"
 namespace lol {
   struct MetricMetadataNotify { 
     std::vector<MetricMetadataPagerDutyNotification> pagerduty;

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyTeamBuilderCellV1.hpp>
+#include "../base_def.hpp" 
+#include "LolLobbyTeamBuilderCellV1.hpp"
 namespace lol {
   struct LolLobbyTeamBuilderCellsV1 { 
     std::vector<LolLobbyTeamBuilderCellV1> alliedTeam;

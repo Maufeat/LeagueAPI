@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/GameflowLcdsPlayerCredentialsDto.hpp>
-#include <lol/def/GameflowLcdsGameDTO.hpp>
+#include "../base_def.hpp" 
+#include "GameflowLcdsGameDTO.hpp"
+#include "GameflowLcdsPlayerCredentialsDto.hpp"
 namespace lol {
   struct GameflowLcdsReconnectInfoDto { 
     GameflowLcdsGameDTO game;

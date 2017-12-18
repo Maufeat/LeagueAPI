@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LeaguesLcdsAggregatedStatsKey.hpp>
-#include <lol/def/LeaguesLcdsAggregatedStat.hpp>
+#include "../base_def.hpp" 
+#include "LeaguesLcdsAggregatedStat.hpp"
+#include "LeaguesLcdsAggregatedStatsKey.hpp"
 namespace lol {
   struct LeaguesLcdsAggregatedStats { 
     LeaguesLcdsAggregatedStatsKey key;

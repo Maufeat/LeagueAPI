@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolChatConversationMessageResource.hpp>
+#include "../base_def.hpp" 
+#include "LolChatConversationMessageResource.hpp"
 namespace lol {
   struct LolChatConversationResource { 
     std::string type;

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/SanitizerSanitizerStatus.hpp>
+#include "../base_op.hpp" 
+#include "../def/SanitizerSanitizerStatus.hpp"
 namespace lol {
   inline Result<SanitizerSanitizerStatus> GetSanitizerV1Status(const LeagueClient& _client)
   {

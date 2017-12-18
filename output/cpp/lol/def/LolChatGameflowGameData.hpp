@@ -1,8 +1,8 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolChatQueue.hpp>
-#include <lol/def/LolChatChampSelection.hpp>
-#include <lol/def/LolChatTeamPlayerEntry.hpp>
+#include "../base_def.hpp" 
+#include "LolChatTeamPlayerEntry.hpp"
+#include "LolChatQueue.hpp"
+#include "LolChatChampSelection.hpp"
 namespace lol {
   struct LolChatGameflowGameData { 
     std::vector<LolChatTeamPlayerEntry> teamOne;

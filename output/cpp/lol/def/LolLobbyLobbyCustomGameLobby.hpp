@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyLobbyCustomGameConfiguration.hpp>
-#include <lol/def/LolLobbyLobbyMember.hpp>
+#include "../base_def.hpp" 
+#include "LolLobbyLobbyCustomGameConfiguration.hpp"
+#include "LolLobbyLobbyMember.hpp"
 namespace lol {
   struct LolLobbyLobbyCustomGameLobby { 
     std::string lobbyName;

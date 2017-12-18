@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/ShutdownReason.hpp>
+#include "../base_def.hpp" 
+#include "ShutdownReason.hpp"
 namespace lol {
   struct ShutdownNotification { 
     std::string additionalInfo;

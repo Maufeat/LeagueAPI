@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/PatcherComponentStateWorkType.hpp>
-#include <lol/def/PatcherComponentStateProgress.hpp>
+#include "../base_def.hpp" 
+#include "PatcherComponentStateWorkType.hpp"
+#include "PatcherComponentStateProgress.hpp"
 namespace lol {
   struct PatcherComponentActionProgress { 
     std::string currentItem;

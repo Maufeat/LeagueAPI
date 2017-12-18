@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolHonorV2Honor.hpp>
+#include "../base_def.hpp" 
+#include "LolHonorV2Honor.hpp"
 namespace lol {
   struct LolHonorV2HonorRecipient { 
     std::vector<LolHonorV2Honor> honors;

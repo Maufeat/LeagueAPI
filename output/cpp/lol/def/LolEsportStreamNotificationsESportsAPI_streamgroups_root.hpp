@@ -1,8 +1,8 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolEsportStreamNotificationsESportsAPI_streamgroups.hpp>
-#include <lol/def/LolEsportStreamNotificationsEsportsAPI_highlanderTournaments.hpp>
-#include <lol/def/LolEsportStreamNotificationsEsportsAPI_teams.hpp>
+#include "../base_def.hpp" 
+#include "LolEsportStreamNotificationsESportsAPI_streamgroups.hpp"
+#include "LolEsportStreamNotificationsEsportsAPI_teams.hpp"
+#include "LolEsportStreamNotificationsEsportsAPI_highlanderTournaments.hpp"
 namespace lol {
   struct LolEsportStreamNotificationsESportsAPI_streamgroups_root { 
     std::vector<LolEsportStreamNotificationsEsportsAPI_highlanderTournaments> highlanderTournaments;

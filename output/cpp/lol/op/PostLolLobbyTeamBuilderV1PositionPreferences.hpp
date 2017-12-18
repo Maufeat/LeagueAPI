@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLobbyTeamBuilderLobbyPositionPreferences.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLobbyTeamBuilderLobbyPositionPreferences.hpp"
 namespace lol {
   inline Result<json> PostLolLobbyTeamBuilderV1PositionPreferences(const LeagueClient& _client, const LolLobbyTeamBuilderLobbyPositionPreferences& positionPreferences)
   {

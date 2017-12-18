@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLobbyQueueAvailability.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLobbyQueueAvailability.hpp"
 namespace lol {
   inline Result<LolLobbyQueueAvailability> GetLolLobbyV1LobbyAvailability(const LeagueClient& _client)
   {

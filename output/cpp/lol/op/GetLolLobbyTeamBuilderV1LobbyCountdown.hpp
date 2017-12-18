@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLobbyTeamBuilderLobbyCountdownTimer.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLobbyTeamBuilderLobbyCountdownTimer.hpp"
 namespace lol {
   inline Result<LolLobbyTeamBuilderLobbyCountdownTimer> GetLolLobbyTeamBuilderV1LobbyCountdown(const LeagueClient& _client)
   {

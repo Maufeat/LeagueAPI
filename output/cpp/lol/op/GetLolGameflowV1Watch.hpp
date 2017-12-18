@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolGameflowGameflowWatchPhase.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolGameflowGameflowWatchPhase.hpp"
 namespace lol {
   inline Result<LolGameflowGameflowWatchPhase> GetLolGameflowV1Watch(const LeagueClient& _client)
   {

@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolAccountVerificationSendTokenRequest.hpp>
-#include <lol/def/LolAccountVerificationSendTokenResponse.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolAccountVerificationSendTokenRequest.hpp"
+#include "../def/LolAccountVerificationSendTokenResponse.hpp"
 namespace lol {
   inline Result<LolAccountVerificationSendTokenResponse> PostLolAccountVerificationV1SendToken(const LeagueClient& _client, const LolAccountVerificationSendTokenRequest& SendTokenRequest)
   {

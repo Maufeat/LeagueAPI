@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/ClashRewardDefinition.hpp>
+#include "../base_def.hpp" 
+#include "ClashRewardDefinition.hpp"
 namespace lol {
   struct LolClashEogPlayerUpdateDTO { 
     int64_t tournamentId;

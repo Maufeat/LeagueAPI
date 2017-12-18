@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolSummonerSummonerProfileUpdate.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolSummonerSummonerProfileUpdate.hpp"
 namespace lol {
   inline Result<json> PostLolSummonerV1CurrentSummonerSummonerProfile(const LeagueClient& _client, const LolSummonerSummonerProfileUpdate& body)
   {

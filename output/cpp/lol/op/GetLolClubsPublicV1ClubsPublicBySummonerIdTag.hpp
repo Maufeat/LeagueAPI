@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolClubsPublicClubTag.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolClubsPublicClubTag.hpp"
 namespace lol {
   inline Result<LolClubsPublicClubTag> GetLolClubsPublicV1ClubsPublicBySummonerIdTag(const LeagueClient& _client, const uint64_t& summonerId)
   {

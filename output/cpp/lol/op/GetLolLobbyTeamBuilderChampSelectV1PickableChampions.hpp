@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLobbyTeamBuilderChampSelectPickableChampions.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLobbyTeamBuilderChampSelectPickableChampions.hpp"
 namespace lol {
   inline Result<LolLobbyTeamBuilderChampSelectPickableChampions> GetLolLobbyTeamBuilderChampSelectV1PickableChampions(const LeagueClient& _client)
   {

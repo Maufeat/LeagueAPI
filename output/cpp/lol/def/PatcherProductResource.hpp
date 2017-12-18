@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/PatcherComponentResource.hpp>
+#include "../base_def.hpp" 
+#include "PatcherComponentResource.hpp"
 namespace lol {
   struct PatcherProductResource { 
     std::optional<uint32_t> refresh_period;

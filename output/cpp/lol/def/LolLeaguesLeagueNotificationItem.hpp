@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLeaguesLeagueEmblem.hpp>
-#include <lol/def/LolLeaguesMiniseries.hpp>
+#include "../base_def.hpp" 
+#include "LolLeaguesLeagueEmblem.hpp"
+#include "LolLeaguesMiniseries.hpp"
 namespace lol {
   struct LolLeaguesLeagueNotificationItem { 
     std::string inactivityStatus;

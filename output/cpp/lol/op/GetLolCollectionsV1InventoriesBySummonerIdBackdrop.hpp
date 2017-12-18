@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolCollectionsCollectionsSummonerBackdrop.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolCollectionsCollectionsSummonerBackdrop.hpp"
 namespace lol {
   inline Result<LolCollectionsCollectionsSummonerBackdrop> GetLolCollectionsV1InventoriesBySummonerIdBackdrop(const LeagueClient& _client, const uint64_t& summonerId)
   {

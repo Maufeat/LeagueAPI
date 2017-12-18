@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLootPlayerLootDelta.hpp>
+#include "../base_def.hpp" 
+#include "LolLootPlayerLootDelta.hpp"
 namespace lol {
   struct LolLootPlayerLootUpdate { 
     std::vector<LolLootPlayerLootDelta> redeemed;

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolCollectionsCollectionsRuneBook.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolCollectionsCollectionsRuneBook.hpp"
 namespace lol {
   inline Result<LolCollectionsCollectionsRuneBook> GetLolCollectionsV1InventoriesBySummonerIdRuneBook(const LeagueClient& _client, const uint64_t& summonerId)
   {

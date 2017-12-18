@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLootPlayerLoot.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLootPlayerLoot.hpp"
 namespace lol {
   inline Result<LolLootPlayerLoot> GetLolLootV1PlayerLootByLootId(const LeagueClient& _client, const std::string& lootId)
   {

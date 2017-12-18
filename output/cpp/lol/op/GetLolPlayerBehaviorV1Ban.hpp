@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolPlayerBehaviorBanNotification.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolPlayerBehaviorBanNotification.hpp"
 namespace lol {
   inline Result<LolPlayerBehaviorBanNotification> GetLolPlayerBehaviorV1Ban(const LeagueClient& _client)
   {

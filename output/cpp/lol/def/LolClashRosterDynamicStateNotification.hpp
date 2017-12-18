@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/RosterDynamicStateDTO.hpp>
-#include <lol/def/LolClashRosterNotifyReason.hpp>
+#include "../base_def.hpp" 
+#include "LolClashRosterNotifyReason.hpp"
+#include "RosterDynamicStateDTO.hpp"
 namespace lol {
   struct LolClashRosterDynamicStateNotification { 
     uint64_t sourcePlayerId;

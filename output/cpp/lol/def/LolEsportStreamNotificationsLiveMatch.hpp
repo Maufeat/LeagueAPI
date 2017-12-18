@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolEsportStreamNotificationsLiveMatchTeam.hpp>
+#include "../base_def.hpp" 
+#include "LolEsportStreamNotificationsLiveMatchTeam.hpp"
 namespace lol {
   struct LolEsportStreamNotificationsLiveMatch { 
     std::string tournamentDescription;

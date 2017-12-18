@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/Highlight.hpp>
+#include "../base_op.hpp" 
+#include "../def/Highlight.hpp"
 namespace lol {
   inline Result<Highlight> DeleteLolHighlightsV1HighlightsById(const LeagueClient& _client, const uint64_t& id)
   {

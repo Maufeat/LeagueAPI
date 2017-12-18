@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/ClubPermissions.hpp>
+#include "../base_def.hpp" 
+#include "ClubPermissions.hpp"
 namespace lol {
   struct ClubDataDto { 
     std::string tag;

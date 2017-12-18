@@ -1,5 +1,5 @@
 #pragma once
-#include<lol/base_def.hpp> 
+#include "../base_def.hpp" 
 namespace lol {
   enum struct LolRankedStatsRankedQueue {  
     INVALID_e = 0,

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolChatSessionState.hpp>
+#include "../base_def.hpp" 
+#include "LolChatSessionState.hpp"
 namespace lol {
   struct LolChatSessionResource { 
     uint32_t sessionExpire;

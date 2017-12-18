@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolSummonerAutoFillDto.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolSummonerAutoFillDto.hpp"
 namespace lol {
   inline Result<LolSummonerAutoFillDto> GetLolSummonerV1CurrentSummonerAutofill(const LeagueClient& _client)
   {

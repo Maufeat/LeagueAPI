@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolPftPFTQuestionResponse.hpp>
-#include <lol/def/LolPftPFTEvent.hpp>
+#include "../base_def.hpp" 
+#include "LolPftPFTEvent.hpp"
+#include "LolPftPFTQuestionResponse.hpp"
 namespace lol {
   struct LolPftPFTSurveyResults { 
     std::vector<LolPftPFTEvent> actions;

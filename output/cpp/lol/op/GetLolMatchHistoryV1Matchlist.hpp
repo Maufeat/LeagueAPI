@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolMatchHistoryMatchHistoryList.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolMatchHistoryMatchHistoryList.hpp"
 namespace lol {
   inline Result<LolMatchHistoryMatchHistoryList> GetLolMatchHistoryV1Matchlist(const LeagueClient& _client)
   {

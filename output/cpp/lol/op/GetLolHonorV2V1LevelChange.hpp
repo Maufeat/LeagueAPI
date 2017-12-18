@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolHonorV2VendedHonorChange.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolHonorV2VendedHonorChange.hpp"
 namespace lol {
   inline Result<LolHonorV2VendedHonorChange> GetLolHonorV2V1LevelChange(const LeagueClient& _client)
   {

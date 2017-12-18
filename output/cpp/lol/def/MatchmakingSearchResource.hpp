@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/MatchmakingSearchErrorResource.hpp>
+#include "../base_def.hpp" 
+#include "MatchmakingSearchErrorResource.hpp"
 namespace lol {
   struct MatchmakingSearchResource { 
     std::vector<MatchmakingSearchErrorResource> errors;

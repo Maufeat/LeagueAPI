@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolMatchHistoryMatchHistoryGame.hpp>
+#include "../base_def.hpp" 
+#include "LolMatchHistoryMatchHistoryGame.hpp"
 namespace lol {
   struct LolMatchHistoryMatchHistoryGameList { 
     uint64_t gameIndexBegin;

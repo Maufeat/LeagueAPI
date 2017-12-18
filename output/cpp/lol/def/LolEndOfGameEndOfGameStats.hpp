@@ -1,8 +1,8 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolEndOfGameEndOfGameTeamBoost.hpp>
-#include <lol/def/LolEndOfGameEndOfGameTeam.hpp>
-#include <lol/def/LolEndOfGameEndOfGamePoints.hpp>
+#include "../base_def.hpp" 
+#include "LolEndOfGameEndOfGameTeam.hpp"
+#include "LolEndOfGameEndOfGameTeamBoost.hpp"
+#include "LolEndOfGameEndOfGamePoints.hpp"
 namespace lol {
   struct LolEndOfGameEndOfGameStats { 
     std::string roomName;

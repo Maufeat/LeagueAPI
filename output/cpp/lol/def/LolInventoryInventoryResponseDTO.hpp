@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolInventoryInventoryDTO.hpp>
+#include "../base_def.hpp" 
+#include "LolInventoryInventoryDTO.hpp"
 namespace lol {
   struct LolInventoryInventoryResponseDTO { 
     LolInventoryInventoryDTO data; 

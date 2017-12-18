@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolChatSessionResource.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolChatSessionResource.hpp"
 namespace lol {
   inline Result<LolChatSessionResource> GetLolChatV1Session(const LeagueClient& _client)
   {

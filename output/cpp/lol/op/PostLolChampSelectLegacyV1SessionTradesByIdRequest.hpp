@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolChampSelectLegacyChampSelectTradeContract.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolChampSelectLegacyChampSelectTradeContract.hpp"
 namespace lol {
   inline Result<LolChampSelectLegacyChampSelectTradeContract> PostLolChampSelectLegacyV1SessionTradesByIdRequest(const LeagueClient& _client, const int64_t& id)
   {

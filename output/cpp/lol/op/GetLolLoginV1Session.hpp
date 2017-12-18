@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLoginLoginSession.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLoginLoginSession.hpp"
 namespace lol {
   inline Result<LolLoginLoginSession> GetLolLoginV1Session(const LeagueClient& _client)
   {

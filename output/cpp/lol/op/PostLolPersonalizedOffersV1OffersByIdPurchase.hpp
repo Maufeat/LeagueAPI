@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolPersonalizedOffersPurchaseResponse.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolPersonalizedOffersPurchaseResponse.hpp"
 namespace lol {
   inline Result<LolPersonalizedOffersPurchaseResponse> PostLolPersonalizedOffersV1OffersByIdPurchase(const LeagueClient& _client, const std::string& id)
   {

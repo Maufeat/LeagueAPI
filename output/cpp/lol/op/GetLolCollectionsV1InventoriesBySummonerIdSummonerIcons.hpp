@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolCollectionsCollectionsSummonerIcons.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolCollectionsCollectionsSummonerIcons.hpp"
 namespace lol {
   inline Result<LolCollectionsCollectionsSummonerIcons> GetLolCollectionsV1InventoriesBySummonerIdSummonerIcons(const LeagueClient& _client, const uint64_t& summonerId)
   {

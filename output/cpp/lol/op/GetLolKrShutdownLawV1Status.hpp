@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolKrShutdownLawAllQueueShutdownStatus.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolKrShutdownLawAllQueueShutdownStatus.hpp"
 namespace lol {
   inline Result<LolKrShutdownLawAllQueueShutdownStatus> GetLolKrShutdownLawV1Status(const LeagueClient& _client)
   {

@@ -1,8 +1,8 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/PatcherHeaderEntry.hpp>
-#include <lol/def/PatcherComponentResourceHistory.hpp>
-#include <lol/def/PatcherComponentResourceType.hpp>
+#include "../base_def.hpp" 
+#include "PatcherComponentResourceType.hpp"
+#include "PatcherHeaderEntry.hpp"
+#include "PatcherComponentResourceHistory.hpp"
 namespace lol {
   struct PatcherComponentResource { 
     std::string install_dir;

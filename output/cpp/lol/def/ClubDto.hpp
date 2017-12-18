@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/ClubDataDto.hpp>
-#include <lol/def/ClubMembershipDto.hpp>
+#include "../base_def.hpp" 
+#include "ClubMembershipDto.hpp"
+#include "ClubDataDto.hpp"
 namespace lol {
   struct ClubDto { 
     ClubDataDto clubData;

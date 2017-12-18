@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolClashKickRequest.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolClashKickRequest.hpp"
 namespace lol {
   inline Result<json> PostLolClashV1TournamentByTournamentIdRosterKick(const LeagueClient& _client, const int64_t& tournamentId, const LolClashKickRequest& kickRequest)
   {

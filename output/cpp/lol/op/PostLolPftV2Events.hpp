@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolPftPFTEvent.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolPftPFTEvent.hpp"
 namespace lol {
   inline Result<json> PostLolPftV2Events(const LeagueClient& _client, const LolPftPFTEvent& pftEvent)
   {

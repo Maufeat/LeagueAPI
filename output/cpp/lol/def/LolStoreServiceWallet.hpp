@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolStoreServiceBalance.hpp>
+#include "../base_def.hpp" 
+#include "LolStoreServiceBalance.hpp"
 namespace lol {
   struct LolStoreServiceWallet { 
     std::vector<LolStoreServiceBalance> balances;

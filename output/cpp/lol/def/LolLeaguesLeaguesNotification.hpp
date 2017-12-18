@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLeaguesLeagueNotificationItem.hpp>
-#include <lol/def/LolLeaguesSeverity.hpp>
+#include "../base_def.hpp" 
+#include "LolLeaguesLeagueNotificationItem.hpp"
+#include "LolLeaguesSeverity.hpp"
 namespace lol {
   struct LolLeaguesLeaguesNotification { 
     std::string type;

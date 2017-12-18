@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLobbyLobbyChangeQueue.hpp>
-#include <lol/def/LolLobbyLobby.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLobbyLobbyChangeQueue.hpp"
+#include "../def/LolLobbyLobby.hpp"
 namespace lol {
   inline Result<LolLobbyLobby> PostLolLobbyV1ChangeQueue(const LeagueClient& _client, const LolLobbyLobbyChangeQueue& queueId)
   {

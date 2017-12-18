@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/PatcherProductState.hpp>
+#include "../base_op.hpp" 
+#include "../def/PatcherProductState.hpp"
 namespace lol {
   inline Result<PatcherProductState> PostPatcherV1ProductsByProductIdDetectCorruptionRequest(const LeagueClient& _client, const std::string& product_id)
   {

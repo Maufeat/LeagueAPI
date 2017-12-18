@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLeaguesLeagueChampAndStat.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLeaguesLeagueChampAndStat.hpp"
 namespace lol {
   inline Result<std::vector<LolLeaguesLeagueChampAndStat>> GetLolLeaguesV1SummonerTopChampsBySummonerId(const LeagueClient& _client, const uint64_t& summonerId)
   {

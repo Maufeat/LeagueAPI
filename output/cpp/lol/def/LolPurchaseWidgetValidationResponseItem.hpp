@@ -1,8 +1,8 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolPurchaseWidgetItemKey.hpp>
-#include <lol/def/LolPurchaseWidgetItemPrice.hpp>
-#include <lol/def/LolPurchaseWidgetSale.hpp>
+#include "../base_def.hpp" 
+#include "LolPurchaseWidgetSale.hpp"
+#include "LolPurchaseWidgetItemPrice.hpp"
+#include "LolPurchaseWidgetItemKey.hpp"
 namespace lol {
   struct LolPurchaseWidgetValidationResponseItem { 
     std::vector<LolPurchaseWidgetItemPrice> prices;

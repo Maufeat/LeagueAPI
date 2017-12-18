@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLobbyLobbyInvitationDto.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLobbyLobbyInvitationDto.hpp"
 namespace lol {
   inline Result<std::vector<LolLobbyLobbyInvitationDto>> PostLolLobbyV2EogInvitations(const LeagueClient& _client, const std::vector<LolLobbyLobbyInvitationDto>& invitations)
   {

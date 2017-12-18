@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/TournamentDTO.hpp>
+#include "../base_def.hpp" 
+#include "TournamentDTO.hpp"
 namespace lol {
   struct TournamentHistoryAndWinnersDTO { 
     std::string tournamentWinnersCompressed;

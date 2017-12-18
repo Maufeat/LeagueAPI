@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLootRecipe.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLootRecipe.hpp"
 namespace lol {
   inline Result<std::vector<LolLootRecipe>> PostLolLootV1RecipesInitialItemByLootId(const LeagueClient& _client, const std::string& lootId)
   {

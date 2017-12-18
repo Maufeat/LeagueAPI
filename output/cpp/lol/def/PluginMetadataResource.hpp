@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/PluginThreadingModel.hpp>
+#include "../base_def.hpp" 
+#include "PluginThreadingModel.hpp"
 namespace lol {
   struct PluginMetadataResource { 
     std::vector<std::string> globalAssetBundles;

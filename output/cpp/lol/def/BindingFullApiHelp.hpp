@@ -1,8 +1,8 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/BindingFullEventHelp.hpp>
-#include <lol/def/BindingFullFunctionHelp.hpp>
-#include <lol/def/BindingFullTypeHelp.hpp>
+#include "../base_def.hpp" 
+#include "BindingFullEventHelp.hpp"
+#include "BindingFullFunctionHelp.hpp"
+#include "BindingFullTypeHelp.hpp"
 namespace lol {
   struct BindingFullApiHelp { 
     std::vector<BindingFullEventHelp> events;

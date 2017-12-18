@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolClashMatchmakingDodgeData.hpp>
+#include "../base_def.hpp" 
+#include "LolClashMatchmakingDodgeData.hpp"
 namespace lol {
   struct LolClashMatchmakingSearchResource { 
     int32_t queueId;

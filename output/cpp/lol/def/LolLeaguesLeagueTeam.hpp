@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLeaguesLeagueTeamMember.hpp>
+#include "../base_def.hpp" 
+#include "LolLeaguesLeagueTeamMember.hpp"
 namespace lol {
   struct LolLeaguesLeagueTeam { 
     std::vector<LolLeaguesLeagueTeamMember> members;

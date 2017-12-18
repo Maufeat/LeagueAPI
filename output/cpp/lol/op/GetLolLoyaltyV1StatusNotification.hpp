@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LoyaltyStatusNotification.hpp>
+#include "../base_op.hpp" 
+#include "../def/LoyaltyStatusNotification.hpp"
 namespace lol {
   inline Result<LoyaltyStatusNotification> GetLolLoyaltyV1StatusNotification(const LeagueClient& _client)
   {

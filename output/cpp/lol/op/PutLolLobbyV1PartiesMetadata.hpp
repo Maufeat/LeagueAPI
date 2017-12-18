@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLobbyPartyMemberMetadataDto.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLobbyPartyMemberMetadataDto.hpp"
 namespace lol {
   inline Result<void> PutLolLobbyV1PartiesMetadata(const LeagueClient& _client, const LolLobbyPartyMemberMetadataDto& metadata)
   {

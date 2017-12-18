@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolMatchmakingGameflowQueue.hpp>
+#include "../base_def.hpp" 
+#include "LolMatchmakingGameflowQueue.hpp"
 namespace lol {
   struct LolMatchmakingGameflowGameData { 
     LolMatchmakingGameflowQueue queue; 

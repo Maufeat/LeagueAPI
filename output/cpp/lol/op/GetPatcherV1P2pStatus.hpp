@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/PatcherP2PStatus.hpp>
+#include "../base_op.hpp" 
+#include "../def/PatcherP2PStatus.hpp"
 namespace lol {
   inline Result<PatcherP2PStatus> GetPatcherV1P2pStatus(const LeagueClient& _client)
   {

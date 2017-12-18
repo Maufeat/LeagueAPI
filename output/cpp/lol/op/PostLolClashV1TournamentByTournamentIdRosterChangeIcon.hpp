@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolClashChangeIconRequest.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolClashChangeIconRequest.hpp"
 namespace lol {
   inline Result<json> PostLolClashV1TournamentByTournamentIdRosterChangeIcon(const LeagueClient& _client, const int64_t& tournamentId, const LolClashChangeIconRequest& changeIconRequest)
   {

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLobbyLobbyLastQueuedLobby.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLobbyLobbyLastQueuedLobby.hpp"
 namespace lol {
   inline Result<LolLobbyLobbyLastQueuedLobby> GetLolLobbyV1LastQueuedLobby(const LeagueClient& _client)
   {

@@ -1,8 +1,8 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/RosterDynamicStateDTO.hpp>
-#include <lol/def/RosterMemberDTO.hpp>
-#include <lol/def/PhaseRosterDTO.hpp>
+#include "../base_def.hpp" 
+#include "RosterDynamicStateDTO.hpp"
+#include "PhaseRosterDTO.hpp"
+#include "RosterMemberDTO.hpp"
 namespace lol {
   struct RosterDTO { 
     int32_t logoColor;

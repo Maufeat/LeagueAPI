@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLeaguesLeagueStanding.hpp>
-#include <lol/def/LolLeaguesLeagueRank.hpp>
+#include "../base_def.hpp" 
+#include "LolLeaguesLeagueStanding.hpp"
+#include "LolLeaguesLeagueRank.hpp"
 namespace lol {
   struct LolLeaguesLeagueDivision { 
     LolLeaguesLeagueRank leagueRank;

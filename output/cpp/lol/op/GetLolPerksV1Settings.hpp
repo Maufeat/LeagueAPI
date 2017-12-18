@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolPerksUISettings.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolPerksUISettings.hpp"
 namespace lol {
   inline Result<LolPerksUISettings> GetLolPerksV1Settings(const LeagueClient& _client)
   {

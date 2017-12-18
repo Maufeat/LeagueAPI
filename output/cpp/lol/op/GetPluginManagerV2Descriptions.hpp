@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/PluginDescriptionResource.hpp>
+#include "../base_op.hpp" 
+#include "../def/PluginDescriptionResource.hpp"
 namespace lol {
   inline Result<std::vector<PluginDescriptionResource>> GetPluginManagerV2Descriptions(const LeagueClient& _client)
   {

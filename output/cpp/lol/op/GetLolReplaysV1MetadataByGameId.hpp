@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolReplaysReplayMetadata.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolReplaysReplayMetadata.hpp"
 namespace lol {
   inline Result<LolReplaysReplayMetadata> GetLolReplaysV1MetadataByGameId(const LeagueClient& _client, const uint64_t& gameId)
   {

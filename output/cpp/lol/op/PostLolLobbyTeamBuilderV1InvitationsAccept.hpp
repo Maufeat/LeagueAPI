@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLobbyTeamBuilderLobbyInvitation.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLobbyTeamBuilderLobbyInvitation.hpp"
 namespace lol {
   inline Result<json> PostLolLobbyTeamBuilderV1InvitationsAccept(const LeagueClient& _client, const LolLobbyTeamBuilderLobbyInvitation& invitation)
   {

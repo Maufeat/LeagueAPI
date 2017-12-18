@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolGameflowPatcherProductStateAction.hpp>
+#include "../base_def.hpp" 
+#include "LolGameflowPatcherProductStateAction.hpp"
 namespace lol {
   struct LolGameflowPatcherProductState { 
     bool isUpToDate;

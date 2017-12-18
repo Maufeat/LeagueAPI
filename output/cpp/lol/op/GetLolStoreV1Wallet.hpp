@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolStoreWallet.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolStoreWallet.hpp"
 namespace lol {
   inline Result<LolStoreWallet> GetLolStoreV1Wallet(const LeagueClient& _client)
   {

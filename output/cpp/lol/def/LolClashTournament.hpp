@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/ClashRewardConfigClient.hpp>
-#include <lol/def/LolClashTournamentPhase.hpp>
+#include "../base_def.hpp" 
+#include "LolClashTournamentPhase.hpp"
+#include "ClashRewardConfigClient.hpp"
 namespace lol {
   struct LolClashTournament { 
     int64_t endTimeMs;

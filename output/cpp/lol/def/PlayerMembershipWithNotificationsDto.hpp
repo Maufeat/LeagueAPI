@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/MembershipNoficationsDto.hpp>
-#include <lol/def/PlayerMembershipDto.hpp>
+#include "../base_def.hpp" 
+#include "MembershipNoficationsDto.hpp"
+#include "PlayerMembershipDto.hpp"
 namespace lol {
   struct PlayerMembershipWithNotificationsDto { 
     std::vector<MembershipNoficationsDto> membershipNotifications;

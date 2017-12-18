@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolSummonerRMSLevelProgression.hpp>
+#include "../base_def.hpp" 
+#include "LolSummonerRMSLevelProgression.hpp"
 namespace lol {
   struct LolSummonerRMSLevelField { 
     uint32_t finalLevel;

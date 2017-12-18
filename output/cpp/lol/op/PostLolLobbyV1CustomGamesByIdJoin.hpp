@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLobbyLobbyCustomJoinParameters.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLobbyLobbyCustomJoinParameters.hpp"
 namespace lol {
   inline Result<json> PostLolLobbyV1CustomGamesByIdJoin(const LeagueClient& _client, const uint64_t& id, const LolLobbyLobbyCustomJoinParameters& parameters)
   {

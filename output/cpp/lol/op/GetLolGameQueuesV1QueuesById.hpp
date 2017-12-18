@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolGameQueuesQueue.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolGameQueuesQueue.hpp"
 namespace lol {
   inline Result<LolGameQueuesQueue> GetLolGameQueuesV1QueuesById(const LeagueClient& _client, const int32_t& id)
   {

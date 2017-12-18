@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolReplaysMetadataState.hpp>
+#include "../base_def.hpp" 
+#include "LolReplaysMetadataState.hpp"
 namespace lol {
   struct LolReplaysReplayMetadata { 
     LolReplaysMetadataState state;

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolStoreBundledItemCost.hpp>
+#include "../base_def.hpp" 
+#include "LolStoreBundledItemCost.hpp"
 namespace lol {
   struct LolStoreBundledItem { 
     uint32_t quantity;

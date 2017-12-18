@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/StoreLcdsChampionSkinDTO.hpp>
+#include "../base_def.hpp" 
+#include "StoreLcdsChampionSkinDTO.hpp"
 namespace lol {
   struct StoreLcdsChampionDTO { 
     std::vector<StoreLcdsChampionSkinDTO> championSkins;

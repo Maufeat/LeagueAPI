@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/BindingFullEnumValueHelp.hpp>
-#include <lol/def/BindingFullFieldHelp.hpp>
+#include "../base_def.hpp" 
+#include "BindingFullEnumValueHelp.hpp"
+#include "BindingFullFieldHelp.hpp"
 namespace lol {
   struct BindingFullTypeHelp { 
     std::vector<BindingFullFieldHelp> fields;

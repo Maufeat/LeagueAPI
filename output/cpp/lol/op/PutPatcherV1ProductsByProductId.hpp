@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/PatcherProductResource.hpp>
+#include "../base_op.hpp" 
+#include "../def/PatcherProductResource.hpp"
 namespace lol {
   inline Result<json> PutPatcherV1ProductsByProductId(const LeagueClient& _client, const std::string& product_id, const PatcherProductResource& data)
   {

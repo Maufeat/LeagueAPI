@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/HighlightsConfig.hpp>
+#include "../base_op.hpp" 
+#include "../def/HighlightsConfig.hpp"
 namespace lol {
   inline Result<HighlightsConfig> GetLolHighlightsV1Config(const LeagueClient& _client)
   {

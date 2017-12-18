@@ -1,8 +1,8 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LootLcdsRecipeSlotClientDTO.hpp>
-#include <lol/def/LootLcdsRecipeOutputDTO.hpp>
-#include <lol/def/LootLcdsRecipeMetadata.hpp>
+#include "../base_def.hpp" 
+#include "LootLcdsRecipeSlotClientDTO.hpp"
+#include "LootLcdsRecipeMetadata.hpp"
+#include "LootLcdsRecipeOutputDTO.hpp"
 namespace lol {
   struct LootLcdsRecipeClientDTO { 
     std::string crafterName;

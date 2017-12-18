@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolPurchaseWidgetPurchaseWidgetConfig.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolPurchaseWidgetPurchaseWidgetConfig.hpp"
 namespace lol {
   inline Result<LolPurchaseWidgetPurchaseWidgetConfig> GetLolPurchaseWidgetV1Configuration(const LeagueClient& _client)
   {

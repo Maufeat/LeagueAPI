@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolPurchaseWidgetBalance.hpp>
+#include "../base_def.hpp" 
+#include "LolPurchaseWidgetBalance.hpp"
 namespace lol {
   struct LolPurchaseWidgetWallet { 
     int32_t version;

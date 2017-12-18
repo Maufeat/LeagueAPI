@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolChampSelectLegacyQueueGameTypeConfig.hpp>
+#include "../base_def.hpp" 
+#include "LolChampSelectLegacyQueueGameTypeConfig.hpp"
 namespace lol {
   struct LolChampSelectLegacyQueue { 
     LolChampSelectLegacyQueueGameTypeConfig gameTypeConfig;

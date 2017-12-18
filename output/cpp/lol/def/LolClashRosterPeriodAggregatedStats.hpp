@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolClashRosterMatchAggregatedStats.hpp>
+#include "../base_def.hpp" 
+#include "LolClashRosterMatchAggregatedStats.hpp"
 namespace lol {
   struct LolClashRosterPeriodAggregatedStats { 
     int64_t time;

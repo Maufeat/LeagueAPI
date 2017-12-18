@@ -1,5 +1,5 @@
 #pragma once
-#include<lol/base_op.hpp> 
+#include "../base_op.hpp" 
 namespace lol {
   inline Result<void> PutLolLobbyV1PartiesByPartyIdMembersByPuuidRole(const LeagueClient& _client, const std::string& partyId, const std::string& puuid, const std::string& role)
   {

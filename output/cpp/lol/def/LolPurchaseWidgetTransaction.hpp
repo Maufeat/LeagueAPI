@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolPurchaseWidgetItemKey.hpp>
+#include "../base_def.hpp" 
+#include "LolPurchaseWidgetItemKey.hpp"
 namespace lol {
   struct LolPurchaseWidgetTransaction { 
     LolPurchaseWidgetItemKey itemKey;

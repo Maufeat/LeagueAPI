@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolClashTournamentStateInfo.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolClashTournamentStateInfo.hpp"
 namespace lol {
   inline Result<std::vector<LolClashTournamentStateInfo>> GetLolClashV1TournamentStateInfo(const LeagueClient& _client)
   {

@@ -1,5 +1,5 @@
 #pragma once
-#include<lol/base_op.hpp> 
+#include "../base_op.hpp" 
 namespace lol {
   inline Result<json> GetLolGameSettingsV1InputSettingsSchema(const LeagueClient& _client)
   {

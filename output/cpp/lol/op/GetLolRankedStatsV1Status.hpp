@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolRankedStatsPluginStatus.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolRankedStatsPluginStatus.hpp"
 namespace lol {
   inline Result<LolRankedStatsPluginStatus> GetLolRankedStatsV1Status(const LeagueClient& _client)
   {

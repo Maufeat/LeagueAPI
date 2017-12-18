@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolCollectionsCollectionsChestEligibility.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolCollectionsCollectionsChestEligibility.hpp"
 namespace lol {
   inline Result<LolCollectionsCollectionsChestEligibility> GetLolCollectionsV1InventoriesChestEligibility(const LeagueClient& _client)
   {

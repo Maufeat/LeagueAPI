@@ -1,5 +1,5 @@
 #pragma once
-#include<lol/base_op.hpp> 
+#include "../base_op.hpp" 
 namespace lol {
   inline Result<json> GetPerformanceV1SystemInfo(const LeagueClient& _client, const std::optional<int32_t>& full = std::nullopt)
   {

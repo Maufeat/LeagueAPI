@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/BuildInfo.hpp>
+#include "../base_op.hpp" 
+#include "../def/BuildInfo.hpp"
 namespace lol {
   inline Result<BuildInfo> GetSystemV1Builds(const LeagueClient& _client)
   {

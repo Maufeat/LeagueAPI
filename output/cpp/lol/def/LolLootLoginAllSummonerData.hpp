@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLootLoginSummonerLevelAndPoints.hpp>
+#include "../base_def.hpp" 
+#include "LolLootLoginSummonerLevelAndPoints.hpp"
 namespace lol {
   struct LolLootLoginAllSummonerData { 
     LolLootLoginSummonerLevelAndPoints summonerLevelAndPoints; 

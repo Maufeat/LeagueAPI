@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/ClashRewardKeyType.hpp>
-#include <lol/def/ClashRewardConfigEntry.hpp>
+#include "../base_def.hpp" 
+#include "ClashRewardKeyType.hpp"
+#include "ClashRewardConfigEntry.hpp"
 namespace lol {
   struct ClashRewardConfigClient { 
     std::string name;

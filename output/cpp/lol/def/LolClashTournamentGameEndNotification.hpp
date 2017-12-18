@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/Bracket.hpp>
-#include <lol/def/LolClashRosterNotifyReason.hpp>
+#include "../base_def.hpp" 
+#include "LolClashRosterNotifyReason.hpp"
+#include "Bracket.hpp"
 namespace lol {
   struct LolClashTournamentGameEndNotification { 
     int64_t currentMatchId;

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/RosterAggregatedStatsDTO.hpp>
+#include "../base_def.hpp" 
+#include "RosterAggregatedStatsDTO.hpp"
 namespace lol {
   struct RosterStatsDTO { 
     int32_t rosterLogoColor;

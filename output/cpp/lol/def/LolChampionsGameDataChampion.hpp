@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolChampionsGameDataChampionSkin.hpp>
-#include <lol/def/LolChampionsGameDataChampionSpell.hpp>
+#include "../base_def.hpp" 
+#include "LolChampionsGameDataChampionSpell.hpp"
+#include "LolChampionsGameDataChampionSkin.hpp"
 namespace lol {
   struct LolChampionsGameDataChampion { 
     std::vector<LolChampionsGameDataChampionSpell> spells;

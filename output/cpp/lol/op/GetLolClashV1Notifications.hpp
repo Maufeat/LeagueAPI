@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolClashPlayerNotificationData.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolClashPlayerNotificationData.hpp"
 namespace lol {
   inline Result<LolClashPlayerNotificationData> GetLolClashV1Notifications(const LeagueClient& _client)
   {

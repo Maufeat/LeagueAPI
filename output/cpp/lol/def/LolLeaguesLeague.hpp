@@ -1,9 +1,9 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLeaguesLeagueDivision.hpp>
-#include <lol/def/LolLeaguesLeagueQueueType.hpp>
-#include <lol/def/LolLeaguesLeagueTier.hpp>
-#include <lol/def/LolLeaguesLeagueRank.hpp>
+#include "../base_def.hpp" 
+#include "LolLeaguesLeagueDivision.hpp"
+#include "LolLeaguesLeagueRank.hpp"
+#include "LolLeaguesLeagueQueueType.hpp"
+#include "LolLeaguesLeagueTier.hpp"
 namespace lol {
   struct LolLeaguesLeague { 
     LolLeaguesLeagueTier leagueTier;

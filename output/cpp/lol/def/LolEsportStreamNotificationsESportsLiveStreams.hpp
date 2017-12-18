@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolEsportStreamNotificationsESportsStreams.hpp>
+#include "../base_def.hpp" 
+#include "LolEsportStreamNotificationsESportsStreams.hpp"
 namespace lol {
   struct LolEsportStreamNotificationsESportsLiveStreams { 
     std::vector<LolEsportStreamNotificationsESportsStreams> liveStreams; 

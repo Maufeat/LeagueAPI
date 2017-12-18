@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolGameflowGameflowSession.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolGameflowGameflowSession.hpp"
 namespace lol {
   inline Result<LolGameflowGameflowSession> GetLolGameflowV1Session(const LeagueClient& _client)
   {

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolHonorV2EndOfGamePlayer.hpp>
+#include "../base_def.hpp" 
+#include "LolHonorV2EndOfGamePlayer.hpp"
 namespace lol {
   struct LolHonorV2EndOfGameTeam { 
     std::string memberStatusString;

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/TickerMessage.hpp>
+#include "../base_op.hpp" 
+#include "../def/TickerMessage.hpp"
 namespace lol {
   inline Result<std::vector<TickerMessage>> GetLolServiceStatusV1TickerMessages(const LeagueClient& _client)
   {

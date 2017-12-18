@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyPremadeMemberDto.hpp>
+#include "../base_def.hpp" 
+#include "LolLobbyPremadeMemberDto.hpp"
 namespace lol {
   struct LolLobbyPremadePartyDto { 
     std::map<std::string, LolLobbyPremadeMemberDto> players;

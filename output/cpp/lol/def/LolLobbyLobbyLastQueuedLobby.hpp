@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyLobbyLastQueuedMember.hpp>
+#include "../base_def.hpp" 
+#include "LolLobbyLobbyLastQueuedMember.hpp"
 namespace lol {
   struct LolLobbyLobbyLastQueuedLobby { 
     std::vector<LolLobbyLobbyLastQueuedMember> members;

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolBannersTournamentFlagInventoryItem.hpp>
+#include "../base_def.hpp" 
+#include "LolBannersTournamentFlagInventoryItem.hpp"
 namespace lol {
   struct LolBannersInventoryItemsByType { 
     std::vector<LolBannersTournamentFlagInventoryItem> TOURNAMENT_FLAG; 

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/PluginManagerResource.hpp>
+#include "../base_op.hpp" 
+#include "../def/PluginManagerResource.hpp"
 namespace lol {
   inline Result<PluginManagerResource> GetPluginManagerV1Status(const LeagueClient& _client)
   {

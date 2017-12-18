@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolMissionsCollectionsChampionSkin.hpp>
-#include <lol/def/LolMissionsCollectionsOwnership.hpp>
+#include "../base_def.hpp" 
+#include "LolMissionsCollectionsOwnership.hpp"
+#include "LolMissionsCollectionsChampionSkin.hpp"
 namespace lol {
   struct LolMissionsCollectionsChampion { 
     LolMissionsCollectionsOwnership ownership;

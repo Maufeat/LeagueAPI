@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/RecofrienderContactPaginationResource.hpp>
+#include "../base_op.hpp" 
+#include "../def/RecofrienderContactPaginationResource.hpp"
 namespace lol {
   inline Result<RecofrienderContactPaginationResource> GetRecofrienderV2ContactsPage(const LeagueClient& _client, const uint64_t& start, const uint64_t& limit)
   {

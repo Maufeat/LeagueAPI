@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolHonorV2ApiHonorPlayerServerRequest.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolHonorV2ApiHonorPlayerServerRequest.hpp"
 namespace lol {
   inline Result<std::string> PostLolHonorV2V1HonorPlayer(const LeagueClient& _client, const LolHonorV2ApiHonorPlayerServerRequest& honorPlayerRequest)
   {

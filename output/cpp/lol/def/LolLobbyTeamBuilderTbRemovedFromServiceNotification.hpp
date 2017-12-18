@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyTeamBuilderBackwardsTransitionInfoV1.hpp>
+#include "../base_def.hpp" 
+#include "LolLobbyTeamBuilderBackwardsTransitionInfoV1.hpp"
 namespace lol {
   struct LolLobbyTeamBuilderTbRemovedFromServiceNotification { 
     LolLobbyTeamBuilderBackwardsTransitionInfoV1 backwardsTransitionInfo;

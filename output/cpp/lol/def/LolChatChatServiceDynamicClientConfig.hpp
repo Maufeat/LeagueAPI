@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolChatChatDomainConfig.hpp>
-#include <lol/def/LolChatLcuSocialConfig.hpp>
+#include "../base_def.hpp" 
+#include "LolChatLcuSocialConfig.hpp"
+#include "LolChatChatDomainConfig.hpp"
 namespace lol {
   struct LolChatChatServiceDynamicClientConfig { 
     std::optional<LolChatChatDomainConfig> ChatDomain;

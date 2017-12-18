@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyEligibilityRestriction.hpp>
+#include "../base_def.hpp" 
+#include "LolLobbyEligibilityRestriction.hpp"
 namespace lol {
   struct LolLobbyEligibility { 
     bool eligible;

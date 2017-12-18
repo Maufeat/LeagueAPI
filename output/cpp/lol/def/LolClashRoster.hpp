@@ -1,10 +1,10 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolClashSuggestedInvite.hpp>
-#include <lol/def/RosterWithdraw.hpp>
-#include <lol/def/RewardIcon.hpp>
-#include <lol/def/LolClashRosterMember.hpp>
-#include <lol/def/LolClashRosterPhaseInfo.hpp>
+#include "../base_def.hpp" 
+#include "LolClashRosterMember.hpp"
+#include "LolClashSuggestedInvite.hpp"
+#include "RewardIcon.hpp"
+#include "RosterWithdraw.hpp"
+#include "LolClashRosterPhaseInfo.hpp"
 namespace lol {
   struct LolClashRoster { 
     uint64_t captainSummonerId;

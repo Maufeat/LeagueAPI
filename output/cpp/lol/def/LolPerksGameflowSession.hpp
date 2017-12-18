@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolPerksGameflowGameData.hpp>
-#include <lol/def/LolPerksGameflowPhase.hpp>
+#include "../base_def.hpp" 
+#include "LolPerksGameflowPhase.hpp"
+#include "LolPerksGameflowGameData.hpp"
 namespace lol {
   struct LolPerksGameflowSession { 
     LolPerksGameflowPhase phase;

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/ShutdownNotification.hpp>
+#include "../base_op.hpp" 
+#include "../def/ShutdownNotification.hpp"
 namespace lol {
   inline Result<ShutdownNotification> GetLolShutdownV1Notification(const LeagueClient& _client)
   {

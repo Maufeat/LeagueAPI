@@ -1,8 +1,8 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolMatchmakingMatchmakingReadyCheckResponse.hpp>
-#include <lol/def/LolMatchmakingMatchmakingDodgeWarning.hpp>
-#include <lol/def/LolMatchmakingMatchmakingReadyCheckState.hpp>
+#include "../base_def.hpp" 
+#include "LolMatchmakingMatchmakingReadyCheckState.hpp"
+#include "LolMatchmakingMatchmakingDodgeWarning.hpp"
+#include "LolMatchmakingMatchmakingReadyCheckResponse.hpp"
 namespace lol {
   struct LolMatchmakingMatchmakingReadyCheckResource { 
     bool suppressUx;

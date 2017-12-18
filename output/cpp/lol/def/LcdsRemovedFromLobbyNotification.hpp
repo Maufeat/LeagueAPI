@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LcdsRemovalReason.hpp>
+#include "../base_def.hpp" 
+#include "LcdsRemovalReason.hpp"
 namespace lol {
   struct LcdsRemovedFromLobbyNotification { 
     LcdsRemovalReason removalReason; 

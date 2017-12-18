@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/PluginManagerState.hpp>
+#include "../base_def.hpp" 
+#include "PluginManagerState.hpp"
 namespace lol {
   struct PluginManagerResource { 
     PluginManagerState state; 

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/CollectionsLcdsTalentEntry.hpp>
+#include "../base_def.hpp" 
+#include "CollectionsLcdsTalentEntry.hpp"
 namespace lol {
   struct CollectionsLcdsMasteryBookPageDTO { 
     uint64_t createDate;

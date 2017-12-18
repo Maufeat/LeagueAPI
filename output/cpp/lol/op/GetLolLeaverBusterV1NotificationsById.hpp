@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LeaverBusterNotificationResource.hpp>
+#include "../base_op.hpp" 
+#include "../def/LeaverBusterNotificationResource.hpp"
 namespace lol {
   inline Result<LeaverBusterNotificationResource> GetLolLeaverBusterV1NotificationsById(const LeagueClient& _client, const uint32_t& id)
   {

@@ -1,8 +1,8 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolGameQueuesQueueCustomGameSpectatorPolicy.hpp>
-#include <lol/def/LolGameQueuesQueueAvailability.hpp>
-#include <lol/def/LolGameQueuesQueueCustomGameSubcategory.hpp>
+#include "../base_def.hpp" 
+#include "LolGameQueuesQueueCustomGameSubcategory.hpp"
+#include "LolGameQueuesQueueAvailability.hpp"
+#include "LolGameQueuesQueueCustomGameSpectatorPolicy.hpp"
 namespace lol {
   struct LolGameQueuesQueueCustomGame { 
     std::vector<LolGameQueuesQueueCustomGameSubcategory> subcategories;

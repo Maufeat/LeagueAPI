@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolQueueEligibilityCollectionsOwnership.hpp>
+#include "../base_def.hpp" 
+#include "LolQueueEligibilityCollectionsOwnership.hpp"
 namespace lol {
   struct LolQueueEligibilityCollectionsChampion { 
     LolQueueEligibilityCollectionsOwnership ownership;

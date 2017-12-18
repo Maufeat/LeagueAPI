@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolStoreOrderNotificationResource.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolStoreOrderNotificationResource.hpp"
 namespace lol {
   inline Result<std::vector<LolStoreOrderNotificationResource>> GetLolStoreV1OrderNotifications(const LeagueClient& _client)
   {

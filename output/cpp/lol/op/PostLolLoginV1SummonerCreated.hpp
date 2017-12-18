@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLoginSummonerCreatedResource.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLoginSummonerCreatedResource.hpp"
 namespace lol {
   inline Result<json> PostLolLoginV1SummonerCreated(const LeagueClient& _client, const LolLoginSummonerCreatedResource& summonerId)
   {

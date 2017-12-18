@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolCollectionsLoginSessionStates.hpp>
+#include "../base_def.hpp" 
+#include "LolCollectionsLoginSessionStates.hpp"
 namespace lol {
   struct LolCollectionsLoginSession { 
     bool connected;

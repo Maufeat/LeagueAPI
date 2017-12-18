@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolPerksPerkPageResource.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolPerksPerkPageResource.hpp"
 namespace lol {
   inline Result<json> PutLolPerksV1PagesById(const LeagueClient& _client, const int32_t& id, const LolPerksPerkPageResource& page)
   {

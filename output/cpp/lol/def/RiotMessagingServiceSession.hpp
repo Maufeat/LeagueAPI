@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/RiotMessagingServiceTokenType.hpp>
-#include <lol/def/RiotMessagingServiceState.hpp>
+#include "../base_def.hpp" 
+#include "RiotMessagingServiceState.hpp"
+#include "RiotMessagingServiceTokenType.hpp"
 namespace lol {
   struct RiotMessagingServiceSession { 
     RiotMessagingServiceState state;

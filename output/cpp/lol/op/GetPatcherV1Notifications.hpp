@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/PatcherNotification.hpp>
+#include "../base_op.hpp" 
+#include "../def/PatcherNotification.hpp"
 namespace lol {
   inline Result<std::vector<PatcherNotification>> GetPatcherV1Notifications(const LeagueClient& _client)
   {

@@ -1,5 +1,5 @@
 #pragma once
-#include<lol/base_def.hpp> 
+#include "../base_def.hpp" 
 namespace lol {
   enum struct LolLootRedeemableStatus {  
     ALREADY_OWNED_e = 5,

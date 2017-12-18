@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/RecofrienderContactStateResource.hpp>
+#include "../base_op.hpp" 
+#include "../def/RecofrienderContactStateResource.hpp"
 namespace lol {
   inline Result<RecofrienderContactStateResource> PostRecofrienderV1ContactsByAccountIdInvited(const LeagueClient& _client, const uint64_t& accountId, const std::optional<bool>& retainInCache = std::nullopt)
   {

@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolClashRosterPeriodAggregatedStats.hpp>
-#include <lol/def/LolClashRosterPlayerAggregatedStats.hpp>
+#include "../base_def.hpp" 
+#include "LolClashRosterPlayerAggregatedStats.hpp"
+#include "LolClashRosterPeriodAggregatedStats.hpp"
 namespace lol {
   struct LolClashRosterStats { 
     std::map<std::string, LolClashRosterPlayerAggregatedStats> playerStats;

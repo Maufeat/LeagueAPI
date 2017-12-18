@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/RankedScoutingTopChampionDTO.hpp>
+#include "../base_def.hpp" 
+#include "RankedScoutingTopChampionDTO.hpp"
 namespace lol {
   struct RankedScoutingMemberDTO { 
     std::vector<RankedScoutingTopChampionDTO> championScoutingData;

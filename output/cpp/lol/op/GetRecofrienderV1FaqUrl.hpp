@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/RecofrienderUrlResource.hpp>
+#include "../base_op.hpp" 
+#include "../def/RecofrienderUrlResource.hpp"
 namespace lol {
   inline Result<RecofrienderUrlResource> GetRecofrienderV1FaqUrl(const LeagueClient& _client)
   {

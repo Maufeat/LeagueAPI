@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/PlayerLevelUpEventAck.hpp>
+#include "../base_op.hpp" 
+#include "../def/PlayerLevelUpEventAck.hpp"
 namespace lol {
   inline Result<void> PostLolPlayerLevelUpV1LevelUpNotificationsByPluginName(const LeagueClient& _client, const std::string& pluginName, const PlayerLevelUpEventAck& levelUpEventAck)
   {

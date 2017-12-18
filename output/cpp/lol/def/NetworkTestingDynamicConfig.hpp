@@ -1,5 +1,5 @@
 #pragma once
-#include<lol/base_def.hpp> 
+#include "../base_def.hpp" 
 namespace lol {
   struct NetworkTestingDynamicConfig { 
     uint8_t IPv4OptionsProbeCount;

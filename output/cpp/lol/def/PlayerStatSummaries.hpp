@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/PlayerStatSummary.hpp>
+#include "../base_def.hpp" 
+#include "PlayerStatSummary.hpp"
 namespace lol {
   struct PlayerStatSummaries { 
     std::vector<PlayerStatSummary> playerStatSummarySet; 

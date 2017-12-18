@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/PluginResourceContract.hpp>
+#include "../base_def.hpp" 
+#include "PluginResourceContract.hpp"
 namespace lol {
   struct PluginResource { 
     int32_t orderDynamicLibraryLoaded;

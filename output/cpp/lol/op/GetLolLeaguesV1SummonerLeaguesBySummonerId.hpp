@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLeaguesLeague.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLeaguesLeague.hpp"
 namespace lol {
   inline Result<std::vector<LolLeaguesLeague>> GetLolLeaguesV1SummonerLeaguesBySummonerId(const LeagueClient& _client, const uint64_t& summonerId)
   {

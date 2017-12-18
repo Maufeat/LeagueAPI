@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolMatchmakingMatchmakingSearchResource.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolMatchmakingMatchmakingSearchResource.hpp"
 namespace lol {
   inline Result<LolMatchmakingMatchmakingSearchResource> GetLolMatchmakingV1Search(const LeagueClient& _client)
   {

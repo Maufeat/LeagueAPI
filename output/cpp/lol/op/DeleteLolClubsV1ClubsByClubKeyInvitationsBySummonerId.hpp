@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/ClubMemberLists.hpp>
+#include "../base_op.hpp" 
+#include "../def/ClubMemberLists.hpp"
 namespace lol {
   inline Result<ClubMemberLists> DeleteLolClubsV1ClubsByClubKeyInvitationsBySummonerId(const LeagueClient& _client, const std::string& clubKey, const uint64_t& summonerId)
   {

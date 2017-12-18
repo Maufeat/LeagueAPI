@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/basicSystemInfo.hpp>
+#include "../base_op.hpp" 
+#include "../def/basicSystemInfo.hpp"
 namespace lol {
   inline Result<basicSystemInfo> GetRiotclientSystemInfoV1BasicInfo(const LeagueClient& _client)
   {

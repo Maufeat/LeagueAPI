@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolBannersBannerFlag.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolBannersBannerFlag.hpp"
 namespace lol {
   inline Result<std::vector<LolBannersBannerFlag>> GetLolBannersV1CurrentSummonerFlags(const LeagueClient& _client)
   {

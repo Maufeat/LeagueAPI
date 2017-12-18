@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolItemSetsItemSetBlock.hpp>
-#include <lol/def/LolItemSetsPreferredItemSlot.hpp>
+#include "../base_def.hpp" 
+#include "LolItemSetsPreferredItemSlot.hpp"
+#include "LolItemSetsItemSetBlock.hpp"
 namespace lol {
   struct LolItemSetsItemSet { 
     std::vector<LolItemSetsPreferredItemSlot> preferredItemSlots;

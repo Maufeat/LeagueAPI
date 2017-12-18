@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/RosterDTO.hpp>
-#include <lol/def/LolClashRosterNotifyReason.hpp>
+#include "../base_def.hpp" 
+#include "LolClashRosterNotifyReason.hpp"
+#include "RosterDTO.hpp"
 namespace lol {
   struct LolClashRegisteredRosterNotification { 
     RosterDTO roster;

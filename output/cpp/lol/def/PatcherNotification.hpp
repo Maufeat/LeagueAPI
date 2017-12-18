@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/PatcherNotificationId.hpp>
+#include "../base_def.hpp" 
+#include "PatcherNotificationId.hpp"
 namespace lol {
   struct PatcherNotification { 
     PatcherNotificationId notificationId;

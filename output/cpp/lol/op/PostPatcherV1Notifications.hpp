@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/PatcherNotificationId.hpp>
+#include "../base_op.hpp" 
+#include "../def/PatcherNotificationId.hpp"
 namespace lol {
   inline Result<void> PostPatcherV1Notifications(const LeagueClient& _client, const PatcherNotificationId& notificationId)
   {

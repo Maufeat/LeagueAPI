@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolCollectionsCollectionsTopChampionMasteries.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolCollectionsCollectionsTopChampionMasteries.hpp"
 namespace lol {
   inline Result<LolCollectionsCollectionsTopChampionMasteries> GetLolCollectionsV1InventoriesBySummonerIdChampionMasteryTop(const LeagueClient& _client, const uint64_t& summonerId, const uint64_t& limit, const std::optional<std::string>& sortRule = std::nullopt)
   {

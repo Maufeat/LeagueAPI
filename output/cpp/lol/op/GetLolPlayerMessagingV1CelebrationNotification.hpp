@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/DynamicCelebrationMessagingNotificationResource.hpp>
+#include "../base_op.hpp" 
+#include "../def/DynamicCelebrationMessagingNotificationResource.hpp"
 namespace lol {
   inline Result<DynamicCelebrationMessagingNotificationResource> GetLolPlayerMessagingV1CelebrationNotification(const LeagueClient& _client)
   {

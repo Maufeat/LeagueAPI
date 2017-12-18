@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/RecofrienderConfig.hpp>
+#include "../base_op.hpp" 
+#include "../def/RecofrienderConfig.hpp"
 namespace lol {
   inline Result<RecofrienderConfig> GetRecofrienderV1Config(const LeagueClient& _client)
   {

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/RankedLeagueItemDTO.hpp>
+#include "../base_def.hpp" 
+#include "RankedLeagueItemDTO.hpp"
 namespace lol {
   struct RankedLeagueListDTO { 
     std::string requestorsName;

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyLobbyPartyRewardType.hpp>
+#include "../base_def.hpp" 
+#include "LolLobbyLobbyPartyRewardType.hpp"
 namespace lol {
   struct LolLobbyPartyReward { 
     LolLobbyLobbyPartyRewardType type;

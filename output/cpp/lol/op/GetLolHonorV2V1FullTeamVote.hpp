@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolHonorV2FullTeamVote.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolHonorV2FullTeamVote.hpp"
 namespace lol {
   inline Result<LolHonorV2FullTeamVote> GetLolHonorV2V1FullTeamVote(const LeagueClient& _client)
   {

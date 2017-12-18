@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolCollectionsCollectionsMasteryBook.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolCollectionsCollectionsMasteryBook.hpp"
 namespace lol {
   inline Result<LolCollectionsCollectionsMasteryBook> PutLolCollectionsV1InventoriesBySummonerIdMasteryBook(const LeagueClient& _client, const uint64_t& summonerId, const LolCollectionsCollectionsMasteryBook& resource)
   {

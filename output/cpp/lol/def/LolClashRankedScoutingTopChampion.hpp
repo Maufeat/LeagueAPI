@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolClashKdaClassification.hpp>
+#include "../base_def.hpp" 
+#include "LolClashKdaClassification.hpp"
 namespace lol {
   struct LolClashRankedScoutingTopChampion { 
     int32_t winRate;

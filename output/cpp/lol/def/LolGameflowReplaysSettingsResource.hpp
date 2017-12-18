@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolGameflowReplaysSettingsData.hpp>
+#include "../base_def.hpp" 
+#include "LolGameflowReplaysSettingsData.hpp"
 namespace lol {
   struct LolGameflowReplaysSettingsResource { 
     LolGameflowReplaysSettingsData data; 

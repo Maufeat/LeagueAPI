@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/EndOfGameLcdsRawStatDTO.hpp>
+#include "../base_def.hpp" 
+#include "EndOfGameLcdsRawStatDTO.hpp"
 namespace lol {
   struct EndOfGameLcdsPlayerParticipantStatsSummary { 
     int32_t eloChange;

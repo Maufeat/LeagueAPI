@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/NetworkExperimentsResource.hpp>
+#include "../base_op.hpp" 
+#include "../def/NetworkExperimentsResource.hpp"
 namespace lol {
   inline Result<NetworkExperimentsResource> GetNetworkTestingV1Experiments(const LeagueClient& _client)
   {

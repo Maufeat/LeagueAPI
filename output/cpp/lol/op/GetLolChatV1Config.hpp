@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolChatChatServiceDynamicClientConfig.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolChatChatServiceDynamicClientConfig.hpp"
 namespace lol {
   inline Result<LolChatChatServiceDynamicClientConfig> GetLolChatV1Config(const LeagueClient& _client)
   {

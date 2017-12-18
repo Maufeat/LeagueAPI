@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/RecofrienderFriendState.hpp>
+#include "../base_def.hpp" 
+#include "RecofrienderFriendState.hpp"
 namespace lol {
   struct RecofrienderContactResource { 
     RecofrienderFriendState friendState;

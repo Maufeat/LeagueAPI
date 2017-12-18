@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolMapsMaps.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolMapsMaps.hpp"
 namespace lol {
   inline Result<std::vector<LolMapsMaps>> GetLolMapsV1Maps(const LeagueClient& _client)
   {

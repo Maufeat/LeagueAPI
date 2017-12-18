@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLoginLoginSessionWallet.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLoginLoginSessionWallet.hpp"
 namespace lol {
   inline Result<LolLoginLoginSessionWallet> GetLolLoginV1Wallet(const LeagueClient& _client)
   {

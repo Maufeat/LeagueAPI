@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLeaguesSignedSummonerLeagueItemsDTO.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLeaguesSignedSummonerLeagueItemsDTO.hpp"
 namespace lol {
   inline Result<LolLeaguesSignedSummonerLeagueItemsDTO> GetLolLeaguesV2SummonerLeaguesCurrentSummonerSignedLeagues(const LeagueClient& _client)
   {

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolChatQueueGameTypeConfig.hpp>
+#include "../base_def.hpp" 
+#include "LolChatQueueGameTypeConfig.hpp"
 namespace lol {
   struct LolChatQueue { 
     LolChatQueueGameTypeConfig gameTypeConfig;

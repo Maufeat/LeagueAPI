@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolCollectionsCollectionsRental.hpp>
+#include "../base_def.hpp" 
+#include "LolCollectionsCollectionsRental.hpp"
 namespace lol {
   struct LolCollectionsCollectionsOwnership { 
     LolCollectionsCollectionsRental rental;

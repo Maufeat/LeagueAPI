@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/CollectionsLcdsSpellBookPageDTO.hpp>
+#include "../base_def.hpp" 
+#include "CollectionsLcdsSpellBookPageDTO.hpp"
 namespace lol {
   struct CollectionsLcdsSpellBookDTO { 
     std::vector<CollectionsLcdsSpellBookPageDTO> bookPages;

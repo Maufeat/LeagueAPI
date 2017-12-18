@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/SummonerLevelAndPoints.hpp>
-#include <lol/def/PrivateSummonerDTO.hpp>
+#include "../base_def.hpp" 
+#include "SummonerLevelAndPoints.hpp"
+#include "PrivateSummonerDTO.hpp"
 namespace lol {
   struct AllSummonerData { 
     PrivateSummonerDTO summoner;

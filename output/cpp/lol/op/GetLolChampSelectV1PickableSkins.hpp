@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolChampSelectChampSelectPickableSkins.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolChampSelectChampSelectPickableSkins.hpp"
 namespace lol {
   inline Result<LolChampSelectChampSelectPickableSkins> GetLolChampSelectV1PickableSkins(const LeagueClient& _client)
   {

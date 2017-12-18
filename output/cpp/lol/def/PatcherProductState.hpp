@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/PatcherComponentStateAction.hpp>
-#include <lol/def/PatcherComponentState.hpp>
+#include "../base_def.hpp" 
+#include "PatcherComponentState.hpp"
+#include "PatcherComponentStateAction.hpp"
 namespace lol {
   struct PatcherProductState { 
     std::vector<PatcherComponentState> components;

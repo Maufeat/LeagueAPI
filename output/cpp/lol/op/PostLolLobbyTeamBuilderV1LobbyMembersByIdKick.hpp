@@ -1,5 +1,5 @@
 #pragma once
-#include<lol/base_op.hpp> 
+#include "../base_op.hpp" 
 namespace lol {
   inline Result<json> PostLolLobbyTeamBuilderV1LobbyMembersByIdKick(const LeagueClient& _client, const uint64_t& id)
   {

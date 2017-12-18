@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/NetworkExperimentResource.hpp>
+#include "../base_def.hpp" 
+#include "NetworkExperimentResource.hpp"
 namespace lol {
   struct NetworkExperimentsResource { 
     std::map<std::string, NetworkExperimentResource> experiments; 

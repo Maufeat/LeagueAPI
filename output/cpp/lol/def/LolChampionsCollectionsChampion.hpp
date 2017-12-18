@@ -1,8 +1,8 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolChampionsCollectionsChampionSpell.hpp>
-#include <lol/def/LolChampionsCollectionsChampionSkin.hpp>
-#include <lol/def/LolChampionsCollectionsOwnership.hpp>
+#include "../base_def.hpp" 
+#include "LolChampionsCollectionsChampionSpell.hpp"
+#include "LolChampionsCollectionsChampionSkin.hpp"
+#include "LolChampionsCollectionsOwnership.hpp"
 namespace lol {
   struct LolChampionsCollectionsChampion { 
     std::string alias;

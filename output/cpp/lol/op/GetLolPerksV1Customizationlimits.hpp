@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolPerksCustomizationLimits.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolPerksCustomizationLimits.hpp"
 namespace lol {
   inline Result<LolPerksCustomizationLimits> GetLolPerksV1Customizationlimits(const LeagueClient& _client)
   {

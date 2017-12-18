@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolClashEogPlayerUpdateDTO.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolClashEogPlayerUpdateDTO.hpp"
 namespace lol {
   inline Result<LolClashEogPlayerUpdateDTO> GetLolClashV1EogPlayerUpdate(const LeagueClient& _client)
   {

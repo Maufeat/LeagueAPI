@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/ClashRewardSpec.hpp>
+#include "../base_def.hpp" 
+#include "ClashRewardSpec.hpp"
 namespace lol {
   struct ClashEventData { 
     std::string theme;

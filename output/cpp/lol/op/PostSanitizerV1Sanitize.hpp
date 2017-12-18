@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/SanitizerSanitizeRequest.hpp>
-#include <lol/def/SanitizerSanitizeResponse.hpp>
+#include "../base_op.hpp" 
+#include "../def/SanitizerSanitizeResponse.hpp"
+#include "../def/SanitizerSanitizeRequest.hpp"
 namespace lol {
   inline Result<SanitizerSanitizeResponse> PostSanitizerV1Sanitize(const LeagueClient& _client, const SanitizerSanitizeRequest& request)
   {

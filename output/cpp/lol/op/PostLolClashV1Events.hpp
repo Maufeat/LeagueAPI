@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/ClashEventData.hpp>
+#include "../base_op.hpp" 
+#include "../def/ClashEventData.hpp"
 namespace lol {
   inline Result<std::map<std::string, ClashEventData>> PostLolClashV1Events(const LeagueClient& _client, const std::vector<std::string>& uuids)
   {

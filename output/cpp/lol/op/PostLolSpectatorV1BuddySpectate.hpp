@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/SummonerOrTeamAvailabilty.hpp>
+#include "../base_op.hpp" 
+#include "../def/SummonerOrTeamAvailabilty.hpp"
 namespace lol {
   inline Result<SummonerOrTeamAvailabilty> PostLolSpectatorV1BuddySpectate(const LeagueClient& _client, const std::vector<std::string>& summonerOrTeamNames)
   {

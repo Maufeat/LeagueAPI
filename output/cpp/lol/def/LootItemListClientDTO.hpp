@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LootItemClientDTO.hpp>
+#include "../base_def.hpp" 
+#include "LootItemClientDTO.hpp"
 namespace lol {
   struct LootItemListClientDTO { 
     std::vector<LootItemClientDTO> lootItems;

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolChampSelectLegacyChampSelectTradeContract.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolChampSelectLegacyChampSelectTradeContract.hpp"
 namespace lol {
   inline Result<std::vector<LolChampSelectLegacyChampSelectTradeContract>> GetLolChampSelectLegacyV1SessionTrades(const LeagueClient& _client)
   {

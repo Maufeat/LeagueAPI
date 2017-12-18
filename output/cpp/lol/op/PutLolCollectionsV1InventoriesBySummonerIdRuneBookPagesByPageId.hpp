@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolCollectionsCollectionsRunePage.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolCollectionsCollectionsRunePage.hpp"
 namespace lol {
   inline Result<LolCollectionsCollectionsRunePage> PutLolCollectionsV1InventoriesBySummonerIdRuneBookPagesByPageId(const LeagueClient& _client, const uint64_t& summonerId, const uint32_t& pageId, const LolCollectionsCollectionsRunePage& resource)
   {

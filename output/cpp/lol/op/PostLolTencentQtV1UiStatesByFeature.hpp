@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/TencentQTNotification.hpp>
+#include "../base_op.hpp" 
+#include "../def/TencentQTNotification.hpp"
 namespace lol {
   inline Result<json> PostLolTencentQtV1UiStatesByFeature(const LeagueClient& _client, const std::string& feature, const TencentQTNotification& state)
   {

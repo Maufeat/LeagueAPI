@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/ServiceStatusResource.hpp>
+#include "../base_op.hpp" 
+#include "../def/ServiceStatusResource.hpp"
 namespace lol {
   inline Result<ServiceStatusResource> GetLolServiceStatusV1LcuStatus(const LeagueClient& _client)
   {

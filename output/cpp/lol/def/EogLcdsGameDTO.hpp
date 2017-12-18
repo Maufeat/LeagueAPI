@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/BannedChampion.hpp>
-#include <lol/def/PlayerParticipant.hpp>
+#include "../base_def.hpp" 
+#include "BannedChampion.hpp"
+#include "PlayerParticipant.hpp"
 namespace lol {
   struct EogLcdsGameDTO { 
     std::vector<PlayerParticipant> teamOne;

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolReplaysReplaysConfiguration.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolReplaysReplaysConfiguration.hpp"
 namespace lol {
   inline Result<LolReplaysReplaysConfiguration> GetLolReplaysV1Configuration(const LeagueClient& _client)
   {

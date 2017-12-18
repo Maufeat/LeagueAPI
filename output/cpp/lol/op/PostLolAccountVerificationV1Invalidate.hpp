@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolAccountVerificationInvalidateResponse.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolAccountVerificationInvalidateResponse.hpp"
 namespace lol {
   inline Result<LolAccountVerificationInvalidateResponse> PostLolAccountVerificationV1Invalidate(const LeagueClient& _client)
   {

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolCollectionsGameDataChampionMasteryTree.hpp>
+#include "../base_def.hpp" 
+#include "LolCollectionsGameDataChampionMasteryTree.hpp"
 namespace lol {
   struct LolCollectionsGameDataChampionMasteries { 
     LolCollectionsGameDataChampionMasteryTree tree; 

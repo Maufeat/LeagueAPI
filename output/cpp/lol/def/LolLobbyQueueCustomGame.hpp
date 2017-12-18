@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyQueueAvailability.hpp>
+#include "../base_def.hpp" 
+#include "LolLobbyQueueAvailability.hpp"
 namespace lol {
   struct LolLobbyQueueCustomGame { 
     LolLobbyQueueAvailability queueAvailability; 

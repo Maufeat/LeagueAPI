@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLicenseAgreementLicenseAgreementType.hpp>
+#include "../base_def.hpp" 
+#include "LolLicenseAgreementLicenseAgreementType.hpp"
 namespace lol {
   struct LolLicenseAgreementLicenseAgreement { 
     std::string text;

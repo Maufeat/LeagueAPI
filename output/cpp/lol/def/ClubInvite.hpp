@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/ClubInviteStatus.hpp>
+#include "../base_def.hpp" 
+#include "ClubInviteStatus.hpp"
 namespace lol {
   struct ClubInvite { 
     uint64_t inviteeAccountId;

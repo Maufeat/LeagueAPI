@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolGameflowGameflowAvailability.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolGameflowGameflowAvailability.hpp"
 namespace lol {
   inline Result<LolGameflowGameflowAvailability> GetLolGameflowV1Availability(const LeagueClient& _client)
   {

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLobbyLobbyDto.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLobbyLobbyDto.hpp"
 namespace lol {
   inline Result<LolLobbyLobbyDto> GetLolLobbyV2Lobby(const LeagueClient& _client)
   {

@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/BindingFullArgumentHelp.hpp>
-#include <lol/def/BindingFullTypeIdentifier.hpp>
+#include "../base_def.hpp" 
+#include "BindingFullArgumentHelp.hpp"
+#include "BindingFullTypeIdentifier.hpp"
 namespace lol {
   struct BindingFullFunctionHelp { 
     std::vector<BindingFullArgumentHelp> arguments;

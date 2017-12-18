@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolChatChatRankedEntry.hpp>
+#include "../base_def.hpp" 
+#include "LolChatChatRankedEntry.hpp"
 namespace lol {
   struct LolChatChatRankedData { 
     std::vector<LolChatChatRankedEntry> rankedData;

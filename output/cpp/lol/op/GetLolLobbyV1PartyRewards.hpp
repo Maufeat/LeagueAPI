@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLobbyLobbyPartyRewards.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLobbyLobbyPartyRewards.hpp"
 namespace lol {
   inline Result<LolLobbyLobbyPartyRewards> GetLolLobbyV1PartyRewards(const LeagueClient& _client)
   {

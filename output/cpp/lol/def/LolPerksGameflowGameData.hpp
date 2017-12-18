@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolPerksQueue.hpp>
+#include "../base_def.hpp" 
+#include "LolPerksQueue.hpp"
 namespace lol {
   struct LolPerksGameflowGameData { 
     bool isCustomGame;

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolClashPlayerData.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolClashPlayerData.hpp"
 namespace lol {
   inline Result<LolClashPlayerData> GetLolClashV1Player(const LeagueClient& _client)
   {

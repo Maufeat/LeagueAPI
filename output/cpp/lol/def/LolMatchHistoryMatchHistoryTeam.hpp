@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolMatchHistoryMatchHistoryTeamBan.hpp>
+#include "../base_def.hpp" 
+#include "LolMatchHistoryMatchHistoryTeamBan.hpp"
 namespace lol {
   struct LolMatchHistoryMatchHistoryTeam { 
     bool firstBaron;

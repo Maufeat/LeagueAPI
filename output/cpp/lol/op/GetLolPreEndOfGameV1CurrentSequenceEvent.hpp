@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolPreEndOfGameSequenceEvent.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolPreEndOfGameSequenceEvent.hpp"
 namespace lol {
   inline Result<LolPreEndOfGameSequenceEvent> GetLolPreEndOfGameV1CurrentSequenceEvent(const LeagueClient& _client)
   {

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolPurchaseWidgetValidationRequestItem.hpp>
+#include "../base_def.hpp" 
+#include "LolPurchaseWidgetValidationRequestItem.hpp"
 namespace lol {
   struct LolPurchaseWidgetValidationRequest { 
     std::vector<LolPurchaseWidgetValidationRequestItem> items; 

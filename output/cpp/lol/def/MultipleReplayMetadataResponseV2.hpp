@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/MultipleReplayMetadataResponseItemV2.hpp>
+#include "../base_def.hpp" 
+#include "MultipleReplayMetadataResponseItemV2.hpp"
 namespace lol {
   struct MultipleReplayMetadataResponseV2 { 
     std::vector<MultipleReplayMetadataResponseItemV2> metadataResponses; 

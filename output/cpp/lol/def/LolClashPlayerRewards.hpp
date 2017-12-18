@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolClashThemeVp.hpp>
+#include "../base_def.hpp" 
+#include "LolClashThemeVp.hpp"
 namespace lol {
   struct LolClashPlayerRewards { 
     int32_t seasonVp;

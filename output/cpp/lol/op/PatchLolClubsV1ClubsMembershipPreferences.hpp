@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/ClubPreferences.hpp>
+#include "../base_op.hpp" 
+#include "../def/ClubPreferences.hpp"
 namespace lol {
   inline Result<ClubPreferences> PatchLolClubsV1ClubsMembershipPreferences(const LeagueClient& _client, const ClubPreferences& preferences)
   {

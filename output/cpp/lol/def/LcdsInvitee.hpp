@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LcdsInviteeState.hpp>
+#include "../base_def.hpp" 
+#include "LcdsInviteeState.hpp"
 namespace lol {
   struct LcdsInvitee { 
     LcdsInviteeState inviteeState;

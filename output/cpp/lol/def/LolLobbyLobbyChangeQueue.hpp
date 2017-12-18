@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyLobbyCustomGameLobby.hpp>
+#include "../base_def.hpp" 
+#include "LolLobbyLobbyCustomGameLobby.hpp"
 namespace lol {
   struct LolLobbyLobbyChangeQueue { 
     bool isCustom;

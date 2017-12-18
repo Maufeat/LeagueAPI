@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LcdsFailedJoinPlayer.hpp>
+#include "../base_def.hpp" 
+#include "LcdsFailedJoinPlayer.hpp"
 namespace lol {
   struct LcdsStartChampSelectDto { 
     std::vector<LcdsFailedJoinPlayer> invalidPlayers; 

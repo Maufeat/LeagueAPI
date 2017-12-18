@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolChatBlockedPlayerResource.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolChatBlockedPlayerResource.hpp"
 namespace lol {
   inline Result<json> PostLolChatV1BlockedPlayers(const LeagueClient& _client, const LolChatBlockedPlayerResource& blocked)
   {

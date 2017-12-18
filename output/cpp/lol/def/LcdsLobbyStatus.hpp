@@ -1,8 +1,8 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LcdsMember.hpp>
-#include <lol/def/LcdsInvitee.hpp>
-#include <lol/def/LcdsPlayer.hpp>
+#include "../base_def.hpp" 
+#include "LcdsMember.hpp"
+#include "LcdsInvitee.hpp"
+#include "LcdsPlayer.hpp"
 namespace lol {
   struct LcdsLobbyStatus { 
     std::vector<LcdsMember> members;

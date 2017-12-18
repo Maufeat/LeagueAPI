@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolPftPFTEndOfGamePlayer.hpp>
+#include "../base_def.hpp" 
+#include "LolPftPFTEndOfGamePlayer.hpp"
 namespace lol {
   struct LolPftPFTEndOfGameTeam { 
     std::string memberStatusString;

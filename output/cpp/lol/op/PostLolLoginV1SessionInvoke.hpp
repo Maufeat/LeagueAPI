@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLoginLcdsResponse.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLoginLcdsResponse.hpp"
 namespace lol {
   inline Result<LolLoginLcdsResponse> PostLolLoginV1SessionInvoke(const LeagueClient& _client, const std::string& destination, const std::string& method, const std::vector<json>& args)
   {

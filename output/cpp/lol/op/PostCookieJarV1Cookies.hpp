@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/cookie.hpp>
+#include "../base_op.hpp" 
+#include "../def/cookie.hpp"
 namespace lol {
   inline Result<json> PostCookieJarV1Cookies(const LeagueClient& _client, const std::vector<cookie>& cookie)
   {

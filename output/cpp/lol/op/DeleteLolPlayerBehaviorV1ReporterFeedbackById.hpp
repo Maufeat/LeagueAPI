@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolPlayerBehaviorReporterFeedback.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolPlayerBehaviorReporterFeedback.hpp"
 namespace lol {
   inline Result<LolPlayerBehaviorReporterFeedback> DeleteLolPlayerBehaviorV1ReporterFeedbackById(const LeagueClient& _client, const std::string& id)
   {

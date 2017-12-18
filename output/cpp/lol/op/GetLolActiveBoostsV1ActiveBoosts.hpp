@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/ActiveBoosts.hpp>
+#include "../base_op.hpp" 
+#include "../def/ActiveBoosts.hpp"
 namespace lol {
   inline Result<ActiveBoosts> GetLolActiveBoostsV1ActiveBoosts(const LeagueClient& _client)
   {

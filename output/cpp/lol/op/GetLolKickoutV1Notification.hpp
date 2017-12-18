@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/KickoutMessage.hpp>
+#include "../base_op.hpp" 
+#include "../def/KickoutMessage.hpp"
 namespace lol {
   inline Result<KickoutMessage> GetLolKickoutV1Notification(const LeagueClient& _client)
   {

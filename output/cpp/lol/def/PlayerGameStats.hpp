@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/FellowPlayerInfo.hpp>
+#include "../base_def.hpp" 
+#include "FellowPlayerInfo.hpp"
 namespace lol {
   struct PlayerGameStats { 
     uint64_t createDate;

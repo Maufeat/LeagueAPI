@@ -1,5 +1,5 @@
 #pragma once
-#include<lol/base_def.hpp> 
+#include "../base_def.hpp" 
 namespace lol {
   struct LootLcdsLootDescriptionDTO { 
     std::map<std::string, std::string> localizationLongDescriptionMap;

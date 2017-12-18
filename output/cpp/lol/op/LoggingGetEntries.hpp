@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LogEvent.hpp>
+#include "../base_op.hpp" 
+#include "../def/LogEvent.hpp"
 namespace lol {
   inline Result<std::vector<LogEvent>> LoggingGetEntries(const LeagueClient& _client)
   {

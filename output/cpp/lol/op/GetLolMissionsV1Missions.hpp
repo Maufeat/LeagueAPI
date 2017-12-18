@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/PlayerMissionDTO.hpp>
+#include "../base_op.hpp" 
+#include "../def/PlayerMissionDTO.hpp"
 namespace lol {
   inline Result<std::vector<PlayerMissionDTO>> GetLolMissionsV1Missions(const LeagueClient& _client)
   {

@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolMatchHistoryMatchHistoryTimeline.hpp>
-#include <lol/def/LolMatchHistoryMatchHistoryParticipantStatistics.hpp>
+#include "../base_def.hpp" 
+#include "LolMatchHistoryMatchHistoryTimeline.hpp"
+#include "LolMatchHistoryMatchHistoryParticipantStatistics.hpp"
 namespace lol {
   struct LolMatchHistoryMatchHistoryParticipant { 
     uint16_t spell1Id;

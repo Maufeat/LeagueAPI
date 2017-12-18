@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolQueueEligibilityEligibility.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolQueueEligibilityEligibility.hpp"
 namespace lol {
   inline Result<std::vector<LolQueueEligibilityEligibility>> GetLolQueueEligibilityV3Custom(const LeagueClient& _client, const int32_t& teamSize, const std::string& pickMode)
   {

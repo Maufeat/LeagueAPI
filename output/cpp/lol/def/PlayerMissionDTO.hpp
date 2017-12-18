@@ -1,9 +1,9 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/PlayerMissionObjectiveDTO.hpp>
-#include <lol/def/MissionRequirementDTO.hpp>
-#include <lol/def/MissionAlertDTO.hpp>
-#include <lol/def/PlayerMissionRewardDTO.hpp>
+#include "../base_def.hpp" 
+#include "PlayerMissionObjectiveDTO.hpp"
+#include "MissionRequirementDTO.hpp"
+#include "PlayerMissionRewardDTO.hpp"
+#include "MissionAlertDTO.hpp"
 namespace lol {
   struct PlayerMissionDTO { 
     std::string helperText;

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolMatchmakingMatchmakingReadyCheckResource.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolMatchmakingMatchmakingReadyCheckResource.hpp"
 namespace lol {
   inline Result<LolMatchmakingMatchmakingReadyCheckResource> GetLolMatchmakingV1ReadyCheck(const LeagueClient& _client)
   {

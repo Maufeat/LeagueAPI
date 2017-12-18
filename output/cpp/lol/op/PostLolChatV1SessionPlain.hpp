@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolChatSessionResource.hpp>
-#include <lol/def/LolChatAuthResourcePlain.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolChatAuthResourcePlain.hpp"
+#include "../def/LolChatSessionResource.hpp"
 namespace lol {
   inline Result<LolChatSessionResource> PostLolChatV1SessionPlain(const LeagueClient& _client, const LolChatAuthResourcePlain& auth)
   {

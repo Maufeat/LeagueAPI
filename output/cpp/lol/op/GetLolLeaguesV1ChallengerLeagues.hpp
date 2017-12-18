@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLeaguesApexLeagues.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLeaguesApexLeagues.hpp"
 namespace lol {
   inline Result<LolLeaguesApexLeagues> GetLolLeaguesV1ChallengerLeagues(const LeagueClient& _client)
   {

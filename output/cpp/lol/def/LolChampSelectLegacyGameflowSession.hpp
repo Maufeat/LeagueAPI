@@ -1,8 +1,8 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolChampSelectLegacyGameflowGameData.hpp>
-#include <lol/def/LolChampSelectLegacyGameflowPhase.hpp>
-#include <lol/def/LolChampSelectLegacyGameflowGameClient.hpp>
+#include "../base_def.hpp" 
+#include "LolChampSelectLegacyGameflowPhase.hpp"
+#include "LolChampSelectLegacyGameflowGameClient.hpp"
+#include "LolChampSelectLegacyGameflowGameData.hpp"
 namespace lol {
   struct LolChampSelectLegacyGameflowSession { 
     LolChampSelectLegacyGameflowGameData gameData;

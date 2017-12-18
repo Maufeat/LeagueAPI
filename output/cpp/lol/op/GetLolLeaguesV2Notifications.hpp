@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLeaguesLeaguesNotification.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLeaguesLeaguesNotification.hpp"
 namespace lol {
   inline Result<std::vector<LolLeaguesLeaguesNotification>> GetLolLeaguesV2Notifications(const LeagueClient& _client)
   {

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolChatFriendRequestResource.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolChatFriendRequestResource.hpp"
 namespace lol {
   inline Result<json> PutLolChatV1FriendRequestsById(const LeagueClient& _client, const uint64_t& id, const LolChatFriendRequestResource& request)
   {

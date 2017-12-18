@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/Position.hpp>
-#include <lol/def/SubState.hpp>
+#include "../base_def.hpp" 
+#include "Position.hpp"
+#include "SubState.hpp"
 namespace lol {
   struct PhaseRosterSubDTO { 
     SubState subState;

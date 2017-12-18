@@ -1,5 +1,5 @@
 #pragma once
-#include<lol/base_op.hpp> 
+#include "../base_op.hpp" 
 namespace lol {
   inline Result<json> GetLolPlatformConfigV1NamespacesByNsByKey(const LeagueClient& _client, const std::string& ns, const std::string& key)
   {

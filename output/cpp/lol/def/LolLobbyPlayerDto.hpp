@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyPartyMemberDto.hpp>
-#include <lol/def/LolLobbyPartyDto.hpp>
+#include "../base_def.hpp" 
+#include "LolLobbyPartyDto.hpp"
+#include "LolLobbyPartyMemberDto.hpp"
 namespace lol {
   struct LolLobbyPlayerDto { 
     std::optional<std::string> inventoryToken;

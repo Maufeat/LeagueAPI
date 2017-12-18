@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolInventoryItemOwnershipType.hpp>
+#include "../base_def.hpp" 
+#include "LolInventoryItemOwnershipType.hpp"
 namespace lol {
   struct LolInventoryInventoryItem { 
     LolInventoryItemOwnershipType ownershipType;

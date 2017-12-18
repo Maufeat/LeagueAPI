@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/RosterWithdraw.hpp>
-#include <lol/def/LolClashRosterNotifyReason.hpp>
+#include "../base_def.hpp" 
+#include "LolClashRosterNotifyReason.hpp"
+#include "RosterWithdraw.hpp"
 namespace lol {
   struct LolClashRosterWithdrawNotification { 
     int64_t rosterId;

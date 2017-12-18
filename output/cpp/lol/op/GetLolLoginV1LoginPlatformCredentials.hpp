@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLoginPlatformGeneratedCredentials.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLoginPlatformGeneratedCredentials.hpp"
 namespace lol {
   inline Result<LolLoginPlatformGeneratedCredentials> GetLolLoginV1LoginPlatformCredentials(const LeagueClient& _client)
   {

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/RsoAuthPublicClientConfig.hpp>
+#include "../base_op.hpp" 
+#include "../def/RsoAuthPublicClientConfig.hpp"
 namespace lol {
   inline Result<void> PostRsoAuthV2Config(const LeagueClient& _client, const RsoAuthPublicClientConfig& config)
   {

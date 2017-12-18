@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolMatchmakingMatchmakingSearchErrorResource.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolMatchmakingMatchmakingSearchErrorResource.hpp"
 namespace lol {
   inline Result<std::vector<LolMatchmakingMatchmakingSearchErrorResource>> GetLolMatchmakingV1SearchErrors(const LeagueClient& _client)
   {

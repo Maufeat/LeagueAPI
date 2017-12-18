@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolItemSetsItemSet.hpp>
+#include "../base_def.hpp" 
+#include "LolItemSetsItemSet.hpp"
 namespace lol {
   struct LolItemSetsItemSets { 
     std::vector<LolItemSetsItemSet> itemSets;

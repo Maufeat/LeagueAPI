@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/MissionIdsDTO.hpp>
+#include "../base_op.hpp" 
+#include "../def/MissionIdsDTO.hpp"
 namespace lol {
   inline Result<void> PutLolMissionsV2Missions(const LeagueClient& _client, const MissionIdsDTO& missionIds)
   {

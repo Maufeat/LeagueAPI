@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolBannersInventoryItemsByType.hpp>
+#include "../base_def.hpp" 
+#include "LolBannersInventoryItemsByType.hpp"
 namespace lol {
   struct LolBannersInventoryResponse { 
     LolBannersInventoryItemsByType items; 

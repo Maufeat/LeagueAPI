@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLootPlayerLoot.hpp>
+#include "../base_def.hpp" 
+#include "LolLootPlayerLoot.hpp"
 namespace lol {
   struct LolLootPlayerLootMap { 
     int64_t version;

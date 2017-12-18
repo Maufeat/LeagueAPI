@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolChampSelectLegacyChampSelectMySelection.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolChampSelectLegacyChampSelectMySelection.hpp"
 namespace lol {
   inline Result<json> PatchLolChampSelectLegacyV1SessionMySelection(const LeagueClient& _client, const LolChampSelectLegacyChampSelectMySelection& selection)
   {

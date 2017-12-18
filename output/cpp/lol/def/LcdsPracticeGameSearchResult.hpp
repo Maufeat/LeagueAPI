@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LcdsPlayerParticipant.hpp>
-#include <lol/def/LcdsGameMap.hpp>
+#include "../base_def.hpp" 
+#include "LcdsPlayerParticipant.hpp"
+#include "LcdsGameMap.hpp"
 namespace lol {
   struct LcdsPracticeGameSearchResult { 
     std::string allowSpectators;

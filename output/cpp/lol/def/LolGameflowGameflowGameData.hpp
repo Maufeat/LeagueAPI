@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolGameflowQueue.hpp>
+#include "../base_def.hpp" 
+#include "LolGameflowQueue.hpp"
 namespace lol {
   struct LolGameflowGameflowGameData { 
     std::vector<json> teamOne;

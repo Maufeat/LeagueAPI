@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LeaguesLcdsAggregatedStats.hpp>
+#include "../base_def.hpp" 
+#include "LeaguesLcdsAggregatedStats.hpp"
 namespace lol {
   struct LeaguesLcdsPlayerAggregatedStats { 
     LeaguesLcdsAggregatedStats aggregatedStats;

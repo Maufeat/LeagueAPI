@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/RegionLocale.hpp>
+#include "../base_op.hpp" 
+#include "../def/RegionLocale.hpp"
 namespace lol {
   inline Result<RegionLocale> GetRiotclientRegionLocale(const LeagueClient& _client)
   {

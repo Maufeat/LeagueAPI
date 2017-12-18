@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LootLcdsLootDescriptionDTO.hpp>
+#include "../base_def.hpp" 
+#include "LootLcdsLootDescriptionDTO.hpp"
 namespace lol {
   struct LootLcdsRecipeMetadata { 
     std::vector<LootLcdsLootDescriptionDTO> guaranteedDescriptions;

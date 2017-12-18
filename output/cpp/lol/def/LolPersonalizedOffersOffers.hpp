@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolPersonalizedOffersOffer.hpp>
+#include "../base_def.hpp" 
+#include "LolPersonalizedOffersOffer.hpp"
 namespace lol {
   struct LolPersonalizedOffersOffers { 
     std::vector<LolPersonalizedOffersOffer> offers; 

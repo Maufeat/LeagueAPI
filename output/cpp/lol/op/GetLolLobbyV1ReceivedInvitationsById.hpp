@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLobbyLobbyInvitation.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLobbyLobbyInvitation.hpp"
 namespace lol {
   inline Result<LolLobbyLobbyInvitation> GetLolLobbyV1ReceivedInvitationsById(const LeagueClient& _client, const std::string& id)
   {

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/MissionRewardMediaDTO.hpp>
+#include "../base_def.hpp" 
+#include "MissionRewardMediaDTO.hpp"
 namespace lol {
   struct PlayerMissionRewardDTO { 
     bool rewardFulfilled;

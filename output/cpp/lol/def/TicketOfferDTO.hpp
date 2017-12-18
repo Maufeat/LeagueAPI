@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/TicketOfferState.hpp>
+#include "../base_def.hpp" 
+#include "TicketOfferState.hpp"
 namespace lol {
   struct TicketOfferDTO { 
     uint64_t offerPlayerId;

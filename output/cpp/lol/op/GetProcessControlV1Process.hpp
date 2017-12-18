@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/ProcessControlProcess.hpp>
+#include "../base_op.hpp" 
+#include "../def/ProcessControlProcess.hpp"
 namespace lol {
   inline Result<ProcessControlProcess> GetProcessControlV1Process(const LeagueClient& _client)
   {

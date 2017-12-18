@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolInventoryInventoryItem.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolInventoryInventoryItem.hpp"
 namespace lol {
   inline Result<std::vector<LolInventoryInventoryItem>> GetLolInventoryV1InventoryEmotes(const LeagueClient& _client)
   {

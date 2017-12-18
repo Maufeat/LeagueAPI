@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolSuggestedPlayersSuggestedPlayersSuggestedPlayer.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolSuggestedPlayersSuggestedPlayersSuggestedPlayer.hpp"
 namespace lol {
   inline Result<std::vector<LolSuggestedPlayersSuggestedPlayersSuggestedPlayer>> GetLolSuggestedPlayersV1SuggestedPlayers(const LeagueClient& _client)
   {

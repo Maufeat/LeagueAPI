@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolItemSetsItemSets.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolItemSetsItemSets.hpp"
 namespace lol {
   inline Result<void> PutLolItemSetsV1ItemSetsBySummonerIdSets(const LeagueClient& _client, const uint64_t& summonerId, const LolItemSetsItemSets& itemSets)
   {

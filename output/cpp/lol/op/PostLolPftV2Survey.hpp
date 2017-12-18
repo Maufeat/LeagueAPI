@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolPftPFTSurvey.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolPftPFTSurvey.hpp"
 namespace lol {
   inline Result<void> PostLolPftV2Survey(const LeagueClient& _client, const LolPftPFTSurvey& survey)
   {

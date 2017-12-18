@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolKrShutdownLawShutdownLawStatus.hpp>
+#include "../base_def.hpp" 
+#include "LolKrShutdownLawShutdownLawStatus.hpp"
 namespace lol {
   struct LolKrShutdownLawShutdownLawNotification { 
     LolKrShutdownLawShutdownLawStatus type; 

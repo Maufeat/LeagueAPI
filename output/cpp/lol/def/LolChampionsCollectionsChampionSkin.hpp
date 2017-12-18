@@ -1,8 +1,8 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolChampionsCollectionsOwnership.hpp>
-#include <lol/def/LolChampionsCollectionsChampionSkinEmblem.hpp>
-#include <lol/def/LolChampionsCollectionsChampionChroma.hpp>
+#include "../base_def.hpp" 
+#include "LolChampionsCollectionsOwnership.hpp"
+#include "LolChampionsCollectionsChampionSkinEmblem.hpp"
+#include "LolChampionsCollectionsChampionChroma.hpp"
 namespace lol {
   struct LolChampionsCollectionsChampionSkin { 
     bool lastSelected;

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolChampSelectChampSelectDisabledChampions.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolChampSelectChampSelectDisabledChampions.hpp"
 namespace lol {
   inline Result<LolChampSelectChampSelectDisabledChampions> GetLolChampSelectV1DisabledChampions(const LeagueClient& _client)
   {

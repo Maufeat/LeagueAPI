@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LogSeverityLevels.hpp>
+#include "../base_def.hpp" 
+#include "LogSeverityLevels.hpp"
 namespace lol {
   struct LogEvent { 
     std::string message;

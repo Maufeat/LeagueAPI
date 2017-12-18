@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/BuybackState.hpp>
+#include "../base_def.hpp" 
+#include "BuybackState.hpp"
 namespace lol {
   struct BuybackMember { 
     BuybackState buybackState;

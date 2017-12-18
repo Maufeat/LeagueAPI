@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/RsoAuthAuthorization.hpp>
+#include "../base_op.hpp" 
+#include "../def/RsoAuthAuthorization.hpp"
 namespace lol {
   inline Result<RsoAuthAuthorization> PostRsoAuthV1AuthorizationRefresh(const LeagueClient& _client)
   {

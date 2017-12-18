@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolStoreCatalogItem.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolStoreCatalogItem.hpp"
 namespace lol {
   inline Result<LolStoreCatalogItem> GetLolStoreV1SkinsBySkinId(const LeagueClient& _client, const int32_t& skinId)
   {

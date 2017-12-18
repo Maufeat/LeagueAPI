@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyTeamBuilderChampSelectTradeState.hpp>
+#include "../base_def.hpp" 
+#include "LolLobbyTeamBuilderChampSelectTradeState.hpp"
 namespace lol {
   struct LolLobbyTeamBuilderChampSelectTradeContract { 
     LolLobbyTeamBuilderChampSelectTradeState state;

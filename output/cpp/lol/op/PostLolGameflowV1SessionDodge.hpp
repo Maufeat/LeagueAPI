@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolGameflowGameflowGameDodge.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolGameflowGameflowGameDodge.hpp"
 namespace lol {
   inline Result<void> PostLolGameflowV1SessionDodge(const LeagueClient& _client, const LolGameflowGameflowGameDodge& dodgeData)
   {

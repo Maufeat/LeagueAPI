@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLoginAccountStateType.hpp>
+#include "../base_def.hpp" 
+#include "LolLoginAccountStateType.hpp"
 namespace lol {
   struct LolLoginAccountStateResource { 
     LolLoginAccountStateType state; 

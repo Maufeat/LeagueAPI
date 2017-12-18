@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolChatFriendRequestDirection.hpp>
+#include "../base_def.hpp" 
+#include "LolChatFriendRequestDirection.hpp"
 namespace lol {
   struct LolChatFriendRequestResource { 
     std::string name;

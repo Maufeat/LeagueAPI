@@ -1,10 +1,10 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyLobbyCustomGameLobby.hpp>
-#include <lol/def/LolLobbyLobbyInvitation.hpp>
-#include <lol/def/LolLobbyLobbyRemovedFromGameReason.hpp>
-#include <lol/def/LolLobbyQueueAvailability.hpp>
-#include <lol/def/LolLobbyLobbyMember.hpp>
+#include "../base_def.hpp" 
+#include "LolLobbyLobbyRemovedFromGameReason.hpp"
+#include "LolLobbyLobbyMember.hpp"
+#include "LolLobbyQueueAvailability.hpp"
+#include "LolLobbyLobbyCustomGameLobby.hpp"
+#include "LolLobbyLobbyInvitation.hpp"
 namespace lol {
   struct LolLobbyLobby { 
     bool canStartMatchmaking;

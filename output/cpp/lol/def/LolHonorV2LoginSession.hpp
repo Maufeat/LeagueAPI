@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolHonorV2LoginSessionStates.hpp>
+#include "../base_def.hpp" 
+#include "LolHonorV2LoginSessionStates.hpp"
 namespace lol {
   struct LolHonorV2LoginSession { 
     LolHonorV2LoginSessionStates state;

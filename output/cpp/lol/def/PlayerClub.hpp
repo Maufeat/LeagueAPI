@@ -1,9 +1,9 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/ClubMember.hpp>
-#include <lol/def/ClubMemberLists.hpp>
-#include <lol/def/ClubPermissions.hpp>
-#include <lol/def/ClubRole.hpp>
+#include "../base_def.hpp" 
+#include "ClubPermissions.hpp"
+#include "ClubMemberLists.hpp"
+#include "ClubMember.hpp"
+#include "ClubRole.hpp"
 namespace lol {
   struct PlayerClub { 
     std::string motd;

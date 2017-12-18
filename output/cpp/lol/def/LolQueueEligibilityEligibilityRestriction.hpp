@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolQueueEligibilityEligibilityRestrictionCode.hpp>
+#include "../base_def.hpp" 
+#include "LolQueueEligibilityEligibilityRestrictionCode.hpp"
 namespace lol {
   struct LolQueueEligibilityEligibilityRestriction { 
     LolQueueEligibilityEligibilityRestrictionCode restrictionCode;

@@ -1,8 +1,8 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyTeamBuilderLobbyInvitation.hpp>
-#include <lol/def/LolLobbyTeamBuilderLobbyMember.hpp>
-#include <lol/def/LolLobbyTeamBuilderLobbyRemovedFromGameReason.hpp>
+#include "../base_def.hpp" 
+#include "LolLobbyTeamBuilderLobbyMember.hpp"
+#include "LolLobbyTeamBuilderLobbyInvitation.hpp"
+#include "LolLobbyTeamBuilderLobbyRemovedFromGameReason.hpp"
 namespace lol {
   struct LolLobbyTeamBuilderLobby { 
     bool canStartMatchmaking;

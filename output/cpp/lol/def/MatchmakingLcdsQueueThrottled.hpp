@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/MatchmakingLcdsSummoner.hpp>
+#include "../base_def.hpp" 
+#include "MatchmakingLcdsSummoner.hpp"
 namespace lol {
   struct MatchmakingLcdsQueueThrottled { 
     MatchmakingLcdsSummoner summoner;

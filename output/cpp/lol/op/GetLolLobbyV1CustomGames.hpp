@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLobbyLobbyCustomGame.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLobbyLobbyCustomGame.hpp"
 namespace lol {
   inline Result<std::vector<LolLobbyLobbyCustomGame>> GetLolLobbyV1CustomGames(const LeagueClient& _client)
   {

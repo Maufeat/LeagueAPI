@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolGeoinfoGeoInfo.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolGeoinfoGeoInfo.hpp"
 namespace lol {
   inline Result<LolGeoinfoGeoInfo> GetLolGeoinfoV1Getlocation(const LeagueClient& _client, const std::string& ip_address)
   {

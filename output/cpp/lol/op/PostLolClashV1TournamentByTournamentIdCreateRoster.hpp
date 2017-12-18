@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolClashRosterDetails.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolClashRosterDetails.hpp"
 namespace lol {
   inline Result<json> PostLolClashV1TournamentByTournamentIdCreateRoster(const LeagueClient& _client, const int64_t& tournamentId, const LolClashRosterDetails& rosterDetails)
   {

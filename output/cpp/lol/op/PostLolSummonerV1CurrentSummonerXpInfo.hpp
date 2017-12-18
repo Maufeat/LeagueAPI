@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolSummonerSummoner.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolSummonerSummoner.hpp"
 namespace lol {
   inline Result<LolSummonerSummoner> PostLolSummonerV1CurrentSummonerXpInfo(const LeagueClient& _client)
   {

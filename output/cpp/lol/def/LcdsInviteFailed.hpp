@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LcdsGameInviteBaseRuntimeException.hpp>
+#include "../base_def.hpp" 
+#include "LcdsGameInviteBaseRuntimeException.hpp"
 namespace lol {
   struct LcdsInviteFailed { 
     LcdsGameInviteBaseRuntimeException exception;

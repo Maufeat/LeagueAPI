@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/TencentQTNotification.hpp>
+#include "../base_op.hpp" 
+#include "../def/TencentQTNotification.hpp"
 namespace lol {
   inline Result<std::map<std::string, TencentQTNotification>> GetLolTencentQtV1UiStates(const LeagueClient& _client)
   {

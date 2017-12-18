@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/TournamentPhaseDTO.hpp>
-#include <lol/def/ClashRewardConfigClient.hpp>
+#include "../base_def.hpp" 
+#include "TournamentPhaseDTO.hpp"
+#include "ClashRewardConfigClient.hpp"
 namespace lol {
   struct TournamentDTO { 
     std::vector<int32_t> buyInOptions;

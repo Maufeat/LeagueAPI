@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolMatchHistoryMatchHistoryPlayerGameDelta.hpp>
+#include "../base_def.hpp" 
+#include "LolMatchHistoryMatchHistoryPlayerGameDelta.hpp"
 namespace lol {
   struct LolMatchHistoryMatchHistoryPlayerDelta { 
     std::vector<LolMatchHistoryMatchHistoryPlayerGameDelta> deltas;

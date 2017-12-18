@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/RecofrienderLinkResource.hpp>
+#include "../base_op.hpp" 
+#include "../def/RecofrienderLinkResource.hpp"
 namespace lol {
   inline Result<RecofrienderLinkResource> GetRecofrienderV1RegistrationsByNetwork(const LeagueClient& _client, const std::string& network)
   {

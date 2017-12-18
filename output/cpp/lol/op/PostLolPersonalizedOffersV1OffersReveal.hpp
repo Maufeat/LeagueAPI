@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolPersonalizedOffersUIOffer.hpp>
-#include <lol/def/LolPersonalizedOffersOfferIds.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolPersonalizedOffersOfferIds.hpp"
+#include "../def/LolPersonalizedOffersUIOffer.hpp"
 namespace lol {
   inline Result<std::vector<LolPersonalizedOffersUIOffer>> PostLolPersonalizedOffersV1OffersReveal(const LeagueClient& _client, const LolPersonalizedOffersOfferIds& offerIds)
   {

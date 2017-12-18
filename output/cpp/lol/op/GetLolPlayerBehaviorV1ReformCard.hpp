@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolPlayerBehaviorReformCard.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolPlayerBehaviorReformCard.hpp"
 namespace lol {
   inline Result<LolPlayerBehaviorReformCard> GetLolPlayerBehaviorV1ReformCard(const LeagueClient& _client)
   {

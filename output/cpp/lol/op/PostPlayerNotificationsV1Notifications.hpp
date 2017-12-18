@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/PlayerNotificationResource.hpp>
+#include "../base_op.hpp" 
+#include "../def/PlayerNotificationResource.hpp"
 namespace lol {
   inline Result<PlayerNotificationResource> PostPlayerNotificationsV1Notifications(const LeagueClient& _client, const PlayerNotificationResource& notification)
   {

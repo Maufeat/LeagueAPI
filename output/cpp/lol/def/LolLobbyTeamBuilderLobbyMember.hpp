@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyTeamBuilderLobbyPositionPreferences.hpp>
+#include "../base_def.hpp" 
+#include "LolLobbyTeamBuilderLobbyPositionPreferences.hpp"
 namespace lol {
   struct LolLobbyTeamBuilderLobbyMember { 
     bool canInviteOthers;

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolEmailVerificationEmailUpdate.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolEmailVerificationEmailUpdate.hpp"
 namespace lol {
   inline Result<json> PutLolEmailVerificationV1Email(const LeagueClient& _client, const LolEmailVerificationEmailUpdate& EmailUpdate)
   {

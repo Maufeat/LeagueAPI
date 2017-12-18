@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/PendingRosterInviteeState.hpp>
+#include "../base_def.hpp" 
+#include "PendingRosterInviteeState.hpp"
 namespace lol {
   struct PendingRosterInviteeDTO { 
     int64_t inviteTime;

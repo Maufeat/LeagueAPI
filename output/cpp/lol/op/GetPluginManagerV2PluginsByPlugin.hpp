@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/PluginResource.hpp>
+#include "../base_op.hpp" 
+#include "../def/PluginResource.hpp"
 namespace lol {
   inline Result<PluginResource> GetPluginManagerV2PluginsByPlugin(const LeagueClient& _client, const std::string& plugin)
   {

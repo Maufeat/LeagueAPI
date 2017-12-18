@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/EntitlementsToken.hpp>
+#include "../base_op.hpp" 
+#include "../def/EntitlementsToken.hpp"
 namespace lol {
   inline Result<EntitlementsToken> GetEntitlementsV1Token(const LeagueClient& _client)
   {

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolHonorV2HonorConfig.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolHonorV2HonorConfig.hpp"
 namespace lol {
   inline Result<LolHonorV2HonorConfig> GetLolHonorV2V1Config(const LeagueClient& _client)
   {

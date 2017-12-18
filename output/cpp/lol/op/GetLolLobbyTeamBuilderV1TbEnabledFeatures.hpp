@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLobbyTeamBuilderTbLobbyEnabledFeaturesResource.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLobbyTeamBuilderTbLobbyEnabledFeaturesResource.hpp"
 namespace lol {
   inline Result<LolLobbyTeamBuilderTbLobbyEnabledFeaturesResource> GetLolLobbyTeamBuilderV1TbEnabledFeatures(const LeagueClient& _client)
   {

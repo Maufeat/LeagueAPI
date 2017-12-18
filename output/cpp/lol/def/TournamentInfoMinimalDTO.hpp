@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/TournamentInfoDTO.hpp>
+#include "../base_def.hpp" 
+#include "TournamentInfoDTO.hpp"
 namespace lol {
   struct TournamentInfoMinimalDTO { 
     int64_t time;

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LcdsSummoner.hpp>
+#include "../base_def.hpp" 
+#include "LcdsSummoner.hpp"
 namespace lol {
   struct LcdsFailedJoinPlayer { 
     LcdsSummoner summoner;

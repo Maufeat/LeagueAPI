@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolEndOfGameSimpleMessage.hpp>
-#include <lol/def/LolEndOfGameLoginSummonerData.hpp>
+#include "../base_def.hpp" 
+#include "LolEndOfGameSimpleMessage.hpp"
+#include "LolEndOfGameLoginSummonerData.hpp"
 namespace lol {
   struct LolEndOfGameLoginDataPacket { 
     LolEndOfGameLoginSummonerData allSummonerData;

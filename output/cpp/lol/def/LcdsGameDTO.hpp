@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LcdsPlayerParticipant.hpp>
+#include "../base_def.hpp" 
+#include "LcdsPlayerParticipant.hpp"
 namespace lol {
   struct LcdsGameDTO { 
     std::string roomName;

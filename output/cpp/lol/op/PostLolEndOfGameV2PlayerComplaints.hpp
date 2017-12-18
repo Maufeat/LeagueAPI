@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolEndOfGameEndOfGamePlayerComplaintV2.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolEndOfGameEndOfGamePlayerComplaintV2.hpp"
 namespace lol {
   inline Result<LolEndOfGameEndOfGamePlayerComplaintV2> PostLolEndOfGameV2PlayerComplaints(const LeagueClient& _client, const LolEndOfGameEndOfGamePlayerComplaintV2& complaint)
   {

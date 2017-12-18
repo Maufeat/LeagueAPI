@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/ClientBracketMatchStatus.hpp>
+#include "../base_def.hpp" 
+#include "ClientBracketMatchStatus.hpp"
 namespace lol {
   struct BracketMatch { 
     int32_t order;

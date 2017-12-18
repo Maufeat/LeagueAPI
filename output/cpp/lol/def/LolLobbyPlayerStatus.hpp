@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyLobbyStatus.hpp>
+#include "../base_def.hpp" 
+#include "LolLobbyLobbyStatus.hpp"
 namespace lol {
   struct LolLobbyPlayerStatus { 
     std::optional<LolLobbyLobbyStatus> lastQueuedLobbyStatus;

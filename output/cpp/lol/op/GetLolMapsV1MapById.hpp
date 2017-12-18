@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolMapsMaps.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolMapsMaps.hpp"
 namespace lol {
   inline Result<LolMapsMaps> GetLolMapsV1MapById(const LeagueClient& _client, const int64_t& id)
   {

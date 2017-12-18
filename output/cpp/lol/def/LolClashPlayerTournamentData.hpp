@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolClashPlayerState.hpp>
+#include "../base_def.hpp" 
+#include "LolClashPlayerState.hpp"
 namespace lol {
   struct LolClashPlayerTournamentData { 
     std::string rosterId;

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLeaguesAchievedTier.hpp>
+#include "../base_def.hpp" 
+#include "LolLeaguesAchievedTier.hpp"
 namespace lol {
   struct LolLeaguesParticipantTiers { 
     std::vector<LolLeaguesAchievedTier> achievedTiers;

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/PatcherHeaderEntry.hpp>
+#include "../base_op.hpp" 
+#include "../def/PatcherHeaderEntry.hpp"
 namespace lol {
   inline Result<json> PutPatcherV1ProductsByProductIdByComponentIdHttpHeaders(const LeagueClient& _client, const std::string& product_id, const std::string& component_id, const std::vector<PatcherHeaderEntry>& headers)
   {

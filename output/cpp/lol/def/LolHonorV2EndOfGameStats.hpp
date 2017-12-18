@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolHonorV2EndOfGameTeam.hpp>
+#include "../base_def.hpp" 
+#include "LolHonorV2EndOfGameTeam.hpp"
 namespace lol {
   struct LolHonorV2EndOfGameStats { 
     bool ranked;

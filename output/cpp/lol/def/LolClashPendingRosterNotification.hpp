@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/PendingRosterDTO.hpp>
-#include <lol/def/LolClashNotifyReason.hpp>
+#include "../base_def.hpp" 
+#include "PendingRosterDTO.hpp"
+#include "LolClashNotifyReason.hpp"
 namespace lol {
   struct LolClashPendingRosterNotification { 
     uint64_t sourcePlayerId;

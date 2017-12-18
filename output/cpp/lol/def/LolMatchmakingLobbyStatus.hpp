@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolMatchmakingQueueCustomGameSpectatorPolicy.hpp>
+#include "../base_def.hpp" 
+#include "LolMatchmakingQueueCustomGameSpectatorPolicy.hpp"
 namespace lol {
   struct LolMatchmakingLobbyStatus { 
     LolMatchmakingQueueCustomGameSpectatorPolicy customSpectatorPolicy;

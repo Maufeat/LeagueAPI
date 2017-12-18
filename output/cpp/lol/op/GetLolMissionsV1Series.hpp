@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/SeriesDTO.hpp>
+#include "../base_op.hpp" 
+#include "../def/SeriesDTO.hpp"
 namespace lol {
   inline Result<std::vector<SeriesDTO>> GetLolMissionsV1Series(const LeagueClient& _client)
   {

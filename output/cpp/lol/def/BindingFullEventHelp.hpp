@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/BindingFullTypeIdentifier.hpp>
+#include "../base_def.hpp" 
+#include "BindingFullTypeIdentifier.hpp"
 namespace lol {
   struct BindingFullEventHelp { 
     BindingFullTypeIdentifier type;

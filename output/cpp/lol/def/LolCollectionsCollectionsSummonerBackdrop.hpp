@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolCollectionsCollectionsSummonerBackdropType.hpp>
+#include "../base_def.hpp" 
+#include "LolCollectionsCollectionsSummonerBackdropType.hpp"
 namespace lol {
   struct LolCollectionsCollectionsSummonerBackdrop { 
     std::string backdropMaskColor;

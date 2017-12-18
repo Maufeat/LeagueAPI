@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/ServiceStatusIncident_Severity.hpp>
+#include "../base_def.hpp" 
+#include "ServiceStatusIncident_Severity.hpp"
 namespace lol {
   struct TickerMessage { 
     std::string message;

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/ClashEventData.hpp>
+#include "../base_op.hpp" 
+#include "../def/ClashEventData.hpp"
 namespace lol {
   inline Result<ClashEventData> GetLolClashV1EventByUuid(const LeagueClient& _client, const std::string& uuid)
   {

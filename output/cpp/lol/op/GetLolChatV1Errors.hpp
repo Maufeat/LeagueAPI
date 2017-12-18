@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolChatErrorResource.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolChatErrorResource.hpp"
 namespace lol {
   inline Result<std::vector<LolChatErrorResource>> GetLolChatV1Errors(const LeagueClient& _client)
   {

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolSummonerSummonerRerollPoints.hpp>
+#include "../base_def.hpp" 
+#include "LolSummonerSummonerRerollPoints.hpp"
 namespace lol {
   struct LolSummonerSummoner { 
     LolSummonerSummonerRerollPoints rerollPoints;

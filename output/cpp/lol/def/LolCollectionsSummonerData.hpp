@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/CollectionsLcdsMasteryBookDTO.hpp>
-#include <lol/def/CollectionsLcdsSpellBookDTO.hpp>
+#include "../base_def.hpp" 
+#include "CollectionsLcdsSpellBookDTO.hpp"
+#include "CollectionsLcdsMasteryBookDTO.hpp"
 namespace lol {
   struct LolCollectionsSummonerData { 
     CollectionsLcdsSpellBookDTO spellBook;

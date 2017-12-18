@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LeaverBusterNotificationType.hpp>
+#include "../base_def.hpp" 
+#include "LeaverBusterNotificationType.hpp"
 namespace lol {
   struct LeaverBusterNotificationResource { 
     std::string msgId;

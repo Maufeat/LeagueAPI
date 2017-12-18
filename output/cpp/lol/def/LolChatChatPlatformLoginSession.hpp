@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolChatChatPlatformLoginSessionState.hpp>
+#include "../base_def.hpp" 
+#include "LolChatChatPlatformLoginSessionState.hpp"
 namespace lol {
   struct LolChatChatPlatformLoginSession { 
     bool isNewPlayer;

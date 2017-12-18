@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/RiotMessagingServiceSession.hpp>
+#include "../base_op.hpp" 
+#include "../def/RiotMessagingServiceSession.hpp"
 namespace lol {
   inline Result<RiotMessagingServiceSession> GetRiotMessagingServiceV1Session(const LeagueClient& _client)
   {

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/PlayerStatSummaries.hpp>
+#include "../base_def.hpp" 
+#include "PlayerStatSummaries.hpp"
 namespace lol {
   struct PlayerLifetimeStats { 
     PlayerStatSummaries playerStatSummaries; 

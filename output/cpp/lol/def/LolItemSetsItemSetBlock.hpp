@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolItemSetsItemSetItem.hpp>
+#include "../base_def.hpp" 
+#include "LolItemSetsItemSetItem.hpp"
 namespace lol {
   struct LolItemSetsItemSetBlock { 
     std::string type;

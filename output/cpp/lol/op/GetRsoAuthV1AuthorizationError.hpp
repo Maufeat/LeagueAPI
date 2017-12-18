@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/RsoAuthAuthError.hpp>
+#include "../base_op.hpp" 
+#include "../def/RsoAuthAuthError.hpp"
 namespace lol {
   inline Result<RsoAuthAuthError> GetRsoAuthV1AuthorizationError(const LeagueClient& _client)
   {

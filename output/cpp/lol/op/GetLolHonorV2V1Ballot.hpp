@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolHonorV2Ballot.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolHonorV2Ballot.hpp"
 namespace lol {
   inline Result<LolHonorV2Ballot> GetLolHonorV2V1Ballot(const LeagueClient& _client)
   {

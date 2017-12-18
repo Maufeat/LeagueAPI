@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolLobbyLobbyBotParams.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolLobbyLobbyBotParams.hpp"
 namespace lol {
   inline Result<json> PostLolLobbyV1LobbyCustomBotsBySummonerInternalName(const LeagueClient& _client, const std::string& summonerInternalName, const LolLobbyLobbyBotParams& parameters)
   {

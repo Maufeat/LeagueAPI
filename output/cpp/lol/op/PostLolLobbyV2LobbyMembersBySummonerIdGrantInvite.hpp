@@ -1,5 +1,5 @@
 #pragma once
-#include<lol/base_op.hpp> 
+#include "../base_op.hpp" 
 namespace lol {
   inline Result<uint64_t> PostLolLobbyV2LobbyMembersBySummonerIdGrantInvite(const LeagueClient& _client, const uint64_t& summonerId)
   {

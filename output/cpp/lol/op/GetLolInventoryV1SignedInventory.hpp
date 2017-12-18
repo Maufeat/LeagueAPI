@@ -1,5 +1,5 @@
 #pragma once
-#include<lol/base_op.hpp> 
+#include "../base_op.hpp" 
 namespace lol {
   inline Result<std::map<std::string, std::string>> GetLolInventoryV1SignedInventory(const LeagueClient& _client, const std::vector<std::string>& inventoryTypes)
   {

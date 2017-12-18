@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolClashTournamentGameEnd.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolClashTournamentGameEnd.hpp"
 namespace lol {
   inline Result<LolClashTournamentGameEnd> GetLolClashV1GameEnd(const LeagueClient& _client)
   {

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolAccountVerificationDeviceResponse.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolAccountVerificationDeviceResponse.hpp"
 namespace lol {
   inline Result<LolAccountVerificationDeviceResponse> GetLolAccountVerificationV1Device(const LeagueClient& _client)
   {

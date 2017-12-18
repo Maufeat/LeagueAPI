@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolPerksServiceSettings.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolPerksServiceSettings.hpp"
 namespace lol {
   inline Result<LolPerksServiceSettings> GetLolPerksV1Servicesettings(const LeagueClient& _client)
   {

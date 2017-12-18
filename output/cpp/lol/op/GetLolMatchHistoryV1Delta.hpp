@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolMatchHistoryMatchHistoryPlayerDelta.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolMatchHistoryMatchHistoryPlayerDelta.hpp"
 namespace lol {
   inline Result<LolMatchHistoryMatchHistoryPlayerDelta> GetLolMatchHistoryV1Delta(const LeagueClient& _client)
   {

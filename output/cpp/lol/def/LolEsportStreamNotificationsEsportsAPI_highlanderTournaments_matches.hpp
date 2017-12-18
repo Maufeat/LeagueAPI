@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolEsportStreamNotificationsEsportsAPI_highlanderTournaments_roster.hpp>
+#include "../base_def.hpp" 
+#include "LolEsportStreamNotificationsEsportsAPI_highlanderTournaments_roster.hpp"
 namespace lol {
   struct LolEsportStreamNotificationsEsportsAPI_highlanderTournaments_matches { 
     std::vector<LolEsportStreamNotificationsEsportsAPI_highlanderTournaments_roster> input;

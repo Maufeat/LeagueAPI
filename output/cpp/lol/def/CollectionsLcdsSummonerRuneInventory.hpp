@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/CollectionsLcdsSummonerRune.hpp>
+#include "../base_def.hpp" 
+#include "CollectionsLcdsSummonerRune.hpp"
 namespace lol {
   struct CollectionsLcdsSummonerRuneInventory { 
     std::vector<CollectionsLcdsSummonerRune> summonerRunes;

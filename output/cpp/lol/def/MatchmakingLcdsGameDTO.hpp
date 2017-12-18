@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/MatchmakingLcdsPlayerParticipant.hpp>
+#include "../base_def.hpp" 
+#include "MatchmakingLcdsPlayerParticipant.hpp"
 namespace lol {
   struct MatchmakingLcdsGameDTO { 
     std::vector<MatchmakingLcdsPlayerParticipant> teamOne;

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLoadoutsItemKey.hpp>
+#include "../base_def.hpp" 
+#include "LolLoadoutsItemKey.hpp"
 namespace lol {
   struct LolLoadoutsFrontendInventoryResponse { 
     std::vector<LolLoadoutsItemKey> entitlements; 

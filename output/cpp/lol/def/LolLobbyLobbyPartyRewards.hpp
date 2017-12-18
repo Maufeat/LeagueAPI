@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyPartyReward.hpp>
+#include "../base_def.hpp" 
+#include "LolLobbyPartyReward.hpp"
 namespace lol {
   struct LolLobbyLobbyPartyRewards { 
     bool isEnabled;

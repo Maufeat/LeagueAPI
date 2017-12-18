@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyLobbyCustomFailedPlayer.hpp>
+#include "../base_def.hpp" 
+#include "LolLobbyLobbyCustomFailedPlayer.hpp"
 namespace lol {
   struct LolLobbyLobbyCustomChampSelectStartResponse { 
     std::vector<LolLobbyLobbyCustomFailedPlayer> failedPlayers;

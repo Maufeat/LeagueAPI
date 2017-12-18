@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolRankedStatsRankedData.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolRankedStatsRankedData.hpp"
 namespace lol {
   inline Result<LolRankedStatsRankedData> GetLolRankedStatsV1StatsBySummonerId(const LeagueClient& _client, const uint64_t& summonerId)
   {

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolAcsAcsEndPoint.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolAcsAcsEndPoint.hpp"
 namespace lol {
   inline Result<json> PostLolAcsV1AcsEndpointOverride(const LeagueClient& _client, const LolAcsAcsEndPoint& data)
   {

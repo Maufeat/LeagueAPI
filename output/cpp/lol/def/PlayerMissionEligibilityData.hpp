@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/PlayerInventory.hpp>
+#include "../base_def.hpp" 
+#include "PlayerInventory.hpp"
 namespace lol {
   struct PlayerMissionEligibilityData { 
     int32_t level;

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LeaguesLcdsLeagueItemDTO.hpp>
+#include "../base_def.hpp" 
+#include "LeaguesLcdsLeagueItemDTO.hpp"
 namespace lol {
   struct LeaguesLcdsSummonerLeagueItemsDTO { 
     std::vector<LeaguesLcdsLeagueItemDTO> summonerLeagues; 

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/PlayerPreferencesEndpoint.hpp>
+#include "../base_op.hpp" 
+#include "../def/PlayerPreferencesEndpoint.hpp"
 namespace lol {
   inline Result<json> PostLolPlayerPreferencesV1PlayerPreferencesEndpointOverride(const LeagueClient& _client, const PlayerPreferencesEndpoint& preferences)
   {

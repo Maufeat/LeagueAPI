@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolChampSelectLegacyTeamBoost.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolChampSelectLegacyTeamBoost.hpp"
 namespace lol {
   inline Result<LolChampSelectLegacyTeamBoost> GetLolChampSelectLegacyV1TeamBoost(const LeagueClient& _client)
   {

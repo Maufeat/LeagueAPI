@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolFeaturedModesQueueGameCategory.hpp>
-#include <lol/def/LolFeaturedModesQueueAvailability.hpp>
+#include "../base_def.hpp" 
+#include "LolFeaturedModesQueueAvailability.hpp"
+#include "LolFeaturedModesQueueGameCategory.hpp"
 namespace lol {
   struct LolFeaturedModesQueue { 
     std::string gameMutator;

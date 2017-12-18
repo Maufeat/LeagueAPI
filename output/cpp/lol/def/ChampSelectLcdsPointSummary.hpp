@@ -1,5 +1,5 @@
 #pragma once
-#include<lol/base_def.hpp> 
+#include "../base_def.hpp" 
 namespace lol {
   struct ChampSelectLcdsPointSummary { 
     int32_t maxRolls;

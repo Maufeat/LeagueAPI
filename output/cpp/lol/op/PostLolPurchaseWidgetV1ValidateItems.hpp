@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolPurchaseWidgetValidationRequest.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolPurchaseWidgetValidationRequest.hpp"
 namespace lol {
   inline Result<json> PostLolPurchaseWidgetV1ValidateItems(const LeagueClient& _client, const LolPurchaseWidgetValidationRequest& validationRequest)
   {

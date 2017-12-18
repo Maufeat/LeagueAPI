@@ -1,11 +1,11 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/PlayerClub.hpp>
-#include <lol/def/ClubPreferences.hpp>
-#include <lol/def/ClubsConfig.hpp>
-#include <lol/def/ClubInvite.hpp>
-#include <lol/def/Club.hpp>
-#include <lol/def/ClubPlayer.hpp>
+#include "../base_def.hpp" 
+#include "PlayerClub.hpp"
+#include "ClubsConfig.hpp"
+#include "ClubInvite.hpp"
+#include "ClubPreferences.hpp"
+#include "ClubPlayer.hpp"
+#include "Club.hpp"
 namespace lol {
   struct PlayerClubMembership { 
     ClubsConfig clubsServerConfig;

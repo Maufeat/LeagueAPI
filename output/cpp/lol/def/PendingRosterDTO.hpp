@@ -1,10 +1,10 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/PendingRosterMemberDTO.hpp>
-#include <lol/def/RewardLogo.hpp>
-#include <lol/def/PendingRosterInviteeDTO.hpp>
-#include <lol/def/TicketOfferDTO.hpp>
-#include <lol/def/FailedInvite.hpp>
+#include "../base_def.hpp" 
+#include "PendingRosterInviteeDTO.hpp"
+#include "PendingRosterMemberDTO.hpp"
+#include "TicketOfferDTO.hpp"
+#include "FailedInvite.hpp"
+#include "RewardLogo.hpp"
 namespace lol {
   struct PendingRosterDTO { 
     int32_t logoColor;

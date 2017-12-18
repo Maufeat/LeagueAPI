@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolEndOfGameChampionMasteryUpdate.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolEndOfGameChampionMasteryUpdate.hpp"
 namespace lol {
   inline Result<LolEndOfGameChampionMasteryUpdate> GetLolEndOfGameV1ChampionMasteryUpdates(const LeagueClient& _client)
   {

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolClashTournamentWinnerInfo.hpp>
+#include "../base_def.hpp" 
+#include "LolClashTournamentWinnerInfo.hpp"
 namespace lol {
   struct LolClashTournamentWinnerHistory { 
     int64_t tournamentId;

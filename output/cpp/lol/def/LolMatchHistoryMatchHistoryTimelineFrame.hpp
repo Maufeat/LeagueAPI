@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolMatchHistoryMatchHistoryParticipantFrame.hpp>
-#include <lol/def/LolMatchHistoryMatchHistoryEvent.hpp>
+#include "../base_def.hpp" 
+#include "LolMatchHistoryMatchHistoryParticipantFrame.hpp"
+#include "LolMatchHistoryMatchHistoryEvent.hpp"
 namespace lol {
   struct LolMatchHistoryMatchHistoryTimelineFrame { 
     std::map<std::string, LolMatchHistoryMatchHistoryParticipantFrame> participantFrames;

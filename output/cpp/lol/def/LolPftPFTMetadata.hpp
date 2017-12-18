@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolPftPFTEndOfGameStats.hpp>
+#include "../base_def.hpp" 
+#include "LolPftPFTEndOfGameStats.hpp"
 namespace lol {
   struct LolPftPFTMetadata { 
     std::string appName;

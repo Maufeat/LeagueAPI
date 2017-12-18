@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/PlayerPreferences.hpp>
+#include "../base_op.hpp" 
+#include "../def/PlayerPreferences.hpp"
 namespace lol {
   inline Result<json> PutLolPlayerPreferencesV1Preference(const LeagueClient& _client, const PlayerPreferences& preferences)
   {

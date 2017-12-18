@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/ClubRole.hpp>
+#include "../base_def.hpp" 
+#include "ClubRole.hpp"
 namespace lol {
   struct ClubMember { 
     int64_t since;

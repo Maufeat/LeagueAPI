@@ -1,9 +1,9 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/RosterWithdraw.hpp>
-#include <lol/def/BuybackMember.hpp>
-#include <lol/def/PhaseRosterSubDTO.hpp>
-#include <lol/def/TicketOfferDTO.hpp>
+#include "../base_def.hpp" 
+#include "PhaseRosterSubDTO.hpp"
+#include "BuybackMember.hpp"
+#include "TicketOfferDTO.hpp"
+#include "RosterWithdraw.hpp"
 namespace lol {
   struct RosterDynamicStateDTO { 
     RosterWithdraw withdraw;

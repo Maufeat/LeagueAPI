@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolEsportStreamNotificationsESportsLiveStreams.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolEsportStreamNotificationsESportsLiveStreams.hpp"
 namespace lol {
   inline Result<LolEsportStreamNotificationsESportsLiveStreams> GetLolEsportStreamNotificationsV1LiveStreams(const LeagueClient& _client)
   {

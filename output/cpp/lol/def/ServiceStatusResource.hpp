@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/ServiceStatusResource_Status.hpp>
+#include "../base_def.hpp" 
+#include "ServiceStatusResource_Status.hpp"
 namespace lol {
   struct ServiceStatusResource { 
     ServiceStatusResource_Status status;

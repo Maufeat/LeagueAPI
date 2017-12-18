@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLootLootRecipeGdsResource.hpp>
-#include <lol/def/LolLootLootItemGdsResource.hpp>
+#include "../base_def.hpp" 
+#include "LolLootLootItemGdsResource.hpp"
+#include "LolLootLootRecipeGdsResource.hpp"
 namespace lol {
   struct LolLootLootDataGdsResource { 
     std::vector<LolLootLootItemGdsResource> LootItems;

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyPartyMemberRoleEnum.hpp>
+#include "../base_def.hpp" 
+#include "LolLobbyPartyMemberRoleEnum.hpp"
 namespace lol {
   struct LolLobbyPremadeMemberDto { 
     LolLobbyPartyMemberRoleEnum role;

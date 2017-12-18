@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolGeoinfoGeoInfo.hpp>
+#include "../base_def.hpp" 
+#include "LolGeoinfoGeoInfo.hpp"
 namespace lol {
   struct LolGeoinfoGeoInfoResponse { 
     bool success;

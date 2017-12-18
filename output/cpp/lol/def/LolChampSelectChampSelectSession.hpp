@@ -1,10 +1,10 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolChampSelectChampSelectPlayerSelection.hpp>
-#include <lol/def/LolChampSelectChampSelectTradeContract.hpp>
-#include <lol/def/LolChampSelectChampSelectBannedChampions.hpp>
-#include <lol/def/LolChampSelectChampSelectChatRoomDetails.hpp>
-#include <lol/def/LolChampSelectChampSelectTimer.hpp>
+#include "../base_def.hpp" 
+#include "LolChampSelectChampSelectTradeContract.hpp"
+#include "LolChampSelectChampSelectBannedChampions.hpp"
+#include "LolChampSelectChampSelectTimer.hpp"
+#include "LolChampSelectChampSelectChatRoomDetails.hpp"
+#include "LolChampSelectChampSelectPlayerSelection.hpp"
 namespace lol {
   struct LolChampSelectChampSelectSession { 
     LolChampSelectChampSelectChatRoomDetails chatDetails;

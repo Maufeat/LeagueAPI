@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/ClashRewardOutput.hpp>
+#include "../base_def.hpp" 
+#include "ClashRewardOutput.hpp"
 namespace lol {
   struct ClashRewardConfigEntry { 
     std::string key;

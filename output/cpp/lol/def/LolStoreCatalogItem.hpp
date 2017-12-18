@@ -1,9 +1,9 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolStoreSale.hpp>
-#include <lol/def/LolStoreItemKey.hpp>
-#include <lol/def/LolStoreBundled.hpp>
-#include <lol/def/LolStoreItemCost.hpp>
+#include "../base_def.hpp" 
+#include "LolStoreItemKey.hpp"
+#include "LolStoreBundled.hpp"
+#include "LolStoreItemCost.hpp"
+#include "LolStoreSale.hpp"
 namespace lol {
   struct LolStoreCatalogItem { 
     std::optional<std::string> itemInstanceId;

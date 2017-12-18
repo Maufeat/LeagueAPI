@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolClashTournamentWinnerHistory.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolClashTournamentWinnerHistory.hpp"
 namespace lol {
   inline Result<LolClashTournamentWinnerHistory> GetLolClashV1TournamentByTournamentIdWinners(const LeagueClient& _client, const int64_t& tournamentId)
   {

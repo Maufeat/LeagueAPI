@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolSimpleDialogMessagesGameflowPhase.hpp>
+#include "../base_def.hpp" 
+#include "LolSimpleDialogMessagesGameflowPhase.hpp"
 namespace lol {
   struct LolSimpleDialogMessagesGameflowSession { 
     LolSimpleDialogMessagesGameflowPhase phase; 

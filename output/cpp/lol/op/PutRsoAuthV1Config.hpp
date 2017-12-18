@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/RsoAuthRSOJWTConfig.hpp>
+#include "../base_op.hpp" 
+#include "../def/RsoAuthRSOJWTConfig.hpp"
 namespace lol {
   inline Result<void> PutRsoAuthV1Config(const LeagueClient& _client, const RsoAuthRSOJWTConfig& config)
   {

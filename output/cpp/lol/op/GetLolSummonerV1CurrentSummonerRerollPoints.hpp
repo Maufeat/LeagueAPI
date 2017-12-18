@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolSummonerSummonerRerollPoints.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolSummonerSummonerRerollPoints.hpp"
 namespace lol {
   inline Result<LolSummonerSummonerRerollPoints> GetLolSummonerV1CurrentSummonerRerollPoints(const LeagueClient& _client)
   {

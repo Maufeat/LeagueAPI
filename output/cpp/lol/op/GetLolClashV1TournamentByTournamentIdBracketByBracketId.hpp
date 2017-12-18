@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolClashBracket.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolClashBracket.hpp"
 namespace lol {
   inline Result<LolClashBracket> GetLolClashV1TournamentByTournamentIdBracketByBracketId(const LeagueClient& _client, const int64_t& tournamentId, const int64_t& bracketId)
   {

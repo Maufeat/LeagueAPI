@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolSummonerSummonerIcon.hpp>
-#include <lol/def/LolSummonerSummoner.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolSummonerSummonerIcon.hpp"
+#include "../def/LolSummonerSummoner.hpp"
 namespace lol {
   inline Result<LolSummonerSummoner> PutLolSummonerV1CurrentSummonerIcon(const LeagueClient& _client, const LolSummonerSummonerIcon& body)
   {

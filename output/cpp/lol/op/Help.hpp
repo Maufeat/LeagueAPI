@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/RemotingHelpFormat.hpp>
+#include "../base_op.hpp" 
+#include "../def/RemotingHelpFormat.hpp"
 namespace lol {
   inline Result<json> Help(const LeagueClient& _client, const std::optional<std::string>& target = std::nullopt, const std::optional<RemotingHelpFormat>& format = std::nullopt)
   {

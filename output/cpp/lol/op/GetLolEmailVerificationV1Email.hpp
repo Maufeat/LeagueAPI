@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolEmailVerificationEmailVerificationSession.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolEmailVerificationEmailVerificationSession.hpp"
 namespace lol {
   inline Result<LolEmailVerificationEmailVerificationSession> GetLolEmailVerificationV1Email(const LeagueClient& _client)
   {

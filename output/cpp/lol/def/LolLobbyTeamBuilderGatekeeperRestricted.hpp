@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyTeamBuilderGatekeeperRestriction.hpp>
+#include "../base_def.hpp" 
+#include "LolLobbyTeamBuilderGatekeeperRestriction.hpp"
 namespace lol {
   struct LolLobbyTeamBuilderGatekeeperRestricted { 
     std::vector<LolLobbyTeamBuilderGatekeeperRestriction> gatekeeperRestrictions; 

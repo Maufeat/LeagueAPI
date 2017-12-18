@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/PlayerLootDTO.hpp>
+#include "../base_def.hpp" 
+#include "PlayerLootDTO.hpp"
 namespace lol {
   struct PlayerLootResultDTO { 
     std::string details;

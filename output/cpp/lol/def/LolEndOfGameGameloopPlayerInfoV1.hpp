@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolEndOfGameRerollDataBagForClientV1.hpp>
+#include "../base_def.hpp" 
+#include "LolEndOfGameRerollDataBagForClientV1.hpp"
 namespace lol {
   struct LolEndOfGameGameloopPlayerInfoV1 { 
     LolEndOfGameRerollDataBagForClientV1 rerollDataBag; 

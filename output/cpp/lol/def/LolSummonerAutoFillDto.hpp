@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolSummonerAutoFillQueueDto.hpp>
+#include "../base_def.hpp" 
+#include "LolSummonerAutoFillQueueDto.hpp"
 namespace lol {
   struct LolSummonerAutoFillDto { 
     std::vector<LolSummonerAutoFillQueueDto> autoFillQueues; 

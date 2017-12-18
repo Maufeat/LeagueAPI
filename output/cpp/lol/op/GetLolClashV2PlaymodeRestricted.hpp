@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolClashPlaymodeRestrictedInfo.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolClashPlaymodeRestrictedInfo.hpp"
 namespace lol {
   inline Result<LolClashPlaymodeRestrictedInfo> GetLolClashV2PlaymodeRestricted(const LeagueClient& _client)
   {

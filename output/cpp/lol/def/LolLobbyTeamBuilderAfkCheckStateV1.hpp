@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolLobbyTeamBuilderTbdInventory.hpp>
+#include "../base_def.hpp" 
+#include "LolLobbyTeamBuilderTbdInventory.hpp"
 namespace lol {
   struct LolLobbyTeamBuilderAfkCheckStateV1 { 
     LolLobbyTeamBuilderTbdInventory inventoryDraft;

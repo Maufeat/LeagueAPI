@@ -1,7 +1,7 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolPurchaseWidgetItemPrice.hpp>
-#include <lol/def/LolPurchaseWidgetItemKey.hpp>
+#include "../base_def.hpp" 
+#include "LolPurchaseWidgetItemPrice.hpp"
+#include "LolPurchaseWidgetItemKey.hpp"
 namespace lol {
   struct LolPurchaseWidgetPurchaseItem { 
     LolPurchaseWidgetItemKey itemKey;

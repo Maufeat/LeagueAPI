@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolFeaturedModesGameflowAvailabilityState.hpp>
+#include "../base_def.hpp" 
+#include "LolFeaturedModesGameflowAvailabilityState.hpp"
 namespace lol {
   struct LolFeaturedModesGameflowAvailability { 
     LolFeaturedModesGameflowAvailabilityState state;

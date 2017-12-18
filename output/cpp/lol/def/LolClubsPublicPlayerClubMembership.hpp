@@ -1,8 +1,8 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolClubsPublicClubPlayer.hpp>
-#include <lol/def/LolClubsPublicClubPreferences.hpp>
-#include <lol/def/LolClubsPublicPlayerClub.hpp>
+#include "../base_def.hpp" 
+#include "LolClubsPublicClubPlayer.hpp"
+#include "LolClubsPublicPlayerClub.hpp"
+#include "LolClubsPublicClubPreferences.hpp"
 namespace lol {
   struct LolClubsPublicPlayerClubMembership { 
     LolClubsPublicClubPreferences preferences;

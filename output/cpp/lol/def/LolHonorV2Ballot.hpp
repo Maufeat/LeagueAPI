@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolHonorV2EligiblePlayer.hpp>
+#include "../base_def.hpp" 
+#include "LolHonorV2EligiblePlayer.hpp"
 namespace lol {
   struct LolHonorV2Ballot { 
     std::vector<LolHonorV2EligiblePlayer> eligiblePlayers;

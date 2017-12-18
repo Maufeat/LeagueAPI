@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/RecofrienderContactResource.hpp>
+#include "../base_op.hpp" 
+#include "../def/RecofrienderContactResource.hpp"
 namespace lol {
   inline Result<std::vector<RecofrienderContactResource>> GetRecofrienderV2Contacts(const LeagueClient& _client)
   {

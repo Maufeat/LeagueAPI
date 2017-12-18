@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolGeoinfoGeoInfoResponse.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolGeoinfoGeoInfoResponse.hpp"
 namespace lol {
   inline Result<LolGeoinfoGeoInfoResponse> GetLolGeoinfoV1Whereami(const LeagueClient& _client)
   {

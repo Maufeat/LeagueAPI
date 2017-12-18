@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolClashRankedScoutingMember.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolClashRankedScoutingMember.hpp"
 namespace lol {
   inline Result<std::vector<LolClashRankedScoutingMember>> GetLolClashV1ScoutingRanked(const LeagueClient& _client, const std::vector<uint64_t>& summonerIds)
   {

@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolEsportStreamNotificationsGameflowPhase.hpp>
+#include "../base_def.hpp" 
+#include "LolEsportStreamNotificationsGameflowPhase.hpp"
 namespace lol {
   struct LolEsportStreamNotificationsGameflowSession { 
     LolEsportStreamNotificationsGameflowPhase phase; 

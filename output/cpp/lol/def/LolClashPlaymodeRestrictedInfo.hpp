@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolClashPresenceState.hpp>
+#include "../base_def.hpp" 
+#include "LolClashPresenceState.hpp"
 namespace lol {
   struct LolClashPlaymodeRestrictedInfo { 
     int64_t tournamentId;

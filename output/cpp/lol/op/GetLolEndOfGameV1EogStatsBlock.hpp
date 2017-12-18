@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolEndOfGameEndOfGameStats.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolEndOfGameEndOfGameStats.hpp"
 namespace lol {
   inline Result<LolEndOfGameEndOfGameStats> GetLolEndOfGameV1EogStatsBlock(const LeagueClient& _client)
   {

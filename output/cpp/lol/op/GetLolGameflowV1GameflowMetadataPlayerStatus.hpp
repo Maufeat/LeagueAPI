@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolGameflowPlayerStatus.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolGameflowPlayerStatus.hpp"
 namespace lol {
   inline Result<LolGameflowPlayerStatus> GetLolGameflowV1GameflowMetadataPlayerStatus(const LeagueClient& _client)
   {

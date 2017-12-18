@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolCollectionsSummonerData.hpp>
+#include "../base_def.hpp" 
+#include "LolCollectionsSummonerData.hpp"
 namespace lol {
   struct LolCollectionsCollectionLoginDataPacket { 
     LolCollectionsSummonerData allSummonerData; 

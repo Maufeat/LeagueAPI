@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/MissionProgressDTO.hpp>
+#include "../base_def.hpp" 
+#include "MissionProgressDTO.hpp"
 namespace lol {
   struct PlayerMissionObjectiveDTO { 
     std::string description;

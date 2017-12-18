@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolClubsPublicClubTag.hpp>
+#include "../base_def.hpp" 
+#include "LolClubsPublicClubTag.hpp"
 namespace lol {
   struct LolClubsPublicClubsPublicData { 
     LolClubsPublicClubTag tag;

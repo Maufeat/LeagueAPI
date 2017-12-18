@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolSuggestedPlayersSuggestedPlayersConfig.hpp>
+#include "../base_def.hpp" 
+#include "LolSuggestedPlayersSuggestedPlayersConfig.hpp"
 namespace lol {
   struct LolSuggestedPlayersSuggestedPlayersDynamicClientConfig { 
     LolSuggestedPlayersSuggestedPlayersConfig SuggestedPlayers; 

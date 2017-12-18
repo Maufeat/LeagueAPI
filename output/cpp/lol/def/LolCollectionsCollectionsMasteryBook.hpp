@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolCollectionsCollectionsMasteryPage.hpp>
+#include "../base_def.hpp" 
+#include "LolCollectionsCollectionsMasteryPage.hpp"
 namespace lol {
   struct LolCollectionsCollectionsMasteryBook { 
     std::vector<LolCollectionsCollectionsMasteryPage> pages;

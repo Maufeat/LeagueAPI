@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/LolClashGameflowPhase.hpp>
+#include "../base_def.hpp" 
+#include "LolClashGameflowPhase.hpp"
 namespace lol {
   struct LolClashGameflowSession { 
     LolClashGameflowPhase phase; 

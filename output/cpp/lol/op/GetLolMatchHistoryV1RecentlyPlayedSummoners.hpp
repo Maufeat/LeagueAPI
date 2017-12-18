@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolMatchHistoryRecentlyPlayedSummoner.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolMatchHistoryRecentlyPlayedSummoner.hpp"
 namespace lol {
   inline Result<std::vector<LolMatchHistoryRecentlyPlayedSummoner>> GetLolMatchHistoryV1RecentlyPlayedSummoners(const LeagueClient& _client)
   {

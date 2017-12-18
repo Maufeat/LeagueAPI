@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_def.hpp> 
-#include <lol/def/Position.hpp>
+#include "../base_def.hpp" 
+#include "Position.hpp"
 namespace lol {
   struct LolClashSetPositionRequest { 
     Position position; 

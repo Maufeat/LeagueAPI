@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/SpectateGameInfo.hpp>
+#include "../base_op.hpp" 
+#include "../def/SpectateGameInfo.hpp"
 namespace lol {
   inline Result<SpectateGameInfo> GetLolSpectatorV1Spectate(const LeagueClient& _client)
   {

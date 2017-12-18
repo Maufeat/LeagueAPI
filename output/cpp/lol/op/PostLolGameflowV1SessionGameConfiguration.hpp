@@ -1,6 +1,6 @@
 #pragma once
-#include<lol/base_op.hpp> 
-#include <lol/def/LolGameflowQueue.hpp>
+#include "../base_op.hpp" 
+#include "../def/LolGameflowQueue.hpp"
 namespace lol {
   inline Result<void> PostLolGameflowV1SessionGameConfiguration(const LeagueClient& _client, const LolGameflowQueue& queue)
   {
