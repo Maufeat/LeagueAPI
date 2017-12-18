@@ -1,10 +1,10 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LolChampSelectChampSelectTradeContract.hpp"
 #include "LolChampSelectChampSelectBannedChampions.hpp"
-#include "LolChampSelectChampSelectTimer.hpp"
 #include "LolChampSelectChampSelectChatRoomDetails.hpp"
 #include "LolChampSelectChampSelectPlayerSelection.hpp"
+#include "LolChampSelectChampSelectTimer.hpp"
+#include "LolChampSelectChampSelectTradeContract.hpp"
 namespace lol {
   struct LolChampSelectChampSelectSession { 
     LolChampSelectChampSelectChatRoomDetails chatDetails;

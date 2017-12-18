@@ -1,8 +1,8 @@
 #pragma once
 #include "../base_def.hpp" 
+#include "TournamentInfoDTO.hpp"
 #include "PlayerDTO.hpp"
 #include "ThemeVp.hpp"
-#include "TournamentInfoDTO.hpp"
 #include "RosterStatsDTO.hpp"
 namespace lol {
   struct TournamentPlayerInfoDTO { 

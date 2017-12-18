@@ -1,7 +1,7 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LCDSLoyaltyRewards.hpp"
 #include "LCDSLoyaltyStateChangeNotificationCategory.hpp"
+#include "LCDSLoyaltyRewards.hpp"
 namespace lol {
   struct LCDSLoyaltyStateChangeNotification { 
     LCDSLoyaltyRewards rewards;

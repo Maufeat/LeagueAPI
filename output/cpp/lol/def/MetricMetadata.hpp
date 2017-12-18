@@ -1,11 +1,11 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "MetricDataType.hpp"
-#include "MetricType.hpp"
-#include "AggregationType.hpp"
-#include "MetricMetadataAlert.hpp"
-#include "MetricPriority.hpp"
 #include "MetricMetadataNotify.hpp"
+#include "MetricDataType.hpp"
+#include "MetricPriority.hpp"
+#include "AggregationType.hpp"
+#include "MetricType.hpp"
+#include "MetricMetadataAlert.hpp"
 namespace lol {
   struct MetricMetadata { 
     uint32_t sample_window_ms;

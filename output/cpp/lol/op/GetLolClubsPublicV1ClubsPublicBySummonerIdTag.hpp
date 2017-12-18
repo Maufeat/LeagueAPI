@@ -1,20 +1,33 @@
 #pragma once
-#include "../base_op.hpp" 
+#include "../base_op.hpp"
+#include <functional> 
 #include "../def/LolClubsPublicClubTag.hpp"
 namespace lol {
-  inline Result<LolClubsPublicClubTag> GetLolClubsPublicV1ClubsPublicBySummonerIdTag(const LeagueClient& _client, const uint64_t& summonerId)
+  inline Result<LolClubsPublicClubTag> GetLolClubsPublicV1ClubsPublicBySummonerIdTag(LeagueClient& _client, const uint64_t& summonerId)
   {
-    HttpsClient _client_(_client.host, false);
     try {
       return Result<LolClubsPublicClubTag> {
-        _client_.request("get", "/lol-clubs-public/v1/clubs/public/"+to_string(summonerId)+"/tag?" +
+        _client.https.request("get", "/lol-clubs-public/v1/clubs/public/"+to_string(summonerId)+"/tag?" +
           SimpleWeb::QueryString::create(Args2Headers({  })), 
           "",
           Args2Headers({  
             {"Authorization", _client.auth},  }))
       };
     } catch(const SimpleWeb::system_error &e) {
-      return Result<LolClubsPublicClubTag> { Error { to_string(e.code().value()), -1, e.what() } };
+      return Result<LolClubsPublicClubTag> { Error { to_string(e.code().value()), -1, e.code().message() } };
     }
+  }
+  inline void GetLolClubsPublicV1ClubsPublicBySummonerIdTag(LeagueClient& _client, const uint64_t& summonerId, std::function<void(LeagueClient&,const Result<LolClubsPublicClubTag>&)> cb)
+  {
+    _client.httpsa.request("get", "/lol-clubs-public/v1/clubs/public/"+to_string(summonerId)+"/tag?" +
+      SimpleWeb::QueryString::create(Args2Headers({  })), 
+          "",
+          Args2Headers({  
+        {"Authorization", _client.auth},  }),[cb,&_client](std::shared_ptr<HttpsClient::Response> response, const SimpleWeb::error_code &e) {
+          if(!e)
+            cb(_client, Result<LolClubsPublicClubTag> { response });
+          else
+            cb(_client,Result<LolClubsPublicClubTag> { Error { to_string(e.value()), -1, e.message() } });
+        });
   }
 }

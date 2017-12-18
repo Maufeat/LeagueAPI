@@ -1,20 +1,33 @@
 #pragma once
-#include "../base_op.hpp" 
+#include "../base_op.hpp"
+#include <functional> 
 #include "../def/LolLootRecipe.hpp"
 namespace lol {
-  inline Result<std::vector<LolLootRecipe>> GetLolLootV1RecipesInitialItemByLootId(const LeagueClient& _client, const std::string& lootId)
+  inline Result<std::vector<LolLootRecipe>> GetLolLootV1RecipesInitialItemByLootId(LeagueClient& _client, const std::string& lootId)
   {
-    HttpsClient _client_(_client.host, false);
     try {
       return Result<std::vector<LolLootRecipe>> {
-        _client_.request("get", "/lol-loot/v1/recipes/initial-item/"+to_string(lootId)+"?" +
+        _client.https.request("get", "/lol-loot/v1/recipes/initial-item/"+to_string(lootId)+"?" +
           SimpleWeb::QueryString::create(Args2Headers({  })), 
           "",
           Args2Headers({  
             {"Authorization", _client.auth},  }))
       };
     } catch(const SimpleWeb::system_error &e) {
-      return Result<std::vector<LolLootRecipe>> { Error { to_string(e.code().value()), -1, e.what() } };
+      return Result<std::vector<LolLootRecipe>> { Error { to_string(e.code().value()), -1, e.code().message() } };
     }
+  }
+  inline void GetLolLootV1RecipesInitialItemByLootId(LeagueClient& _client, const std::string& lootId, std::function<void(LeagueClient&,const Result<std::vector<LolLootRecipe>>&)> cb)
+  {
+    _client.httpsa.request("get", "/lol-loot/v1/recipes/initial-item/"+to_string(lootId)+"?" +
+      SimpleWeb::QueryString::create(Args2Headers({  })), 
+          "",
+          Args2Headers({  
+        {"Authorization", _client.auth},  }),[cb,&_client](std::shared_ptr<HttpsClient::Response> response, const SimpleWeb::error_code &e) {
+          if(!e)
+            cb(_client, Result<std::vector<LolLootRecipe>> { response });
+          else
+            cb(_client,Result<std::vector<LolLootRecipe>> { Error { to_string(e.value()), -1, e.message() } });
+        });
   }
 }

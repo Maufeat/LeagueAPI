@@ -1,7 +1,7 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LolLeaguesLeagueQueueType.hpp"
 #include "LolLeaguesLeagueTier.hpp"
+#include "LolLeaguesLeagueQueueType.hpp"
 namespace lol {
   struct LolLeaguesAchievedTier { 
     uint64_t division;

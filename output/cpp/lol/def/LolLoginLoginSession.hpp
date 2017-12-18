@@ -1,8 +1,8 @@
 #pragma once
 #include "../base_def.hpp" 
 #include "LolLoginLoginQueue.hpp"
-#include "LolLoginLoginError.hpp"
 #include "LolLoginLoginSessionStates.hpp"
+#include "LolLoginLoginError.hpp"
 namespace lol {
   struct LolLoginLoginSession { 
     std::string username;

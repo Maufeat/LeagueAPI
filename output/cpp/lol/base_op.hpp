@@ -150,19 +150,21 @@ namespace lol {
     return map;
   }
   struct LeagueClient {
-    std::string host;
     std::string auth;
     WssClient wss;
+    HttpsClient https;
+    HttpsClient httpsa;
     uint32_t id;
 
     LeagueClient(const LeagueClient&) = delete;
     LeagueClient(const std::string& address, int port, const std::string& password, uint32_t id = 0) :
-      host(address + ":" + std::to_string(port)),
       auth("Basic " + SimpleWeb::Crypto::Base64::encode("riot:" + password)),
-      wss(address + ":" + std::to_string(port), false)
+      wss(address + ":" + std::to_string(port), false),
+      https(address + ":" + std::to_string(port), false),
+      httpsa(address + ":" + std::to_string(port), false)
     {
       wss.config.header = {
-        { "authorization", "Basic " + SimpleWeb::Crypto::Base64::encode("riot:" + password) },
+        { "authorization", auth },
         { "sec-websocket-protocol", "wamp" }
       };
     }

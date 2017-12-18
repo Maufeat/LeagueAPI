@@ -1,7 +1,7 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LolClashMatchmakingReadyCheckState.hpp"
 #include "LolClashMatchmakingReadyCheckResponse.hpp"
+#include "LolClashMatchmakingReadyCheckState.hpp"
 namespace lol {
   struct LolClashMatchmakingReadyCheckResource { 
     LolClashMatchmakingReadyCheckResponse playerResponse;

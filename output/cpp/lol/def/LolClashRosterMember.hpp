@@ -1,8 +1,8 @@
 #pragma once
 #include "../base_def.hpp" 
+#include "LolClashRosterMemberState.hpp"
 #include "Position.hpp"
 #include "LolClashBiddingData.hpp"
-#include "LolClashRosterMemberState.hpp"
 namespace lol {
   struct LolClashRosterMember { 
     LolClashBiddingData biddingData;

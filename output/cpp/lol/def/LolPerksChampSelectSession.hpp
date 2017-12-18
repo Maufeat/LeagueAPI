@@ -1,10 +1,10 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LolPerksChampSelectPlayerSelection.hpp"
-#include "LolPerksChampSelectChatRoomDetails.hpp"
-#include "LolPerksChampSelectTradeContract.hpp"
-#include "LolPerksChampSelectBannedChampions.hpp"
 #include "LolPerksChampSelectTimer.hpp"
+#include "LolPerksChampSelectBannedChampions.hpp"
+#include "LolPerksChampSelectPlayerSelection.hpp"
+#include "LolPerksChampSelectTradeContract.hpp"
+#include "LolPerksChampSelectChatRoomDetails.hpp"
 namespace lol {
   struct LolPerksChampSelectSession { 
     std::vector<json> actions;

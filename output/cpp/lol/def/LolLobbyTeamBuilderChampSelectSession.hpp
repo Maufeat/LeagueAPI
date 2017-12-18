@@ -1,9 +1,9 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LolLobbyTeamBuilderChampSelectTimer.hpp"
+#include "LolLobbyTeamBuilderChampSelectChatRoomDetails.hpp"
 #include "LolLobbyTeamBuilderChampSelectPlayerSelection.hpp"
 #include "LolLobbyTeamBuilderChampSelectTradeContract.hpp"
-#include "LolLobbyTeamBuilderChampSelectChatRoomDetails.hpp"
+#include "LolLobbyTeamBuilderChampSelectTimer.hpp"
 namespace lol {
   struct LolLobbyTeamBuilderChampSelectSession { 
     std::vector<json> actions;

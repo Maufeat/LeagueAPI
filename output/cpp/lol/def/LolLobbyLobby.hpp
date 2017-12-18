@@ -1,9 +1,9 @@
 #pragma once
 #include "../base_def.hpp" 
+#include "LolLobbyLobbyCustomGameLobby.hpp"
+#include "LolLobbyQueueAvailability.hpp"
 #include "LolLobbyLobbyRemovedFromGameReason.hpp"
 #include "LolLobbyLobbyMember.hpp"
-#include "LolLobbyQueueAvailability.hpp"
-#include "LolLobbyLobbyCustomGameLobby.hpp"
 #include "LolLobbyLobbyInvitation.hpp"
 namespace lol {
   struct LolLobbyLobby { 

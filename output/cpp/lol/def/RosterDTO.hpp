@@ -1,7 +1,7 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "RosterDynamicStateDTO.hpp"
 #include "PhaseRosterDTO.hpp"
+#include "RosterDynamicStateDTO.hpp"
 #include "RosterMemberDTO.hpp"
 namespace lol {
   struct RosterDTO { 

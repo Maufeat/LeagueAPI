@@ -1,7 +1,7 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LolClubsPublicClubPlayer.hpp"
 #include "LolClubsPublicPlayerClub.hpp"
+#include "LolClubsPublicClubPlayer.hpp"
 #include "LolClubsPublicClubPreferences.hpp"
 namespace lol {
   struct LolClubsPublicPlayerClubMembership { 

@@ -1,7 +1,7 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LolChampSelectLegacyGameflowPhase.hpp"
 #include "LolChampSelectLegacyGameflowGameClient.hpp"
+#include "LolChampSelectLegacyGameflowPhase.hpp"
 #include "LolChampSelectLegacyGameflowGameData.hpp"
 namespace lol {
   struct LolChampSelectLegacyGameflowSession { 

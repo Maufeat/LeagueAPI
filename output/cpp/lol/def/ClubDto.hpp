@@ -1,7 +1,7 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "ClubMembershipDto.hpp"
 #include "ClubDataDto.hpp"
+#include "ClubMembershipDto.hpp"
 namespace lol {
   struct ClubDto { 
     ClubDataDto clubData;

@@ -1,8 +1,8 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LolLobbyReceivedInvitationGameConfigDto.hpp"
 #include "LolLobbyEligibilityRestriction.hpp"
 #include "LolLobbyLobbyInvitationState.hpp"
+#include "LolLobbyReceivedInvitationGameConfigDto.hpp"
 namespace lol {
   struct LolLobbyReceivedInvitationDto { 
     std::string timestamp;

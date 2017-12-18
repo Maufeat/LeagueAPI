@@ -1,19 +1,32 @@
 #pragma once
-#include "../base_op.hpp" 
+#include "../base_op.hpp"
+#include <functional> 
 namespace lol {
-  inline Result<std::string> GetLolReplaysV1RoflsPath(const LeagueClient& _client)
+  inline Result<std::string> GetLolReplaysV1RoflsPath(LeagueClient& _client)
   {
-    HttpsClient _client_(_client.host, false);
     try {
       return Result<std::string> {
-        _client_.request("get", "/lol-replays/v1/rofls/path?" +
+        _client.https.request("get", "/lol-replays/v1/rofls/path?" +
           SimpleWeb::QueryString::create(Args2Headers({  })), 
           "",
           Args2Headers({  
             {"Authorization", _client.auth},  }))
       };
     } catch(const SimpleWeb::system_error &e) {
-      return Result<std::string> { Error { to_string(e.code().value()), -1, e.what() } };
+      return Result<std::string> { Error { to_string(e.code().value()), -1, e.code().message() } };
     }
+  }
+  inline void GetLolReplaysV1RoflsPath(LeagueClient& _client, std::function<void(LeagueClient&,const Result<std::string>&)> cb)
+  {
+    _client.httpsa.request("get", "/lol-replays/v1/rofls/path?" +
+      SimpleWeb::QueryString::create(Args2Headers({  })), 
+          "",
+          Args2Headers({  
+        {"Authorization", _client.auth},  }),[cb,&_client](std::shared_ptr<HttpsClient::Response> response, const SimpleWeb::error_code &e) {
+          if(!e)
+            cb(_client, Result<std::string> { response });
+          else
+            cb(_client,Result<std::string> { Error { to_string(e.value()), -1, e.message() } });
+        });
   }
 }

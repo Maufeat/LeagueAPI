@@ -1,7 +1,7 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LolGameQueuesQueueCustomGameSubcategory.hpp"
 #include "LolGameQueuesQueueAvailability.hpp"
+#include "LolGameQueuesQueueCustomGameSubcategory.hpp"
 #include "LolGameQueuesQueueCustomGameSpectatorPolicy.hpp"
 namespace lol {
   struct LolGameQueuesQueueCustomGame { 

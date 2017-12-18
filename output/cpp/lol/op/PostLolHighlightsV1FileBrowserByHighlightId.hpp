@@ -1,19 +1,32 @@
 #pragma once
-#include "../base_op.hpp" 
+#include "../base_op.hpp"
+#include <functional> 
 namespace lol {
-  inline Result<json> PostLolHighlightsV1FileBrowserByHighlightId(const LeagueClient& _client, const uint64_t& highlightId)
+  inline Result<json> PostLolHighlightsV1FileBrowserByHighlightId(LeagueClient& _client, const uint64_t& highlightId)
   {
-    HttpsClient _client_(_client.host, false);
     try {
       return Result<json> {
-        _client_.request("post", "/lol-highlights/v1/file-browser/"+to_string(highlightId)+"?" +
+        _client.https.request("post", "/lol-highlights/v1/file-browser/"+to_string(highlightId)+"?" +
           SimpleWeb::QueryString::create(Args2Headers({  })), 
           "",
           Args2Headers({  
             {"Authorization", _client.auth},  }))
       };
     } catch(const SimpleWeb::system_error &e) {
-      return Result<json> { Error { to_string(e.code().value()), -1, e.what() } };
+      return Result<json> { Error { to_string(e.code().value()), -1, e.code().message() } };
     }
+  }
+  inline void PostLolHighlightsV1FileBrowserByHighlightId(LeagueClient& _client, const uint64_t& highlightId, std::function<void(LeagueClient&,const Result<json>&)> cb)
+  {
+    _client.httpsa.request("post", "/lol-highlights/v1/file-browser/"+to_string(highlightId)+"?" +
+      SimpleWeb::QueryString::create(Args2Headers({  })), 
+          "",
+          Args2Headers({  
+        {"Authorization", _client.auth},  }),[cb,&_client](std::shared_ptr<HttpsClient::Response> response, const SimpleWeb::error_code &e) {
+          if(!e)
+            cb(_client, Result<json> { response });
+          else
+            cb(_client,Result<json> { Error { to_string(e.value()), -1, e.message() } });
+        });
   }
 }

@@ -1,7 +1,7 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LolLootLootType.hpp"
 #include "LolLootLootRarity.hpp"
+#include "LolLootLootType.hpp"
 namespace lol {
   struct LolLootLootItemGdsResource { 
     std::string image;

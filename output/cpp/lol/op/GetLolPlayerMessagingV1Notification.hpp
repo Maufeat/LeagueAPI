@@ -1,20 +1,33 @@
 #pragma once
-#include "../base_op.hpp" 
+#include "../base_op.hpp"
+#include <functional> 
 #include "../def/PlayerMessagingNotificationResource.hpp"
 namespace lol {
-  inline Result<PlayerMessagingNotificationResource> GetLolPlayerMessagingV1Notification(const LeagueClient& _client)
+  inline Result<PlayerMessagingNotificationResource> GetLolPlayerMessagingV1Notification(LeagueClient& _client)
   {
-    HttpsClient _client_(_client.host, false);
     try {
       return Result<PlayerMessagingNotificationResource> {
-        _client_.request("get", "/lol-player-messaging/v1/notification?" +
+        _client.https.request("get", "/lol-player-messaging/v1/notification?" +
           SimpleWeb::QueryString::create(Args2Headers({  })), 
           "",
           Args2Headers({  
             {"Authorization", _client.auth},  }))
       };
     } catch(const SimpleWeb::system_error &e) {
-      return Result<PlayerMessagingNotificationResource> { Error { to_string(e.code().value()), -1, e.what() } };
+      return Result<PlayerMessagingNotificationResource> { Error { to_string(e.code().value()), -1, e.code().message() } };
     }
+  }
+  inline void GetLolPlayerMessagingV1Notification(LeagueClient& _client, std::function<void(LeagueClient&,const Result<PlayerMessagingNotificationResource>&)> cb)
+  {
+    _client.httpsa.request("get", "/lol-player-messaging/v1/notification?" +
+      SimpleWeb::QueryString::create(Args2Headers({  })), 
+          "",
+          Args2Headers({  
+        {"Authorization", _client.auth},  }),[cb,&_client](std::shared_ptr<HttpsClient::Response> response, const SimpleWeb::error_code &e) {
+          if(!e)
+            cb(_client, Result<PlayerMessagingNotificationResource> { response });
+          else
+            cb(_client,Result<PlayerMessagingNotificationResource> { Error { to_string(e.value()), -1, e.message() } });
+        });
   }
 }

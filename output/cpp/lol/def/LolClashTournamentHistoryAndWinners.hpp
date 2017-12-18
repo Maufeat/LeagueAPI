@@ -1,7 +1,7 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LolClashTournament.hpp"
 #include "LolClashTournamentWinnerHistory.hpp"
+#include "LolClashTournament.hpp"
 namespace lol {
   struct LolClashTournamentHistoryAndWinners { 
     LolClashTournamentWinnerHistory tournamentWinners;

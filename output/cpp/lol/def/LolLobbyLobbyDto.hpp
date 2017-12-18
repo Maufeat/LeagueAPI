@@ -1,9 +1,9 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LolLobbyEligibilityRestriction.hpp"
-#include "LolLobbyLobbyParticipantDto.hpp"
 #include "LolLobbyLobbyGameConfigDto.hpp"
 #include "LolLobbyLobbyInvitationDto.hpp"
+#include "LolLobbyEligibilityRestriction.hpp"
+#include "LolLobbyLobbyParticipantDto.hpp"
 namespace lol {
   struct LolLobbyLobbyDto { 
     std::vector<LolLobbyLobbyParticipantDto> members;

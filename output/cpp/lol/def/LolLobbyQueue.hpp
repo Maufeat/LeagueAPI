@@ -1,9 +1,9 @@
 #pragma once
 #include "../base_def.hpp" 
 #include "LolLobbyQueueGameCategory.hpp"
+#include "LolLobbyQueueAvailability.hpp"
 #include "LolLobbyQueueGameTypeConfig.hpp"
 #include "LolLobbyQueueReward.hpp"
-#include "LolLobbyQueueAvailability.hpp"
 namespace lol {
   struct LolLobbyQueue { 
     std::string gameMutator;

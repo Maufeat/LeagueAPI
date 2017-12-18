@@ -2,8 +2,8 @@
 #include "../base_def.hpp" 
 #include "PhaseRosterSubDTO.hpp"
 #include "BuybackMember.hpp"
-#include "TicketOfferDTO.hpp"
 #include "RosterWithdraw.hpp"
+#include "TicketOfferDTO.hpp"
 namespace lol {
   struct RosterDynamicStateDTO { 
     RosterWithdraw withdraw;

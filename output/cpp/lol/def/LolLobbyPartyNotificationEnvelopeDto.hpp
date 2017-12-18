@@ -1,7 +1,7 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LolLobbyQueueRestrictionDto.hpp"
 #include "LolLobbyPlayerDto.hpp"
+#include "LolLobbyQueueRestrictionDto.hpp"
 namespace lol {
   struct LolLobbyPartyNotificationEnvelopeDto { 
     std::optional<LolLobbyQueueRestrictionDto> queueRestriction;

@@ -1,9 +1,9 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LeaguesLcdsLeagueTier.hpp"
+#include "LeaguesLcdsLeagueRank.hpp"
 #include "LeaguesLcdsQueueType.hpp"
 #include "LeaguesLcdsMiniSeriesDTO.hpp"
-#include "LeaguesLcdsLeagueRank.hpp"
+#include "LeaguesLcdsLeagueTier.hpp"
 namespace lol {
   struct LeaguesLcdsLeagueItemDTO { 
     std::string inactivityStatus;

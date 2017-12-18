@@ -1,7 +1,7 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LolEsportStreamNotificationsESportsAPI_streamgroups.hpp"
 #include "LolEsportStreamNotificationsEsportsAPI_teams.hpp"
+#include "LolEsportStreamNotificationsESportsAPI_streamgroups.hpp"
 #include "LolEsportStreamNotificationsEsportsAPI_highlanderTournaments.hpp"
 namespace lol {
   struct LolEsportStreamNotificationsESportsAPI_streamgroups_root { 

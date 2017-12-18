@@ -1,9 +1,9 @@
 #pragma once
 #include "../base_def.hpp" 
 #include "LolLobbyTeamBuilderAfkCheckStateV1.hpp"
-#include "LolLobbyTeamBuilderTBDMatchmakingState.hpp"
 #include "LolLobbyTeamBuilderChampionSelectStateV1.hpp"
 #include "LolLobbyTeamBuilderTbLobbyPremadeStateResource.hpp"
+#include "LolLobbyTeamBuilderTBDMatchmakingState.hpp"
 namespace lol {
   struct LolLobbyTeamBuilderTbLobbyStateResource { 
     std::optional<LolLobbyTeamBuilderTBDMatchmakingState> matchmakingState;

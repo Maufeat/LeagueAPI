@@ -1,20 +1,33 @@
 #pragma once
-#include "../base_op.hpp" 
+#include "../base_op.hpp"
+#include <functional> 
 #include "../def/LolMatchmakingMatchmakingSearchResource.hpp"
 namespace lol {
-  inline Result<LolMatchmakingMatchmakingSearchResource> GetLolMatchmakingV1Search(const LeagueClient& _client)
+  inline Result<LolMatchmakingMatchmakingSearchResource> GetLolMatchmakingV1Search(LeagueClient& _client)
   {
-    HttpsClient _client_(_client.host, false);
     try {
       return Result<LolMatchmakingMatchmakingSearchResource> {
-        _client_.request("get", "/lol-matchmaking/v1/search?" +
+        _client.https.request("get", "/lol-matchmaking/v1/search?" +
           SimpleWeb::QueryString::create(Args2Headers({  })), 
           "",
           Args2Headers({  
             {"Authorization", _client.auth},  }))
       };
     } catch(const SimpleWeb::system_error &e) {
-      return Result<LolMatchmakingMatchmakingSearchResource> { Error { to_string(e.code().value()), -1, e.what() } };
+      return Result<LolMatchmakingMatchmakingSearchResource> { Error { to_string(e.code().value()), -1, e.code().message() } };
     }
+  }
+  inline void GetLolMatchmakingV1Search(LeagueClient& _client, std::function<void(LeagueClient&,const Result<LolMatchmakingMatchmakingSearchResource>&)> cb)
+  {
+    _client.httpsa.request("get", "/lol-matchmaking/v1/search?" +
+      SimpleWeb::QueryString::create(Args2Headers({  })), 
+          "",
+          Args2Headers({  
+        {"Authorization", _client.auth},  }),[cb,&_client](std::shared_ptr<HttpsClient::Response> response, const SimpleWeb::error_code &e) {
+          if(!e)
+            cb(_client, Result<LolMatchmakingMatchmakingSearchResource> { response });
+          else
+            cb(_client,Result<LolMatchmakingMatchmakingSearchResource> { Error { to_string(e.value()), -1, e.message() } });
+        });
   }
 }

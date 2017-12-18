@@ -2,8 +2,8 @@
 #include "../base_def.hpp" 
 #include "LolLobbyTeamBuilderRerollStateV1.hpp"
 #include "LolLobbyTeamBuilderTeamBuilderBoostInfo.hpp"
-#include "LolLobbyTeamBuilderCellsV1.hpp"
 #include "LolLobbyTeamBuilderTradeV1.hpp"
+#include "LolLobbyTeamBuilderCellsV1.hpp"
 namespace lol {
   struct LolLobbyTeamBuilderChampionSelectStateV1 { 
     int64_t currentTotalTimeMillis;

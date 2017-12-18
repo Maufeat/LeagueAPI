@@ -1,8 +1,8 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LolEndOfGameGameflowClient.hpp"
 #include "LolEndOfGameGameflowPhase.hpp"
 #include "LolEndOfGameGameflowGameData.hpp"
+#include "LolEndOfGameGameflowClient.hpp"
 namespace lol {
   struct LolEndOfGameGameflowSession { 
     LolEndOfGameGameflowGameData gameData;

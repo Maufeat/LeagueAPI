@@ -1,9 +1,9 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "RankedDivision.hpp"
-#include "LolRankedStatsRankedTier.hpp"
 #include "LolRankedStatsRankedQueue.hpp"
+#include "LolRankedStatsRankedTier.hpp"
 #include "RankedLeagueMiniSeriesDTO.hpp"
+#include "RankedDivision.hpp"
 namespace lol {
   struct RankedLeagueItemDTO { 
     RankedLeagueMiniSeriesDTO miniSeries;

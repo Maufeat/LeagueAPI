@@ -1,13 +1,13 @@
 #pragma once
-#include "../base_op.hpp" 
+#include "../base_op.hpp"
+#include <functional> 
 #include "../def/LolSummonerSummoner.hpp"
 namespace lol {
-  inline Result<LolSummonerSummoner> PostLolSummonerV1CurrentSummonerName(const LeagueClient& _client, const std::string& name)
+  inline Result<LolSummonerSummoner> PostLolSummonerV1CurrentSummonerName(LeagueClient& _client, const std::string& name)
   {
-    HttpsClient _client_(_client.host, false);
     try {
       return Result<LolSummonerSummoner> {
-        _client_.request("post", "/lol-summoner/v1/current-summoner/name?" +
+        _client.https.request("post", "/lol-summoner/v1/current-summoner/name?" +
           SimpleWeb::QueryString::create(Args2Headers({  })), 
           json(name).dump(),
           Args2Headers({
@@ -15,7 +15,21 @@ namespace lol {
             {"Authorization", _client.auth},  }))
       };
     } catch(const SimpleWeb::system_error &e) {
-      return Result<LolSummonerSummoner> { Error { to_string(e.code().value()), -1, e.what() } };
+      return Result<LolSummonerSummoner> { Error { to_string(e.code().value()), -1, e.code().message() } };
     }
+  }
+  inline void PostLolSummonerV1CurrentSummonerName(LeagueClient& _client, const std::string& name, std::function<void(LeagueClient&,const Result<LolSummonerSummoner>&)> cb)
+  {
+    _client.httpsa.request("post", "/lol-summoner/v1/current-summoner/name?" +
+      SimpleWeb::QueryString::create(Args2Headers({  })), 
+          json(name).dump(),
+          Args2Headers({
+            {"content-type", "application/json"},
+        {"Authorization", _client.auth},  }),[cb,&_client](std::shared_ptr<HttpsClient::Response> response, const SimpleWeb::error_code &e) {
+          if(!e)
+            cb(_client, Result<LolSummonerSummoner> { response });
+          else
+            cb(_client,Result<LolSummonerSummoner> { Error { to_string(e.value()), -1, e.message() } });
+        });
   }
 }

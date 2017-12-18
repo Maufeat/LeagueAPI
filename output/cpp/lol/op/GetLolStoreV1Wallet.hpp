@@ -1,20 +1,33 @@
 #pragma once
-#include "../base_op.hpp" 
+#include "../base_op.hpp"
+#include <functional> 
 #include "../def/LolStoreWallet.hpp"
 namespace lol {
-  inline Result<LolStoreWallet> GetLolStoreV1Wallet(const LeagueClient& _client)
+  inline Result<LolStoreWallet> GetLolStoreV1Wallet(LeagueClient& _client)
   {
-    HttpsClient _client_(_client.host, false);
     try {
       return Result<LolStoreWallet> {
-        _client_.request("get", "/lol-store/v1/wallet?" +
+        _client.https.request("get", "/lol-store/v1/wallet?" +
           SimpleWeb::QueryString::create(Args2Headers({  })), 
           "",
           Args2Headers({  
             {"Authorization", _client.auth},  }))
       };
     } catch(const SimpleWeb::system_error &e) {
-      return Result<LolStoreWallet> { Error { to_string(e.code().value()), -1, e.what() } };
+      return Result<LolStoreWallet> { Error { to_string(e.code().value()), -1, e.code().message() } };
     }
+  }
+  inline void GetLolStoreV1Wallet(LeagueClient& _client, std::function<void(LeagueClient&,const Result<LolStoreWallet>&)> cb)
+  {
+    _client.httpsa.request("get", "/lol-store/v1/wallet?" +
+      SimpleWeb::QueryString::create(Args2Headers({  })), 
+          "",
+          Args2Headers({  
+        {"Authorization", _client.auth},  }),[cb,&_client](std::shared_ptr<HttpsClient::Response> response, const SimpleWeb::error_code &e) {
+          if(!e)
+            cb(_client, Result<LolStoreWallet> { response });
+          else
+            cb(_client,Result<LolStoreWallet> { Error { to_string(e.value()), -1, e.message() } });
+        });
   }
 }

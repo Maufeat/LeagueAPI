@@ -1,12 +1,12 @@
 #pragma once
-#include "../base_op.hpp" 
+#include "../base_op.hpp"
+#include <functional> 
 namespace lol {
-  inline Result<json> PutPatcherV1SelfUpdateRestart(const LeagueClient& _client, const bool& forceRestartOnSelfUpdate)
+  inline Result<json> PutPatcherV1SelfUpdateRestart(LeagueClient& _client, const bool& forceRestartOnSelfUpdate)
   {
-    HttpsClient _client_(_client.host, false);
     try {
       return Result<json> {
-        _client_.request("put", "/patcher/v1/self-update-restart?" +
+        _client.https.request("put", "/patcher/v1/self-update-restart?" +
           SimpleWeb::QueryString::create(Args2Headers({ 
            { "forceRestartOnSelfUpdate", to_string(forceRestartOnSelfUpdate) }, })), 
           "",
@@ -14,7 +14,21 @@ namespace lol {
             {"Authorization", _client.auth},  }))
       };
     } catch(const SimpleWeb::system_error &e) {
-      return Result<json> { Error { to_string(e.code().value()), -1, e.what() } };
+      return Result<json> { Error { to_string(e.code().value()), -1, e.code().message() } };
     }
+  }
+  inline void PutPatcherV1SelfUpdateRestart(LeagueClient& _client, const bool& forceRestartOnSelfUpdate, std::function<void(LeagueClient&,const Result<json>&)> cb)
+  {
+    _client.httpsa.request("put", "/patcher/v1/self-update-restart?" +
+      SimpleWeb::QueryString::create(Args2Headers({ 
+           { "forceRestartOnSelfUpdate", to_string(forceRestartOnSelfUpdate) }, })), 
+          "",
+          Args2Headers({  
+        {"Authorization", _client.auth},  }),[cb,&_client](std::shared_ptr<HttpsClient::Response> response, const SimpleWeb::error_code &e) {
+          if(!e)
+            cb(_client, Result<json> { response });
+          else
+            cb(_client,Result<json> { Error { to_string(e.value()), -1, e.message() } });
+        });
   }
 }

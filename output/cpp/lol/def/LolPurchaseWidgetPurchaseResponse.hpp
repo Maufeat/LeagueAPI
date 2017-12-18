@@ -1,8 +1,8 @@
 #pragma once
 #include "../base_def.hpp" 
+#include "LolPurchaseWidgetWallet.hpp"
 #include "LolPurchaseWidgetPurchaseItem.hpp"
 #include "LolPurchaseWidgetTransaction.hpp"
-#include "LolPurchaseWidgetWallet.hpp"
 namespace lol {
   struct LolPurchaseWidgetPurchaseResponse { 
     std::vector<LolPurchaseWidgetTransaction> transactions;

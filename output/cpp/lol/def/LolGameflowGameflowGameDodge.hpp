@@ -1,7 +1,7 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LolGameflowGameflowPhase.hpp"
 #include "LolGameflowGameflowGameDodgeState.hpp"
+#include "LolGameflowGameflowPhase.hpp"
 namespace lol {
   struct LolGameflowGameflowGameDodge { 
     LolGameflowGameflowGameDodgeState state;

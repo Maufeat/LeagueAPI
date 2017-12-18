@@ -1,7 +1,7 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "PatcherComponentResourceType.hpp"
 #include "PatcherHeaderEntry.hpp"
+#include "PatcherComponentResourceType.hpp"
 #include "PatcherComponentResourceHistory.hpp"
 namespace lol {
   struct PatcherComponentResource { 

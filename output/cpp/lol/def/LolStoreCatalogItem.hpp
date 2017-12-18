@@ -1,8 +1,8 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LolStoreItemKey.hpp"
 #include "LolStoreBundled.hpp"
 #include "LolStoreItemCost.hpp"
+#include "LolStoreItemKey.hpp"
 #include "LolStoreSale.hpp"
 namespace lol {
   struct LolStoreCatalogItem { 

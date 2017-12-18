@@ -1,7 +1,7 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LolChampionsCollectionsChampionSkinEmblem.hpp"
 #include "LolChampionsGameDataChampionChroma.hpp"
+#include "LolChampionsCollectionsChampionSkinEmblem.hpp"
 namespace lol {
   struct LolChampionsGameDataChampionSkin { 
     std::vector<LolChampionsGameDataChampionChroma> chromas;

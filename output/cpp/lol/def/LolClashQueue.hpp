@@ -1,8 +1,8 @@
 #pragma once
 #include "../base_def.hpp" 
 #include "LolClashQueueGameCategory.hpp"
-#include "LolClashQueueReward.hpp"
 #include "LolClashQueueAvailability.hpp"
+#include "LolClashQueueReward.hpp"
 #include "LolClashQueueGameTypeConfig.hpp"
 namespace lol {
   struct LolClashQueue { 

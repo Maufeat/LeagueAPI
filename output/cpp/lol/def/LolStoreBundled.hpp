@@ -1,7 +1,7 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LolStoreBundledItem.hpp"
 #include "LolStoreBundledItemCost.hpp"
+#include "LolStoreBundledItem.hpp"
 namespace lol {
   struct LolStoreBundled { 
     std::vector<LolStoreBundledItemCost> minimumPrices;

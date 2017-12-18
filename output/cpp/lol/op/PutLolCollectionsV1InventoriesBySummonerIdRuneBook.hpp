@@ -1,13 +1,13 @@
 #pragma once
-#include "../base_op.hpp" 
+#include "../base_op.hpp"
+#include <functional> 
 #include "../def/LolCollectionsCollectionsRuneBook.hpp"
 namespace lol {
-  inline Result<LolCollectionsCollectionsRuneBook> PutLolCollectionsV1InventoriesBySummonerIdRuneBook(const LeagueClient& _client, const uint64_t& summonerId, const LolCollectionsCollectionsRuneBook& resource)
+  inline Result<LolCollectionsCollectionsRuneBook> PutLolCollectionsV1InventoriesBySummonerIdRuneBook(LeagueClient& _client, const uint64_t& summonerId, const LolCollectionsCollectionsRuneBook& resource)
   {
-    HttpsClient _client_(_client.host, false);
     try {
       return Result<LolCollectionsCollectionsRuneBook> {
-        _client_.request("put", "/lol-collections/v1/inventories/"+to_string(summonerId)+"/rune-book?" +
+        _client.https.request("put", "/lol-collections/v1/inventories/"+to_string(summonerId)+"/rune-book?" +
           SimpleWeb::QueryString::create(Args2Headers({  })), 
           json(resource).dump(),
           Args2Headers({
@@ -15,7 +15,21 @@ namespace lol {
             {"Authorization", _client.auth},  }))
       };
     } catch(const SimpleWeb::system_error &e) {
-      return Result<LolCollectionsCollectionsRuneBook> { Error { to_string(e.code().value()), -1, e.what() } };
+      return Result<LolCollectionsCollectionsRuneBook> { Error { to_string(e.code().value()), -1, e.code().message() } };
     }
+  }
+  inline void PutLolCollectionsV1InventoriesBySummonerIdRuneBook(LeagueClient& _client, const uint64_t& summonerId, const LolCollectionsCollectionsRuneBook& resource, std::function<void(LeagueClient&,const Result<LolCollectionsCollectionsRuneBook>&)> cb)
+  {
+    _client.httpsa.request("put", "/lol-collections/v1/inventories/"+to_string(summonerId)+"/rune-book?" +
+      SimpleWeb::QueryString::create(Args2Headers({  })), 
+          json(resource).dump(),
+          Args2Headers({
+            {"content-type", "application/json"},
+        {"Authorization", _client.auth},  }),[cb,&_client](std::shared_ptr<HttpsClient::Response> response, const SimpleWeb::error_code &e) {
+          if(!e)
+            cb(_client, Result<LolCollectionsCollectionsRuneBook> { response });
+          else
+            cb(_client,Result<LolCollectionsCollectionsRuneBook> { Error { to_string(e.value()), -1, e.message() } });
+        });
   }
 }

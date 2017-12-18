@@ -1,13 +1,13 @@
 #pragma once
-#include "../base_op.hpp" 
+#include "../base_op.hpp"
+#include <functional> 
 #include "../def/LolPurchaseWidgetValidationRequest.hpp"
 namespace lol {
-  inline Result<json> PostLolPurchaseWidgetV1ValidateItems(const LeagueClient& _client, const LolPurchaseWidgetValidationRequest& validationRequest)
+  inline Result<json> PostLolPurchaseWidgetV1ValidateItems(LeagueClient& _client, const LolPurchaseWidgetValidationRequest& validationRequest)
   {
-    HttpsClient _client_(_client.host, false);
     try {
       return Result<json> {
-        _client_.request("post", "/lol-purchase-widget/v1/validateItems?" +
+        _client.https.request("post", "/lol-purchase-widget/v1/validateItems?" +
           SimpleWeb::QueryString::create(Args2Headers({  })), 
           json(validationRequest).dump(),
           Args2Headers({
@@ -15,7 +15,21 @@ namespace lol {
             {"Authorization", _client.auth},  }))
       };
     } catch(const SimpleWeb::system_error &e) {
-      return Result<json> { Error { to_string(e.code().value()), -1, e.what() } };
+      return Result<json> { Error { to_string(e.code().value()), -1, e.code().message() } };
     }
+  }
+  inline void PostLolPurchaseWidgetV1ValidateItems(LeagueClient& _client, const LolPurchaseWidgetValidationRequest& validationRequest, std::function<void(LeagueClient&,const Result<json>&)> cb)
+  {
+    _client.httpsa.request("post", "/lol-purchase-widget/v1/validateItems?" +
+      SimpleWeb::QueryString::create(Args2Headers({  })), 
+          json(validationRequest).dump(),
+          Args2Headers({
+            {"content-type", "application/json"},
+        {"Authorization", _client.auth},  }),[cb,&_client](std::shared_ptr<HttpsClient::Response> response, const SimpleWeb::error_code &e) {
+          if(!e)
+            cb(_client, Result<json> { response });
+          else
+            cb(_client,Result<json> { Error { to_string(e.value()), -1, e.message() } });
+        });
   }
 }

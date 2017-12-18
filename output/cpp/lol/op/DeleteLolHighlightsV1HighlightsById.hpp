@@ -1,20 +1,33 @@
 #pragma once
-#include "../base_op.hpp" 
+#include "../base_op.hpp"
+#include <functional> 
 #include "../def/Highlight.hpp"
 namespace lol {
-  inline Result<Highlight> DeleteLolHighlightsV1HighlightsById(const LeagueClient& _client, const uint64_t& id)
+  inline Result<Highlight> DeleteLolHighlightsV1HighlightsById(LeagueClient& _client, const uint64_t& id)
   {
-    HttpsClient _client_(_client.host, false);
     try {
       return Result<Highlight> {
-        _client_.request("delete", "/lol-highlights/v1/highlights/"+to_string(id)+"?" +
+        _client.https.request("delete", "/lol-highlights/v1/highlights/"+to_string(id)+"?" +
           SimpleWeb::QueryString::create(Args2Headers({  })), 
           "",
           Args2Headers({  
             {"Authorization", _client.auth},  }))
       };
     } catch(const SimpleWeb::system_error &e) {
-      return Result<Highlight> { Error { to_string(e.code().value()), -1, e.what() } };
+      return Result<Highlight> { Error { to_string(e.code().value()), -1, e.code().message() } };
     }
+  }
+  inline void DeleteLolHighlightsV1HighlightsById(LeagueClient& _client, const uint64_t& id, std::function<void(LeagueClient&,const Result<Highlight>&)> cb)
+  {
+    _client.httpsa.request("delete", "/lol-highlights/v1/highlights/"+to_string(id)+"?" +
+      SimpleWeb::QueryString::create(Args2Headers({  })), 
+          "",
+          Args2Headers({  
+        {"Authorization", _client.auth},  }),[cb,&_client](std::shared_ptr<HttpsClient::Response> response, const SimpleWeb::error_code &e) {
+          if(!e)
+            cb(_client, Result<Highlight> { response });
+          else
+            cb(_client,Result<Highlight> { Error { to_string(e.value()), -1, e.message() } });
+        });
   }
 }

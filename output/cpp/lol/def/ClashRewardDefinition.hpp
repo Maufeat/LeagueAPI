@@ -1,7 +1,7 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "ClashRewardType.hpp"
 #include "ClashRewardSpec.hpp"
+#include "ClashRewardType.hpp"
 namespace lol {
   struct ClashRewardDefinition { 
     ClashRewardSpec rewardSpec;

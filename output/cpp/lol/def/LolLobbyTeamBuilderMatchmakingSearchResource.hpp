@@ -1,10 +1,10 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LolLobbyTeamBuilderMatchmakingReadyCheckResource.hpp"
-#include "LolLobbyTeamBuilderMatchmakingDodgeData.hpp"
 #include "LolLobbyTeamBuilderMatchmakingSearchState.hpp"
-#include "LolLobbyTeamBuilderMatchmakingLowPriorityData.hpp"
+#include "LolLobbyTeamBuilderMatchmakingDodgeData.hpp"
 #include "LolLobbyTeamBuilderMatchmakingSearchErrorResource.hpp"
+#include "LolLobbyTeamBuilderMatchmakingLowPriorityData.hpp"
+#include "LolLobbyTeamBuilderMatchmakingReadyCheckResource.hpp"
 namespace lol {
   struct LolLobbyTeamBuilderMatchmakingSearchResource { 
     std::string lobbyId;

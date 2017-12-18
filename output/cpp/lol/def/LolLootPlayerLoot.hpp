@@ -1,7 +1,7 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LolLootRedeemableStatus.hpp"
 #include "LolLootItemOwnershipStatus.hpp"
+#include "LolLootRedeemableStatus.hpp"
 namespace lol {
   struct LolLootPlayerLoot { 
     bool isRental;

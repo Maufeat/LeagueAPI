@@ -1,7 +1,7 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "PendingRosterMemberState.hpp"
 #include "Position.hpp"
+#include "PendingRosterMemberState.hpp"
 namespace lol {
   struct PendingRosterMemberDTO { 
     PendingRosterMemberState memberState;

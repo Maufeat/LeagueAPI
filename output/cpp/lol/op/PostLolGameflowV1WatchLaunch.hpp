@@ -1,12 +1,12 @@
 #pragma once
-#include "../base_op.hpp" 
+#include "../base_op.hpp"
+#include <functional> 
 namespace lol {
-  inline Result<json> PostLolGameflowV1WatchLaunch(const LeagueClient& _client, const std::vector<std::string>& args)
+  inline Result<json> PostLolGameflowV1WatchLaunch(LeagueClient& _client, const std::vector<std::string>& args)
   {
-    HttpsClient _client_(_client.host, false);
     try {
       return Result<json> {
-        _client_.request("post", "/lol-gameflow/v1/watch/launch?" +
+        _client.https.request("post", "/lol-gameflow/v1/watch/launch?" +
           SimpleWeb::QueryString::create(Args2Headers({  })), 
           json(args).dump(),
           Args2Headers({
@@ -14,7 +14,21 @@ namespace lol {
             {"Authorization", _client.auth},  }))
       };
     } catch(const SimpleWeb::system_error &e) {
-      return Result<json> { Error { to_string(e.code().value()), -1, e.what() } };
+      return Result<json> { Error { to_string(e.code().value()), -1, e.code().message() } };
     }
+  }
+  inline void PostLolGameflowV1WatchLaunch(LeagueClient& _client, const std::vector<std::string>& args, std::function<void(LeagueClient&,const Result<json>&)> cb)
+  {
+    _client.httpsa.request("post", "/lol-gameflow/v1/watch/launch?" +
+      SimpleWeb::QueryString::create(Args2Headers({  })), 
+          json(args).dump(),
+          Args2Headers({
+            {"content-type", "application/json"},
+        {"Authorization", _client.auth},  }),[cb,&_client](std::shared_ptr<HttpsClient::Response> response, const SimpleWeb::error_code &e) {
+          if(!e)
+            cb(_client, Result<json> { response });
+          else
+            cb(_client,Result<json> { Error { to_string(e.value()), -1, e.message() } });
+        });
   }
 }

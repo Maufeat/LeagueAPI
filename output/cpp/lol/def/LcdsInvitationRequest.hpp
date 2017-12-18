@@ -1,8 +1,8 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LcdsInvitationState.hpp"
 #include "LcdsInviter.hpp"
 #include "LcdsPlayer.hpp"
+#include "LcdsInvitationState.hpp"
 namespace lol {
   struct LcdsInvitationRequest { 
     std::string inviteType;

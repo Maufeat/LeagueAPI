@@ -1,7 +1,7 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "BannedChampion.hpp"
 #include "ChampSelectLcdsPlayerChampionSelectionDTO.hpp"
+#include "BannedChampion.hpp"
 namespace lol {
   struct ChampSelectLcdsGameDTO { 
     std::string roomName;

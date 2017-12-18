@@ -1,8 +1,8 @@
 #pragma once
 #include "../base_def.hpp" 
 #include "LolLootRecipeOutput.hpp"
-#include "LolLootRecipeSlot.hpp"
 #include "LolLootRecipeMetadata.hpp"
+#include "LolLootRecipeSlot.hpp"
 namespace lol {
   struct LolLootRecipe { 
     std::string crafterName;

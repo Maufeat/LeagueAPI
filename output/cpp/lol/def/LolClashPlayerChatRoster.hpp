@@ -1,7 +1,7 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LolClashPlayerState.hpp"
 #include "LolClashTournamentState.hpp"
+#include "LolClashPlayerState.hpp"
 namespace lol {
   struct LolClashPlayerChatRoster { 
     int64_t endTimeMs;

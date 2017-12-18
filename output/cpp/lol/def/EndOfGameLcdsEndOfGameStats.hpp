@@ -1,9 +1,9 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "EndOfGameLcdsSpell.hpp"
-#include "EndOfGameLcdsTeamInfo.hpp"
 #include "EndOfGameLcdsPointsPenalty.hpp"
+#include "EndOfGameLcdsTeamInfo.hpp"
 #include "EndOfGameLcdsPlayerParticipantStatsSummary.hpp"
+#include "EndOfGameLcdsSpell.hpp"
 namespace lol {
   struct EndOfGameLcdsEndOfGameStats { 
     std::string roomName;

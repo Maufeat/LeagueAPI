@@ -1,7 +1,7 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LolPerksPerkSubStyleBonusResource.hpp"
 #include "LolPerksPerkUISlot.hpp"
+#include "LolPerksPerkSubStyleBonusResource.hpp"
 namespace lol {
   struct LolPerksPerkUIStyle { 
     int32_t defaultSubStyle;

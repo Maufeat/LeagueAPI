@@ -1,7 +1,7 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "PhaseRosterSubDTO.hpp"
 #include "Bracket.hpp"
+#include "PhaseRosterSubDTO.hpp"
 namespace lol {
   struct PhaseRosterDTO { 
     int64_t phaseId;

@@ -1,20 +1,33 @@
 #pragma once
-#include "../base_op.hpp" 
+#include "../base_op.hpp"
+#include <functional> 
 #include "../def/RsoAuthUserInfo.hpp"
 namespace lol {
-  inline Result<RsoAuthUserInfo> GetRsoAuthV1AuthorizationUserinfo(const LeagueClient& _client)
+  inline Result<RsoAuthUserInfo> GetRsoAuthV1AuthorizationUserinfo(LeagueClient& _client)
   {
-    HttpsClient _client_(_client.host, false);
     try {
       return Result<RsoAuthUserInfo> {
-        _client_.request("get", "/rso-auth/v1/authorization/userinfo?" +
+        _client.https.request("get", "/rso-auth/v1/authorization/userinfo?" +
           SimpleWeb::QueryString::create(Args2Headers({  })), 
           "",
           Args2Headers({  
             {"Authorization", _client.auth},  }))
       };
     } catch(const SimpleWeb::system_error &e) {
-      return Result<RsoAuthUserInfo> { Error { to_string(e.code().value()), -1, e.what() } };
+      return Result<RsoAuthUserInfo> { Error { to_string(e.code().value()), -1, e.code().message() } };
     }
+  }
+  inline void GetRsoAuthV1AuthorizationUserinfo(LeagueClient& _client, std::function<void(LeagueClient&,const Result<RsoAuthUserInfo>&)> cb)
+  {
+    _client.httpsa.request("get", "/rso-auth/v1/authorization/userinfo?" +
+      SimpleWeb::QueryString::create(Args2Headers({  })), 
+          "",
+          Args2Headers({  
+        {"Authorization", _client.auth},  }),[cb,&_client](std::shared_ptr<HttpsClient::Response> response, const SimpleWeb::error_code &e) {
+          if(!e)
+            cb(_client, Result<RsoAuthUserInfo> { response });
+          else
+            cb(_client,Result<RsoAuthUserInfo> { Error { to_string(e.value()), -1, e.message() } });
+        });
   }
 }

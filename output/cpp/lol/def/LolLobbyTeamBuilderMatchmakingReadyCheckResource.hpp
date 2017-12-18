@@ -1,8 +1,8 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LolLobbyTeamBuilderMatchmakingReadyCheckResponse.hpp"
 #include "LolLobbyTeamBuilderMatchmakingReadyCheckState.hpp"
 #include "LolLobbyTeamBuilderMatchmakingDodgeWarning.hpp"
+#include "LolLobbyTeamBuilderMatchmakingReadyCheckResponse.hpp"
 namespace lol {
   struct LolLobbyTeamBuilderMatchmakingReadyCheckResource { 
     LolLobbyTeamBuilderMatchmakingReadyCheckResponse playerResponse;

@@ -1,7 +1,7 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LeaguesLcdsRosterDTO.hpp"
 #include "LeaguesLcdsTeamIdDTO.hpp"
+#include "LeaguesLcdsRosterDTO.hpp"
 namespace lol {
   struct LeaguesLcdsTeamDTO { 
     std::string name;

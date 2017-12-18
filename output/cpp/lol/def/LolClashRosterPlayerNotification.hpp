@@ -1,7 +1,7 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "PlayerDTO.hpp"
 #include "LolClashRosterNotifyReason.hpp"
+#include "PlayerDTO.hpp"
 #include "RosterDTO.hpp"
 namespace lol {
   struct LolClashRosterPlayerNotification { 

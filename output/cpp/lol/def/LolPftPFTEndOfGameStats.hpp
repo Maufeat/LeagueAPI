@@ -1,7 +1,7 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LolPftPFTEndOfGameTeam.hpp"
 #include "LolPftPFTEndOfGamePoints.hpp"
+#include "LolPftPFTEndOfGameTeam.hpp"
 namespace lol {
   struct LolPftPFTEndOfGameStats { 
     std::string roomName;

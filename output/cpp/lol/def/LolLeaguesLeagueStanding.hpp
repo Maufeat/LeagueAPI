@@ -1,7 +1,7 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LolLeaguesLeagueEmblem.hpp"
 #include "LolLeaguesMiniseries.hpp"
+#include "LolLeaguesLeagueEmblem.hpp"
 namespace lol {
   struct LolLeaguesLeagueStanding { 
     std::string inactivityStatus;
