@@ -2,18 +2,18 @@
 #include "../base_def.hpp" 
 namespace lol {
   struct LcdsMember { 
-    bool hasDelegatedInvitePower;
+    uint64_t summonerId;
     std::string summonerName;
-    uint64_t summonerId; 
+    bool hasDelegatedInvitePower; 
   };
   inline void to_json(json& j, const LcdsMember& v) {
-    j["hasDelegatedInvitePower"] = v.hasDelegatedInvitePower; 
-    j["summonerName"] = v.summonerName; 
     j["summonerId"] = v.summonerId; 
+    j["summonerName"] = v.summonerName; 
+    j["hasDelegatedInvitePower"] = v.hasDelegatedInvitePower; 
   }
   inline void from_json(const json& j, LcdsMember& v) {
-    v.hasDelegatedInvitePower = j.at("hasDelegatedInvitePower").get<bool>(); 
-    v.summonerName = j.at("summonerName").get<std::string>(); 
     v.summonerId = j.at("summonerId").get<uint64_t>(); 
+    v.summonerName = j.at("summonerName").get<std::string>(); 
+    v.hasDelegatedInvitePower = j.at("hasDelegatedInvitePower").get<bool>(); 
   }
 }

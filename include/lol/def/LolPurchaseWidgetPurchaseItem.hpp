@@ -1,21 +1,21 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LolPurchaseWidgetItemPrice.hpp"
 #include "LolPurchaseWidgetItemKey.hpp"
+#include "LolPurchaseWidgetItemPrice.hpp"
 namespace lol {
   struct LolPurchaseWidgetPurchaseItem { 
-    LolPurchaseWidgetItemKey itemKey;
+    LolPurchaseWidgetItemPrice purchaseCurrencyInfo;
     int32_t quantity;
-    LolPurchaseWidgetItemPrice purchaseCurrencyInfo; 
+    LolPurchaseWidgetItemKey itemKey; 
   };
   inline void to_json(json& j, const LolPurchaseWidgetPurchaseItem& v) {
-    j["itemKey"] = v.itemKey; 
-    j["quantity"] = v.quantity; 
     j["purchaseCurrencyInfo"] = v.purchaseCurrencyInfo; 
+    j["quantity"] = v.quantity; 
+    j["itemKey"] = v.itemKey; 
   }
   inline void from_json(const json& j, LolPurchaseWidgetPurchaseItem& v) {
-    v.itemKey = j.at("itemKey").get<LolPurchaseWidgetItemKey>(); 
-    v.quantity = j.at("quantity").get<int32_t>(); 
     v.purchaseCurrencyInfo = j.at("purchaseCurrencyInfo").get<LolPurchaseWidgetItemPrice>(); 
+    v.quantity = j.at("quantity").get<int32_t>(); 
+    v.itemKey = j.at("itemKey").get<LolPurchaseWidgetItemKey>(); 
   }
 }

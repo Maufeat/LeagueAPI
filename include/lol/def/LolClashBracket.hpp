@@ -4,39 +4,39 @@
 #include "BracketMatch.hpp"
 namespace lol {
   struct LolClashBracket { 
-    int32_t period;
-    int32_t currentLoserRound;
-    int64_t tournamentId;
-    std::vector<BracketMatch> matches;
     int32_t size;
-    std::vector<BracketMatch> loserBracketMatches;
-    int32_t currentRound;
+    int64_t tournamentId;
     std::vector<BracketRoster> rosters;
+    std::vector<BracketMatch> matches;
+    int64_t id;
+    int32_t currentRound;
+    int32_t currentLoserRound;
     bool isComplete;
-    int64_t id; 
+    int32_t period;
+    std::vector<BracketMatch> loserBracketMatches; 
   };
   inline void to_json(json& j, const LolClashBracket& v) {
-    j["period"] = v.period; 
-    j["currentLoserRound"] = v.currentLoserRound; 
-    j["tournamentId"] = v.tournamentId; 
-    j["matches"] = v.matches; 
     j["size"] = v.size; 
-    j["loserBracketMatches"] = v.loserBracketMatches; 
-    j["currentRound"] = v.currentRound; 
+    j["tournamentId"] = v.tournamentId; 
     j["rosters"] = v.rosters; 
-    j["isComplete"] = v.isComplete; 
+    j["matches"] = v.matches; 
     j["id"] = v.id; 
+    j["currentRound"] = v.currentRound; 
+    j["currentLoserRound"] = v.currentLoserRound; 
+    j["isComplete"] = v.isComplete; 
+    j["period"] = v.period; 
+    j["loserBracketMatches"] = v.loserBracketMatches; 
   }
   inline void from_json(const json& j, LolClashBracket& v) {
-    v.period = j.at("period").get<int32_t>(); 
-    v.currentLoserRound = j.at("currentLoserRound").get<int32_t>(); 
-    v.tournamentId = j.at("tournamentId").get<int64_t>(); 
-    v.matches = j.at("matches").get<std::vector<BracketMatch>>(); 
     v.size = j.at("size").get<int32_t>(); 
-    v.loserBracketMatches = j.at("loserBracketMatches").get<std::vector<BracketMatch>>(); 
-    v.currentRound = j.at("currentRound").get<int32_t>(); 
+    v.tournamentId = j.at("tournamentId").get<int64_t>(); 
     v.rosters = j.at("rosters").get<std::vector<BracketRoster>>(); 
-    v.isComplete = j.at("isComplete").get<bool>(); 
+    v.matches = j.at("matches").get<std::vector<BracketMatch>>(); 
     v.id = j.at("id").get<int64_t>(); 
+    v.currentRound = j.at("currentRound").get<int32_t>(); 
+    v.currentLoserRound = j.at("currentLoserRound").get<int32_t>(); 
+    v.isComplete = j.at("isComplete").get<bool>(); 
+    v.period = j.at("period").get<int32_t>(); 
+    v.loserBracketMatches = j.at("loserBracketMatches").get<std::vector<BracketMatch>>(); 
   }
 }

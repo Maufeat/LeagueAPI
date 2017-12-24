@@ -1,7 +1,7 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LolLootLoginSimpleMessage.hpp"
 #include "LolLootLoginAllSummonerData.hpp"
+#include "LolLootLoginSimpleMessage.hpp"
 namespace lol {
   struct LolLootLoginDataPacket { 
     LolLootLoginAllSummonerData allSummonerData;

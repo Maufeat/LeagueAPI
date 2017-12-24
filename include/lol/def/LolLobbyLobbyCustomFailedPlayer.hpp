@@ -2,18 +2,18 @@
 #include "../base_def.hpp" 
 namespace lol {
   struct LolLobbyLobbyCustomFailedPlayer { 
-    std::string reason;
+    uint64_t summonerId;
     std::string summonerName;
-    uint64_t summonerId; 
+    std::string reason; 
   };
   inline void to_json(json& j, const LolLobbyLobbyCustomFailedPlayer& v) {
-    j["reason"] = v.reason; 
-    j["summonerName"] = v.summonerName; 
     j["summonerId"] = v.summonerId; 
+    j["summonerName"] = v.summonerName; 
+    j["reason"] = v.reason; 
   }
   inline void from_json(const json& j, LolLobbyLobbyCustomFailedPlayer& v) {
-    v.reason = j.at("reason").get<std::string>(); 
-    v.summonerName = j.at("summonerName").get<std::string>(); 
     v.summonerId = j.at("summonerId").get<uint64_t>(); 
+    v.summonerName = j.at("summonerName").get<std::string>(); 
+    v.reason = j.at("reason").get<std::string>(); 
   }
 }

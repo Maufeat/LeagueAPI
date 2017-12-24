@@ -3,38 +3,38 @@
 #include "LolChampionsCollectionsOwnership.hpp"
 namespace lol {
   struct LolChampionsCollectionsChampionChroma { 
-    bool lastSelected;
+    bool stillObtainable;
+    bool disabled;
+    int32_t championId;
+    std::string name;
+    int32_t id;
     std::optional<std::string> chromaPath;
     std::vector<std::string> colors;
-    bool disabled;
     LolChampionsCollectionsOwnership ownership;
-    bool stillObtainable;
-    std::string name;
-    int32_t championId;
-    int32_t id; 
+    bool lastSelected; 
   };
   inline void to_json(json& j, const LolChampionsCollectionsChampionChroma& v) {
-    j["lastSelected"] = v.lastSelected; 
+    j["stillObtainable"] = v.stillObtainable; 
+    j["disabled"] = v.disabled; 
+    j["championId"] = v.championId; 
+    j["name"] = v.name; 
+    j["id"] = v.id; 
     if(v.chromaPath)
       j["chromaPath"] = *v.chromaPath;
     j["colors"] = v.colors; 
-    j["disabled"] = v.disabled; 
     j["ownership"] = v.ownership; 
-    j["stillObtainable"] = v.stillObtainable; 
-    j["name"] = v.name; 
-    j["championId"] = v.championId; 
-    j["id"] = v.id; 
+    j["lastSelected"] = v.lastSelected; 
   }
   inline void from_json(const json& j, LolChampionsCollectionsChampionChroma& v) {
-    v.lastSelected = j.at("lastSelected").get<bool>(); 
+    v.stillObtainable = j.at("stillObtainable").get<bool>(); 
+    v.disabled = j.at("disabled").get<bool>(); 
+    v.championId = j.at("championId").get<int32_t>(); 
+    v.name = j.at("name").get<std::string>(); 
+    v.id = j.at("id").get<int32_t>(); 
     if(auto it = j.find("chromaPath"); it != j.end() && !it->is_null())
       v.chromaPath = it->get<std::optional<std::string>>(); 
     v.colors = j.at("colors").get<std::vector<std::string>>(); 
-    v.disabled = j.at("disabled").get<bool>(); 
     v.ownership = j.at("ownership").get<LolChampionsCollectionsOwnership>(); 
-    v.stillObtainable = j.at("stillObtainable").get<bool>(); 
-    v.name = j.at("name").get<std::string>(); 
-    v.championId = j.at("championId").get<int32_t>(); 
-    v.id = j.at("id").get<int32_t>(); 
+    v.lastSelected = j.at("lastSelected").get<bool>(); 
   }
 }

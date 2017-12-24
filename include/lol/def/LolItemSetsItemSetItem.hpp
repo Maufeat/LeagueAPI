@@ -2,15 +2,15 @@
 #include "../base_def.hpp" 
 namespace lol {
   struct LolItemSetsItemSetItem { 
-    uint16_t count;
-    std::string id; 
+    std::string id;
+    uint16_t count; 
   };
   inline void to_json(json& j, const LolItemSetsItemSetItem& v) {
-    j["count"] = v.count; 
     j["id"] = v.id; 
+    j["count"] = v.count; 
   }
   inline void from_json(const json& j, LolItemSetsItemSetItem& v) {
-    v.count = j.at("count").get<uint16_t>(); 
     v.id = j.at("id").get<std::string>(); 
+    v.count = j.at("count").get<uint16_t>(); 
   }
 }

@@ -1,21 +1,21 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "RosterDynamicStateDTO.hpp"
 #include "LolClashRosterNotifyReason.hpp"
+#include "RosterDynamicStateDTO.hpp"
 namespace lol {
   struct LolClashRosterDynamicStateNotification { 
-    uint64_t sourcePlayerId;
+    LolClashRosterNotifyReason notifyReason;
     RosterDynamicStateDTO rosterDynamicState;
-    LolClashRosterNotifyReason notifyReason; 
+    uint64_t sourcePlayerId; 
   };
   inline void to_json(json& j, const LolClashRosterDynamicStateNotification& v) {
-    j["sourcePlayerId"] = v.sourcePlayerId; 
-    j["rosterDynamicState"] = v.rosterDynamicState; 
     j["notifyReason"] = v.notifyReason; 
+    j["rosterDynamicState"] = v.rosterDynamicState; 
+    j["sourcePlayerId"] = v.sourcePlayerId; 
   }
   inline void from_json(const json& j, LolClashRosterDynamicStateNotification& v) {
-    v.sourcePlayerId = j.at("sourcePlayerId").get<uint64_t>(); 
-    v.rosterDynamicState = j.at("rosterDynamicState").get<RosterDynamicStateDTO>(); 
     v.notifyReason = j.at("notifyReason").get<LolClashRosterNotifyReason>(); 
+    v.rosterDynamicState = j.at("rosterDynamicState").get<RosterDynamicStateDTO>(); 
+    v.sourcePlayerId = j.at("sourcePlayerId").get<uint64_t>(); 
   }
 }

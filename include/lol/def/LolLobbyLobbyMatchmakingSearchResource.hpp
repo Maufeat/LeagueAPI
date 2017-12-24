@@ -1,22 +1,22 @@
 #pragma once
 #include "../base_def.hpp" 
+#include "LolLobbyLobbyMatchmakingLowPriorityDataResource.hpp"
 #include "LolLobbyLobbyMatchmakingSearchErrorResource.hpp"
 #include "LolLobbyLobbyMatchmakingSearchState.hpp"
-#include "LolLobbyLobbyMatchmakingLowPriorityDataResource.hpp"
 namespace lol {
   struct LolLobbyLobbyMatchmakingSearchResource { 
-    LolLobbyLobbyMatchmakingSearchState searchState;
     std::vector<LolLobbyLobbyMatchmakingSearchErrorResource> errors;
-    LolLobbyLobbyMatchmakingLowPriorityDataResource lowPriorityData; 
+    LolLobbyLobbyMatchmakingLowPriorityDataResource lowPriorityData;
+    LolLobbyLobbyMatchmakingSearchState searchState; 
   };
   inline void to_json(json& j, const LolLobbyLobbyMatchmakingSearchResource& v) {
-    j["searchState"] = v.searchState; 
     j["errors"] = v.errors; 
     j["lowPriorityData"] = v.lowPriorityData; 
+    j["searchState"] = v.searchState; 
   }
   inline void from_json(const json& j, LolLobbyLobbyMatchmakingSearchResource& v) {
-    v.searchState = j.at("searchState").get<LolLobbyLobbyMatchmakingSearchState>(); 
     v.errors = j.at("errors").get<std::vector<LolLobbyLobbyMatchmakingSearchErrorResource>>(); 
     v.lowPriorityData = j.at("lowPriorityData").get<LolLobbyLobbyMatchmakingLowPriorityDataResource>(); 
+    v.searchState = j.at("searchState").get<LolLobbyLobbyMatchmakingSearchState>(); 
   }
 }

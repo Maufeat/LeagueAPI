@@ -1,74 +1,74 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LeaguesLcdsMiniSeriesDTO.hpp"
 #include "LeaguesLcdsLeagueRank.hpp"
+#include "LeaguesLcdsMiniSeriesDTO.hpp"
 #include "LeaguesLcdsQueueType.hpp"
 #include "LeaguesLcdsLeagueTier.hpp"
 namespace lol {
   struct LolLeaguesSignedLeagueItemDTO { 
-    std::string inactivityStatus;
-    std::string jwt;
-    LeaguesLcdsMiniSeriesDTO miniSeries;
-    uint64_t wins;
     int32_t apexDaysUntilDecay;
-    LeaguesLcdsLeagueTier tier;
-    uint64_t timeUntilInactivityStatusChanges;
-    bool displayDecayWarning;
-    bool hotStreak;
-    bool veteran;
-    std::string playerOrTeamId;
-    uint64_t demotionWarning;
+    LeaguesLcdsMiniSeriesDTO miniSeries;
+    std::string jwt;
     LeaguesLcdsLeagueRank rank;
-    int32_t leaguePoints;
-    bool inactive;
-    uint64_t losses;
-    bool freshBlood;
-    uint64_t previousDayLeaguePosition;
+    std::string playerOrTeamId;
+    bool displayDecayWarning;
+    LeaguesLcdsQueueType queueType;
+    LeaguesLcdsLeagueTier tier;
+    uint64_t wins;
+    std::string inactivityStatus;
     std::string playerOrTeamName;
-    LeaguesLcdsQueueType queueType; 
+    int32_t leaguePoints;
+    bool hotStreak;
+    bool inactive;
+    uint64_t previousDayLeaguePosition;
+    uint64_t losses;
+    uint64_t timeUntilInactivityStatusChanges;
+    bool freshBlood;
+    uint64_t demotionWarning;
+    bool veteran; 
   };
   inline void to_json(json& j, const LolLeaguesSignedLeagueItemDTO& v) {
-    j["inactivityStatus"] = v.inactivityStatus; 
-    j["jwt"] = v.jwt; 
-    j["miniSeries"] = v.miniSeries; 
-    j["wins"] = v.wins; 
     j["apexDaysUntilDecay"] = v.apexDaysUntilDecay; 
-    j["tier"] = v.tier; 
-    j["timeUntilInactivityStatusChanges"] = v.timeUntilInactivityStatusChanges; 
-    j["displayDecayWarning"] = v.displayDecayWarning; 
-    j["hotStreak"] = v.hotStreak; 
-    j["veteran"] = v.veteran; 
-    j["playerOrTeamId"] = v.playerOrTeamId; 
-    j["demotionWarning"] = v.demotionWarning; 
+    j["miniSeries"] = v.miniSeries; 
+    j["jwt"] = v.jwt; 
     j["rank"] = v.rank; 
-    j["leaguePoints"] = v.leaguePoints; 
-    j["inactive"] = v.inactive; 
-    j["losses"] = v.losses; 
-    j["freshBlood"] = v.freshBlood; 
-    j["previousDayLeaguePosition"] = v.previousDayLeaguePosition; 
-    j["playerOrTeamName"] = v.playerOrTeamName; 
+    j["playerOrTeamId"] = v.playerOrTeamId; 
+    j["displayDecayWarning"] = v.displayDecayWarning; 
     j["queueType"] = v.queueType; 
+    j["tier"] = v.tier; 
+    j["wins"] = v.wins; 
+    j["inactivityStatus"] = v.inactivityStatus; 
+    j["playerOrTeamName"] = v.playerOrTeamName; 
+    j["leaguePoints"] = v.leaguePoints; 
+    j["hotStreak"] = v.hotStreak; 
+    j["inactive"] = v.inactive; 
+    j["previousDayLeaguePosition"] = v.previousDayLeaguePosition; 
+    j["losses"] = v.losses; 
+    j["timeUntilInactivityStatusChanges"] = v.timeUntilInactivityStatusChanges; 
+    j["freshBlood"] = v.freshBlood; 
+    j["demotionWarning"] = v.demotionWarning; 
+    j["veteran"] = v.veteran; 
   }
   inline void from_json(const json& j, LolLeaguesSignedLeagueItemDTO& v) {
-    v.inactivityStatus = j.at("inactivityStatus").get<std::string>(); 
-    v.jwt = j.at("jwt").get<std::string>(); 
-    v.miniSeries = j.at("miniSeries").get<LeaguesLcdsMiniSeriesDTO>(); 
-    v.wins = j.at("wins").get<uint64_t>(); 
     v.apexDaysUntilDecay = j.at("apexDaysUntilDecay").get<int32_t>(); 
-    v.tier = j.at("tier").get<LeaguesLcdsLeagueTier>(); 
-    v.timeUntilInactivityStatusChanges = j.at("timeUntilInactivityStatusChanges").get<uint64_t>(); 
-    v.displayDecayWarning = j.at("displayDecayWarning").get<bool>(); 
-    v.hotStreak = j.at("hotStreak").get<bool>(); 
-    v.veteran = j.at("veteran").get<bool>(); 
-    v.playerOrTeamId = j.at("playerOrTeamId").get<std::string>(); 
-    v.demotionWarning = j.at("demotionWarning").get<uint64_t>(); 
+    v.miniSeries = j.at("miniSeries").get<LeaguesLcdsMiniSeriesDTO>(); 
+    v.jwt = j.at("jwt").get<std::string>(); 
     v.rank = j.at("rank").get<LeaguesLcdsLeagueRank>(); 
-    v.leaguePoints = j.at("leaguePoints").get<int32_t>(); 
-    v.inactive = j.at("inactive").get<bool>(); 
-    v.losses = j.at("losses").get<uint64_t>(); 
-    v.freshBlood = j.at("freshBlood").get<bool>(); 
-    v.previousDayLeaguePosition = j.at("previousDayLeaguePosition").get<uint64_t>(); 
-    v.playerOrTeamName = j.at("playerOrTeamName").get<std::string>(); 
+    v.playerOrTeamId = j.at("playerOrTeamId").get<std::string>(); 
+    v.displayDecayWarning = j.at("displayDecayWarning").get<bool>(); 
     v.queueType = j.at("queueType").get<LeaguesLcdsQueueType>(); 
+    v.tier = j.at("tier").get<LeaguesLcdsLeagueTier>(); 
+    v.wins = j.at("wins").get<uint64_t>(); 
+    v.inactivityStatus = j.at("inactivityStatus").get<std::string>(); 
+    v.playerOrTeamName = j.at("playerOrTeamName").get<std::string>(); 
+    v.leaguePoints = j.at("leaguePoints").get<int32_t>(); 
+    v.hotStreak = j.at("hotStreak").get<bool>(); 
+    v.inactive = j.at("inactive").get<bool>(); 
+    v.previousDayLeaguePosition = j.at("previousDayLeaguePosition").get<uint64_t>(); 
+    v.losses = j.at("losses").get<uint64_t>(); 
+    v.timeUntilInactivityStatusChanges = j.at("timeUntilInactivityStatusChanges").get<uint64_t>(); 
+    v.freshBlood = j.at("freshBlood").get<bool>(); 
+    v.demotionWarning = j.at("demotionWarning").get<uint64_t>(); 
+    v.veteran = j.at("veteran").get<bool>(); 
   }
 }

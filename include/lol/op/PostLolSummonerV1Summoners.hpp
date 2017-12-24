@@ -1,8 +1,8 @@
 #pragma once
 #include "../base_op.hpp"
 #include <functional> 
-#include "../def/LolSummonerInternalSummoner.hpp"
 #include "../def/LolSummonerSummonerRequestedName.hpp"
+#include "../def/LolSummonerInternalSummoner.hpp"
 namespace lol {
   inline Result<LolSummonerInternalSummoner> PostLolSummonerV1Summoners(LeagueClient& _client, const LolSummonerSummonerRequestedName& name)
   {

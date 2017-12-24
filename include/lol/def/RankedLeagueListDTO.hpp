@@ -3,33 +3,33 @@
 #include "RankedLeagueItemDTO.hpp"
 namespace lol {
   struct RankedLeagueListDTO { 
-    std::string requestorsName;
-    std::string requestorsRank;
-    std::string tier;
-    uint32_t maxLeagueSize;
-    std::string queue;
-    std::string name;
+    std::vector<RankedLeagueItemDTO> entries;
     uint64_t nextApexUpdate;
-    std::vector<RankedLeagueItemDTO> entries; 
+    std::string name;
+    uint32_t maxLeagueSize;
+    std::string requestorsRank;
+    std::string requestorsName;
+    std::string queue;
+    std::string tier; 
   };
   inline void to_json(json& j, const RankedLeagueListDTO& v) {
-    j["requestorsName"] = v.requestorsName; 
-    j["requestorsRank"] = v.requestorsRank; 
-    j["tier"] = v.tier; 
-    j["maxLeagueSize"] = v.maxLeagueSize; 
-    j["queue"] = v.queue; 
-    j["name"] = v.name; 
-    j["nextApexUpdate"] = v.nextApexUpdate; 
     j["entries"] = v.entries; 
+    j["nextApexUpdate"] = v.nextApexUpdate; 
+    j["name"] = v.name; 
+    j["maxLeagueSize"] = v.maxLeagueSize; 
+    j["requestorsRank"] = v.requestorsRank; 
+    j["requestorsName"] = v.requestorsName; 
+    j["queue"] = v.queue; 
+    j["tier"] = v.tier; 
   }
   inline void from_json(const json& j, RankedLeagueListDTO& v) {
-    v.requestorsName = j.at("requestorsName").get<std::string>(); 
-    v.requestorsRank = j.at("requestorsRank").get<std::string>(); 
-    v.tier = j.at("tier").get<std::string>(); 
-    v.maxLeagueSize = j.at("maxLeagueSize").get<uint32_t>(); 
-    v.queue = j.at("queue").get<std::string>(); 
-    v.name = j.at("name").get<std::string>(); 
-    v.nextApexUpdate = j.at("nextApexUpdate").get<uint64_t>(); 
     v.entries = j.at("entries").get<std::vector<RankedLeagueItemDTO>>(); 
+    v.nextApexUpdate = j.at("nextApexUpdate").get<uint64_t>(); 
+    v.name = j.at("name").get<std::string>(); 
+    v.maxLeagueSize = j.at("maxLeagueSize").get<uint32_t>(); 
+    v.requestorsRank = j.at("requestorsRank").get<std::string>(); 
+    v.requestorsName = j.at("requestorsName").get<std::string>(); 
+    v.queue = j.at("queue").get<std::string>(); 
+    v.tier = j.at("tier").get<std::string>(); 
   }
 }

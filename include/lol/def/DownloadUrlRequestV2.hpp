@@ -2,15 +2,15 @@
 #include "../base_def.hpp" 
 namespace lol {
   struct DownloadUrlRequestV2 { 
-    std::string platformId;
-    uint64_t gameId; 
+    uint64_t gameId;
+    std::string platformId; 
   };
   inline void to_json(json& j, const DownloadUrlRequestV2& v) {
-    j["platformId"] = v.platformId; 
     j["gameId"] = v.gameId; 
+    j["platformId"] = v.platformId; 
   }
   inline void from_json(const json& j, DownloadUrlRequestV2& v) {
-    v.platformId = j.at("platformId").get<std::string>(); 
     v.gameId = j.at("gameId").get<uint64_t>(); 
+    v.platformId = j.at("platformId").get<std::string>(); 
   }
 }

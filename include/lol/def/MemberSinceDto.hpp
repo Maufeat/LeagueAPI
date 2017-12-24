@@ -3,18 +3,18 @@
 #include "PlayerInfoDto.hpp"
 namespace lol {
   struct MemberSinceDto { 
+    std::string role;
     PlayerInfoDto playerInfo;
-    int64_t since;
-    std::string role; 
+    int64_t since; 
   };
   inline void to_json(json& j, const MemberSinceDto& v) {
+    j["role"] = v.role; 
     j["playerInfo"] = v.playerInfo; 
     j["since"] = v.since; 
-    j["role"] = v.role; 
   }
   inline void from_json(const json& j, MemberSinceDto& v) {
+    v.role = j.at("role").get<std::string>(); 
     v.playerInfo = j.at("playerInfo").get<PlayerInfoDto>(); 
     v.since = j.at("since").get<int64_t>(); 
-    v.role = j.at("role").get<std::string>(); 
   }
 }

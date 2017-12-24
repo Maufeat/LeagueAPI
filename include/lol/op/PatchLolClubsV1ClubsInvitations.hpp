@@ -1,8 +1,8 @@
 #pragma once
 #include "../base_op.hpp"
 #include <functional> 
-#include "../def/PlayerClubMembership.hpp"
 #include "../def/ClubInvite.hpp"
+#include "../def/PlayerClubMembership.hpp"
 namespace lol {
   inline Result<PlayerClubMembership> PatchLolClubsV1ClubsInvitations(LeagueClient& _client, const ClubInvite& invitation)
   {

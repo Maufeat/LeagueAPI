@@ -1,8 +1,8 @@
 #pragma once
 #include "../base_op.hpp"
 #include <functional> 
-#include "../def/ClubName.hpp"
 #include "../def/PlayerClub.hpp"
+#include "../def/ClubName.hpp"
 namespace lol {
   inline Result<PlayerClub> PostLolClubsV1ClubsMembership(LeagueClient& _client, const ClubName& name)
   {

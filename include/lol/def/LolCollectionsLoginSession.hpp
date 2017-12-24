@@ -3,21 +3,21 @@
 #include "LolCollectionsLoginSessionStates.hpp"
 namespace lol {
   struct LolCollectionsLoginSession { 
-    bool connected;
+    uint64_t summonerId;
     LolCollectionsLoginSessionStates state;
     uint64_t accountId;
-    uint64_t summonerId; 
+    bool connected; 
   };
   inline void to_json(json& j, const LolCollectionsLoginSession& v) {
-    j["connected"] = v.connected; 
+    j["summonerId"] = v.summonerId; 
     j["state"] = v.state; 
     j["accountId"] = v.accountId; 
-    j["summonerId"] = v.summonerId; 
+    j["connected"] = v.connected; 
   }
   inline void from_json(const json& j, LolCollectionsLoginSession& v) {
-    v.connected = j.at("connected").get<bool>(); 
+    v.summonerId = j.at("summonerId").get<uint64_t>(); 
     v.state = j.at("state").get<LolCollectionsLoginSessionStates>(); 
     v.accountId = j.at("accountId").get<uint64_t>(); 
-    v.summonerId = j.at("summonerId").get<uint64_t>(); 
+    v.connected = j.at("connected").get<bool>(); 
   }
 }

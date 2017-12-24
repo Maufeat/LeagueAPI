@@ -4,33 +4,33 @@
 #include "PatcherComponentStateAction.hpp"
 namespace lol {
   struct PatcherProductState { 
-    std::vector<PatcherComponentState> components;
-    bool isStopped;
-    bool isUpdateAvailable;
-    double percentPatched;
     bool isUpToDate;
+    double percentPatched;
     PatcherComponentStateAction action;
-    bool isCorrupted;
-    std::string id; 
+    std::string id;
+    std::vector<PatcherComponentState> components;
+    bool isUpdateAvailable;
+    bool isStopped;
+    bool isCorrupted; 
   };
   inline void to_json(json& j, const PatcherProductState& v) {
-    j["components"] = v.components; 
-    j["isStopped"] = v.isStopped; 
-    j["isUpdateAvailable"] = v.isUpdateAvailable; 
-    j["percentPatched"] = v.percentPatched; 
     j["isUpToDate"] = v.isUpToDate; 
+    j["percentPatched"] = v.percentPatched; 
     j["action"] = v.action; 
-    j["isCorrupted"] = v.isCorrupted; 
     j["id"] = v.id; 
+    j["components"] = v.components; 
+    j["isUpdateAvailable"] = v.isUpdateAvailable; 
+    j["isStopped"] = v.isStopped; 
+    j["isCorrupted"] = v.isCorrupted; 
   }
   inline void from_json(const json& j, PatcherProductState& v) {
-    v.components = j.at("components").get<std::vector<PatcherComponentState>>(); 
-    v.isStopped = j.at("isStopped").get<bool>(); 
-    v.isUpdateAvailable = j.at("isUpdateAvailable").get<bool>(); 
-    v.percentPatched = j.at("percentPatched").get<double>(); 
     v.isUpToDate = j.at("isUpToDate").get<bool>(); 
+    v.percentPatched = j.at("percentPatched").get<double>(); 
     v.action = j.at("action").get<PatcherComponentStateAction>(); 
-    v.isCorrupted = j.at("isCorrupted").get<bool>(); 
     v.id = j.at("id").get<std::string>(); 
+    v.components = j.at("components").get<std::vector<PatcherComponentState>>(); 
+    v.isUpdateAvailable = j.at("isUpdateAvailable").get<bool>(); 
+    v.isStopped = j.at("isStopped").get<bool>(); 
+    v.isCorrupted = j.at("isCorrupted").get<bool>(); 
   }
 }

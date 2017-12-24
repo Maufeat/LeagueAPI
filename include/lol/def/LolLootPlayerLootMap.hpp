@@ -3,15 +3,15 @@
 #include "LolLootPlayerLoot.hpp"
 namespace lol {
   struct LolLootPlayerLootMap { 
-    int64_t version;
-    std::map<std::string, LolLootPlayerLoot> playerLoot; 
+    std::map<std::string, LolLootPlayerLoot> playerLoot;
+    int64_t version; 
   };
   inline void to_json(json& j, const LolLootPlayerLootMap& v) {
-    j["version"] = v.version; 
     j["playerLoot"] = v.playerLoot; 
+    j["version"] = v.version; 
   }
   inline void from_json(const json& j, LolLootPlayerLootMap& v) {
-    v.version = j.at("version").get<int64_t>(); 
     v.playerLoot = j.at("playerLoot").get<std::map<std::string, LolLootPlayerLoot>>(); 
+    v.version = j.at("version").get<int64_t>(); 
   }
 }

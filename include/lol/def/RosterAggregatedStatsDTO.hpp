@@ -1,18 +1,18 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "RosterPeriodAggregatedStatsDTO.hpp"
 #include "RosterPlayerAggregatedStatsDTO.hpp"
+#include "RosterPeriodAggregatedStatsDTO.hpp"
 namespace lol {
   struct RosterAggregatedStatsDTO { 
-    std::map<std::string, RosterPlayerAggregatedStatsDTO> playerStats;
-    std::vector<RosterPeriodAggregatedStatsDTO> periodStats; 
+    std::vector<RosterPeriodAggregatedStatsDTO> periodStats;
+    std::map<std::string, RosterPlayerAggregatedStatsDTO> playerStats; 
   };
   inline void to_json(json& j, const RosterAggregatedStatsDTO& v) {
-    j["playerStats"] = v.playerStats; 
     j["periodStats"] = v.periodStats; 
+    j["playerStats"] = v.playerStats; 
   }
   inline void from_json(const json& j, RosterAggregatedStatsDTO& v) {
-    v.playerStats = j.at("playerStats").get<std::map<std::string, RosterPlayerAggregatedStatsDTO>>(); 
     v.periodStats = j.at("periodStats").get<std::vector<RosterPeriodAggregatedStatsDTO>>(); 
+    v.playerStats = j.at("playerStats").get<std::map<std::string, RosterPlayerAggregatedStatsDTO>>(); 
   }
 }

@@ -2,39 +2,39 @@
 #include "../base_def.hpp" 
 namespace lol {
   struct CollectionsLcdsChampionSkinDTO { 
-    bool lastSelected;
-    int32_t skinId;
-    bool freeToPlayReward;
-    uint64_t endDate;
-    uint64_t purchaseDate;
     bool stillObtainable;
-    int32_t winCountRemaining;
-    bool owned;
+    bool lastSelected;
     int32_t championId;
+    uint64_t endDate;
+    int32_t winCountRemaining;
+    int32_t skinId;
+    bool owned;
+    bool freeToPlayReward;
+    uint64_t purchaseDate;
     std::vector<std::string> sources; 
   };
   inline void to_json(json& j, const CollectionsLcdsChampionSkinDTO& v) {
-    j["lastSelected"] = v.lastSelected; 
-    j["skinId"] = v.skinId; 
-    j["freeToPlayReward"] = v.freeToPlayReward; 
-    j["endDate"] = v.endDate; 
-    j["purchaseDate"] = v.purchaseDate; 
     j["stillObtainable"] = v.stillObtainable; 
-    j["winCountRemaining"] = v.winCountRemaining; 
-    j["owned"] = v.owned; 
+    j["lastSelected"] = v.lastSelected; 
     j["championId"] = v.championId; 
+    j["endDate"] = v.endDate; 
+    j["winCountRemaining"] = v.winCountRemaining; 
+    j["skinId"] = v.skinId; 
+    j["owned"] = v.owned; 
+    j["freeToPlayReward"] = v.freeToPlayReward; 
+    j["purchaseDate"] = v.purchaseDate; 
     j["sources"] = v.sources; 
   }
   inline void from_json(const json& j, CollectionsLcdsChampionSkinDTO& v) {
-    v.lastSelected = j.at("lastSelected").get<bool>(); 
-    v.skinId = j.at("skinId").get<int32_t>(); 
-    v.freeToPlayReward = j.at("freeToPlayReward").get<bool>(); 
-    v.endDate = j.at("endDate").get<uint64_t>(); 
-    v.purchaseDate = j.at("purchaseDate").get<uint64_t>(); 
     v.stillObtainable = j.at("stillObtainable").get<bool>(); 
-    v.winCountRemaining = j.at("winCountRemaining").get<int32_t>(); 
-    v.owned = j.at("owned").get<bool>(); 
+    v.lastSelected = j.at("lastSelected").get<bool>(); 
     v.championId = j.at("championId").get<int32_t>(); 
+    v.endDate = j.at("endDate").get<uint64_t>(); 
+    v.winCountRemaining = j.at("winCountRemaining").get<int32_t>(); 
+    v.skinId = j.at("skinId").get<int32_t>(); 
+    v.owned = j.at("owned").get<bool>(); 
+    v.freeToPlayReward = j.at("freeToPlayReward").get<bool>(); 
+    v.purchaseDate = j.at("purchaseDate").get<uint64_t>(); 
     v.sources = j.at("sources").get<std::vector<std::string>>(); 
   }
 }

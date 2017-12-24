@@ -3,21 +3,21 @@
 #include "LolLobbyLobbyInvitationState.hpp"
 namespace lol {
   struct LolLobbyLobbyInvitationDto { 
-    LolLobbyLobbyInvitationState state;
     uint64_t toSummonerId;
-    std::string invitationId;
-    std::string timestamp; 
+    LolLobbyLobbyInvitationState state;
+    std::string timestamp;
+    std::string invitationId; 
   };
   inline void to_json(json& j, const LolLobbyLobbyInvitationDto& v) {
-    j["state"] = v.state; 
     j["toSummonerId"] = v.toSummonerId; 
-    j["invitationId"] = v.invitationId; 
+    j["state"] = v.state; 
     j["timestamp"] = v.timestamp; 
+    j["invitationId"] = v.invitationId; 
   }
   inline void from_json(const json& j, LolLobbyLobbyInvitationDto& v) {
-    v.state = j.at("state").get<LolLobbyLobbyInvitationState>(); 
     v.toSummonerId = j.at("toSummonerId").get<uint64_t>(); 
-    v.invitationId = j.at("invitationId").get<std::string>(); 
+    v.state = j.at("state").get<LolLobbyLobbyInvitationState>(); 
     v.timestamp = j.at("timestamp").get<std::string>(); 
+    v.invitationId = j.at("invitationId").get<std::string>(); 
   }
 }

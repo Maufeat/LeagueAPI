@@ -2,15 +2,15 @@
 #include "../base_def.hpp" 
 namespace lol {
   struct BindingCallbackEvent { 
-    std::vector<json> parameters;
-    uint32_t id; 
+    uint32_t id;
+    std::vector<json> parameters; 
   };
   inline void to_json(json& j, const BindingCallbackEvent& v) {
-    j["parameters"] = v.parameters; 
     j["id"] = v.id; 
+    j["parameters"] = v.parameters; 
   }
   inline void from_json(const json& j, BindingCallbackEvent& v) {
-    v.parameters = j.at("parameters").get<std::vector<json>>(); 
     v.id = j.at("id").get<uint32_t>(); 
+    v.parameters = j.at("parameters").get<std::vector<json>>(); 
   }
 }

@@ -1,37 +1,37 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LolLobbyLobbyInvitationState.hpp"
-#include "LolLobbyEligibilityRestriction.hpp"
 #include "LolLobbyReceivedInvitationGameConfigDto.hpp"
+#include "LolLobbyEligibilityRestriction.hpp"
+#include "LolLobbyLobbyInvitationState.hpp"
 namespace lol {
   struct LolLobbyReceivedInvitationDto { 
+    LolLobbyReceivedInvitationGameConfigDto gameConfig;
+    std::string fromSummonerName;
+    uint64_t fromSummonerId;
     std::string timestamp;
     std::string invitationId;
-    std::vector<LolLobbyEligibilityRestriction> restrictions;
-    std::string fromSummonerName;
     LolLobbyLobbyInvitationState state;
-    uint64_t fromSummonerId;
     bool canAcceptInvitation;
-    LolLobbyReceivedInvitationGameConfigDto gameConfig; 
+    std::vector<LolLobbyEligibilityRestriction> restrictions; 
   };
   inline void to_json(json& j, const LolLobbyReceivedInvitationDto& v) {
+    j["gameConfig"] = v.gameConfig; 
+    j["fromSummonerName"] = v.fromSummonerName; 
+    j["fromSummonerId"] = v.fromSummonerId; 
     j["timestamp"] = v.timestamp; 
     j["invitationId"] = v.invitationId; 
-    j["restrictions"] = v.restrictions; 
-    j["fromSummonerName"] = v.fromSummonerName; 
     j["state"] = v.state; 
-    j["fromSummonerId"] = v.fromSummonerId; 
     j["canAcceptInvitation"] = v.canAcceptInvitation; 
-    j["gameConfig"] = v.gameConfig; 
+    j["restrictions"] = v.restrictions; 
   }
   inline void from_json(const json& j, LolLobbyReceivedInvitationDto& v) {
+    v.gameConfig = j.at("gameConfig").get<LolLobbyReceivedInvitationGameConfigDto>(); 
+    v.fromSummonerName = j.at("fromSummonerName").get<std::string>(); 
+    v.fromSummonerId = j.at("fromSummonerId").get<uint64_t>(); 
     v.timestamp = j.at("timestamp").get<std::string>(); 
     v.invitationId = j.at("invitationId").get<std::string>(); 
-    v.restrictions = j.at("restrictions").get<std::vector<LolLobbyEligibilityRestriction>>(); 
-    v.fromSummonerName = j.at("fromSummonerName").get<std::string>(); 
     v.state = j.at("state").get<LolLobbyLobbyInvitationState>(); 
-    v.fromSummonerId = j.at("fromSummonerId").get<uint64_t>(); 
     v.canAcceptInvitation = j.at("canAcceptInvitation").get<bool>(); 
-    v.gameConfig = j.at("gameConfig").get<LolLobbyReceivedInvitationGameConfigDto>(); 
+    v.restrictions = j.at("restrictions").get<std::vector<LolLobbyEligibilityRestriction>>(); 
   }
 }

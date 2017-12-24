@@ -1,22 +1,22 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LolEndOfGameGameflowClient.hpp"
 #include "LolEndOfGameGameflowGameData.hpp"
+#include "LolEndOfGameGameflowClient.hpp"
 #include "LolEndOfGameGameflowPhase.hpp"
 namespace lol {
   struct LolEndOfGameGameflowSession { 
-    LolEndOfGameGameflowGameData gameData;
+    LolEndOfGameGameflowClient gameClient;
     LolEndOfGameGameflowPhase phase;
-    LolEndOfGameGameflowClient gameClient; 
+    LolEndOfGameGameflowGameData gameData; 
   };
   inline void to_json(json& j, const LolEndOfGameGameflowSession& v) {
-    j["gameData"] = v.gameData; 
-    j["phase"] = v.phase; 
     j["gameClient"] = v.gameClient; 
+    j["phase"] = v.phase; 
+    j["gameData"] = v.gameData; 
   }
   inline void from_json(const json& j, LolEndOfGameGameflowSession& v) {
-    v.gameData = j.at("gameData").get<LolEndOfGameGameflowGameData>(); 
-    v.phase = j.at("phase").get<LolEndOfGameGameflowPhase>(); 
     v.gameClient = j.at("gameClient").get<LolEndOfGameGameflowClient>(); 
+    v.phase = j.at("phase").get<LolEndOfGameGameflowPhase>(); 
+    v.gameData = j.at("gameData").get<LolEndOfGameGameflowGameData>(); 
   }
 }

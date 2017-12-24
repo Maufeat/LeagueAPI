@@ -13,11 +13,11 @@ namespace lol {
   using std::to_string;
   
   enum ErrorSource : uint16_t {
-    League = 0,
-    LeagueUnkown = 10,
-    ParseError = 20,
-    ParseResponse = 30,
-    Http = 40,
+    League,
+    LeagueUnkown,
+    ParseError,
+    ParseResponse,
+    Http,
   };
   
   struct Error {
@@ -37,6 +37,7 @@ namespace lol {
   }
   
   inline void from_json(const json& j, Error& v) {
+    v.source = ErrorSource::League,
     v.errorCode = j.at("errorCode").get<std::string>();
     v.httpStatus = j.at("httpStatus").get<int32_t>();
     v.message = j.at("message").get<std::string>();
@@ -81,7 +82,6 @@ namespace lol {
     if (auto it = r->header.find("content-type"); it != r->header.end()) {
       content_type = it->second;
     }
-
     if (content_type == "application/json") {
       if(content.size() > 0) {
         j = json::parse(content);
@@ -89,7 +89,6 @@ namespace lol {
     } else {
       j = content;
     }
-
     if ((status_code < 200 || status_code>299) && content_type == "application/json") {
       try {
         return j.get<Error>();
@@ -125,8 +124,7 @@ namespace lol {
     WssClient wss;
     HttpsClient https;
     HttpsClient httpsa;
-	uint32_t id;
-	std::map<std::string, json> trashbin;
+    uint32_t id;
 
     LeagueClient(const LeagueClient&) = delete;
     LeagueClient(const std::string& address, int port, const std::string& password, uint32_t id = 0) :

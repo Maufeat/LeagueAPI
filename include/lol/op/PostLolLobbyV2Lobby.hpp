@@ -1,8 +1,8 @@
 #pragma once
 #include "../base_op.hpp"
 #include <functional> 
-#include "../def/LolLobbyLobbyChangeGameDto.hpp"
 #include "../def/LolLobbyLobbyDto.hpp"
+#include "../def/LolLobbyLobbyChangeGameDto.hpp"
 namespace lol {
   inline Result<LolLobbyLobbyDto> PostLolLobbyV2Lobby(LeagueClient& _client, const LolLobbyLobbyChangeGameDto& lobbyChange)
   {

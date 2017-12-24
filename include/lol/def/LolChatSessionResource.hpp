@@ -3,15 +3,15 @@
 #include "LolChatSessionState.hpp"
 namespace lol {
   struct LolChatSessionResource { 
-    uint32_t sessionExpire;
-    LolChatSessionState sessionState; 
+    LolChatSessionState sessionState;
+    uint32_t sessionExpire; 
   };
   inline void to_json(json& j, const LolChatSessionResource& v) {
-    j["sessionExpire"] = v.sessionExpire; 
     j["sessionState"] = v.sessionState; 
+    j["sessionExpire"] = v.sessionExpire; 
   }
   inline void from_json(const json& j, LolChatSessionResource& v) {
-    v.sessionExpire = j.at("sessionExpire").get<uint32_t>(); 
     v.sessionState = j.at("sessionState").get<LolChatSessionState>(); 
+    v.sessionExpire = j.at("sessionExpire").get<uint32_t>(); 
   }
 }

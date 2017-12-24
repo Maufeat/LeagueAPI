@@ -1,8 +1,8 @@
 #pragma once
 #include "../base_op.hpp"
 #include <functional> 
-#include "../def/LolPersonalizedOffersPurchaseResponse.hpp"
 #include "../def/LolPersonalizedOffersOfferRequests.hpp"
+#include "../def/LolPersonalizedOffersPurchaseResponse.hpp"
 namespace lol {
   inline Result<LolPersonalizedOffersPurchaseResponse> PostLolPersonalizedOffersV1OffersPurchase(LeagueClient& _client, const LolPersonalizedOffersOfferRequests& offerRequests)
   {

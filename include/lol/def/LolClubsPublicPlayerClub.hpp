@@ -3,15 +3,15 @@
 #include "LolClubsPublicClubMemberLists.hpp"
 namespace lol {
   struct LolClubsPublicPlayerClub { 
-    LolClubsPublicClubMemberLists members;
-    std::string key; 
+    std::string key;
+    LolClubsPublicClubMemberLists members; 
   };
   inline void to_json(json& j, const LolClubsPublicPlayerClub& v) {
-    j["members"] = v.members; 
     j["key"] = v.key; 
+    j["members"] = v.members; 
   }
   inline void from_json(const json& j, LolClubsPublicPlayerClub& v) {
-    v.members = j.at("members").get<LolClubsPublicClubMemberLists>(); 
     v.key = j.at("key").get<std::string>(); 
+    v.members = j.at("members").get<LolClubsPublicClubMemberLists>(); 
   }
 }

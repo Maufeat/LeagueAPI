@@ -3,21 +3,21 @@
 #include "LolChatFriendRequestDirection.hpp"
 namespace lol {
   struct LolChatFriendRequestResource { 
-    std::string name;
-    LolChatFriendRequestDirection direction;
+    uint64_t id;
     std::string note;
-    uint64_t id; 
+    LolChatFriendRequestDirection direction;
+    std::string name; 
   };
   inline void to_json(json& j, const LolChatFriendRequestResource& v) {
-    j["name"] = v.name; 
-    j["direction"] = v.direction; 
-    j["note"] = v.note; 
     j["id"] = v.id; 
+    j["note"] = v.note; 
+    j["direction"] = v.direction; 
+    j["name"] = v.name; 
   }
   inline void from_json(const json& j, LolChatFriendRequestResource& v) {
-    v.name = j.at("name").get<std::string>(); 
-    v.direction = j.at("direction").get<LolChatFriendRequestDirection>(); 
-    v.note = j.at("note").get<std::string>(); 
     v.id = j.at("id").get<uint64_t>(); 
+    v.note = j.at("note").get<std::string>(); 
+    v.direction = j.at("direction").get<LolChatFriendRequestDirection>(); 
+    v.name = j.at("name").get<std::string>(); 
   }
 }

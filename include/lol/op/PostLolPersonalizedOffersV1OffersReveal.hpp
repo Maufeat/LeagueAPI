@@ -1,8 +1,8 @@
 #pragma once
 #include "../base_op.hpp"
 #include <functional> 
-#include "../def/LolPersonalizedOffersUIOffer.hpp"
 #include "../def/LolPersonalizedOffersOfferIds.hpp"
+#include "../def/LolPersonalizedOffersUIOffer.hpp"
 namespace lol {
   inline Result<std::vector<LolPersonalizedOffersUIOffer>> PostLolPersonalizedOffersV1OffersReveal(LeagueClient& _client, const LolPersonalizedOffersOfferIds& offerIds)
   {

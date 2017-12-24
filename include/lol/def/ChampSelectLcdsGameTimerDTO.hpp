@@ -2,15 +2,15 @@
 #include "../base_def.hpp" 
 namespace lol {
   struct ChampSelectLcdsGameTimerDTO { 
-    double remainingTimeInMillis;
-    std::string currentGameState; 
+    std::string currentGameState;
+    double remainingTimeInMillis; 
   };
   inline void to_json(json& j, const ChampSelectLcdsGameTimerDTO& v) {
-    j["remainingTimeInMillis"] = v.remainingTimeInMillis; 
     j["currentGameState"] = v.currentGameState; 
+    j["remainingTimeInMillis"] = v.remainingTimeInMillis; 
   }
   inline void from_json(const json& j, ChampSelectLcdsGameTimerDTO& v) {
-    v.remainingTimeInMillis = j.at("remainingTimeInMillis").get<double>(); 
     v.currentGameState = j.at("currentGameState").get<std::string>(); 
+    v.remainingTimeInMillis = j.at("remainingTimeInMillis").get<double>(); 
   }
 }

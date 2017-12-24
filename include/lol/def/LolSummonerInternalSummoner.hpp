@@ -2,42 +2,42 @@
 #include "../base_def.hpp" 
 namespace lol {
   struct LolSummonerInternalSummoner { 
-    bool helpFlag;
-    std::string displayName;
-    bool nameChangeFlag;
-    std::string internalName;
-    bool advancedTutorialFlag;
-    bool displayEloQuestionaireFlag;
-    bool tutorialFlag;
     uint64_t summonerId;
+    bool helpFlag;
+    bool tutorialFlag;
+    bool nameChangeFlag;
+    bool displayEloQuestionaireFlag;
+    uint64_t accountId;
+    bool advancedTutorialFlag;
     std::string lastSeasonHighestRank;
     int32_t profileIconId;
-    uint64_t accountId; 
+    std::string displayName;
+    std::string internalName; 
   };
   inline void to_json(json& j, const LolSummonerInternalSummoner& v) {
-    j["helpFlag"] = v.helpFlag; 
-    j["displayName"] = v.displayName; 
-    j["nameChangeFlag"] = v.nameChangeFlag; 
-    j["internalName"] = v.internalName; 
-    j["advancedTutorialFlag"] = v.advancedTutorialFlag; 
-    j["displayEloQuestionaireFlag"] = v.displayEloQuestionaireFlag; 
-    j["tutorialFlag"] = v.tutorialFlag; 
     j["summonerId"] = v.summonerId; 
+    j["helpFlag"] = v.helpFlag; 
+    j["tutorialFlag"] = v.tutorialFlag; 
+    j["nameChangeFlag"] = v.nameChangeFlag; 
+    j["displayEloQuestionaireFlag"] = v.displayEloQuestionaireFlag; 
+    j["accountId"] = v.accountId; 
+    j["advancedTutorialFlag"] = v.advancedTutorialFlag; 
     j["lastSeasonHighestRank"] = v.lastSeasonHighestRank; 
     j["profileIconId"] = v.profileIconId; 
-    j["accountId"] = v.accountId; 
+    j["displayName"] = v.displayName; 
+    j["internalName"] = v.internalName; 
   }
   inline void from_json(const json& j, LolSummonerInternalSummoner& v) {
-    v.helpFlag = j.at("helpFlag").get<bool>(); 
-    v.displayName = j.at("displayName").get<std::string>(); 
-    v.nameChangeFlag = j.at("nameChangeFlag").get<bool>(); 
-    v.internalName = j.at("internalName").get<std::string>(); 
-    v.advancedTutorialFlag = j.at("advancedTutorialFlag").get<bool>(); 
-    v.displayEloQuestionaireFlag = j.at("displayEloQuestionaireFlag").get<bool>(); 
-    v.tutorialFlag = j.at("tutorialFlag").get<bool>(); 
     v.summonerId = j.at("summonerId").get<uint64_t>(); 
+    v.helpFlag = j.at("helpFlag").get<bool>(); 
+    v.tutorialFlag = j.at("tutorialFlag").get<bool>(); 
+    v.nameChangeFlag = j.at("nameChangeFlag").get<bool>(); 
+    v.displayEloQuestionaireFlag = j.at("displayEloQuestionaireFlag").get<bool>(); 
+    v.accountId = j.at("accountId").get<uint64_t>(); 
+    v.advancedTutorialFlag = j.at("advancedTutorialFlag").get<bool>(); 
     v.lastSeasonHighestRank = j.at("lastSeasonHighestRank").get<std::string>(); 
     v.profileIconId = j.at("profileIconId").get<int32_t>(); 
-    v.accountId = j.at("accountId").get<uint64_t>(); 
+    v.displayName = j.at("displayName").get<std::string>(); 
+    v.internalName = j.at("internalName").get<std::string>(); 
   }
 }

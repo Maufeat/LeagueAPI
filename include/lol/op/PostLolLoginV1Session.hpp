@@ -1,8 +1,8 @@
 #pragma once
 #include "../base_op.hpp"
 #include <functional> 
-#include "../def/LolLoginLoginSession.hpp"
 #include "../def/LolLoginUsernameAndPassword.hpp"
+#include "../def/LolLoginLoginSession.hpp"
 namespace lol {
   inline Result<LolLoginLoginSession> PostLolLoginV1Session(LeagueClient& _client, const LolLoginUsernameAndPassword& UsernameAndPassword)
   {

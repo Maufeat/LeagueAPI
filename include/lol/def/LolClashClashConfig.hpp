@@ -4,27 +4,27 @@
 #include "LolClashClashState.hpp"
 namespace lol {
   struct LolClashClashConfig { 
-    std::string IconConfig;
+    bool UseIndividualEntitlement;
     std::string DarkModeEntitlement;
     bool IsPlaymodeRestrictionEnabled;
+    LolClashClashState EnabledState;
     LolClashClashVisibility Visibility;
-    bool UseIndividualEntitlement;
-    LolClashClashState EnabledState; 
+    std::string IconConfig; 
   };
   inline void to_json(json& j, const LolClashClashConfig& v) {
-    j["IconConfig"] = v.IconConfig; 
+    j["UseIndividualEntitlement"] = v.UseIndividualEntitlement; 
     j["DarkModeEntitlement"] = v.DarkModeEntitlement; 
     j["IsPlaymodeRestrictionEnabled"] = v.IsPlaymodeRestrictionEnabled; 
-    j["Visibility"] = v.Visibility; 
-    j["UseIndividualEntitlement"] = v.UseIndividualEntitlement; 
     j["EnabledState"] = v.EnabledState; 
+    j["Visibility"] = v.Visibility; 
+    j["IconConfig"] = v.IconConfig; 
   }
   inline void from_json(const json& j, LolClashClashConfig& v) {
-    v.IconConfig = j.at("IconConfig").get<std::string>(); 
+    v.UseIndividualEntitlement = j.at("UseIndividualEntitlement").get<bool>(); 
     v.DarkModeEntitlement = j.at("DarkModeEntitlement").get<std::string>(); 
     v.IsPlaymodeRestrictionEnabled = j.at("IsPlaymodeRestrictionEnabled").get<bool>(); 
-    v.Visibility = j.at("Visibility").get<LolClashClashVisibility>(); 
-    v.UseIndividualEntitlement = j.at("UseIndividualEntitlement").get<bool>(); 
     v.EnabledState = j.at("EnabledState").get<LolClashClashState>(); 
+    v.Visibility = j.at("Visibility").get<LolClashClashVisibility>(); 
+    v.IconConfig = j.at("IconConfig").get<std::string>(); 
   }
 }

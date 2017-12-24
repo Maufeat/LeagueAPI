@@ -1,24 +1,24 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LolMissionsCollectionsOwnership.hpp"
 #include "LolMissionsCollectionsChampionSkin.hpp"
+#include "LolMissionsCollectionsOwnership.hpp"
 namespace lol {
   struct LolMissionsCollectionsChampion { 
-    LolMissionsCollectionsOwnership ownership;
+    int32_t id;
     bool freeToPlay;
     std::vector<LolMissionsCollectionsChampionSkin> skins;
-    int32_t id; 
+    LolMissionsCollectionsOwnership ownership; 
   };
   inline void to_json(json& j, const LolMissionsCollectionsChampion& v) {
-    j["ownership"] = v.ownership; 
+    j["id"] = v.id; 
     j["freeToPlay"] = v.freeToPlay; 
     j["skins"] = v.skins; 
-    j["id"] = v.id; 
+    j["ownership"] = v.ownership; 
   }
   inline void from_json(const json& j, LolMissionsCollectionsChampion& v) {
-    v.ownership = j.at("ownership").get<LolMissionsCollectionsOwnership>(); 
+    v.id = j.at("id").get<int32_t>(); 
     v.freeToPlay = j.at("freeToPlay").get<bool>(); 
     v.skins = j.at("skins").get<std::vector<LolMissionsCollectionsChampionSkin>>(); 
-    v.id = j.at("id").get<int32_t>(); 
+    v.ownership = j.at("ownership").get<LolMissionsCollectionsOwnership>(); 
   }
 }

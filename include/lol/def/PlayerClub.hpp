@@ -1,56 +1,56 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "ClubRole.hpp"
-#include "ClubMember.hpp"
-#include "ClubPermissions.hpp"
 #include "ClubMemberLists.hpp"
+#include "ClubRole.hpp"
+#include "ClubPermissions.hpp"
+#include "ClubMember.hpp"
 namespace lol {
   struct PlayerClub { 
-    std::string motd;
-    bool isClubTagEligible;
     bool primary;
-    std::string jid;
-    std::string name;
     ClubPermissions permissions;
-    std::string key;
+    bool isClubTagEligible;
     int64_t lastModified;
-    std::string tag;
-    ClubRole role;
-    int64_t created;
+    std::string name;
+    std::string jid;
     ClubMember owner;
+    ClubMemberLists members;
+    std::string key;
+    int64_t created;
     std::string description;
-    ClubMemberLists members; 
+    ClubRole role;
+    std::string tag;
+    std::string motd; 
   };
   inline void to_json(json& j, const PlayerClub& v) {
-    j["motd"] = v.motd; 
-    j["isClubTagEligible"] = v.isClubTagEligible; 
     j["primary"] = v.primary; 
-    j["jid"] = v.jid; 
-    j["name"] = v.name; 
     j["permissions"] = v.permissions; 
-    j["key"] = v.key; 
+    j["isClubTagEligible"] = v.isClubTagEligible; 
     j["lastModified"] = v.lastModified; 
-    j["tag"] = v.tag; 
-    j["role"] = v.role; 
-    j["created"] = v.created; 
+    j["name"] = v.name; 
+    j["jid"] = v.jid; 
     j["owner"] = v.owner; 
-    j["description"] = v.description; 
     j["members"] = v.members; 
+    j["key"] = v.key; 
+    j["created"] = v.created; 
+    j["description"] = v.description; 
+    j["role"] = v.role; 
+    j["tag"] = v.tag; 
+    j["motd"] = v.motd; 
   }
   inline void from_json(const json& j, PlayerClub& v) {
-    v.motd = j.at("motd").get<std::string>(); 
-    v.isClubTagEligible = j.at("isClubTagEligible").get<bool>(); 
     v.primary = j.at("primary").get<bool>(); 
-    v.jid = j.at("jid").get<std::string>(); 
-    v.name = j.at("name").get<std::string>(); 
     v.permissions = j.at("permissions").get<ClubPermissions>(); 
-    v.key = j.at("key").get<std::string>(); 
+    v.isClubTagEligible = j.at("isClubTagEligible").get<bool>(); 
     v.lastModified = j.at("lastModified").get<int64_t>(); 
-    v.tag = j.at("tag").get<std::string>(); 
-    v.role = j.at("role").get<ClubRole>(); 
-    v.created = j.at("created").get<int64_t>(); 
+    v.name = j.at("name").get<std::string>(); 
+    v.jid = j.at("jid").get<std::string>(); 
     v.owner = j.at("owner").get<ClubMember>(); 
-    v.description = j.at("description").get<std::string>(); 
     v.members = j.at("members").get<ClubMemberLists>(); 
+    v.key = j.at("key").get<std::string>(); 
+    v.created = j.at("created").get<int64_t>(); 
+    v.description = j.at("description").get<std::string>(); 
+    v.role = j.at("role").get<ClubRole>(); 
+    v.tag = j.at("tag").get<std::string>(); 
+    v.motd = j.at("motd").get<std::string>(); 
   }
 }

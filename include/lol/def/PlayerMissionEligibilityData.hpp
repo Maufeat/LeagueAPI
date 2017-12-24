@@ -3,15 +3,15 @@
 #include "PlayerInventory.hpp"
 namespace lol {
   struct PlayerMissionEligibilityData { 
-    int32_t level;
-    PlayerInventory playerInventory; 
+    PlayerInventory playerInventory;
+    int32_t level; 
   };
   inline void to_json(json& j, const PlayerMissionEligibilityData& v) {
-    j["level"] = v.level; 
     j["playerInventory"] = v.playerInventory; 
+    j["level"] = v.level; 
   }
   inline void from_json(const json& j, PlayerMissionEligibilityData& v) {
-    v.level = j.at("level").get<int32_t>(); 
     v.playerInventory = j.at("playerInventory").get<PlayerInventory>(); 
+    v.level = j.at("level").get<int32_t>(); 
   }
 }

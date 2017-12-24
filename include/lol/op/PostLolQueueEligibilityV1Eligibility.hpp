@@ -1,8 +1,8 @@
 #pragma once
 #include "../base_op.hpp"
 #include <functional> 
-#include "../def/LolQueueEligibilityEligibilityQueryParams.hpp"
 #include "../def/LolQueueEligibilityEligibility.hpp"
+#include "../def/LolQueueEligibilityEligibilityQueryParams.hpp"
 namespace lol {
   inline Result<std::vector<LolQueueEligibilityEligibility>> PostLolQueueEligibilityV1Eligibility(LeagueClient& _client, const LolQueueEligibilityEligibilityQueryParams& eligibilityQueryParam)
   {

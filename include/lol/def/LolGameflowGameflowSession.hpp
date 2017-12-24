@@ -1,10 +1,10 @@
 #pragma once
 #include "../base_def.hpp" 
+#include "LolGameflowGameflowGameClient.hpp"
+#include "LolGameflowGameflowGameDodge.hpp"
 #include "LolGameflowGameflowPhase.hpp"
 #include "LolGameflowGameflowGameMap.hpp"
 #include "LolGameflowGameflowGameData.hpp"
-#include "LolGameflowGameflowGameDodge.hpp"
-#include "LolGameflowGameflowGameClient.hpp"
 namespace lol {
   struct LolGameflowGameflowSession { 
     LolGameflowGameflowGameMap map;

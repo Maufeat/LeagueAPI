@@ -3,15 +3,15 @@
 #include "LolPurchaseWidgetItemKey.hpp"
 namespace lol {
   struct LolPurchaseWidgetValidationRequestItem { 
-    LolPurchaseWidgetItemKey itemKey;
-    int32_t quantity; 
+    int32_t quantity;
+    LolPurchaseWidgetItemKey itemKey; 
   };
   inline void to_json(json& j, const LolPurchaseWidgetValidationRequestItem& v) {
-    j["itemKey"] = v.itemKey; 
     j["quantity"] = v.quantity; 
+    j["itemKey"] = v.itemKey; 
   }
   inline void from_json(const json& j, LolPurchaseWidgetValidationRequestItem& v) {
-    v.itemKey = j.at("itemKey").get<LolPurchaseWidgetItemKey>(); 
     v.quantity = j.at("quantity").get<int32_t>(); 
+    v.itemKey = j.at("itemKey").get<LolPurchaseWidgetItemKey>(); 
   }
 }

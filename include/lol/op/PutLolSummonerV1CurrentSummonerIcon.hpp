@@ -1,8 +1,8 @@
 #pragma once
 #include "../base_op.hpp"
 #include <functional> 
-#include "../def/LolSummonerSummonerIcon.hpp"
 #include "../def/LolSummonerSummoner.hpp"
+#include "../def/LolSummonerSummonerIcon.hpp"
 namespace lol {
   inline Result<LolSummonerSummoner> PutLolSummonerV1CurrentSummonerIcon(LeagueClient& _client, const LolSummonerSummonerIcon& body)
   {
