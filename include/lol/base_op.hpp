@@ -13,11 +13,11 @@ namespace lol {
   using std::to_string;
   
   enum ErrorSource : uint16_t {
-    League,
-    LeagueUnkown,
-    ParseError,
-    ParseResponse,
-    Http,
+    League = 0,
+    LeagueUnkown = 10,
+    ParseError = 20,
+    ParseResponse = 30,
+    Http = 40,
   };
   
   struct Error {
@@ -78,6 +78,10 @@ namespace lol {
     int32_t status_code = std::stoi(r->status_code);
     std::string content = r->content.string();
     json j{};
+    if (auto it = r->header.find("content-type"); it != r->header.end()) {
+      content_type = it->second;
+    }
+
     if (content_type == "application/json") {
       if(content.size() > 0) {
         j = json::parse(content);
@@ -85,9 +89,8 @@ namespace lol {
     } else {
       j = content;
     }
-    if (auto it = r->header.find("content-type"); it != r->header.end()) {
-      content_type = it->second;
-    } else if ((status_code < 200 || status_code>299) && content_type == "application/json") {
+
+    if ((status_code < 200 || status_code>299) && content_type == "application/json") {
       try {
         return j.get<Error>();
       } catch(const json::exception& j) {
