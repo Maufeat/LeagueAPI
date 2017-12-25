@@ -125,6 +125,7 @@ namespace lol {
     HttpsClient https;
     HttpsClient httpsa;
     uint32_t id;
+    std::map<std::string, json> trashbin;
 
     LeagueClient(const LeagueClient&) = delete;
     LeagueClient(const std::string& address, int port, const std::string& password, uint32_t id = 0) :
