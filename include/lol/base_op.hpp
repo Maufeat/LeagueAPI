@@ -26,6 +26,7 @@ namespace lol {
     std::string message;
     ErrorSource source;
     std::string internal;
+	json payload;
   };
   
   inline void to_json(json& j, const Error& v) {
@@ -34,6 +35,7 @@ namespace lol {
     j["message"] = v.message;
     j["source"] = v.source;
     j["internal"] = v.internal;
+	j["payload"] = v.payload;
   }
   
   inline void from_json(const json& j, Error& v) {
@@ -41,6 +43,7 @@ namespace lol {
     v.errorCode = j.at("errorCode").get<std::string>();
     v.httpStatus = j.at("httpStatus").get<int32_t>();
     v.message = j.at("message").get<std::string>();
+	v.payload = j.at("payload").get<json>();
   }
 
   inline std::string to_string(const std::string& v) {
