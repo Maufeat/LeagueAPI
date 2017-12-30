@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolLobbyLobbyBotChampion.hpp"
 namespace lol {
-  inline Result<std::vector<LolLobbyLobbyBotChampion>> GetLolLobbyV1LobbyCustomAvailableBots(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::vector<LolLobbyLobbyBotChampion>> GetLolLobbyV1LobbyCustomAvailableBots(T& _client)
   {
     try {
       return ToResult<std::vector<LolLobbyLobbyBotChampion>>(_client.https.request("get", "/lol-lobby/v1/lobby/custom/available-bots?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<LolLobbyLobbyBotChampion>>(e.code());
     }
   }
-  inline void GetLolLobbyV1LobbyCustomAvailableBots(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::vector<LolLobbyLobbyBotChampion>>&)> cb)
+  template<typename T>
+  inline void GetLolLobbyV1LobbyCustomAvailableBots(T& _client, std::function<void(T&, const Result<std::vector<LolLobbyLobbyBotChampion>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-lobby/v1/lobby/custom/available-bots?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolClashKickRequest.hpp"
 namespace lol {
-  inline Result<json> PostLolClashV1TournamentByTournamentIdRosterKick(LeagueClient& _client, const int64_t& tournamentId, const LolClashKickRequest& kickRequest)
+  template<typename T>
+  inline Result<json> PostLolClashV1TournamentByTournamentIdRosterKick(T& _client, const int64_t& tournamentId, const LolClashKickRequest& kickRequest)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/lol-clash/v1/tournament/"+to_string(tournamentId)+"/roster/kick?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PostLolClashV1TournamentByTournamentIdRosterKick(LeagueClient& _client, const int64_t& tournamentId, const LolClashKickRequest& kickRequest, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PostLolClashV1TournamentByTournamentIdRosterKick(T& _client, const int64_t& tournamentId, const LolClashKickRequest& kickRequest, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/lol-clash/v1/tournament/"+to_string(tournamentId)+"/roster/kick?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> GetPerformanceV1Report(LeagueClient& _client)
+  template<typename T>
+  inline Result<json> GetPerformanceV1Report(T& _client)
   {
     try {
       return ToResult<json>(_client.https.request("get", "/performance/v1/report?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void GetPerformanceV1Report(LeagueClient& _client, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void GetPerformanceV1Report(T& _client, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("get", "/performance/v1/report?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

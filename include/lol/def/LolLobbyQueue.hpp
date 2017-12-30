@@ -1,95 +1,95 @@
 #pragma once
 #include "../base_def.hpp" 
+#include "LolLobbyQueueAvailability.hpp"
+#include "LolLobbyQueueGameCategory.hpp"
 #include "LolLobbyQueueReward.hpp"
 #include "LolLobbyQueueGameTypeConfig.hpp"
-#include "LolLobbyQueueGameCategory.hpp"
-#include "LolLobbyQueueAvailability.hpp"
 namespace lol {
   struct LolLobbyQueue { 
-    LolLobbyQueueAvailability queueAvailability;
-    bool isTeamOnly;
+    std::string name;
+    bool isRanked;
+    int32_t id;
+    uint32_t championsRequiredToPlay;
     int32_t maximumParticipantListSize;
-    int32_t numPlayersPerTeam;
     std::string description;
-    LolLobbyQueueGameTypeConfig gameTypeConfig;
     LolLobbyQueueGameCategory category;
-    std::string gameMode;
-    std::string gameMutator;
-    bool isTeamBuilderManaged;
     std::string type;
     std::string detailedDescription;
-    bool showPositionSelector;
-    bool isRanked;
-    std::vector<int32_t> allowablePremadeSizes;
-    std::string name;
-    uint32_t championsRequiredToPlay;
-    bool spectatorEnabled;
-    int32_t mapId;
-    uint32_t maxSummonerLevelForFirstWinOfTheDay;
-    int32_t minimumParticipantListSize;
-    std::string shortName;
-    int32_t id;
-    LolLobbyQueueReward queueRewards;
-    std::string assetMutator;
     bool areFreeChampionsAllowed;
-    uint32_t minLevel; 
+    LolLobbyQueueAvailability queueAvailability;
+    int32_t mapId;
+    std::string shortName;
+    std::string assetMutator;
+    int32_t minimumParticipantListSize;
+    bool isTeamOnly;
+    uint32_t minLevel;
+    std::string gameMutator;
+    std::string gameMode;
+    LolLobbyQueueReward queueRewards;
+    std::vector<int32_t> allowablePremadeSizes;
+    LolLobbyQueueGameTypeConfig gameTypeConfig;
+    int32_t numPlayersPerTeam;
+    bool showPositionSelector;
+    bool spectatorEnabled;
+    uint32_t maxSummonerLevelForFirstWinOfTheDay;
+    bool isTeamBuilderManaged; 
   };
   inline void to_json(json& j, const LolLobbyQueue& v) {
-    j["queueAvailability"] = v.queueAvailability; 
-    j["isTeamOnly"] = v.isTeamOnly; 
+    j["name"] = v.name; 
+    j["isRanked"] = v.isRanked; 
+    j["id"] = v.id; 
+    j["championsRequiredToPlay"] = v.championsRequiredToPlay; 
     j["maximumParticipantListSize"] = v.maximumParticipantListSize; 
-    j["numPlayersPerTeam"] = v.numPlayersPerTeam; 
     j["description"] = v.description; 
-    j["gameTypeConfig"] = v.gameTypeConfig; 
     j["category"] = v.category; 
-    j["gameMode"] = v.gameMode; 
-    j["gameMutator"] = v.gameMutator; 
-    j["isTeamBuilderManaged"] = v.isTeamBuilderManaged; 
     j["type"] = v.type; 
     j["detailedDescription"] = v.detailedDescription; 
-    j["showPositionSelector"] = v.showPositionSelector; 
-    j["isRanked"] = v.isRanked; 
-    j["allowablePremadeSizes"] = v.allowablePremadeSizes; 
-    j["name"] = v.name; 
-    j["championsRequiredToPlay"] = v.championsRequiredToPlay; 
-    j["spectatorEnabled"] = v.spectatorEnabled; 
-    j["mapId"] = v.mapId; 
-    j["maxSummonerLevelForFirstWinOfTheDay"] = v.maxSummonerLevelForFirstWinOfTheDay; 
-    j["minimumParticipantListSize"] = v.minimumParticipantListSize; 
-    j["shortName"] = v.shortName; 
-    j["id"] = v.id; 
-    j["queueRewards"] = v.queueRewards; 
-    j["assetMutator"] = v.assetMutator; 
     j["areFreeChampionsAllowed"] = v.areFreeChampionsAllowed; 
+    j["queueAvailability"] = v.queueAvailability; 
+    j["mapId"] = v.mapId; 
+    j["shortName"] = v.shortName; 
+    j["assetMutator"] = v.assetMutator; 
+    j["minimumParticipantListSize"] = v.minimumParticipantListSize; 
+    j["isTeamOnly"] = v.isTeamOnly; 
     j["minLevel"] = v.minLevel; 
+    j["gameMutator"] = v.gameMutator; 
+    j["gameMode"] = v.gameMode; 
+    j["queueRewards"] = v.queueRewards; 
+    j["allowablePremadeSizes"] = v.allowablePremadeSizes; 
+    j["gameTypeConfig"] = v.gameTypeConfig; 
+    j["numPlayersPerTeam"] = v.numPlayersPerTeam; 
+    j["showPositionSelector"] = v.showPositionSelector; 
+    j["spectatorEnabled"] = v.spectatorEnabled; 
+    j["maxSummonerLevelForFirstWinOfTheDay"] = v.maxSummonerLevelForFirstWinOfTheDay; 
+    j["isTeamBuilderManaged"] = v.isTeamBuilderManaged; 
   }
   inline void from_json(const json& j, LolLobbyQueue& v) {
-    v.queueAvailability = j.at("queueAvailability").get<LolLobbyQueueAvailability>(); 
-    v.isTeamOnly = j.at("isTeamOnly").get<bool>(); 
+    v.name = j.at("name").get<std::string>(); 
+    v.isRanked = j.at("isRanked").get<bool>(); 
+    v.id = j.at("id").get<int32_t>(); 
+    v.championsRequiredToPlay = j.at("championsRequiredToPlay").get<uint32_t>(); 
     v.maximumParticipantListSize = j.at("maximumParticipantListSize").get<int32_t>(); 
-    v.numPlayersPerTeam = j.at("numPlayersPerTeam").get<int32_t>(); 
     v.description = j.at("description").get<std::string>(); 
-    v.gameTypeConfig = j.at("gameTypeConfig").get<LolLobbyQueueGameTypeConfig>(); 
     v.category = j.at("category").get<LolLobbyQueueGameCategory>(); 
-    v.gameMode = j.at("gameMode").get<std::string>(); 
-    v.gameMutator = j.at("gameMutator").get<std::string>(); 
-    v.isTeamBuilderManaged = j.at("isTeamBuilderManaged").get<bool>(); 
     v.type = j.at("type").get<std::string>(); 
     v.detailedDescription = j.at("detailedDescription").get<std::string>(); 
-    v.showPositionSelector = j.at("showPositionSelector").get<bool>(); 
-    v.isRanked = j.at("isRanked").get<bool>(); 
-    v.allowablePremadeSizes = j.at("allowablePremadeSizes").get<std::vector<int32_t>>(); 
-    v.name = j.at("name").get<std::string>(); 
-    v.championsRequiredToPlay = j.at("championsRequiredToPlay").get<uint32_t>(); 
-    v.spectatorEnabled = j.at("spectatorEnabled").get<bool>(); 
-    v.mapId = j.at("mapId").get<int32_t>(); 
-    v.maxSummonerLevelForFirstWinOfTheDay = j.at("maxSummonerLevelForFirstWinOfTheDay").get<uint32_t>(); 
-    v.minimumParticipantListSize = j.at("minimumParticipantListSize").get<int32_t>(); 
-    v.shortName = j.at("shortName").get<std::string>(); 
-    v.id = j.at("id").get<int32_t>(); 
-    v.queueRewards = j.at("queueRewards").get<LolLobbyQueueReward>(); 
-    v.assetMutator = j.at("assetMutator").get<std::string>(); 
     v.areFreeChampionsAllowed = j.at("areFreeChampionsAllowed").get<bool>(); 
+    v.queueAvailability = j.at("queueAvailability").get<LolLobbyQueueAvailability>(); 
+    v.mapId = j.at("mapId").get<int32_t>(); 
+    v.shortName = j.at("shortName").get<std::string>(); 
+    v.assetMutator = j.at("assetMutator").get<std::string>(); 
+    v.minimumParticipantListSize = j.at("minimumParticipantListSize").get<int32_t>(); 
+    v.isTeamOnly = j.at("isTeamOnly").get<bool>(); 
     v.minLevel = j.at("minLevel").get<uint32_t>(); 
+    v.gameMutator = j.at("gameMutator").get<std::string>(); 
+    v.gameMode = j.at("gameMode").get<std::string>(); 
+    v.queueRewards = j.at("queueRewards").get<LolLobbyQueueReward>(); 
+    v.allowablePremadeSizes = j.at("allowablePremadeSizes").get<std::vector<int32_t>>(); 
+    v.gameTypeConfig = j.at("gameTypeConfig").get<LolLobbyQueueGameTypeConfig>(); 
+    v.numPlayersPerTeam = j.at("numPlayersPerTeam").get<int32_t>(); 
+    v.showPositionSelector = j.at("showPositionSelector").get<bool>(); 
+    v.spectatorEnabled = j.at("spectatorEnabled").get<bool>(); 
+    v.maxSummonerLevelForFirstWinOfTheDay = j.at("maxSummonerLevelForFirstWinOfTheDay").get<uint32_t>(); 
+    v.isTeamBuilderManaged = j.at("isTeamBuilderManaged").get<bool>(); 
   }
 }

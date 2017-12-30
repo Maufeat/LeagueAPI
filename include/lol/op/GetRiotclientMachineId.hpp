@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<std::string> GetRiotclientMachineId(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::string> GetRiotclientMachineId(T& _client)
   {
     try {
       return ToResult<std::string>(_client.https.request("get", "/riotclient/machine-id?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<std::string>(e.code());
     }
   }
-  inline void GetRiotclientMachineId(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::string>&)> cb)
+  template<typename T>
+  inline void GetRiotclientMachineId(T& _client, std::function<void(T&, const Result<std::string>&)> cb)
   {
     _client.httpsa.request("get", "/riotclient/machine-id?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

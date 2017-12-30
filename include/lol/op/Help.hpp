@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/RemotingHelpFormat.hpp"
 namespace lol {
-  inline Result<json> Help(LeagueClient& _client, const std::optional<std::string>& target = std::nullopt, const std::optional<RemotingHelpFormat>& format = std::nullopt)
+  template<typename T>
+  inline Result<json> Help(T& _client, const std::optional<std::string>& target = std::nullopt, const std::optional<RemotingHelpFormat>& format = std::nullopt)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/Help?" +
@@ -17,7 +18,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void Help(LeagueClient& _client, const std::optional<std::string>& target = std::nullopt, const std::optional<RemotingHelpFormat>& format = std::nullopt, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void Help(T& _client, const std::optional<std::string>& target = std::nullopt, const std::optional<RemotingHelpFormat>& format = std::nullopt, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/Help?" +
       SimpleWeb::QueryString::create(Args2Headers({ 

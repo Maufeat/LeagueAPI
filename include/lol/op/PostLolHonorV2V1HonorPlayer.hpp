@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolHonorV2ApiHonorPlayerServerRequest.hpp"
 namespace lol {
-  inline Result<std::string> PostLolHonorV2V1HonorPlayer(LeagueClient& _client, const LolHonorV2ApiHonorPlayerServerRequest& honorPlayerRequest)
+  template<typename T>
+  inline Result<std::string> PostLolHonorV2V1HonorPlayer(T& _client, const LolHonorV2ApiHonorPlayerServerRequest& honorPlayerRequest)
   {
     try {
       return ToResult<std::string>(_client.https.request("post", "/lol-honor-v2/v1/honor-player?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<std::string>(e.code());
     }
   }
-  inline void PostLolHonorV2V1HonorPlayer(LeagueClient& _client, const LolHonorV2ApiHonorPlayerServerRequest& honorPlayerRequest, std::function<void(LeagueClient&, const Result<std::string>&)> cb)
+  template<typename T>
+  inline void PostLolHonorV2V1HonorPlayer(T& _client, const LolHonorV2ApiHonorPlayerServerRequest& honorPlayerRequest, std::function<void(T&, const Result<std::string>&)> cb)
   {
     _client.httpsa.request("post", "/lol-honor-v2/v1/honor-player?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

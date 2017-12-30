@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolChampionsCollectionsChampionPlayableCounts.hpp"
 namespace lol {
-  inline Result<LolChampionsCollectionsChampionPlayableCounts> GetLolChampionsV1InventoriesBySummonerIdChampionsPlayableCount(LeagueClient& _client, const uint64_t& summonerId)
+  template<typename T>
+  inline Result<LolChampionsCollectionsChampionPlayableCounts> GetLolChampionsV1InventoriesBySummonerIdChampionsPlayableCount(T& _client, const uint64_t& summonerId)
   {
     try {
       return ToResult<LolChampionsCollectionsChampionPlayableCounts>(_client.https.request("get", "/lol-champions/v1/inventories/"+to_string(summonerId)+"/champions-playable-count?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolChampionsCollectionsChampionPlayableCounts>(e.code());
     }
   }
-  inline void GetLolChampionsV1InventoriesBySummonerIdChampionsPlayableCount(LeagueClient& _client, const uint64_t& summonerId, std::function<void(LeagueClient&, const Result<LolChampionsCollectionsChampionPlayableCounts>&)> cb)
+  template<typename T>
+  inline void GetLolChampionsV1InventoriesBySummonerIdChampionsPlayableCount(T& _client, const uint64_t& summonerId, std::function<void(T&, const Result<LolChampionsCollectionsChampionPlayableCounts>&)> cb)
   {
     _client.httpsa.request("get", "/lol-champions/v1/inventories/"+to_string(summonerId)+"/champions-playable-count?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

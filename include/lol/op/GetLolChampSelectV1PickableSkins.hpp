@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolChampSelectChampSelectPickableSkins.hpp"
 namespace lol {
-  inline Result<LolChampSelectChampSelectPickableSkins> GetLolChampSelectV1PickableSkins(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolChampSelectChampSelectPickableSkins> GetLolChampSelectV1PickableSkins(T& _client)
   {
     try {
       return ToResult<LolChampSelectChampSelectPickableSkins>(_client.https.request("get", "/lol-champ-select/v1/pickable-skins?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolChampSelectChampSelectPickableSkins>(e.code());
     }
   }
-  inline void GetLolChampSelectV1PickableSkins(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolChampSelectChampSelectPickableSkins>&)> cb)
+  template<typename T>
+  inline void GetLolChampSelectV1PickableSkins(T& _client, std::function<void(T&, const Result<LolChampSelectChampSelectPickableSkins>&)> cb)
   {
     _client.httpsa.request("get", "/lol-champ-select/v1/pickable-skins?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

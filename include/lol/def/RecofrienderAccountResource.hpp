@@ -3,18 +3,18 @@
 #include "RecofrienderActionResource.hpp"
 namespace lol {
   struct RecofrienderAccountResource { 
-    std::vector<RecofrienderActionResource> contacts;
+    uint64_t accountId;
     std::string platformId;
-    uint64_t accountId; 
+    std::vector<RecofrienderActionResource> contacts; 
   };
   inline void to_json(json& j, const RecofrienderAccountResource& v) {
-    j["contacts"] = v.contacts; 
-    j["platformId"] = v.platformId; 
     j["accountId"] = v.accountId; 
+    j["platformId"] = v.platformId; 
+    j["contacts"] = v.contacts; 
   }
   inline void from_json(const json& j, RecofrienderAccountResource& v) {
-    v.contacts = j.at("contacts").get<std::vector<RecofrienderActionResource>>(); 
-    v.platformId = j.at("platformId").get<std::string>(); 
     v.accountId = j.at("accountId").get<uint64_t>(); 
+    v.platformId = j.at("platformId").get<std::string>(); 
+    v.contacts = j.at("contacts").get<std::vector<RecofrienderActionResource>>(); 
   }
 }

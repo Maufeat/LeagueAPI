@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolChampSelectLegacyChampSelectSession.hpp"
 namespace lol {
-  inline Result<LolChampSelectLegacyChampSelectSession> GetLolChampSelectLegacyV1Session(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolChampSelectLegacyChampSelectSession> GetLolChampSelectLegacyV1Session(T& _client)
   {
     try {
       return ToResult<LolChampSelectLegacyChampSelectSession>(_client.https.request("get", "/lol-champ-select-legacy/v1/session?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolChampSelectLegacyChampSelectSession>(e.code());
     }
   }
-  inline void GetLolChampSelectLegacyV1Session(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolChampSelectLegacyChampSelectSession>&)> cb)
+  template<typename T>
+  inline void GetLolChampSelectLegacyV1Session(T& _client, std::function<void(T&, const Result<LolChampSelectLegacyChampSelectSession>&)> cb)
   {
     _client.httpsa.request("get", "/lol-champ-select-legacy/v1/session?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

@@ -4,7 +4,8 @@
 #include "../def/PlayerClub.hpp"
 #include "../def/ClubTag.hpp"
 namespace lol {
-  inline Result<PlayerClub> PatchLolClubsV1ClubsByClubKey(LeagueClient& _client, const std::string& clubKey, const ClubTag& tag)
+  template<typename T>
+  inline Result<PlayerClub> PatchLolClubsV1ClubsByClubKey(T& _client, const std::string& clubKey, const ClubTag& tag)
   {
     try {
       return ToResult<PlayerClub>(_client.https.request("patch", "/lol-clubs/v1/clubs/"+to_string(clubKey)+"?" +
@@ -17,7 +18,8 @@ namespace lol {
       return ToResult<PlayerClub>(e.code());
     }
   }
-  inline void PatchLolClubsV1ClubsByClubKey(LeagueClient& _client, const std::string& clubKey, const ClubTag& tag, std::function<void(LeagueClient&, const Result<PlayerClub>&)> cb)
+  template<typename T>
+  inline void PatchLolClubsV1ClubsByClubKey(T& _client, const std::string& clubKey, const ClubTag& tag, std::function<void(T&, const Result<PlayerClub>&)> cb)
   {
     _client.httpsa.request("patch", "/lol-clubs/v1/clubs/"+to_string(clubKey)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolLobbyTeamBuilderLobbyCountdownTimer.hpp"
 namespace lol {
-  inline Result<LolLobbyTeamBuilderLobbyCountdownTimer> GetLolLobbyTeamBuilderV1LobbyCountdown(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolLobbyTeamBuilderLobbyCountdownTimer> GetLolLobbyTeamBuilderV1LobbyCountdown(T& _client)
   {
     try {
       return ToResult<LolLobbyTeamBuilderLobbyCountdownTimer>(_client.https.request("get", "/lol-lobby-team-builder/v1/lobby/countdown?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolLobbyTeamBuilderLobbyCountdownTimer>(e.code());
     }
   }
-  inline void GetLolLobbyTeamBuilderV1LobbyCountdown(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolLobbyTeamBuilderLobbyCountdownTimer>&)> cb)
+  template<typename T>
+  inline void GetLolLobbyTeamBuilderV1LobbyCountdown(T& _client, std::function<void(T&, const Result<LolLobbyTeamBuilderLobbyCountdownTimer>&)> cb)
   {
     _client.httpsa.request("get", "/lol-lobby-team-builder/v1/lobby/countdown?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

@@ -3,18 +3,18 @@
 #include "LolPerksLoginSessionState.hpp"
 namespace lol {
   struct LolPerksLoginSession { 
+    uint64_t accountId;
     uint64_t summonerId;
-    LolPerksLoginSessionState state;
-    uint64_t accountId; 
+    LolPerksLoginSessionState state; 
   };
   inline void to_json(json& j, const LolPerksLoginSession& v) {
+    j["accountId"] = v.accountId; 
     j["summonerId"] = v.summonerId; 
     j["state"] = v.state; 
-    j["accountId"] = v.accountId; 
   }
   inline void from_json(const json& j, LolPerksLoginSession& v) {
+    v.accountId = j.at("accountId").get<uint64_t>(); 
     v.summonerId = j.at("summonerId").get<uint64_t>(); 
     v.state = j.at("state").get<LolPerksLoginSessionState>(); 
-    v.accountId = j.at("accountId").get<uint64_t>(); 
   }
 }

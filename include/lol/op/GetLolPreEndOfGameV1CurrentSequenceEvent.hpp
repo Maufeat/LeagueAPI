@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolPreEndOfGameSequenceEvent.hpp"
 namespace lol {
-  inline Result<LolPreEndOfGameSequenceEvent> GetLolPreEndOfGameV1CurrentSequenceEvent(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolPreEndOfGameSequenceEvent> GetLolPreEndOfGameV1CurrentSequenceEvent(T& _client)
   {
     try {
       return ToResult<LolPreEndOfGameSequenceEvent>(_client.https.request("get", "/lol-pre-end-of-game/v1/currentSequenceEvent?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolPreEndOfGameSequenceEvent>(e.code());
     }
   }
-  inline void GetLolPreEndOfGameV1CurrentSequenceEvent(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolPreEndOfGameSequenceEvent>&)> cb)
+  template<typename T>
+  inline void GetLolPreEndOfGameV1CurrentSequenceEvent(T& _client, std::function<void(T&, const Result<LolPreEndOfGameSequenceEvent>&)> cb)
   {
     _client.httpsa.request("get", "/lol-pre-end-of-game/v1/currentSequenceEvent?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

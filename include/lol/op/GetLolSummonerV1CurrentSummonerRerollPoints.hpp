@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolSummonerSummonerRerollPoints.hpp"
 namespace lol {
-  inline Result<LolSummonerSummonerRerollPoints> GetLolSummonerV1CurrentSummonerRerollPoints(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolSummonerSummonerRerollPoints> GetLolSummonerV1CurrentSummonerRerollPoints(T& _client)
   {
     try {
       return ToResult<LolSummonerSummonerRerollPoints>(_client.https.request("get", "/lol-summoner/v1/current-summoner/rerollPoints?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolSummonerSummonerRerollPoints>(e.code());
     }
   }
-  inline void GetLolSummonerV1CurrentSummonerRerollPoints(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolSummonerSummonerRerollPoints>&)> cb)
+  template<typename T>
+  inline void GetLolSummonerV1CurrentSummonerRerollPoints(T& _client, std::function<void(T&, const Result<LolSummonerSummonerRerollPoints>&)> cb)
   {
     _client.httpsa.request("get", "/lol-summoner/v1/current-summoner/rerollPoints?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

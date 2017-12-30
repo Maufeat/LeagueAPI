@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<std::string> PostLolPlayerPreferencesV1Hash(LeagueClient& _client, const std::string& preferences)
+  template<typename T>
+  inline Result<std::string> PostLolPlayerPreferencesV1Hash(T& _client, const std::string& preferences)
   {
     try {
       return ToResult<std::string>(_client.https.request("post", "/lol-player-preferences/v1/hash?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::string>(e.code());
     }
   }
-  inline void PostLolPlayerPreferencesV1Hash(LeagueClient& _client, const std::string& preferences, std::function<void(LeagueClient&, const Result<std::string>&)> cb)
+  template<typename T>
+  inline void PostLolPlayerPreferencesV1Hash(T& _client, const std::string& preferences, std::function<void(T&, const Result<std::string>&)> cb)
   {
     _client.httpsa.request("post", "/lol-player-preferences/v1/hash?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

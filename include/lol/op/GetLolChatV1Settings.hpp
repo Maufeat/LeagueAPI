@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> GetLolChatV1Settings(LeagueClient& _client)
+  template<typename T>
+  inline Result<json> GetLolChatV1Settings(T& _client)
   {
     try {
       return ToResult<json>(_client.https.request("get", "/lol-chat/v1/settings?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void GetLolChatV1Settings(LeagueClient& _client, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void GetLolChatV1Settings(T& _client, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("get", "/lol-chat/v1/settings?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

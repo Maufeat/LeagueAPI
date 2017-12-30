@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolChatChatServiceDynamicClientConfig.hpp"
 namespace lol {
-  inline Result<LolChatChatServiceDynamicClientConfig> GetLolChatV1Config(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolChatChatServiceDynamicClientConfig> GetLolChatV1Config(T& _client)
   {
     try {
       return ToResult<LolChatChatServiceDynamicClientConfig>(_client.https.request("get", "/lol-chat/v1/config?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolChatChatServiceDynamicClientConfig>(e.code());
     }
   }
-  inline void GetLolChatV1Config(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolChatChatServiceDynamicClientConfig>&)> cb)
+  template<typename T>
+  inline void GetLolChatV1Config(T& _client, std::function<void(T&, const Result<LolChatChatServiceDynamicClientConfig>&)> cb)
   {
     _client.httpsa.request("get", "/lol-chat/v1/config?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

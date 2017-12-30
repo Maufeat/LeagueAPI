@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolLobbyLobbyCustomChampSelectStartResponse.hpp"
 namespace lol {
-  inline Result<LolLobbyLobbyCustomChampSelectStartResponse> PostLolLobbyV1LobbyCustomStartChampSelect(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolLobbyLobbyCustomChampSelectStartResponse> PostLolLobbyV1LobbyCustomStartChampSelect(T& _client)
   {
     try {
       return ToResult<LolLobbyLobbyCustomChampSelectStartResponse>(_client.https.request("post", "/lol-lobby/v1/lobby/custom/start-champ-select?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolLobbyLobbyCustomChampSelectStartResponse>(e.code());
     }
   }
-  inline void PostLolLobbyV1LobbyCustomStartChampSelect(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolLobbyLobbyCustomChampSelectStartResponse>&)> cb)
+  template<typename T>
+  inline void PostLolLobbyV1LobbyCustomStartChampSelect(T& _client, std::function<void(T&, const Result<LolLobbyLobbyCustomChampSelectStartResponse>&)> cb)
   {
     _client.httpsa.request("post", "/lol-lobby/v1/lobby/custom/start-champ-select?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

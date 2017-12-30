@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolHonorV2Honor.hpp"
 namespace lol {
-  inline Result<std::vector<LolHonorV2Honor>> GetLolHonorV2V1LateRecognition(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::vector<LolHonorV2Honor>> GetLolHonorV2V1LateRecognition(T& _client)
   {
     try {
       return ToResult<std::vector<LolHonorV2Honor>>(_client.https.request("get", "/lol-honor-v2/v1/late-recognition?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<LolHonorV2Honor>>(e.code());
     }
   }
-  inline void GetLolHonorV2V1LateRecognition(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::vector<LolHonorV2Honor>>&)> cb)
+  template<typename T>
+  inline void GetLolHonorV2V1LateRecognition(T& _client, std::function<void(T&, const Result<std::vector<LolHonorV2Honor>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-honor-v2/v1/late-recognition?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

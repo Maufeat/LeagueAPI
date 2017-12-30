@@ -2,20 +2,22 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<std::nullptr_t> PutLolBetaOptInV1MigrationError(LeagueClient& _client, const std::string& errString)
+  template<typename T>
+  inline Result<Nothing> PutLolBetaOptInV1MigrationError(T& _client, const std::string& errString)
   {
     try {
-      return ToResult<std::nullptr_t>(_client.https.request("put", "/lol-beta-opt-in/v1/migration-error?" +
+      return ToResult<Nothing>(_client.https.request("put", "/lol-beta-opt-in/v1/migration-error?" +
         SimpleWeb::QueryString::create(Args2Headers({ 
           { "errString", to_string(errString) }, })), 
         "",
         Args2Headers({  
         {"Authorization", _client.auth},  })));
     } catch(const SimpleWeb::system_error &e) {
-      return ToResult<std::nullptr_t>(e.code());
+      return ToResult<Nothing>(e.code());
     }
   }
-  inline void PutLolBetaOptInV1MigrationError(LeagueClient& _client, const std::string& errString, std::function<void(LeagueClient&, const Result<std::nullptr_t>&)> cb)
+  template<typename T>
+  inline void PutLolBetaOptInV1MigrationError(T& _client, const std::string& errString, std::function<void(T&, const Result<Nothing>&)> cb)
   {
     _client.httpsa.request("put", "/lol-beta-opt-in/v1/migration-error?" +
       SimpleWeb::QueryString::create(Args2Headers({ 
@@ -24,9 +26,9 @@ namespace lol {
         Args2Headers({  
         {"Authorization", _client.auth},  }),[cb,&_client](std::shared_ptr<HttpsClient::Response> response, const SimpleWeb::error_code &e) {
             if(e)
-              cb(_client, ToResult<std::nullptr_t>(e));
+              cb(_client, ToResult<Nothing>(e));
             else
-              cb(_client, ToResult<std::nullptr_t>(response));
+              cb(_client, ToResult<Nothing>(response));
         });
   }
 }

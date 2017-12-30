@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolClashPlayerNotificationData.hpp"
 namespace lol {
-  inline Result<LolClashPlayerNotificationData> GetLolClashV1Notifications(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolClashPlayerNotificationData> GetLolClashV1Notifications(T& _client)
   {
     try {
       return ToResult<LolClashPlayerNotificationData>(_client.https.request("get", "/lol-clash/v1/notifications?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolClashPlayerNotificationData>(e.code());
     }
   }
-  inline void GetLolClashV1Notifications(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolClashPlayerNotificationData>&)> cb)
+  template<typename T>
+  inline void GetLolClashV1Notifications(T& _client, std::function<void(T&, const Result<LolClashPlayerNotificationData>&)> cb)
   {
     _client.httpsa.request("get", "/lol-clash/v1/notifications?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

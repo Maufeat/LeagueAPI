@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/Highlight.hpp"
 namespace lol {
-  inline Result<std::vector<Highlight>> PostLolHighlightsV1Highlights(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::vector<Highlight>> PostLolHighlightsV1Highlights(T& _client)
   {
     try {
       return ToResult<std::vector<Highlight>>(_client.https.request("post", "/lol-highlights/v1/highlights?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<Highlight>>(e.code());
     }
   }
-  inline void PostLolHighlightsV1Highlights(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::vector<Highlight>>&)> cb)
+  template<typename T>
+  inline void PostLolHighlightsV1Highlights(T& _client, std::function<void(T&, const Result<std::vector<Highlight>>&)> cb)
   {
     _client.httpsa.request("post", "/lol-highlights/v1/highlights?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

@@ -4,7 +4,8 @@
 #include "../def/LolLoginUsernameAndPassword.hpp"
 #include "../def/LolLoginLoginSession.hpp"
 namespace lol {
-  inline Result<LolLoginLoginSession> PostLolLoginV1Session(LeagueClient& _client, const LolLoginUsernameAndPassword& UsernameAndPassword)
+  template<typename T>
+  inline Result<LolLoginLoginSession> PostLolLoginV1Session(T& _client, const LolLoginUsernameAndPassword& UsernameAndPassword)
   {
     try {
       return ToResult<LolLoginLoginSession>(_client.https.request("post", "/lol-login/v1/session?" +
@@ -17,7 +18,8 @@ namespace lol {
       return ToResult<LolLoginLoginSession>(e.code());
     }
   }
-  inline void PostLolLoginV1Session(LeagueClient& _client, const LolLoginUsernameAndPassword& UsernameAndPassword, std::function<void(LeagueClient&, const Result<LolLoginLoginSession>&)> cb)
+  template<typename T>
+  inline void PostLolLoginV1Session(T& _client, const LolLoginUsernameAndPassword& UsernameAndPassword, std::function<void(T&, const Result<LolLoginLoginSession>&)> cb)
   {
     _client.httpsa.request("post", "/lol-login/v1/session?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

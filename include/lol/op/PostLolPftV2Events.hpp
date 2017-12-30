@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolPftPFTEvent.hpp"
 namespace lol {
-  inline Result<json> PostLolPftV2Events(LeagueClient& _client, const LolPftPFTEvent& pftEvent)
+  template<typename T>
+  inline Result<json> PostLolPftV2Events(T& _client, const LolPftPFTEvent& pftEvent)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/lol-pft/v2/events?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PostLolPftV2Events(LeagueClient& _client, const LolPftPFTEvent& pftEvent, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PostLolPftV2Events(T& _client, const LolPftPFTEvent& pftEvent, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/lol-pft/v2/events?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

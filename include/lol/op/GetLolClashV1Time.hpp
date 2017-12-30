@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<int64_t> GetLolClashV1Time(LeagueClient& _client)
+  template<typename T>
+  inline Result<int64_t> GetLolClashV1Time(T& _client)
   {
     try {
       return ToResult<int64_t>(_client.https.request("get", "/lol-clash/v1/time?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<int64_t>(e.code());
     }
   }
-  inline void GetLolClashV1Time(LeagueClient& _client, std::function<void(LeagueClient&, const Result<int64_t>&)> cb)
+  template<typename T>
+  inline void GetLolClashV1Time(T& _client, std::function<void(T&, const Result<int64_t>&)> cb)
   {
     _client.httpsa.request("get", "/lol-clash/v1/time?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

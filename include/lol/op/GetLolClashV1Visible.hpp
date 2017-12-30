@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<bool> GetLolClashV1Visible(LeagueClient& _client)
+  template<typename T>
+  inline Result<bool> GetLolClashV1Visible(T& _client)
   {
     try {
       return ToResult<bool>(_client.https.request("get", "/lol-clash/v1/visible?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<bool>(e.code());
     }
   }
-  inline void GetLolClashV1Visible(LeagueClient& _client, std::function<void(LeagueClient&, const Result<bool>&)> cb)
+  template<typename T>
+  inline void GetLolClashV1Visible(T& _client, std::function<void(T&, const Result<bool>&)> cb)
   {
     _client.httpsa.request("get", "/lol-clash/v1/visible?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

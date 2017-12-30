@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<std::vector<uint64_t>> GetLolHonorV2V1TeamChoices(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::vector<uint64_t>> GetLolHonorV2V1TeamChoices(T& _client)
   {
     try {
       return ToResult<std::vector<uint64_t>>(_client.https.request("get", "/lol-honor-v2/v1/team-choices?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<std::vector<uint64_t>>(e.code());
     }
   }
-  inline void GetLolHonorV2V1TeamChoices(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::vector<uint64_t>>&)> cb)
+  template<typename T>
+  inline void GetLolHonorV2V1TeamChoices(T& _client, std::function<void(T&, const Result<std::vector<uint64_t>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-honor-v2/v1/team-choices?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

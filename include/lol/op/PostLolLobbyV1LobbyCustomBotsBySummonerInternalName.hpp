@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolLobbyLobbyBotParams.hpp"
 namespace lol {
-  inline Result<json> PostLolLobbyV1LobbyCustomBotsBySummonerInternalName(LeagueClient& _client, const std::string& summonerInternalName, const LolLobbyLobbyBotParams& parameters)
+  template<typename T>
+  inline Result<json> PostLolLobbyV1LobbyCustomBotsBySummonerInternalName(T& _client, const std::string& summonerInternalName, const LolLobbyLobbyBotParams& parameters)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/lol-lobby/v1/lobby/custom/bots/"+to_string(summonerInternalName)+"?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PostLolLobbyV1LobbyCustomBotsBySummonerInternalName(LeagueClient& _client, const std::string& summonerInternalName, const LolLobbyLobbyBotParams& parameters, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PostLolLobbyV1LobbyCustomBotsBySummonerInternalName(T& _client, const std::string& summonerInternalName, const LolLobbyLobbyBotParams& parameters, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/lol-lobby/v1/lobby/custom/bots/"+to_string(summonerInternalName)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

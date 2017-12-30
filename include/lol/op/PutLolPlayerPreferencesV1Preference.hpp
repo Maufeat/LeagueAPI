@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/PlayerPreferences.hpp"
 namespace lol {
-  inline Result<json> PutLolPlayerPreferencesV1Preference(LeagueClient& _client, const PlayerPreferences& preferences)
+  template<typename T>
+  inline Result<json> PutLolPlayerPreferencesV1Preference(T& _client, const PlayerPreferences& preferences)
   {
     try {
       return ToResult<json>(_client.https.request("put", "/lol-player-preferences/v1/preference?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PutLolPlayerPreferencesV1Preference(LeagueClient& _client, const PlayerPreferences& preferences, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PutLolPlayerPreferencesV1Preference(T& _client, const PlayerPreferences& preferences, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("put", "/lol-player-preferences/v1/preference?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

@@ -1,10 +1,11 @@
 #pragma once
 #include "../base_op.hpp"
 #include <functional> 
-#include "../def/LolQueueEligibilityEligibility.hpp"
 #include "../def/LolQueueEligibilityEligibilityQueryParams.hpp"
+#include "../def/LolQueueEligibilityEligibility.hpp"
 namespace lol {
-  inline Result<std::vector<LolQueueEligibilityEligibility>> PostLolQueueEligibilityV2Eligibility(LeagueClient& _client, const LolQueueEligibilityEligibilityQueryParams& eligibilityQueryParam)
+  template<typename T>
+  inline Result<std::vector<LolQueueEligibilityEligibility>> PostLolQueueEligibilityV2Eligibility(T& _client, const LolQueueEligibilityEligibilityQueryParams& eligibilityQueryParam)
   {
     try {
       return ToResult<std::vector<LolQueueEligibilityEligibility>>(_client.https.request("post", "/lol-queue-eligibility/v2/eligibility?" +
@@ -17,7 +18,8 @@ namespace lol {
       return ToResult<std::vector<LolQueueEligibilityEligibility>>(e.code());
     }
   }
-  inline void PostLolQueueEligibilityV2Eligibility(LeagueClient& _client, const LolQueueEligibilityEligibilityQueryParams& eligibilityQueryParam, std::function<void(LeagueClient&, const Result<std::vector<LolQueueEligibilityEligibility>>&)> cb)
+  template<typename T>
+  inline void PostLolQueueEligibilityV2Eligibility(T& _client, const LolQueueEligibilityEligibilityQueryParams& eligibilityQueryParam, std::function<void(T&, const Result<std::vector<LolQueueEligibilityEligibility>>&)> cb)
   {
     _client.httpsa.request("post", "/lol-queue-eligibility/v2/eligibility?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

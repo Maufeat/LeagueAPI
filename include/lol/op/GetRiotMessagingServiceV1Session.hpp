@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/RiotMessagingServiceSession.hpp"
 namespace lol {
-  inline Result<RiotMessagingServiceSession> GetRiotMessagingServiceV1Session(LeagueClient& _client)
+  template<typename T>
+  inline Result<RiotMessagingServiceSession> GetRiotMessagingServiceV1Session(T& _client)
   {
     try {
       return ToResult<RiotMessagingServiceSession>(_client.https.request("get", "/riot-messaging-service/v1/session?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<RiotMessagingServiceSession>(e.code());
     }
   }
-  inline void GetRiotMessagingServiceV1Session(LeagueClient& _client, std::function<void(LeagueClient&, const Result<RiotMessagingServiceSession>&)> cb)
+  template<typename T>
+  inline void GetRiotMessagingServiceV1Session(T& _client, std::function<void(T&, const Result<RiotMessagingServiceSession>&)> cb)
   {
     _client.httpsa.request("get", "/riot-messaging-service/v1/session?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

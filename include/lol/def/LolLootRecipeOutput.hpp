@@ -2,15 +2,15 @@
 #include "../base_def.hpp" 
 namespace lol {
   struct LolLootRecipeOutput { 
-    int32_t quantity;
-    std::string lootName; 
+    std::string lootName;
+    int32_t quantity; 
   };
   inline void to_json(json& j, const LolLootRecipeOutput& v) {
-    j["quantity"] = v.quantity; 
     j["lootName"] = v.lootName; 
+    j["quantity"] = v.quantity; 
   }
   inline void from_json(const json& j, LolLootRecipeOutput& v) {
-    v.quantity = j.at("quantity").get<int32_t>(); 
     v.lootName = j.at("lootName").get<std::string>(); 
+    v.quantity = j.at("quantity").get<int32_t>(); 
   }
 }

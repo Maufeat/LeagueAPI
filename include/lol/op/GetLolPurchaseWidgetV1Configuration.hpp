@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolPurchaseWidgetPurchaseWidgetConfig.hpp"
 namespace lol {
-  inline Result<LolPurchaseWidgetPurchaseWidgetConfig> GetLolPurchaseWidgetV1Configuration(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolPurchaseWidgetPurchaseWidgetConfig> GetLolPurchaseWidgetV1Configuration(T& _client)
   {
     try {
       return ToResult<LolPurchaseWidgetPurchaseWidgetConfig>(_client.https.request("get", "/lol-purchase-widget/v1/configuration?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolPurchaseWidgetPurchaseWidgetConfig>(e.code());
     }
   }
-  inline void GetLolPurchaseWidgetV1Configuration(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolPurchaseWidgetPurchaseWidgetConfig>&)> cb)
+  template<typename T>
+  inline void GetLolPurchaseWidgetV1Configuration(T& _client, std::function<void(T&, const Result<LolPurchaseWidgetPurchaseWidgetConfig>&)> cb)
   {
     _client.httpsa.request("get", "/lol-purchase-widget/v1/configuration?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

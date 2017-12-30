@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<bool> PostLolGameflowV1SessionRequestLobby(LeagueClient& _client)
+  template<typename T>
+  inline Result<bool> PostLolGameflowV1SessionRequestLobby(T& _client)
   {
     try {
       return ToResult<bool>(_client.https.request("post", "/lol-gameflow/v1/session/request-lobby?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<bool>(e.code());
     }
   }
-  inline void PostLolGameflowV1SessionRequestLobby(LeagueClient& _client, std::function<void(LeagueClient&, const Result<bool>&)> cb)
+  template<typename T>
+  inline void PostLolGameflowV1SessionRequestLobby(T& _client, std::function<void(T&, const Result<bool>&)> cb)
   {
     _client.httpsa.request("post", "/lol-gameflow/v1/session/request-lobby?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

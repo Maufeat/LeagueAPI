@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolLoginPlatformGeneratedCredentials.hpp"
 namespace lol {
-  inline Result<LolLoginPlatformGeneratedCredentials> GetLolLoginV1LoginPlatformCredentials(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolLoginPlatformGeneratedCredentials> GetLolLoginV1LoginPlatformCredentials(T& _client)
   {
     try {
       return ToResult<LolLoginPlatformGeneratedCredentials>(_client.https.request("get", "/lol-login/v1/login-platform-credentials?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolLoginPlatformGeneratedCredentials>(e.code());
     }
   }
-  inline void GetLolLoginV1LoginPlatformCredentials(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolLoginPlatformGeneratedCredentials>&)> cb)
+  template<typename T>
+  inline void GetLolLoginV1LoginPlatformCredentials(T& _client, std::function<void(T&, const Result<LolLoginPlatformGeneratedCredentials>&)> cb)
   {
     _client.httpsa.request("get", "/lol-login/v1/login-platform-credentials?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

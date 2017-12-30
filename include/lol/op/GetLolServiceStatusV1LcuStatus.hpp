@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/ServiceStatusResource.hpp"
 namespace lol {
-  inline Result<ServiceStatusResource> GetLolServiceStatusV1LcuStatus(LeagueClient& _client)
+  template<typename T>
+  inline Result<ServiceStatusResource> GetLolServiceStatusV1LcuStatus(T& _client)
   {
     try {
       return ToResult<ServiceStatusResource>(_client.https.request("get", "/lol-service-status/v1/lcu-status?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<ServiceStatusResource>(e.code());
     }
   }
-  inline void GetLolServiceStatusV1LcuStatus(LeagueClient& _client, std::function<void(LeagueClient&, const Result<ServiceStatusResource>&)> cb)
+  template<typename T>
+  inline void GetLolServiceStatusV1LcuStatus(T& _client, std::function<void(T&, const Result<ServiceStatusResource>&)> cb)
   {
     _client.httpsa.request("get", "/lol-service-status/v1/lcu-status?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

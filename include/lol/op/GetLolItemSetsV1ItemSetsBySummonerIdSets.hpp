@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolItemSetsItemSets.hpp"
 namespace lol {
-  inline Result<LolItemSetsItemSets> GetLolItemSetsV1ItemSetsBySummonerIdSets(LeagueClient& _client, const uint64_t& summonerId)
+  template<typename T>
+  inline Result<LolItemSetsItemSets> GetLolItemSetsV1ItemSetsBySummonerIdSets(T& _client, const uint64_t& summonerId)
   {
     try {
       return ToResult<LolItemSetsItemSets>(_client.https.request("get", "/lol-item-sets/v1/item-sets/"+to_string(summonerId)+"/sets?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolItemSetsItemSets>(e.code());
     }
   }
-  inline void GetLolItemSetsV1ItemSetsBySummonerIdSets(LeagueClient& _client, const uint64_t& summonerId, std::function<void(LeagueClient&, const Result<LolItemSetsItemSets>&)> cb)
+  template<typename T>
+  inline void GetLolItemSetsV1ItemSetsBySummonerIdSets(T& _client, const uint64_t& summonerId, std::function<void(T&, const Result<LolItemSetsItemSets>&)> cb)
   {
     _client.httpsa.request("get", "/lol-item-sets/v1/item-sets/"+to_string(summonerId)+"/sets?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

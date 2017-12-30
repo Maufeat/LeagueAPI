@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolLobbyTeamBuilderChampSelectMySelection.hpp"
 namespace lol {
-  inline Result<json> PatchLolLobbyTeamBuilderChampSelectV1SessionMySelection(LeagueClient& _client, const LolLobbyTeamBuilderChampSelectMySelection& selection)
+  template<typename T>
+  inline Result<json> PatchLolLobbyTeamBuilderChampSelectV1SessionMySelection(T& _client, const LolLobbyTeamBuilderChampSelectMySelection& selection)
   {
     try {
       return ToResult<json>(_client.https.request("patch", "/lol-lobby-team-builder/champ-select/v1/session/my-selection?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PatchLolLobbyTeamBuilderChampSelectV1SessionMySelection(LeagueClient& _client, const LolLobbyTeamBuilderChampSelectMySelection& selection, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PatchLolLobbyTeamBuilderChampSelectV1SessionMySelection(T& _client, const LolLobbyTeamBuilderChampSelectMySelection& selection, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("patch", "/lol-lobby-team-builder/champ-select/v1/session/my-selection?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

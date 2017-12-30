@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolLobbyLobbyCustomJoinParameters.hpp"
 namespace lol {
-  inline Result<json> PostLolLobbyV1CustomGamesByIdJoin(LeagueClient& _client, const uint64_t& id, const LolLobbyLobbyCustomJoinParameters& parameters)
+  template<typename T>
+  inline Result<json> PostLolLobbyV1CustomGamesByIdJoin(T& _client, const uint64_t& id, const LolLobbyLobbyCustomJoinParameters& parameters)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/lol-lobby/v1/custom-games/"+to_string(id)+"/join?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PostLolLobbyV1CustomGamesByIdJoin(LeagueClient& _client, const uint64_t& id, const LolLobbyLobbyCustomJoinParameters& parameters, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PostLolLobbyV1CustomGamesByIdJoin(T& _client, const uint64_t& id, const LolLobbyLobbyCustomJoinParameters& parameters, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/lol-lobby/v1/custom-games/"+to_string(id)+"/join?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

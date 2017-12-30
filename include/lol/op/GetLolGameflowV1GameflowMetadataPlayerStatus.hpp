@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolGameflowPlayerStatus.hpp"
 namespace lol {
-  inline Result<LolGameflowPlayerStatus> GetLolGameflowV1GameflowMetadataPlayerStatus(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolGameflowPlayerStatus> GetLolGameflowV1GameflowMetadataPlayerStatus(T& _client)
   {
     try {
       return ToResult<LolGameflowPlayerStatus>(_client.https.request("get", "/lol-gameflow/v1/gameflow-metadata/player-status?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolGameflowPlayerStatus>(e.code());
     }
   }
-  inline void GetLolGameflowV1GameflowMetadataPlayerStatus(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolGameflowPlayerStatus>&)> cb)
+  template<typename T>
+  inline void GetLolGameflowV1GameflowMetadataPlayerStatus(T& _client, std::function<void(T&, const Result<LolGameflowPlayerStatus>&)> cb)
   {
     _client.httpsa.request("get", "/lol-gameflow/v1/gameflow-metadata/player-status?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

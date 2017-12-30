@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> PostLolLobbyTeamBuilderV1ReadyCheckDecline(LeagueClient& _client)
+  template<typename T>
+  inline Result<json> PostLolLobbyTeamBuilderV1ReadyCheckDecline(T& _client)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/lol-lobby-team-builder/v1/ready-check/decline?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PostLolLobbyTeamBuilderV1ReadyCheckDecline(LeagueClient& _client, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PostLolLobbyTeamBuilderV1ReadyCheckDecline(T& _client, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/lol-lobby-team-builder/v1/ready-check/decline?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolSummonerAutoFillDto.hpp"
 namespace lol {
-  inline Result<LolSummonerAutoFillDto> GetLolSummonerV1CurrentSummonerAutofill(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolSummonerAutoFillDto> GetLolSummonerV1CurrentSummonerAutofill(T& _client)
   {
     try {
       return ToResult<LolSummonerAutoFillDto>(_client.https.request("get", "/lol-summoner/v1/current-summoner/autofill?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolSummonerAutoFillDto>(e.code());
     }
   }
-  inline void GetLolSummonerV1CurrentSummonerAutofill(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolSummonerAutoFillDto>&)> cb)
+  template<typename T>
+  inline void GetLolSummonerV1CurrentSummonerAutofill(T& _client, std::function<void(T&, const Result<LolSummonerAutoFillDto>&)> cb)
   {
     _client.httpsa.request("get", "/lol-summoner/v1/current-summoner/autofill?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

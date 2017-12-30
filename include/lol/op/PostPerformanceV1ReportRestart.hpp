@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> PostPerformanceV1ReportRestart(LeagueClient& _client, const std::optional<int32_t>& sampleLength = std::nullopt, const std::optional<int32_t>& sampleCount = std::nullopt)
+  template<typename T>
+  inline Result<json> PostPerformanceV1ReportRestart(T& _client, const std::optional<int32_t>& sampleLength = std::nullopt, const std::optional<int32_t>& sampleCount = std::nullopt)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/performance/v1/report/restart?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PostPerformanceV1ReportRestart(LeagueClient& _client, const std::optional<int32_t>& sampleLength = std::nullopt, const std::optional<int32_t>& sampleCount = std::nullopt, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PostPerformanceV1ReportRestart(T& _client, const std::optional<int32_t>& sampleLength = std::nullopt, const std::optional<int32_t>& sampleCount = std::nullopt, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/performance/v1/report/restart?" +
       SimpleWeb::QueryString::create(Args2Headers({ 

@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolChampionsCollectionsChampionMinimal.hpp"
 namespace lol {
-  inline Result<std::vector<LolChampionsCollectionsChampionMinimal>> GetLolChampionsV1InventoriesBySummonerIdChampionsMinimal(LeagueClient& _client, const uint64_t& summonerId)
+  template<typename T>
+  inline Result<std::vector<LolChampionsCollectionsChampionMinimal>> GetLolChampionsV1InventoriesBySummonerIdChampionsMinimal(T& _client, const uint64_t& summonerId)
   {
     try {
       return ToResult<std::vector<LolChampionsCollectionsChampionMinimal>>(_client.https.request("get", "/lol-champions/v1/inventories/"+to_string(summonerId)+"/champions-minimal?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<LolChampionsCollectionsChampionMinimal>>(e.code());
     }
   }
-  inline void GetLolChampionsV1InventoriesBySummonerIdChampionsMinimal(LeagueClient& _client, const uint64_t& summonerId, std::function<void(LeagueClient&, const Result<std::vector<LolChampionsCollectionsChampionMinimal>>&)> cb)
+  template<typename T>
+  inline void GetLolChampionsV1InventoriesBySummonerIdChampionsMinimal(T& _client, const uint64_t& summonerId, std::function<void(T&, const Result<std::vector<LolChampionsCollectionsChampionMinimal>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-champions/v1/inventories/"+to_string(summonerId)+"/champions-minimal?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

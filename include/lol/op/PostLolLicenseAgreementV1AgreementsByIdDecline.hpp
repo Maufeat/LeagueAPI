@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> PostLolLicenseAgreementV1AgreementsByIdDecline(LeagueClient& _client, const std::string& id)
+  template<typename T>
+  inline Result<json> PostLolLicenseAgreementV1AgreementsByIdDecline(T& _client, const std::string& id)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/lol-license-agreement/v1/agreements/"+to_string(id)+"/decline?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PostLolLicenseAgreementV1AgreementsByIdDecline(LeagueClient& _client, const std::string& id, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PostLolLicenseAgreementV1AgreementsByIdDecline(T& _client, const std::string& id, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/lol-license-agreement/v1/agreements/"+to_string(id)+"/decline?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolPlayerBehaviorBanNotification.hpp"
 namespace lol {
-  inline Result<LolPlayerBehaviorBanNotification> GetLolPlayerBehaviorV1Ban(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolPlayerBehaviorBanNotification> GetLolPlayerBehaviorV1Ban(T& _client)
   {
     try {
       return ToResult<LolPlayerBehaviorBanNotification>(_client.https.request("get", "/lol-player-behavior/v1/ban?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolPlayerBehaviorBanNotification>(e.code());
     }
   }
-  inline void GetLolPlayerBehaviorV1Ban(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolPlayerBehaviorBanNotification>&)> cb)
+  template<typename T>
+  inline void GetLolPlayerBehaviorV1Ban(T& _client, std::function<void(T&, const Result<LolPlayerBehaviorBanNotification>&)> cb)
   {
     _client.httpsa.request("get", "/lol-player-behavior/v1/ban?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

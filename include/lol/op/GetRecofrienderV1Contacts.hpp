@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/RecofrienderContactResource.hpp"
 namespace lol {
-  inline Result<std::vector<RecofrienderContactResource>> GetRecofrienderV1Contacts(LeagueClient& _client, const std::optional<uint64_t>& accountId = std::nullopt, const std::optional<std::string>& source = std::nullopt, const std::optional<std::string>& friendState = std::nullopt)
+  template<typename T>
+  inline Result<std::vector<RecofrienderContactResource>> GetRecofrienderV1Contacts(T& _client, const std::optional<uint64_t>& accountId = std::nullopt, const std::optional<std::string>& source = std::nullopt, const std::optional<std::string>& friendState = std::nullopt)
   {
     try {
       return ToResult<std::vector<RecofrienderContactResource>>(_client.https.request("get", "/recofriender/v1/contacts?" +
@@ -18,7 +19,8 @@ namespace lol {
       return ToResult<std::vector<RecofrienderContactResource>>(e.code());
     }
   }
-  inline void GetRecofrienderV1Contacts(LeagueClient& _client, const std::optional<uint64_t>& accountId = std::nullopt, const std::optional<std::string>& source = std::nullopt, const std::optional<std::string>& friendState = std::nullopt, std::function<void(LeagueClient&, const Result<std::vector<RecofrienderContactResource>>&)> cb)
+  template<typename T>
+  inline void GetRecofrienderV1Contacts(T& _client, const std::optional<uint64_t>& accountId = std::nullopt, const std::optional<std::string>& source = std::nullopt, const std::optional<std::string>& friendState = std::nullopt, std::function<void(T&, const Result<std::vector<RecofrienderContactResource>>&)> cb)
   {
     _client.httpsa.request("get", "/recofriender/v1/contacts?" +
       SimpleWeb::QueryString::create(Args2Headers({ 

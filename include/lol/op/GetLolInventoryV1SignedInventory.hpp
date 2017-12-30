@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<std::map<std::string, std::string>> GetLolInventoryV1SignedInventory(LeagueClient& _client, const std::vector<std::string>& inventoryTypes)
+  template<typename T>
+  inline Result<std::map<std::string, std::string>> GetLolInventoryV1SignedInventory(T& _client, const std::vector<std::string>& inventoryTypes)
   {
     try {
       return ToResult<std::map<std::string, std::string>>(_client.https.request("get", "/lol-inventory/v1/signedInventory?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::map<std::string, std::string>>(e.code());
     }
   }
-  inline void GetLolInventoryV1SignedInventory(LeagueClient& _client, const std::vector<std::string>& inventoryTypes, std::function<void(LeagueClient&, const Result<std::map<std::string, std::string>>&)> cb)
+  template<typename T>
+  inline void GetLolInventoryV1SignedInventory(T& _client, const std::vector<std::string>& inventoryTypes, std::function<void(T&, const Result<std::map<std::string, std::string>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-inventory/v1/signedInventory?" +
       SimpleWeb::QueryString::create(Args2Headers({ 

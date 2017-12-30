@@ -1,10 +1,11 @@
 #pragma once
 #include "../base_op.hpp"
 #include <functional> 
-#include "../def/ClubInvite.hpp"
 #include "../def/PlayerClubMembership.hpp"
+#include "../def/ClubInvite.hpp"
 namespace lol {
-  inline Result<PlayerClubMembership> PatchLolClubsV1ClubsInvitations(LeagueClient& _client, const ClubInvite& invitation)
+  template<typename T>
+  inline Result<PlayerClubMembership> PatchLolClubsV1ClubsInvitations(T& _client, const ClubInvite& invitation)
   {
     try {
       return ToResult<PlayerClubMembership>(_client.https.request("patch", "/lol-clubs/v1/clubs/invitations?" +
@@ -17,7 +18,8 @@ namespace lol {
       return ToResult<PlayerClubMembership>(e.code());
     }
   }
-  inline void PatchLolClubsV1ClubsInvitations(LeagueClient& _client, const ClubInvite& invitation, std::function<void(LeagueClient&, const Result<PlayerClubMembership>&)> cb)
+  template<typename T>
+  inline void PatchLolClubsV1ClubsInvitations(T& _client, const ClubInvite& invitation, std::function<void(T&, const Result<PlayerClubMembership>&)> cb)
   {
     _client.httpsa.request("patch", "/lol-clubs/v1/clubs/invitations?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

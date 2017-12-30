@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolChatBlockedPlayerResource.hpp"
 namespace lol {
-  inline Result<std::vector<LolChatBlockedPlayerResource>> GetLolChatV1BlockedPlayers(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::vector<LolChatBlockedPlayerResource>> GetLolChatV1BlockedPlayers(T& _client)
   {
     try {
       return ToResult<std::vector<LolChatBlockedPlayerResource>>(_client.https.request("get", "/lol-chat/v1/blocked-players?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<LolChatBlockedPlayerResource>>(e.code());
     }
   }
-  inline void GetLolChatV1BlockedPlayers(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::vector<LolChatBlockedPlayerResource>>&)> cb)
+  template<typename T>
+  inline void GetLolChatV1BlockedPlayers(T& _client, std::function<void(T&, const Result<std::vector<LolChatBlockedPlayerResource>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-chat/v1/blocked-players?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

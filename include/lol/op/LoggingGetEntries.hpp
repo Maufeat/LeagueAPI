@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LogEvent.hpp"
 namespace lol {
-  inline Result<std::vector<LogEvent>> LoggingGetEntries(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::vector<LogEvent>> LoggingGetEntries(T& _client)
   {
     try {
       return ToResult<std::vector<LogEvent>>(_client.https.request("post", "/LoggingGetEntries?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<LogEvent>>(e.code());
     }
   }
-  inline void LoggingGetEntries(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::vector<LogEvent>>&)> cb)
+  template<typename T>
+  inline void LoggingGetEntries(T& _client, std::function<void(T&, const Result<std::vector<LogEvent>>&)> cb)
   {
     _client.httpsa.request("post", "/LoggingGetEntries?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

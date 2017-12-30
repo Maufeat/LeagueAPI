@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolEmailVerificationEmailVerificationSession.hpp"
 namespace lol {
-  inline Result<LolEmailVerificationEmailVerificationSession> GetLolEmailVerificationV1Email(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolEmailVerificationEmailVerificationSession> GetLolEmailVerificationV1Email(T& _client)
   {
     try {
       return ToResult<LolEmailVerificationEmailVerificationSession>(_client.https.request("get", "/lol-email-verification/v1/email?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolEmailVerificationEmailVerificationSession>(e.code());
     }
   }
-  inline void GetLolEmailVerificationV1Email(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolEmailVerificationEmailVerificationSession>&)> cb)
+  template<typename T>
+  inline void GetLolEmailVerificationV1Email(T& _client, std::function<void(T&, const Result<LolEmailVerificationEmailVerificationSession>&)> cb)
   {
     _client.httpsa.request("get", "/lol-email-verification/v1/email?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

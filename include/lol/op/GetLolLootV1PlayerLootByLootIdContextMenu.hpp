@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolLootContextMenu.hpp"
 namespace lol {
-  inline Result<std::vector<LolLootContextMenu>> GetLolLootV1PlayerLootByLootIdContextMenu(LeagueClient& _client, const std::string& lootId)
+  template<typename T>
+  inline Result<std::vector<LolLootContextMenu>> GetLolLootV1PlayerLootByLootIdContextMenu(T& _client, const std::string& lootId)
   {
     try {
       return ToResult<std::vector<LolLootContextMenu>>(_client.https.request("get", "/lol-loot/v1/player-loot/"+to_string(lootId)+"/context-menu?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<LolLootContextMenu>>(e.code());
     }
   }
-  inline void GetLolLootV1PlayerLootByLootIdContextMenu(LeagueClient& _client, const std::string& lootId, std::function<void(LeagueClient&, const Result<std::vector<LolLootContextMenu>>&)> cb)
+  template<typename T>
+  inline void GetLolLootV1PlayerLootByLootIdContextMenu(T& _client, const std::string& lootId, std::function<void(T&, const Result<std::vector<LolLootContextMenu>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-loot/v1/player-loot/"+to_string(lootId)+"/context-menu?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

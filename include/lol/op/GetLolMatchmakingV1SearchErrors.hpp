@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolMatchmakingMatchmakingSearchErrorResource.hpp"
 namespace lol {
-  inline Result<std::vector<LolMatchmakingMatchmakingSearchErrorResource>> GetLolMatchmakingV1SearchErrors(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::vector<LolMatchmakingMatchmakingSearchErrorResource>> GetLolMatchmakingV1SearchErrors(T& _client)
   {
     try {
       return ToResult<std::vector<LolMatchmakingMatchmakingSearchErrorResource>>(_client.https.request("get", "/lol-matchmaking/v1/search/errors?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<LolMatchmakingMatchmakingSearchErrorResource>>(e.code());
     }
   }
-  inline void GetLolMatchmakingV1SearchErrors(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::vector<LolMatchmakingMatchmakingSearchErrorResource>>&)> cb)
+  template<typename T>
+  inline void GetLolMatchmakingV1SearchErrors(T& _client, std::function<void(T&, const Result<std::vector<LolMatchmakingMatchmakingSearchErrorResource>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-matchmaking/v1/search/errors?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

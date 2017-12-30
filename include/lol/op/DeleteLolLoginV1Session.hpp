@@ -2,19 +2,21 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<std::nullptr_t> DeleteLolLoginV1Session(LeagueClient& _client)
+  template<typename T>
+  inline Result<Nothing> DeleteLolLoginV1Session(T& _client)
   {
     try {
-      return ToResult<std::nullptr_t>(_client.https.request("delete", "/lol-login/v1/session?" +
+      return ToResult<Nothing>(_client.https.request("delete", "/lol-login/v1/session?" +
         SimpleWeb::QueryString::create(Args2Headers({  })), 
         "",
         Args2Headers({  
         {"Authorization", _client.auth},  })));
     } catch(const SimpleWeb::system_error &e) {
-      return ToResult<std::nullptr_t>(e.code());
+      return ToResult<Nothing>(e.code());
     }
   }
-  inline void DeleteLolLoginV1Session(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::nullptr_t>&)> cb)
+  template<typename T>
+  inline void DeleteLolLoginV1Session(T& _client, std::function<void(T&, const Result<Nothing>&)> cb)
   {
     _client.httpsa.request("delete", "/lol-login/v1/session?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 
@@ -22,9 +24,9 @@ namespace lol {
         Args2Headers({  
         {"Authorization", _client.auth},  }),[cb,&_client](std::shared_ptr<HttpsClient::Response> response, const SimpleWeb::error_code &e) {
             if(e)
-              cb(_client, ToResult<std::nullptr_t>(e));
+              cb(_client, ToResult<Nothing>(e));
             else
-              cb(_client, ToResult<std::nullptr_t>(response));
+              cb(_client, ToResult<Nothing>(response));
         });
   }
 }

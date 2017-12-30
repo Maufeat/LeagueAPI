@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> Exit(LeagueClient& _client)
+  template<typename T>
+  inline Result<json> Exit(T& _client)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/Exit?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void Exit(LeagueClient& _client, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void Exit(T& _client, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/Exit?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

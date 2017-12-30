@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<bool> GetLolGameflowV1BattleTraining(LeagueClient& _client)
+  template<typename T>
+  inline Result<bool> GetLolGameflowV1BattleTraining(T& _client)
   {
     try {
       return ToResult<bool>(_client.https.request("get", "/lol-gameflow/v1/battle-training?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<bool>(e.code());
     }
   }
-  inline void GetLolGameflowV1BattleTraining(LeagueClient& _client, std::function<void(LeagueClient&, const Result<bool>&)> cb)
+  template<typename T>
+  inline void GetLolGameflowV1BattleTraining(T& _client, std::function<void(T&, const Result<bool>&)> cb)
   {
     _client.httpsa.request("get", "/lol-gameflow/v1/battle-training?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

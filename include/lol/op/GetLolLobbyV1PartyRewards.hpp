@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolLobbyLobbyPartyRewards.hpp"
 namespace lol {
-  inline Result<LolLobbyLobbyPartyRewards> GetLolLobbyV1PartyRewards(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolLobbyLobbyPartyRewards> GetLolLobbyV1PartyRewards(T& _client)
   {
     try {
       return ToResult<LolLobbyLobbyPartyRewards>(_client.https.request("get", "/lol-lobby/v1/party-rewards?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolLobbyLobbyPartyRewards>(e.code());
     }
   }
-  inline void GetLolLobbyV1PartyRewards(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolLobbyLobbyPartyRewards>&)> cb)
+  template<typename T>
+  inline void GetLolLobbyV1PartyRewards(T& _client, std::function<void(T&, const Result<LolLobbyLobbyPartyRewards>&)> cb)
   {
     _client.httpsa.request("get", "/lol-lobby/v1/party-rewards?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<std::string> GetLolLobbyV2CommsToken(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::string> GetLolLobbyV2CommsToken(T& _client)
   {
     try {
       return ToResult<std::string>(_client.https.request("get", "/lol-lobby/v2/comms/token?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<std::string>(e.code());
     }
   }
-  inline void GetLolLobbyV2CommsToken(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::string>&)> cb)
+  template<typename T>
+  inline void GetLolLobbyV2CommsToken(T& _client, std::function<void(T&, const Result<std::string>&)> cb)
   {
     _client.httpsa.request("get", "/lol-lobby/v2/comms/token?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

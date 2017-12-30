@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> GetRiotclientAffinity(LeagueClient& _client)
+  template<typename T>
+  inline Result<json> GetRiotclientAffinity(T& _client)
   {
     try {
       return ToResult<json>(_client.https.request("get", "/riotclient/affinity?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void GetRiotclientAffinity(LeagueClient& _client, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void GetRiotclientAffinity(T& _client, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("get", "/riotclient/affinity?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

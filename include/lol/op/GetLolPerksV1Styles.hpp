@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolPerksPerkUIStyle.hpp"
 namespace lol {
-  inline Result<std::vector<LolPerksPerkUIStyle>> GetLolPerksV1Styles(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::vector<LolPerksPerkUIStyle>> GetLolPerksV1Styles(T& _client)
   {
     try {
       return ToResult<std::vector<LolPerksPerkUIStyle>>(_client.https.request("get", "/lol-perks/v1/styles?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<LolPerksPerkUIStyle>>(e.code());
     }
   }
-  inline void GetLolPerksV1Styles(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::vector<LolPerksPerkUIStyle>>&)> cb)
+  template<typename T>
+  inline void GetLolPerksV1Styles(T& _client, std::function<void(T&, const Result<std::vector<LolPerksPerkUIStyle>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-perks/v1/styles?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolChampSelectLegacyChampSelectTradeContract.hpp"
 namespace lol {
-  inline Result<std::vector<LolChampSelectLegacyChampSelectTradeContract>> GetLolChampSelectLegacyV1SessionTrades(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::vector<LolChampSelectLegacyChampSelectTradeContract>> GetLolChampSelectLegacyV1SessionTrades(T& _client)
   {
     try {
       return ToResult<std::vector<LolChampSelectLegacyChampSelectTradeContract>>(_client.https.request("get", "/lol-champ-select-legacy/v1/session/trades?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<LolChampSelectLegacyChampSelectTradeContract>>(e.code());
     }
   }
-  inline void GetLolChampSelectLegacyV1SessionTrades(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::vector<LolChampSelectLegacyChampSelectTradeContract>>&)> cb)
+  template<typename T>
+  inline void GetLolChampSelectLegacyV1SessionTrades(T& _client, std::function<void(T&, const Result<std::vector<LolChampSelectLegacyChampSelectTradeContract>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-champ-select-legacy/v1/session/trades?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

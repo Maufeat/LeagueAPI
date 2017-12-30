@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/HighlightsConfig.hpp"
 namespace lol {
-  inline Result<HighlightsConfig> GetLolHighlightsV1Config(LeagueClient& _client)
+  template<typename T>
+  inline Result<HighlightsConfig> GetLolHighlightsV1Config(T& _client)
   {
     try {
       return ToResult<HighlightsConfig>(_client.https.request("get", "/lol-highlights/v1/config?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<HighlightsConfig>(e.code());
     }
   }
-  inline void GetLolHighlightsV1Config(LeagueClient& _client, std::function<void(LeagueClient&, const Result<HighlightsConfig>&)> cb)
+  template<typename T>
+  inline void GetLolHighlightsV1Config(T& _client, std::function<void(T&, const Result<HighlightsConfig>&)> cb)
   {
     _client.httpsa.request("get", "/lol-highlights/v1/config?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

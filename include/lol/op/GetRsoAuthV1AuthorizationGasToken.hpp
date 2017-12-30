@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> GetRsoAuthV1AuthorizationGasToken(LeagueClient& _client)
+  template<typename T>
+  inline Result<json> GetRsoAuthV1AuthorizationGasToken(T& _client)
   {
     try {
       return ToResult<json>(_client.https.request("get", "/rso-auth/v1/authorization/gas-token?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void GetRsoAuthV1AuthorizationGasToken(LeagueClient& _client, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void GetRsoAuthV1AuthorizationGasToken(T& _client, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("get", "/rso-auth/v1/authorization/gas-token?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

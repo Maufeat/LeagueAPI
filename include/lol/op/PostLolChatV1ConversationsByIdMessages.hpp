@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolChatConversationMessageResource.hpp"
 namespace lol {
-  inline Result<LolChatConversationMessageResource> PostLolChatV1ConversationsByIdMessages(LeagueClient& _client, const std::string& id, const LolChatConversationMessageResource& body)
+  template<typename T>
+  inline Result<LolChatConversationMessageResource> PostLolChatV1ConversationsByIdMessages(T& _client, const std::string& id, const LolChatConversationMessageResource& body)
   {
     try {
       return ToResult<LolChatConversationMessageResource>(_client.https.request("post", "/lol-chat/v1/conversations/"+to_string(id)+"/messages?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<LolChatConversationMessageResource>(e.code());
     }
   }
-  inline void PostLolChatV1ConversationsByIdMessages(LeagueClient& _client, const std::string& id, const LolChatConversationMessageResource& body, std::function<void(LeagueClient&, const Result<LolChatConversationMessageResource>&)> cb)
+  template<typename T>
+  inline void PostLolChatV1ConversationsByIdMessages(T& _client, const std::string& id, const LolChatConversationMessageResource& body, std::function<void(T&, const Result<LolChatConversationMessageResource>&)> cb)
   {
     _client.httpsa.request("post", "/lol-chat/v1/conversations/"+to_string(id)+"/messages?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

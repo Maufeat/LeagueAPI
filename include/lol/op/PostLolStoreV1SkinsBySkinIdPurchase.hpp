@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolStoreItemCost.hpp"
 namespace lol {
-  inline Result<json> PostLolStoreV1SkinsBySkinIdPurchase(LeagueClient& _client, const int32_t& skinId, const LolStoreItemCost& cost)
+  template<typename T>
+  inline Result<json> PostLolStoreV1SkinsBySkinIdPurchase(T& _client, const int32_t& skinId, const LolStoreItemCost& cost)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/lol-store/v1/skins/"+to_string(skinId)+"/purchase?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PostLolStoreV1SkinsBySkinIdPurchase(LeagueClient& _client, const int32_t& skinId, const LolStoreItemCost& cost, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PostLolStoreV1SkinsBySkinIdPurchase(T& _client, const int32_t& skinId, const LolStoreItemCost& cost, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/lol-store/v1/skins/"+to_string(skinId)+"/purchase?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

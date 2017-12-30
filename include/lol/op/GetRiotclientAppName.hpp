@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<std::string> GetRiotclientAppName(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::string> GetRiotclientAppName(T& _client)
   {
     try {
       return ToResult<std::string>(_client.https.request("get", "/riotclient/app-name?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<std::string>(e.code());
     }
   }
-  inline void GetRiotclientAppName(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::string>&)> cb)
+  template<typename T>
+  inline void GetRiotclientAppName(T& _client, std::function<void(T&, const Result<std::string>&)> cb)
   {
     _client.httpsa.request("get", "/riotclient/app-name?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

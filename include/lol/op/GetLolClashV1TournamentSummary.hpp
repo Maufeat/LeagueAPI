@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolClashTournamentSummary.hpp"
 namespace lol {
-  inline Result<std::vector<LolClashTournamentSummary>> GetLolClashV1TournamentSummary(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::vector<LolClashTournamentSummary>> GetLolClashV1TournamentSummary(T& _client)
   {
     try {
       return ToResult<std::vector<LolClashTournamentSummary>>(_client.https.request("get", "/lol-clash/v1/tournament-summary?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<LolClashTournamentSummary>>(e.code());
     }
   }
-  inline void GetLolClashV1TournamentSummary(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::vector<LolClashTournamentSummary>>&)> cb)
+  template<typename T>
+  inline void GetLolClashV1TournamentSummary(T& _client, std::function<void(T&, const Result<std::vector<LolClashTournamentSummary>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-clash/v1/tournament-summary?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

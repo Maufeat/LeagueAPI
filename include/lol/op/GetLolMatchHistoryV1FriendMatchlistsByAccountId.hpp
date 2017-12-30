@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolMatchHistoryMatchHistoryList.hpp"
 namespace lol {
-  inline Result<LolMatchHistoryMatchHistoryList> GetLolMatchHistoryV1FriendMatchlistsByAccountId(LeagueClient& _client, const uint64_t& accountId)
+  template<typename T>
+  inline Result<LolMatchHistoryMatchHistoryList> GetLolMatchHistoryV1FriendMatchlistsByAccountId(T& _client, const uint64_t& accountId)
   {
     try {
       return ToResult<LolMatchHistoryMatchHistoryList>(_client.https.request("get", "/lol-match-history/v1/friend-matchlists/"+to_string(accountId)+"?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolMatchHistoryMatchHistoryList>(e.code());
     }
   }
-  inline void GetLolMatchHistoryV1FriendMatchlistsByAccountId(LeagueClient& _client, const uint64_t& accountId, std::function<void(LeagueClient&, const Result<LolMatchHistoryMatchHistoryList>&)> cb)
+  template<typename T>
+  inline void GetLolMatchHistoryV1FriendMatchlistsByAccountId(T& _client, const uint64_t& accountId, std::function<void(T&, const Result<LolMatchHistoryMatchHistoryList>&)> cb)
   {
     _client.httpsa.request("get", "/lol-match-history/v1/friend-matchlists/"+to_string(accountId)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

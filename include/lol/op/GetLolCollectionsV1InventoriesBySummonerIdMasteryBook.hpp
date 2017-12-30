@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolCollectionsCollectionsMasteryBook.hpp"
 namespace lol {
-  inline Result<LolCollectionsCollectionsMasteryBook> GetLolCollectionsV1InventoriesBySummonerIdMasteryBook(LeagueClient& _client, const uint64_t& summonerId)
+  template<typename T>
+  inline Result<LolCollectionsCollectionsMasteryBook> GetLolCollectionsV1InventoriesBySummonerIdMasteryBook(T& _client, const uint64_t& summonerId)
   {
     try {
       return ToResult<LolCollectionsCollectionsMasteryBook>(_client.https.request("get", "/lol-collections/v1/inventories/"+to_string(summonerId)+"/mastery-book?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolCollectionsCollectionsMasteryBook>(e.code());
     }
   }
-  inline void GetLolCollectionsV1InventoriesBySummonerIdMasteryBook(LeagueClient& _client, const uint64_t& summonerId, std::function<void(LeagueClient&, const Result<LolCollectionsCollectionsMasteryBook>&)> cb)
+  template<typename T>
+  inline void GetLolCollectionsV1InventoriesBySummonerIdMasteryBook(T& _client, const uint64_t& summonerId, std::function<void(T&, const Result<LolCollectionsCollectionsMasteryBook>&)> cb)
   {
     _client.httpsa.request("get", "/lol-collections/v1/inventories/"+to_string(summonerId)+"/mastery-book?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

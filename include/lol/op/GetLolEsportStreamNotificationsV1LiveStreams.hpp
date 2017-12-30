@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolEsportStreamNotificationsESportsLiveStreams.hpp"
 namespace lol {
-  inline Result<LolEsportStreamNotificationsESportsLiveStreams> GetLolEsportStreamNotificationsV1LiveStreams(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolEsportStreamNotificationsESportsLiveStreams> GetLolEsportStreamNotificationsV1LiveStreams(T& _client)
   {
     try {
       return ToResult<LolEsportStreamNotificationsESportsLiveStreams>(_client.https.request("get", "/lol-esport-stream-notifications/v1/live-streams?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolEsportStreamNotificationsESportsLiveStreams>(e.code());
     }
   }
-  inline void GetLolEsportStreamNotificationsV1LiveStreams(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolEsportStreamNotificationsESportsLiveStreams>&)> cb)
+  template<typename T>
+  inline void GetLolEsportStreamNotificationsV1LiveStreams(T& _client, std::function<void(T&, const Result<LolEsportStreamNotificationsESportsLiveStreams>&)> cb)
   {
     _client.httpsa.request("get", "/lol-esport-stream-notifications/v1/live-streams?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

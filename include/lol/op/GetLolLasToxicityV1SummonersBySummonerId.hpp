@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> GetLolLasToxicityV1SummonersBySummonerId(LeagueClient& _client, const uint64_t& summonerId)
+  template<typename T>
+  inline Result<json> GetLolLasToxicityV1SummonersBySummonerId(T& _client, const uint64_t& summonerId)
   {
     try {
       return ToResult<json>(_client.https.request("get", "/lol-las-toxicity/v1/summoners/"+to_string(summonerId)+"?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void GetLolLasToxicityV1SummonersBySummonerId(LeagueClient& _client, const uint64_t& summonerId, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void GetLolLasToxicityV1SummonersBySummonerId(T& _client, const uint64_t& summonerId, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("get", "/lol-las-toxicity/v1/summoners/"+to_string(summonerId)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

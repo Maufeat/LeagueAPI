@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolCollectionsCollectionsSummonerIcon.hpp"
 namespace lol {
-  inline Result<LolCollectionsCollectionsSummonerIcon> GetLolCollectionsV2InventoriesBySummonerIdSummonerIconsBySummonerIconId(LeagueClient& _client, const uint64_t& summonerId, const int32_t& summonerIconId)
+  template<typename T>
+  inline Result<LolCollectionsCollectionsSummonerIcon> GetLolCollectionsV2InventoriesBySummonerIdSummonerIconsBySummonerIconId(T& _client, const uint64_t& summonerId, const int32_t& summonerIconId)
   {
     try {
       return ToResult<LolCollectionsCollectionsSummonerIcon>(_client.https.request("get", "/lol-collections/v2/inventories/"+to_string(summonerId)+"/summoner-icons/"+to_string(summonerIconId)+"?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolCollectionsCollectionsSummonerIcon>(e.code());
     }
   }
-  inline void GetLolCollectionsV2InventoriesBySummonerIdSummonerIconsBySummonerIconId(LeagueClient& _client, const uint64_t& summonerId, const int32_t& summonerIconId, std::function<void(LeagueClient&, const Result<LolCollectionsCollectionsSummonerIcon>&)> cb)
+  template<typename T>
+  inline void GetLolCollectionsV2InventoriesBySummonerIdSummonerIconsBySummonerIconId(T& _client, const uint64_t& summonerId, const int32_t& summonerIconId, std::function<void(T&, const Result<LolCollectionsCollectionsSummonerIcon>&)> cb)
   {
     _client.httpsa.request("get", "/lol-collections/v2/inventories/"+to_string(summonerId)+"/summoner-icons/"+to_string(summonerIconId)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

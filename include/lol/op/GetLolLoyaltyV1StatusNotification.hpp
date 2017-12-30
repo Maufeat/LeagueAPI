@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LoyaltyStatusNotification.hpp"
 namespace lol {
-  inline Result<LoyaltyStatusNotification> GetLolLoyaltyV1StatusNotification(LeagueClient& _client)
+  template<typename T>
+  inline Result<LoyaltyStatusNotification> GetLolLoyaltyV1StatusNotification(T& _client)
   {
     try {
       return ToResult<LoyaltyStatusNotification>(_client.https.request("get", "/lol-loyalty/v1/status-notification?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LoyaltyStatusNotification>(e.code());
     }
   }
-  inline void GetLolLoyaltyV1StatusNotification(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LoyaltyStatusNotification>&)> cb)
+  template<typename T>
+  inline void GetLolLoyaltyV1StatusNotification(T& _client, std::function<void(T&, const Result<LoyaltyStatusNotification>&)> cb)
   {
     _client.httpsa.request("get", "/lol-loyalty/v1/status-notification?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

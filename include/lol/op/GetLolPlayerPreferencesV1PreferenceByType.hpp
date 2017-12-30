@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> GetLolPlayerPreferencesV1PreferenceByType(LeagueClient& _client, const std::string& type, const std::optional<std::string>& hash = std::nullopt)
+  template<typename T>
+  inline Result<json> GetLolPlayerPreferencesV1PreferenceByType(T& _client, const std::string& type, const std::optional<std::string>& hash = std::nullopt)
   {
     try {
       return ToResult<json>(_client.https.request("get", "/lol-player-preferences/v1/preference/"+to_string(type)+"?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void GetLolPlayerPreferencesV1PreferenceByType(LeagueClient& _client, const std::string& type, const std::optional<std::string>& hash = std::nullopt, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void GetLolPlayerPreferencesV1PreferenceByType(T& _client, const std::string& type, const std::optional<std::string>& hash = std::nullopt, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("get", "/lol-player-preferences/v1/preference/"+to_string(type)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({ 

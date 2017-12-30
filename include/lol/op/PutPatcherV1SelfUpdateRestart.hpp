@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> PutPatcherV1SelfUpdateRestart(LeagueClient& _client, const bool& forceRestartOnSelfUpdate)
+  template<typename T>
+  inline Result<json> PutPatcherV1SelfUpdateRestart(T& _client, const bool& forceRestartOnSelfUpdate)
   {
     try {
       return ToResult<json>(_client.https.request("put", "/patcher/v1/self-update-restart?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PutPatcherV1SelfUpdateRestart(LeagueClient& _client, const bool& forceRestartOnSelfUpdate, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PutPatcherV1SelfUpdateRestart(T& _client, const bool& forceRestartOnSelfUpdate, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("put", "/patcher/v1/self-update-restart?" +
       SimpleWeb::QueryString::create(Args2Headers({ 

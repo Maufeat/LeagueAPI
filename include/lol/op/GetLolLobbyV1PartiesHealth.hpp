@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<std::string> GetLolLobbyV1PartiesHealth(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::string> GetLolLobbyV1PartiesHealth(T& _client)
   {
     try {
       return ToResult<std::string>(_client.https.request("get", "/lol-lobby/v1/parties/health?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<std::string>(e.code());
     }
   }
-  inline void GetLolLobbyV1PartiesHealth(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::string>&)> cb)
+  template<typename T>
+  inline void GetLolLobbyV1PartiesHealth(T& _client, std::function<void(T&, const Result<std::string>&)> cb)
   {
     _client.httpsa.request("get", "/lol-lobby/v1/parties/health?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

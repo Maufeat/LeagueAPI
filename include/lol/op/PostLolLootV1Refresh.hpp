@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<std::string> PostLolLootV1Refresh(LeagueClient& _client, const bool& force)
+  template<typename T>
+  inline Result<std::string> PostLolLootV1Refresh(T& _client, const bool& force)
   {
     try {
       return ToResult<std::string>(_client.https.request("post", "/lol-loot/v1/refresh?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::string>(e.code());
     }
   }
-  inline void PostLolLootV1Refresh(LeagueClient& _client, const bool& force, std::function<void(LeagueClient&, const Result<std::string>&)> cb)
+  template<typename T>
+  inline void PostLolLootV1Refresh(T& _client, const bool& force, std::function<void(T&, const Result<std::string>&)> cb)
   {
     _client.httpsa.request("post", "/lol-loot/v1/refresh?" +
       SimpleWeb::QueryString::create(Args2Headers({ 

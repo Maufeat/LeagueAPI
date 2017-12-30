@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/RsoAuthRSOJWTConfig.hpp"
 namespace lol {
-  inline Result<RsoAuthRSOJWTConfig> GetRsoAuthV1ConfigByPlatformId(LeagueClient& _client, const std::string& platformId)
+  template<typename T>
+  inline Result<RsoAuthRSOJWTConfig> GetRsoAuthV1ConfigByPlatformId(T& _client, const std::string& platformId)
   {
     try {
       return ToResult<RsoAuthRSOJWTConfig>(_client.https.request("get", "/rso-auth/v1/config/"+to_string(platformId)+"?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<RsoAuthRSOJWTConfig>(e.code());
     }
   }
-  inline void GetRsoAuthV1ConfigByPlatformId(LeagueClient& _client, const std::string& platformId, std::function<void(LeagueClient&, const Result<RsoAuthRSOJWTConfig>&)> cb)
+  template<typename T>
+  inline void GetRsoAuthV1ConfigByPlatformId(T& _client, const std::string& platformId, std::function<void(T&, const Result<RsoAuthRSOJWTConfig>&)> cb)
   {
     _client.httpsa.request("get", "/rso-auth/v1/config/"+to_string(platformId)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

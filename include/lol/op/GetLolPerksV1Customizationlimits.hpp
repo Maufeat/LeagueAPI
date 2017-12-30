@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolPerksCustomizationLimits.hpp"
 namespace lol {
-  inline Result<LolPerksCustomizationLimits> GetLolPerksV1Customizationlimits(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolPerksCustomizationLimits> GetLolPerksV1Customizationlimits(T& _client)
   {
     try {
       return ToResult<LolPerksCustomizationLimits>(_client.https.request("get", "/lol-perks/v1/customizationlimits?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolPerksCustomizationLimits>(e.code());
     }
   }
-  inline void GetLolPerksV1Customizationlimits(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolPerksCustomizationLimits>&)> cb)
+  template<typename T>
+  inline void GetLolPerksV1Customizationlimits(T& _client, std::function<void(T&, const Result<LolPerksCustomizationLimits>&)> cb)
   {
     _client.httpsa.request("get", "/lol-perks/v1/customizationlimits?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

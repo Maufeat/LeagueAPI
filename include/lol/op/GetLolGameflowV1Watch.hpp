@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolGameflowGameflowWatchPhase.hpp"
 namespace lol {
-  inline Result<LolGameflowGameflowWatchPhase> GetLolGameflowV1Watch(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolGameflowGameflowWatchPhase> GetLolGameflowV1Watch(T& _client)
   {
     try {
       return ToResult<LolGameflowGameflowWatchPhase>(_client.https.request("get", "/lol-gameflow/v1/watch?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolGameflowGameflowWatchPhase>(e.code());
     }
   }
-  inline void GetLolGameflowV1Watch(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolGameflowGameflowWatchPhase>&)> cb)
+  template<typename T>
+  inline void GetLolGameflowV1Watch(T& _client, std::function<void(T&, const Result<LolGameflowGameflowWatchPhase>&)> cb)
   {
     _client.httpsa.request("get", "/lol-gameflow/v1/watch?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

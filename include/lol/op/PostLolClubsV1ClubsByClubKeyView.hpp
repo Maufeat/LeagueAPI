@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> PostLolClubsV1ClubsByClubKeyView(LeagueClient& _client, const std::string& clubKey)
+  template<typename T>
+  inline Result<json> PostLolClubsV1ClubsByClubKeyView(T& _client, const std::string& clubKey)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/lol-clubs/v1/clubs/"+to_string(clubKey)+"/view?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PostLolClubsV1ClubsByClubKeyView(LeagueClient& _client, const std::string& clubKey, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PostLolClubsV1ClubsByClubKeyView(T& _client, const std::string& clubKey, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/lol-clubs/v1/clubs/"+to_string(clubKey)+"/view?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

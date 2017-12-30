@@ -1,42 +1,42 @@
 #pragma once
 #include "../base_def.hpp" 
+#include "LolPerksChampSelectChatRoomDetails.hpp"
 #include "LolPerksChampSelectTimer.hpp"
 #include "LolPerksChampSelectBannedChampions.hpp"
 #include "LolPerksChampSelectTradeContract.hpp"
 #include "LolPerksChampSelectPlayerSelection.hpp"
-#include "LolPerksChampSelectChatRoomDetails.hpp"
 namespace lol {
   struct LolPerksChampSelectSession { 
-    LolPerksChampSelectChatRoomDetails chatDetails;
-    LolPerksChampSelectBannedChampions bans;
-    std::vector<json> actions;
-    std::vector<LolPerksChampSelectPlayerSelection> theirTeam;
-    std::vector<LolPerksChampSelectPlayerSelection> myTeam;
+    bool isSpectating;
     LolPerksChampSelectTimer timer;
     int64_t localPlayerCellId;
-    bool isSpectating;
-    std::vector<LolPerksChampSelectTradeContract> trades; 
+    std::vector<json> actions;
+    LolPerksChampSelectBannedChampions bans;
+    LolPerksChampSelectChatRoomDetails chatDetails;
+    std::vector<LolPerksChampSelectTradeContract> trades;
+    std::vector<LolPerksChampSelectPlayerSelection> theirTeam;
+    std::vector<LolPerksChampSelectPlayerSelection> myTeam; 
   };
   inline void to_json(json& j, const LolPerksChampSelectSession& v) {
-    j["chatDetails"] = v.chatDetails; 
-    j["bans"] = v.bans; 
-    j["actions"] = v.actions; 
-    j["theirTeam"] = v.theirTeam; 
-    j["myTeam"] = v.myTeam; 
+    j["isSpectating"] = v.isSpectating; 
     j["timer"] = v.timer; 
     j["localPlayerCellId"] = v.localPlayerCellId; 
-    j["isSpectating"] = v.isSpectating; 
+    j["actions"] = v.actions; 
+    j["bans"] = v.bans; 
+    j["chatDetails"] = v.chatDetails; 
     j["trades"] = v.trades; 
+    j["theirTeam"] = v.theirTeam; 
+    j["myTeam"] = v.myTeam; 
   }
   inline void from_json(const json& j, LolPerksChampSelectSession& v) {
-    v.chatDetails = j.at("chatDetails").get<LolPerksChampSelectChatRoomDetails>(); 
-    v.bans = j.at("bans").get<LolPerksChampSelectBannedChampions>(); 
-    v.actions = j.at("actions").get<std::vector<json>>(); 
-    v.theirTeam = j.at("theirTeam").get<std::vector<LolPerksChampSelectPlayerSelection>>(); 
-    v.myTeam = j.at("myTeam").get<std::vector<LolPerksChampSelectPlayerSelection>>(); 
+    v.isSpectating = j.at("isSpectating").get<bool>(); 
     v.timer = j.at("timer").get<LolPerksChampSelectTimer>(); 
     v.localPlayerCellId = j.at("localPlayerCellId").get<int64_t>(); 
-    v.isSpectating = j.at("isSpectating").get<bool>(); 
+    v.actions = j.at("actions").get<std::vector<json>>(); 
+    v.bans = j.at("bans").get<LolPerksChampSelectBannedChampions>(); 
+    v.chatDetails = j.at("chatDetails").get<LolPerksChampSelectChatRoomDetails>(); 
     v.trades = j.at("trades").get<std::vector<LolPerksChampSelectTradeContract>>(); 
+    v.theirTeam = j.at("theirTeam").get<std::vector<LolPerksChampSelectPlayerSelection>>(); 
+    v.myTeam = j.at("myTeam").get<std::vector<LolPerksChampSelectPlayerSelection>>(); 
   }
 }

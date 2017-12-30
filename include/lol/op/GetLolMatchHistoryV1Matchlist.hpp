@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolMatchHistoryMatchHistoryList.hpp"
 namespace lol {
-  inline Result<LolMatchHistoryMatchHistoryList> GetLolMatchHistoryV1Matchlist(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolMatchHistoryMatchHistoryList> GetLolMatchHistoryV1Matchlist(T& _client)
   {
     try {
       return ToResult<LolMatchHistoryMatchHistoryList>(_client.https.request("get", "/lol-match-history/v1/matchlist?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolMatchHistoryMatchHistoryList>(e.code());
     }
   }
-  inline void GetLolMatchHistoryV1Matchlist(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolMatchHistoryMatchHistoryList>&)> cb)
+  template<typename T>
+  inline void GetLolMatchHistoryV1Matchlist(T& _client, std::function<void(T&, const Result<LolMatchHistoryMatchHistoryList>&)> cb)
   {
     _client.httpsa.request("get", "/lol-match-history/v1/matchlist?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

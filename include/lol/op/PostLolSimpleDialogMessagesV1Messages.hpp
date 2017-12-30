@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolSimpleDialogMessagesLocalMessageRequest.hpp"
 namespace lol {
-  inline Result<json> PostLolSimpleDialogMessagesV1Messages(LeagueClient& _client, const LolSimpleDialogMessagesLocalMessageRequest& messageRequest)
+  template<typename T>
+  inline Result<json> PostLolSimpleDialogMessagesV1Messages(T& _client, const LolSimpleDialogMessagesLocalMessageRequest& messageRequest)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/lol-simple-dialog-messages/v1/messages?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PostLolSimpleDialogMessagesV1Messages(LeagueClient& _client, const LolSimpleDialogMessagesLocalMessageRequest& messageRequest, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PostLolSimpleDialogMessagesV1Messages(T& _client, const LolSimpleDialogMessagesLocalMessageRequest& messageRequest, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/lol-simple-dialog-messages/v1/messages?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

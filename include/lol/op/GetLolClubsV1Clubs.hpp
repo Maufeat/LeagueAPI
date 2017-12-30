@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/PlayerClub.hpp"
 namespace lol {
-  inline Result<std::vector<PlayerClub>> GetLolClubsV1Clubs(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::vector<PlayerClub>> GetLolClubsV1Clubs(T& _client)
   {
     try {
       return ToResult<std::vector<PlayerClub>>(_client.https.request("get", "/lol-clubs/v1/clubs?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<PlayerClub>>(e.code());
     }
   }
-  inline void GetLolClubsV1Clubs(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::vector<PlayerClub>>&)> cb)
+  template<typename T>
+  inline void GetLolClubsV1Clubs(T& _client, std::function<void(T&, const Result<std::vector<PlayerClub>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-clubs/v1/clubs?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> PostLolLoadoutsV2ItemsById(LeagueClient& _client, const uint32_t& id, const std::map<std::string, json>& items)
+  template<typename T>
+  inline Result<json> PostLolLoadoutsV2ItemsById(T& _client, const uint32_t& id, const std::map<std::string, json>& items)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/lol-loadouts/v2/items/"+to_string(id)+"?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PostLolLoadoutsV2ItemsById(LeagueClient& _client, const uint32_t& id, const std::map<std::string, json>& items, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PostLolLoadoutsV2ItemsById(T& _client, const uint32_t& id, const std::map<std::string, json>& items, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/lol-loadouts/v2/items/"+to_string(id)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolLobbyEligibility.hpp"
 namespace lol {
-  inline Result<std::vector<LolLobbyEligibility>> PostLolLobbyV2LobbyEligibilityPremade(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::vector<LolLobbyEligibility>> PostLolLobbyV2LobbyEligibilityPremade(T& _client)
   {
     try {
       return ToResult<std::vector<LolLobbyEligibility>>(_client.https.request("post", "/lol-lobby/v2/lobby/eligibility/premade?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<LolLobbyEligibility>>(e.code());
     }
   }
-  inline void PostLolLobbyV2LobbyEligibilityPremade(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::vector<LolLobbyEligibility>>&)> cb)
+  template<typename T>
+  inline void PostLolLobbyV2LobbyEligibilityPremade(T& _client, std::function<void(T&, const Result<std::vector<LolLobbyEligibility>>&)> cb)
   {
     _client.httpsa.request("post", "/lol-lobby/v2/lobby/eligibility/premade?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

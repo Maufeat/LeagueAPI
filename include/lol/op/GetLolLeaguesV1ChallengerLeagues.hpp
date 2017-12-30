@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolLeaguesApexLeagues.hpp"
 namespace lol {
-  inline Result<LolLeaguesApexLeagues> GetLolLeaguesV1ChallengerLeagues(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolLeaguesApexLeagues> GetLolLeaguesV1ChallengerLeagues(T& _client)
   {
     try {
       return ToResult<LolLeaguesApexLeagues>(_client.https.request("get", "/lol-leagues/v1/challenger-leagues?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolLeaguesApexLeagues>(e.code());
     }
   }
-  inline void GetLolLeaguesV1ChallengerLeagues(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolLeaguesApexLeagues>&)> cb)
+  template<typename T>
+  inline void GetLolLeaguesV1ChallengerLeagues(T& _client, std::function<void(T&, const Result<LolLeaguesApexLeagues>&)> cb)
   {
     _client.httpsa.request("get", "/lol-leagues/v1/challenger-leagues?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

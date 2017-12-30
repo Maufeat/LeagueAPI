@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolGameflowGameflowAvailability.hpp"
 namespace lol {
-  inline Result<LolGameflowGameflowAvailability> GetLolGameflowV1Availability(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolGameflowGameflowAvailability> GetLolGameflowV1Availability(T& _client)
   {
     try {
       return ToResult<LolGameflowGameflowAvailability>(_client.https.request("get", "/lol-gameflow/v1/availability?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolGameflowGameflowAvailability>(e.code());
     }
   }
-  inline void GetLolGameflowV1Availability(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolGameflowGameflowAvailability>&)> cb)
+  template<typename T>
+  inline void GetLolGameflowV1Availability(T& _client, std::function<void(T&, const Result<LolGameflowGameflowAvailability>&)> cb)
   {
     _client.httpsa.request("get", "/lol-gameflow/v1/availability?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

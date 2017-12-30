@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<uint32_t> GetRiotclientUxCrashCount(LeagueClient& _client)
+  template<typename T>
+  inline Result<uint32_t> GetRiotclientUxCrashCount(T& _client)
   {
     try {
       return ToResult<uint32_t>(_client.https.request("get", "/riotclient/ux-crash-count?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<uint32_t>(e.code());
     }
   }
-  inline void GetRiotclientUxCrashCount(LeagueClient& _client, std::function<void(LeagueClient&, const Result<uint32_t>&)> cb)
+  template<typename T>
+  inline void GetRiotclientUxCrashCount(T& _client, std::function<void(T&, const Result<uint32_t>&)> cb)
   {
     _client.httpsa.request("get", "/riotclient/ux-crash-count?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

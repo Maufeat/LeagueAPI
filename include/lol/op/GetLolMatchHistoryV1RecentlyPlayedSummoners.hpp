@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolMatchHistoryRecentlyPlayedSummoner.hpp"
 namespace lol {
-  inline Result<std::vector<LolMatchHistoryRecentlyPlayedSummoner>> GetLolMatchHistoryV1RecentlyPlayedSummoners(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::vector<LolMatchHistoryRecentlyPlayedSummoner>> GetLolMatchHistoryV1RecentlyPlayedSummoners(T& _client)
   {
     try {
       return ToResult<std::vector<LolMatchHistoryRecentlyPlayedSummoner>>(_client.https.request("get", "/lol-match-history/v1/recently-played-summoners?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<LolMatchHistoryRecentlyPlayedSummoner>>(e.code());
     }
   }
-  inline void GetLolMatchHistoryV1RecentlyPlayedSummoners(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::vector<LolMatchHistoryRecentlyPlayedSummoner>>&)> cb)
+  template<typename T>
+  inline void GetLolMatchHistoryV1RecentlyPlayedSummoners(T& _client, std::function<void(T&, const Result<std::vector<LolMatchHistoryRecentlyPlayedSummoner>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-match-history/v1/recently-played-summoners?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

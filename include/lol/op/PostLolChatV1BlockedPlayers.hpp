@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolChatBlockedPlayerResource.hpp"
 namespace lol {
-  inline Result<json> PostLolChatV1BlockedPlayers(LeagueClient& _client, const LolChatBlockedPlayerResource& blocked)
+  template<typename T>
+  inline Result<json> PostLolChatV1BlockedPlayers(T& _client, const LolChatBlockedPlayerResource& blocked)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/lol-chat/v1/blocked-players?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PostLolChatV1BlockedPlayers(LeagueClient& _client, const LolChatBlockedPlayerResource& blocked, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PostLolChatV1BlockedPlayers(T& _client, const LolChatBlockedPlayerResource& blocked, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/lol-chat/v1/blocked-players?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

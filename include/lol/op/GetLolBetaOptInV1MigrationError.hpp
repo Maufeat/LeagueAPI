@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<std::string> GetLolBetaOptInV1MigrationError(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::string> GetLolBetaOptInV1MigrationError(T& _client)
   {
     try {
       return ToResult<std::string>(_client.https.request("get", "/lol-beta-opt-in/v1/migration-error?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<std::string>(e.code());
     }
   }
-  inline void GetLolBetaOptInV1MigrationError(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::string>&)> cb)
+  template<typename T>
+  inline void GetLolBetaOptInV1MigrationError(T& _client, std::function<void(T&, const Result<std::string>&)> cb)
   {
     _client.httpsa.request("get", "/lol-beta-opt-in/v1/migration-error?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

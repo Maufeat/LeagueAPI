@@ -3,24 +3,24 @@
 #include "LolPersonalizedOffersLoginSessionStates.hpp"
 namespace lol {
   struct LolPersonalizedOffersLoginSession { 
-    uint64_t summonerId;
-    LolPersonalizedOffersLoginSessionStates state;
-    json gasToken;
     uint64_t accountId;
-    std::string idToken; 
+    json gasToken;
+    uint64_t summonerId;
+    std::string idToken;
+    LolPersonalizedOffersLoginSessionStates state; 
   };
   inline void to_json(json& j, const LolPersonalizedOffersLoginSession& v) {
-    j["summonerId"] = v.summonerId; 
-    j["state"] = v.state; 
-    j["gasToken"] = v.gasToken; 
     j["accountId"] = v.accountId; 
+    j["gasToken"] = v.gasToken; 
+    j["summonerId"] = v.summonerId; 
     j["idToken"] = v.idToken; 
+    j["state"] = v.state; 
   }
   inline void from_json(const json& j, LolPersonalizedOffersLoginSession& v) {
-    v.summonerId = j.at("summonerId").get<uint64_t>(); 
-    v.state = j.at("state").get<LolPersonalizedOffersLoginSessionStates>(); 
-    v.gasToken = j.at("gasToken").get<json>(); 
     v.accountId = j.at("accountId").get<uint64_t>(); 
+    v.gasToken = j.at("gasToken").get<json>(); 
+    v.summonerId = j.at("summonerId").get<uint64_t>(); 
     v.idToken = j.at("idToken").get<std::string>(); 
+    v.state = j.at("state").get<LolPersonalizedOffersLoginSessionStates>(); 
   }
 }

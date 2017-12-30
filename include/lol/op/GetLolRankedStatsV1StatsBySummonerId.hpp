@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolRankedStatsRankedData.hpp"
 namespace lol {
-  inline Result<LolRankedStatsRankedData> GetLolRankedStatsV1StatsBySummonerId(LeagueClient& _client, const uint64_t& summonerId)
+  template<typename T>
+  inline Result<LolRankedStatsRankedData> GetLolRankedStatsV1StatsBySummonerId(T& _client, const uint64_t& summonerId)
   {
     try {
       return ToResult<LolRankedStatsRankedData>(_client.https.request("get", "/lol-ranked-stats/v1/stats/"+to_string(summonerId)+"?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolRankedStatsRankedData>(e.code());
     }
   }
-  inline void GetLolRankedStatsV1StatsBySummonerId(LeagueClient& _client, const uint64_t& summonerId, std::function<void(LeagueClient&, const Result<LolRankedStatsRankedData>&)> cb)
+  template<typename T>
+  inline void GetLolRankedStatsV1StatsBySummonerId(T& _client, const uint64_t& summonerId, std::function<void(T&, const Result<LolRankedStatsRankedData>&)> cb)
   {
     _client.httpsa.request("get", "/lol-ranked-stats/v1/stats/"+to_string(summonerId)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolStoreWallet.hpp"
 namespace lol {
-  inline Result<LolStoreWallet> GetLolStoreV1Wallet(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolStoreWallet> GetLolStoreV1Wallet(T& _client)
   {
     try {
       return ToResult<LolStoreWallet>(_client.https.request("get", "/lol-store/v1/wallet?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolStoreWallet>(e.code());
     }
   }
-  inline void GetLolStoreV1Wallet(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolStoreWallet>&)> cb)
+  template<typename T>
+  inline void GetLolStoreV1Wallet(T& _client, std::function<void(T&, const Result<LolStoreWallet>&)> cb)
   {
     _client.httpsa.request("get", "/lol-store/v1/wallet?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

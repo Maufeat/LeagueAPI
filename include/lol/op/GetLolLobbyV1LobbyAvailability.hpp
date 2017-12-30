@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolLobbyQueueAvailability.hpp"
 namespace lol {
-  inline Result<LolLobbyQueueAvailability> GetLolLobbyV1LobbyAvailability(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolLobbyQueueAvailability> GetLolLobbyV1LobbyAvailability(T& _client)
   {
     try {
       return ToResult<LolLobbyQueueAvailability>(_client.https.request("get", "/lol-lobby/v1/lobby/availability?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolLobbyQueueAvailability>(e.code());
     }
   }
-  inline void GetLolLobbyV1LobbyAvailability(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolLobbyQueueAvailability>&)> cb)
+  template<typename T>
+  inline void GetLolLobbyV1LobbyAvailability(T& _client, std::function<void(T&, const Result<LolLobbyQueueAvailability>&)> cb)
   {
     _client.httpsa.request("get", "/lol-lobby/v1/lobby/availability?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

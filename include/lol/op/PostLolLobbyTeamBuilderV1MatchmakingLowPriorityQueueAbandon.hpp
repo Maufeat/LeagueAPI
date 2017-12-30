@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> PostLolLobbyTeamBuilderV1MatchmakingLowPriorityQueueAbandon(LeagueClient& _client, const std::string& leaverBusterToken)
+  template<typename T>
+  inline Result<json> PostLolLobbyTeamBuilderV1MatchmakingLowPriorityQueueAbandon(T& _client, const std::string& leaverBusterToken)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/lol-lobby-team-builder/v1/matchmaking/low-priority-queue/abandon?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PostLolLobbyTeamBuilderV1MatchmakingLowPriorityQueueAbandon(LeagueClient& _client, const std::string& leaverBusterToken, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PostLolLobbyTeamBuilderV1MatchmakingLowPriorityQueueAbandon(T& _client, const std::string& leaverBusterToken, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/lol-lobby-team-builder/v1/matchmaking/low-priority-queue/abandon?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

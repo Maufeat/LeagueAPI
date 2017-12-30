@@ -3,15 +3,15 @@
 #include "RankedScoutingTopChampionDTO.hpp"
 namespace lol {
   struct RankedScoutingMemberDTO { 
-    std::vector<RankedScoutingTopChampionDTO> championScoutingData;
-    uint64_t playerId; 
+    uint64_t playerId;
+    std::vector<RankedScoutingTopChampionDTO> championScoutingData; 
   };
   inline void to_json(json& j, const RankedScoutingMemberDTO& v) {
-    j["championScoutingData"] = v.championScoutingData; 
     j["playerId"] = v.playerId; 
+    j["championScoutingData"] = v.championScoutingData; 
   }
   inline void from_json(const json& j, RankedScoutingMemberDTO& v) {
-    v.championScoutingData = j.at("championScoutingData").get<std::vector<RankedScoutingTopChampionDTO>>(); 
     v.playerId = j.at("playerId").get<uint64_t>(); 
+    v.championScoutingData = j.at("championScoutingData").get<std::vector<RankedScoutingTopChampionDTO>>(); 
   }
 }

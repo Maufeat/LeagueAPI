@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<std::string> PutLolCollectionsV1InventoriesBySummonerIdVerification(LeagueClient& _client, const uint64_t& summonerId, const std::string& verificationCode)
+  template<typename T>
+  inline Result<std::string> PutLolCollectionsV1InventoriesBySummonerIdVerification(T& _client, const uint64_t& summonerId, const std::string& verificationCode)
   {
     try {
       return ToResult<std::string>(_client.https.request("put", "/lol-collections/v1/inventories/"+to_string(summonerId)+"/verification?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::string>(e.code());
     }
   }
-  inline void PutLolCollectionsV1InventoriesBySummonerIdVerification(LeagueClient& _client, const uint64_t& summonerId, const std::string& verificationCode, std::function<void(LeagueClient&, const Result<std::string>&)> cb)
+  template<typename T>
+  inline void PutLolCollectionsV1InventoriesBySummonerIdVerification(T& _client, const uint64_t& summonerId, const std::string& verificationCode, std::function<void(T&, const Result<std::string>&)> cb)
   {
     _client.httpsa.request("put", "/lol-collections/v1/inventories/"+to_string(summonerId)+"/verification?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

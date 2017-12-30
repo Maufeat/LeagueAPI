@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/RsoAuthEntitlementsToken.hpp"
 namespace lol {
-  inline Result<RsoAuthEntitlementsToken> GetRsoAuthV1AuthorizationEntitlementsToken(LeagueClient& _client)
+  template<typename T>
+  inline Result<RsoAuthEntitlementsToken> GetRsoAuthV1AuthorizationEntitlementsToken(T& _client)
   {
     try {
       return ToResult<RsoAuthEntitlementsToken>(_client.https.request("get", "/rso-auth/v1/authorization/entitlements-token?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<RsoAuthEntitlementsToken>(e.code());
     }
   }
-  inline void GetRsoAuthV1AuthorizationEntitlementsToken(LeagueClient& _client, std::function<void(LeagueClient&, const Result<RsoAuthEntitlementsToken>&)> cb)
+  template<typename T>
+  inline void GetRsoAuthV1AuthorizationEntitlementsToken(T& _client, std::function<void(T&, const Result<RsoAuthEntitlementsToken>&)> cb)
   {
     _client.httpsa.request("get", "/rso-auth/v1/authorization/entitlements-token?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

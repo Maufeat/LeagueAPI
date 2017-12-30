@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/EntitlementsToken.hpp"
 namespace lol {
-  inline Result<EntitlementsToken> GetEntitlementsV1Token(LeagueClient& _client)
+  template<typename T>
+  inline Result<EntitlementsToken> GetEntitlementsV1Token(T& _client)
   {
     try {
       return ToResult<EntitlementsToken>(_client.https.request("get", "/entitlements/v1/token?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<EntitlementsToken>(e.code());
     }
   }
-  inline void GetEntitlementsV1Token(LeagueClient& _client, std::function<void(LeagueClient&, const Result<EntitlementsToken>&)> cb)
+  template<typename T>
+  inline void GetEntitlementsV1Token(T& _client, std::function<void(T&, const Result<EntitlementsToken>&)> cb)
   {
     _client.httpsa.request("get", "/entitlements/v1/token?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

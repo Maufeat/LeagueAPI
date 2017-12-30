@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<bool> GetLolSettingsV2Ready(LeagueClient& _client)
+  template<typename T>
+  inline Result<bool> GetLolSettingsV2Ready(T& _client)
   {
     try {
       return ToResult<bool>(_client.https.request("get", "/lol-settings/v2/ready?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<bool>(e.code());
     }
   }
-  inline void GetLolSettingsV2Ready(LeagueClient& _client, std::function<void(LeagueClient&, const Result<bool>&)> cb)
+  template<typename T>
+  inline void GetLolSettingsV2Ready(T& _client, std::function<void(T&, const Result<bool>&)> cb)
   {
     _client.httpsa.request("get", "/lol-settings/v2/ready?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

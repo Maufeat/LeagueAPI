@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolLobbyTeamBuilderChampSelectAction.hpp"
 namespace lol {
-  inline Result<json> PatchLolLobbyTeamBuilderChampSelectV1SessionActionsById(LeagueClient& _client, const int32_t& id, const LolLobbyTeamBuilderChampSelectAction& data)
+  template<typename T>
+  inline Result<json> PatchLolLobbyTeamBuilderChampSelectV1SessionActionsById(T& _client, const int32_t& id, const LolLobbyTeamBuilderChampSelectAction& data)
   {
     try {
       return ToResult<json>(_client.https.request("patch", "/lol-lobby-team-builder/champ-select/v1/session/actions/"+to_string(id)+"?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PatchLolLobbyTeamBuilderChampSelectV1SessionActionsById(LeagueClient& _client, const int32_t& id, const LolLobbyTeamBuilderChampSelectAction& data, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PatchLolLobbyTeamBuilderChampSelectV1SessionActionsById(T& _client, const int32_t& id, const LolLobbyTeamBuilderChampSelectAction& data, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("patch", "/lol-lobby-team-builder/champ-select/v1/session/actions/"+to_string(id)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

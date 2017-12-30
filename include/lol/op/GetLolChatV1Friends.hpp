@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolChatFriendResource.hpp"
 namespace lol {
-  inline Result<std::vector<LolChatFriendResource>> GetLolChatV1Friends(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::vector<LolChatFriendResource>> GetLolChatV1Friends(T& _client)
   {
     try {
       return ToResult<std::vector<LolChatFriendResource>>(_client.https.request("get", "/lol-chat/v1/friends?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<LolChatFriendResource>>(e.code());
     }
   }
-  inline void GetLolChatV1Friends(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::vector<LolChatFriendResource>>&)> cb)
+  template<typename T>
+  inline void GetLolChatV1Friends(T& _client, std::function<void(T&, const Result<std::vector<LolChatFriendResource>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-chat/v1/friends?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

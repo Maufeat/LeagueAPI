@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/cookie.hpp"
 namespace lol {
-  inline Result<std::vector<cookie>> GetCookieJarV1Cookies(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::vector<cookie>> GetCookieJarV1Cookies(T& _client)
   {
     try {
       return ToResult<std::vector<cookie>>(_client.https.request("get", "/cookie-jar/v1/cookies?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<cookie>>(e.code());
     }
   }
-  inline void GetCookieJarV1Cookies(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::vector<cookie>>&)> cb)
+  template<typename T>
+  inline void GetCookieJarV1Cookies(T& _client, std::function<void(T&, const Result<std::vector<cookie>>&)> cb)
   {
     _client.httpsa.request("get", "/cookie-jar/v1/cookies?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

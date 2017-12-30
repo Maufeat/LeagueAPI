@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolSummonerSummoner.hpp"
 namespace lol {
-  inline Result<LolSummonerSummoner> PostLolSummonerV1CurrentSummonerXpInfo(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolSummonerSummoner> PostLolSummonerV1CurrentSummonerXpInfo(T& _client)
   {
     try {
       return ToResult<LolSummonerSummoner>(_client.https.request("post", "/lol-summoner/v1/current-summoner/xpInfo?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolSummonerSummoner>(e.code());
     }
   }
-  inline void PostLolSummonerV1CurrentSummonerXpInfo(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolSummonerSummoner>&)> cb)
+  template<typename T>
+  inline void PostLolSummonerV1CurrentSummonerXpInfo(T& _client, std::function<void(T&, const Result<LolSummonerSummoner>&)> cb)
   {
     _client.httpsa.request("post", "/lol-summoner/v1/current-summoner/xpInfo?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

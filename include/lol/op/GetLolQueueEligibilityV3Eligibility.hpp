@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolQueueEligibilityEligibility.hpp"
 namespace lol {
-  inline Result<std::vector<LolQueueEligibilityEligibility>> GetLolQueueEligibilityV3Eligibility(LeagueClient& _client, const std::vector<uint64_t>& summonerIds, const std::vector<int32_t>& queueIds)
+  template<typename T>
+  inline Result<std::vector<LolQueueEligibilityEligibility>> GetLolQueueEligibilityV3Eligibility(T& _client, const std::vector<uint64_t>& summonerIds, const std::vector<int32_t>& queueIds)
   {
     try {
       return ToResult<std::vector<LolQueueEligibilityEligibility>>(_client.https.request("get", "/lol-queue-eligibility/v3/eligibility?" +
@@ -17,7 +18,8 @@ namespace lol {
       return ToResult<std::vector<LolQueueEligibilityEligibility>>(e.code());
     }
   }
-  inline void GetLolQueueEligibilityV3Eligibility(LeagueClient& _client, const std::vector<uint64_t>& summonerIds, const std::vector<int32_t>& queueIds, std::function<void(LeagueClient&, const Result<std::vector<LolQueueEligibilityEligibility>>&)> cb)
+  template<typename T>
+  inline void GetLolQueueEligibilityV3Eligibility(T& _client, const std::vector<uint64_t>& summonerIds, const std::vector<int32_t>& queueIds, std::function<void(T&, const Result<std::vector<LolQueueEligibilityEligibility>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-queue-eligibility/v3/eligibility?" +
       SimpleWeb::QueryString::create(Args2Headers({ 

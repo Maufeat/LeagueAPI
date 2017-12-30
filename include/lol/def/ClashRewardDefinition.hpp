@@ -4,15 +4,15 @@
 #include "ClashRewardType.hpp"
 namespace lol {
   struct ClashRewardDefinition { 
-    ClashRewardType rewardType;
-    ClashRewardSpec rewardSpec; 
+    ClashRewardSpec rewardSpec;
+    ClashRewardType rewardType; 
   };
   inline void to_json(json& j, const ClashRewardDefinition& v) {
-    j["rewardType"] = v.rewardType; 
     j["rewardSpec"] = v.rewardSpec; 
+    j["rewardType"] = v.rewardType; 
   }
   inline void from_json(const json& j, ClashRewardDefinition& v) {
-    v.rewardType = j.at("rewardType").get<ClashRewardType>(); 
     v.rewardSpec = j.at("rewardSpec").get<ClashRewardSpec>(); 
+    v.rewardType = j.at("rewardType").get<ClashRewardType>(); 
   }
 }

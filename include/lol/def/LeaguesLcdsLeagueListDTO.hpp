@@ -1,34 +1,34 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LeaguesLcdsQueueType.hpp"
 #include "LeaguesLcdsLeagueTier.hpp"
 #include "LeaguesLcdsLeagueItemDTO.hpp"
+#include "LeaguesLcdsQueueType.hpp"
 namespace lol {
   struct LeaguesLcdsLeagueListDTO { 
-    std::vector<LeaguesLcdsLeagueItemDTO> entries;
-    uint64_t nextApexUpdate;
     std::string name;
-    uint64_t maxLeagueSize;
-    std::string requestorsName;
+    std::vector<LeaguesLcdsLeagueItemDTO> entries;
     LeaguesLcdsQueueType queue;
-    LeaguesLcdsLeagueTier tier; 
+    uint64_t maxLeagueSize;
+    LeaguesLcdsLeagueTier tier;
+    std::string requestorsName;
+    uint64_t nextApexUpdate; 
   };
   inline void to_json(json& j, const LeaguesLcdsLeagueListDTO& v) {
-    j["entries"] = v.entries; 
-    j["nextApexUpdate"] = v.nextApexUpdate; 
     j["name"] = v.name; 
-    j["maxLeagueSize"] = v.maxLeagueSize; 
-    j["requestorsName"] = v.requestorsName; 
+    j["entries"] = v.entries; 
     j["queue"] = v.queue; 
+    j["maxLeagueSize"] = v.maxLeagueSize; 
     j["tier"] = v.tier; 
+    j["requestorsName"] = v.requestorsName; 
+    j["nextApexUpdate"] = v.nextApexUpdate; 
   }
   inline void from_json(const json& j, LeaguesLcdsLeagueListDTO& v) {
-    v.entries = j.at("entries").get<std::vector<LeaguesLcdsLeagueItemDTO>>(); 
-    v.nextApexUpdate = j.at("nextApexUpdate").get<uint64_t>(); 
     v.name = j.at("name").get<std::string>(); 
-    v.maxLeagueSize = j.at("maxLeagueSize").get<uint64_t>(); 
-    v.requestorsName = j.at("requestorsName").get<std::string>(); 
+    v.entries = j.at("entries").get<std::vector<LeaguesLcdsLeagueItemDTO>>(); 
     v.queue = j.at("queue").get<LeaguesLcdsQueueType>(); 
+    v.maxLeagueSize = j.at("maxLeagueSize").get<uint64_t>(); 
     v.tier = j.at("tier").get<LeaguesLcdsLeagueTier>(); 
+    v.requestorsName = j.at("requestorsName").get<std::string>(); 
+    v.nextApexUpdate = j.at("nextApexUpdate").get<uint64_t>(); 
   }
 }

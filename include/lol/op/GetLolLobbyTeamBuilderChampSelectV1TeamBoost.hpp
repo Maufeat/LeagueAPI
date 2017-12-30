@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolLobbyTeamBuilderTeamBoost.hpp"
 namespace lol {
-  inline Result<LolLobbyTeamBuilderTeamBoost> GetLolLobbyTeamBuilderChampSelectV1TeamBoost(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolLobbyTeamBuilderTeamBoost> GetLolLobbyTeamBuilderChampSelectV1TeamBoost(T& _client)
   {
     try {
       return ToResult<LolLobbyTeamBuilderTeamBoost>(_client.https.request("get", "/lol-lobby-team-builder/champ-select/v1/team-boost?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolLobbyTeamBuilderTeamBoost>(e.code());
     }
   }
-  inline void GetLolLobbyTeamBuilderChampSelectV1TeamBoost(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolLobbyTeamBuilderTeamBoost>&)> cb)
+  template<typename T>
+  inline void GetLolLobbyTeamBuilderChampSelectV1TeamBoost(T& _client, std::function<void(T&, const Result<LolLobbyTeamBuilderTeamBoost>&)> cb)
   {
     _client.httpsa.request("get", "/lol-lobby-team-builder/champ-select/v1/team-boost?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

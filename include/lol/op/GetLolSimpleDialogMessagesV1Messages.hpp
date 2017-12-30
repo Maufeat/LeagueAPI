@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolSimpleDialogMessagesMessage.hpp"
 namespace lol {
-  inline Result<std::vector<LolSimpleDialogMessagesMessage>> GetLolSimpleDialogMessagesV1Messages(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::vector<LolSimpleDialogMessagesMessage>> GetLolSimpleDialogMessagesV1Messages(T& _client)
   {
     try {
       return ToResult<std::vector<LolSimpleDialogMessagesMessage>>(_client.https.request("get", "/lol-simple-dialog-messages/v1/messages?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<LolSimpleDialogMessagesMessage>>(e.code());
     }
   }
-  inline void GetLolSimpleDialogMessagesV1Messages(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::vector<LolSimpleDialogMessagesMessage>>&)> cb)
+  template<typename T>
+  inline void GetLolSimpleDialogMessagesV1Messages(T& _client, std::function<void(T&, const Result<std::vector<LolSimpleDialogMessagesMessage>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-simple-dialog-messages/v1/messages?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

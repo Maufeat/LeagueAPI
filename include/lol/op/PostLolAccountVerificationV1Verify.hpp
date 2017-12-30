@@ -1,10 +1,11 @@
 #pragma once
 #include "../base_op.hpp"
 #include <functional> 
-#include "../def/LolAccountVerificationVerifyResponse.hpp"
 #include "../def/LolAccountVerificationVerifyRequest.hpp"
+#include "../def/LolAccountVerificationVerifyResponse.hpp"
 namespace lol {
-  inline Result<LolAccountVerificationVerifyResponse> PostLolAccountVerificationV1Verify(LeagueClient& _client, const LolAccountVerificationVerifyRequest& VerifyRequest)
+  template<typename T>
+  inline Result<LolAccountVerificationVerifyResponse> PostLolAccountVerificationV1Verify(T& _client, const LolAccountVerificationVerifyRequest& VerifyRequest)
   {
     try {
       return ToResult<LolAccountVerificationVerifyResponse>(_client.https.request("post", "/lol-account-verification/v1/verify?" +
@@ -17,7 +18,8 @@ namespace lol {
       return ToResult<LolAccountVerificationVerifyResponse>(e.code());
     }
   }
-  inline void PostLolAccountVerificationV1Verify(LeagueClient& _client, const LolAccountVerificationVerifyRequest& VerifyRequest, std::function<void(LeagueClient&, const Result<LolAccountVerificationVerifyResponse>&)> cb)
+  template<typename T>
+  inline void PostLolAccountVerificationV1Verify(T& _client, const LolAccountVerificationVerifyRequest& VerifyRequest, std::function<void(T&, const Result<LolAccountVerificationVerifyResponse>&)> cb)
   {
     _client.httpsa.request("post", "/lol-account-verification/v1/verify?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

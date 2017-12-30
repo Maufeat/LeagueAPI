@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolLobbyTeamBuilderTbLobbyEnabledFeaturesResource.hpp"
 namespace lol {
-  inline Result<LolLobbyTeamBuilderTbLobbyEnabledFeaturesResource> GetLolLobbyTeamBuilderV1TbEnabledFeatures(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolLobbyTeamBuilderTbLobbyEnabledFeaturesResource> GetLolLobbyTeamBuilderV1TbEnabledFeatures(T& _client)
   {
     try {
       return ToResult<LolLobbyTeamBuilderTbLobbyEnabledFeaturesResource>(_client.https.request("get", "/lol-lobby-team-builder/v1/tb-enabled-features?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolLobbyTeamBuilderTbLobbyEnabledFeaturesResource>(e.code());
     }
   }
-  inline void GetLolLobbyTeamBuilderV1TbEnabledFeatures(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolLobbyTeamBuilderTbLobbyEnabledFeaturesResource>&)> cb)
+  template<typename T>
+  inline void GetLolLobbyTeamBuilderV1TbEnabledFeatures(T& _client, std::function<void(T&, const Result<LolLobbyTeamBuilderTbLobbyEnabledFeaturesResource>&)> cb)
   {
     _client.httpsa.request("get", "/lol-lobby-team-builder/v1/tb-enabled-features?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

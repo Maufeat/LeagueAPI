@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolPlayerBehaviorReporterFeedback.hpp"
 namespace lol {
-  inline Result<LolPlayerBehaviorReporterFeedback> GetLolPlayerBehaviorV1ReporterFeedbackById(LeagueClient& _client, const std::string& id)
+  template<typename T>
+  inline Result<LolPlayerBehaviorReporterFeedback> GetLolPlayerBehaviorV1ReporterFeedbackById(T& _client, const std::string& id)
   {
     try {
       return ToResult<LolPlayerBehaviorReporterFeedback>(_client.https.request("get", "/lol-player-behavior/v1/reporter-feedback/"+to_string(id)+"?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolPlayerBehaviorReporterFeedback>(e.code());
     }
   }
-  inline void GetLolPlayerBehaviorV1ReporterFeedbackById(LeagueClient& _client, const std::string& id, std::function<void(LeagueClient&, const Result<LolPlayerBehaviorReporterFeedback>&)> cb)
+  template<typename T>
+  inline void GetLolPlayerBehaviorV1ReporterFeedbackById(T& _client, const std::string& id, std::function<void(T&, const Result<LolPlayerBehaviorReporterFeedback>&)> cb)
   {
     _client.httpsa.request("get", "/lol-player-behavior/v1/reporter-feedback/"+to_string(id)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

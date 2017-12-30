@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/TencentQTNotification.hpp"
 namespace lol {
-  inline Result<std::map<std::string, TencentQTNotification>> GetLolTencentQtV1UiStates(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::map<std::string, TencentQTNotification>> GetLolTencentQtV1UiStates(T& _client)
   {
     try {
       return ToResult<std::map<std::string, TencentQTNotification>>(_client.https.request("get", "/lol-tencent-qt/v1/ui-states?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::map<std::string, TencentQTNotification>>(e.code());
     }
   }
-  inline void GetLolTencentQtV1UiStates(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::map<std::string, TencentQTNotification>>&)> cb)
+  template<typename T>
+  inline void GetLolTencentQtV1UiStates(T& _client, std::function<void(T&, const Result<std::map<std::string, TencentQTNotification>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-tencent-qt/v1/ui-states?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

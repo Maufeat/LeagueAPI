@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolGameQueuesQueueGameTypeConfig.hpp"
 namespace lol {
-  inline Result<LolGameQueuesQueueGameTypeConfig> GetLolGameQueuesV1GameTypeConfigByGameTypeConfigIdMapByMapId(LeagueClient& _client, const uint32_t& gameTypeConfigId, const int32_t& mapId)
+  template<typename T>
+  inline Result<LolGameQueuesQueueGameTypeConfig> GetLolGameQueuesV1GameTypeConfigByGameTypeConfigIdMapByMapId(T& _client, const uint32_t& gameTypeConfigId, const int32_t& mapId)
   {
     try {
       return ToResult<LolGameQueuesQueueGameTypeConfig>(_client.https.request("get", "/lol-game-queues/v1/game-type-config/"+to_string(gameTypeConfigId)+"/map/"+to_string(mapId)+"?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolGameQueuesQueueGameTypeConfig>(e.code());
     }
   }
-  inline void GetLolGameQueuesV1GameTypeConfigByGameTypeConfigIdMapByMapId(LeagueClient& _client, const uint32_t& gameTypeConfigId, const int32_t& mapId, std::function<void(LeagueClient&, const Result<LolGameQueuesQueueGameTypeConfig>&)> cb)
+  template<typename T>
+  inline void GetLolGameQueuesV1GameTypeConfigByGameTypeConfigIdMapByMapId(T& _client, const uint32_t& gameTypeConfigId, const int32_t& mapId, std::function<void(T&, const Result<LolGameQueuesQueueGameTypeConfig>&)> cb)
   {
     _client.httpsa.request("get", "/lol-game-queues/v1/game-type-config/"+to_string(gameTypeConfigId)+"/map/"+to_string(mapId)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

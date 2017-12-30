@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolAcsAcsChampionGamesCollection.hpp"
 namespace lol {
-  inline Result<LolAcsAcsChampionGamesCollection> GetLolAcsV1RecentlyPlayedChampionsByAccountId(LeagueClient& _client, const uint64_t& accountId, const bool& force)
+  template<typename T>
+  inline Result<LolAcsAcsChampionGamesCollection> GetLolAcsV1RecentlyPlayedChampionsByAccountId(T& _client, const uint64_t& accountId, const bool& force)
   {
     try {
       return ToResult<LolAcsAcsChampionGamesCollection>(_client.https.request("get", "/lol-acs/v1/recently-played-champions/"+to_string(accountId)+"?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<LolAcsAcsChampionGamesCollection>(e.code());
     }
   }
-  inline void GetLolAcsV1RecentlyPlayedChampionsByAccountId(LeagueClient& _client, const uint64_t& accountId, const bool& force, std::function<void(LeagueClient&, const Result<LolAcsAcsChampionGamesCollection>&)> cb)
+  template<typename T>
+  inline void GetLolAcsV1RecentlyPlayedChampionsByAccountId(T& _client, const uint64_t& accountId, const bool& force, std::function<void(T&, const Result<LolAcsAcsChampionGamesCollection>&)> cb)
   {
     _client.httpsa.request("get", "/lol-acs/v1/recently-played-champions/"+to_string(accountId)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({ 

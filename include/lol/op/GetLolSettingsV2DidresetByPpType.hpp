@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<bool> GetLolSettingsV2DidresetByPpType(LeagueClient& _client, const std::string& ppType)
+  template<typename T>
+  inline Result<bool> GetLolSettingsV2DidresetByPpType(T& _client, const std::string& ppType)
   {
     try {
       return ToResult<bool>(_client.https.request("get", "/lol-settings/v2/didreset/"+to_string(ppType)+"?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<bool>(e.code());
     }
   }
-  inline void GetLolSettingsV2DidresetByPpType(LeagueClient& _client, const std::string& ppType, std::function<void(LeagueClient&, const Result<bool>&)> cb)
+  template<typename T>
+  inline void GetLolSettingsV2DidresetByPpType(T& _client, const std::string& ppType, std::function<void(T&, const Result<bool>&)> cb)
   {
     _client.httpsa.request("get", "/lol-settings/v2/didreset/"+to_string(ppType)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

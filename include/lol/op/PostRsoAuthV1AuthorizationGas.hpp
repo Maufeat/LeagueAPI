@@ -1,10 +1,11 @@
 #pragma once
 #include "../base_op.hpp"
 #include <functional> 
-#include "../def/RsoAuthAuthorization.hpp"
 #include "../def/RsoAuthRSOPlayerCredentials.hpp"
+#include "../def/RsoAuthAuthorization.hpp"
 namespace lol {
-  inline Result<RsoAuthAuthorization> PostRsoAuthV1AuthorizationGas(LeagueClient& _client, const RsoAuthRSOPlayerCredentials& creds)
+  template<typename T>
+  inline Result<RsoAuthAuthorization> PostRsoAuthV1AuthorizationGas(T& _client, const RsoAuthRSOPlayerCredentials& creds)
   {
     try {
       return ToResult<RsoAuthAuthorization>(_client.https.request("post", "/rso-auth/v1/authorization/gas?" +
@@ -17,7 +18,8 @@ namespace lol {
       return ToResult<RsoAuthAuthorization>(e.code());
     }
   }
-  inline void PostRsoAuthV1AuthorizationGas(LeagueClient& _client, const RsoAuthRSOPlayerCredentials& creds, std::function<void(LeagueClient&, const Result<RsoAuthAuthorization>&)> cb)
+  template<typename T>
+  inline void PostRsoAuthV1AuthorizationGas(T& _client, const RsoAuthRSOPlayerCredentials& creds, std::function<void(T&, const Result<RsoAuthAuthorization>&)> cb)
   {
     _client.httpsa.request("post", "/rso-auth/v1/authorization/gas?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

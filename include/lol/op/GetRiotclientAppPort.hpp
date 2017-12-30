@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<uint16_t> GetRiotclientAppPort(LeagueClient& _client)
+  template<typename T>
+  inline Result<uint16_t> GetRiotclientAppPort(T& _client)
   {
     try {
       return ToResult<uint16_t>(_client.https.request("get", "/riotclient/app-port?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<uint16_t>(e.code());
     }
   }
-  inline void GetRiotclientAppPort(LeagueClient& _client, std::function<void(LeagueClient&, const Result<uint16_t>&)> cb)
+  template<typename T>
+  inline void GetRiotclientAppPort(T& _client, std::function<void(T&, const Result<uint16_t>&)> cb)
   {
     _client.httpsa.request("get", "/riotclient/app-port?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

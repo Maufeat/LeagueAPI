@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolSettingsSettingCategory.hpp"
 namespace lol {
-  inline Result<json> PutLolSettingsV1AccountByCategory(LeagueClient& _client, const std::string& category, const LolSettingsSettingCategory& settingsResource)
+  template<typename T>
+  inline Result<json> PutLolSettingsV1AccountByCategory(T& _client, const std::string& category, const LolSettingsSettingCategory& settingsResource)
   {
     try {
       return ToResult<json>(_client.https.request("put", "/lol-settings/v1/account/"+to_string(category)+"?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PutLolSettingsV1AccountByCategory(LeagueClient& _client, const std::string& category, const LolSettingsSettingCategory& settingsResource, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PutLolSettingsV1AccountByCategory(T& _client, const std::string& category, const LolSettingsSettingCategory& settingsResource, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("put", "/lol-settings/v1/account/"+to_string(category)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

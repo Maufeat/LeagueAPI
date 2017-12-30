@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/NetworkExperimentsResource.hpp"
 namespace lol {
-  inline Result<NetworkExperimentsResource> GetNetworkTestingV1Experiments(LeagueClient& _client)
+  template<typename T>
+  inline Result<NetworkExperimentsResource> GetNetworkTestingV1Experiments(T& _client)
   {
     try {
       return ToResult<NetworkExperimentsResource>(_client.https.request("get", "/network-testing/v1/experiments?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<NetworkExperimentsResource>(e.code());
     }
   }
-  inline void GetNetworkTestingV1Experiments(LeagueClient& _client, std::function<void(LeagueClient&, const Result<NetworkExperimentsResource>&)> cb)
+  template<typename T>
+  inline void GetNetworkTestingV1Experiments(T& _client, std::function<void(T&, const Result<NetworkExperimentsResource>&)> cb)
   {
     _client.httpsa.request("get", "/network-testing/v1/experiments?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

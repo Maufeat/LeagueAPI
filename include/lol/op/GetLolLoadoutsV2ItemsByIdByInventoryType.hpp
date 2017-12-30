@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> GetLolLoadoutsV2ItemsByIdByInventoryType(LeagueClient& _client, const uint32_t& id, const std::string& inventoryType)
+  template<typename T>
+  inline Result<json> GetLolLoadoutsV2ItemsByIdByInventoryType(T& _client, const uint32_t& id, const std::string& inventoryType)
   {
     try {
       return ToResult<json>(_client.https.request("get", "/lol-loadouts/v2/items/"+to_string(id)+"/"+to_string(inventoryType)+"?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void GetLolLoadoutsV2ItemsByIdByInventoryType(LeagueClient& _client, const uint32_t& id, const std::string& inventoryType, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void GetLolLoadoutsV2ItemsByIdByInventoryType(T& _client, const uint32_t& id, const std::string& inventoryType, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("get", "/lol-loadouts/v2/items/"+to_string(id)+"/"+to_string(inventoryType)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

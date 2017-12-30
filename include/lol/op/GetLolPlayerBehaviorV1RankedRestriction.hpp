@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolPlayerBehaviorRestrictionNotification.hpp"
 namespace lol {
-  inline Result<LolPlayerBehaviorRestrictionNotification> GetLolPlayerBehaviorV1RankedRestriction(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolPlayerBehaviorRestrictionNotification> GetLolPlayerBehaviorV1RankedRestriction(T& _client)
   {
     try {
       return ToResult<LolPlayerBehaviorRestrictionNotification>(_client.https.request("get", "/lol-player-behavior/v1/ranked-restriction?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolPlayerBehaviorRestrictionNotification>(e.code());
     }
   }
-  inline void GetLolPlayerBehaviorV1RankedRestriction(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolPlayerBehaviorRestrictionNotification>&)> cb)
+  template<typename T>
+  inline void GetLolPlayerBehaviorV1RankedRestriction(T& _client, std::function<void(T&, const Result<LolPlayerBehaviorRestrictionNotification>&)> cb)
   {
     _client.httpsa.request("get", "/lol-player-behavior/v1/ranked-restriction?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

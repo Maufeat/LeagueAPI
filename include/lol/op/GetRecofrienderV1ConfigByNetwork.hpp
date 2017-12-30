@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/RecofrienderNetworkConfig.hpp"
 namespace lol {
-  inline Result<RecofrienderNetworkConfig> GetRecofrienderV1ConfigByNetwork(LeagueClient& _client, const std::string& network)
+  template<typename T>
+  inline Result<RecofrienderNetworkConfig> GetRecofrienderV1ConfigByNetwork(T& _client, const std::string& network)
   {
     try {
       return ToResult<RecofrienderNetworkConfig>(_client.https.request("get", "/recofriender/v1/config/"+to_string(network)+"?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<RecofrienderNetworkConfig>(e.code());
     }
   }
-  inline void GetRecofrienderV1ConfigByNetwork(LeagueClient& _client, const std::string& network, std::function<void(LeagueClient&, const Result<RecofrienderNetworkConfig>&)> cb)
+  template<typename T>
+  inline void GetRecofrienderV1ConfigByNetwork(T& _client, const std::string& network, std::function<void(T&, const Result<RecofrienderNetworkConfig>&)> cb)
   {
     _client.httpsa.request("get", "/recofriender/v1/config/"+to_string(network)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

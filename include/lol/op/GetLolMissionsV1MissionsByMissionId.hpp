@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/PlayerMissionDTO.hpp"
 namespace lol {
-  inline Result<PlayerMissionDTO> GetLolMissionsV1MissionsByMissionId(LeagueClient& _client, const std::string& missionId)
+  template<typename T>
+  inline Result<PlayerMissionDTO> GetLolMissionsV1MissionsByMissionId(T& _client, const std::string& missionId)
   {
     try {
       return ToResult<PlayerMissionDTO>(_client.https.request("get", "/lol-missions/v1/missions/"+to_string(missionId)+"?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<PlayerMissionDTO>(e.code());
     }
   }
-  inline void GetLolMissionsV1MissionsByMissionId(LeagueClient& _client, const std::string& missionId, std::function<void(LeagueClient&, const Result<PlayerMissionDTO>&)> cb)
+  template<typename T>
+  inline void GetLolMissionsV1MissionsByMissionId(T& _client, const std::string& missionId, std::function<void(T&, const Result<PlayerMissionDTO>&)> cb)
   {
     _client.httpsa.request("get", "/lol-missions/v1/missions/"+to_string(missionId)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

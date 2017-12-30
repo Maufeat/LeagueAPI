@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolHonorV2Ballot.hpp"
 namespace lol {
-  inline Result<LolHonorV2Ballot> GetLolHonorV2V1Ballot(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolHonorV2Ballot> GetLolHonorV2V1Ballot(T& _client)
   {
     try {
       return ToResult<LolHonorV2Ballot>(_client.https.request("get", "/lol-honor-v2/v1/ballot?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolHonorV2Ballot>(e.code());
     }
   }
-  inline void GetLolHonorV2V1Ballot(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolHonorV2Ballot>&)> cb)
+  template<typename T>
+  inline void GetLolHonorV2V1Ballot(T& _client, std::function<void(T&, const Result<LolHonorV2Ballot>&)> cb)
   {
     _client.httpsa.request("get", "/lol-honor-v2/v1/ballot?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

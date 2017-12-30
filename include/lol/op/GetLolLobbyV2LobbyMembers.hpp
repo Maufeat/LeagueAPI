@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolLobbyLobbyParticipantDto.hpp"
 namespace lol {
-  inline Result<std::vector<LolLobbyLobbyParticipantDto>> GetLolLobbyV2LobbyMembers(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::vector<LolLobbyLobbyParticipantDto>> GetLolLobbyV2LobbyMembers(T& _client)
   {
     try {
       return ToResult<std::vector<LolLobbyLobbyParticipantDto>>(_client.https.request("get", "/lol-lobby/v2/lobby/members?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<LolLobbyLobbyParticipantDto>>(e.code());
     }
   }
-  inline void GetLolLobbyV2LobbyMembers(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::vector<LolLobbyLobbyParticipantDto>>&)> cb)
+  template<typename T>
+  inline void GetLolLobbyV2LobbyMembers(T& _client, std::function<void(T&, const Result<std::vector<LolLobbyLobbyParticipantDto>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-lobby/v2/lobby/members?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> DeleteLolLobbyV2LobbyMatchmakingSearch(LeagueClient& _client)
+  template<typename T>
+  inline Result<json> DeleteLolLobbyV2LobbyMatchmakingSearch(T& _client)
   {
     try {
       return ToResult<json>(_client.https.request("delete", "/lol-lobby/v2/lobby/matchmaking/search?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void DeleteLolLobbyV2LobbyMatchmakingSearch(LeagueClient& _client, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void DeleteLolLobbyV2LobbyMatchmakingSearch(T& _client, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("delete", "/lol-lobby/v2/lobby/matchmaking/search?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

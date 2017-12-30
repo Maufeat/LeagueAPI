@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolPftPFTSurvey.hpp"
 namespace lol {
-  inline Result<LolPftPFTSurvey> GetLolPftV2Survey(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolPftPFTSurvey> GetLolPftV2Survey(T& _client)
   {
     try {
       return ToResult<LolPftPFTSurvey>(_client.https.request("get", "/lol-pft/v2/survey?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolPftPFTSurvey>(e.code());
     }
   }
-  inline void GetLolPftV2Survey(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolPftPFTSurvey>&)> cb)
+  template<typename T>
+  inline void GetLolPftV2Survey(T& _client, std::function<void(T&, const Result<LolPftPFTSurvey>&)> cb)
   {
     _client.httpsa.request("get", "/lol-pft/v2/survey?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

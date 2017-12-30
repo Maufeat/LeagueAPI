@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/SanitizerSanitizerStatus.hpp"
 namespace lol {
-  inline Result<SanitizerSanitizerStatus> GetSanitizerV1Status(LeagueClient& _client)
+  template<typename T>
+  inline Result<SanitizerSanitizerStatus> GetSanitizerV1Status(T& _client)
   {
     try {
       return ToResult<SanitizerSanitizerStatus>(_client.https.request("get", "/sanitizer/v1/status?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<SanitizerSanitizerStatus>(e.code());
     }
   }
-  inline void GetSanitizerV1Status(LeagueClient& _client, std::function<void(LeagueClient&, const Result<SanitizerSanitizerStatus>&)> cb)
+  template<typename T>
+  inline void GetSanitizerV1Status(T& _client, std::function<void(T&, const Result<SanitizerSanitizerStatus>&)> cb)
   {
     _client.httpsa.request("get", "/sanitizer/v1/status?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

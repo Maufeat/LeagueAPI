@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/PlayerLevelUpEvent.hpp"
 namespace lol {
-  inline Result<PlayerLevelUpEvent> GetLolPlayerLevelUpV1LevelUp(LeagueClient& _client)
+  template<typename T>
+  inline Result<PlayerLevelUpEvent> GetLolPlayerLevelUpV1LevelUp(T& _client)
   {
     try {
       return ToResult<PlayerLevelUpEvent>(_client.https.request("get", "/lol-player-level-up/v1/level-up?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<PlayerLevelUpEvent>(e.code());
     }
   }
-  inline void GetLolPlayerLevelUpV1LevelUp(LeagueClient& _client, std::function<void(LeagueClient&, const Result<PlayerLevelUpEvent>&)> cb)
+  template<typename T>
+  inline void GetLolPlayerLevelUpV1LevelUp(T& _client, std::function<void(T&, const Result<PlayerLevelUpEvent>&)> cb)
   {
     _client.httpsa.request("get", "/lol-player-level-up/v1/level-up?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

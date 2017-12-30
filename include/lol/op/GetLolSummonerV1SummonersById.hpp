@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolSummonerSummoner.hpp"
 namespace lol {
-  inline Result<LolSummonerSummoner> GetLolSummonerV1SummonersById(LeagueClient& _client, const uint64_t& id)
+  template<typename T>
+  inline Result<LolSummonerSummoner> GetLolSummonerV1SummonersById(T& _client, const uint64_t& id)
   {
     try {
       return ToResult<LolSummonerSummoner>(_client.https.request("get", "/lol-summoner/v1/summoners/"+to_string(id)+"?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolSummonerSummoner>(e.code());
     }
   }
-  inline void GetLolSummonerV1SummonersById(LeagueClient& _client, const uint64_t& id, std::function<void(LeagueClient&, const Result<LolSummonerSummoner>&)> cb)
+  template<typename T>
+  inline void GetLolSummonerV1SummonersById(T& _client, const uint64_t& id, std::function<void(T&, const Result<LolSummonerSummoner>&)> cb)
   {
     _client.httpsa.request("get", "/lol-summoner/v1/summoners/"+to_string(id)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

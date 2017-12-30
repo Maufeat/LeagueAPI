@@ -4,15 +4,15 @@
 #include "CollectionsLcdsSpellBookDTO.hpp"
 namespace lol {
   struct LolCollectionsSummonerData { 
-    CollectionsLcdsSpellBookDTO spellBook;
-    CollectionsLcdsMasteryBookDTO masteryBook; 
+    CollectionsLcdsMasteryBookDTO masteryBook;
+    CollectionsLcdsSpellBookDTO spellBook; 
   };
   inline void to_json(json& j, const LolCollectionsSummonerData& v) {
-    j["spellBook"] = v.spellBook; 
     j["masteryBook"] = v.masteryBook; 
+    j["spellBook"] = v.spellBook; 
   }
   inline void from_json(const json& j, LolCollectionsSummonerData& v) {
-    v.spellBook = j.at("spellBook").get<CollectionsLcdsSpellBookDTO>(); 
     v.masteryBook = j.at("masteryBook").get<CollectionsLcdsMasteryBookDTO>(); 
+    v.spellBook = j.at("spellBook").get<CollectionsLcdsSpellBookDTO>(); 
   }
 }

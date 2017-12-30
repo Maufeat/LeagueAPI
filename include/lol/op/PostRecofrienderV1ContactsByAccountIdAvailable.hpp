@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/RecofrienderContactStateResource.hpp"
 namespace lol {
-  inline Result<RecofrienderContactStateResource> PostRecofrienderV1ContactsByAccountIdAvailable(LeagueClient& _client, const uint64_t& accountId, const std::optional<bool>& retainInCache = std::nullopt)
+  template<typename T>
+  inline Result<RecofrienderContactStateResource> PostRecofrienderV1ContactsByAccountIdAvailable(T& _client, const uint64_t& accountId, const std::optional<bool>& retainInCache = std::nullopt)
   {
     try {
       return ToResult<RecofrienderContactStateResource>(_client.https.request("post", "/recofriender/v1/contacts/"+to_string(accountId)+"/available?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<RecofrienderContactStateResource>(e.code());
     }
   }
-  inline void PostRecofrienderV1ContactsByAccountIdAvailable(LeagueClient& _client, const uint64_t& accountId, const std::optional<bool>& retainInCache = std::nullopt, std::function<void(LeagueClient&, const Result<RecofrienderContactStateResource>&)> cb)
+  template<typename T>
+  inline void PostRecofrienderV1ContactsByAccountIdAvailable(T& _client, const uint64_t& accountId, const std::optional<bool>& retainInCache = std::nullopt, std::function<void(T&, const Result<RecofrienderContactStateResource>&)> cb)
   {
     _client.httpsa.request("post", "/recofriender/v1/contacts/"+to_string(accountId)+"/available?" +
       SimpleWeb::QueryString::create(Args2Headers({ 

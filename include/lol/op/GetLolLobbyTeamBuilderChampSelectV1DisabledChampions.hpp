@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolLobbyTeamBuilderChampSelectDisabledChampions.hpp"
 namespace lol {
-  inline Result<LolLobbyTeamBuilderChampSelectDisabledChampions> GetLolLobbyTeamBuilderChampSelectV1DisabledChampions(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolLobbyTeamBuilderChampSelectDisabledChampions> GetLolLobbyTeamBuilderChampSelectV1DisabledChampions(T& _client)
   {
     try {
       return ToResult<LolLobbyTeamBuilderChampSelectDisabledChampions>(_client.https.request("get", "/lol-lobby-team-builder/champ-select/v1/disabled-champions?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolLobbyTeamBuilderChampSelectDisabledChampions>(e.code());
     }
   }
-  inline void GetLolLobbyTeamBuilderChampSelectV1DisabledChampions(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolLobbyTeamBuilderChampSelectDisabledChampions>&)> cb)
+  template<typename T>
+  inline void GetLolLobbyTeamBuilderChampSelectV1DisabledChampions(T& _client, std::function<void(T&, const Result<LolLobbyTeamBuilderChampSelectDisabledChampions>&)> cb)
   {
     _client.httpsa.request("get", "/lol-lobby-team-builder/champ-select/v1/disabled-champions?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

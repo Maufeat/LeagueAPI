@@ -2,20 +2,22 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<std::nullptr_t> PutRiotclientRegionLocaleAck(LeagueClient& _client, const uint32_t& requestId)
+  template<typename T>
+  inline Result<Nothing> PutRiotclientRegionLocaleAck(T& _client, const uint32_t& requestId)
   {
     try {
-      return ToResult<std::nullptr_t>(_client.https.request("put", "/riotclient/region-locale/ack?" +
+      return ToResult<Nothing>(_client.https.request("put", "/riotclient/region-locale/ack?" +
         SimpleWeb::QueryString::create(Args2Headers({  })), 
         json(requestId).dump(),
         Args2Headers({
           {"content-type", "application/json"},
         {"Authorization", _client.auth},  })));
     } catch(const SimpleWeb::system_error &e) {
-      return ToResult<std::nullptr_t>(e.code());
+      return ToResult<Nothing>(e.code());
     }
   }
-  inline void PutRiotclientRegionLocaleAck(LeagueClient& _client, const uint32_t& requestId, std::function<void(LeagueClient&, const Result<std::nullptr_t>&)> cb)
+  template<typename T>
+  inline void PutRiotclientRegionLocaleAck(T& _client, const uint32_t& requestId, std::function<void(T&, const Result<Nothing>&)> cb)
   {
     _client.httpsa.request("put", "/riotclient/region-locale/ack?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 
@@ -24,9 +26,9 @@ namespace lol {
           {"content-type", "application/json"},
         {"Authorization", _client.auth},  }),[cb,&_client](std::shared_ptr<HttpsClient::Response> response, const SimpleWeb::error_code &e) {
             if(e)
-              cb(_client, ToResult<std::nullptr_t>(e));
+              cb(_client, ToResult<Nothing>(e));
             else
-              cb(_client, ToResult<std::nullptr_t>(response));
+              cb(_client, ToResult<Nothing>(response));
         });
   }
 }

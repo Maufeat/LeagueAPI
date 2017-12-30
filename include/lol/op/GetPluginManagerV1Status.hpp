@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/PluginManagerResource.hpp"
 namespace lol {
-  inline Result<PluginManagerResource> GetPluginManagerV1Status(LeagueClient& _client)
+  template<typename T>
+  inline Result<PluginManagerResource> GetPluginManagerV1Status(T& _client)
   {
     try {
       return ToResult<PluginManagerResource>(_client.https.request("get", "/plugin-manager/v1/status?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<PluginManagerResource>(e.code());
     }
   }
-  inline void GetPluginManagerV1Status(LeagueClient& _client, std::function<void(LeagueClient&, const Result<PluginManagerResource>&)> cb)
+  template<typename T>
+  inline void GetPluginManagerV1Status(T& _client, std::function<void(T&, const Result<PluginManagerResource>&)> cb)
   {
     _client.httpsa.request("get", "/plugin-manager/v1/status?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

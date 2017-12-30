@@ -2,21 +2,21 @@
 #include "../base_def.hpp" 
 namespace lol {
   struct LolReplaysReplayCreateMetadata { 
-    uint64_t gameEnd;
+    std::string gameVersion;
     int32_t queueId;
     std::string gameType;
-    std::string gameVersion; 
+    uint64_t gameEnd; 
   };
   inline void to_json(json& j, const LolReplaysReplayCreateMetadata& v) {
-    j["gameEnd"] = v.gameEnd; 
+    j["gameVersion"] = v.gameVersion; 
     j["queueId"] = v.queueId; 
     j["gameType"] = v.gameType; 
-    j["gameVersion"] = v.gameVersion; 
+    j["gameEnd"] = v.gameEnd; 
   }
   inline void from_json(const json& j, LolReplaysReplayCreateMetadata& v) {
-    v.gameEnd = j.at("gameEnd").get<uint64_t>(); 
+    v.gameVersion = j.at("gameVersion").get<std::string>(); 
     v.queueId = j.at("queueId").get<int32_t>(); 
     v.gameType = j.at("gameType").get<std::string>(); 
-    v.gameVersion = j.at("gameVersion").get<std::string>(); 
+    v.gameEnd = j.at("gameEnd").get<uint64_t>(); 
   }
 }

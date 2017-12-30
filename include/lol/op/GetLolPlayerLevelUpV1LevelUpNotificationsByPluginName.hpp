@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/PlayerLevelUpEventAck.hpp"
 namespace lol {
-  inline Result<PlayerLevelUpEventAck> GetLolPlayerLevelUpV1LevelUpNotificationsByPluginName(LeagueClient& _client, const std::string& pluginName)
+  template<typename T>
+  inline Result<PlayerLevelUpEventAck> GetLolPlayerLevelUpV1LevelUpNotificationsByPluginName(T& _client, const std::string& pluginName)
   {
     try {
       return ToResult<PlayerLevelUpEventAck>(_client.https.request("get", "/lol-player-level-up/v1/level-up-notifications/"+to_string(pluginName)+"?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<PlayerLevelUpEventAck>(e.code());
     }
   }
-  inline void GetLolPlayerLevelUpV1LevelUpNotificationsByPluginName(LeagueClient& _client, const std::string& pluginName, std::function<void(LeagueClient&, const Result<PlayerLevelUpEventAck>&)> cb)
+  template<typename T>
+  inline void GetLolPlayerLevelUpV1LevelUpNotificationsByPluginName(T& _client, const std::string& pluginName, std::function<void(T&, const Result<PlayerLevelUpEventAck>&)> cb)
   {
     _client.httpsa.request("get", "/lol-player-level-up/v1/level-up-notifications/"+to_string(pluginName)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

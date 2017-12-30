@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/ActiveBoosts.hpp"
 namespace lol {
-  inline Result<ActiveBoosts> GetLolActiveBoostsV1ActiveBoosts(LeagueClient& _client)
+  template<typename T>
+  inline Result<ActiveBoosts> GetLolActiveBoostsV1ActiveBoosts(T& _client)
   {
     try {
       return ToResult<ActiveBoosts>(_client.https.request("get", "/lol-active-boosts/v1/active-boosts?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<ActiveBoosts>(e.code());
     }
   }
-  inline void GetLolActiveBoostsV1ActiveBoosts(LeagueClient& _client, std::function<void(LeagueClient&, const Result<ActiveBoosts>&)> cb)
+  template<typename T>
+  inline void GetLolActiveBoostsV1ActiveBoosts(T& _client, std::function<void(T&, const Result<ActiveBoosts>&)> cb)
   {
     _client.httpsa.request("get", "/lol-active-boosts/v1/active-boosts?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

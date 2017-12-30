@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolEmailVerificationEmailUpdate.hpp"
 namespace lol {
-  inline Result<json> PutLolEmailVerificationV1Email(LeagueClient& _client, const LolEmailVerificationEmailUpdate& EmailUpdate)
+  template<typename T>
+  inline Result<json> PutLolEmailVerificationV1Email(T& _client, const LolEmailVerificationEmailUpdate& EmailUpdate)
   {
     try {
       return ToResult<json>(_client.https.request("put", "/lol-email-verification/v1/email?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PutLolEmailVerificationV1Email(LeagueClient& _client, const LolEmailVerificationEmailUpdate& EmailUpdate, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PutLolEmailVerificationV1Email(T& _client, const LolEmailVerificationEmailUpdate& EmailUpdate, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("put", "/lol-email-verification/v1/email?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

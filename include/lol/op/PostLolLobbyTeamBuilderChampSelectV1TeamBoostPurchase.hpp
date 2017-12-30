@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> PostLolLobbyTeamBuilderChampSelectV1TeamBoostPurchase(LeagueClient& _client)
+  template<typename T>
+  inline Result<json> PostLolLobbyTeamBuilderChampSelectV1TeamBoostPurchase(T& _client)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/lol-lobby-team-builder/champ-select/v1/team-boost/purchase?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PostLolLobbyTeamBuilderChampSelectV1TeamBoostPurchase(LeagueClient& _client, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PostLolLobbyTeamBuilderChampSelectV1TeamBoostPurchase(T& _client, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/lol-lobby-team-builder/champ-select/v1/team-boost/purchase?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

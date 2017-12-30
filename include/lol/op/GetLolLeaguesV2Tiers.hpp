@@ -4,7 +4,8 @@
 #include "../def/LolLeaguesParticipantTiers.hpp"
 #include "../def/LolLeaguesLeagueQueueType.hpp"
 namespace lol {
-  inline Result<std::vector<LolLeaguesParticipantTiers>> GetLolLeaguesV2Tiers(LeagueClient& _client, const std::vector<uint64_t>& summonerIds, const std::vector<LolLeaguesLeagueQueueType>& queueTypes)
+  template<typename T>
+  inline Result<std::vector<LolLeaguesParticipantTiers>> GetLolLeaguesV2Tiers(T& _client, const std::vector<uint64_t>& summonerIds, const std::vector<LolLeaguesLeagueQueueType>& queueTypes)
   {
     try {
       return ToResult<std::vector<LolLeaguesParticipantTiers>>(_client.https.request("get", "/lol-leagues/v2/tiers?" +
@@ -18,7 +19,8 @@ namespace lol {
       return ToResult<std::vector<LolLeaguesParticipantTiers>>(e.code());
     }
   }
-  inline void GetLolLeaguesV2Tiers(LeagueClient& _client, const std::vector<uint64_t>& summonerIds, const std::vector<LolLeaguesLeagueQueueType>& queueTypes, std::function<void(LeagueClient&, const Result<std::vector<LolLeaguesParticipantTiers>>&)> cb)
+  template<typename T>
+  inline void GetLolLeaguesV2Tiers(T& _client, const std::vector<uint64_t>& summonerIds, const std::vector<LolLeaguesLeagueQueueType>& queueTypes, std::function<void(T&, const Result<std::vector<LolLeaguesParticipantTiers>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-leagues/v2/tiers?" +
       SimpleWeb::QueryString::create(Args2Headers({ 

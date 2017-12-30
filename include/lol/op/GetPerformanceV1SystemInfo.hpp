@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> GetPerformanceV1SystemInfo(LeagueClient& _client, const std::optional<int32_t>& full = std::nullopt)
+  template<typename T>
+  inline Result<json> GetPerformanceV1SystemInfo(T& _client, const std::optional<int32_t>& full = std::nullopt)
   {
     try {
       return ToResult<json>(_client.https.request("get", "/performance/v1/system-info?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void GetPerformanceV1SystemInfo(LeagueClient& _client, const std::optional<int32_t>& full = std::nullopt, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void GetPerformanceV1SystemInfo(T& _client, const std::optional<int32_t>& full = std::nullopt, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("get", "/performance/v1/system-info?" +
       SimpleWeb::QueryString::create(Args2Headers({ 

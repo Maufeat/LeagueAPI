@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/RsoAuthRegionStatus.hpp"
 namespace lol {
-  inline Result<RsoAuthRegionStatus> GetRsoAuthV1StatusByPlatformId(LeagueClient& _client, const std::string& platformId)
+  template<typename T>
+  inline Result<RsoAuthRegionStatus> GetRsoAuthV1StatusByPlatformId(T& _client, const std::string& platformId)
   {
     try {
       return ToResult<RsoAuthRegionStatus>(_client.https.request("get", "/rso-auth/v1/status/"+to_string(platformId)+"?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<RsoAuthRegionStatus>(e.code());
     }
   }
-  inline void GetRsoAuthV1StatusByPlatformId(LeagueClient& _client, const std::string& platformId, std::function<void(LeagueClient&, const Result<RsoAuthRegionStatus>&)> cb)
+  template<typename T>
+  inline void GetRsoAuthV1StatusByPlatformId(T& _client, const std::string& platformId, std::function<void(T&, const Result<RsoAuthRegionStatus>&)> cb)
   {
     _client.httpsa.request("get", "/rso-auth/v1/status/"+to_string(platformId)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

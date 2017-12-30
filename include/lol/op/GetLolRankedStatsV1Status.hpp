@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolRankedStatsPluginStatus.hpp"
 namespace lol {
-  inline Result<LolRankedStatsPluginStatus> GetLolRankedStatsV1Status(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolRankedStatsPluginStatus> GetLolRankedStatsV1Status(T& _client)
   {
     try {
       return ToResult<LolRankedStatsPluginStatus>(_client.https.request("get", "/lol-ranked-stats/v1/status?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolRankedStatsPluginStatus>(e.code());
     }
   }
-  inline void GetLolRankedStatsV1Status(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolRankedStatsPluginStatus>&)> cb)
+  template<typename T>
+  inline void GetLolRankedStatsV1Status(T& _client, std::function<void(T&, const Result<LolRankedStatsPluginStatus>&)> cb)
   {
     _client.httpsa.request("get", "/lol-ranked-stats/v1/status?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

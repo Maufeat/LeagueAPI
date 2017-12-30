@@ -3,15 +3,15 @@
 #include "LeaguesLcdsAggregatedStats.hpp"
 namespace lol {
   struct LeaguesLcdsPlayerAggregatedStats { 
-    LeaguesLcdsAggregatedStats aggregatedStats;
-    uint64_t playerId; 
+    uint64_t playerId;
+    LeaguesLcdsAggregatedStats aggregatedStats; 
   };
   inline void to_json(json& j, const LeaguesLcdsPlayerAggregatedStats& v) {
-    j["aggregatedStats"] = v.aggregatedStats; 
     j["playerId"] = v.playerId; 
+    j["aggregatedStats"] = v.aggregatedStats; 
   }
   inline void from_json(const json& j, LeaguesLcdsPlayerAggregatedStats& v) {
-    v.aggregatedStats = j.at("aggregatedStats").get<LeaguesLcdsAggregatedStats>(); 
     v.playerId = j.at("playerId").get<uint64_t>(); 
+    v.aggregatedStats = j.at("aggregatedStats").get<LeaguesLcdsAggregatedStats>(); 
   }
 }

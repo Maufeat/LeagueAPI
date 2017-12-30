@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolCollectionsCollectionsSummonerIcons.hpp"
 namespace lol {
-  inline Result<LolCollectionsCollectionsSummonerIcons> GetLolCollectionsV1InventoriesBySummonerIdSummonerIcons(LeagueClient& _client, const uint64_t& summonerId)
+  template<typename T>
+  inline Result<LolCollectionsCollectionsSummonerIcons> GetLolCollectionsV1InventoriesBySummonerIdSummonerIcons(T& _client, const uint64_t& summonerId)
   {
     try {
       return ToResult<LolCollectionsCollectionsSummonerIcons>(_client.https.request("get", "/lol-collections/v1/inventories/"+to_string(summonerId)+"/summoner-icons?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolCollectionsCollectionsSummonerIcons>(e.code());
     }
   }
-  inline void GetLolCollectionsV1InventoriesBySummonerIdSummonerIcons(LeagueClient& _client, const uint64_t& summonerId, std::function<void(LeagueClient&, const Result<LolCollectionsCollectionsSummonerIcons>&)> cb)
+  template<typename T>
+  inline void GetLolCollectionsV1InventoriesBySummonerIdSummonerIcons(T& _client, const uint64_t& summonerId, std::function<void(T&, const Result<LolCollectionsCollectionsSummonerIcons>&)> cb)
   {
     _client.httpsa.request("get", "/lol-collections/v1/inventories/"+to_string(summonerId)+"/summoner-icons?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

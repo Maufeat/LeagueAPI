@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolClubsPublicClubsPublicData.hpp"
 namespace lol {
-  inline Result<std::vector<LolClubsPublicClubsPublicData>> GetLolClubsPublicV1ClubsPublic(LeagueClient& _client, const std::string& summonerNames)
+  template<typename T>
+  inline Result<std::vector<LolClubsPublicClubsPublicData>> GetLolClubsPublicV1ClubsPublic(T& _client, const std::string& summonerNames)
   {
     try {
       return ToResult<std::vector<LolClubsPublicClubsPublicData>>(_client.https.request("get", "/lol-clubs-public/v1/clubs/public?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<std::vector<LolClubsPublicClubsPublicData>>(e.code());
     }
   }
-  inline void GetLolClubsPublicV1ClubsPublic(LeagueClient& _client, const std::string& summonerNames, std::function<void(LeagueClient&, const Result<std::vector<LolClubsPublicClubsPublicData>>&)> cb)
+  template<typename T>
+  inline void GetLolClubsPublicV1ClubsPublic(T& _client, const std::string& summonerNames, std::function<void(T&, const Result<std::vector<LolClubsPublicClubsPublicData>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-clubs-public/v1/clubs/public?" +
       SimpleWeb::QueryString::create(Args2Headers({ 

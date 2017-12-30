@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/ClashEventData.hpp"
 namespace lol {
-  inline Result<ClashEventData> GetLolClashV1EventByUuid(LeagueClient& _client, const std::string& uuid)
+  template<typename T>
+  inline Result<ClashEventData> GetLolClashV1EventByUuid(T& _client, const std::string& uuid)
   {
     try {
       return ToResult<ClashEventData>(_client.https.request("get", "/lol-clash/v1/event/"+to_string(uuid)+"?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<ClashEventData>(e.code());
     }
   }
-  inline void GetLolClashV1EventByUuid(LeagueClient& _client, const std::string& uuid, std::function<void(LeagueClient&, const Result<ClashEventData>&)> cb)
+  template<typename T>
+  inline void GetLolClashV1EventByUuid(T& _client, const std::string& uuid, std::function<void(T&, const Result<ClashEventData>&)> cb)
   {
     _client.httpsa.request("get", "/lol-clash/v1/event/"+to_string(uuid)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

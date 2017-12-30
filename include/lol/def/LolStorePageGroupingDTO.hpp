@@ -3,18 +3,18 @@
 #include "LolStoreItemKey.hpp"
 namespace lol {
   struct LolStorePageGroupingDTO { 
-    std::vector<LolStoreItemKey> items;
+    bool grouped;
     bool hidden;
-    bool grouped; 
+    std::vector<LolStoreItemKey> items; 
   };
   inline void to_json(json& j, const LolStorePageGroupingDTO& v) {
-    j["items"] = v.items; 
-    j["hidden"] = v.hidden; 
     j["grouped"] = v.grouped; 
+    j["hidden"] = v.hidden; 
+    j["items"] = v.items; 
   }
   inline void from_json(const json& j, LolStorePageGroupingDTO& v) {
-    v.items = j.at("items").get<std::vector<LolStoreItemKey>>(); 
-    v.hidden = j.at("hidden").get<bool>(); 
     v.grouped = j.at("grouped").get<bool>(); 
+    v.hidden = j.at("hidden").get<bool>(); 
+    v.items = j.at("items").get<std::vector<LolStoreItemKey>>(); 
   }
 }

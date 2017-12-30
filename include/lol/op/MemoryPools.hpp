@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> MemoryPools(LeagueClient& _client, const std::optional<std::string>& contextName = std::nullopt)
+  template<typename T>
+  inline Result<json> MemoryPools(T& _client, const std::optional<std::string>& contextName = std::nullopt)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/MemoryPools?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void MemoryPools(LeagueClient& _client, const std::optional<std::string>& contextName = std::nullopt, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void MemoryPools(T& _client, const std::optional<std::string>& contextName = std::nullopt, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/MemoryPools?" +
       SimpleWeb::QueryString::create(Args2Headers({ 

@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> DeleteLolCollectionsV1InventoriesBySummonerIdMasteryBookPagesByPageId(LeagueClient& _client, const uint64_t& summonerId, const uint32_t& pageId)
+  template<typename T>
+  inline Result<json> DeleteLolCollectionsV1InventoriesBySummonerIdMasteryBookPagesByPageId(T& _client, const uint64_t& summonerId, const uint32_t& pageId)
   {
     try {
       return ToResult<json>(_client.https.request("delete", "/lol-collections/v1/inventories/"+to_string(summonerId)+"/mastery-book/pages/"+to_string(pageId)+"?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void DeleteLolCollectionsV1InventoriesBySummonerIdMasteryBookPagesByPageId(LeagueClient& _client, const uint64_t& summonerId, const uint32_t& pageId, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void DeleteLolCollectionsV1InventoriesBySummonerIdMasteryBookPagesByPageId(T& _client, const uint64_t& summonerId, const uint32_t& pageId, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("delete", "/lol-collections/v1/inventories/"+to_string(summonerId)+"/mastery-book/pages/"+to_string(pageId)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

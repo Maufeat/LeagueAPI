@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolLootRecipe.hpp"
 namespace lol {
-  inline Result<std::vector<LolLootRecipe>> PostLolLootV1RecipesInitialItemByLootId(LeagueClient& _client, const std::string& lootId)
+  template<typename T>
+  inline Result<std::vector<LolLootRecipe>> PostLolLootV1RecipesInitialItemByLootId(T& _client, const std::string& lootId)
   {
     try {
       return ToResult<std::vector<LolLootRecipe>>(_client.https.request("post", "/lol-loot/v1/recipes/initial-item/"+to_string(lootId)+"?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<LolLootRecipe>>(e.code());
     }
   }
-  inline void PostLolLootV1RecipesInitialItemByLootId(LeagueClient& _client, const std::string& lootId, std::function<void(LeagueClient&, const Result<std::vector<LolLootRecipe>>&)> cb)
+  template<typename T>
+  inline void PostLolLootV1RecipesInitialItemByLootId(T& _client, const std::string& lootId, std::function<void(T&, const Result<std::vector<LolLootRecipe>>&)> cb)
   {
     _client.httpsa.request("post", "/lol-loot/v1/recipes/initial-item/"+to_string(lootId)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

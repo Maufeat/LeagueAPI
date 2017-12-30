@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolCollectionsCollectionsWardSkin.hpp"
 namespace lol {
-  inline Result<std::vector<LolCollectionsCollectionsWardSkin>> GetLolCollectionsV1InventoriesBySummonerIdWardSkins(LeagueClient& _client, const uint64_t& summonerId)
+  template<typename T>
+  inline Result<std::vector<LolCollectionsCollectionsWardSkin>> GetLolCollectionsV1InventoriesBySummonerIdWardSkins(T& _client, const uint64_t& summonerId)
   {
     try {
       return ToResult<std::vector<LolCollectionsCollectionsWardSkin>>(_client.https.request("get", "/lol-collections/v1/inventories/"+to_string(summonerId)+"/ward-skins?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<LolCollectionsCollectionsWardSkin>>(e.code());
     }
   }
-  inline void GetLolCollectionsV1InventoriesBySummonerIdWardSkins(LeagueClient& _client, const uint64_t& summonerId, std::function<void(LeagueClient&, const Result<std::vector<LolCollectionsCollectionsWardSkin>>&)> cb)
+  template<typename T>
+  inline void GetLolCollectionsV1InventoriesBySummonerIdWardSkins(T& _client, const uint64_t& summonerId, std::function<void(T&, const Result<std::vector<LolCollectionsCollectionsWardSkin>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-collections/v1/inventories/"+to_string(summonerId)+"/ward-skins?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

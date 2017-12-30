@@ -3,24 +3,24 @@
 #include "BindingFullTypeIdentifier.hpp"
 namespace lol {
   struct BindingFullFieldHelp { 
+    std::string name;
     std::string description;
-    uint32_t offset;
-    bool optional;
     BindingFullTypeIdentifier type;
-    std::string name; 
+    uint32_t offset;
+    bool optional; 
   };
   inline void to_json(json& j, const BindingFullFieldHelp& v) {
+    j["name"] = v.name; 
     j["description"] = v.description; 
+    j["type"] = v.type; 
     j["offset"] = v.offset; 
     j["optional"] = v.optional; 
-    j["type"] = v.type; 
-    j["name"] = v.name; 
   }
   inline void from_json(const json& j, BindingFullFieldHelp& v) {
+    v.name = j.at("name").get<std::string>(); 
     v.description = j.at("description").get<std::string>(); 
+    v.type = j.at("type").get<BindingFullTypeIdentifier>(); 
     v.offset = j.at("offset").get<uint32_t>(); 
     v.optional = j.at("optional").get<bool>(); 
-    v.type = j.at("type").get<BindingFullTypeIdentifier>(); 
-    v.name = j.at("name").get<std::string>(); 
   }
 }

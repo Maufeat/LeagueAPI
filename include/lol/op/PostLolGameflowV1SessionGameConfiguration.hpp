@@ -3,20 +3,22 @@
 #include <functional> 
 #include "../def/LolGameflowQueue.hpp"
 namespace lol {
-  inline Result<std::nullptr_t> PostLolGameflowV1SessionGameConfiguration(LeagueClient& _client, const LolGameflowQueue& queue)
+  template<typename T>
+  inline Result<Nothing> PostLolGameflowV1SessionGameConfiguration(T& _client, const LolGameflowQueue& queue)
   {
     try {
-      return ToResult<std::nullptr_t>(_client.https.request("post", "/lol-gameflow/v1/session/game-configuration?" +
+      return ToResult<Nothing>(_client.https.request("post", "/lol-gameflow/v1/session/game-configuration?" +
         SimpleWeb::QueryString::create(Args2Headers({  })), 
         json(queue).dump(),
         Args2Headers({
           {"content-type", "application/json"},
         {"Authorization", _client.auth},  })));
     } catch(const SimpleWeb::system_error &e) {
-      return ToResult<std::nullptr_t>(e.code());
+      return ToResult<Nothing>(e.code());
     }
   }
-  inline void PostLolGameflowV1SessionGameConfiguration(LeagueClient& _client, const LolGameflowQueue& queue, std::function<void(LeagueClient&, const Result<std::nullptr_t>&)> cb)
+  template<typename T>
+  inline void PostLolGameflowV1SessionGameConfiguration(T& _client, const LolGameflowQueue& queue, std::function<void(T&, const Result<Nothing>&)> cb)
   {
     _client.httpsa.request("post", "/lol-gameflow/v1/session/game-configuration?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 
@@ -25,9 +27,9 @@ namespace lol {
           {"content-type", "application/json"},
         {"Authorization", _client.auth},  }),[cb,&_client](std::shared_ptr<HttpsClient::Response> response, const SimpleWeb::error_code &e) {
             if(e)
-              cb(_client, ToResult<std::nullptr_t>(e));
+              cb(_client, ToResult<Nothing>(e));
             else
-              cb(_client, ToResult<std::nullptr_t>(response));
+              cb(_client, ToResult<Nothing>(response));
         });
   }
 }

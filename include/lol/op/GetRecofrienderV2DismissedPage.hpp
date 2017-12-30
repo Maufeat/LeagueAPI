@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/RecofrienderContactPaginationResource.hpp"
 namespace lol {
-  inline Result<RecofrienderContactPaginationResource> GetRecofrienderV2DismissedPage(LeagueClient& _client, const uint64_t& start, const uint64_t& limit)
+  template<typename T>
+  inline Result<RecofrienderContactPaginationResource> GetRecofrienderV2DismissedPage(T& _client, const uint64_t& start, const uint64_t& limit)
   {
     try {
       return ToResult<RecofrienderContactPaginationResource>(_client.https.request("get", "/recofriender/v2/dismissed/page?" +
@@ -17,7 +18,8 @@ namespace lol {
       return ToResult<RecofrienderContactPaginationResource>(e.code());
     }
   }
-  inline void GetRecofrienderV2DismissedPage(LeagueClient& _client, const uint64_t& start, const uint64_t& limit, std::function<void(LeagueClient&, const Result<RecofrienderContactPaginationResource>&)> cb)
+  template<typename T>
+  inline void GetRecofrienderV2DismissedPage(T& _client, const uint64_t& start, const uint64_t& limit, std::function<void(T&, const Result<RecofrienderContactPaginationResource>&)> cb)
   {
     _client.httpsa.request("get", "/recofriender/v2/dismissed/page?" +
       SimpleWeb::QueryString::create(Args2Headers({ 

@@ -3,27 +3,27 @@
 #include "MissionRewardMediaDTO.hpp"
 namespace lol {
   struct PlayerMissionRewardDTO { 
-    std::string rewardType;
-    MissionRewardMediaDTO media;
-    std::string itemId;
-    std::string description;
     bool rewardFulfilled;
-    std::string iconUrl; 
+    MissionRewardMediaDTO media;
+    std::string description;
+    std::string rewardType;
+    std::string iconUrl;
+    std::string itemId; 
   };
   inline void to_json(json& j, const PlayerMissionRewardDTO& v) {
-    j["rewardType"] = v.rewardType; 
-    j["media"] = v.media; 
-    j["itemId"] = v.itemId; 
-    j["description"] = v.description; 
     j["rewardFulfilled"] = v.rewardFulfilled; 
+    j["media"] = v.media; 
+    j["description"] = v.description; 
+    j["rewardType"] = v.rewardType; 
     j["iconUrl"] = v.iconUrl; 
+    j["itemId"] = v.itemId; 
   }
   inline void from_json(const json& j, PlayerMissionRewardDTO& v) {
-    v.rewardType = j.at("rewardType").get<std::string>(); 
-    v.media = j.at("media").get<MissionRewardMediaDTO>(); 
-    v.itemId = j.at("itemId").get<std::string>(); 
-    v.description = j.at("description").get<std::string>(); 
     v.rewardFulfilled = j.at("rewardFulfilled").get<bool>(); 
+    v.media = j.at("media").get<MissionRewardMediaDTO>(); 
+    v.description = j.at("description").get<std::string>(); 
+    v.rewardType = j.at("rewardType").get<std::string>(); 
     v.iconUrl = j.at("iconUrl").get<std::string>(); 
+    v.itemId = j.at("itemId").get<std::string>(); 
   }
 }

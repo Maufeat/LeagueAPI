@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolInventoryInventoryItem.hpp"
 namespace lol {
-  inline Result<std::vector<LolInventoryInventoryItem>> GetLolInventoryV1InventoryEmotes(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::vector<LolInventoryInventoryItem>> GetLolInventoryV1InventoryEmotes(T& _client)
   {
     try {
       return ToResult<std::vector<LolInventoryInventoryItem>>(_client.https.request("get", "/lol-inventory/v1/inventory/emotes?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<LolInventoryInventoryItem>>(e.code());
     }
   }
-  inline void GetLolInventoryV1InventoryEmotes(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::vector<LolInventoryInventoryItem>>&)> cb)
+  template<typename T>
+  inline void GetLolInventoryV1InventoryEmotes(T& _client, std::function<void(T&, const Result<std::vector<LolInventoryInventoryItem>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-inventory/v1/inventory/emotes?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

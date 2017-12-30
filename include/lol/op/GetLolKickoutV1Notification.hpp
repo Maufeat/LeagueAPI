@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/KickoutMessage.hpp"
 namespace lol {
-  inline Result<KickoutMessage> GetLolKickoutV1Notification(LeagueClient& _client)
+  template<typename T>
+  inline Result<KickoutMessage> GetLolKickoutV1Notification(T& _client)
   {
     try {
       return ToResult<KickoutMessage>(_client.https.request("get", "/lol-kickout/v1/notification?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<KickoutMessage>(e.code());
     }
   }
-  inline void GetLolKickoutV1Notification(LeagueClient& _client, std::function<void(LeagueClient&, const Result<KickoutMessage>&)> cb)
+  template<typename T>
+  inline void GetLolKickoutV1Notification(T& _client, std::function<void(T&, const Result<KickoutMessage>&)> cb)
   {
     _client.httpsa.request("get", "/lol-kickout/v1/notification?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

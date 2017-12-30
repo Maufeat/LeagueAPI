@@ -1,21 +1,21 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LolEndOfGameSimpleMessage.hpp"
 #include "LolEndOfGameLoginSummonerData.hpp"
+#include "LolEndOfGameSimpleMessage.hpp"
 namespace lol {
   struct LolEndOfGameLoginDataPacket { 
-    LolEndOfGameLoginSummonerData allSummonerData;
+    std::string platformId;
     std::vector<LolEndOfGameSimpleMessage> simpleMessages;
-    std::string platformId; 
+    LolEndOfGameLoginSummonerData allSummonerData; 
   };
   inline void to_json(json& j, const LolEndOfGameLoginDataPacket& v) {
-    j["allSummonerData"] = v.allSummonerData; 
-    j["simpleMessages"] = v.simpleMessages; 
     j["platformId"] = v.platformId; 
+    j["simpleMessages"] = v.simpleMessages; 
+    j["allSummonerData"] = v.allSummonerData; 
   }
   inline void from_json(const json& j, LolEndOfGameLoginDataPacket& v) {
-    v.allSummonerData = j.at("allSummonerData").get<LolEndOfGameLoginSummonerData>(); 
-    v.simpleMessages = j.at("simpleMessages").get<std::vector<LolEndOfGameSimpleMessage>>(); 
     v.platformId = j.at("platformId").get<std::string>(); 
+    v.simpleMessages = j.at("simpleMessages").get<std::vector<LolEndOfGameSimpleMessage>>(); 
+    v.allSummonerData = j.at("allSummonerData").get<LolEndOfGameLoginSummonerData>(); 
   }
 }

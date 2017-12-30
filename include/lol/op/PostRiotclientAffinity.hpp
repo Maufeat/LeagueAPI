@@ -2,20 +2,22 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<std::nullptr_t> PostRiotclientAffinity(LeagueClient& _client, const std::string& newAffinity)
+  template<typename T>
+  inline Result<Nothing> PostRiotclientAffinity(T& _client, const std::string& newAffinity)
   {
     try {
-      return ToResult<std::nullptr_t>(_client.https.request("post", "/riotclient/affinity?" +
+      return ToResult<Nothing>(_client.https.request("post", "/riotclient/affinity?" +
         SimpleWeb::QueryString::create(Args2Headers({ 
           { "newAffinity", to_string(newAffinity) }, })), 
         "",
         Args2Headers({  
         {"Authorization", _client.auth},  })));
     } catch(const SimpleWeb::system_error &e) {
-      return ToResult<std::nullptr_t>(e.code());
+      return ToResult<Nothing>(e.code());
     }
   }
-  inline void PostRiotclientAffinity(LeagueClient& _client, const std::string& newAffinity, std::function<void(LeagueClient&, const Result<std::nullptr_t>&)> cb)
+  template<typename T>
+  inline void PostRiotclientAffinity(T& _client, const std::string& newAffinity, std::function<void(T&, const Result<Nothing>&)> cb)
   {
     _client.httpsa.request("post", "/riotclient/affinity?" +
       SimpleWeb::QueryString::create(Args2Headers({ 
@@ -24,9 +26,9 @@ namespace lol {
         Args2Headers({  
         {"Authorization", _client.auth},  }),[cb,&_client](std::shared_ptr<HttpsClient::Response> response, const SimpleWeb::error_code &e) {
             if(e)
-              cb(_client, ToResult<std::nullptr_t>(e));
+              cb(_client, ToResult<Nothing>(e));
             else
-              cb(_client, ToResult<std::nullptr_t>(response));
+              cb(_client, ToResult<Nothing>(response));
         });
   }
 }

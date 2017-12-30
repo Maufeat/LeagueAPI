@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/PlayerNotificationResource.hpp"
 namespace lol {
-  inline Result<PlayerNotificationResource> PostPlayerNotificationsV1Notifications(LeagueClient& _client, const PlayerNotificationResource& notification)
+  template<typename T>
+  inline Result<PlayerNotificationResource> PostPlayerNotificationsV1Notifications(T& _client, const PlayerNotificationResource& notification)
   {
     try {
       return ToResult<PlayerNotificationResource>(_client.https.request("post", "/player-notifications/v1/notifications?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<PlayerNotificationResource>(e.code());
     }
   }
-  inline void PostPlayerNotificationsV1Notifications(LeagueClient& _client, const PlayerNotificationResource& notification, std::function<void(LeagueClient&, const Result<PlayerNotificationResource>&)> cb)
+  template<typename T>
+  inline void PostPlayerNotificationsV1Notifications(T& _client, const PlayerNotificationResource& notification, std::function<void(T&, const Result<PlayerNotificationResource>&)> cb)
   {
     _client.httpsa.request("post", "/player-notifications/v1/notifications?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

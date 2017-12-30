@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolLobbyTeamBuilderChampSelectPickableSkins.hpp"
 namespace lol {
-  inline Result<LolLobbyTeamBuilderChampSelectPickableSkins> GetLolLobbyTeamBuilderChampSelectV1PickableSkins(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolLobbyTeamBuilderChampSelectPickableSkins> GetLolLobbyTeamBuilderChampSelectV1PickableSkins(T& _client)
   {
     try {
       return ToResult<LolLobbyTeamBuilderChampSelectPickableSkins>(_client.https.request("get", "/lol-lobby-team-builder/champ-select/v1/pickable-skins?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolLobbyTeamBuilderChampSelectPickableSkins>(e.code());
     }
   }
-  inline void GetLolLobbyTeamBuilderChampSelectV1PickableSkins(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolLobbyTeamBuilderChampSelectPickableSkins>&)> cb)
+  template<typename T>
+  inline void GetLolLobbyTeamBuilderChampSelectV1PickableSkins(T& _client, std::function<void(T&, const Result<LolLobbyTeamBuilderChampSelectPickableSkins>&)> cb)
   {
     _client.httpsa.request("get", "/lol-lobby-team-builder/champ-select/v1/pickable-skins?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

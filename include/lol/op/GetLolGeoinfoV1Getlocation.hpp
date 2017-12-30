@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolGeoinfoGeoInfo.hpp"
 namespace lol {
-  inline Result<LolGeoinfoGeoInfo> GetLolGeoinfoV1Getlocation(LeagueClient& _client, const std::string& ip_address)
+  template<typename T>
+  inline Result<LolGeoinfoGeoInfo> GetLolGeoinfoV1Getlocation(T& _client, const std::string& ip_address)
   {
     try {
       return ToResult<LolGeoinfoGeoInfo>(_client.https.request("get", "/lol-geoinfo/v1/getlocation?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<LolGeoinfoGeoInfo>(e.code());
     }
   }
-  inline void GetLolGeoinfoV1Getlocation(LeagueClient& _client, const std::string& ip_address, std::function<void(LeagueClient&, const Result<LolGeoinfoGeoInfo>&)> cb)
+  template<typename T>
+  inline void GetLolGeoinfoV1Getlocation(T& _client, const std::string& ip_address, std::function<void(T&, const Result<LolGeoinfoGeoInfo>&)> cb)
   {
     _client.httpsa.request("get", "/lol-geoinfo/v1/getlocation?" +
       SimpleWeb::QueryString::create(Args2Headers({ 

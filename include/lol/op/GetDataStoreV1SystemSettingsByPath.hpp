@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> GetDataStoreV1SystemSettingsByPath(LeagueClient& _client, const std::string& path)
+  template<typename T>
+  inline Result<json> GetDataStoreV1SystemSettingsByPath(T& _client, const std::string& path)
   {
     try {
       return ToResult<json>(_client.https.request("get", "/data-store/v1/system-settings/"+to_string(path)+"?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void GetDataStoreV1SystemSettingsByPath(LeagueClient& _client, const std::string& path, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void GetDataStoreV1SystemSettingsByPath(T& _client, const std::string& path, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("get", "/data-store/v1/system-settings/"+to_string(path)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolPersonalizedOffersUIOffer.hpp"
 namespace lol {
-  inline Result<std::vector<LolPersonalizedOffersUIOffer>> PostLolPersonalizedOffersV1OffersByIdReveal(LeagueClient& _client, const std::string& id)
+  template<typename T>
+  inline Result<std::vector<LolPersonalizedOffersUIOffer>> PostLolPersonalizedOffersV1OffersByIdReveal(T& _client, const std::string& id)
   {
     try {
       return ToResult<std::vector<LolPersonalizedOffersUIOffer>>(_client.https.request("post", "/lol-personalized-offers/v1/offers/"+to_string(id)+"/reveal?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<LolPersonalizedOffersUIOffer>>(e.code());
     }
   }
-  inline void PostLolPersonalizedOffersV1OffersByIdReveal(LeagueClient& _client, const std::string& id, std::function<void(LeagueClient&, const Result<std::vector<LolPersonalizedOffersUIOffer>>&)> cb)
+  template<typename T>
+  inline void PostLolPersonalizedOffersV1OffersByIdReveal(T& _client, const std::string& id, std::function<void(T&, const Result<std::vector<LolPersonalizedOffersUIOffer>>&)> cb)
   {
     _client.httpsa.request("post", "/lol-personalized-offers/v1/offers/"+to_string(id)+"/reveal?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

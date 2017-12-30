@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolClashBracket.hpp"
 namespace lol {
-  inline Result<LolClashBracket> GetLolClashV1TournamentByTournamentIdBracketByBracketId(LeagueClient& _client, const int64_t& tournamentId, const int64_t& bracketId)
+  template<typename T>
+  inline Result<LolClashBracket> GetLolClashV1TournamentByTournamentIdBracketByBracketId(T& _client, const int64_t& tournamentId, const int64_t& bracketId)
   {
     try {
       return ToResult<LolClashBracket>(_client.https.request("get", "/lol-clash/v1/tournament/"+to_string(tournamentId)+"/bracket/"+to_string(bracketId)+"?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolClashBracket>(e.code());
     }
   }
-  inline void GetLolClashV1TournamentByTournamentIdBracketByBracketId(LeagueClient& _client, const int64_t& tournamentId, const int64_t& bracketId, std::function<void(LeagueClient&, const Result<LolClashBracket>&)> cb)
+  template<typename T>
+  inline void GetLolClashV1TournamentByTournamentIdBracketByBracketId(T& _client, const int64_t& tournamentId, const int64_t& bracketId, std::function<void(T&, const Result<LolClashBracket>&)> cb)
   {
     _client.httpsa.request("get", "/lol-clash/v1/tournament/"+to_string(tournamentId)+"/bracket/"+to_string(bracketId)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

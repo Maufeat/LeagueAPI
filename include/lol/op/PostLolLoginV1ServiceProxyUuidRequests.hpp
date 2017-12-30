@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<std::string> PostLolLoginV1ServiceProxyUuidRequests(LeagueClient& _client, const std::string& serviceName, const std::string& methodName, const uint32_t& pluginId, const std::string& payload)
+  template<typename T>
+  inline Result<std::string> PostLolLoginV1ServiceProxyUuidRequests(T& _client, const std::string& serviceName, const std::string& methodName, const uint32_t& pluginId, const std::string& payload)
   {
     try {
       return ToResult<std::string>(_client.https.request("post", "/lol-login/v1/service-proxy-uuid-requests?" +
@@ -18,7 +19,8 @@ namespace lol {
       return ToResult<std::string>(e.code());
     }
   }
-  inline void PostLolLoginV1ServiceProxyUuidRequests(LeagueClient& _client, const std::string& serviceName, const std::string& methodName, const uint32_t& pluginId, const std::string& payload, std::function<void(LeagueClient&, const Result<std::string>&)> cb)
+  template<typename T>
+  inline void PostLolLoginV1ServiceProxyUuidRequests(T& _client, const std::string& serviceName, const std::string& methodName, const uint32_t& pluginId, const std::string& payload, std::function<void(T&, const Result<std::string>&)> cb)
   {
     _client.httpsa.request("post", "/lol-login/v1/service-proxy-uuid-requests?" +
       SimpleWeb::QueryString::create(Args2Headers({ 

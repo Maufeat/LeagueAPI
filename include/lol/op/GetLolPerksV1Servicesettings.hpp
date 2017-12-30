@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolPerksServiceSettings.hpp"
 namespace lol {
-  inline Result<LolPerksServiceSettings> GetLolPerksV1Servicesettings(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolPerksServiceSettings> GetLolPerksV1Servicesettings(T& _client)
   {
     try {
       return ToResult<LolPerksServiceSettings>(_client.https.request("get", "/lol-perks/v1/servicesettings?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolPerksServiceSettings>(e.code());
     }
   }
-  inline void GetLolPerksV1Servicesettings(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolPerksServiceSettings>&)> cb)
+  template<typename T>
+  inline void GetLolPerksV1Servicesettings(T& _client, std::function<void(T&, const Result<LolPerksServiceSettings>&)> cb)
   {
     _client.httpsa.request("get", "/lol-perks/v1/servicesettings?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/PlaytimeReminder.hpp"
 namespace lol {
-  inline Result<PlaytimeReminder> GetLolKrPlaytimeReminderV1Playtime(LeagueClient& _client)
+  template<typename T>
+  inline Result<PlaytimeReminder> GetLolKrPlaytimeReminderV1Playtime(T& _client)
   {
     try {
       return ToResult<PlaytimeReminder>(_client.https.request("get", "/lol-kr-playtime-reminder/v1/playtime?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<PlaytimeReminder>(e.code());
     }
   }
-  inline void GetLolKrPlaytimeReminderV1Playtime(LeagueClient& _client, std::function<void(LeagueClient&, const Result<PlaytimeReminder>&)> cb)
+  template<typename T>
+  inline void GetLolKrPlaytimeReminderV1Playtime(T& _client, std::function<void(T&, const Result<PlaytimeReminder>&)> cb)
   {
     _client.httpsa.request("get", "/lol-kr-playtime-reminder/v1/playtime?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/ShutdownNotification.hpp"
 namespace lol {
-  inline Result<ShutdownNotification> GetLolShutdownV1Notification(LeagueClient& _client)
+  template<typename T>
+  inline Result<ShutdownNotification> GetLolShutdownV1Notification(T& _client)
   {
     try {
       return ToResult<ShutdownNotification>(_client.https.request("get", "/lol-shutdown/v1/notification?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<ShutdownNotification>(e.code());
     }
   }
-  inline void GetLolShutdownV1Notification(LeagueClient& _client, std::function<void(LeagueClient&, const Result<ShutdownNotification>&)> cb)
+  template<typename T>
+  inline void GetLolShutdownV1Notification(T& _client, std::function<void(T&, const Result<ShutdownNotification>&)> cb)
   {
     _client.httpsa.request("get", "/lol-shutdown/v1/notification?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolLootPlayerLoot.hpp"
 namespace lol {
-  inline Result<LolLootPlayerLoot> GetLolLootV1PlayerLootByLootId(LeagueClient& _client, const std::string& lootId)
+  template<typename T>
+  inline Result<LolLootPlayerLoot> GetLolLootV1PlayerLootByLootId(T& _client, const std::string& lootId)
   {
     try {
       return ToResult<LolLootPlayerLoot>(_client.https.request("get", "/lol-loot/v1/player-loot/"+to_string(lootId)+"?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolLootPlayerLoot>(e.code());
     }
   }
-  inline void GetLolLootV1PlayerLootByLootId(LeagueClient& _client, const std::string& lootId, std::function<void(LeagueClient&, const Result<LolLootPlayerLoot>&)> cb)
+  template<typename T>
+  inline void GetLolLootV1PlayerLootByLootId(T& _client, const std::string& lootId, std::function<void(T&, const Result<LolLootPlayerLoot>&)> cb)
   {
     _client.httpsa.request("get", "/lol-loot/v1/player-loot/"+to_string(lootId)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolMatchmakingMatchmakingReadyCheckResource.hpp"
 namespace lol {
-  inline Result<LolMatchmakingMatchmakingReadyCheckResource> GetLolMatchmakingV1ReadyCheck(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolMatchmakingMatchmakingReadyCheckResource> GetLolMatchmakingV1ReadyCheck(T& _client)
   {
     try {
       return ToResult<LolMatchmakingMatchmakingReadyCheckResource>(_client.https.request("get", "/lol-matchmaking/v1/ready-check?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolMatchmakingMatchmakingReadyCheckResource>(e.code());
     }
   }
-  inline void GetLolMatchmakingV1ReadyCheck(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolMatchmakingMatchmakingReadyCheckResource>&)> cb)
+  template<typename T>
+  inline void GetLolMatchmakingV1ReadyCheck(T& _client, std::function<void(T&, const Result<LolMatchmakingMatchmakingReadyCheckResource>&)> cb)
   {
     _client.httpsa.request("get", "/lol-matchmaking/v1/ready-check?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

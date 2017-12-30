@@ -1,34 +1,34 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LcdsInvitationState.hpp"
 #include "LcdsPlayer.hpp"
+#include "LcdsInvitationState.hpp"
 #include "LcdsInviter.hpp"
 namespace lol {
   struct LcdsInvitationRequest { 
-    LcdsInvitationState invitationState;
-    LcdsInviter inviter;
     std::string invitationId;
-    std::string gameMetaData;
+    LcdsInvitationState invitationState;
     std::string inviteType;
-    std::string invitePayload;
-    LcdsPlayer owner; 
+    LcdsInviter inviter;
+    LcdsPlayer owner;
+    std::string gameMetaData;
+    std::string invitePayload; 
   };
   inline void to_json(json& j, const LcdsInvitationRequest& v) {
-    j["invitationState"] = v.invitationState; 
-    j["inviter"] = v.inviter; 
     j["invitationId"] = v.invitationId; 
-    j["gameMetaData"] = v.gameMetaData; 
+    j["invitationState"] = v.invitationState; 
     j["inviteType"] = v.inviteType; 
-    j["invitePayload"] = v.invitePayload; 
+    j["inviter"] = v.inviter; 
     j["owner"] = v.owner; 
+    j["gameMetaData"] = v.gameMetaData; 
+    j["invitePayload"] = v.invitePayload; 
   }
   inline void from_json(const json& j, LcdsInvitationRequest& v) {
-    v.invitationState = j.at("invitationState").get<LcdsInvitationState>(); 
-    v.inviter = j.at("inviter").get<LcdsInviter>(); 
     v.invitationId = j.at("invitationId").get<std::string>(); 
-    v.gameMetaData = j.at("gameMetaData").get<std::string>(); 
+    v.invitationState = j.at("invitationState").get<LcdsInvitationState>(); 
     v.inviteType = j.at("inviteType").get<std::string>(); 
-    v.invitePayload = j.at("invitePayload").get<std::string>(); 
+    v.inviter = j.at("inviter").get<LcdsInviter>(); 
     v.owner = j.at("owner").get<LcdsPlayer>(); 
+    v.gameMetaData = j.at("gameMetaData").get<std::string>(); 
+    v.invitePayload = j.at("invitePayload").get<std::string>(); 
   }
 }

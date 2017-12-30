@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> GetLolStoreV1PaymentDetails(LeagueClient& _client, const std::string& action, const std::optional<uint64_t>& giftRecipientAccountId = std::nullopt, const std::optional<std::string>& giftMessage = std::nullopt)
+  template<typename T>
+  inline Result<json> GetLolStoreV1PaymentDetails(T& _client, const std::string& action, const std::optional<uint64_t>& giftRecipientAccountId = std::nullopt, const std::optional<std::string>& giftMessage = std::nullopt)
   {
     try {
       return ToResult<json>(_client.https.request("get", "/lol-store/v1/paymentDetails?" +
@@ -17,7 +18,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void GetLolStoreV1PaymentDetails(LeagueClient& _client, const std::string& action, const std::optional<uint64_t>& giftRecipientAccountId = std::nullopt, const std::optional<std::string>& giftMessage = std::nullopt, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void GetLolStoreV1PaymentDetails(T& _client, const std::string& action, const std::optional<uint64_t>& giftRecipientAccountId = std::nullopt, const std::optional<std::string>& giftMessage = std::nullopt, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("get", "/lol-store/v1/paymentDetails?" +
       SimpleWeb::QueryString::create(Args2Headers({ 

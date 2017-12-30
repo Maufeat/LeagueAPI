@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolEndOfGameEndOfGamePlayerComplaintV2.hpp"
 namespace lol {
-  inline Result<LolEndOfGameEndOfGamePlayerComplaintV2> PostLolEndOfGameV2PlayerComplaints(LeagueClient& _client, const LolEndOfGameEndOfGamePlayerComplaintV2& complaint)
+  template<typename T>
+  inline Result<LolEndOfGameEndOfGamePlayerComplaintV2> PostLolEndOfGameV2PlayerComplaints(T& _client, const LolEndOfGameEndOfGamePlayerComplaintV2& complaint)
   {
     try {
       return ToResult<LolEndOfGameEndOfGamePlayerComplaintV2>(_client.https.request("post", "/lol-end-of-game/v2/player-complaints?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<LolEndOfGameEndOfGamePlayerComplaintV2>(e.code());
     }
   }
-  inline void PostLolEndOfGameV2PlayerComplaints(LeagueClient& _client, const LolEndOfGameEndOfGamePlayerComplaintV2& complaint, std::function<void(LeagueClient&, const Result<LolEndOfGameEndOfGamePlayerComplaintV2>&)> cb)
+  template<typename T>
+  inline void PostLolEndOfGameV2PlayerComplaints(T& _client, const LolEndOfGameEndOfGamePlayerComplaintV2& complaint, std::function<void(T&, const Result<LolEndOfGameEndOfGamePlayerComplaintV2>&)> cb)
   {
     _client.httpsa.request("post", "/lol-end-of-game/v2/player-complaints?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

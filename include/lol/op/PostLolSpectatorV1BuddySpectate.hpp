@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/SummonerOrTeamAvailabilty.hpp"
 namespace lol {
-  inline Result<SummonerOrTeamAvailabilty> PostLolSpectatorV1BuddySpectate(LeagueClient& _client, const std::vector<std::string>& summonerOrTeamNames)
+  template<typename T>
+  inline Result<SummonerOrTeamAvailabilty> PostLolSpectatorV1BuddySpectate(T& _client, const std::vector<std::string>& summonerOrTeamNames)
   {
     try {
       return ToResult<SummonerOrTeamAvailabilty>(_client.https.request("post", "/lol-spectator/v1/buddy/spectate?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<SummonerOrTeamAvailabilty>(e.code());
     }
   }
-  inline void PostLolSpectatorV1BuddySpectate(LeagueClient& _client, const std::vector<std::string>& summonerOrTeamNames, std::function<void(LeagueClient&, const Result<SummonerOrTeamAvailabilty>&)> cb)
+  template<typename T>
+  inline void PostLolSpectatorV1BuddySpectate(T& _client, const std::vector<std::string>& summonerOrTeamNames, std::function<void(T&, const Result<SummonerOrTeamAvailabilty>&)> cb)
   {
     _client.httpsa.request("post", "/lol-spectator/v1/buddy/spectate?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

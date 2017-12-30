@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/PlayerNotificationConfigResource.hpp"
 namespace lol {
-  inline Result<PlayerNotificationConfigResource> GetPlayerNotificationsV1Config(LeagueClient& _client)
+  template<typename T>
+  inline Result<PlayerNotificationConfigResource> GetPlayerNotificationsV1Config(T& _client)
   {
     try {
       return ToResult<PlayerNotificationConfigResource>(_client.https.request("get", "/player-notifications/v1/config?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<PlayerNotificationConfigResource>(e.code());
     }
   }
-  inline void GetPlayerNotificationsV1Config(LeagueClient& _client, std::function<void(LeagueClient&, const Result<PlayerNotificationConfigResource>&)> cb)
+  template<typename T>
+  inline void GetPlayerNotificationsV1Config(T& _client, std::function<void(T&, const Result<PlayerNotificationConfigResource>&)> cb)
   {
     _client.httpsa.request("get", "/player-notifications/v1/config?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

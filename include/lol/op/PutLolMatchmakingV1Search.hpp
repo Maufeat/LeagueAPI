@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolMatchmakingMatchmakingSearchResource.hpp"
 namespace lol {
-  inline Result<json> PutLolMatchmakingV1Search(LeagueClient& _client, const LolMatchmakingMatchmakingSearchResource& search)
+  template<typename T>
+  inline Result<json> PutLolMatchmakingV1Search(T& _client, const LolMatchmakingMatchmakingSearchResource& search)
   {
     try {
       return ToResult<json>(_client.https.request("put", "/lol-matchmaking/v1/search?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PutLolMatchmakingV1Search(LeagueClient& _client, const LolMatchmakingMatchmakingSearchResource& search, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PutLolMatchmakingV1Search(T& _client, const LolMatchmakingMatchmakingSearchResource& search, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("put", "/lol-matchmaking/v1/search?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

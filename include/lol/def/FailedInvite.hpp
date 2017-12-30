@@ -3,15 +3,15 @@
 #include "ClientRequestError.hpp"
 namespace lol {
   struct FailedInvite { 
-    ClientRequestError exception;
-    uint64_t playerId; 
+    uint64_t playerId;
+    ClientRequestError exception; 
   };
   inline void to_json(json& j, const FailedInvite& v) {
-    j["exception"] = v.exception; 
     j["playerId"] = v.playerId; 
+    j["exception"] = v.exception; 
   }
   inline void from_json(const json& j, FailedInvite& v) {
-    v.exception = j.at("exception").get<ClientRequestError>(); 
     v.playerId = j.at("playerId").get<uint64_t>(); 
+    v.exception = j.at("exception").get<ClientRequestError>(); 
   }
 }

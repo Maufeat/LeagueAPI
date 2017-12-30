@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolPerksUISettings.hpp"
 namespace lol {
-  inline Result<json> PutLolPerksV1Settings(LeagueClient& _client, const LolPerksUISettings& showLongDescriptions)
+  template<typename T>
+  inline Result<json> PutLolPerksV1Settings(T& _client, const LolPerksUISettings& showLongDescriptions)
   {
     try {
       return ToResult<json>(_client.https.request("put", "/lol-perks/v1/settings?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PutLolPerksV1Settings(LeagueClient& _client, const LolPerksUISettings& showLongDescriptions, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PutLolPerksV1Settings(T& _client, const LolPerksUISettings& showLongDescriptions, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("put", "/lol-perks/v1/settings?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolReplaysReplayMetadata.hpp"
 namespace lol {
-  inline Result<LolReplaysReplayMetadata> GetLolReplaysV1MetadataByGameId(LeagueClient& _client, const uint64_t& gameId)
+  template<typename T>
+  inline Result<LolReplaysReplayMetadata> GetLolReplaysV1MetadataByGameId(T& _client, const uint64_t& gameId)
   {
     try {
       return ToResult<LolReplaysReplayMetadata>(_client.https.request("get", "/lol-replays/v1/metadata/"+to_string(gameId)+"?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolReplaysReplayMetadata>(e.code());
     }
   }
-  inline void GetLolReplaysV1MetadataByGameId(LeagueClient& _client, const uint64_t& gameId, std::function<void(LeagueClient&, const Result<LolReplaysReplayMetadata>&)> cb)
+  template<typename T>
+  inline void GetLolReplaysV1MetadataByGameId(T& _client, const uint64_t& gameId, std::function<void(T&, const Result<LolReplaysReplayMetadata>&)> cb)
   {
     _client.httpsa.request("get", "/lol-replays/v1/metadata/"+to_string(gameId)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

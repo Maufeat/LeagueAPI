@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<std::vector<std::string>> GetRiotclientCommandLineArgs(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::vector<std::string>> GetRiotclientCommandLineArgs(T& _client)
   {
     try {
       return ToResult<std::vector<std::string>>(_client.https.request("get", "/riotclient/command-line-args?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<std::vector<std::string>>(e.code());
     }
   }
-  inline void GetRiotclientCommandLineArgs(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::vector<std::string>>&)> cb)
+  template<typename T>
+  inline void GetRiotclientCommandLineArgs(T& _client, std::function<void(T&, const Result<std::vector<std::string>>&)> cb)
   {
     _client.httpsa.request("get", "/riotclient/command-line-args?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

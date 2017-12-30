@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<double> GetRiotclientZoomScale(LeagueClient& _client)
+  template<typename T>
+  inline Result<double> GetRiotclientZoomScale(T& _client)
   {
     try {
       return ToResult<double>(_client.https.request("get", "/riotclient/zoom-scale?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<double>(e.code());
     }
   }
-  inline void GetRiotclientZoomScale(LeagueClient& _client, std::function<void(LeagueClient&, const Result<double>&)> cb)
+  template<typename T>
+  inline void GetRiotclientZoomScale(T& _client, std::function<void(T&, const Result<double>&)> cb)
   {
     _client.httpsa.request("get", "/riotclient/zoom-scale?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

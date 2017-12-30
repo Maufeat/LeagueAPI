@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolEndOfGameChampionMasteryUpdate.hpp"
 namespace lol {
-  inline Result<LolEndOfGameChampionMasteryUpdate> GetLolEndOfGameV1ChampionMasteryUpdates(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolEndOfGameChampionMasteryUpdate> GetLolEndOfGameV1ChampionMasteryUpdates(T& _client)
   {
     try {
       return ToResult<LolEndOfGameChampionMasteryUpdate>(_client.https.request("get", "/lol-end-of-game/v1/champion-mastery-updates?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolEndOfGameChampionMasteryUpdate>(e.code());
     }
   }
-  inline void GetLolEndOfGameV1ChampionMasteryUpdates(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolEndOfGameChampionMasteryUpdate>&)> cb)
+  template<typename T>
+  inline void GetLolEndOfGameV1ChampionMasteryUpdates(T& _client, std::function<void(T&, const Result<LolEndOfGameChampionMasteryUpdate>&)> cb)
   {
     _client.httpsa.request("get", "/lol-end-of-game/v1/champion-mastery-updates?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

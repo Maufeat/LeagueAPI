@@ -3,24 +3,24 @@
 #include "LolQueueEligibilityCollectionsOwnership.hpp"
 namespace lol {
   struct LolQueueEligibilityCollectionsChampion { 
-    std::vector<std::string> disabledQueues;
     bool freeToPlay;
-    bool rankedPlayEnabled;
     LolQueueEligibilityCollectionsOwnership ownership;
-    uint64_t purchased; 
+    uint64_t purchased;
+    std::vector<std::string> disabledQueues;
+    bool rankedPlayEnabled; 
   };
   inline void to_json(json& j, const LolQueueEligibilityCollectionsChampion& v) {
-    j["disabledQueues"] = v.disabledQueues; 
     j["freeToPlay"] = v.freeToPlay; 
-    j["rankedPlayEnabled"] = v.rankedPlayEnabled; 
     j["ownership"] = v.ownership; 
     j["purchased"] = v.purchased; 
+    j["disabledQueues"] = v.disabledQueues; 
+    j["rankedPlayEnabled"] = v.rankedPlayEnabled; 
   }
   inline void from_json(const json& j, LolQueueEligibilityCollectionsChampion& v) {
-    v.disabledQueues = j.at("disabledQueues").get<std::vector<std::string>>(); 
     v.freeToPlay = j.at("freeToPlay").get<bool>(); 
-    v.rankedPlayEnabled = j.at("rankedPlayEnabled").get<bool>(); 
     v.ownership = j.at("ownership").get<LolQueueEligibilityCollectionsOwnership>(); 
     v.purchased = j.at("purchased").get<uint64_t>(); 
+    v.disabledQueues = j.at("disabledQueues").get<std::vector<std::string>>(); 
+    v.rankedPlayEnabled = j.at("rankedPlayEnabled").get<bool>(); 
   }
 }

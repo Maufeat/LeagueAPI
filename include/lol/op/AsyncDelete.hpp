@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> AsyncDelete(LeagueClient& _client, const uint32_t& asyncToken)
+  template<typename T>
+  inline Result<json> AsyncDelete(T& _client, const uint32_t& asyncToken)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/AsyncDelete?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void AsyncDelete(LeagueClient& _client, const uint32_t& asyncToken, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void AsyncDelete(T& _client, const uint32_t& asyncToken, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/AsyncDelete?" +
       SimpleWeb::QueryString::create(Args2Headers({ 

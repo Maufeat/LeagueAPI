@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolGeoinfoGeoInfoResponse.hpp"
 namespace lol {
-  inline Result<LolGeoinfoGeoInfoResponse> GetLolGeoinfoV1Whereami(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolGeoinfoGeoInfoResponse> GetLolGeoinfoV1Whereami(T& _client)
   {
     try {
       return ToResult<LolGeoinfoGeoInfoResponse>(_client.https.request("get", "/lol-geoinfo/v1/whereami?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolGeoinfoGeoInfoResponse>(e.code());
     }
   }
-  inline void GetLolGeoinfoV1Whereami(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolGeoinfoGeoInfoResponse>&)> cb)
+  template<typename T>
+  inline void GetLolGeoinfoV1Whereami(T& _client, std::function<void(T&, const Result<LolGeoinfoGeoInfoResponse>&)> cb)
   {
     _client.httpsa.request("get", "/lol-geoinfo/v1/whereami?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

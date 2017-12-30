@@ -5,20 +5,20 @@
 namespace lol {
   struct PatcherComponentActionProgress { 
     PatcherComponentStateProgress network;
-    PatcherComponentStateWorkType primaryWork;
+    std::string currentItem;
     PatcherComponentStateProgress total;
-    std::string currentItem; 
+    PatcherComponentStateWorkType primaryWork; 
   };
   inline void to_json(json& j, const PatcherComponentActionProgress& v) {
     j["network"] = v.network; 
-    j["primaryWork"] = v.primaryWork; 
-    j["total"] = v.total; 
     j["currentItem"] = v.currentItem; 
+    j["total"] = v.total; 
+    j["primaryWork"] = v.primaryWork; 
   }
   inline void from_json(const json& j, PatcherComponentActionProgress& v) {
     v.network = j.at("network").get<PatcherComponentStateProgress>(); 
-    v.primaryWork = j.at("primaryWork").get<PatcherComponentStateWorkType>(); 
-    v.total = j.at("total").get<PatcherComponentStateProgress>(); 
     v.currentItem = j.at("currentItem").get<std::string>(); 
+    v.total = j.at("total").get<PatcherComponentStateProgress>(); 
+    v.primaryWork = j.at("primaryWork").get<PatcherComponentStateWorkType>(); 
   }
 }

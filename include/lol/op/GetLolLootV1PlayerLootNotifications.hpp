@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolLootPlayerLootNotification.hpp"
 namespace lol {
-  inline Result<std::vector<LolLootPlayerLootNotification>> GetLolLootV1PlayerLootNotifications(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::vector<LolLootPlayerLootNotification>> GetLolLootV1PlayerLootNotifications(T& _client)
   {
     try {
       return ToResult<std::vector<LolLootPlayerLootNotification>>(_client.https.request("get", "/lol-loot/v1/player-loot-notifications?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<LolLootPlayerLootNotification>>(e.code());
     }
   }
-  inline void GetLolLootV1PlayerLootNotifications(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::vector<LolLootPlayerLootNotification>>&)> cb)
+  template<typename T>
+  inline void GetLolLootV1PlayerLootNotifications(T& _client, std::function<void(T&, const Result<std::vector<LolLootPlayerLootNotification>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-loot/v1/player-loot-notifications?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

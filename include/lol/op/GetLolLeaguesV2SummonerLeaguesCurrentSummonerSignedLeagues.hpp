@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolLeaguesSignedSummonerLeagueItemsDTO.hpp"
 namespace lol {
-  inline Result<LolLeaguesSignedSummonerLeagueItemsDTO> GetLolLeaguesV2SummonerLeaguesCurrentSummonerSignedLeagues(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolLeaguesSignedSummonerLeagueItemsDTO> GetLolLeaguesV2SummonerLeaguesCurrentSummonerSignedLeagues(T& _client)
   {
     try {
       return ToResult<LolLeaguesSignedSummonerLeagueItemsDTO>(_client.https.request("get", "/lol-leagues/v2/summoner-leagues/current-summoner/signed-leagues?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolLeaguesSignedSummonerLeagueItemsDTO>(e.code());
     }
   }
-  inline void GetLolLeaguesV2SummonerLeaguesCurrentSummonerSignedLeagues(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolLeaguesSignedSummonerLeagueItemsDTO>&)> cb)
+  template<typename T>
+  inline void GetLolLeaguesV2SummonerLeaguesCurrentSummonerSignedLeagues(T& _client, std::function<void(T&, const Result<LolLeaguesSignedSummonerLeagueItemsDTO>&)> cb)
   {
     _client.httpsa.request("get", "/lol-leagues/v2/summoner-leagues/current-summoner/signed-leagues?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

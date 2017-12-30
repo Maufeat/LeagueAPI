@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolChampionsCollectionsChampionSkin.hpp"
 namespace lol {
-  inline Result<std::vector<LolChampionsCollectionsChampionSkin>> GetLolChampionsV1InventoriesBySummonerIdChampionsByChampionIdSkins(LeagueClient& _client, const uint64_t& summonerId, const int32_t& championId)
+  template<typename T>
+  inline Result<std::vector<LolChampionsCollectionsChampionSkin>> GetLolChampionsV1InventoriesBySummonerIdChampionsByChampionIdSkins(T& _client, const uint64_t& summonerId, const int32_t& championId)
   {
     try {
       return ToResult<std::vector<LolChampionsCollectionsChampionSkin>>(_client.https.request("get", "/lol-champions/v1/inventories/"+to_string(summonerId)+"/champions/"+to_string(championId)+"/skins?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<LolChampionsCollectionsChampionSkin>>(e.code());
     }
   }
-  inline void GetLolChampionsV1InventoriesBySummonerIdChampionsByChampionIdSkins(LeagueClient& _client, const uint64_t& summonerId, const int32_t& championId, std::function<void(LeagueClient&, const Result<std::vector<LolChampionsCollectionsChampionSkin>>&)> cb)
+  template<typename T>
+  inline void GetLolChampionsV1InventoriesBySummonerIdChampionsByChampionIdSkins(T& _client, const uint64_t& summonerId, const int32_t& championId, std::function<void(T&, const Result<std::vector<LolChampionsCollectionsChampionSkin>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-champions/v1/inventories/"+to_string(summonerId)+"/champions/"+to_string(championId)+"/skins?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

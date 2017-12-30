@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolPlayerBehaviorReformCard.hpp"
 namespace lol {
-  inline Result<LolPlayerBehaviorReformCard> GetLolPlayerBehaviorV1ReformCard(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolPlayerBehaviorReformCard> GetLolPlayerBehaviorV1ReformCard(T& _client)
   {
     try {
       return ToResult<LolPlayerBehaviorReformCard>(_client.https.request("get", "/lol-player-behavior/v1/reform-card?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolPlayerBehaviorReformCard>(e.code());
     }
   }
-  inline void GetLolPlayerBehaviorV1ReformCard(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolPlayerBehaviorReformCard>&)> cb)
+  template<typename T>
+  inline void GetLolPlayerBehaviorV1ReformCard(T& _client, std::function<void(T&, const Result<LolPlayerBehaviorReformCard>&)> cb)
   {
     _client.httpsa.request("get", "/lol-player-behavior/v1/reform-card?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

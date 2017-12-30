@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/PlayerClubMembership.hpp"
 namespace lol {
-  inline Result<PlayerClubMembership> DeleteLolClubsV1ClubsByClubKey(LeagueClient& _client, const std::string& clubKey)
+  template<typename T>
+  inline Result<PlayerClubMembership> DeleteLolClubsV1ClubsByClubKey(T& _client, const std::string& clubKey)
   {
     try {
       return ToResult<PlayerClubMembership>(_client.https.request("delete", "/lol-clubs/v1/clubs/"+to_string(clubKey)+"?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<PlayerClubMembership>(e.code());
     }
   }
-  inline void DeleteLolClubsV1ClubsByClubKey(LeagueClient& _client, const std::string& clubKey, std::function<void(LeagueClient&, const Result<PlayerClubMembership>&)> cb)
+  template<typename T>
+  inline void DeleteLolClubsV1ClubsByClubKey(T& _client, const std::string& clubKey, std::function<void(T&, const Result<PlayerClubMembership>&)> cb)
   {
     _client.httpsa.request("delete", "/lol-clubs/v1/clubs/"+to_string(clubKey)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

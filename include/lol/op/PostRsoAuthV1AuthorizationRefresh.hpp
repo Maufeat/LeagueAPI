@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/RsoAuthAuthorization.hpp"
 namespace lol {
-  inline Result<RsoAuthAuthorization> PostRsoAuthV1AuthorizationRefresh(LeagueClient& _client)
+  template<typename T>
+  inline Result<RsoAuthAuthorization> PostRsoAuthV1AuthorizationRefresh(T& _client)
   {
     try {
       return ToResult<RsoAuthAuthorization>(_client.https.request("post", "/rso-auth/v1/authorization/refresh?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<RsoAuthAuthorization>(e.code());
     }
   }
-  inline void PostRsoAuthV1AuthorizationRefresh(LeagueClient& _client, std::function<void(LeagueClient&, const Result<RsoAuthAuthorization>&)> cb)
+  template<typename T>
+  inline void PostRsoAuthV1AuthorizationRefresh(T& _client, std::function<void(T&, const Result<RsoAuthAuthorization>&)> cb)
   {
     _client.httpsa.request("post", "/rso-auth/v1/authorization/refresh?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolClashTournamentWinnerHistory.hpp"
 namespace lol {
-  inline Result<LolClashTournamentWinnerHistory> GetLolClashV1TournamentByTournamentIdWinners(LeagueClient& _client, const int64_t& tournamentId)
+  template<typename T>
+  inline Result<LolClashTournamentWinnerHistory> GetLolClashV1TournamentByTournamentIdWinners(T& _client, const int64_t& tournamentId)
   {
     try {
       return ToResult<LolClashTournamentWinnerHistory>(_client.https.request("get", "/lol-clash/v1/tournament/"+to_string(tournamentId)+"/winners?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolClashTournamentWinnerHistory>(e.code());
     }
   }
-  inline void GetLolClashV1TournamentByTournamentIdWinners(LeagueClient& _client, const int64_t& tournamentId, std::function<void(LeagueClient&, const Result<LolClashTournamentWinnerHistory>&)> cb)
+  template<typename T>
+  inline void GetLolClashV1TournamentByTournamentIdWinners(T& _client, const int64_t& tournamentId, std::function<void(T&, const Result<LolClashTournamentWinnerHistory>&)> cb)
   {
     _client.httpsa.request("get", "/lol-clash/v1/tournament/"+to_string(tournamentId)+"/winners?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

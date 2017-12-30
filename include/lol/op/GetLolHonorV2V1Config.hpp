@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolHonorV2HonorConfig.hpp"
 namespace lol {
-  inline Result<LolHonorV2HonorConfig> GetLolHonorV2V1Config(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolHonorV2HonorConfig> GetLolHonorV2V1Config(T& _client)
   {
     try {
       return ToResult<LolHonorV2HonorConfig>(_client.https.request("get", "/lol-honor-v2/v1/config?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolHonorV2HonorConfig>(e.code());
     }
   }
-  inline void GetLolHonorV2V1Config(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolHonorV2HonorConfig>&)> cb)
+  template<typename T>
+  inline void GetLolHonorV2V1Config(T& _client, std::function<void(T&, const Result<LolHonorV2HonorConfig>&)> cb)
   {
     _client.httpsa.request("get", "/lol-honor-v2/v1/config?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

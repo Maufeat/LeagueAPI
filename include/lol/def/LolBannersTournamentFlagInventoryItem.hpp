@@ -3,15 +3,15 @@
 #include "LolBannersCapClashFlagEntitlementPayload.hpp"
 namespace lol {
   struct LolBannersTournamentFlagInventoryItem { 
-    LolBannersCapClashFlagEntitlementPayload payload;
-    std::string purchaseDate; 
+    std::string purchaseDate;
+    LolBannersCapClashFlagEntitlementPayload payload; 
   };
   inline void to_json(json& j, const LolBannersTournamentFlagInventoryItem& v) {
-    j["payload"] = v.payload; 
     j["purchaseDate"] = v.purchaseDate; 
+    j["payload"] = v.payload; 
   }
   inline void from_json(const json& j, LolBannersTournamentFlagInventoryItem& v) {
-    v.payload = j.at("payload").get<LolBannersCapClashFlagEntitlementPayload>(); 
     v.purchaseDate = j.at("purchaseDate").get<std::string>(); 
+    v.payload = j.at("payload").get<LolBannersCapClashFlagEntitlementPayload>(); 
   }
 }

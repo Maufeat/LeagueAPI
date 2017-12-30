@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<std::map<std::string, std::string>> GetPatcherV1ProductsByProductIdTags(LeagueClient& _client, const std::string& product_id)
+  template<typename T>
+  inline Result<std::map<std::string, std::string>> GetPatcherV1ProductsByProductIdTags(T& _client, const std::string& product_id)
   {
     try {
       return ToResult<std::map<std::string, std::string>>(_client.https.request("get", "/patcher/v1/products/"+to_string(product_id)+"/tags?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<std::map<std::string, std::string>>(e.code());
     }
   }
-  inline void GetPatcherV1ProductsByProductIdTags(LeagueClient& _client, const std::string& product_id, std::function<void(LeagueClient&, const Result<std::map<std::string, std::string>>&)> cb)
+  template<typename T>
+  inline void GetPatcherV1ProductsByProductIdTags(T& _client, const std::string& product_id, std::function<void(T&, const Result<std::map<std::string, std::string>>&)> cb)
   {
     _client.httpsa.request("get", "/patcher/v1/products/"+to_string(product_id)+"/tags?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

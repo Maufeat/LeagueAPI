@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/FailedInvite.hpp"
 namespace lol {
-  inline Result<std::vector<FailedInvite>> PostLolClashV1TournamentByTournamentIdRosterInvite(LeagueClient& _client, const int64_t& tournamentId, const std::vector<uint64_t>& summonerIds)
+  template<typename T>
+  inline Result<std::vector<FailedInvite>> PostLolClashV1TournamentByTournamentIdRosterInvite(T& _client, const int64_t& tournamentId, const std::vector<uint64_t>& summonerIds)
   {
     try {
       return ToResult<std::vector<FailedInvite>>(_client.https.request("post", "/lol-clash/v1/tournament/"+to_string(tournamentId)+"/roster/invite?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<std::vector<FailedInvite>>(e.code());
     }
   }
-  inline void PostLolClashV1TournamentByTournamentIdRosterInvite(LeagueClient& _client, const int64_t& tournamentId, const std::vector<uint64_t>& summonerIds, std::function<void(LeagueClient&, const Result<std::vector<FailedInvite>>&)> cb)
+  template<typename T>
+  inline void PostLolClashV1TournamentByTournamentIdRosterInvite(T& _client, const int64_t& tournamentId, const std::vector<uint64_t>& summonerIds, std::function<void(T&, const Result<std::vector<FailedInvite>>&)> cb)
   {
     _client.httpsa.request("post", "/lol-clash/v1/tournament/"+to_string(tournamentId)+"/roster/invite?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

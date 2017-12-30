@@ -4,7 +4,8 @@
 #include "../def/LolAccountVerificationSendTokenRequest.hpp"
 #include "../def/LolAccountVerificationSendTokenResponse.hpp"
 namespace lol {
-  inline Result<LolAccountVerificationSendTokenResponse> PostLolAccountVerificationV1SendToken(LeagueClient& _client, const LolAccountVerificationSendTokenRequest& SendTokenRequest)
+  template<typename T>
+  inline Result<LolAccountVerificationSendTokenResponse> PostLolAccountVerificationV1SendToken(T& _client, const LolAccountVerificationSendTokenRequest& SendTokenRequest)
   {
     try {
       return ToResult<LolAccountVerificationSendTokenResponse>(_client.https.request("post", "/lol-account-verification/v1/send-token?" +
@@ -17,7 +18,8 @@ namespace lol {
       return ToResult<LolAccountVerificationSendTokenResponse>(e.code());
     }
   }
-  inline void PostLolAccountVerificationV1SendToken(LeagueClient& _client, const LolAccountVerificationSendTokenRequest& SendTokenRequest, std::function<void(LeagueClient&, const Result<LolAccountVerificationSendTokenResponse>&)> cb)
+  template<typename T>
+  inline void PostLolAccountVerificationV1SendToken(T& _client, const LolAccountVerificationSendTokenRequest& SendTokenRequest, std::function<void(T&, const Result<LolAccountVerificationSendTokenResponse>&)> cb)
   {
     _client.httpsa.request("post", "/lol-account-verification/v1/send-token?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

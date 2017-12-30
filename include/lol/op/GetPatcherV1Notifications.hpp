@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/PatcherNotification.hpp"
 namespace lol {
-  inline Result<std::vector<PatcherNotification>> GetPatcherV1Notifications(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::vector<PatcherNotification>> GetPatcherV1Notifications(T& _client)
   {
     try {
       return ToResult<std::vector<PatcherNotification>>(_client.https.request("get", "/patcher/v1/notifications?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<PatcherNotification>>(e.code());
     }
   }
-  inline void GetPatcherV1Notifications(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::vector<PatcherNotification>>&)> cb)
+  template<typename T>
+  inline void GetPatcherV1Notifications(T& _client, std::function<void(T&, const Result<std::vector<PatcherNotification>>&)> cb)
   {
     _client.httpsa.request("get", "/patcher/v1/notifications?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

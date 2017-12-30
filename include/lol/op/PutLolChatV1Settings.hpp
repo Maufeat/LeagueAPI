@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> PutLolChatV1Settings(LeagueClient& _client, const json& data, const std::optional<bool>& doAsync = std::nullopt)
+  template<typename T>
+  inline Result<json> PutLolChatV1Settings(T& _client, const json& data, const std::optional<bool>& doAsync = std::nullopt)
   {
     try {
       return ToResult<json>(_client.https.request("put", "/lol-chat/v1/settings?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PutLolChatV1Settings(LeagueClient& _client, const json& data, const std::optional<bool>& doAsync = std::nullopt, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PutLolChatV1Settings(T& _client, const json& data, const std::optional<bool>& doAsync = std::nullopt, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("put", "/lol-chat/v1/settings?" +
       SimpleWeb::QueryString::create(Args2Headers({ 

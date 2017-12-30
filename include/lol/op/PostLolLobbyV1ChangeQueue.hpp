@@ -1,10 +1,11 @@
 #pragma once
 #include "../base_op.hpp"
 #include <functional> 
-#include "../def/LolLobbyLobbyChangeQueue.hpp"
 #include "../def/LolLobbyLobby.hpp"
+#include "../def/LolLobbyLobbyChangeQueue.hpp"
 namespace lol {
-  inline Result<LolLobbyLobby> PostLolLobbyV1ChangeQueue(LeagueClient& _client, const LolLobbyLobbyChangeQueue& queueId)
+  template<typename T>
+  inline Result<LolLobbyLobby> PostLolLobbyV1ChangeQueue(T& _client, const LolLobbyLobbyChangeQueue& queueId)
   {
     try {
       return ToResult<LolLobbyLobby>(_client.https.request("post", "/lol-lobby/v1/change-queue?" +
@@ -17,7 +18,8 @@ namespace lol {
       return ToResult<LolLobbyLobby>(e.code());
     }
   }
-  inline void PostLolLobbyV1ChangeQueue(LeagueClient& _client, const LolLobbyLobbyChangeQueue& queueId, std::function<void(LeagueClient&, const Result<LolLobbyLobby>&)> cb)
+  template<typename T>
+  inline void PostLolLobbyV1ChangeQueue(T& _client, const LolLobbyLobbyChangeQueue& queueId, std::function<void(T&, const Result<LolLobbyLobby>&)> cb)
   {
     _client.httpsa.request("post", "/lol-lobby/v1/change-queue?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

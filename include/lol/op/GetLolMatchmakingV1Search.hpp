@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolMatchmakingMatchmakingSearchResource.hpp"
 namespace lol {
-  inline Result<LolMatchmakingMatchmakingSearchResource> GetLolMatchmakingV1Search(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolMatchmakingMatchmakingSearchResource> GetLolMatchmakingV1Search(T& _client)
   {
     try {
       return ToResult<LolMatchmakingMatchmakingSearchResource>(_client.https.request("get", "/lol-matchmaking/v1/search?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolMatchmakingMatchmakingSearchResource>(e.code());
     }
   }
-  inline void GetLolMatchmakingV1Search(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolMatchmakingMatchmakingSearchResource>&)> cb)
+  template<typename T>
+  inline void GetLolMatchmakingV1Search(T& _client, std::function<void(T&, const Result<LolMatchmakingMatchmakingSearchResource>&)> cb)
   {
     _client.httpsa.request("get", "/lol-matchmaking/v1/search?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

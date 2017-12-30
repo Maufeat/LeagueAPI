@@ -1,7 +1,7 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "BasePublicSummonerDTO.hpp"
 #include "SummonerLevelAndPoints.hpp"
+#include "BasePublicSummonerDTO.hpp"
 namespace lol {
   struct AllPublicSummonerDataDTO { 
     BasePublicSummonerDTO summoner;

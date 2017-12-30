@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/PlayerClub.hpp"
 namespace lol {
-  inline Result<PlayerClub> PostLolClubsV1ClubsByClubKeyMembersBySummonerId(LeagueClient& _client, const std::string& clubKey, const uint64_t& summonerId)
+  template<typename T>
+  inline Result<PlayerClub> PostLolClubsV1ClubsByClubKeyMembersBySummonerId(T& _client, const std::string& clubKey, const uint64_t& summonerId)
   {
     try {
       return ToResult<PlayerClub>(_client.https.request("post", "/lol-clubs/v1/clubs/"+to_string(clubKey)+"/members/"+to_string(summonerId)+"?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<PlayerClub>(e.code());
     }
   }
-  inline void PostLolClubsV1ClubsByClubKeyMembersBySummonerId(LeagueClient& _client, const std::string& clubKey, const uint64_t& summonerId, std::function<void(LeagueClient&, const Result<PlayerClub>&)> cb)
+  template<typename T>
+  inline void PostLolClubsV1ClubsByClubKeyMembersBySummonerId(T& _client, const std::string& clubKey, const uint64_t& summonerId, std::function<void(T&, const Result<PlayerClub>&)> cb)
   {
     _client.httpsa.request("post", "/lol-clubs/v1/clubs/"+to_string(clubKey)+"/members/"+to_string(summonerId)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

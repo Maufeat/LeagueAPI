@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolGameflowGameflowSession.hpp"
 namespace lol {
-  inline Result<LolGameflowGameflowSession> GetLolGameflowV1Session(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolGameflowGameflowSession> GetLolGameflowV1Session(T& _client)
   {
     try {
       return ToResult<LolGameflowGameflowSession>(_client.https.request("get", "/lol-gameflow/v1/session?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolGameflowGameflowSession>(e.code());
     }
   }
-  inline void GetLolGameflowV1Session(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolGameflowGameflowSession>&)> cb)
+  template<typename T>
+  inline void GetLolGameflowV1Session(T& _client, std::function<void(T&, const Result<LolGameflowGameflowSession>&)> cb)
   {
     _client.httpsa.request("get", "/lol-gameflow/v1/session?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

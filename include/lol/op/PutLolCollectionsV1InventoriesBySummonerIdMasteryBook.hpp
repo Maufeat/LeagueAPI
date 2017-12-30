@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolCollectionsCollectionsMasteryBook.hpp"
 namespace lol {
-  inline Result<LolCollectionsCollectionsMasteryBook> PutLolCollectionsV1InventoriesBySummonerIdMasteryBook(LeagueClient& _client, const uint64_t& summonerId, const LolCollectionsCollectionsMasteryBook& resource)
+  template<typename T>
+  inline Result<LolCollectionsCollectionsMasteryBook> PutLolCollectionsV1InventoriesBySummonerIdMasteryBook(T& _client, const uint64_t& summonerId, const LolCollectionsCollectionsMasteryBook& resource)
   {
     try {
       return ToResult<LolCollectionsCollectionsMasteryBook>(_client.https.request("put", "/lol-collections/v1/inventories/"+to_string(summonerId)+"/mastery-book?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<LolCollectionsCollectionsMasteryBook>(e.code());
     }
   }
-  inline void PutLolCollectionsV1InventoriesBySummonerIdMasteryBook(LeagueClient& _client, const uint64_t& summonerId, const LolCollectionsCollectionsMasteryBook& resource, std::function<void(LeagueClient&, const Result<LolCollectionsCollectionsMasteryBook>&)> cb)
+  template<typename T>
+  inline void PutLolCollectionsV1InventoriesBySummonerIdMasteryBook(T& _client, const uint64_t& summonerId, const LolCollectionsCollectionsMasteryBook& resource, std::function<void(T&, const Result<LolCollectionsCollectionsMasteryBook>&)> cb)
   {
     _client.httpsa.request("put", "/lol-collections/v1/inventories/"+to_string(summonerId)+"/mastery-book?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

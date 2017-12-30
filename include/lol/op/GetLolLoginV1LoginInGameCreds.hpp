@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> GetLolLoginV1LoginInGameCreds(LeagueClient& _client)
+  template<typename T>
+  inline Result<json> GetLolLoginV1LoginInGameCreds(T& _client)
   {
     try {
       return ToResult<json>(_client.https.request("get", "/lol-login/v1/login-in-game-creds?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void GetLolLoginV1LoginInGameCreds(LeagueClient& _client, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void GetLolLoginV1LoginInGameCreds(T& _client, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("get", "/lol-login/v1/login-in-game-creds?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

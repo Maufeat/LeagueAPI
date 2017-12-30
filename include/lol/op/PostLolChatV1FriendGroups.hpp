@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolChatGroupResource.hpp"
 namespace lol {
-  inline Result<json> PostLolChatV1FriendGroups(LeagueClient& _client, const LolChatGroupResource& group)
+  template<typename T>
+  inline Result<json> PostLolChatV1FriendGroups(T& _client, const LolChatGroupResource& group)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/lol-chat/v1/friend-groups?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PostLolChatV1FriendGroups(LeagueClient& _client, const LolChatGroupResource& group, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PostLolChatV1FriendGroups(T& _client, const LolChatGroupResource& group, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/lol-chat/v1/friend-groups?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

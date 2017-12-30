@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolPerksPerkPageResource.hpp"
 namespace lol {
-  inline Result<std::vector<LolPerksPerkPageResource>> GetLolPerksV1Pages(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::vector<LolPerksPerkPageResource>> GetLolPerksV1Pages(T& _client)
   {
     try {
       return ToResult<std::vector<LolPerksPerkPageResource>>(_client.https.request("get", "/lol-perks/v1/pages?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<LolPerksPerkPageResource>>(e.code());
     }
   }
-  inline void GetLolPerksV1Pages(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::vector<LolPerksPerkPageResource>>&)> cb)
+  template<typename T>
+  inline void GetLolPerksV1Pages(T& _client, std::function<void(T&, const Result<std::vector<LolPerksPerkPageResource>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-perks/v1/pages?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

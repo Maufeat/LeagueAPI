@@ -4,7 +4,8 @@
 #include "../def/SanitizerSanitizeRequest.hpp"
 #include "../def/SanitizerSanitizeResponse.hpp"
 namespace lol {
-  inline Result<SanitizerSanitizeResponse> PostSanitizerV1Sanitize(LeagueClient& _client, const SanitizerSanitizeRequest& request)
+  template<typename T>
+  inline Result<SanitizerSanitizeResponse> PostSanitizerV1Sanitize(T& _client, const SanitizerSanitizeRequest& request)
   {
     try {
       return ToResult<SanitizerSanitizeResponse>(_client.https.request("post", "/sanitizer/v1/sanitize?" +
@@ -17,7 +18,8 @@ namespace lol {
       return ToResult<SanitizerSanitizeResponse>(e.code());
     }
   }
-  inline void PostSanitizerV1Sanitize(LeagueClient& _client, const SanitizerSanitizeRequest& request, std::function<void(LeagueClient&, const Result<SanitizerSanitizeResponse>&)> cb)
+  template<typename T>
+  inline void PostSanitizerV1Sanitize(T& _client, const SanitizerSanitizeRequest& request, std::function<void(T&, const Result<SanitizerSanitizeResponse>&)> cb)
   {
     _client.httpsa.request("post", "/sanitizer/v1/sanitize?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

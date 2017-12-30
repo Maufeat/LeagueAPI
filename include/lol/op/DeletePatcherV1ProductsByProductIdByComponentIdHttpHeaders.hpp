@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> DeletePatcherV1ProductsByProductIdByComponentIdHttpHeaders(LeagueClient& _client, const std::string& product_id, const std::string& component_id)
+  template<typename T>
+  inline Result<json> DeletePatcherV1ProductsByProductIdByComponentIdHttpHeaders(T& _client, const std::string& product_id, const std::string& component_id)
   {
     try {
       return ToResult<json>(_client.https.request("delete", "/patcher/v1/products/"+to_string(product_id)+"/"+to_string(component_id)+"/http-headers?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void DeletePatcherV1ProductsByProductIdByComponentIdHttpHeaders(LeagueClient& _client, const std::string& product_id, const std::string& component_id, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void DeletePatcherV1ProductsByProductIdByComponentIdHttpHeaders(T& _client, const std::string& product_id, const std::string& component_id, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("delete", "/patcher/v1/products/"+to_string(product_id)+"/"+to_string(component_id)+"/http-headers?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

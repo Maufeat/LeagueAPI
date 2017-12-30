@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<std::string> GetPatcherV1ExecutableVersion(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::string> GetPatcherV1ExecutableVersion(T& _client)
   {
     try {
       return ToResult<std::string>(_client.https.request("get", "/patcher/v1/executable-version?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<std::string>(e.code());
     }
   }
-  inline void GetPatcherV1ExecutableVersion(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::string>&)> cb)
+  template<typename T>
+  inline void GetPatcherV1ExecutableVersion(T& _client, std::function<void(T&, const Result<std::string>&)> cb)
   {
     _client.httpsa.request("get", "/patcher/v1/executable-version?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> PostLolGameflowV1SpectateLaunch(LeagueClient& _client, const std::optional<std::string>& summonerName = std::nullopt)
+  template<typename T>
+  inline Result<json> PostLolGameflowV1SpectateLaunch(T& _client, const std::optional<std::string>& summonerName = std::nullopt)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/lol-gameflow/v1/spectate/launch?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PostLolGameflowV1SpectateLaunch(LeagueClient& _client, const std::optional<std::string>& summonerName = std::nullopt, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PostLolGameflowV1SpectateLaunch(T& _client, const std::optional<std::string>& summonerName = std::nullopt, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/lol-gameflow/v1/spectate/launch?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

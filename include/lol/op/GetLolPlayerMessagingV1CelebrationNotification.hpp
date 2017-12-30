@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/DynamicCelebrationMessagingNotificationResource.hpp"
 namespace lol {
-  inline Result<DynamicCelebrationMessagingNotificationResource> GetLolPlayerMessagingV1CelebrationNotification(LeagueClient& _client)
+  template<typename T>
+  inline Result<DynamicCelebrationMessagingNotificationResource> GetLolPlayerMessagingV1CelebrationNotification(T& _client)
   {
     try {
       return ToResult<DynamicCelebrationMessagingNotificationResource>(_client.https.request("get", "/lol-player-messaging/v1/celebration/notification?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<DynamicCelebrationMessagingNotificationResource>(e.code());
     }
   }
-  inline void GetLolPlayerMessagingV1CelebrationNotification(LeagueClient& _client, std::function<void(LeagueClient&, const Result<DynamicCelebrationMessagingNotificationResource>&)> cb)
+  template<typename T>
+  inline void GetLolPlayerMessagingV1CelebrationNotification(T& _client, std::function<void(T&, const Result<DynamicCelebrationMessagingNotificationResource>&)> cb)
   {
     _client.httpsa.request("get", "/lol-player-messaging/v1/celebration/notification?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

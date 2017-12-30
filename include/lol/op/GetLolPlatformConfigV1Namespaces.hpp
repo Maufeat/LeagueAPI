@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> GetLolPlatformConfigV1Namespaces(LeagueClient& _client)
+  template<typename T>
+  inline Result<json> GetLolPlatformConfigV1Namespaces(T& _client)
   {
     try {
       return ToResult<json>(_client.https.request("get", "/lol-platform-config/v1/namespaces?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void GetLolPlatformConfigV1Namespaces(LeagueClient& _client, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void GetLolPlatformConfigV1Namespaces(T& _client, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("get", "/lol-platform-config/v1/namespaces?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

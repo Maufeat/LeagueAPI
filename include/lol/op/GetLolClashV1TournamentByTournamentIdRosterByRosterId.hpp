@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolClashRoster.hpp"
 namespace lol {
-  inline Result<LolClashRoster> GetLolClashV1TournamentByTournamentIdRosterByRosterId(LeagueClient& _client, const int64_t& tournamentId, const std::string& rosterId)
+  template<typename T>
+  inline Result<LolClashRoster> GetLolClashV1TournamentByTournamentIdRosterByRosterId(T& _client, const int64_t& tournamentId, const std::string& rosterId)
   {
     try {
       return ToResult<LolClashRoster>(_client.https.request("get", "/lol-clash/v1/tournament/"+to_string(tournamentId)+"/roster/"+to_string(rosterId)+"?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolClashRoster>(e.code());
     }
   }
-  inline void GetLolClashV1TournamentByTournamentIdRosterByRosterId(LeagueClient& _client, const int64_t& tournamentId, const std::string& rosterId, std::function<void(LeagueClient&, const Result<LolClashRoster>&)> cb)
+  template<typename T>
+  inline void GetLolClashV1TournamentByTournamentIdRosterByRosterId(T& _client, const int64_t& tournamentId, const std::string& rosterId, std::function<void(T&, const Result<LolClashRoster>&)> cb)
   {
     _client.httpsa.request("get", "/lol-clash/v1/tournament/"+to_string(tournamentId)+"/roster/"+to_string(rosterId)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

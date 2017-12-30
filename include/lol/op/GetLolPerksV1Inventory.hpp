@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolPerksPlayerInventory.hpp"
 namespace lol {
-  inline Result<LolPerksPlayerInventory> GetLolPerksV1Inventory(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolPerksPlayerInventory> GetLolPerksV1Inventory(T& _client)
   {
     try {
       return ToResult<LolPerksPlayerInventory>(_client.https.request("get", "/lol-perks/v1/inventory?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolPerksPlayerInventory>(e.code());
     }
   }
-  inline void GetLolPerksV1Inventory(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolPerksPlayerInventory>&)> cb)
+  template<typename T>
+  inline void GetLolPerksV1Inventory(T& _client, std::function<void(T&, const Result<LolPerksPlayerInventory>&)> cb)
   {
     _client.httpsa.request("get", "/lol-perks/v1/inventory?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

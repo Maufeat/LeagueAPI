@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolKrShutdownLawQueueShutdownStatus.hpp"
 namespace lol {
-  inline Result<LolKrShutdownLawQueueShutdownStatus> GetLolKrShutdownLawV1CustomStatus(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolKrShutdownLawQueueShutdownStatus> GetLolKrShutdownLawV1CustomStatus(T& _client)
   {
     try {
       return ToResult<LolKrShutdownLawQueueShutdownStatus>(_client.https.request("get", "/lol-kr-shutdown-law/v1/custom-status?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolKrShutdownLawQueueShutdownStatus>(e.code());
     }
   }
-  inline void GetLolKrShutdownLawV1CustomStatus(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolKrShutdownLawQueueShutdownStatus>&)> cb)
+  template<typename T>
+  inline void GetLolKrShutdownLawV1CustomStatus(T& _client, std::function<void(T&, const Result<LolKrShutdownLawQueueShutdownStatus>&)> cb)
   {
     _client.httpsa.request("get", "/lol-kr-shutdown-law/v1/custom-status?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

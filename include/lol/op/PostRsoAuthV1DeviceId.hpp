@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/RsoAuthDeviceId.hpp"
 namespace lol {
-  inline Result<RsoAuthDeviceId> PostRsoAuthV1DeviceId(LeagueClient& _client)
+  template<typename T>
+  inline Result<RsoAuthDeviceId> PostRsoAuthV1DeviceId(T& _client)
   {
     try {
       return ToResult<RsoAuthDeviceId>(_client.https.request("post", "/rso-auth/v1/device-id?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<RsoAuthDeviceId>(e.code());
     }
   }
-  inline void PostRsoAuthV1DeviceId(LeagueClient& _client, std::function<void(LeagueClient&, const Result<RsoAuthDeviceId>&)> cb)
+  template<typename T>
+  inline void PostRsoAuthV1DeviceId(T& _client, std::function<void(T&, const Result<RsoAuthDeviceId>&)> cb)
   {
     _client.httpsa.request("post", "/rso-auth/v1/device-id?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

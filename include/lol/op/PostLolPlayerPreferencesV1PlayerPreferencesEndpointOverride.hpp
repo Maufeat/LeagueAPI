@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/PlayerPreferencesEndpoint.hpp"
 namespace lol {
-  inline Result<json> PostLolPlayerPreferencesV1PlayerPreferencesEndpointOverride(LeagueClient& _client, const PlayerPreferencesEndpoint& preferences)
+  template<typename T>
+  inline Result<json> PostLolPlayerPreferencesV1PlayerPreferencesEndpointOverride(T& _client, const PlayerPreferencesEndpoint& preferences)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/lol-player-preferences/v1/player-preferences-endpoint-override?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PostLolPlayerPreferencesV1PlayerPreferencesEndpointOverride(LeagueClient& _client, const PlayerPreferencesEndpoint& preferences, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PostLolPlayerPreferencesV1PlayerPreferencesEndpointOverride(T& _client, const PlayerPreferencesEndpoint& preferences, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/lol-player-preferences/v1/player-preferences-endpoint-override?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

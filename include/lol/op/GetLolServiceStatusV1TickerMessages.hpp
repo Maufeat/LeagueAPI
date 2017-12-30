@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/TickerMessage.hpp"
 namespace lol {
-  inline Result<std::vector<TickerMessage>> GetLolServiceStatusV1TickerMessages(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::vector<TickerMessage>> GetLolServiceStatusV1TickerMessages(T& _client)
   {
     try {
       return ToResult<std::vector<TickerMessage>>(_client.https.request("get", "/lol-service-status/v1/ticker-messages?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<TickerMessage>>(e.code());
     }
   }
-  inline void GetLolServiceStatusV1TickerMessages(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::vector<TickerMessage>>&)> cb)
+  template<typename T>
+  inline void GetLolServiceStatusV1TickerMessages(T& _client, std::function<void(T&, const Result<std::vector<TickerMessage>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-service-status/v1/ticker-messages?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

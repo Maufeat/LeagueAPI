@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolLoginAccessToken.hpp"
 namespace lol {
-  inline Result<json> PostLolLoginV1AccessToken(LeagueClient& _client, const LolLoginAccessToken& AccessToken)
+  template<typename T>
+  inline Result<json> PostLolLoginV1AccessToken(T& _client, const LolLoginAccessToken& AccessToken)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/lol-login/v1/access-token?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PostLolLoginV1AccessToken(LeagueClient& _client, const LolLoginAccessToken& AccessToken, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PostLolLoginV1AccessToken(T& _client, const LolLoginAccessToken& AccessToken, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/lol-login/v1/access-token?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

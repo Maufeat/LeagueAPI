@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolLobbyTeamBuilderChampSelectTradeContract.hpp"
 namespace lol {
-  inline Result<LolLobbyTeamBuilderChampSelectTradeContract> GetLolLobbyTeamBuilderChampSelectV1SessionTradesById(LeagueClient& _client, const int64_t& id)
+  template<typename T>
+  inline Result<LolLobbyTeamBuilderChampSelectTradeContract> GetLolLobbyTeamBuilderChampSelectV1SessionTradesById(T& _client, const int64_t& id)
   {
     try {
       return ToResult<LolLobbyTeamBuilderChampSelectTradeContract>(_client.https.request("get", "/lol-lobby-team-builder/champ-select/v1/session/trades/"+to_string(id)+"?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolLobbyTeamBuilderChampSelectTradeContract>(e.code());
     }
   }
-  inline void GetLolLobbyTeamBuilderChampSelectV1SessionTradesById(LeagueClient& _client, const int64_t& id, std::function<void(LeagueClient&, const Result<LolLobbyTeamBuilderChampSelectTradeContract>&)> cb)
+  template<typename T>
+  inline void GetLolLobbyTeamBuilderChampSelectV1SessionTradesById(T& _client, const int64_t& id, std::function<void(T&, const Result<LolLobbyTeamBuilderChampSelectTradeContract>&)> cb)
   {
     _client.httpsa.request("get", "/lol-lobby-team-builder/champ-select/v1/session/trades/"+to_string(id)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

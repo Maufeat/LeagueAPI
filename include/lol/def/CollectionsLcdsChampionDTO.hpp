@@ -3,48 +3,48 @@
 #include "CollectionsLcdsChampionSkinDTO.hpp"
 namespace lol {
   struct CollectionsLcdsChampionDTO { 
-    std::vector<std::string> sources;
-    uint64_t purchased;
-    bool freeToPlay;
+    bool freeToPlayReward;
     bool owned;
-    uint64_t purchaseDate;
+    int32_t winCountRemaining;
+    uint64_t endDate;
+    uint64_t purchased;
     bool rankedPlayEnabled;
     bool active;
-    int32_t championId;
-    uint64_t endDate;
-    int32_t winCountRemaining;
+    bool freeToPlay;
+    uint64_t purchaseDate;
     bool botEnabled;
-    bool freeToPlayReward;
-    std::vector<CollectionsLcdsChampionSkinDTO> championSkins; 
+    std::vector<CollectionsLcdsChampionSkinDTO> championSkins;
+    int32_t championId;
+    std::vector<std::string> sources; 
   };
   inline void to_json(json& j, const CollectionsLcdsChampionDTO& v) {
-    j["sources"] = v.sources; 
-    j["purchased"] = v.purchased; 
-    j["freeToPlay"] = v.freeToPlay; 
+    j["freeToPlayReward"] = v.freeToPlayReward; 
     j["owned"] = v.owned; 
-    j["purchaseDate"] = v.purchaseDate; 
+    j["winCountRemaining"] = v.winCountRemaining; 
+    j["endDate"] = v.endDate; 
+    j["purchased"] = v.purchased; 
     j["rankedPlayEnabled"] = v.rankedPlayEnabled; 
     j["active"] = v.active; 
-    j["championId"] = v.championId; 
-    j["endDate"] = v.endDate; 
-    j["winCountRemaining"] = v.winCountRemaining; 
+    j["freeToPlay"] = v.freeToPlay; 
+    j["purchaseDate"] = v.purchaseDate; 
     j["botEnabled"] = v.botEnabled; 
-    j["freeToPlayReward"] = v.freeToPlayReward; 
     j["championSkins"] = v.championSkins; 
+    j["championId"] = v.championId; 
+    j["sources"] = v.sources; 
   }
   inline void from_json(const json& j, CollectionsLcdsChampionDTO& v) {
-    v.sources = j.at("sources").get<std::vector<std::string>>(); 
-    v.purchased = j.at("purchased").get<uint64_t>(); 
-    v.freeToPlay = j.at("freeToPlay").get<bool>(); 
+    v.freeToPlayReward = j.at("freeToPlayReward").get<bool>(); 
     v.owned = j.at("owned").get<bool>(); 
-    v.purchaseDate = j.at("purchaseDate").get<uint64_t>(); 
+    v.winCountRemaining = j.at("winCountRemaining").get<int32_t>(); 
+    v.endDate = j.at("endDate").get<uint64_t>(); 
+    v.purchased = j.at("purchased").get<uint64_t>(); 
     v.rankedPlayEnabled = j.at("rankedPlayEnabled").get<bool>(); 
     v.active = j.at("active").get<bool>(); 
-    v.championId = j.at("championId").get<int32_t>(); 
-    v.endDate = j.at("endDate").get<uint64_t>(); 
-    v.winCountRemaining = j.at("winCountRemaining").get<int32_t>(); 
+    v.freeToPlay = j.at("freeToPlay").get<bool>(); 
+    v.purchaseDate = j.at("purchaseDate").get<uint64_t>(); 
     v.botEnabled = j.at("botEnabled").get<bool>(); 
-    v.freeToPlayReward = j.at("freeToPlayReward").get<bool>(); 
     v.championSkins = j.at("championSkins").get<std::vector<CollectionsLcdsChampionSkinDTO>>(); 
+    v.championId = j.at("championId").get<int32_t>(); 
+    v.sources = j.at("sources").get<std::vector<std::string>>(); 
   }
 }

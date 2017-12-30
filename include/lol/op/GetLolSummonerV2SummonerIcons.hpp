@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolSummonerSummonerIdAndIcon.hpp"
 namespace lol {
-  inline Result<std::vector<LolSummonerSummonerIdAndIcon>> GetLolSummonerV2SummonerIcons(LeagueClient& _client, const std::vector<uint64_t>& ids)
+  template<typename T>
+  inline Result<std::vector<LolSummonerSummonerIdAndIcon>> GetLolSummonerV2SummonerIcons(T& _client, const std::vector<uint64_t>& ids)
   {
     try {
       return ToResult<std::vector<LolSummonerSummonerIdAndIcon>>(_client.https.request("get", "/lol-summoner/v2/summoner-icons?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<std::vector<LolSummonerSummonerIdAndIcon>>(e.code());
     }
   }
-  inline void GetLolSummonerV2SummonerIcons(LeagueClient& _client, const std::vector<uint64_t>& ids, std::function<void(LeagueClient&, const Result<std::vector<LolSummonerSummonerIdAndIcon>>&)> cb)
+  template<typename T>
+  inline void GetLolSummonerV2SummonerIcons(T& _client, const std::vector<uint64_t>& ids, std::function<void(T&, const Result<std::vector<LolSummonerSummonerIdAndIcon>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-summoner/v2/summoner-icons?" +
       SimpleWeb::QueryString::create(Args2Headers({ 

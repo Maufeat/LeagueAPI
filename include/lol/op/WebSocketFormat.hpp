@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/RemotingSerializedFormat.hpp"
 namespace lol {
-  inline Result<json> WebSocketFormat(LeagueClient& _client, const std::optional<RemotingSerializedFormat>& format = std::nullopt)
+  template<typename T>
+  inline Result<json> WebSocketFormat(T& _client, const std::optional<RemotingSerializedFormat>& format = std::nullopt)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/WebSocketFormat?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void WebSocketFormat(LeagueClient& _client, const std::optional<RemotingSerializedFormat>& format = std::nullopt, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void WebSocketFormat(T& _client, const std::optional<RemotingSerializedFormat>& format = std::nullopt, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/WebSocketFormat?" +
       SimpleWeb::QueryString::create(Args2Headers({ 

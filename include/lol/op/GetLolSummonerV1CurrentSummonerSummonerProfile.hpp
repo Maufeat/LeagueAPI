@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> GetLolSummonerV1CurrentSummonerSummonerProfile(LeagueClient& _client)
+  template<typename T>
+  inline Result<json> GetLolSummonerV1CurrentSummonerSummonerProfile(T& _client)
   {
     try {
       return ToResult<json>(_client.https.request("get", "/lol-summoner/v1/current-summoner/summoner-profile?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void GetLolSummonerV1CurrentSummonerSummonerProfile(LeagueClient& _client, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void GetLolSummonerV1CurrentSummonerSummonerProfile(T& _client, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("get", "/lol-summoner/v1/current-summoner/summoner-profile?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

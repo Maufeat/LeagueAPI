@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolLoadoutsFrontendInventoryResponse.hpp"
 namespace lol {
-  inline Result<LolLoadoutsFrontendInventoryResponse> GetLolLoadoutsV1Inventory(LeagueClient& _client, const std::vector<std::string>& inventoryTypes)
+  template<typename T>
+  inline Result<LolLoadoutsFrontendInventoryResponse> GetLolLoadoutsV1Inventory(T& _client, const std::vector<std::string>& inventoryTypes)
   {
     try {
       return ToResult<LolLoadoutsFrontendInventoryResponse>(_client.https.request("get", "/lol-loadouts/v1/inventory?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<LolLoadoutsFrontendInventoryResponse>(e.code());
     }
   }
-  inline void GetLolLoadoutsV1Inventory(LeagueClient& _client, const std::vector<std::string>& inventoryTypes, std::function<void(LeagueClient&, const Result<LolLoadoutsFrontendInventoryResponse>&)> cb)
+  template<typename T>
+  inline void GetLolLoadoutsV1Inventory(T& _client, const std::vector<std::string>& inventoryTypes, std::function<void(T&, const Result<LolLoadoutsFrontendInventoryResponse>&)> cb)
   {
     _client.httpsa.request("get", "/lol-loadouts/v1/inventory?" +
       SimpleWeb::QueryString::create(Args2Headers({ 

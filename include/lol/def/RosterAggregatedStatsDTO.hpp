@@ -1,7 +1,7 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "RosterPlayerAggregatedStatsDTO.hpp"
 #include "RosterPeriodAggregatedStatsDTO.hpp"
+#include "RosterPlayerAggregatedStatsDTO.hpp"
 namespace lol {
   struct RosterAggregatedStatsDTO { 
     std::vector<RosterPeriodAggregatedStatsDTO> periodStats;

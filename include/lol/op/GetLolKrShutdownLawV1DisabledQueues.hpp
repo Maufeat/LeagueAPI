@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<std::vector<int32_t>> GetLolKrShutdownLawV1DisabledQueues(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::vector<int32_t>> GetLolKrShutdownLawV1DisabledQueues(T& _client)
   {
     try {
       return ToResult<std::vector<int32_t>>(_client.https.request("get", "/lol-kr-shutdown-law/v1/disabled-queues?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<std::vector<int32_t>>(e.code());
     }
   }
-  inline void GetLolKrShutdownLawV1DisabledQueues(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::vector<int32_t>>&)> cb)
+  template<typename T>
+  inline void GetLolKrShutdownLawV1DisabledQueues(T& _client, std::function<void(T&, const Result<std::vector<int32_t>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-kr-shutdown-law/v1/disabled-queues?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

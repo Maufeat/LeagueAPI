@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolCollectionsCollectionsRunePage.hpp"
 namespace lol {
-  inline Result<LolCollectionsCollectionsRunePage> PutLolCollectionsV1InventoriesBySummonerIdRuneBookSelectPageByPageId(LeagueClient& _client, const uint64_t& summonerId, const uint32_t& pageId)
+  template<typename T>
+  inline Result<LolCollectionsCollectionsRunePage> PutLolCollectionsV1InventoriesBySummonerIdRuneBookSelectPageByPageId(T& _client, const uint64_t& summonerId, const uint32_t& pageId)
   {
     try {
       return ToResult<LolCollectionsCollectionsRunePage>(_client.https.request("put", "/lol-collections/v1/inventories/"+to_string(summonerId)+"/rune-book/select-page/"+to_string(pageId)+"?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolCollectionsCollectionsRunePage>(e.code());
     }
   }
-  inline void PutLolCollectionsV1InventoriesBySummonerIdRuneBookSelectPageByPageId(LeagueClient& _client, const uint64_t& summonerId, const uint32_t& pageId, std::function<void(LeagueClient&, const Result<LolCollectionsCollectionsRunePage>&)> cb)
+  template<typename T>
+  inline void PutLolCollectionsV1InventoriesBySummonerIdRuneBookSelectPageByPageId(T& _client, const uint64_t& summonerId, const uint32_t& pageId, std::function<void(T&, const Result<LolCollectionsCollectionsRunePage>&)> cb)
   {
     _client.httpsa.request("put", "/lol-collections/v1/inventories/"+to_string(summonerId)+"/rune-book/select-page/"+to_string(pageId)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

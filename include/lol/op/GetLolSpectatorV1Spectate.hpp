@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/SpectateGameInfo.hpp"
 namespace lol {
-  inline Result<SpectateGameInfo> GetLolSpectatorV1Spectate(LeagueClient& _client)
+  template<typename T>
+  inline Result<SpectateGameInfo> GetLolSpectatorV1Spectate(T& _client)
   {
     try {
       return ToResult<SpectateGameInfo>(_client.https.request("get", "/lol-spectator/v1/spectate?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<SpectateGameInfo>(e.code());
     }
   }
-  inline void GetLolSpectatorV1Spectate(LeagueClient& _client, std::function<void(LeagueClient&, const Result<SpectateGameInfo>&)> cb)
+  template<typename T>
+  inline void GetLolSpectatorV1Spectate(T& _client, std::function<void(T&, const Result<SpectateGameInfo>&)> cb)
   {
     _client.httpsa.request("get", "/lol-spectator/v1/spectate?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

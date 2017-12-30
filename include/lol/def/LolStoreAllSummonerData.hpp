@@ -1,7 +1,7 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LolStoreSummoner.hpp"
 #include "LolStoreSummonerLevelAndPoints.hpp"
+#include "LolStoreSummoner.hpp"
 namespace lol {
   struct LolStoreAllSummonerData { 
     LolStoreSummoner summoner;

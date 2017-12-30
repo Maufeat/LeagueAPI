@@ -2,17 +2,17 @@
 #include "../base_def.hpp" 
 namespace lol {
   struct LolPerksChampSelectChatRoomDetails { 
-    std::optional<std::string> chatRoomPassword;
-    std::string chatRoomName; 
+    std::string chatRoomName;
+    std::optional<std::string> chatRoomPassword; 
   };
   inline void to_json(json& j, const LolPerksChampSelectChatRoomDetails& v) {
+    j["chatRoomName"] = v.chatRoomName; 
     if(v.chatRoomPassword)
       j["chatRoomPassword"] = *v.chatRoomPassword;
-    j["chatRoomName"] = v.chatRoomName; 
   }
   inline void from_json(const json& j, LolPerksChampSelectChatRoomDetails& v) {
+    v.chatRoomName = j.at("chatRoomName").get<std::string>(); 
     if(auto it = j.find("chatRoomPassword"); it != j.end() && !it->is_null())
       v.chatRoomPassword = it->get<std::optional<std::string>>(); 
-    v.chatRoomName = j.at("chatRoomName").get<std::string>(); 
   }
 }

@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolLicenseAgreementLicenseAgreement.hpp"
 namespace lol {
-  inline Result<std::vector<LolLicenseAgreementLicenseAgreement>> GetLolLicenseAgreementV1Agreements(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::vector<LolLicenseAgreementLicenseAgreement>> GetLolLicenseAgreementV1Agreements(T& _client)
   {
     try {
       return ToResult<std::vector<LolLicenseAgreementLicenseAgreement>>(_client.https.request("get", "/lol-license-agreement/v1/agreements?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<LolLicenseAgreementLicenseAgreement>>(e.code());
     }
   }
-  inline void GetLolLicenseAgreementV1Agreements(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::vector<LolLicenseAgreementLicenseAgreement>>&)> cb)
+  template<typename T>
+  inline void GetLolLicenseAgreementV1Agreements(T& _client, std::function<void(T&, const Result<std::vector<LolLicenseAgreementLicenseAgreement>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-license-agreement/v1/agreements?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolMapsMaps.hpp"
 namespace lol {
-  inline Result<LolMapsMaps> GetLolMapsV2MapByIdByGameMode(LeagueClient& _client, const int64_t& id, const std::string& gameMode)
+  template<typename T>
+  inline Result<LolMapsMaps> GetLolMapsV2MapByIdByGameMode(T& _client, const int64_t& id, const std::string& gameMode)
   {
     try {
       return ToResult<LolMapsMaps>(_client.https.request("get", "/lol-maps/v2/map/"+to_string(id)+"/"+to_string(gameMode)+"?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolMapsMaps>(e.code());
     }
   }
-  inline void GetLolMapsV2MapByIdByGameMode(LeagueClient& _client, const int64_t& id, const std::string& gameMode, std::function<void(LeagueClient&, const Result<LolMapsMaps>&)> cb)
+  template<typename T>
+  inline void GetLolMapsV2MapByIdByGameMode(T& _client, const int64_t& id, const std::string& gameMode, std::function<void(T&, const Result<LolMapsMaps>&)> cb)
   {
     _client.httpsa.request("get", "/lol-maps/v2/map/"+to_string(id)+"/"+to_string(gameMode)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolClashRosterDetails.hpp"
 namespace lol {
-  inline Result<json> PostLolClashV1TournamentByTournamentIdRosterChangeAllDetails(LeagueClient& _client, const int64_t& tournamentId, const LolClashRosterDetails& rosterDetails)
+  template<typename T>
+  inline Result<json> PostLolClashV1TournamentByTournamentIdRosterChangeAllDetails(T& _client, const int64_t& tournamentId, const LolClashRosterDetails& rosterDetails)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/lol-clash/v1/tournament/"+to_string(tournamentId)+"/roster/change-all-details?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PostLolClashV1TournamentByTournamentIdRosterChangeAllDetails(LeagueClient& _client, const int64_t& tournamentId, const LolClashRosterDetails& rosterDetails, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PostLolClashV1TournamentByTournamentIdRosterChangeAllDetails(T& _client, const int64_t& tournamentId, const LolClashRosterDetails& rosterDetails, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/lol-clash/v1/tournament/"+to_string(tournamentId)+"/roster/change-all-details?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

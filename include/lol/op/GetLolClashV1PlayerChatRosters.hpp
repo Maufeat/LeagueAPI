@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolClashPlayerChatRoster.hpp"
 namespace lol {
-  inline Result<std::vector<LolClashPlayerChatRoster>> GetLolClashV1PlayerChatRosters(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::vector<LolClashPlayerChatRoster>> GetLolClashV1PlayerChatRosters(T& _client)
   {
     try {
       return ToResult<std::vector<LolClashPlayerChatRoster>>(_client.https.request("get", "/lol-clash/v1/player/chat-rosters?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<LolClashPlayerChatRoster>>(e.code());
     }
   }
-  inline void GetLolClashV1PlayerChatRosters(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::vector<LolClashPlayerChatRoster>>&)> cb)
+  template<typename T>
+  inline void GetLolClashV1PlayerChatRosters(T& _client, std::function<void(T&, const Result<std::vector<LolClashPlayerChatRoster>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-clash/v1/player/chat-rosters?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

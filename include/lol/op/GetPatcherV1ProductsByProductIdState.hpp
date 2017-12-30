@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/PatcherProductState.hpp"
 namespace lol {
-  inline Result<PatcherProductState> GetPatcherV1ProductsByProductIdState(LeagueClient& _client, const std::string& product_id)
+  template<typename T>
+  inline Result<PatcherProductState> GetPatcherV1ProductsByProductIdState(T& _client, const std::string& product_id)
   {
     try {
       return ToResult<PatcherProductState>(_client.https.request("get", "/patcher/v1/products/"+to_string(product_id)+"/state?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<PatcherProductState>(e.code());
     }
   }
-  inline void GetPatcherV1ProductsByProductIdState(LeagueClient& _client, const std::string& product_id, std::function<void(LeagueClient&, const Result<PatcherProductState>&)> cb)
+  template<typename T>
+  inline void GetPatcherV1ProductsByProductIdState(T& _client, const std::string& product_id, std::function<void(T&, const Result<PatcherProductState>&)> cb)
   {
     _client.httpsa.request("get", "/patcher/v1/products/"+to_string(product_id)+"/state?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

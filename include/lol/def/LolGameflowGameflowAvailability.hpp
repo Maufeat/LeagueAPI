@@ -3,15 +3,15 @@
 #include "LolGameflowGameflowAvailabilityState.hpp"
 namespace lol {
   struct LolGameflowGameflowAvailability { 
-    LolGameflowGameflowAvailabilityState state;
-    bool isAvailable; 
+    bool isAvailable;
+    LolGameflowGameflowAvailabilityState state; 
   };
   inline void to_json(json& j, const LolGameflowGameflowAvailability& v) {
-    j["state"] = v.state; 
     j["isAvailable"] = v.isAvailable; 
+    j["state"] = v.state; 
   }
   inline void from_json(const json& j, LolGameflowGameflowAvailability& v) {
-    v.state = j.at("state").get<LolGameflowGameflowAvailabilityState>(); 
     v.isAvailable = j.at("isAvailable").get<bool>(); 
+    v.state = j.at("state").get<LolGameflowGameflowAvailabilityState>(); 
   }
 }

@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/RecofrienderContactResource.hpp"
 namespace lol {
-  inline Result<RecofrienderContactResource> GetRecofrienderV2ContactsByAccountId(LeagueClient& _client, const uint64_t& accountId)
+  template<typename T>
+  inline Result<RecofrienderContactResource> GetRecofrienderV2ContactsByAccountId(T& _client, const uint64_t& accountId)
   {
     try {
       return ToResult<RecofrienderContactResource>(_client.https.request("get", "/recofriender/v2/contacts/"+to_string(accountId)+"?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<RecofrienderContactResource>(e.code());
     }
   }
-  inline void GetRecofrienderV2ContactsByAccountId(LeagueClient& _client, const uint64_t& accountId, std::function<void(LeagueClient&, const Result<RecofrienderContactResource>&)> cb)
+  template<typename T>
+  inline void GetRecofrienderV2ContactsByAccountId(T& _client, const uint64_t& accountId, std::function<void(T&, const Result<RecofrienderContactResource>&)> cb)
   {
     _client.httpsa.request("get", "/recofriender/v2/contacts/"+to_string(accountId)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

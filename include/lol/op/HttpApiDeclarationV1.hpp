@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> HttpApiDeclarationV1(LeagueClient& _client, const std::string& api)
+  template<typename T>
+  inline Result<json> HttpApiDeclarationV1(T& _client, const std::string& api)
   {
     try {
       return ToResult<json>(_client.https.request("get", "/v1/api-docs/"+to_string(api)+"?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void HttpApiDeclarationV1(LeagueClient& _client, const std::string& api, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void HttpApiDeclarationV1(T& _client, const std::string& api, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("get", "/v1/api-docs/"+to_string(api)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

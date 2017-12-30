@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/PatcherP2PStatus.hpp"
 namespace lol {
-  inline Result<PatcherP2PStatus> GetPatcherV1P2pStatus(LeagueClient& _client)
+  template<typename T>
+  inline Result<PatcherP2PStatus> GetPatcherV1P2pStatus(T& _client)
   {
     try {
       return ToResult<PatcherP2PStatus>(_client.https.request("get", "/patcher/v1/p2p/status?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<PatcherP2PStatus>(e.code());
     }
   }
-  inline void GetPatcherV1P2pStatus(LeagueClient& _client, std::function<void(LeagueClient&, const Result<PatcherP2PStatus>&)> cb)
+  template<typename T>
+  inline void GetPatcherV1P2pStatus(T& _client, std::function<void(T&, const Result<PatcherP2PStatus>&)> cb)
   {
     _client.httpsa.request("get", "/patcher/v1/p2p/status?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

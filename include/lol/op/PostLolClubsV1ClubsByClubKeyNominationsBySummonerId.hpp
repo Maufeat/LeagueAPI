@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/ClubMemberLists.hpp"
 namespace lol {
-  inline Result<ClubMemberLists> PostLolClubsV1ClubsByClubKeyNominationsBySummonerId(LeagueClient& _client, const std::string& clubKey, const uint64_t& summonerId)
+  template<typename T>
+  inline Result<ClubMemberLists> PostLolClubsV1ClubsByClubKeyNominationsBySummonerId(T& _client, const std::string& clubKey, const uint64_t& summonerId)
   {
     try {
       return ToResult<ClubMemberLists>(_client.https.request("post", "/lol-clubs/v1/clubs/"+to_string(clubKey)+"/nominations/"+to_string(summonerId)+"?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<ClubMemberLists>(e.code());
     }
   }
-  inline void PostLolClubsV1ClubsByClubKeyNominationsBySummonerId(LeagueClient& _client, const std::string& clubKey, const uint64_t& summonerId, std::function<void(LeagueClient&, const Result<ClubMemberLists>&)> cb)
+  template<typename T>
+  inline void PostLolClubsV1ClubsByClubKeyNominationsBySummonerId(T& _client, const std::string& clubKey, const uint64_t& summonerId, std::function<void(T&, const Result<ClubMemberLists>&)> cb)
   {
     _client.httpsa.request("post", "/lol-clubs/v1/clubs/"+to_string(clubKey)+"/nominations/"+to_string(summonerId)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

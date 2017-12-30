@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> PostLolHighlightsV1FileBrowserByHighlightId(LeagueClient& _client, const uint64_t& highlightId)
+  template<typename T>
+  inline Result<json> PostLolHighlightsV1FileBrowserByHighlightId(T& _client, const uint64_t& highlightId)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/lol-highlights/v1/file-browser/"+to_string(highlightId)+"?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PostLolHighlightsV1FileBrowserByHighlightId(LeagueClient& _client, const uint64_t& highlightId, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PostLolHighlightsV1FileBrowserByHighlightId(T& _client, const uint64_t& highlightId, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/lol-highlights/v1/file-browser/"+to_string(highlightId)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

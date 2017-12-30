@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolLobbyLobbyCustomGame.hpp"
 namespace lol {
-  inline Result<LolLobbyLobbyCustomGame> GetLolLobbyV1CustomGamesById(LeagueClient& _client, const int32_t& id)
+  template<typename T>
+  inline Result<LolLobbyLobbyCustomGame> GetLolLobbyV1CustomGamesById(T& _client, const int32_t& id)
   {
     try {
       return ToResult<LolLobbyLobbyCustomGame>(_client.https.request("get", "/lol-lobby/v1/custom-games/"+to_string(id)+"?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolLobbyLobbyCustomGame>(e.code());
     }
   }
-  inline void GetLolLobbyV1CustomGamesById(LeagueClient& _client, const int32_t& id, std::function<void(LeagueClient&, const Result<LolLobbyLobbyCustomGame>&)> cb)
+  template<typename T>
+  inline void GetLolLobbyV1CustomGamesById(T& _client, const int32_t& id, std::function<void(T&, const Result<LolLobbyLobbyCustomGame>&)> cb)
   {
     _client.httpsa.request("get", "/lol-lobby/v1/custom-games/"+to_string(id)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

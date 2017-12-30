@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolLobbyLobbyInvitationDto.hpp"
 namespace lol {
-  inline Result<std::vector<LolLobbyLobbyInvitationDto>> PostLolLobbyV2EogInvitations(LeagueClient& _client, const std::vector<LolLobbyLobbyInvitationDto>& invitations)
+  template<typename T>
+  inline Result<std::vector<LolLobbyLobbyInvitationDto>> PostLolLobbyV2EogInvitations(T& _client, const std::vector<LolLobbyLobbyInvitationDto>& invitations)
   {
     try {
       return ToResult<std::vector<LolLobbyLobbyInvitationDto>>(_client.https.request("post", "/lol-lobby/v2/eog-invitations?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<std::vector<LolLobbyLobbyInvitationDto>>(e.code());
     }
   }
-  inline void PostLolLobbyV2EogInvitations(LeagueClient& _client, const std::vector<LolLobbyLobbyInvitationDto>& invitations, std::function<void(LeagueClient&, const Result<std::vector<LolLobbyLobbyInvitationDto>>&)> cb)
+  template<typename T>
+  inline void PostLolLobbyV2EogInvitations(T& _client, const std::vector<LolLobbyLobbyInvitationDto>& invitations, std::function<void(T&, const Result<std::vector<LolLobbyLobbyInvitationDto>>&)> cb)
   {
     _client.httpsa.request("post", "/lol-lobby/v2/eog-invitations?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

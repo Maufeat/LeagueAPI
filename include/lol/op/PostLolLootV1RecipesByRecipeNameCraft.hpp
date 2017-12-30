@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolLootPlayerLootUpdate.hpp"
 namespace lol {
-  inline Result<LolLootPlayerLootUpdate> PostLolLootV1RecipesByRecipeNameCraft(LeagueClient& _client, const std::string& recipeName, const std::vector<std::string>& playerLootList, const std::optional<int32_t>& repeat = std::nullopt)
+  template<typename T>
+  inline Result<LolLootPlayerLootUpdate> PostLolLootV1RecipesByRecipeNameCraft(T& _client, const std::string& recipeName, const std::vector<std::string>& playerLootList, const std::optional<int32_t>& repeat = std::nullopt)
   {
     try {
       return ToResult<LolLootPlayerLootUpdate>(_client.https.request("post", "/lol-loot/v1/recipes/"+to_string(recipeName)+"/craft?" +
@@ -17,7 +18,8 @@ namespace lol {
       return ToResult<LolLootPlayerLootUpdate>(e.code());
     }
   }
-  inline void PostLolLootV1RecipesByRecipeNameCraft(LeagueClient& _client, const std::string& recipeName, const std::vector<std::string>& playerLootList, const std::optional<int32_t>& repeat = std::nullopt, std::function<void(LeagueClient&, const Result<LolLootPlayerLootUpdate>&)> cb)
+  template<typename T>
+  inline void PostLolLootV1RecipesByRecipeNameCraft(T& _client, const std::string& recipeName, const std::vector<std::string>& playerLootList, const std::optional<int32_t>& repeat = std::nullopt, std::function<void(T&, const Result<LolLootPlayerLootUpdate>&)> cb)
   {
     _client.httpsa.request("post", "/lol-loot/v1/recipes/"+to_string(recipeName)+"/craft?" +
       SimpleWeb::QueryString::create(Args2Headers({ 

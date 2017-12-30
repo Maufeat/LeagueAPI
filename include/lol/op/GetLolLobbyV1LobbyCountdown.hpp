@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<int64_t> GetLolLobbyV1LobbyCountdown(LeagueClient& _client)
+  template<typename T>
+  inline Result<int64_t> GetLolLobbyV1LobbyCountdown(T& _client)
   {
     try {
       return ToResult<int64_t>(_client.https.request("get", "/lol-lobby/v1/lobby/countdown?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<int64_t>(e.code());
     }
   }
-  inline void GetLolLobbyV1LobbyCountdown(LeagueClient& _client, std::function<void(LeagueClient&, const Result<int64_t>&)> cb)
+  template<typename T>
+  inline void GetLolLobbyV1LobbyCountdown(T& _client, std::function<void(T&, const Result<int64_t>&)> cb)
   {
     _client.httpsa.request("get", "/lol-lobby/v1/lobby/countdown?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

@@ -1,10 +1,11 @@
 #pragma once
 #include "../base_op.hpp"
 #include <functional> 
-#include "../def/LolChatSessionResource.hpp"
 #include "../def/LolChatAuthResourceRsoAccessToken.hpp"
+#include "../def/LolChatSessionResource.hpp"
 namespace lol {
-  inline Result<LolChatSessionResource> PostLolChatV1SessionRso(LeagueClient& _client, const LolChatAuthResourceRsoAccessToken& auth)
+  template<typename T>
+  inline Result<LolChatSessionResource> PostLolChatV1SessionRso(T& _client, const LolChatAuthResourceRsoAccessToken& auth)
   {
     try {
       return ToResult<LolChatSessionResource>(_client.https.request("post", "/lol-chat/v1/session/rso?" +
@@ -17,7 +18,8 @@ namespace lol {
       return ToResult<LolChatSessionResource>(e.code());
     }
   }
-  inline void PostLolChatV1SessionRso(LeagueClient& _client, const LolChatAuthResourceRsoAccessToken& auth, std::function<void(LeagueClient&, const Result<LolChatSessionResource>&)> cb)
+  template<typename T>
+  inline void PostLolChatV1SessionRso(T& _client, const LolChatAuthResourceRsoAccessToken& auth, std::function<void(T&, const Result<LolChatSessionResource>&)> cb)
   {
     _client.httpsa.request("post", "/lol-chat/v1/session/rso?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

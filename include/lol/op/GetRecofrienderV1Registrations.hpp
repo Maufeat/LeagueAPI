@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/RecofrienderLinkResource.hpp"
 namespace lol {
-  inline Result<std::vector<RecofrienderLinkResource>> GetRecofrienderV1Registrations(LeagueClient& _client, const std::optional<std::string>& cb = std::nullopt)
+  template<typename T>
+  inline Result<std::vector<RecofrienderLinkResource>> GetRecofrienderV1Registrations(T& _client, const std::optional<std::string>& cb = std::nullopt)
   {
     try {
       return ToResult<std::vector<RecofrienderLinkResource>>(_client.https.request("get", "/recofriender/v1/registrations?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<std::vector<RecofrienderLinkResource>>(e.code());
     }
   }
-  inline void GetRecofrienderV1Registrations(LeagueClient& _client, const std::optional<std::string>& cb = std::nullopt, std::function<void(LeagueClient&, const Result<std::vector<RecofrienderLinkResource>>&)> cb)
+  template<typename T>
+  inline void GetRecofrienderV1Registrations(T& _client, const std::optional<std::string>& cb = std::nullopt, std::function<void(T&, const Result<std::vector<RecofrienderLinkResource>>&)> cb)
   {
     _client.httpsa.request("get", "/recofriender/v1/registrations?" +
       SimpleWeb::QueryString::create(Args2Headers({ 

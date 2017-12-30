@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<uint64_t> PostLolLobbyV2LobbyMembersBySummonerIdPromote(LeagueClient& _client, const uint64_t& summonerId)
+  template<typename T>
+  inline Result<uint64_t> PostLolLobbyV2LobbyMembersBySummonerIdPromote(T& _client, const uint64_t& summonerId)
   {
     try {
       return ToResult<uint64_t>(_client.https.request("post", "/lol-lobby/v2/lobby/members/"+to_string(summonerId)+"/promote?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<uint64_t>(e.code());
     }
   }
-  inline void PostLolLobbyV2LobbyMembersBySummonerIdPromote(LeagueClient& _client, const uint64_t& summonerId, std::function<void(LeagueClient&, const Result<uint64_t>&)> cb)
+  template<typename T>
+  inline void PostLolLobbyV2LobbyMembersBySummonerIdPromote(T& _client, const uint64_t& summonerId, std::function<void(T&, const Result<uint64_t>&)> cb)
   {
     _client.httpsa.request("post", "/lol-lobby/v2/lobby/members/"+to_string(summonerId)+"/promote?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

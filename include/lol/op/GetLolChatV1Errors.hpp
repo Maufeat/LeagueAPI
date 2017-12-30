@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolChatErrorResource.hpp"
 namespace lol {
-  inline Result<std::vector<LolChatErrorResource>> GetLolChatV1Errors(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::vector<LolChatErrorResource>> GetLolChatV1Errors(T& _client)
   {
     try {
       return ToResult<std::vector<LolChatErrorResource>>(_client.https.request("get", "/lol-chat/v1/errors?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<LolChatErrorResource>>(e.code());
     }
   }
-  inline void GetLolChatV1Errors(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::vector<LolChatErrorResource>>&)> cb)
+  template<typename T>
+  inline void GetLolChatV1Errors(T& _client, std::function<void(T&, const Result<std::vector<LolChatErrorResource>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-chat/v1/errors?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

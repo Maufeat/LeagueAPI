@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> PostLolLoginV1ChangeSummonerName(LeagueClient& _client, const std::string& name)
+  template<typename T>
+  inline Result<json> PostLolLoginV1ChangeSummonerName(T& _client, const std::string& name)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/lol-login/v1/change-summoner-name?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PostLolLoginV1ChangeSummonerName(LeagueClient& _client, const std::string& name, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PostLolLoginV1ChangeSummonerName(T& _client, const std::string& name, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/lol-login/v1/change-summoner-name?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

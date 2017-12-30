@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolAccountVerificationInvalidateResponse.hpp"
 namespace lol {
-  inline Result<LolAccountVerificationInvalidateResponse> PostLolAccountVerificationV1Invalidate(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolAccountVerificationInvalidateResponse> PostLolAccountVerificationV1Invalidate(T& _client)
   {
     try {
       return ToResult<LolAccountVerificationInvalidateResponse>(_client.https.request("post", "/lol-account-verification/v1/invalidate?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolAccountVerificationInvalidateResponse>(e.code());
     }
   }
-  inline void PostLolAccountVerificationV1Invalidate(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolAccountVerificationInvalidateResponse>&)> cb)
+  template<typename T>
+  inline void PostLolAccountVerificationV1Invalidate(T& _client, std::function<void(T&, const Result<LolAccountVerificationInvalidateResponse>&)> cb)
   {
     _client.httpsa.request("post", "/lol-account-verification/v1/invalidate?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolClashEogPlayerUpdateDTO.hpp"
 namespace lol {
-  inline Result<LolClashEogPlayerUpdateDTO> GetLolClashV1EogPlayerUpdate(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolClashEogPlayerUpdateDTO> GetLolClashV1EogPlayerUpdate(T& _client)
   {
     try {
       return ToResult<LolClashEogPlayerUpdateDTO>(_client.https.request("get", "/lol-clash/v1/eogPlayerUpdate?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolClashEogPlayerUpdateDTO>(e.code());
     }
   }
-  inline void GetLolClashV1EogPlayerUpdate(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolClashEogPlayerUpdateDTO>&)> cb)
+  template<typename T>
+  inline void GetLolClashV1EogPlayerUpdate(T& _client, std::function<void(T&, const Result<LolClashEogPlayerUpdateDTO>&)> cb)
   {
     _client.httpsa.request("get", "/lol-clash/v1/eogPlayerUpdate?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

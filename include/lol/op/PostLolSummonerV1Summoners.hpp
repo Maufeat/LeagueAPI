@@ -4,7 +4,8 @@
 #include "../def/LolSummonerSummonerRequestedName.hpp"
 #include "../def/LolSummonerInternalSummoner.hpp"
 namespace lol {
-  inline Result<LolSummonerInternalSummoner> PostLolSummonerV1Summoners(LeagueClient& _client, const LolSummonerSummonerRequestedName& name)
+  template<typename T>
+  inline Result<LolSummonerInternalSummoner> PostLolSummonerV1Summoners(T& _client, const LolSummonerSummonerRequestedName& name)
   {
     try {
       return ToResult<LolSummonerInternalSummoner>(_client.https.request("post", "/lol-summoner/v1/summoners?" +
@@ -17,7 +18,8 @@ namespace lol {
       return ToResult<LolSummonerInternalSummoner>(e.code());
     }
   }
-  inline void PostLolSummonerV1Summoners(LeagueClient& _client, const LolSummonerSummonerRequestedName& name, std::function<void(LeagueClient&, const Result<LolSummonerInternalSummoner>&)> cb)
+  template<typename T>
+  inline void PostLolSummonerV1Summoners(T& _client, const LolSummonerSummonerRequestedName& name, std::function<void(T&, const Result<LolSummonerInternalSummoner>&)> cb)
   {
     _client.httpsa.request("post", "/lol-summoner/v1/summoners?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

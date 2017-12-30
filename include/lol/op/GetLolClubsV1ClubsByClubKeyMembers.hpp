@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/ClubMember.hpp"
 namespace lol {
-  inline Result<std::vector<ClubMember>> GetLolClubsV1ClubsByClubKeyMembers(LeagueClient& _client, const std::string& clubKey)
+  template<typename T>
+  inline Result<std::vector<ClubMember>> GetLolClubsV1ClubsByClubKeyMembers(T& _client, const std::string& clubKey)
   {
     try {
       return ToResult<std::vector<ClubMember>>(_client.https.request("get", "/lol-clubs/v1/clubs/"+to_string(clubKey)+"/members?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<ClubMember>>(e.code());
     }
   }
-  inline void GetLolClubsV1ClubsByClubKeyMembers(LeagueClient& _client, const std::string& clubKey, std::function<void(LeagueClient&, const Result<std::vector<ClubMember>>&)> cb)
+  template<typename T>
+  inline void GetLolClubsV1ClubsByClubKeyMembers(T& _client, const std::string& clubKey, std::function<void(T&, const Result<std::vector<ClubMember>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-clubs/v1/clubs/"+to_string(clubKey)+"/members?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

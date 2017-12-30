@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolClashRankedScoutingMember.hpp"
 namespace lol {
-  inline Result<std::vector<LolClashRankedScoutingMember>> GetLolClashV1ScoutingRanked(LeagueClient& _client, const std::vector<uint64_t>& summonerIds)
+  template<typename T>
+  inline Result<std::vector<LolClashRankedScoutingMember>> GetLolClashV1ScoutingRanked(T& _client, const std::vector<uint64_t>& summonerIds)
   {
     try {
       return ToResult<std::vector<LolClashRankedScoutingMember>>(_client.https.request("get", "/lol-clash/v1/scouting/ranked?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<std::vector<LolClashRankedScoutingMember>>(e.code());
     }
   }
-  inline void GetLolClashV1ScoutingRanked(LeagueClient& _client, const std::vector<uint64_t>& summonerIds, std::function<void(LeagueClient&, const Result<std::vector<LolClashRankedScoutingMember>>&)> cb)
+  template<typename T>
+  inline void GetLolClashV1ScoutingRanked(T& _client, const std::vector<uint64_t>& summonerIds, std::function<void(T&, const Result<std::vector<LolClashRankedScoutingMember>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-clash/v1/scouting/ranked?" +
       SimpleWeb::QueryString::create(Args2Headers({ 

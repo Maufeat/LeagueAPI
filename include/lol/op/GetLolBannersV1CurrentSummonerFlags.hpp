@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolBannersBannerFlag.hpp"
 namespace lol {
-  inline Result<std::vector<LolBannersBannerFlag>> GetLolBannersV1CurrentSummonerFlags(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::vector<LolBannersBannerFlag>> GetLolBannersV1CurrentSummonerFlags(T& _client)
   {
     try {
       return ToResult<std::vector<LolBannersBannerFlag>>(_client.https.request("get", "/lol-banners/v1/current-summoner/flags?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<LolBannersBannerFlag>>(e.code());
     }
   }
-  inline void GetLolBannersV1CurrentSummonerFlags(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::vector<LolBannersBannerFlag>>&)> cb)
+  template<typename T>
+  inline void GetLolBannersV1CurrentSummonerFlags(T& _client, std::function<void(T&, const Result<std::vector<LolBannersBannerFlag>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-banners/v1/current-summoner/flags?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

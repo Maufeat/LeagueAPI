@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<bool> GetLolPlatformConfigV1InitialConfigurationComplete(LeagueClient& _client)
+  template<typename T>
+  inline Result<bool> GetLolPlatformConfigV1InitialConfigurationComplete(T& _client)
   {
     try {
       return ToResult<bool>(_client.https.request("get", "/lol-platform-config/v1/initial-configuration-complete?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<bool>(e.code());
     }
   }
-  inline void GetLolPlatformConfigV1InitialConfigurationComplete(LeagueClient& _client, std::function<void(LeagueClient&, const Result<bool>&)> cb)
+  template<typename T>
+  inline void GetLolPlatformConfigV1InitialConfigurationComplete(T& _client, std::function<void(T&, const Result<bool>&)> cb)
   {
     _client.httpsa.request("get", "/lol-platform-config/v1/initial-configuration-complete?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

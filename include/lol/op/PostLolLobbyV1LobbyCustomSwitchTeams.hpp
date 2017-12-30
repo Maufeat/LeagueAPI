@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> PostLolLobbyV1LobbyCustomSwitchTeams(LeagueClient& _client, const std::optional<std::string>& team = std::nullopt)
+  template<typename T>
+  inline Result<json> PostLolLobbyV1LobbyCustomSwitchTeams(T& _client, const std::optional<std::string>& team = std::nullopt)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/lol-lobby/v1/lobby/custom/switch-teams?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PostLolLobbyV1LobbyCustomSwitchTeams(LeagueClient& _client, const std::optional<std::string>& team = std::nullopt, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PostLolLobbyV1LobbyCustomSwitchTeams(T& _client, const std::optional<std::string>& team = std::nullopt, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/lol-lobby/v1/lobby/custom/switch-teams?" +
       SimpleWeb::QueryString::create(Args2Headers({ 

@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolAccountVerificationIsVerifiedResponse.hpp"
 namespace lol {
-  inline Result<LolAccountVerificationIsVerifiedResponse> GetLolAccountVerificationV1IsVerified(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolAccountVerificationIsVerifiedResponse> GetLolAccountVerificationV1IsVerified(T& _client)
   {
     try {
       return ToResult<LolAccountVerificationIsVerifiedResponse>(_client.https.request("get", "/lol-account-verification/v1/is-verified?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolAccountVerificationIsVerifiedResponse>(e.code());
     }
   }
-  inline void GetLolAccountVerificationV1IsVerified(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolAccountVerificationIsVerifiedResponse>&)> cb)
+  template<typename T>
+  inline void GetLolAccountVerificationV1IsVerified(T& _client, std::function<void(T&, const Result<LolAccountVerificationIsVerifiedResponse>&)> cb)
   {
     _client.httpsa.request("get", "/lol-account-verification/v1/is-verified?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

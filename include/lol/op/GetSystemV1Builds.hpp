@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/BuildInfo.hpp"
 namespace lol {
-  inline Result<BuildInfo> GetSystemV1Builds(LeagueClient& _client)
+  template<typename T>
+  inline Result<BuildInfo> GetSystemV1Builds(T& _client)
   {
     try {
       return ToResult<BuildInfo>(_client.https.request("get", "/system/v1/builds?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<BuildInfo>(e.code());
     }
   }
-  inline void GetSystemV1Builds(LeagueClient& _client, std::function<void(LeagueClient&, const Result<BuildInfo>&)> cb)
+  template<typename T>
+  inline void GetSystemV1Builds(T& _client, std::function<void(T&, const Result<BuildInfo>&)> cb)
   {
     _client.httpsa.request("get", "/system/v1/builds?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

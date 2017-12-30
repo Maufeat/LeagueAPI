@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolLobbyLobbyPositionPreferences.hpp"
 namespace lol {
-  inline Result<json> PutLolLobbyV1LobbyMembersLocalMemberPositionPreferences(LeagueClient& _client, const LolLobbyLobbyPositionPreferences& positionPreferences)
+  template<typename T>
+  inline Result<json> PutLolLobbyV1LobbyMembersLocalMemberPositionPreferences(T& _client, const LolLobbyLobbyPositionPreferences& positionPreferences)
   {
     try {
       return ToResult<json>(_client.https.request("put", "/lol-lobby/v1/lobby/members/localMember/position-preferences?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PutLolLobbyV1LobbyMembersLocalMemberPositionPreferences(LeagueClient& _client, const LolLobbyLobbyPositionPreferences& positionPreferences, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PutLolLobbyV1LobbyMembersLocalMemberPositionPreferences(T& _client, const LolLobbyLobbyPositionPreferences& positionPreferences, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("put", "/lol-lobby/v1/lobby/members/localMember/position-preferences?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

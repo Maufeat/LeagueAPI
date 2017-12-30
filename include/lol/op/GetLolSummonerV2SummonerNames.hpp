@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolSummonerSummonerIdAndName.hpp"
 namespace lol {
-  inline Result<std::vector<LolSummonerSummonerIdAndName>> GetLolSummonerV2SummonerNames(LeagueClient& _client, const std::vector<uint64_t>& ids)
+  template<typename T>
+  inline Result<std::vector<LolSummonerSummonerIdAndName>> GetLolSummonerV2SummonerNames(T& _client, const std::vector<uint64_t>& ids)
   {
     try {
       return ToResult<std::vector<LolSummonerSummonerIdAndName>>(_client.https.request("get", "/lol-summoner/v2/summoner-names?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<std::vector<LolSummonerSummonerIdAndName>>(e.code());
     }
   }
-  inline void GetLolSummonerV2SummonerNames(LeagueClient& _client, const std::vector<uint64_t>& ids, std::function<void(LeagueClient&, const Result<std::vector<LolSummonerSummonerIdAndName>>&)> cb)
+  template<typename T>
+  inline void GetLolSummonerV2SummonerNames(T& _client, const std::vector<uint64_t>& ids, std::function<void(T&, const Result<std::vector<LolSummonerSummonerIdAndName>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-summoner/v2/summoner-names?" +
       SimpleWeb::QueryString::create(Args2Headers({ 

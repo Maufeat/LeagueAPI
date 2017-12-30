@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolClashPlaymodeRestrictedInfo.hpp"
 namespace lol {
-  inline Result<LolClashPlaymodeRestrictedInfo> GetLolClashV2PlaymodeRestricted(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolClashPlaymodeRestrictedInfo> GetLolClashV2PlaymodeRestricted(T& _client)
   {
     try {
       return ToResult<LolClashPlaymodeRestrictedInfo>(_client.https.request("get", "/lol-clash/v2/playmode-restricted?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolClashPlaymodeRestrictedInfo>(e.code());
     }
   }
-  inline void GetLolClashV2PlaymodeRestricted(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolClashPlaymodeRestrictedInfo>&)> cb)
+  template<typename T>
+  inline void GetLolClashV2PlaymodeRestricted(T& _client, std::function<void(T&, const Result<LolClashPlaymodeRestrictedInfo>&)> cb)
   {
     _client.httpsa.request("get", "/lol-clash/v2/playmode-restricted?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

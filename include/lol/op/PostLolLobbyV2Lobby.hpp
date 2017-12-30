@@ -4,7 +4,8 @@
 #include "../def/LolLobbyLobbyDto.hpp"
 #include "../def/LolLobbyLobbyChangeGameDto.hpp"
 namespace lol {
-  inline Result<LolLobbyLobbyDto> PostLolLobbyV2Lobby(LeagueClient& _client, const LolLobbyLobbyChangeGameDto& lobbyChange)
+  template<typename T>
+  inline Result<LolLobbyLobbyDto> PostLolLobbyV2Lobby(T& _client, const LolLobbyLobbyChangeGameDto& lobbyChange)
   {
     try {
       return ToResult<LolLobbyLobbyDto>(_client.https.request("post", "/lol-lobby/v2/lobby?" +
@@ -17,7 +18,8 @@ namespace lol {
       return ToResult<LolLobbyLobbyDto>(e.code());
     }
   }
-  inline void PostLolLobbyV2Lobby(LeagueClient& _client, const LolLobbyLobbyChangeGameDto& lobbyChange, std::function<void(LeagueClient&, const Result<LolLobbyLobbyDto>&)> cb)
+  template<typename T>
+  inline void PostLolLobbyV2Lobby(T& _client, const LolLobbyLobbyChangeGameDto& lobbyChange, std::function<void(T&, const Result<LolLobbyLobbyDto>&)> cb)
   {
     _client.httpsa.request("post", "/lol-lobby/v2/lobby?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

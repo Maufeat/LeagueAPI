@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolSummonerSummonerProfileUpdate.hpp"
 namespace lol {
-  inline Result<json> PostLolSummonerV1CurrentSummonerSummonerProfile(LeagueClient& _client, const LolSummonerSummonerProfileUpdate& body)
+  template<typename T>
+  inline Result<json> PostLolSummonerV1CurrentSummonerSummonerProfile(T& _client, const LolSummonerSummonerProfileUpdate& body)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/lol-summoner/v1/current-summoner/summoner-profile?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PostLolSummonerV1CurrentSummonerSummonerProfile(LeagueClient& _client, const LolSummonerSummonerProfileUpdate& body, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PostLolSummonerV1CurrentSummonerSummonerProfile(T& _client, const LolSummonerSummonerProfileUpdate& body, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/lol-summoner/v1/current-summoner/summoner-profile?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

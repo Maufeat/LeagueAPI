@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolChampSelectLegacyTeamBoost.hpp"
 namespace lol {
-  inline Result<LolChampSelectLegacyTeamBoost> GetLolChampSelectLegacyV1TeamBoost(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolChampSelectLegacyTeamBoost> GetLolChampSelectLegacyV1TeamBoost(T& _client)
   {
     try {
       return ToResult<LolChampSelectLegacyTeamBoost>(_client.https.request("get", "/lol-champ-select-legacy/v1/team-boost?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolChampSelectLegacyTeamBoost>(e.code());
     }
   }
-  inline void GetLolChampSelectLegacyV1TeamBoost(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolChampSelectLegacyTeamBoost>&)> cb)
+  template<typename T>
+  inline void GetLolChampSelectLegacyV1TeamBoost(T& _client, std::function<void(T&, const Result<LolChampSelectLegacyTeamBoost>&)> cb)
   {
     _client.httpsa.request("get", "/lol-champ-select-legacy/v1/team-boost?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

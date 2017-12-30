@@ -2,21 +2,21 @@
 #include "../base_def.hpp" 
 namespace lol {
   struct LolLootGameDataSummonerEmote { 
-    int64_t id;
+    std::string name;
     std::string description;
-    std::string inventoryIcon;
-    std::string name; 
+    int64_t id;
+    std::string inventoryIcon; 
   };
   inline void to_json(json& j, const LolLootGameDataSummonerEmote& v) {
-    j["id"] = v.id; 
-    j["description"] = v.description; 
-    j["inventoryIcon"] = v.inventoryIcon; 
     j["name"] = v.name; 
+    j["description"] = v.description; 
+    j["id"] = v.id; 
+    j["inventoryIcon"] = v.inventoryIcon; 
   }
   inline void from_json(const json& j, LolLootGameDataSummonerEmote& v) {
-    v.id = j.at("id").get<int64_t>(); 
-    v.description = j.at("description").get<std::string>(); 
-    v.inventoryIcon = j.at("inventoryIcon").get<std::string>(); 
     v.name = j.at("name").get<std::string>(); 
+    v.description = j.at("description").get<std::string>(); 
+    v.id = j.at("id").get<int64_t>(); 
+    v.inventoryIcon = j.at("inventoryIcon").get<std::string>(); 
   }
 }

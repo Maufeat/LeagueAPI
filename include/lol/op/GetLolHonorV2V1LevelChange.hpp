@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolHonorV2VendedHonorChange.hpp"
 namespace lol {
-  inline Result<LolHonorV2VendedHonorChange> GetLolHonorV2V1LevelChange(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolHonorV2VendedHonorChange> GetLolHonorV2V1LevelChange(T& _client)
   {
     try {
       return ToResult<LolHonorV2VendedHonorChange>(_client.https.request("get", "/lol-honor-v2/v1/level-change?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolHonorV2VendedHonorChange>(e.code());
     }
   }
-  inline void GetLolHonorV2V1LevelChange(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolHonorV2VendedHonorChange>&)> cb)
+  template<typename T>
+  inline void GetLolHonorV2V1LevelChange(T& _client, std::function<void(T&, const Result<LolHonorV2VendedHonorChange>&)> cb)
   {
     _client.httpsa.request("get", "/lol-honor-v2/v1/level-change?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

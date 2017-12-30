@@ -4,15 +4,15 @@
 #include "LolStoreSimpleDialogMessage.hpp"
 namespace lol {
   struct LolStoreLoginDataPacket { 
-    LolStoreAllSummonerData allSummonerData;
-    std::vector<LolStoreSimpleDialogMessage> simpleMessages; 
+    std::vector<LolStoreSimpleDialogMessage> simpleMessages;
+    LolStoreAllSummonerData allSummonerData; 
   };
   inline void to_json(json& j, const LolStoreLoginDataPacket& v) {
-    j["allSummonerData"] = v.allSummonerData; 
     j["simpleMessages"] = v.simpleMessages; 
+    j["allSummonerData"] = v.allSummonerData; 
   }
   inline void from_json(const json& j, LolStoreLoginDataPacket& v) {
-    v.allSummonerData = j.at("allSummonerData").get<LolStoreAllSummonerData>(); 
     v.simpleMessages = j.at("simpleMessages").get<std::vector<LolStoreSimpleDialogMessage>>(); 
+    v.allSummonerData = j.at("allSummonerData").get<LolStoreAllSummonerData>(); 
   }
 }

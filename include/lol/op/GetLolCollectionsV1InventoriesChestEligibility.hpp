@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolCollectionsCollectionsChestEligibility.hpp"
 namespace lol {
-  inline Result<LolCollectionsCollectionsChestEligibility> GetLolCollectionsV1InventoriesChestEligibility(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolCollectionsCollectionsChestEligibility> GetLolCollectionsV1InventoriesChestEligibility(T& _client)
   {
     try {
       return ToResult<LolCollectionsCollectionsChestEligibility>(_client.https.request("get", "/lol-collections/v1/inventories/chest-eligibility?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolCollectionsCollectionsChestEligibility>(e.code());
     }
   }
-  inline void GetLolCollectionsV1InventoriesChestEligibility(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolCollectionsCollectionsChestEligibility>&)> cb)
+  template<typename T>
+  inline void GetLolCollectionsV1InventoriesChestEligibility(T& _client, std::function<void(T&, const Result<LolCollectionsCollectionsChestEligibility>&)> cb)
   {
     _client.httpsa.request("get", "/lol-collections/v1/inventories/chest-eligibility?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

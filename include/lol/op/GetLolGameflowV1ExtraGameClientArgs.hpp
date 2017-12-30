@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<std::vector<std::string>> GetLolGameflowV1ExtraGameClientArgs(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::vector<std::string>> GetLolGameflowV1ExtraGameClientArgs(T& _client)
   {
     try {
       return ToResult<std::vector<std::string>>(_client.https.request("get", "/lol-gameflow/v1/extra-game-client-args?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<std::vector<std::string>>(e.code());
     }
   }
-  inline void GetLolGameflowV1ExtraGameClientArgs(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::vector<std::string>>&)> cb)
+  template<typename T>
+  inline void GetLolGameflowV1ExtraGameClientArgs(T& _client, std::function<void(T&, const Result<std::vector<std::string>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-gameflow/v1/extra-game-client-args?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

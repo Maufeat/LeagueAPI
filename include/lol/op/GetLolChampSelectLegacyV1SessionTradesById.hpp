@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolChampSelectLegacyChampSelectTradeContract.hpp"
 namespace lol {
-  inline Result<LolChampSelectLegacyChampSelectTradeContract> GetLolChampSelectLegacyV1SessionTradesById(LeagueClient& _client, const int64_t& id)
+  template<typename T>
+  inline Result<LolChampSelectLegacyChampSelectTradeContract> GetLolChampSelectLegacyV1SessionTradesById(T& _client, const int64_t& id)
   {
     try {
       return ToResult<LolChampSelectLegacyChampSelectTradeContract>(_client.https.request("get", "/lol-champ-select-legacy/v1/session/trades/"+to_string(id)+"?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolChampSelectLegacyChampSelectTradeContract>(e.code());
     }
   }
-  inline void GetLolChampSelectLegacyV1SessionTradesById(LeagueClient& _client, const int64_t& id, std::function<void(LeagueClient&, const Result<LolChampSelectLegacyChampSelectTradeContract>&)> cb)
+  template<typename T>
+  inline void GetLolChampSelectLegacyV1SessionTradesById(T& _client, const int64_t& id, std::function<void(T&, const Result<LolChampSelectLegacyChampSelectTradeContract>&)> cb)
   {
     _client.httpsa.request("get", "/lol-champ-select-legacy/v1/session/trades/"+to_string(id)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

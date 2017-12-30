@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolLootLootGrantNotification.hpp"
 namespace lol {
-  inline Result<std::vector<LolLootLootGrantNotification>> GetLolLootV1LootGrants(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::vector<LolLootLootGrantNotification>> GetLolLootV1LootGrants(T& _client)
   {
     try {
       return ToResult<std::vector<LolLootLootGrantNotification>>(_client.https.request("get", "/lol-loot/v1/loot-grants?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<LolLootLootGrantNotification>>(e.code());
     }
   }
-  inline void GetLolLootV1LootGrants(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::vector<LolLootLootGrantNotification>>&)> cb)
+  template<typename T>
+  inline void GetLolLootV1LootGrants(T& _client, std::function<void(T&, const Result<std::vector<LolLootLootGrantNotification>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-loot/v1/loot-grants?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

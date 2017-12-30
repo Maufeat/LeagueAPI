@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<std::string> PostLolLootV1PlayerLootNotificationsByIdAcknowledge(LeagueClient& _client, const std::string& id)
+  template<typename T>
+  inline Result<std::string> PostLolLootV1PlayerLootNotificationsByIdAcknowledge(T& _client, const std::string& id)
   {
     try {
       return ToResult<std::string>(_client.https.request("post", "/lol-loot/v1/player-loot-notifications/"+to_string(id)+"/acknowledge?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<std::string>(e.code());
     }
   }
-  inline void PostLolLootV1PlayerLootNotificationsByIdAcknowledge(LeagueClient& _client, const std::string& id, std::function<void(LeagueClient&, const Result<std::string>&)> cb)
+  template<typename T>
+  inline void PostLolLootV1PlayerLootNotificationsByIdAcknowledge(T& _client, const std::string& id, std::function<void(T&, const Result<std::string>&)> cb)
   {
     _client.httpsa.request("post", "/lol-loot/v1/player-loot-notifications/"+to_string(id)+"/acknowledge?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

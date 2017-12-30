@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolSuggestedPlayersSuggestedPlayersSuggestedPlayer.hpp"
 namespace lol {
-  inline Result<std::vector<LolSuggestedPlayersSuggestedPlayersSuggestedPlayer>> GetLolSuggestedPlayersV1SuggestedPlayers(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::vector<LolSuggestedPlayersSuggestedPlayersSuggestedPlayer>> GetLolSuggestedPlayersV1SuggestedPlayers(T& _client)
   {
     try {
       return ToResult<std::vector<LolSuggestedPlayersSuggestedPlayersSuggestedPlayer>>(_client.https.request("get", "/lol-suggested-players/v1/suggested-players?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<LolSuggestedPlayersSuggestedPlayersSuggestedPlayer>>(e.code());
     }
   }
-  inline void GetLolSuggestedPlayersV1SuggestedPlayers(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::vector<LolSuggestedPlayersSuggestedPlayersSuggestedPlayer>>&)> cb)
+  template<typename T>
+  inline void GetLolSuggestedPlayersV1SuggestedPlayers(T& _client, std::function<void(T&, const Result<std::vector<LolSuggestedPlayersSuggestedPlayersSuggestedPlayer>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-suggested-players/v1/suggested-players?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

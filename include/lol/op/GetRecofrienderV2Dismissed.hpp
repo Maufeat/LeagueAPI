@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/RecofrienderContactResource.hpp"
 namespace lol {
-  inline Result<std::vector<RecofrienderContactResource>> GetRecofrienderV2Dismissed(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::vector<RecofrienderContactResource>> GetRecofrienderV2Dismissed(T& _client)
   {
     try {
       return ToResult<std::vector<RecofrienderContactResource>>(_client.https.request("get", "/recofriender/v2/dismissed?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<RecofrienderContactResource>>(e.code());
     }
   }
-  inline void GetRecofrienderV2Dismissed(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::vector<RecofrienderContactResource>>&)> cb)
+  template<typename T>
+  inline void GetRecofrienderV2Dismissed(T& _client, std::function<void(T&, const Result<std::vector<RecofrienderContactResource>>&)> cb)
   {
     _client.httpsa.request("get", "/recofriender/v2/dismissed?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

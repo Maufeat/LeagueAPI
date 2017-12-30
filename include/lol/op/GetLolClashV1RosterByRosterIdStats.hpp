@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolClashRosterStats.hpp"
 namespace lol {
-  inline Result<LolClashRosterStats> GetLolClashV1RosterByRosterIdStats(LeagueClient& _client, const int64_t& rosterId)
+  template<typename T>
+  inline Result<LolClashRosterStats> GetLolClashV1RosterByRosterIdStats(T& _client, const int64_t& rosterId)
   {
     try {
       return ToResult<LolClashRosterStats>(_client.https.request("get", "/lol-clash/v1/roster/"+to_string(rosterId)+"/stats?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolClashRosterStats>(e.code());
     }
   }
-  inline void GetLolClashV1RosterByRosterIdStats(LeagueClient& _client, const int64_t& rosterId, std::function<void(LeagueClient&, const Result<LolClashRosterStats>&)> cb)
+  template<typename T>
+  inline void GetLolClashV1RosterByRosterIdStats(T& _client, const int64_t& rosterId, std::function<void(T&, const Result<LolClashRosterStats>&)> cb)
   {
     _client.httpsa.request("get", "/lol-clash/v1/roster/"+to_string(rosterId)+"/stats?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

@@ -3,18 +3,18 @@
 #include "LolQueueEligibilityEligibilityRestriction.hpp"
 namespace lol {
   struct LolQueueEligibilityEligibility { 
-    bool eligible;
+    std::vector<LolQueueEligibilityEligibilityRestriction> restrictions;
     int32_t queueId;
-    std::vector<LolQueueEligibilityEligibilityRestriction> restrictions; 
+    bool eligible; 
   };
   inline void to_json(json& j, const LolQueueEligibilityEligibility& v) {
-    j["eligible"] = v.eligible; 
-    j["queueId"] = v.queueId; 
     j["restrictions"] = v.restrictions; 
+    j["queueId"] = v.queueId; 
+    j["eligible"] = v.eligible; 
   }
   inline void from_json(const json& j, LolQueueEligibilityEligibility& v) {
-    v.eligible = j.at("eligible").get<bool>(); 
-    v.queueId = j.at("queueId").get<int32_t>(); 
     v.restrictions = j.at("restrictions").get<std::vector<LolQueueEligibilityEligibilityRestriction>>(); 
+    v.queueId = j.at("queueId").get<int32_t>(); 
+    v.eligible = j.at("eligible").get<bool>(); 
   }
 }

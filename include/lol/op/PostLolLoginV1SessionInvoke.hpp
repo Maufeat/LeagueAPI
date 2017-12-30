@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolLoginLcdsResponse.hpp"
 namespace lol {
-  inline Result<LolLoginLcdsResponse> PostLolLoginV1SessionInvoke(LeagueClient& _client, const std::string& destination, const std::string& method, const std::vector<json>& args)
+  template<typename T>
+  inline Result<LolLoginLcdsResponse> PostLolLoginV1SessionInvoke(T& _client, const std::string& destination, const std::string& method, const std::vector<json>& args)
   {
     try {
       return ToResult<LolLoginLcdsResponse>(_client.https.request("post", "/lol-login/v1/session/invoke?" +
@@ -19,7 +20,8 @@ namespace lol {
       return ToResult<LolLoginLcdsResponse>(e.code());
     }
   }
-  inline void PostLolLoginV1SessionInvoke(LeagueClient& _client, const std::string& destination, const std::string& method, const std::vector<json>& args, std::function<void(LeagueClient&, const Result<LolLoginLcdsResponse>&)> cb)
+  template<typename T>
+  inline void PostLolLoginV1SessionInvoke(T& _client, const std::string& destination, const std::string& method, const std::vector<json>& args, std::function<void(T&, const Result<LolLoginLcdsResponse>&)> cb)
   {
     _client.httpsa.request("post", "/lol-login/v1/session/invoke?" +
       SimpleWeb::QueryString::create(Args2Headers({ 

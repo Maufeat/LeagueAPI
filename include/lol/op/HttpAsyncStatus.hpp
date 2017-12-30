@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> HttpAsyncStatus(LeagueClient& _client, const uint32_t& asyncToken)
+  template<typename T>
+  inline Result<json> HttpAsyncStatus(T& _client, const uint32_t& asyncToken)
   {
     try {
       return ToResult<json>(_client.https.request("get", "/async/v1/status/"+to_string(asyncToken)+"?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void HttpAsyncStatus(LeagueClient& _client, const uint32_t& asyncToken, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void HttpAsyncStatus(T& _client, const uint32_t& asyncToken, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("get", "/async/v1/status/"+to_string(asyncToken)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

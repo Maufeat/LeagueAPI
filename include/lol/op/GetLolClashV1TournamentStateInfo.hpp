@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolClashTournamentStateInfo.hpp"
 namespace lol {
-  inline Result<std::vector<LolClashTournamentStateInfo>> GetLolClashV1TournamentStateInfo(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::vector<LolClashTournamentStateInfo>> GetLolClashV1TournamentStateInfo(T& _client)
   {
     try {
       return ToResult<std::vector<LolClashTournamentStateInfo>>(_client.https.request("get", "/lol-clash/v1/tournament-state-info?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<LolClashTournamentStateInfo>>(e.code());
     }
   }
-  inline void GetLolClashV1TournamentStateInfo(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::vector<LolClashTournamentStateInfo>>&)> cb)
+  template<typename T>
+  inline void GetLolClashV1TournamentStateInfo(T& _client, std::function<void(T&, const Result<std::vector<LolClashTournamentStateInfo>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-clash/v1/tournament-state-info?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

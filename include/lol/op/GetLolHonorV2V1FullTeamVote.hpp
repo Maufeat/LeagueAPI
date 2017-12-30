@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolHonorV2FullTeamVote.hpp"
 namespace lol {
-  inline Result<LolHonorV2FullTeamVote> GetLolHonorV2V1FullTeamVote(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolHonorV2FullTeamVote> GetLolHonorV2V1FullTeamVote(T& _client)
   {
     try {
       return ToResult<LolHonorV2FullTeamVote>(_client.https.request("get", "/lol-honor-v2/v1/full-team-vote?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolHonorV2FullTeamVote>(e.code());
     }
   }
-  inline void GetLolHonorV2V1FullTeamVote(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolHonorV2FullTeamVote>&)> cb)
+  template<typename T>
+  inline void GetLolHonorV2V1FullTeamVote(T& _client, std::function<void(T&, const Result<LolHonorV2FullTeamVote>&)> cb)
   {
     _client.httpsa.request("get", "/lol-honor-v2/v1/full-team-vote?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

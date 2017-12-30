@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/basicSystemInfo.hpp"
 namespace lol {
-  inline Result<basicSystemInfo> GetRiotclientSystemInfoV1BasicInfo(LeagueClient& _client)
+  template<typename T>
+  inline Result<basicSystemInfo> GetRiotclientSystemInfoV1BasicInfo(T& _client)
   {
     try {
       return ToResult<basicSystemInfo>(_client.https.request("get", "/riotclient/system-info/v1/basic-info?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<basicSystemInfo>(e.code());
     }
   }
-  inline void GetRiotclientSystemInfoV1BasicInfo(LeagueClient& _client, std::function<void(LeagueClient&, const Result<basicSystemInfo>&)> cb)
+  template<typename T>
+  inline void GetRiotclientSystemInfoV1BasicInfo(T& _client, std::function<void(T&, const Result<basicSystemInfo>&)> cb)
   {
     _client.httpsa.request("get", "/riotclient/system-info/v1/basic-info?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

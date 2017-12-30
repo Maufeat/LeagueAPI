@@ -4,24 +4,24 @@
 #include "LolEsportStreamNotificationsEsportsAPI_highlanderTournaments_rosters.hpp"
 namespace lol {
   struct LolEsportStreamNotificationsEsportsAPI_highlanderTournaments { 
-    std::string id;
     std::string description;
     std::map<std::string, LolEsportStreamNotificationsEsportsAPI_highlanderTournaments_rosters> rosters;
-    std::map<std::string, LolEsportStreamNotificationsEsportsAPI_highlanderTournaments_brackets> brackets;
-    std::string title; 
+    std::string id;
+    std::string title;
+    std::map<std::string, LolEsportStreamNotificationsEsportsAPI_highlanderTournaments_brackets> brackets; 
   };
   inline void to_json(json& j, const LolEsportStreamNotificationsEsportsAPI_highlanderTournaments& v) {
-    j["id"] = v.id; 
     j["description"] = v.description; 
     j["rosters"] = v.rosters; 
-    j["brackets"] = v.brackets; 
+    j["id"] = v.id; 
     j["title"] = v.title; 
+    j["brackets"] = v.brackets; 
   }
   inline void from_json(const json& j, LolEsportStreamNotificationsEsportsAPI_highlanderTournaments& v) {
-    v.id = j.at("id").get<std::string>(); 
     v.description = j.at("description").get<std::string>(); 
     v.rosters = j.at("rosters").get<std::map<std::string, LolEsportStreamNotificationsEsportsAPI_highlanderTournaments_rosters>>(); 
-    v.brackets = j.at("brackets").get<std::map<std::string, LolEsportStreamNotificationsEsportsAPI_highlanderTournaments_brackets>>(); 
+    v.id = j.at("id").get<std::string>(); 
     v.title = j.at("title").get<std::string>(); 
+    v.brackets = j.at("brackets").get<std::map<std::string, LolEsportStreamNotificationsEsportsAPI_highlanderTournaments_brackets>>(); 
   }
 }

@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<bool> GetLolLobbyV2LobbyCustomBotsEnabled(LeagueClient& _client)
+  template<typename T>
+  inline Result<bool> GetLolLobbyV2LobbyCustomBotsEnabled(T& _client)
   {
     try {
       return ToResult<bool>(_client.https.request("get", "/lol-lobby/v2/lobby/custom/bots-enabled?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<bool>(e.code());
     }
   }
-  inline void GetLolLobbyV2LobbyCustomBotsEnabled(LeagueClient& _client, std::function<void(LeagueClient&, const Result<bool>&)> cb)
+  template<typename T>
+  inline void GetLolLobbyV2LobbyCustomBotsEnabled(T& _client, std::function<void(T&, const Result<bool>&)> cb)
   {
     _client.httpsa.request("get", "/lol-lobby/v2/lobby/custom/bots-enabled?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

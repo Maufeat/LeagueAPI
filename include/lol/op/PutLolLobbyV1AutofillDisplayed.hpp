@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<bool> PutLolLobbyV1AutofillDisplayed(LeagueClient& _client)
+  template<typename T>
+  inline Result<bool> PutLolLobbyV1AutofillDisplayed(T& _client)
   {
     try {
       return ToResult<bool>(_client.https.request("put", "/lol-lobby/v1/autofill-displayed?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<bool>(e.code());
     }
   }
-  inline void PutLolLobbyV1AutofillDisplayed(LeagueClient& _client, std::function<void(LeagueClient&, const Result<bool>&)> cb)
+  template<typename T>
+  inline void PutLolLobbyV1AutofillDisplayed(T& _client, std::function<void(T&, const Result<bool>&)> cb)
   {
     _client.httpsa.request("put", "/lol-lobby/v1/autofill-displayed?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

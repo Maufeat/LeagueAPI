@@ -4,39 +4,39 @@
 #include "LolPerksPerkSubStyleBonusResource.hpp"
 namespace lol {
   struct LolPerksPerkUIStyle { 
-    int32_t id;
-    std::string tooltip;
-    std::vector<LolPerksPerkUISlot> slots;
-    int32_t defaultSubStyle;
     std::string name;
-    std::vector<int32_t> allowedSubStyles;
-    std::string defaultPageName;
     std::string iconPath;
+    int32_t id;
+    int32_t defaultSubStyle;
+    std::vector<LolPerksPerkUISlot> slots;
+    std::string defaultPageName;
+    std::vector<int32_t> defaultPerks;
     std::vector<LolPerksPerkSubStyleBonusResource> subStyleBonus;
-    std::vector<int32_t> defaultPerks; 
+    std::string tooltip;
+    std::vector<int32_t> allowedSubStyles; 
   };
   inline void to_json(json& j, const LolPerksPerkUIStyle& v) {
-    j["id"] = v.id; 
-    j["tooltip"] = v.tooltip; 
-    j["slots"] = v.slots; 
-    j["defaultSubStyle"] = v.defaultSubStyle; 
     j["name"] = v.name; 
-    j["allowedSubStyles"] = v.allowedSubStyles; 
-    j["defaultPageName"] = v.defaultPageName; 
     j["iconPath"] = v.iconPath; 
-    j["subStyleBonus"] = v.subStyleBonus; 
+    j["id"] = v.id; 
+    j["defaultSubStyle"] = v.defaultSubStyle; 
+    j["slots"] = v.slots; 
+    j["defaultPageName"] = v.defaultPageName; 
     j["defaultPerks"] = v.defaultPerks; 
+    j["subStyleBonus"] = v.subStyleBonus; 
+    j["tooltip"] = v.tooltip; 
+    j["allowedSubStyles"] = v.allowedSubStyles; 
   }
   inline void from_json(const json& j, LolPerksPerkUIStyle& v) {
-    v.id = j.at("id").get<int32_t>(); 
-    v.tooltip = j.at("tooltip").get<std::string>(); 
-    v.slots = j.at("slots").get<std::vector<LolPerksPerkUISlot>>(); 
-    v.defaultSubStyle = j.at("defaultSubStyle").get<int32_t>(); 
     v.name = j.at("name").get<std::string>(); 
-    v.allowedSubStyles = j.at("allowedSubStyles").get<std::vector<int32_t>>(); 
-    v.defaultPageName = j.at("defaultPageName").get<std::string>(); 
     v.iconPath = j.at("iconPath").get<std::string>(); 
-    v.subStyleBonus = j.at("subStyleBonus").get<std::vector<LolPerksPerkSubStyleBonusResource>>(); 
+    v.id = j.at("id").get<int32_t>(); 
+    v.defaultSubStyle = j.at("defaultSubStyle").get<int32_t>(); 
+    v.slots = j.at("slots").get<std::vector<LolPerksPerkUISlot>>(); 
+    v.defaultPageName = j.at("defaultPageName").get<std::string>(); 
     v.defaultPerks = j.at("defaultPerks").get<std::vector<int32_t>>(); 
+    v.subStyleBonus = j.at("subStyleBonus").get<std::vector<LolPerksPerkSubStyleBonusResource>>(); 
+    v.tooltip = j.at("tooltip").get<std::string>(); 
+    v.allowedSubStyles = j.at("allowedSubStyles").get<std::vector<int32_t>>(); 
   }
 }

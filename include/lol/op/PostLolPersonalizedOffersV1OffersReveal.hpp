@@ -4,7 +4,8 @@
 #include "../def/LolPersonalizedOffersOfferIds.hpp"
 #include "../def/LolPersonalizedOffersUIOffer.hpp"
 namespace lol {
-  inline Result<std::vector<LolPersonalizedOffersUIOffer>> PostLolPersonalizedOffersV1OffersReveal(LeagueClient& _client, const LolPersonalizedOffersOfferIds& offerIds)
+  template<typename T>
+  inline Result<std::vector<LolPersonalizedOffersUIOffer>> PostLolPersonalizedOffersV1OffersReveal(T& _client, const LolPersonalizedOffersOfferIds& offerIds)
   {
     try {
       return ToResult<std::vector<LolPersonalizedOffersUIOffer>>(_client.https.request("post", "/lol-personalized-offers/v1/offers/reveal?" +
@@ -17,7 +18,8 @@ namespace lol {
       return ToResult<std::vector<LolPersonalizedOffersUIOffer>>(e.code());
     }
   }
-  inline void PostLolPersonalizedOffersV1OffersReveal(LeagueClient& _client, const LolPersonalizedOffersOfferIds& offerIds, std::function<void(LeagueClient&, const Result<std::vector<LolPersonalizedOffersUIOffer>>&)> cb)
+  template<typename T>
+  inline void PostLolPersonalizedOffersV1OffersReveal(T& _client, const LolPersonalizedOffersOfferIds& offerIds, std::function<void(T&, const Result<std::vector<LolPersonalizedOffersUIOffer>>&)> cb)
   {
     _client.httpsa.request("post", "/lol-personalized-offers/v1/offers/reveal?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

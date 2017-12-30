@@ -1,10 +1,11 @@
 #pragma once
 #include "../base_op.hpp"
 #include <functional> 
-#include "../def/PlayerClub.hpp"
 #include "../def/ClubName.hpp"
+#include "../def/PlayerClub.hpp"
 namespace lol {
-  inline Result<PlayerClub> PostLolClubsV1ClubsMembership(LeagueClient& _client, const ClubName& name)
+  template<typename T>
+  inline Result<PlayerClub> PostLolClubsV1ClubsMembership(T& _client, const ClubName& name)
   {
     try {
       return ToResult<PlayerClub>(_client.https.request("post", "/lol-clubs/v1/clubs/membership?" +
@@ -17,7 +18,8 @@ namespace lol {
       return ToResult<PlayerClub>(e.code());
     }
   }
-  inline void PostLolClubsV1ClubsMembership(LeagueClient& _client, const ClubName& name, std::function<void(LeagueClient&, const Result<PlayerClub>&)> cb)
+  template<typename T>
+  inline void PostLolClubsV1ClubsMembership(T& _client, const ClubName& name, std::function<void(T&, const Result<PlayerClub>&)> cb)
   {
     _client.httpsa.request("post", "/lol-clubs/v1/clubs/membership?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

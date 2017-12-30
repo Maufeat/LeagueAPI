@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> GetByPluginAssetsByPath(LeagueClient& _client, const std::string& plugin, const std::string& path, const std::optional<std::string>& if_none_match = std::nullopt)
+  template<typename T>
+  inline Result<json> GetByPluginAssetsByPath(T& _client, const std::string& plugin, const std::string& path, const std::optional<std::string>& if_none_match = std::nullopt)
   {
     try {
       return ToResult<json>(_client.https.request("get", "/"+to_string(plugin)+"/assets/"+to_string(path)+"?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void GetByPluginAssetsByPath(LeagueClient& _client, const std::string& plugin, const std::string& path, const std::optional<std::string>& if_none_match = std::nullopt, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void GetByPluginAssetsByPath(T& _client, const std::string& plugin, const std::string& path, const std::optional<std::string>& if_none_match = std::nullopt, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("get", "/"+to_string(plugin)+"/assets/"+to_string(path)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

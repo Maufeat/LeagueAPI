@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> PostLolLobbyTeamBuilderChampSelectV1SessionActionsByIdComplete(LeagueClient& _client, const int32_t& id)
+  template<typename T>
+  inline Result<json> PostLolLobbyTeamBuilderChampSelectV1SessionActionsByIdComplete(T& _client, const int32_t& id)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/lol-lobby-team-builder/champ-select/v1/session/actions/"+to_string(id)+"/complete?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PostLolLobbyTeamBuilderChampSelectV1SessionActionsByIdComplete(LeagueClient& _client, const int32_t& id, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PostLolLobbyTeamBuilderChampSelectV1SessionActionsByIdComplete(T& _client, const int32_t& id, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/lol-lobby-team-builder/champ-select/v1/session/actions/"+to_string(id)+"/complete?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

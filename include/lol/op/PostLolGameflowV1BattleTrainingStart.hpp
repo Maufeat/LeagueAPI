@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> PostLolGameflowV1BattleTrainingStart(LeagueClient& _client)
+  template<typename T>
+  inline Result<json> PostLolGameflowV1BattleTrainingStart(T& _client)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/lol-gameflow/v1/battle-training/start?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PostLolGameflowV1BattleTrainingStart(LeagueClient& _client, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PostLolGameflowV1BattleTrainingStart(T& _client, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/lol-gameflow/v1/battle-training/start?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

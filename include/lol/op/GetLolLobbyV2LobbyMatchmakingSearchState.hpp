@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolLobbyLobbyMatchmakingSearchResource.hpp"
 namespace lol {
-  inline Result<LolLobbyLobbyMatchmakingSearchResource> GetLolLobbyV2LobbyMatchmakingSearchState(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolLobbyLobbyMatchmakingSearchResource> GetLolLobbyV2LobbyMatchmakingSearchState(T& _client)
   {
     try {
       return ToResult<LolLobbyLobbyMatchmakingSearchResource>(_client.https.request("get", "/lol-lobby/v2/lobby/matchmaking/search-state?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolLobbyLobbyMatchmakingSearchResource>(e.code());
     }
   }
-  inline void GetLolLobbyV2LobbyMatchmakingSearchState(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolLobbyLobbyMatchmakingSearchResource>&)> cb)
+  template<typename T>
+  inline void GetLolLobbyV2LobbyMatchmakingSearchState(T& _client, std::function<void(T&, const Result<LolLobbyLobbyMatchmakingSearchResource>&)> cb)
   {
     _client.httpsa.request("get", "/lol-lobby/v2/lobby/matchmaking/search-state?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

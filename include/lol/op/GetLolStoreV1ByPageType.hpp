@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> GetLolStoreV1ByPageType(LeagueClient& _client, const std::string& pageType)
+  template<typename T>
+  inline Result<json> GetLolStoreV1ByPageType(T& _client, const std::string& pageType)
   {
     try {
       return ToResult<json>(_client.https.request("get", "/lol-store/v1/"+to_string(pageType)+"?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void GetLolStoreV1ByPageType(LeagueClient& _client, const std::string& pageType, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void GetLolStoreV1ByPageType(T& _client, const std::string& pageType, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("get", "/lol-store/v1/"+to_string(pageType)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

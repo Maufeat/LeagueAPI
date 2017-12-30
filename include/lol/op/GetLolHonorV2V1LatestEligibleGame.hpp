@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<uint64_t> GetLolHonorV2V1LatestEligibleGame(LeagueClient& _client)
+  template<typename T>
+  inline Result<uint64_t> GetLolHonorV2V1LatestEligibleGame(T& _client)
   {
     try {
       return ToResult<uint64_t>(_client.https.request("get", "/lol-honor-v2/v1/latest-eligible-game?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<uint64_t>(e.code());
     }
   }
-  inline void GetLolHonorV2V1LatestEligibleGame(LeagueClient& _client, std::function<void(LeagueClient&, const Result<uint64_t>&)> cb)
+  template<typename T>
+  inline void GetLolHonorV2V1LatestEligibleGame(T& _client, std::function<void(T&, const Result<uint64_t>&)> cb)
   {
     _client.httpsa.request("get", "/lol-honor-v2/v1/latest-eligible-game?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

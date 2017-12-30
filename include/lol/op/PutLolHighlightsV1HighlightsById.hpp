@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/Highlight.hpp"
 namespace lol {
-  inline Result<Highlight> PutLolHighlightsV1HighlightsById(LeagueClient& _client, const uint64_t& id, const Highlight& highlight)
+  template<typename T>
+  inline Result<Highlight> PutLolHighlightsV1HighlightsById(T& _client, const uint64_t& id, const Highlight& highlight)
   {
     try {
       return ToResult<Highlight>(_client.https.request("put", "/lol-highlights/v1/highlights/"+to_string(id)+"?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<Highlight>(e.code());
     }
   }
-  inline void PutLolHighlightsV1HighlightsById(LeagueClient& _client, const uint64_t& id, const Highlight& highlight, std::function<void(LeagueClient&, const Result<Highlight>&)> cb)
+  template<typename T>
+  inline void PutLolHighlightsV1HighlightsById(T& _client, const uint64_t& id, const Highlight& highlight, std::function<void(T&, const Result<Highlight>&)> cb)
   {
     _client.httpsa.request("put", "/lol-highlights/v1/highlights/"+to_string(id)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

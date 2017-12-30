@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolSettingsSettingCategory.hpp"
 namespace lol {
-  inline Result<json> PatchLolSettingsV2LocalByCategory(LeagueClient& _client, const std::string& category, const LolSettingsSettingCategory& settingsResource)
+  template<typename T>
+  inline Result<json> PatchLolSettingsV2LocalByCategory(T& _client, const std::string& category, const LolSettingsSettingCategory& settingsResource)
   {
     try {
       return ToResult<json>(_client.https.request("patch", "/lol-settings/v2/local/"+to_string(category)+"?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PatchLolSettingsV2LocalByCategory(LeagueClient& _client, const std::string& category, const LolSettingsSettingCategory& settingsResource, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PatchLolSettingsV2LocalByCategory(T& _client, const std::string& category, const LolSettingsSettingCategory& settingsResource, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("patch", "/lol-settings/v2/local/"+to_string(category)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

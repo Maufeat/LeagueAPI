@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> HttpApiDocsV3(LeagueClient& _client)
+  template<typename T>
+  inline Result<json> HttpApiDocsV3(T& _client)
   {
     try {
       return ToResult<json>(_client.https.request("get", "/v3/openapi.json?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void HttpApiDocsV3(LeagueClient& _client, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void HttpApiDocsV3(T& _client, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("get", "/v3/openapi.json?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

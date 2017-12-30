@@ -3,35 +3,35 @@
 #include "LolMatchmakingQueueCustomGameSpectatorPolicy.hpp"
 namespace lol {
   struct LolMatchmakingLobbyStatus { 
-    bool isLeader;
-    std::vector<uint64_t> memberSummonerIds;
-    std::optional<std::string> lobbyId;
     bool isSpectator;
     bool isCustom;
-    int32_t queueId;
+    std::optional<std::string> lobbyId;
+    std::vector<uint64_t> memberSummonerIds;
     LolMatchmakingQueueCustomGameSpectatorPolicy customSpectatorPolicy;
-    bool allowedPlayAgain; 
+    bool allowedPlayAgain;
+    int32_t queueId;
+    bool isLeader; 
   };
   inline void to_json(json& j, const LolMatchmakingLobbyStatus& v) {
-    j["isLeader"] = v.isLeader; 
-    j["memberSummonerIds"] = v.memberSummonerIds; 
-    if(v.lobbyId)
-      j["lobbyId"] = *v.lobbyId;
     j["isSpectator"] = v.isSpectator; 
     j["isCustom"] = v.isCustom; 
-    j["queueId"] = v.queueId; 
+    if(v.lobbyId)
+      j["lobbyId"] = *v.lobbyId;
+    j["memberSummonerIds"] = v.memberSummonerIds; 
     j["customSpectatorPolicy"] = v.customSpectatorPolicy; 
     j["allowedPlayAgain"] = v.allowedPlayAgain; 
+    j["queueId"] = v.queueId; 
+    j["isLeader"] = v.isLeader; 
   }
   inline void from_json(const json& j, LolMatchmakingLobbyStatus& v) {
-    v.isLeader = j.at("isLeader").get<bool>(); 
-    v.memberSummonerIds = j.at("memberSummonerIds").get<std::vector<uint64_t>>(); 
-    if(auto it = j.find("lobbyId"); it != j.end() && !it->is_null())
-      v.lobbyId = it->get<std::optional<std::string>>(); 
     v.isSpectator = j.at("isSpectator").get<bool>(); 
     v.isCustom = j.at("isCustom").get<bool>(); 
-    v.queueId = j.at("queueId").get<int32_t>(); 
+    if(auto it = j.find("lobbyId"); it != j.end() && !it->is_null())
+      v.lobbyId = it->get<std::optional<std::string>>(); 
+    v.memberSummonerIds = j.at("memberSummonerIds").get<std::vector<uint64_t>>(); 
     v.customSpectatorPolicy = j.at("customSpectatorPolicy").get<LolMatchmakingQueueCustomGameSpectatorPolicy>(); 
     v.allowedPlayAgain = j.at("allowedPlayAgain").get<bool>(); 
+    v.queueId = j.at("queueId").get<int32_t>(); 
+    v.isLeader = j.at("isLeader").get<bool>(); 
   }
 }

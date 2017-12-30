@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> PostLolClashV1TournamentByTournamentIdRosterLockin(LeagueClient& _client, const int64_t& tournamentId)
+  template<typename T>
+  inline Result<json> PostLolClashV1TournamentByTournamentIdRosterLockin(T& _client, const int64_t& tournamentId)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/lol-clash/v1/tournament/"+to_string(tournamentId)+"/roster/lockin?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PostLolClashV1TournamentByTournamentIdRosterLockin(LeagueClient& _client, const int64_t& tournamentId, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PostLolClashV1TournamentByTournamentIdRosterLockin(T& _client, const int64_t& tournamentId, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/lol-clash/v1/tournament/"+to_string(tournamentId)+"/roster/lockin?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

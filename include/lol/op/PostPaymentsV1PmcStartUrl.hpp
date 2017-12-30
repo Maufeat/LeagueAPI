@@ -4,7 +4,8 @@
 #include "../def/PaymentsFrontEndRequest.hpp"
 #include "../def/PaymentsFrontEndResult.hpp"
 namespace lol {
-  inline Result<PaymentsFrontEndResult> PostPaymentsV1PmcStartUrl(LeagueClient& _client, const PaymentsFrontEndRequest& options)
+  template<typename T>
+  inline Result<PaymentsFrontEndResult> PostPaymentsV1PmcStartUrl(T& _client, const PaymentsFrontEndRequest& options)
   {
     try {
       return ToResult<PaymentsFrontEndResult>(_client.https.request("post", "/payments/v1/pmc-start-url?" +
@@ -17,7 +18,8 @@ namespace lol {
       return ToResult<PaymentsFrontEndResult>(e.code());
     }
   }
-  inline void PostPaymentsV1PmcStartUrl(LeagueClient& _client, const PaymentsFrontEndRequest& options, std::function<void(LeagueClient&, const Result<PaymentsFrontEndResult>&)> cb)
+  template<typename T>
+  inline void PostPaymentsV1PmcStartUrl(T& _client, const PaymentsFrontEndRequest& options, std::function<void(T&, const Result<PaymentsFrontEndResult>&)> cb)
   {
     _client.httpsa.request("post", "/payments/v1/pmc-start-url?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

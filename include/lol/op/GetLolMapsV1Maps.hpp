@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolMapsMaps.hpp"
 namespace lol {
-  inline Result<std::vector<LolMapsMaps>> GetLolMapsV1Maps(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::vector<LolMapsMaps>> GetLolMapsV1Maps(T& _client)
   {
     try {
       return ToResult<std::vector<LolMapsMaps>>(_client.https.request("get", "/lol-maps/v1/maps?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<LolMapsMaps>>(e.code());
     }
   }
-  inline void GetLolMapsV1Maps(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::vector<LolMapsMaps>>&)> cb)
+  template<typename T>
+  inline void GetLolMapsV1Maps(T& _client, std::function<void(T&, const Result<std::vector<LolMapsMaps>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-maps/v1/maps?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

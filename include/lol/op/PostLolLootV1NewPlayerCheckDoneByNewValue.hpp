@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<std::string> PostLolLootV1NewPlayerCheckDoneByNewValue(LeagueClient& _client, const bool& newValue)
+  template<typename T>
+  inline Result<std::string> PostLolLootV1NewPlayerCheckDoneByNewValue(T& _client, const bool& newValue)
   {
     try {
       return ToResult<std::string>(_client.https.request("post", "/lol-loot/v1/new-player-check-done/"+to_string(newValue)+"?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<std::string>(e.code());
     }
   }
-  inline void PostLolLootV1NewPlayerCheckDoneByNewValue(LeagueClient& _client, const bool& newValue, std::function<void(LeagueClient&, const Result<std::string>&)> cb)
+  template<typename T>
+  inline void PostLolLootV1NewPlayerCheckDoneByNewValue(T& _client, const bool& newValue, std::function<void(T&, const Result<std::string>&)> cb)
   {
     _client.httpsa.request("post", "/lol-loot/v1/new-player-check-done/"+to_string(newValue)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> Unsubscribe(LeagueClient& _client, const std::string& eventName)
+  template<typename T>
+  inline Result<json> Unsubscribe(T& _client, const std::string& eventName)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/Unsubscribe?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void Unsubscribe(LeagueClient& _client, const std::string& eventName, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void Unsubscribe(T& _client, const std::string& eventName, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/Unsubscribe?" +
       SimpleWeb::QueryString::create(Args2Headers({ 

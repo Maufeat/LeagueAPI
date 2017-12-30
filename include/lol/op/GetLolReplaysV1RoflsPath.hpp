@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<std::string> GetLolReplaysV1RoflsPath(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::string> GetLolReplaysV1RoflsPath(T& _client)
   {
     try {
       return ToResult<std::string>(_client.https.request("get", "/lol-replays/v1/rofls/path?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<std::string>(e.code());
     }
   }
-  inline void GetLolReplaysV1RoflsPath(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::string>&)> cb)
+  template<typename T>
+  inline void GetLolReplaysV1RoflsPath(T& _client, std::function<void(T&, const Result<std::string>&)> cb)
   {
     _client.httpsa.request("get", "/lol-replays/v1/rofls/path?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

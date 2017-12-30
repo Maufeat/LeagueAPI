@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolLootPlayerLootUpdate.hpp"
 namespace lol {
-  inline Result<LolLootPlayerLootUpdate> PostLolLootV1PlayerLootByLootNameRedeem(LeagueClient& _client, const std::string& lootName)
+  template<typename T>
+  inline Result<LolLootPlayerLootUpdate> PostLolLootV1PlayerLootByLootNameRedeem(T& _client, const std::string& lootName)
   {
     try {
       return ToResult<LolLootPlayerLootUpdate>(_client.https.request("post", "/lol-loot/v1/player-loot/"+to_string(lootName)+"/redeem?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolLootPlayerLootUpdate>(e.code());
     }
   }
-  inline void PostLolLootV1PlayerLootByLootNameRedeem(LeagueClient& _client, const std::string& lootName, std::function<void(LeagueClient&, const Result<LolLootPlayerLootUpdate>&)> cb)
+  template<typename T>
+  inline void PostLolLootV1PlayerLootByLootNameRedeem(T& _client, const std::string& lootName, std::function<void(T&, const Result<LolLootPlayerLootUpdate>&)> cb)
   {
     _client.httpsa.request("post", "/lol-loot/v1/player-loot/"+to_string(lootName)+"/redeem?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

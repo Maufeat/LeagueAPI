@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/RegionLocale.hpp"
 namespace lol {
-  inline Result<RegionLocale> GetRiotclientRegionLocale(LeagueClient& _client)
+  template<typename T>
+  inline Result<RegionLocale> GetRiotclientRegionLocale(T& _client)
   {
     try {
       return ToResult<RegionLocale>(_client.https.request("get", "/riotclient/region-locale?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<RegionLocale>(e.code());
     }
   }
-  inline void GetRiotclientRegionLocale(LeagueClient& _client, std::function<void(LeagueClient&, const Result<RegionLocale>&)> cb)
+  template<typename T>
+  inline void GetRiotclientRegionLocale(T& _client, std::function<void(T&, const Result<RegionLocale>&)> cb)
   {
     _client.httpsa.request("get", "/riotclient/region-locale?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

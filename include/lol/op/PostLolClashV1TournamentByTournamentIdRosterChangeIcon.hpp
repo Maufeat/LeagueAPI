@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolClashChangeIconRequest.hpp"
 namespace lol {
-  inline Result<json> PostLolClashV1TournamentByTournamentIdRosterChangeIcon(LeagueClient& _client, const int64_t& tournamentId, const LolClashChangeIconRequest& changeIconRequest)
+  template<typename T>
+  inline Result<json> PostLolClashV1TournamentByTournamentIdRosterChangeIcon(T& _client, const int64_t& tournamentId, const LolClashChangeIconRequest& changeIconRequest)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/lol-clash/v1/tournament/"+to_string(tournamentId)+"/roster/change-icon?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PostLolClashV1TournamentByTournamentIdRosterChangeIcon(LeagueClient& _client, const int64_t& tournamentId, const LolClashChangeIconRequest& changeIconRequest, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PostLolClashV1TournamentByTournamentIdRosterChangeIcon(T& _client, const int64_t& tournamentId, const LolClashChangeIconRequest& changeIconRequest, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/lol-clash/v1/tournament/"+to_string(tournamentId)+"/roster/change-icon?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

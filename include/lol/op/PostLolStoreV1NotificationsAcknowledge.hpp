@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> PostLolStoreV1NotificationsAcknowledge(LeagueClient& _client, const std::string& id)
+  template<typename T>
+  inline Result<json> PostLolStoreV1NotificationsAcknowledge(T& _client, const std::string& id)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/lol-store/v1/notifications/acknowledge?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PostLolStoreV1NotificationsAcknowledge(LeagueClient& _client, const std::string& id, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PostLolStoreV1NotificationsAcknowledge(T& _client, const std::string& id, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/lol-store/v1/notifications/acknowledge?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

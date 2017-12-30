@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/ClubPreferences.hpp"
 namespace lol {
-  inline Result<ClubPreferences> PatchLolClubsV1ClubsMembershipPreferences(LeagueClient& _client, const ClubPreferences& preferences)
+  template<typename T>
+  inline Result<ClubPreferences> PatchLolClubsV1ClubsMembershipPreferences(T& _client, const ClubPreferences& preferences)
   {
     try {
       return ToResult<ClubPreferences>(_client.https.request("patch", "/lol-clubs/v1/clubs/membership/preferences?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<ClubPreferences>(e.code());
     }
   }
-  inline void PatchLolClubsV1ClubsMembershipPreferences(LeagueClient& _client, const ClubPreferences& preferences, std::function<void(LeagueClient&, const Result<ClubPreferences>&)> cb)
+  template<typename T>
+  inline void PatchLolClubsV1ClubsMembershipPreferences(T& _client, const ClubPreferences& preferences, std::function<void(T&, const Result<ClubPreferences>&)> cb)
   {
     _client.httpsa.request("patch", "/lol-clubs/v1/clubs/membership/preferences?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

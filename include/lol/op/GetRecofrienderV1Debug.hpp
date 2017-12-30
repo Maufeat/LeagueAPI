@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/RecofrienderDebugConfig.hpp"
 namespace lol {
-  inline Result<RecofrienderDebugConfig> GetRecofrienderV1Debug(LeagueClient& _client)
+  template<typename T>
+  inline Result<RecofrienderDebugConfig> GetRecofrienderV1Debug(T& _client)
   {
     try {
       return ToResult<RecofrienderDebugConfig>(_client.https.request("get", "/recofriender/v1/debug?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<RecofrienderDebugConfig>(e.code());
     }
   }
-  inline void GetRecofrienderV1Debug(LeagueClient& _client, std::function<void(LeagueClient&, const Result<RecofrienderDebugConfig>&)> cb)
+  template<typename T>
+  inline void GetRecofrienderV1Debug(T& _client, std::function<void(T&, const Result<RecofrienderDebugConfig>&)> cb)
   {
     _client.httpsa.request("get", "/recofriender/v1/debug?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

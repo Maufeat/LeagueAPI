@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<std::string> GetRiotclientAuthToken(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::string> GetRiotclientAuthToken(T& _client)
   {
     try {
       return ToResult<std::string>(_client.https.request("get", "/riotclient/auth-token?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<std::string>(e.code());
     }
   }
-  inline void GetRiotclientAuthToken(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::string>&)> cb)
+  template<typename T>
+  inline void GetRiotclientAuthToken(T& _client, std::function<void(T&, const Result<std::string>&)> cb)
   {
     _client.httpsa.request("get", "/riotclient/auth-token?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

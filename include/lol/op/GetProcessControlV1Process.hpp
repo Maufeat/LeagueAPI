@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/ProcessControlProcess.hpp"
 namespace lol {
-  inline Result<ProcessControlProcess> GetProcessControlV1Process(LeagueClient& _client)
+  template<typename T>
+  inline Result<ProcessControlProcess> GetProcessControlV1Process(T& _client)
   {
     try {
       return ToResult<ProcessControlProcess>(_client.https.request("get", "/process-control/v1/process?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<ProcessControlProcess>(e.code());
     }
   }
-  inline void GetProcessControlV1Process(LeagueClient& _client, std::function<void(LeagueClient&, const Result<ProcessControlProcess>&)> cb)
+  template<typename T>
+  inline void GetProcessControlV1Process(T& _client, std::function<void(T&, const Result<ProcessControlProcess>&)> cb)
   {
     _client.httpsa.request("get", "/process-control/v1/process?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

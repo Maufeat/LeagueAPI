@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/PatcherProductResource.hpp"
 namespace lol {
-  inline Result<json> PutPatcherV1ProductsByProductId(LeagueClient& _client, const std::string& product_id, const PatcherProductResource& data)
+  template<typename T>
+  inline Result<json> PutPatcherV1ProductsByProductId(T& _client, const std::string& product_id, const PatcherProductResource& data)
   {
     try {
       return ToResult<json>(_client.https.request("put", "/patcher/v1/products/"+to_string(product_id)+"?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PutPatcherV1ProductsByProductId(LeagueClient& _client, const std::string& product_id, const PatcherProductResource& data, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PutPatcherV1ProductsByProductId(T& _client, const std::string& product_id, const PatcherProductResource& data, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("put", "/patcher/v1/products/"+to_string(product_id)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LeaverBusterNotificationResource.hpp"
 namespace lol {
-  inline Result<LeaverBusterNotificationResource> GetLolLeaverBusterV1NotificationsById(LeagueClient& _client, const uint32_t& id)
+  template<typename T>
+  inline Result<LeaverBusterNotificationResource> GetLolLeaverBusterV1NotificationsById(T& _client, const uint32_t& id)
   {
     try {
       return ToResult<LeaverBusterNotificationResource>(_client.https.request("get", "/lol-leaver-buster/v1/notifications/"+to_string(id)+"?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LeaverBusterNotificationResource>(e.code());
     }
   }
-  inline void GetLolLeaverBusterV1NotificationsById(LeagueClient& _client, const uint32_t& id, std::function<void(LeagueClient&, const Result<LeaverBusterNotificationResource>&)> cb)
+  template<typename T>
+  inline void GetLolLeaverBusterV1NotificationsById(T& _client, const uint32_t& id, std::function<void(T&, const Result<LeaverBusterNotificationResource>&)> cb)
   {
     _client.httpsa.request("get", "/lol-leaver-buster/v1/notifications/"+to_string(id)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

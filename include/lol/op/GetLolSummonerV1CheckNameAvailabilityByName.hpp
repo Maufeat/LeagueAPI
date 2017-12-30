@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<bool> GetLolSummonerV1CheckNameAvailabilityByName(LeagueClient& _client, const std::string& name)
+  template<typename T>
+  inline Result<bool> GetLolSummonerV1CheckNameAvailabilityByName(T& _client, const std::string& name)
   {
     try {
       return ToResult<bool>(_client.https.request("get", "/lol-summoner/v1/check-name-availability/"+to_string(name)+"?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<bool>(e.code());
     }
   }
-  inline void GetLolSummonerV1CheckNameAvailabilityByName(LeagueClient& _client, const std::string& name, std::function<void(LeagueClient&, const Result<bool>&)> cb)
+  template<typename T>
+  inline void GetLolSummonerV1CheckNameAvailabilityByName(T& _client, const std::string& name, std::function<void(T&, const Result<bool>&)> cb)
   {
     _client.httpsa.request("get", "/lol-summoner/v1/check-name-availability/"+to_string(name)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

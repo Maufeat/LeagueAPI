@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<std::vector<std::string>> GetLolGameClientChatV1Buddies(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::vector<std::string>> GetLolGameClientChatV1Buddies(T& _client)
   {
     try {
       return ToResult<std::vector<std::string>>(_client.https.request("get", "/lol-game-client-chat/v1/buddies?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<std::vector<std::string>>(e.code());
     }
   }
-  inline void GetLolGameClientChatV1Buddies(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::vector<std::string>>&)> cb)
+  template<typename T>
+  inline void GetLolGameClientChatV1Buddies(T& _client, std::function<void(T&, const Result<std::vector<std::string>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-game-client-chat/v1/buddies?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

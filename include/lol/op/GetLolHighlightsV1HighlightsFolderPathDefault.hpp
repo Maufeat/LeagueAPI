@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<std::string> GetLolHighlightsV1HighlightsFolderPathDefault(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::string> GetLolHighlightsV1HighlightsFolderPathDefault(T& _client)
   {
     try {
       return ToResult<std::string>(_client.https.request("get", "/lol-highlights/v1/highlights-folder-path/default?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<std::string>(e.code());
     }
   }
-  inline void GetLolHighlightsV1HighlightsFolderPathDefault(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::string>&)> cb)
+  template<typename T>
+  inline void GetLolHighlightsV1HighlightsFolderPathDefault(T& _client, std::function<void(T&, const Result<std::string>&)> cb)
   {
     _client.httpsa.request("get", "/lol-highlights/v1/highlights-folder-path/default?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

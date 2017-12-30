@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolQueueEligibilityEligibility.hpp"
 namespace lol {
-  inline Result<std::vector<LolQueueEligibilityEligibility>> GetLolQueueEligibilityV3Custom(LeagueClient& _client, const int32_t& teamSize, const std::string& pickMode)
+  template<typename T>
+  inline Result<std::vector<LolQueueEligibilityEligibility>> GetLolQueueEligibilityV3Custom(T& _client, const int32_t& teamSize, const std::string& pickMode)
   {
     try {
       return ToResult<std::vector<LolQueueEligibilityEligibility>>(_client.https.request("get", "/lol-queue-eligibility/v3/custom?" +
@@ -17,7 +18,8 @@ namespace lol {
       return ToResult<std::vector<LolQueueEligibilityEligibility>>(e.code());
     }
   }
-  inline void GetLolQueueEligibilityV3Custom(LeagueClient& _client, const int32_t& teamSize, const std::string& pickMode, std::function<void(LeagueClient&, const Result<std::vector<LolQueueEligibilityEligibility>>&)> cb)
+  template<typename T>
+  inline void GetLolQueueEligibilityV3Custom(T& _client, const int32_t& teamSize, const std::string& pickMode, std::function<void(T&, const Result<std::vector<LolQueueEligibilityEligibility>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-queue-eligibility/v3/custom?" +
       SimpleWeb::QueryString::create(Args2Headers({ 

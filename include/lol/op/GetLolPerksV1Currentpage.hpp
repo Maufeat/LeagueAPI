@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolPerksPerkPageResource.hpp"
 namespace lol {
-  inline Result<LolPerksPerkPageResource> GetLolPerksV1Currentpage(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolPerksPerkPageResource> GetLolPerksV1Currentpage(T& _client)
   {
     try {
       return ToResult<LolPerksPerkPageResource>(_client.https.request("get", "/lol-perks/v1/currentpage?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolPerksPerkPageResource>(e.code());
     }
   }
-  inline void GetLolPerksV1Currentpage(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolPerksPerkPageResource>&)> cb)
+  template<typename T>
+  inline void GetLolPerksV1Currentpage(T& _client, std::function<void(T&, const Result<LolPerksPerkPageResource>&)> cb)
   {
     _client.httpsa.request("get", "/lol-perks/v1/currentpage?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

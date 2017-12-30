@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolMatchHistoryMatchHistoryTimelineFrames.hpp"
 namespace lol {
-  inline Result<LolMatchHistoryMatchHistoryTimelineFrames> GetLolMatchHistoryV1GameTimelinesByGameId(LeagueClient& _client, const uint64_t& gameId)
+  template<typename T>
+  inline Result<LolMatchHistoryMatchHistoryTimelineFrames> GetLolMatchHistoryV1GameTimelinesByGameId(T& _client, const uint64_t& gameId)
   {
     try {
       return ToResult<LolMatchHistoryMatchHistoryTimelineFrames>(_client.https.request("get", "/lol-match-history/v1/game-timelines/"+to_string(gameId)+"?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolMatchHistoryMatchHistoryTimelineFrames>(e.code());
     }
   }
-  inline void GetLolMatchHistoryV1GameTimelinesByGameId(LeagueClient& _client, const uint64_t& gameId, std::function<void(LeagueClient&, const Result<LolMatchHistoryMatchHistoryTimelineFrames>&)> cb)
+  template<typename T>
+  inline void GetLolMatchHistoryV1GameTimelinesByGameId(T& _client, const uint64_t& gameId, std::function<void(T&, const Result<LolMatchHistoryMatchHistoryTimelineFrames>&)> cb)
   {
     _client.httpsa.request("get", "/lol-match-history/v1/game-timelines/"+to_string(gameId)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolChampSelectChampSelectTradeContract.hpp"
 namespace lol {
-  inline Result<LolChampSelectChampSelectTradeContract> PostLolChampSelectV1SessionTradesByIdRequest(LeagueClient& _client, const int64_t& id)
+  template<typename T>
+  inline Result<LolChampSelectChampSelectTradeContract> PostLolChampSelectV1SessionTradesByIdRequest(T& _client, const int64_t& id)
   {
     try {
       return ToResult<LolChampSelectChampSelectTradeContract>(_client.https.request("post", "/lol-champ-select/v1/session/trades/"+to_string(id)+"/request?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolChampSelectChampSelectTradeContract>(e.code());
     }
   }
-  inline void PostLolChampSelectV1SessionTradesByIdRequest(LeagueClient& _client, const int64_t& id, std::function<void(LeagueClient&, const Result<LolChampSelectChampSelectTradeContract>&)> cb)
+  template<typename T>
+  inline void PostLolChampSelectV1SessionTradesByIdRequest(T& _client, const int64_t& id, std::function<void(T&, const Result<LolChampSelectChampSelectTradeContract>&)> cb)
   {
     _client.httpsa.request("post", "/lol-champ-select/v1/session/trades/"+to_string(id)+"/request?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

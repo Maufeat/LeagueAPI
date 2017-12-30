@@ -3,18 +3,18 @@
 #include "PluginResourceEventType.hpp"
 namespace lol {
   struct PluginResourceEvent { 
-    std::string uri;
+    json data;
     PluginResourceEventType eventType;
-    json data; 
+    std::string uri; 
   };
   inline void to_json(json& j, const PluginResourceEvent& v) {
-    j["uri"] = v.uri; 
-    j["eventType"] = v.eventType; 
     j["data"] = v.data; 
+    j["eventType"] = v.eventType; 
+    j["uri"] = v.uri; 
   }
   inline void from_json(const json& j, PluginResourceEvent& v) {
-    v.uri = j.at("uri").get<std::string>(); 
-    v.eventType = j.at("eventType").get<PluginResourceEventType>(); 
     v.data = j.at("data").get<json>(); 
+    v.eventType = j.at("eventType").get<PluginResourceEventType>(); 
+    v.uri = j.at("uri").get<std::string>(); 
   }
 }

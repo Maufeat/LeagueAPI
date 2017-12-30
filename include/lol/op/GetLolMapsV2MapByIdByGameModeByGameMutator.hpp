@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolMapsMaps.hpp"
 namespace lol {
-  inline Result<LolMapsMaps> GetLolMapsV2MapByIdByGameModeByGameMutator(LeagueClient& _client, const int64_t& id, const std::string& gameMode, const std::string& gameMutator)
+  template<typename T>
+  inline Result<LolMapsMaps> GetLolMapsV2MapByIdByGameModeByGameMutator(T& _client, const int64_t& id, const std::string& gameMode, const std::string& gameMutator)
   {
     try {
       return ToResult<LolMapsMaps>(_client.https.request("get", "/lol-maps/v2/map/"+to_string(id)+"/"+to_string(gameMode)+"/"+to_string(gameMutator)+"?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolMapsMaps>(e.code());
     }
   }
-  inline void GetLolMapsV2MapByIdByGameModeByGameMutator(LeagueClient& _client, const int64_t& id, const std::string& gameMode, const std::string& gameMutator, std::function<void(LeagueClient&, const Result<LolMapsMaps>&)> cb)
+  template<typename T>
+  inline void GetLolMapsV2MapByIdByGameModeByGameMutator(T& _client, const int64_t& id, const std::string& gameMode, const std::string& gameMutator, std::function<void(T&, const Result<LolMapsMaps>&)> cb)
   {
     _client.httpsa.request("get", "/lol-maps/v2/map/"+to_string(id)+"/"+to_string(gameMode)+"/"+to_string(gameMutator)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

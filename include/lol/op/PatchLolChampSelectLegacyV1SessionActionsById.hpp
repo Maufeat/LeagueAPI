@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolChampSelectLegacyChampSelectAction.hpp"
 namespace lol {
-  inline Result<json> PatchLolChampSelectLegacyV1SessionActionsById(LeagueClient& _client, const uint64_t& id, const LolChampSelectLegacyChampSelectAction& data)
+  template<typename T>
+  inline Result<json> PatchLolChampSelectLegacyV1SessionActionsById(T& _client, const uint64_t& id, const LolChampSelectLegacyChampSelectAction& data)
   {
     try {
       return ToResult<json>(_client.https.request("patch", "/lol-champ-select-legacy/v1/session/actions/"+to_string(id)+"?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PatchLolChampSelectLegacyV1SessionActionsById(LeagueClient& _client, const uint64_t& id, const LolChampSelectLegacyChampSelectAction& data, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PatchLolChampSelectLegacyV1SessionActionsById(T& _client, const uint64_t& id, const LolChampSelectLegacyChampSelectAction& data, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("patch", "/lol-champ-select-legacy/v1/session/actions/"+to_string(id)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

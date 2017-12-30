@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolAcsAcsEndPoint.hpp"
 namespace lol {
-  inline Result<json> PostLolAcsV1AcsEndpointOverride(LeagueClient& _client, const LolAcsAcsEndPoint& data)
+  template<typename T>
+  inline Result<json> PostLolAcsV1AcsEndpointOverride(T& _client, const LolAcsAcsEndPoint& data)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/lol-acs/v1/acs-endpoint-override?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PostLolAcsV1AcsEndpointOverride(LeagueClient& _client, const LolAcsAcsEndPoint& data, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PostLolAcsV1AcsEndpointOverride(T& _client, const LolAcsAcsEndPoint& data, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/lol-acs/v1/acs-endpoint-override?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

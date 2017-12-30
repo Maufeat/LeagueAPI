@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolPurchaseWidgetValidationRequest.hpp"
 namespace lol {
-  inline Result<json> PostLolPurchaseWidgetV1ValidateItems(LeagueClient& _client, const LolPurchaseWidgetValidationRequest& validationRequest)
+  template<typename T>
+  inline Result<json> PostLolPurchaseWidgetV1ValidateItems(T& _client, const LolPurchaseWidgetValidationRequest& validationRequest)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/lol-purchase-widget/v1/validateItems?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PostLolPurchaseWidgetV1ValidateItems(LeagueClient& _client, const LolPurchaseWidgetValidationRequest& validationRequest, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PostLolPurchaseWidgetV1ValidateItems(T& _client, const LolPurchaseWidgetValidationRequest& validationRequest, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/lol-purchase-widget/v1/validateItems?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

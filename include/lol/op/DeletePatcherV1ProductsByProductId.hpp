@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> DeletePatcherV1ProductsByProductId(LeagueClient& _client, const std::string& product_id)
+  template<typename T>
+  inline Result<json> DeletePatcherV1ProductsByProductId(T& _client, const std::string& product_id)
   {
     try {
       return ToResult<json>(_client.https.request("delete", "/patcher/v1/products/"+to_string(product_id)+"?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void DeletePatcherV1ProductsByProductId(LeagueClient& _client, const std::string& product_id, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void DeletePatcherV1ProductsByProductId(T& _client, const std::string& product_id, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("delete", "/patcher/v1/products/"+to_string(product_id)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

@@ -1,31 +1,31 @@
 #pragma once
 #include "../base_def.hpp" 
 #include "LolMatchmakingMatchmakingReadyCheckResponse.hpp"
-#include "LolMatchmakingMatchmakingReadyCheckState.hpp"
 #include "LolMatchmakingMatchmakingDodgeWarning.hpp"
+#include "LolMatchmakingMatchmakingReadyCheckState.hpp"
 namespace lol {
   struct LolMatchmakingMatchmakingReadyCheckResource { 
-    std::vector<uint64_t> declinerIds;
-    LolMatchmakingMatchmakingReadyCheckResponse playerResponse;
+    bool suppressUx;
     float timer;
+    LolMatchmakingMatchmakingReadyCheckResponse playerResponse;
     LolMatchmakingMatchmakingReadyCheckState state;
-    LolMatchmakingMatchmakingDodgeWarning dodgeWarning;
-    bool suppressUx; 
+    std::vector<uint64_t> declinerIds;
+    LolMatchmakingMatchmakingDodgeWarning dodgeWarning; 
   };
   inline void to_json(json& j, const LolMatchmakingMatchmakingReadyCheckResource& v) {
-    j["declinerIds"] = v.declinerIds; 
-    j["playerResponse"] = v.playerResponse; 
-    j["timer"] = v.timer; 
-    j["state"] = v.state; 
-    j["dodgeWarning"] = v.dodgeWarning; 
     j["suppressUx"] = v.suppressUx; 
+    j["timer"] = v.timer; 
+    j["playerResponse"] = v.playerResponse; 
+    j["state"] = v.state; 
+    j["declinerIds"] = v.declinerIds; 
+    j["dodgeWarning"] = v.dodgeWarning; 
   }
   inline void from_json(const json& j, LolMatchmakingMatchmakingReadyCheckResource& v) {
-    v.declinerIds = j.at("declinerIds").get<std::vector<uint64_t>>(); 
-    v.playerResponse = j.at("playerResponse").get<LolMatchmakingMatchmakingReadyCheckResponse>(); 
-    v.timer = j.at("timer").get<float>(); 
-    v.state = j.at("state").get<LolMatchmakingMatchmakingReadyCheckState>(); 
-    v.dodgeWarning = j.at("dodgeWarning").get<LolMatchmakingMatchmakingDodgeWarning>(); 
     v.suppressUx = j.at("suppressUx").get<bool>(); 
+    v.timer = j.at("timer").get<float>(); 
+    v.playerResponse = j.at("playerResponse").get<LolMatchmakingMatchmakingReadyCheckResponse>(); 
+    v.state = j.at("state").get<LolMatchmakingMatchmakingReadyCheckState>(); 
+    v.declinerIds = j.at("declinerIds").get<std::vector<uint64_t>>(); 
+    v.dodgeWarning = j.at("dodgeWarning").get<LolMatchmakingMatchmakingDodgeWarning>(); 
   }
 }

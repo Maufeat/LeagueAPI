@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolChampionsCollectionsChampion.hpp"
 namespace lol {
-  inline Result<std::vector<LolChampionsCollectionsChampion>> GetLolChampionsV1InventoriesBySummonerIdChampions(LeagueClient& _client, const uint64_t& summonerId)
+  template<typename T>
+  inline Result<std::vector<LolChampionsCollectionsChampion>> GetLolChampionsV1InventoriesBySummonerIdChampions(T& _client, const uint64_t& summonerId)
   {
     try {
       return ToResult<std::vector<LolChampionsCollectionsChampion>>(_client.https.request("get", "/lol-champions/v1/inventories/"+to_string(summonerId)+"/champions?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<LolChampionsCollectionsChampion>>(e.code());
     }
   }
-  inline void GetLolChampionsV1InventoriesBySummonerIdChampions(LeagueClient& _client, const uint64_t& summonerId, std::function<void(LeagueClient&, const Result<std::vector<LolChampionsCollectionsChampion>>&)> cb)
+  template<typename T>
+  inline void GetLolChampionsV1InventoriesBySummonerIdChampions(T& _client, const uint64_t& summonerId, std::function<void(T&, const Result<std::vector<LolChampionsCollectionsChampion>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-champions/v1/inventories/"+to_string(summonerId)+"/champions?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

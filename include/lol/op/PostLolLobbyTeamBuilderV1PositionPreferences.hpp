@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolLobbyTeamBuilderLobbyPositionPreferences.hpp"
 namespace lol {
-  inline Result<json> PostLolLobbyTeamBuilderV1PositionPreferences(LeagueClient& _client, const LolLobbyTeamBuilderLobbyPositionPreferences& positionPreferences)
+  template<typename T>
+  inline Result<json> PostLolLobbyTeamBuilderV1PositionPreferences(T& _client, const LolLobbyTeamBuilderLobbyPositionPreferences& positionPreferences)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/lol-lobby-team-builder/v1/position-preferences?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PostLolLobbyTeamBuilderV1PositionPreferences(LeagueClient& _client, const LolLobbyTeamBuilderLobbyPositionPreferences& positionPreferences, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PostLolLobbyTeamBuilderV1PositionPreferences(T& _client, const LolLobbyTeamBuilderLobbyPositionPreferences& positionPreferences, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/lol-lobby-team-builder/v1/position-preferences?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolStoreOrderNotificationResource.hpp"
 namespace lol {
-  inline Result<std::vector<LolStoreOrderNotificationResource>> GetLolStoreV1OrderNotifications(LeagueClient& _client)
+  template<typename T>
+  inline Result<std::vector<LolStoreOrderNotificationResource>> GetLolStoreV1OrderNotifications(T& _client)
   {
     try {
       return ToResult<std::vector<LolStoreOrderNotificationResource>>(_client.https.request("get", "/lol-store/v1/order-notifications?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<std::vector<LolStoreOrderNotificationResource>>(e.code());
     }
   }
-  inline void GetLolStoreV1OrderNotifications(LeagueClient& _client, std::function<void(LeagueClient&, const Result<std::vector<LolStoreOrderNotificationResource>>&)> cb)
+  template<typename T>
+  inline void GetLolStoreV1OrderNotifications(T& _client, std::function<void(T&, const Result<std::vector<LolStoreOrderNotificationResource>>&)> cb)
   {
     _client.httpsa.request("get", "/lol-store/v1/order-notifications?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

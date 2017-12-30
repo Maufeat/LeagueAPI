@@ -4,20 +4,20 @@
 namespace lol {
   struct MatchmakingLcdsQueueDisabled { 
     MatchmakingLcdsSummoner summoner;
+    std::string reasonFailed;
     int32_t queueId;
-    std::string message;
-    std::string reasonFailed; 
+    std::string message; 
   };
   inline void to_json(json& j, const MatchmakingLcdsQueueDisabled& v) {
     j["summoner"] = v.summoner; 
+    j["reasonFailed"] = v.reasonFailed; 
     j["queueId"] = v.queueId; 
     j["message"] = v.message; 
-    j["reasonFailed"] = v.reasonFailed; 
   }
   inline void from_json(const json& j, MatchmakingLcdsQueueDisabled& v) {
     v.summoner = j.at("summoner").get<MatchmakingLcdsSummoner>(); 
+    v.reasonFailed = j.at("reasonFailed").get<std::string>(); 
     v.queueId = j.at("queueId").get<int32_t>(); 
     v.message = j.at("message").get<std::string>(); 
-    v.reasonFailed = j.at("reasonFailed").get<std::string>(); 
   }
 }

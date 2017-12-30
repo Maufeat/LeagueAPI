@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> MemoryUsage(LeagueClient& _client, const std::optional<uint32_t>& minSize = std::nullopt, const std::optional<uint32_t>& minCount = std::nullopt)
+  template<typename T>
+  inline Result<json> MemoryUsage(T& _client, const std::optional<uint32_t>& minSize = std::nullopt, const std::optional<uint32_t>& minCount = std::nullopt)
   {
     try {
       return ToResult<json>(_client.https.request("post", "/MemoryUsage?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void MemoryUsage(LeagueClient& _client, const std::optional<uint32_t>& minSize = std::nullopt, const std::optional<uint32_t>& minCount = std::nullopt, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void MemoryUsage(T& _client, const std::optional<uint32_t>& minSize = std::nullopt, const std::optional<uint32_t>& minCount = std::nullopt, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("post", "/MemoryUsage?" +
       SimpleWeb::QueryString::create(Args2Headers({ 

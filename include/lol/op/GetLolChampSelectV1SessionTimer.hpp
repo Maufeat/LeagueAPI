@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolChampSelectChampSelectTimer.hpp"
 namespace lol {
-  inline Result<LolChampSelectChampSelectTimer> GetLolChampSelectV1SessionTimer(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolChampSelectChampSelectTimer> GetLolChampSelectV1SessionTimer(T& _client)
   {
     try {
       return ToResult<LolChampSelectChampSelectTimer>(_client.https.request("get", "/lol-champ-select/v1/session/timer?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolChampSelectChampSelectTimer>(e.code());
     }
   }
-  inline void GetLolChampSelectV1SessionTimer(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolChampSelectChampSelectTimer>&)> cb)
+  template<typename T>
+  inline void GetLolChampSelectV1SessionTimer(T& _client, std::function<void(T&, const Result<LolChampSelectChampSelectTimer>&)> cb)
   {
     _client.httpsa.request("get", "/lol-champ-select/v1/session/timer?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

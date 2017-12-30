@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/PluginDescriptionResource.hpp"
 namespace lol {
-  inline Result<PluginDescriptionResource> GetPluginManagerV2DescriptionsByPlugin(LeagueClient& _client, const std::string& plugin)
+  template<typename T>
+  inline Result<PluginDescriptionResource> GetPluginManagerV2DescriptionsByPlugin(T& _client, const std::string& plugin)
   {
     try {
       return ToResult<PluginDescriptionResource>(_client.https.request("get", "/plugin-manager/v2/descriptions/"+to_string(plugin)+"?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<PluginDescriptionResource>(e.code());
     }
   }
-  inline void GetPluginManagerV2DescriptionsByPlugin(LeagueClient& _client, const std::string& plugin, std::function<void(LeagueClient&, const Result<PluginDescriptionResource>&)> cb)
+  template<typename T>
+  inline void GetPluginManagerV2DescriptionsByPlugin(T& _client, const std::string& plugin, std::function<void(T&, const Result<PluginDescriptionResource>&)> cb)
   {
     _client.httpsa.request("get", "/plugin-manager/v2/descriptions/"+to_string(plugin)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

@@ -4,7 +4,8 @@
 #include "../def/LolSummonerSummoner.hpp"
 #include "../def/LolSummonerSummonerIcon.hpp"
 namespace lol {
-  inline Result<LolSummonerSummoner> PutLolSummonerV1CurrentSummonerIcon(LeagueClient& _client, const LolSummonerSummonerIcon& body)
+  template<typename T>
+  inline Result<LolSummonerSummoner> PutLolSummonerV1CurrentSummonerIcon(T& _client, const LolSummonerSummonerIcon& body)
   {
     try {
       return ToResult<LolSummonerSummoner>(_client.https.request("put", "/lol-summoner/v1/current-summoner/icon?" +
@@ -17,7 +18,8 @@ namespace lol {
       return ToResult<LolSummonerSummoner>(e.code());
     }
   }
-  inline void PutLolSummonerV1CurrentSummonerIcon(LeagueClient& _client, const LolSummonerSummonerIcon& body, std::function<void(LeagueClient&, const Result<LolSummonerSummoner>&)> cb)
+  template<typename T>
+  inline void PutLolSummonerV1CurrentSummonerIcon(T& _client, const LolSummonerSummonerIcon& body, std::function<void(T&, const Result<LolSummonerSummoner>&)> cb)
   {
     _client.httpsa.request("put", "/lol-summoner/v1/current-summoner/icon?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

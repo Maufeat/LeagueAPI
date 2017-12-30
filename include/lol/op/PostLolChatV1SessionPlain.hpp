@@ -4,7 +4,8 @@
 #include "../def/LolChatAuthResourcePlain.hpp"
 #include "../def/LolChatSessionResource.hpp"
 namespace lol {
-  inline Result<LolChatSessionResource> PostLolChatV1SessionPlain(LeagueClient& _client, const LolChatAuthResourcePlain& auth)
+  template<typename T>
+  inline Result<LolChatSessionResource> PostLolChatV1SessionPlain(T& _client, const LolChatAuthResourcePlain& auth)
   {
     try {
       return ToResult<LolChatSessionResource>(_client.https.request("post", "/lol-chat/v1/session/plain?" +
@@ -17,7 +18,8 @@ namespace lol {
       return ToResult<LolChatSessionResource>(e.code());
     }
   }
-  inline void PostLolChatV1SessionPlain(LeagueClient& _client, const LolChatAuthResourcePlain& auth, std::function<void(LeagueClient&, const Result<LolChatSessionResource>&)> cb)
+  template<typename T>
+  inline void PostLolChatV1SessionPlain(T& _client, const LolChatAuthResourcePlain& auth, std::function<void(T&, const Result<LolChatSessionResource>&)> cb)
   {
     _client.httpsa.request("post", "/lol-chat/v1/session/plain?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

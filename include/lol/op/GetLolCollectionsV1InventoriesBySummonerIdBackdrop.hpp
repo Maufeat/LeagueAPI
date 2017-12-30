@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolCollectionsCollectionsSummonerBackdrop.hpp"
 namespace lol {
-  inline Result<LolCollectionsCollectionsSummonerBackdrop> GetLolCollectionsV1InventoriesBySummonerIdBackdrop(LeagueClient& _client, const uint64_t& summonerId)
+  template<typename T>
+  inline Result<LolCollectionsCollectionsSummonerBackdrop> GetLolCollectionsV1InventoriesBySummonerIdBackdrop(T& _client, const uint64_t& summonerId)
   {
     try {
       return ToResult<LolCollectionsCollectionsSummonerBackdrop>(_client.https.request("get", "/lol-collections/v1/inventories/"+to_string(summonerId)+"/backdrop?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolCollectionsCollectionsSummonerBackdrop>(e.code());
     }
   }
-  inline void GetLolCollectionsV1InventoriesBySummonerIdBackdrop(LeagueClient& _client, const uint64_t& summonerId, std::function<void(LeagueClient&, const Result<LolCollectionsCollectionsSummonerBackdrop>&)> cb)
+  template<typename T>
+  inline void GetLolCollectionsV1InventoriesBySummonerIdBackdrop(T& _client, const uint64_t& summonerId, std::function<void(T&, const Result<LolCollectionsCollectionsSummonerBackdrop>&)> cb)
   {
     _client.httpsa.request("get", "/lol-collections/v1/inventories/"+to_string(summonerId)+"/backdrop?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

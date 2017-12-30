@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolChatFriendRequestResource.hpp"
 namespace lol {
-  inline Result<json> PutLolChatV1FriendRequestsById(LeagueClient& _client, const uint64_t& id, const LolChatFriendRequestResource& request)
+  template<typename T>
+  inline Result<json> PutLolChatV1FriendRequestsById(T& _client, const uint64_t& id, const LolChatFriendRequestResource& request)
   {
     try {
       return ToResult<json>(_client.https.request("put", "/lol-chat/v1/friend-requests/"+to_string(id)+"?" +
@@ -16,7 +17,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void PutLolChatV1FriendRequestsById(LeagueClient& _client, const uint64_t& id, const LolChatFriendRequestResource& request, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void PutLolChatV1FriendRequestsById(T& _client, const uint64_t& id, const LolChatFriendRequestResource& request, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("put", "/lol-chat/v1/friend-requests/"+to_string(id)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

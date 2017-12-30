@@ -2,7 +2,8 @@
 #include "../base_op.hpp"
 #include <functional> 
 namespace lol {
-  inline Result<json> GetLolSettingsV1LocalByCategory(LeagueClient& _client, const std::string& category)
+  template<typename T>
+  inline Result<json> GetLolSettingsV1LocalByCategory(T& _client, const std::string& category)
   {
     try {
       return ToResult<json>(_client.https.request("get", "/lol-settings/v1/local/"+to_string(category)+"?" +
@@ -14,7 +15,8 @@ namespace lol {
       return ToResult<json>(e.code());
     }
   }
-  inline void GetLolSettingsV1LocalByCategory(LeagueClient& _client, const std::string& category, std::function<void(LeagueClient&, const Result<json>&)> cb)
+  template<typename T>
+  inline void GetLolSettingsV1LocalByCategory(T& _client, const std::string& category, std::function<void(T&, const Result<json>&)> cb)
   {
     _client.httpsa.request("get", "/lol-settings/v1/local/"+to_string(category)+"?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

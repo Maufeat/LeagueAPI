@@ -3,7 +3,8 @@
 #include <functional> 
 #include "../def/LolChatSessionResource.hpp"
 namespace lol {
-  inline Result<LolChatSessionResource> GetLolChatV1Session(LeagueClient& _client)
+  template<typename T>
+  inline Result<LolChatSessionResource> GetLolChatV1Session(T& _client)
   {
     try {
       return ToResult<LolChatSessionResource>(_client.https.request("get", "/lol-chat/v1/session?" +
@@ -15,7 +16,8 @@ namespace lol {
       return ToResult<LolChatSessionResource>(e.code());
     }
   }
-  inline void GetLolChatV1Session(LeagueClient& _client, std::function<void(LeagueClient&, const Result<LolChatSessionResource>&)> cb)
+  template<typename T>
+  inline void GetLolChatV1Session(T& _client, std::function<void(T&, const Result<LolChatSessionResource>&)> cb)
   {
     _client.httpsa.request("get", "/lol-chat/v1/session?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

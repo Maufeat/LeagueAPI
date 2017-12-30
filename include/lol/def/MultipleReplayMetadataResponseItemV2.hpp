@@ -1,7 +1,7 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "ReplayMetadataV2.hpp"
 #include "ReplayResponseStatus.hpp"
+#include "ReplayMetadataV2.hpp"
 namespace lol {
   struct MultipleReplayMetadataResponseItemV2 { 
     uint64_t gameId;
