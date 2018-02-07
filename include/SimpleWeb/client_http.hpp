@@ -263,7 +263,7 @@ namespace SimpleWeb {
       write_stream << "\r\n"
                    << content;
 
-      connect(session);
+		connect(session);
     }
 
     /// Asynchronous request where setting and/or running Client's io_service is required.
@@ -331,6 +331,8 @@ namespace SimpleWeb {
       write_stream << "\r\n";
       if(content_length > 0)
         write_stream << content.rdbuf();
+
+	  std::cout << to_string(write_stream) << std::endl;
 
       connect(session);
     }
@@ -425,7 +427,7 @@ namespace SimpleWeb {
       std::unique_ptr<asio::streambuf> streambuf(new asio::streambuf());
       std::ostream write_stream(streambuf.get());
       write_stream << method << " " << corrected_path << " HTTP/1.1\r\n";
-      write_stream << "Host: " << host << "\r\n";
+      write_stream << "Host: " << host + ':' + std::to_string(port) << "\r\n";
       for(auto &h : header)
         write_stream << h.first << ": " << h.second << "\r\n";
       return streambuf;
