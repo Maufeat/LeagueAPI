@@ -2,52 +2,37 @@
 #include "../base_def.hpp" 
 namespace lol {
   enum struct LolClashRosterNotifyReason {  
-    BUYBACK_e = 7,
-    BUYBACK_READY_e = 6,
-    BUYBACK_UNREADY_e = 5,
-    BYE_AUTO_WIN_e = 8,
-    CHANGE_POSITION_e = 9,
-    GAME_COMPLETED_e = 15,
-    GAME_STARTED_e = 16,
-    GAME_STARTED_ERROR_e = 17,
-    LOSER_ROUND_COMPLETE_e = 19,
-    PHASE_CHECKIN_e = 14,
-    PHASE_READY_e = 13,
-    PHASE_UNREADY_e = 12,
-    QUEUE_DODGE_e = 18,
-    REGISTERED_e = 10,
-    RESTRICTION_AUTO_WIN_e = 11,
+    BYE_AUTO_WIN_e = 5,
+    CHANGE_POSITION_e = 6,
+    GAME_COMPLETED_e = 12,
+    GAME_STARTED_e = 13,
+    GAME_STARTED_ERROR_e = 14,
+    LOSER_ROUND_COMPLETE_e = 16,
+    PHASE_CHECKIN_e = 11,
+    PHASE_READY_e = 10,
+    PHASE_UNREADY_e = 9,
+    QUEUE_DODGE_e = 15,
+    REGISTERED_e = 7,
+    RESTRICTION_AUTO_WIN_e = 8,
     ROSTER_ACCEPT_TICKET_e = 2,
     ROSTER_DECLINE_TICKET_e = 3,
     ROSTER_OFFER_TICKET_e = 1,
     ROSTER_REVOKED_TICKET_e = 4,
     ROSTER_SET_TICKET_e = 0,
-    SUB_ACCEPT_e = 21,
-    SUB_ACCEPTSUGGEST_e = 25,
-    SUB_DECLINE_e = 22,
-    SUB_DECLINESUGGEST_e = 26,
-    SUB_INVITE_e = 20,
-    SUB_RECLAIM_e = 27,
-    SUB_REVOKE_e = 23,
-    SUB_SUGGEST_e = 24,
-    VOTE_WITHDRAW_DISMISS_e = 29,
-    VOTE_WITHDRAW_UPDATE_e = 28,
-    WINNER_ROUND_COMPLETE_e = 31,
-    WITHDRAW_e = 30,
+    SUB_ACCEPT_e = 18,
+    SUB_ACCEPTSUGGEST_e = 22,
+    SUB_DECLINE_e = 19,
+    SUB_DECLINESUGGEST_e = 23,
+    SUB_INVITE_e = 17,
+    SUB_RECLAIM_e = 24,
+    SUB_REVOKE_e = 20,
+    SUB_SUGGEST_e = 21,
+    VOTE_WITHDRAW_DISMISS_e = 26,
+    VOTE_WITHDRAW_UPDATE_e = 25,
+    WINNER_ROUND_COMPLETE_e = 28,
+    WITHDRAW_e = 27,
   };
   inline void to_json(json& j, const LolClashRosterNotifyReason& v) {
-    if(v == LolClashRosterNotifyReason::BUYBACK_e) {
-      j = "BUYBACK";
-      return;
-    }
-    if(v == LolClashRosterNotifyReason::BUYBACK_READY_e) {
-      j = "BUYBACK_READY";
-      return;
-    }
-    if(v == LolClashRosterNotifyReason::BUYBACK_UNREADY_e) {
-      j = "BUYBACK_UNREADY";
-      return;
-    }
     if(v == LolClashRosterNotifyReason::BYE_AUTO_WIN_e) {
       j = "BYE_AUTO_WIN";
       return;
@@ -166,18 +151,6 @@ namespace lol {
     }
   }
   inline void from_json(const json& j, LolClashRosterNotifyReason& v) {
-    if(j.get<std::string>() == "BUYBACK") {
-      v = LolClashRosterNotifyReason::BUYBACK_e;
-      return;
-    } 
-    if(j.get<std::string>() == "BUYBACK_READY") {
-      v = LolClashRosterNotifyReason::BUYBACK_READY_e;
-      return;
-    } 
-    if(j.get<std::string>() == "BUYBACK_UNREADY") {
-      v = LolClashRosterNotifyReason::BUYBACK_UNREADY_e;
-      return;
-    } 
     if(j.get<std::string>() == "BYE_AUTO_WIN") {
       v = LolClashRosterNotifyReason::BYE_AUTO_WIN_e;
       return;

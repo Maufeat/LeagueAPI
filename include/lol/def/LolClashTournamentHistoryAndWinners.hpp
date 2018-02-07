@@ -4,15 +4,15 @@
 #include "LolClashTournament.hpp"
 namespace lol {
   struct LolClashTournamentHistoryAndWinners { 
-    LolClashTournamentWinnerHistory tournamentWinners;
-    std::vector<LolClashTournament> tournamentHistory; 
+    std::vector<LolClashTournament> tournamentHistory;
+    LolClashTournamentWinnerHistory tournamentWinners; 
   };
   inline void to_json(json& j, const LolClashTournamentHistoryAndWinners& v) {
-    j["tournamentWinners"] = v.tournamentWinners; 
     j["tournamentHistory"] = v.tournamentHistory; 
+    j["tournamentWinners"] = v.tournamentWinners; 
   }
   inline void from_json(const json& j, LolClashTournamentHistoryAndWinners& v) {
-    v.tournamentWinners = j.at("tournamentWinners").get<LolClashTournamentWinnerHistory>(); 
     v.tournamentHistory = j.at("tournamentHistory").get<std::vector<LolClashTournament>>(); 
+    v.tournamentWinners = j.at("tournamentWinners").get<LolClashTournamentWinnerHistory>(); 
   }
 }

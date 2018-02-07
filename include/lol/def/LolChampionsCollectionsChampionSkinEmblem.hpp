@@ -5,17 +5,17 @@
 namespace lol {
   struct LolChampionsCollectionsChampionSkinEmblem { 
     std::string name;
-    LolChampionsCollectionsChampionSkinEmblemPosition positions;
-    LolChampionsCollectionsChampionSkinEmblemPath emblemPath; 
+    LolChampionsCollectionsChampionSkinEmblemPath emblemPath;
+    LolChampionsCollectionsChampionSkinEmblemPosition positions; 
   };
   inline void to_json(json& j, const LolChampionsCollectionsChampionSkinEmblem& v) {
     j["name"] = v.name; 
-    j["positions"] = v.positions; 
     j["emblemPath"] = v.emblemPath; 
+    j["positions"] = v.positions; 
   }
   inline void from_json(const json& j, LolChampionsCollectionsChampionSkinEmblem& v) {
     v.name = j.at("name").get<std::string>(); 
-    v.positions = j.at("positions").get<LolChampionsCollectionsChampionSkinEmblemPosition>(); 
     v.emblemPath = j.at("emblemPath").get<LolChampionsCollectionsChampionSkinEmblemPath>(); 
+    v.positions = j.at("positions").get<LolChampionsCollectionsChampionSkinEmblemPosition>(); 
   }
 }

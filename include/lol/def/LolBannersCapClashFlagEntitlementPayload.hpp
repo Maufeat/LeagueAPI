@@ -3,18 +3,18 @@
 #include "LolBannersClashV2FlagRewardSpec.hpp"
 namespace lol {
   struct LolBannersCapClashFlagEntitlementPayload { 
+    std::string eventId;
     LolBannersClashV2FlagRewardSpec rewardSpec;
-    std::string rewardType;
-    std::string eventId; 
+    std::string rewardType; 
   };
   inline void to_json(json& j, const LolBannersCapClashFlagEntitlementPayload& v) {
+    j["eventId"] = v.eventId; 
     j["rewardSpec"] = v.rewardSpec; 
     j["rewardType"] = v.rewardType; 
-    j["eventId"] = v.eventId; 
   }
   inline void from_json(const json& j, LolBannersCapClashFlagEntitlementPayload& v) {
+    v.eventId = j.at("eventId").get<std::string>(); 
     v.rewardSpec = j.at("rewardSpec").get<LolBannersClashV2FlagRewardSpec>(); 
     v.rewardType = j.at("rewardType").get<std::string>(); 
-    v.eventId = j.at("eventId").get<std::string>(); 
   }
 }

@@ -1,7 +1,7 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LolPerksPerkPageResource.hpp"
 #include "LolPerksUISettings.hpp"
+#include "LolPerksPerkPageResource.hpp"
 namespace lol {
   struct LolPerksPlayerPreferencesSettings { 
     std::vector<LolPerksPerkPageResource> pages;

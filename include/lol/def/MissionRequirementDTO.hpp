@@ -2,15 +2,12 @@
 #include "../base_def.hpp" 
 namespace lol {
   struct MissionRequirementDTO { 
-    std::string description;
-    std::string type; 
+    std::string expression; 
   };
   inline void to_json(json& j, const MissionRequirementDTO& v) {
-    j["description"] = v.description; 
-    j["type"] = v.type; 
+    j["expression"] = v.expression; 
   }
   inline void from_json(const json& j, MissionRequirementDTO& v) {
-    v.description = j.at("description").get<std::string>(); 
-    v.type = j.at("type").get<std::string>(); 
+    v.expression = j.at("expression").get<std::string>(); 
   }
 }

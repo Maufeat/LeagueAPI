@@ -2,27 +2,27 @@
 #include "../base_def.hpp" 
 namespace lol {
   struct LolLoginLcdsServiceProxyResponse { 
-    std::string methodName;
-    std::string status;
     std::string serviceName;
+    std::string methodName;
     std::string messageId;
-    bool compressedPayload;
-    std::string payload; 
+    std::string status;
+    std::string payload;
+    bool compressedPayload; 
   };
   inline void to_json(json& j, const LolLoginLcdsServiceProxyResponse& v) {
-    j["methodName"] = v.methodName; 
-    j["status"] = v.status; 
     j["serviceName"] = v.serviceName; 
+    j["methodName"] = v.methodName; 
     j["messageId"] = v.messageId; 
-    j["compressedPayload"] = v.compressedPayload; 
+    j["status"] = v.status; 
     j["payload"] = v.payload; 
+    j["compressedPayload"] = v.compressedPayload; 
   }
   inline void from_json(const json& j, LolLoginLcdsServiceProxyResponse& v) {
-    v.methodName = j.at("methodName").get<std::string>(); 
-    v.status = j.at("status").get<std::string>(); 
     v.serviceName = j.at("serviceName").get<std::string>(); 
+    v.methodName = j.at("methodName").get<std::string>(); 
     v.messageId = j.at("messageId").get<std::string>(); 
-    v.compressedPayload = j.at("compressedPayload").get<bool>(); 
+    v.status = j.at("status").get<std::string>(); 
     v.payload = j.at("payload").get<std::string>(); 
+    v.compressedPayload = j.at("compressedPayload").get<bool>(); 
   }
 }

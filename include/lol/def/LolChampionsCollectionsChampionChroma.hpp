@@ -3,38 +3,38 @@
 #include "LolChampionsCollectionsOwnership.hpp"
 namespace lol {
   struct LolChampionsCollectionsChampionChroma { 
-    std::string name;
-    bool lastSelected;
-    int32_t id;
+    int32_t championId;
     std::optional<std::string> chromaPath;
-    bool stillObtainable;
-    bool disabled;
+    int32_t id;
+    std::string name;
     LolChampionsCollectionsOwnership ownership;
-    std::vector<std::string> colors;
-    int32_t championId; 
+    bool disabled;
+    bool stillObtainable;
+    bool lastSelected;
+    std::vector<std::string> colors; 
   };
   inline void to_json(json& j, const LolChampionsCollectionsChampionChroma& v) {
-    j["name"] = v.name; 
-    j["lastSelected"] = v.lastSelected; 
-    j["id"] = v.id; 
+    j["championId"] = v.championId; 
     if(v.chromaPath)
       j["chromaPath"] = *v.chromaPath;
-    j["stillObtainable"] = v.stillObtainable; 
-    j["disabled"] = v.disabled; 
+    j["id"] = v.id; 
+    j["name"] = v.name; 
     j["ownership"] = v.ownership; 
+    j["disabled"] = v.disabled; 
+    j["stillObtainable"] = v.stillObtainable; 
+    j["lastSelected"] = v.lastSelected; 
     j["colors"] = v.colors; 
-    j["championId"] = v.championId; 
   }
   inline void from_json(const json& j, LolChampionsCollectionsChampionChroma& v) {
-    v.name = j.at("name").get<std::string>(); 
-    v.lastSelected = j.at("lastSelected").get<bool>(); 
-    v.id = j.at("id").get<int32_t>(); 
+    v.championId = j.at("championId").get<int32_t>(); 
     if(auto it = j.find("chromaPath"); it != j.end() && !it->is_null())
       v.chromaPath = it->get<std::optional<std::string>>(); 
-    v.stillObtainable = j.at("stillObtainable").get<bool>(); 
-    v.disabled = j.at("disabled").get<bool>(); 
+    v.id = j.at("id").get<int32_t>(); 
+    v.name = j.at("name").get<std::string>(); 
     v.ownership = j.at("ownership").get<LolChampionsCollectionsOwnership>(); 
+    v.disabled = j.at("disabled").get<bool>(); 
+    v.stillObtainable = j.at("stillObtainable").get<bool>(); 
+    v.lastSelected = j.at("lastSelected").get<bool>(); 
     v.colors = j.at("colors").get<std::vector<std::string>>(); 
-    v.championId = j.at("championId").get<int32_t>(); 
   }
 }

@@ -4,18 +4,18 @@
 #include "RiotMessagingServiceState.hpp"
 namespace lol {
   struct RiotMessagingServiceSession { 
-    RiotMessagingServiceTokenType tokenType;
+    RiotMessagingServiceState state;
     std::string token;
-    RiotMessagingServiceState state; 
+    RiotMessagingServiceTokenType tokenType; 
   };
   inline void to_json(json& j, const RiotMessagingServiceSession& v) {
-    j["tokenType"] = v.tokenType; 
-    j["token"] = v.token; 
     j["state"] = v.state; 
+    j["token"] = v.token; 
+    j["tokenType"] = v.tokenType; 
   }
   inline void from_json(const json& j, RiotMessagingServiceSession& v) {
-    v.tokenType = j.at("tokenType").get<RiotMessagingServiceTokenType>(); 
-    v.token = j.at("token").get<std::string>(); 
     v.state = j.at("state").get<RiotMessagingServiceState>(); 
+    v.token = j.at("token").get<std::string>(); 
+    v.tokenType = j.at("tokenType").get<RiotMessagingServiceTokenType>(); 
   }
 }

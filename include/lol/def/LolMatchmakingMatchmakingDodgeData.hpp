@@ -3,15 +3,15 @@
 #include "LolMatchmakingMatchmakingDodgeState.hpp"
 namespace lol {
   struct LolMatchmakingMatchmakingDodgeData { 
-    uint64_t dodgerId;
-    LolMatchmakingMatchmakingDodgeState state; 
+    LolMatchmakingMatchmakingDodgeState state;
+    uint64_t dodgerId; 
   };
   inline void to_json(json& j, const LolMatchmakingMatchmakingDodgeData& v) {
-    j["dodgerId"] = v.dodgerId; 
     j["state"] = v.state; 
+    j["dodgerId"] = v.dodgerId; 
   }
   inline void from_json(const json& j, LolMatchmakingMatchmakingDodgeData& v) {
-    v.dodgerId = j.at("dodgerId").get<uint64_t>(); 
     v.state = j.at("state").get<LolMatchmakingMatchmakingDodgeState>(); 
+    v.dodgerId = j.at("dodgerId").get<uint64_t>(); 
   }
 }

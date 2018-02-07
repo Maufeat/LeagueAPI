@@ -3,21 +3,21 @@
 #include "LolLobbyTeamBuilderLoginSessionState.hpp"
 namespace lol {
   struct LolLobbyTeamBuilderLoginSession { 
-    uint64_t accountId;
-    bool connected;
+    LolLobbyTeamBuilderLoginSessionState state;
     uint64_t summonerId;
-    LolLobbyTeamBuilderLoginSessionState state; 
+    uint64_t accountId;
+    bool connected; 
   };
   inline void to_json(json& j, const LolLobbyTeamBuilderLoginSession& v) {
+    j["state"] = v.state; 
+    j["summonerId"] = v.summonerId; 
     j["accountId"] = v.accountId; 
     j["connected"] = v.connected; 
-    j["summonerId"] = v.summonerId; 
-    j["state"] = v.state; 
   }
   inline void from_json(const json& j, LolLobbyTeamBuilderLoginSession& v) {
+    v.state = j.at("state").get<LolLobbyTeamBuilderLoginSessionState>(); 
+    v.summonerId = j.at("summonerId").get<uint64_t>(); 
     v.accountId = j.at("accountId").get<uint64_t>(); 
     v.connected = j.at("connected").get<bool>(); 
-    v.summonerId = j.at("summonerId").get<uint64_t>(); 
-    v.state = j.at("state").get<LolLobbyTeamBuilderLoginSessionState>(); 
   }
 }

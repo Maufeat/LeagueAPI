@@ -1,10 +1,10 @@
 #pragma once
 #include "../base_op.hpp"
 #include <functional> 
-#include "../def/MissionIdsDTO.hpp"
+#include "../def/IdsDTO.hpp"
 namespace lol {
   template<typename T>
-  inline Result<Nothing> PutLolMissionsV2Missions(T& _client, const MissionIdsDTO& missionIds)
+  inline Result<Nothing> PutLolMissionsV2Missions(T& _client, const IdsDTO& missionIds)
   {
     try {
       return ToResult<Nothing>(_client.https.request("put", "/lol-missions/v2/missions?" +
@@ -18,7 +18,7 @@ namespace lol {
     }
   }
   template<typename T>
-  inline void PutLolMissionsV2Missions(T& _client, const MissionIdsDTO& missionIds, std::function<void(T&, const Result<Nothing>&)> cb)
+  inline void PutLolMissionsV2Missions(T& _client, const IdsDTO& missionIds, std::function<void(T&, const Result<Nothing>&)> cb)
   {
     _client.httpsa.request("put", "/lol-missions/v2/missions?" +
       SimpleWeb::QueryString::create(Args2Headers({  })), 

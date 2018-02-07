@@ -1,8 +1,8 @@
 #pragma once
 #include "../base_op.hpp"
 #include <functional> 
-#include "../def/LolPersonalizedOffersPurchaseResponse.hpp"
 #include "../def/LolPersonalizedOffersOfferRequests.hpp"
+#include "../def/LolPersonalizedOffersPurchaseResponse.hpp"
 namespace lol {
   template<typename T>
   inline Result<LolPersonalizedOffersPurchaseResponse> PostLolPersonalizedOffersV1OffersPurchase(T& _client, const LolPersonalizedOffersOfferRequests& offerRequests)

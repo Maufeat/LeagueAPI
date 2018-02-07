@@ -1,8 +1,8 @@
 #pragma once
 #include "../base_op.hpp"
 #include <functional> 
-#include "../def/LolSummonerSummoner.hpp"
 #include "../def/LolSummonerSummonerIcon.hpp"
+#include "../def/LolSummonerSummoner.hpp"
 namespace lol {
   template<typename T>
   inline Result<LolSummonerSummoner> PutLolSummonerV1CurrentSummonerIcon(T& _client, const LolSummonerSummonerIcon& body)

@@ -3,20 +3,20 @@
 #include "LolLobbyLobbyCustomGameLobby.hpp"
 namespace lol {
   struct LolLobbyLobbyChangeQueue { 
-    std::optional<LolLobbyLobbyCustomGameLobby> customGameLobby;
+    int32_t queueId;
     bool isCustom;
-    int32_t queueId; 
+    std::optional<LolLobbyLobbyCustomGameLobby> customGameLobby; 
   };
   inline void to_json(json& j, const LolLobbyLobbyChangeQueue& v) {
+    j["queueId"] = v.queueId; 
+    j["isCustom"] = v.isCustom; 
     if(v.customGameLobby)
       j["customGameLobby"] = *v.customGameLobby;
-    j["isCustom"] = v.isCustom; 
-    j["queueId"] = v.queueId; 
   }
   inline void from_json(const json& j, LolLobbyLobbyChangeQueue& v) {
+    v.queueId = j.at("queueId").get<int32_t>(); 
+    v.isCustom = j.at("isCustom").get<bool>(); 
     if(auto it = j.find("customGameLobby"); it != j.end() && !it->is_null())
       v.customGameLobby = it->get<std::optional<LolLobbyLobbyCustomGameLobby>>(); 
-    v.isCustom = j.at("isCustom").get<bool>(); 
-    v.queueId = j.at("queueId").get<int32_t>(); 
   }
 }

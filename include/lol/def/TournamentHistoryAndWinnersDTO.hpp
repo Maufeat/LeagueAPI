@@ -3,15 +3,15 @@
 #include "TournamentDTO.hpp"
 namespace lol {
   struct TournamentHistoryAndWinnersDTO { 
-    std::string tournamentWinnersCompressed;
-    std::vector<TournamentDTO> tournamentHistory; 
+    std::vector<TournamentDTO> tournamentHistory;
+    std::string tournamentWinnersCompressed; 
   };
   inline void to_json(json& j, const TournamentHistoryAndWinnersDTO& v) {
-    j["tournamentWinnersCompressed"] = v.tournamentWinnersCompressed; 
     j["tournamentHistory"] = v.tournamentHistory; 
+    j["tournamentWinnersCompressed"] = v.tournamentWinnersCompressed; 
   }
   inline void from_json(const json& j, TournamentHistoryAndWinnersDTO& v) {
-    v.tournamentWinnersCompressed = j.at("tournamentWinnersCompressed").get<std::string>(); 
     v.tournamentHistory = j.at("tournamentHistory").get<std::vector<TournamentDTO>>(); 
+    v.tournamentWinnersCompressed = j.at("tournamentWinnersCompressed").get<std::string>(); 
   }
 }
