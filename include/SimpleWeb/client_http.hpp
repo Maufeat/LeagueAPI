@@ -263,7 +263,7 @@ namespace SimpleWeb {
       write_stream << "\r\n"
                    << content;
 
-		connect(session);
+      connect(session);
     }
 
     /// Asynchronous request where setting and/or running Client's io_service is required.
@@ -331,8 +331,6 @@ namespace SimpleWeb {
       write_stream << "\r\n";
       if(content_length > 0)
         write_stream << content.rdbuf();
-
-	  std::cout << to_string(write_stream) << std::endl;
 
       connect(session);
     }
