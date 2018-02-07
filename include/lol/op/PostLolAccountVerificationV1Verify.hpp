@@ -1,8 +1,8 @@
 #pragma once
 #include "../base_op.hpp"
 #include <functional> 
-#include "../def/LolAccountVerificationVerifyRequest.hpp"
 #include "../def/LolAccountVerificationVerifyResponse.hpp"
+#include "../def/LolAccountVerificationVerifyRequest.hpp"
 namespace lol {
   template<typename T>
   inline Result<LolAccountVerificationVerifyResponse> PostLolAccountVerificationV1Verify(T& _client, const LolAccountVerificationVerifyRequest& VerifyRequest)

@@ -2,18 +2,18 @@
 #include "../base_def.hpp" 
 namespace lol {
   struct LolChatSanitizerStatus { 
-    std::string locale;
+    bool ready;
     std::string platformID;
-    bool ready; 
+    std::string locale; 
   };
   inline void to_json(json& j, const LolChatSanitizerStatus& v) {
-    j["locale"] = v.locale; 
-    j["platformID"] = v.platformID; 
     j["ready"] = v.ready; 
+    j["platformID"] = v.platformID; 
+    j["locale"] = v.locale; 
   }
   inline void from_json(const json& j, LolChatSanitizerStatus& v) {
-    v.locale = j.at("locale").get<std::string>(); 
-    v.platformID = j.at("platformID").get<std::string>(); 
     v.ready = j.at("ready").get<bool>(); 
+    v.platformID = j.at("platformID").get<std::string>(); 
+    v.locale = j.at("locale").get<std::string>(); 
   }
 }

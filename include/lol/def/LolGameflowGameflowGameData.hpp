@@ -3,36 +3,36 @@
 #include "LolGameflowQueue.hpp"
 namespace lol {
   struct LolGameflowGameflowGameData { 
-    std::vector<json> playerChampionSelections;
-    std::vector<json> teamOne;
-    std::string gameName;
-    std::vector<json> teamTwo;
-    LolGameflowQueue queue;
-    std::string password;
     uint64_t gameId;
-    bool spectatorsAllowed;
-    bool isCustomGame; 
+    LolGameflowQueue queue;
+    bool isCustomGame;
+    std::string gameName;
+    std::string password;
+    std::vector<json> teamOne;
+    std::vector<json> teamTwo;
+    std::vector<json> playerChampionSelections;
+    bool spectatorsAllowed; 
   };
   inline void to_json(json& j, const LolGameflowGameflowGameData& v) {
-    j["playerChampionSelections"] = v.playerChampionSelections; 
-    j["teamOne"] = v.teamOne; 
-    j["gameName"] = v.gameName; 
-    j["teamTwo"] = v.teamTwo; 
-    j["queue"] = v.queue; 
-    j["password"] = v.password; 
     j["gameId"] = v.gameId; 
-    j["spectatorsAllowed"] = v.spectatorsAllowed; 
+    j["queue"] = v.queue; 
     j["isCustomGame"] = v.isCustomGame; 
+    j["gameName"] = v.gameName; 
+    j["password"] = v.password; 
+    j["teamOne"] = v.teamOne; 
+    j["teamTwo"] = v.teamTwo; 
+    j["playerChampionSelections"] = v.playerChampionSelections; 
+    j["spectatorsAllowed"] = v.spectatorsAllowed; 
   }
   inline void from_json(const json& j, LolGameflowGameflowGameData& v) {
-    v.playerChampionSelections = j.at("playerChampionSelections").get<std::vector<json>>(); 
-    v.teamOne = j.at("teamOne").get<std::vector<json>>(); 
-    v.gameName = j.at("gameName").get<std::string>(); 
-    v.teamTwo = j.at("teamTwo").get<std::vector<json>>(); 
-    v.queue = j.at("queue").get<LolGameflowQueue>(); 
-    v.password = j.at("password").get<std::string>(); 
     v.gameId = j.at("gameId").get<uint64_t>(); 
-    v.spectatorsAllowed = j.at("spectatorsAllowed").get<bool>(); 
+    v.queue = j.at("queue").get<LolGameflowQueue>(); 
     v.isCustomGame = j.at("isCustomGame").get<bool>(); 
+    v.gameName = j.at("gameName").get<std::string>(); 
+    v.password = j.at("password").get<std::string>(); 
+    v.teamOne = j.at("teamOne").get<std::vector<json>>(); 
+    v.teamTwo = j.at("teamTwo").get<std::vector<json>>(); 
+    v.playerChampionSelections = j.at("playerChampionSelections").get<std::vector<json>>(); 
+    v.spectatorsAllowed = j.at("spectatorsAllowed").get<bool>(); 
   }
 }

@@ -3,42 +3,42 @@
 #include "LolHonorV2EndOfGamePlayer.hpp"
 namespace lol {
   struct LolHonorV2EndOfGameTeam { 
-    std::string name;
-    std::string fullId;
-    bool isWinningTeam;
-    std::vector<int32_t> championBans;
-    std::string tag;
-    bool isBottomTeam;
-    std::string memberStatusString;
     json stats;
     std::vector<LolHonorV2EndOfGamePlayer> players;
+    std::string memberStatusString;
+    std::string name;
+    std::string tag;
+    std::string fullId;
+    int32_t teamId;
+    bool isBottomTeam;
     bool isPlayerTeam;
-    int32_t teamId; 
+    bool isWinningTeam;
+    std::vector<int32_t> championBans; 
   };
   inline void to_json(json& j, const LolHonorV2EndOfGameTeam& v) {
-    j["name"] = v.name; 
-    j["fullId"] = v.fullId; 
-    j["isWinningTeam"] = v.isWinningTeam; 
-    j["championBans"] = v.championBans; 
-    j["tag"] = v.tag; 
-    j["isBottomTeam"] = v.isBottomTeam; 
-    j["memberStatusString"] = v.memberStatusString; 
     j["stats"] = v.stats; 
     j["players"] = v.players; 
-    j["isPlayerTeam"] = v.isPlayerTeam; 
+    j["memberStatusString"] = v.memberStatusString; 
+    j["name"] = v.name; 
+    j["tag"] = v.tag; 
+    j["fullId"] = v.fullId; 
     j["teamId"] = v.teamId; 
+    j["isBottomTeam"] = v.isBottomTeam; 
+    j["isPlayerTeam"] = v.isPlayerTeam; 
+    j["isWinningTeam"] = v.isWinningTeam; 
+    j["championBans"] = v.championBans; 
   }
   inline void from_json(const json& j, LolHonorV2EndOfGameTeam& v) {
-    v.name = j.at("name").get<std::string>(); 
-    v.fullId = j.at("fullId").get<std::string>(); 
-    v.isWinningTeam = j.at("isWinningTeam").get<bool>(); 
-    v.championBans = j.at("championBans").get<std::vector<int32_t>>(); 
-    v.tag = j.at("tag").get<std::string>(); 
-    v.isBottomTeam = j.at("isBottomTeam").get<bool>(); 
-    v.memberStatusString = j.at("memberStatusString").get<std::string>(); 
     v.stats = j.at("stats").get<json>(); 
     v.players = j.at("players").get<std::vector<LolHonorV2EndOfGamePlayer>>(); 
-    v.isPlayerTeam = j.at("isPlayerTeam").get<bool>(); 
+    v.memberStatusString = j.at("memberStatusString").get<std::string>(); 
+    v.name = j.at("name").get<std::string>(); 
+    v.tag = j.at("tag").get<std::string>(); 
+    v.fullId = j.at("fullId").get<std::string>(); 
     v.teamId = j.at("teamId").get<int32_t>(); 
+    v.isBottomTeam = j.at("isBottomTeam").get<bool>(); 
+    v.isPlayerTeam = j.at("isPlayerTeam").get<bool>(); 
+    v.isWinningTeam = j.at("isWinningTeam").get<bool>(); 
+    v.championBans = j.at("championBans").get<std::vector<int32_t>>(); 
   }
 }

@@ -2,15 +2,15 @@
 #include "../base_def.hpp" 
 namespace lol {
   struct HighlightsConfig { 
-    std::string invalidHighlightNameCharacters;
-    bool isHighlightsEnabled; 
+    bool isHighlightsEnabled;
+    std::string invalidHighlightNameCharacters; 
   };
   inline void to_json(json& j, const HighlightsConfig& v) {
-    j["invalidHighlightNameCharacters"] = v.invalidHighlightNameCharacters; 
     j["isHighlightsEnabled"] = v.isHighlightsEnabled; 
+    j["invalidHighlightNameCharacters"] = v.invalidHighlightNameCharacters; 
   }
   inline void from_json(const json& j, HighlightsConfig& v) {
-    v.invalidHighlightNameCharacters = j.at("invalidHighlightNameCharacters").get<std::string>(); 
     v.isHighlightsEnabled = j.at("isHighlightsEnabled").get<bool>(); 
+    v.invalidHighlightNameCharacters = j.at("invalidHighlightNameCharacters").get<std::string>(); 
   }
 }

@@ -4,15 +4,15 @@
 #include "LolLootLoginAllSummonerData.hpp"
 namespace lol {
   struct LolLootLoginDataPacket { 
-    std::vector<LolLootLoginSimpleMessage> simpleMessages;
-    LolLootLoginAllSummonerData allSummonerData; 
+    LolLootLoginAllSummonerData allSummonerData;
+    std::vector<LolLootLoginSimpleMessage> simpleMessages; 
   };
   inline void to_json(json& j, const LolLootLoginDataPacket& v) {
-    j["simpleMessages"] = v.simpleMessages; 
     j["allSummonerData"] = v.allSummonerData; 
+    j["simpleMessages"] = v.simpleMessages; 
   }
   inline void from_json(const json& j, LolLootLoginDataPacket& v) {
-    v.simpleMessages = j.at("simpleMessages").get<std::vector<LolLootLoginSimpleMessage>>(); 
     v.allSummonerData = j.at("allSummonerData").get<LolLootLoginAllSummonerData>(); 
+    v.simpleMessages = j.at("simpleMessages").get<std::vector<LolLootLoginSimpleMessage>>(); 
   }
 }

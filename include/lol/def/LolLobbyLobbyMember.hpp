@@ -4,56 +4,56 @@
 #include "LolLobbyLobbyPositionPreferences.hpp"
 namespace lol {
   struct LolLobbyLobbyMember { 
-    bool isSpectator;
     uint64_t id;
-    LolLobbyLobbyBotDifficulty botDifficulty;
-    LolLobbyLobbyPositionPreferences positionPreferences;
     bool isOwner;
-    bool autoFillEligible;
-    int32_t botChampionId;
-    std::optional<std::string> excludedPositionPreference;
-    bool autoFillProtectedForStreaking;
+    bool isSpectator;
     bool canInviteOthers;
-    bool autoFillProtectedForPromos;
-    bool showPositionExcluder;
-    bool isBot;
+    LolLobbyLobbyPositionPreferences positionPreferences;
+    std::optional<std::string> excludedPositionPreference;
     std::string summonerInternalName;
-    bool autoFillProtectedForSoloing; 
+    bool showPositionExcluder;
+    bool autoFillEligible;
+    bool autoFillProtectedForStreaking;
+    bool autoFillProtectedForPromos;
+    bool autoFillProtectedForSoloing;
+    bool isBot;
+    LolLobbyLobbyBotDifficulty botDifficulty;
+    int32_t botChampionId; 
   };
   inline void to_json(json& j, const LolLobbyLobbyMember& v) {
-    j["isSpectator"] = v.isSpectator; 
     j["id"] = v.id; 
-    j["botDifficulty"] = v.botDifficulty; 
-    j["positionPreferences"] = v.positionPreferences; 
     j["isOwner"] = v.isOwner; 
-    j["autoFillEligible"] = v.autoFillEligible; 
-    j["botChampionId"] = v.botChampionId; 
+    j["isSpectator"] = v.isSpectator; 
+    j["canInviteOthers"] = v.canInviteOthers; 
+    j["positionPreferences"] = v.positionPreferences; 
     if(v.excludedPositionPreference)
       j["excludedPositionPreference"] = *v.excludedPositionPreference;
-    j["autoFillProtectedForStreaking"] = v.autoFillProtectedForStreaking; 
-    j["canInviteOthers"] = v.canInviteOthers; 
-    j["autoFillProtectedForPromos"] = v.autoFillProtectedForPromos; 
-    j["showPositionExcluder"] = v.showPositionExcluder; 
-    j["isBot"] = v.isBot; 
     j["summonerInternalName"] = v.summonerInternalName; 
+    j["showPositionExcluder"] = v.showPositionExcluder; 
+    j["autoFillEligible"] = v.autoFillEligible; 
+    j["autoFillProtectedForStreaking"] = v.autoFillProtectedForStreaking; 
+    j["autoFillProtectedForPromos"] = v.autoFillProtectedForPromos; 
     j["autoFillProtectedForSoloing"] = v.autoFillProtectedForSoloing; 
+    j["isBot"] = v.isBot; 
+    j["botDifficulty"] = v.botDifficulty; 
+    j["botChampionId"] = v.botChampionId; 
   }
   inline void from_json(const json& j, LolLobbyLobbyMember& v) {
-    v.isSpectator = j.at("isSpectator").get<bool>(); 
     v.id = j.at("id").get<uint64_t>(); 
-    v.botDifficulty = j.at("botDifficulty").get<LolLobbyLobbyBotDifficulty>(); 
-    v.positionPreferences = j.at("positionPreferences").get<LolLobbyLobbyPositionPreferences>(); 
     v.isOwner = j.at("isOwner").get<bool>(); 
-    v.autoFillEligible = j.at("autoFillEligible").get<bool>(); 
-    v.botChampionId = j.at("botChampionId").get<int32_t>(); 
+    v.isSpectator = j.at("isSpectator").get<bool>(); 
+    v.canInviteOthers = j.at("canInviteOthers").get<bool>(); 
+    v.positionPreferences = j.at("positionPreferences").get<LolLobbyLobbyPositionPreferences>(); 
     if(auto it = j.find("excludedPositionPreference"); it != j.end() && !it->is_null())
       v.excludedPositionPreference = it->get<std::optional<std::string>>(); 
-    v.autoFillProtectedForStreaking = j.at("autoFillProtectedForStreaking").get<bool>(); 
-    v.canInviteOthers = j.at("canInviteOthers").get<bool>(); 
-    v.autoFillProtectedForPromos = j.at("autoFillProtectedForPromos").get<bool>(); 
-    v.showPositionExcluder = j.at("showPositionExcluder").get<bool>(); 
-    v.isBot = j.at("isBot").get<bool>(); 
     v.summonerInternalName = j.at("summonerInternalName").get<std::string>(); 
+    v.showPositionExcluder = j.at("showPositionExcluder").get<bool>(); 
+    v.autoFillEligible = j.at("autoFillEligible").get<bool>(); 
+    v.autoFillProtectedForStreaking = j.at("autoFillProtectedForStreaking").get<bool>(); 
+    v.autoFillProtectedForPromos = j.at("autoFillProtectedForPromos").get<bool>(); 
     v.autoFillProtectedForSoloing = j.at("autoFillProtectedForSoloing").get<bool>(); 
+    v.isBot = j.at("isBot").get<bool>(); 
+    v.botDifficulty = j.at("botDifficulty").get<LolLobbyLobbyBotDifficulty>(); 
+    v.botChampionId = j.at("botChampionId").get<int32_t>(); 
   }
 }

@@ -4,15 +4,15 @@
 #include "LolReplaysGameflowPhase.hpp"
 namespace lol {
   struct LolReplaysGameflowSession { 
-    LolReplaysGameflowGameClient gameClient;
-    LolReplaysGameflowPhase phase; 
+    LolReplaysGameflowPhase phase;
+    LolReplaysGameflowGameClient gameClient; 
   };
   inline void to_json(json& j, const LolReplaysGameflowSession& v) {
-    j["gameClient"] = v.gameClient; 
     j["phase"] = v.phase; 
+    j["gameClient"] = v.gameClient; 
   }
   inline void from_json(const json& j, LolReplaysGameflowSession& v) {
-    v.gameClient = j.at("gameClient").get<LolReplaysGameflowGameClient>(); 
     v.phase = j.at("phase").get<LolReplaysGameflowPhase>(); 
+    v.gameClient = j.at("gameClient").get<LolReplaysGameflowGameClient>(); 
   }
 }

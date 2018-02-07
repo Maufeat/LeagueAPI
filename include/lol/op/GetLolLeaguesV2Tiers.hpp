@@ -1,8 +1,8 @@
 #pragma once
 #include "../base_op.hpp"
 #include <functional> 
-#include "../def/LolLeaguesParticipantTiers.hpp"
 #include "../def/LolLeaguesLeagueQueueType.hpp"
+#include "../def/LolLeaguesParticipantTiers.hpp"
 namespace lol {
   template<typename T>
   inline Result<std::vector<LolLeaguesParticipantTiers>> GetLolLeaguesV2Tiers(T& _client, const std::vector<uint64_t>& summonerIds, const std::vector<LolLeaguesLeagueQueueType>& queueTypes)

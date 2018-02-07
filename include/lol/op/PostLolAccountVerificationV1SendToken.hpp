@@ -1,8 +1,8 @@
 #pragma once
 #include "../base_op.hpp"
 #include <functional> 
-#include "../def/LolAccountVerificationSendTokenRequest.hpp"
 #include "../def/LolAccountVerificationSendTokenResponse.hpp"
+#include "../def/LolAccountVerificationSendTokenRequest.hpp"
 namespace lol {
   template<typename T>
   inline Result<LolAccountVerificationSendTokenResponse> PostLolAccountVerificationV1SendToken(T& _client, const LolAccountVerificationSendTokenRequest& SendTokenRequest)

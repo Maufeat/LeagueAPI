@@ -3,24 +3,24 @@
 #include "LolCollectionsCollectionsMastery.hpp"
 namespace lol {
   struct LolCollectionsCollectionsMasteryPage { 
-    std::string name;
-    std::vector<LolCollectionsCollectionsMastery> masteries;
+    bool current;
     uint32_t id;
+    std::string name;
     std::map<std::string, uint32_t> summary;
-    bool current; 
+    std::vector<LolCollectionsCollectionsMastery> masteries; 
   };
   inline void to_json(json& j, const LolCollectionsCollectionsMasteryPage& v) {
-    j["name"] = v.name; 
-    j["masteries"] = v.masteries; 
-    j["id"] = v.id; 
-    j["summary"] = v.summary; 
     j["current"] = v.current; 
+    j["id"] = v.id; 
+    j["name"] = v.name; 
+    j["summary"] = v.summary; 
+    j["masteries"] = v.masteries; 
   }
   inline void from_json(const json& j, LolCollectionsCollectionsMasteryPage& v) {
-    v.name = j.at("name").get<std::string>(); 
-    v.masteries = j.at("masteries").get<std::vector<LolCollectionsCollectionsMastery>>(); 
-    v.id = j.at("id").get<uint32_t>(); 
-    v.summary = j.at("summary").get<std::map<std::string, uint32_t>>(); 
     v.current = j.at("current").get<bool>(); 
+    v.id = j.at("id").get<uint32_t>(); 
+    v.name = j.at("name").get<std::string>(); 
+    v.summary = j.at("summary").get<std::map<std::string, uint32_t>>(); 
+    v.masteries = j.at("masteries").get<std::vector<LolCollectionsCollectionsMastery>>(); 
   }
 }

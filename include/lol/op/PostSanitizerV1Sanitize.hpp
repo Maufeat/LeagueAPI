@@ -1,8 +1,8 @@
 #pragma once
 #include "../base_op.hpp"
 #include <functional> 
-#include "../def/SanitizerSanitizeRequest.hpp"
 #include "../def/SanitizerSanitizeResponse.hpp"
+#include "../def/SanitizerSanitizeRequest.hpp"
 namespace lol {
   template<typename T>
   inline Result<SanitizerSanitizeResponse> PostSanitizerV1Sanitize(T& _client, const SanitizerSanitizeRequest& request)

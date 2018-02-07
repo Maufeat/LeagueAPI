@@ -2,15 +2,15 @@
 #include "../base_def.hpp" 
 namespace lol {
   struct QueryResultDTO { 
-    int64_t lastUpdate;
-    json queryToLootNames; 
+    json queryToLootNames;
+    int64_t lastUpdate; 
   };
   inline void to_json(json& j, const QueryResultDTO& v) {
-    j["lastUpdate"] = v.lastUpdate; 
     j["queryToLootNames"] = v.queryToLootNames; 
+    j["lastUpdate"] = v.lastUpdate; 
   }
   inline void from_json(const json& j, QueryResultDTO& v) {
-    v.lastUpdate = j.at("lastUpdate").get<int64_t>(); 
     v.queryToLootNames = j.at("queryToLootNames").get<json>(); 
+    v.lastUpdate = j.at("lastUpdate").get<int64_t>(); 
   }
 }

@@ -4,15 +4,15 @@
 #include "LolPerksGameflowGameData.hpp"
 namespace lol {
   struct LolPerksGameflowSession { 
-    LolPerksGameflowGameData gameData;
-    LolPerksGameflowPhase phase; 
+    LolPerksGameflowPhase phase;
+    LolPerksGameflowGameData gameData; 
   };
   inline void to_json(json& j, const LolPerksGameflowSession& v) {
-    j["gameData"] = v.gameData; 
     j["phase"] = v.phase; 
+    j["gameData"] = v.gameData; 
   }
   inline void from_json(const json& j, LolPerksGameflowSession& v) {
-    v.gameData = j.at("gameData").get<LolPerksGameflowGameData>(); 
     v.phase = j.at("phase").get<LolPerksGameflowPhase>(); 
+    v.gameData = j.at("gameData").get<LolPerksGameflowGameData>(); 
   }
 }

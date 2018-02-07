@@ -1,89 +1,91 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "MissionRequirementDTO.hpp"
-#include "MissionAlertDTO.hpp"
 #include "PlayerMissionRewardDTO.hpp"
+#include "MissionAlertDTO.hpp"
 #include "PlayerMissionObjectiveDTO.hpp"
 namespace lol {
   struct PlayerMissionDTO { 
-    std::vector<MissionAlertDTO> expiringWarnings;
     std::string id;
-    std::string celebrationType;
+    std::string title;
     std::string helperText;
     std::string description;
-    std::vector<PlayerMissionObjectiveDTO> objectives;
-    int64_t endTime;
-    std::string internalName;
-    std::vector<PlayerMissionRewardDTO> rewards;
-    std::string missionType;
-    int64_t cooldownTimeMillis;
-    int64_t startTime;
-    std::string status;
-    std::string iconImageUrl;
-    int64_t completedDate;
-    std::string locale;
-    bool viewed;
-    std::string title;
-    std::string completionExpression;
     std::string backgroundImageUrl;
-    int64_t lastUpdatedTimestamp;
-    std::vector<MissionRequirementDTO> requirements;
+    std::string iconImageUrl;
     std::string seriesName;
+    std::string locale;
+    int64_t startTime;
+    int64_t endTime;
+    int64_t lastUpdatedTimestamp;
+    std::vector<PlayerMissionObjectiveDTO> objectives;
+    std::vector<PlayerMissionRewardDTO> rewards;
+    std::vector<MissionAlertDTO> expiringWarnings;
+    std::vector<std::string> requirements;
+    std::string completionExpression;
+    bool viewed;
+    bool isNew;
+    std::string status;
+    std::string missionType;
     std::string displayType;
-    bool isNew; 
+    int64_t completedDate;
+    int64_t cooldownTimeMillis;
+    std::string celebrationType;
+    std::string clientNotifyLevel;
+    std::string internalName; 
   };
   inline void to_json(json& j, const PlayerMissionDTO& v) {
-    j["expiringWarnings"] = v.expiringWarnings; 
     j["id"] = v.id; 
-    j["celebrationType"] = v.celebrationType; 
+    j["title"] = v.title; 
     j["helperText"] = v.helperText; 
     j["description"] = v.description; 
-    j["objectives"] = v.objectives; 
-    j["endTime"] = v.endTime; 
-    j["internalName"] = v.internalName; 
-    j["rewards"] = v.rewards; 
-    j["missionType"] = v.missionType; 
-    j["cooldownTimeMillis"] = v.cooldownTimeMillis; 
-    j["startTime"] = v.startTime; 
-    j["status"] = v.status; 
-    j["iconImageUrl"] = v.iconImageUrl; 
-    j["completedDate"] = v.completedDate; 
-    j["locale"] = v.locale; 
-    j["viewed"] = v.viewed; 
-    j["title"] = v.title; 
-    j["completionExpression"] = v.completionExpression; 
     j["backgroundImageUrl"] = v.backgroundImageUrl; 
-    j["lastUpdatedTimestamp"] = v.lastUpdatedTimestamp; 
-    j["requirements"] = v.requirements; 
+    j["iconImageUrl"] = v.iconImageUrl; 
     j["seriesName"] = v.seriesName; 
-    j["displayType"] = v.displayType; 
+    j["locale"] = v.locale; 
+    j["startTime"] = v.startTime; 
+    j["endTime"] = v.endTime; 
+    j["lastUpdatedTimestamp"] = v.lastUpdatedTimestamp; 
+    j["objectives"] = v.objectives; 
+    j["rewards"] = v.rewards; 
+    j["expiringWarnings"] = v.expiringWarnings; 
+    j["requirements"] = v.requirements; 
+    j["completionExpression"] = v.completionExpression; 
+    j["viewed"] = v.viewed; 
     j["isNew"] = v.isNew; 
+    j["status"] = v.status; 
+    j["missionType"] = v.missionType; 
+    j["displayType"] = v.displayType; 
+    j["completedDate"] = v.completedDate; 
+    j["cooldownTimeMillis"] = v.cooldownTimeMillis; 
+    j["celebrationType"] = v.celebrationType; 
+    j["clientNotifyLevel"] = v.clientNotifyLevel; 
+    j["internalName"] = v.internalName; 
   }
   inline void from_json(const json& j, PlayerMissionDTO& v) {
-    v.expiringWarnings = j.at("expiringWarnings").get<std::vector<MissionAlertDTO>>(); 
     v.id = j.at("id").get<std::string>(); 
-    v.celebrationType = j.at("celebrationType").get<std::string>(); 
+    v.title = j.at("title").get<std::string>(); 
     v.helperText = j.at("helperText").get<std::string>(); 
     v.description = j.at("description").get<std::string>(); 
-    v.objectives = j.at("objectives").get<std::vector<PlayerMissionObjectiveDTO>>(); 
-    v.endTime = j.at("endTime").get<int64_t>(); 
-    v.internalName = j.at("internalName").get<std::string>(); 
-    v.rewards = j.at("rewards").get<std::vector<PlayerMissionRewardDTO>>(); 
-    v.missionType = j.at("missionType").get<std::string>(); 
-    v.cooldownTimeMillis = j.at("cooldownTimeMillis").get<int64_t>(); 
-    v.startTime = j.at("startTime").get<int64_t>(); 
-    v.status = j.at("status").get<std::string>(); 
-    v.iconImageUrl = j.at("iconImageUrl").get<std::string>(); 
-    v.completedDate = j.at("completedDate").get<int64_t>(); 
-    v.locale = j.at("locale").get<std::string>(); 
-    v.viewed = j.at("viewed").get<bool>(); 
-    v.title = j.at("title").get<std::string>(); 
-    v.completionExpression = j.at("completionExpression").get<std::string>(); 
     v.backgroundImageUrl = j.at("backgroundImageUrl").get<std::string>(); 
-    v.lastUpdatedTimestamp = j.at("lastUpdatedTimestamp").get<int64_t>(); 
-    v.requirements = j.at("requirements").get<std::vector<MissionRequirementDTO>>(); 
+    v.iconImageUrl = j.at("iconImageUrl").get<std::string>(); 
     v.seriesName = j.at("seriesName").get<std::string>(); 
-    v.displayType = j.at("displayType").get<std::string>(); 
+    v.locale = j.at("locale").get<std::string>(); 
+    v.startTime = j.at("startTime").get<int64_t>(); 
+    v.endTime = j.at("endTime").get<int64_t>(); 
+    v.lastUpdatedTimestamp = j.at("lastUpdatedTimestamp").get<int64_t>(); 
+    v.objectives = j.at("objectives").get<std::vector<PlayerMissionObjectiveDTO>>(); 
+    v.rewards = j.at("rewards").get<std::vector<PlayerMissionRewardDTO>>(); 
+    v.expiringWarnings = j.at("expiringWarnings").get<std::vector<MissionAlertDTO>>(); 
+    v.requirements = j.at("requirements").get<std::vector<std::string>>(); 
+    v.completionExpression = j.at("completionExpression").get<std::string>(); 
+    v.viewed = j.at("viewed").get<bool>(); 
     v.isNew = j.at("isNew").get<bool>(); 
+    v.status = j.at("status").get<std::string>(); 
+    v.missionType = j.at("missionType").get<std::string>(); 
+    v.displayType = j.at("displayType").get<std::string>(); 
+    v.completedDate = j.at("completedDate").get<int64_t>(); 
+    v.cooldownTimeMillis = j.at("cooldownTimeMillis").get<int64_t>(); 
+    v.celebrationType = j.at("celebrationType").get<std::string>(); 
+    v.clientNotifyLevel = j.at("clientNotifyLevel").get<std::string>(); 
+    v.internalName = j.at("internalName").get<std::string>(); 
   }
 }

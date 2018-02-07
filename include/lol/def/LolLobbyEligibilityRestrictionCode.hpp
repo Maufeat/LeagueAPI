@@ -15,14 +15,15 @@ namespace lol {
     PlayerMinorRestriction_e = 16,
     PlayerRankedSuspensionRestriction_e = 17,
     PlayerTimedRestriction_e = 3,
-    PrerequisiteQueuesNotPlayedRestriction_e = 19,
+    PrerequisiteQueuesNotPlayedRestriction_e = 20,
     QueueDisabled_e = 0,
     QueueUnsupported_e = 1,
     TeamDivisionRestriction_e = 6,
     TeamHighMMRMaxSizeRestriction_e = 18,
     TeamMaxSizeRestriction_e = 7,
     TeamMinSizeRestriction_e = 8,
-    UnknownRestriction_e = 20,
+    TeamSizeRestriction_e = 19,
+    UnknownRestriction_e = 21,
   };
   inline void to_json(json& j, const LolLobbyEligibilityRestrictionCode& v) {
     if(v == LolLobbyEligibilityRestrictionCode::PlayerAvailableChampionRestriction_e) {
@@ -103,6 +104,10 @@ namespace lol {
     }
     if(v == LolLobbyEligibilityRestrictionCode::TeamMinSizeRestriction_e) {
       j = "TeamMinSizeRestriction";
+      return;
+    }
+    if(v == LolLobbyEligibilityRestrictionCode::TeamSizeRestriction_e) {
+      j = "TeamSizeRestriction";
       return;
     }
     if(v == LolLobbyEligibilityRestrictionCode::UnknownRestriction_e) {
@@ -189,6 +194,10 @@ namespace lol {
     } 
     if(j.get<std::string>() == "TeamMinSizeRestriction") {
       v = LolLobbyEligibilityRestrictionCode::TeamMinSizeRestriction_e;
+      return;
+    } 
+    if(j.get<std::string>() == "TeamSizeRestriction") {
+      v = LolLobbyEligibilityRestrictionCode::TeamSizeRestriction_e;
       return;
     } 
     if(j.get<std::string>() == "UnknownRestriction") {

@@ -1,8 +1,8 @@
 #pragma once
 #include "../base_op.hpp"
 #include <functional> 
-#include "../def/PlayerClub.hpp"
 #include "../def/ClubMOTD.hpp"
+#include "../def/PlayerClub.hpp"
 namespace lol {
   template<typename T>
   inline Result<PlayerClub> PatchLolClubsV1ClubsByClubKeyMotd(T& _client, const std::string& clubKey, const ClubMOTD& motd)

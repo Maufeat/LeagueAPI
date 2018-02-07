@@ -2,21 +2,21 @@
 #include "../base_def.hpp" 
 namespace lol {
   struct LolChampionsCollectionsRental { 
-    uint64_t purchaseDate;
     uint64_t endDate;
-    bool rented;
-    int32_t winCountRemaining; 
+    uint64_t purchaseDate;
+    int32_t winCountRemaining;
+    bool rented; 
   };
   inline void to_json(json& j, const LolChampionsCollectionsRental& v) {
-    j["purchaseDate"] = v.purchaseDate; 
     j["endDate"] = v.endDate; 
-    j["rented"] = v.rented; 
+    j["purchaseDate"] = v.purchaseDate; 
     j["winCountRemaining"] = v.winCountRemaining; 
+    j["rented"] = v.rented; 
   }
   inline void from_json(const json& j, LolChampionsCollectionsRental& v) {
-    v.purchaseDate = j.at("purchaseDate").get<uint64_t>(); 
     v.endDate = j.at("endDate").get<uint64_t>(); 
-    v.rented = j.at("rented").get<bool>(); 
+    v.purchaseDate = j.at("purchaseDate").get<uint64_t>(); 
     v.winCountRemaining = j.at("winCountRemaining").get<int32_t>(); 
+    v.rented = j.at("rented").get<bool>(); 
   }
 }

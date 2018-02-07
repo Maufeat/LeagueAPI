@@ -1,25 +1,25 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LolChatChampSelection.hpp"
-#include "LolChatTeamPlayerEntry.hpp"
 #include "LolChatQueue.hpp"
+#include "LolChatTeamPlayerEntry.hpp"
+#include "LolChatChampSelection.hpp"
 namespace lol {
   struct LolChatGameflowGameData { 
-    std::vector<LolChatChampSelection> playerChampionSelections;
+    LolChatQueue queue;
     std::vector<LolChatTeamPlayerEntry> teamOne;
     std::vector<LolChatTeamPlayerEntry> teamTwo;
-    LolChatQueue queue; 
+    std::vector<LolChatChampSelection> playerChampionSelections; 
   };
   inline void to_json(json& j, const LolChatGameflowGameData& v) {
-    j["playerChampionSelections"] = v.playerChampionSelections; 
+    j["queue"] = v.queue; 
     j["teamOne"] = v.teamOne; 
     j["teamTwo"] = v.teamTwo; 
-    j["queue"] = v.queue; 
+    j["playerChampionSelections"] = v.playerChampionSelections; 
   }
   inline void from_json(const json& j, LolChatGameflowGameData& v) {
-    v.playerChampionSelections = j.at("playerChampionSelections").get<std::vector<LolChatChampSelection>>(); 
+    v.queue = j.at("queue").get<LolChatQueue>(); 
     v.teamOne = j.at("teamOne").get<std::vector<LolChatTeamPlayerEntry>>(); 
     v.teamTwo = j.at("teamTwo").get<std::vector<LolChatTeamPlayerEntry>>(); 
-    v.queue = j.at("queue").get<LolChatQueue>(); 
+    v.playerChampionSelections = j.at("playerChampionSelections").get<std::vector<LolChatChampSelection>>(); 
   }
 }

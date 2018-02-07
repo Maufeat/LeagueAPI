@@ -3,15 +3,15 @@
 #include "ServiceStatusResource_Status.hpp"
 namespace lol {
   struct ServiceStatusResource { 
-    std::string humanReadableUrl;
-    ServiceStatusResource_Status status; 
+    ServiceStatusResource_Status status;
+    std::string humanReadableUrl; 
   };
   inline void to_json(json& j, const ServiceStatusResource& v) {
-    j["humanReadableUrl"] = v.humanReadableUrl; 
     j["status"] = v.status; 
+    j["humanReadableUrl"] = v.humanReadableUrl; 
   }
   inline void from_json(const json& j, ServiceStatusResource& v) {
-    v.humanReadableUrl = j.at("humanReadableUrl").get<std::string>(); 
     v.status = j.at("status").get<ServiceStatusResource_Status>(); 
+    v.humanReadableUrl = j.at("humanReadableUrl").get<std::string>(); 
   }
 }

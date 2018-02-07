@@ -1,7 +1,7 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LolPftPFTEvent.hpp"
 #include "LolPftPFTQuestionResponse.hpp"
+#include "LolPftPFTEvent.hpp"
 namespace lol {
   struct LolPftPFTSurveyResults { 
     std::vector<LolPftPFTQuestionResponse> questionResponses;

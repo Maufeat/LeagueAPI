@@ -1,28 +1,28 @@
 #pragma once
 #include "../base_def.hpp" 
-#include "LeaguesLcdsLeagueTier.hpp"
 #include "LeaguesLcdsQueueType.hpp"
 #include "LeaguesLcdsLeagueRank.hpp"
+#include "LeaguesLcdsLeagueTier.hpp"
 namespace lol {
   struct LeagueTierAndRankDTO { 
     std::string playerOrTeamId;
-    LeaguesLcdsQueueType queueType;
-    LeaguesLcdsLeagueRank rank;
     std::string playerOrTeamName;
-    LeaguesLcdsLeagueTier tier; 
+    LeaguesLcdsQueueType queueType;
+    LeaguesLcdsLeagueTier tier;
+    LeaguesLcdsLeagueRank rank; 
   };
   inline void to_json(json& j, const LeagueTierAndRankDTO& v) {
     j["playerOrTeamId"] = v.playerOrTeamId; 
-    j["queueType"] = v.queueType; 
-    j["rank"] = v.rank; 
     j["playerOrTeamName"] = v.playerOrTeamName; 
+    j["queueType"] = v.queueType; 
     j["tier"] = v.tier; 
+    j["rank"] = v.rank; 
   }
   inline void from_json(const json& j, LeagueTierAndRankDTO& v) {
     v.playerOrTeamId = j.at("playerOrTeamId").get<std::string>(); 
-    v.queueType = j.at("queueType").get<LeaguesLcdsQueueType>(); 
-    v.rank = j.at("rank").get<LeaguesLcdsLeagueRank>(); 
     v.playerOrTeamName = j.at("playerOrTeamName").get<std::string>(); 
+    v.queueType = j.at("queueType").get<LeaguesLcdsQueueType>(); 
     v.tier = j.at("tier").get<LeaguesLcdsLeagueTier>(); 
+    v.rank = j.at("rank").get<LeaguesLcdsLeagueRank>(); 
   }
 }

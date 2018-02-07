@@ -1,8 +1,8 @@
 #pragma once
 #include "../base_op.hpp"
 #include <functional> 
-#include "../def/LolChatAuthResourceRsoAccessToken.hpp"
 #include "../def/LolChatSessionResource.hpp"
+#include "../def/LolChatAuthResourceRsoAccessToken.hpp"
 namespace lol {
   template<typename T>
   inline Result<LolChatSessionResource> PostLolChatV1SessionRso(T& _client, const LolChatAuthResourceRsoAccessToken& auth)

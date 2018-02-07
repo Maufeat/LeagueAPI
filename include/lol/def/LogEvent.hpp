@@ -3,15 +3,15 @@
 #include "LogSeverityLevels.hpp"
 namespace lol {
   struct LogEvent { 
-    std::string message;
-    LogSeverityLevels severity; 
+    LogSeverityLevels severity;
+    std::string message; 
   };
   inline void to_json(json& j, const LogEvent& v) {
-    j["message"] = v.message; 
     j["severity"] = v.severity; 
+    j["message"] = v.message; 
   }
   inline void from_json(const json& j, LogEvent& v) {
-    v.message = j.at("message").get<std::string>(); 
     v.severity = j.at("severity").get<LogSeverityLevels>(); 
+    v.message = j.at("message").get<std::string>(); 
   }
 }
